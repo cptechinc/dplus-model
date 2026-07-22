@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class SoStandingOrderTableMap extends TableMap
 {
@@ -34,114 +33,178 @@ class SoStandingOrderTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SoStandingOrderTableMap';
+    public const CLASS_NAME = '.Map.SoStandingOrderTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_stand_head';
+    public const TABLE_NAME = 'so_stand_head';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'SoStandingOrder';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\SoStandingOrder';
+    public const OM_CLASS = '\\SoStandingOrder';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'SoStandingOrder';
+    public const CLASS_DEFAULT = 'SoStandingOrder';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 6;
+    public const NUM_COLUMNS = 6;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 6;
+    public const NUM_HYDRATE_COLUMNS = 6;
 
     /**
      * the column name for the ArcuCustId field
      */
-    const COL_ARCUCUSTID = 'so_stand_head.ArcuCustId';
+    public const COL_ARCUCUSTID = 'so_stand_head.ArcuCustId';
 
     /**
      * the column name for the ArstShipId field
      */
-    const COL_ARSTSHIPID = 'so_stand_head.ArstShipId';
+    public const COL_ARSTSHIPID = 'so_stand_head.ArstShipId';
 
     /**
      * the column name for the OethCustPo field
      */
-    const COL_OETHCUSTPO = 'so_stand_head.OethCustPo';
+    public const COL_OETHCUSTPO = 'so_stand_head.OethCustPo';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_stand_head.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_stand_head.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_stand_head.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_stand_head.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_stand_head.dummy';
+    public const COL_DUMMY = 'so_stand_head.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Arcucustid', 'Arstshipid', 'Oethcustpo', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('arcucustid', 'arstshipid', 'oethcustpo', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SoStandingOrderTableMap::COL_ARCUCUSTID, SoStandingOrderTableMap::COL_ARSTSHIPID, SoStandingOrderTableMap::COL_OETHCUSTPO, SoStandingOrderTableMap::COL_DATEUPDTD, SoStandingOrderTableMap::COL_TIMEUPDTD, SoStandingOrderTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId', 'ArstShipId', 'OethCustPo', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Arcucustid', 'Arstshipid', 'Oethcustpo', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['arcucustid', 'arstshipid', 'oethcustpo', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [SoStandingOrderTableMap::COL_ARCUCUSTID, SoStandingOrderTableMap::COL_ARSTSHIPID, SoStandingOrderTableMap::COL_OETHCUSTPO, SoStandingOrderTableMap::COL_DATEUPDTD, SoStandingOrderTableMap::COL_TIMEUPDTD, SoStandingOrderTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ArcuCustId', 'ArstShipId', 'OethCustPo', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Arstshipid' => 1, 'Oethcustpo' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ),
-        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'arstshipid' => 1, 'oethcustpo' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_COLNAME       => array(SoStandingOrderTableMap::COL_ARCUCUSTID => 0, SoStandingOrderTableMap::COL_ARSTSHIPID => 1, SoStandingOrderTableMap::COL_OETHCUSTPO => 2, SoStandingOrderTableMap::COL_DATEUPDTD => 3, SoStandingOrderTableMap::COL_TIMEUPDTD => 4, SoStandingOrderTableMap::COL_DUMMY => 5, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'ArstShipId' => 1, 'OethCustPo' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Arcucustid' => 0, 'Arstshipid' => 1, 'Oethcustpo' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ],
+        self::TYPE_CAMELNAME     => ['arcucustid' => 0, 'arstshipid' => 1, 'oethcustpo' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ],
+        self::TYPE_COLNAME       => [SoStandingOrderTableMap::COL_ARCUCUSTID => 0, SoStandingOrderTableMap::COL_ARSTSHIPID => 1, SoStandingOrderTableMap::COL_OETHCUSTPO => 2, SoStandingOrderTableMap::COL_DATEUPDTD => 3, SoStandingOrderTableMap::COL_TIMEUPDTD => 4, SoStandingOrderTableMap::COL_DUMMY => 5, ],
+        self::TYPE_FIELDNAME     => ['ArcuCustId' => 0, 'ArstShipId' => 1, 'OethCustPo' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Arcucustid' => 'ARCUCUSTID',
+        'SoStandingOrder.Arcucustid' => 'ARCUCUSTID',
+        'arcucustid' => 'ARCUCUSTID',
+        'soStandingOrder.arcucustid' => 'ARCUCUSTID',
+        'SoStandingOrderTableMap::COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'ArcuCustId' => 'ARCUCUSTID',
+        'so_stand_head.ArcuCustId' => 'ARCUCUSTID',
+        'Arstshipid' => 'ARSTSHIPID',
+        'SoStandingOrder.Arstshipid' => 'ARSTSHIPID',
+        'arstshipid' => 'ARSTSHIPID',
+        'soStandingOrder.arstshipid' => 'ARSTSHIPID',
+        'SoStandingOrderTableMap::COL_ARSTSHIPID' => 'ARSTSHIPID',
+        'COL_ARSTSHIPID' => 'ARSTSHIPID',
+        'ArstShipId' => 'ARSTSHIPID',
+        'so_stand_head.ArstShipId' => 'ARSTSHIPID',
+        'Oethcustpo' => 'OETHCUSTPO',
+        'SoStandingOrder.Oethcustpo' => 'OETHCUSTPO',
+        'oethcustpo' => 'OETHCUSTPO',
+        'soStandingOrder.oethcustpo' => 'OETHCUSTPO',
+        'SoStandingOrderTableMap::COL_OETHCUSTPO' => 'OETHCUSTPO',
+        'COL_OETHCUSTPO' => 'OETHCUSTPO',
+        'OethCustPo' => 'OETHCUSTPO',
+        'so_stand_head.OethCustPo' => 'OETHCUSTPO',
+        'Dateupdtd' => 'DATEUPDTD',
+        'SoStandingOrder.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'soStandingOrder.dateupdtd' => 'DATEUPDTD',
+        'SoStandingOrderTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_stand_head.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'SoStandingOrder.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'soStandingOrder.timeupdtd' => 'TIMEUPDTD',
+        'SoStandingOrderTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_stand_head.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'SoStandingOrder.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'soStandingOrder.dummy' => 'DUMMY',
+        'SoStandingOrderTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_stand_head.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_stand_head');
@@ -158,12 +221,14 @@ class SoStandingOrderTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', true, 1, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -184,7 +249,7 @@ class SoStandingOrderTableMap extends TableMap
     1 => ':ArstShipId',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -195,9 +260,11 @@ class SoStandingOrderTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \SoStandingOrder $obj A \SoStandingOrder object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(SoStandingOrder $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -216,8 +283,10 @@ class SoStandingOrderTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \SoStandingOrder object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \SoStandingOrder) {
@@ -245,14 +314,14 @@ class SoStandingOrderTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -267,14 +336,14 @@ class SoStandingOrderTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -300,10 +369,10 @@ class SoStandingOrderTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? SoStandingOrderTableMap::CLASS_DEFAULT : SoStandingOrderTableMap::OM_CLASS;
     }
@@ -311,17 +380,17 @@ class SoStandingOrderTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (SoStandingOrder object, last column rank)
+     * @return array (SoStandingOrder object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = SoStandingOrderTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = SoStandingOrderTableMap::getInstanceFromPool($key))) {
@@ -337,7 +406,7 @@ class SoStandingOrderTableMap extends TableMap
             SoStandingOrderTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -345,13 +414,13 @@ class SoStandingOrderTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -381,12 +450,13 @@ class SoStandingOrderTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(SoStandingOrderTableMap::COL_ARCUCUSTID);
@@ -406,40 +476,60 @@ class SoStandingOrderTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(SoStandingOrderTableMap::COL_ARCUCUSTID);
+            $criteria->removeSelectColumn(SoStandingOrderTableMap::COL_ARSTSHIPID);
+            $criteria->removeSelectColumn(SoStandingOrderTableMap::COL_OETHCUSTPO);
+            $criteria->removeSelectColumn(SoStandingOrderTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(SoStandingOrderTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(SoStandingOrderTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ArcuCustId');
+            $criteria->removeSelectColumn($alias . '.ArstShipId');
+            $criteria->removeSelectColumn($alias . '.OethCustPo');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(SoStandingOrderTableMap::DATABASE_NAME)->getTable(SoStandingOrderTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SoStandingOrderTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SoStandingOrderTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SoStandingOrderTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a SoStandingOrder or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or SoStandingOrder object or primary key or array of primary keys
+     * @param mixed $values Criteria or SoStandingOrder object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoStandingOrderTableMap::DATABASE_NAME);
@@ -457,7 +547,7 @@ class SoStandingOrderTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(SoStandingOrderTableMap::COL_ARCUCUSTID, $value[0]);
@@ -485,7 +575,7 @@ class SoStandingOrderTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return SoStandingOrderQuery::create()->doDeleteAll($con);
     }
@@ -493,13 +583,13 @@ class SoStandingOrderTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a SoStandingOrder or Criteria object.
      *
-     * @param mixed               $criteria Criteria or SoStandingOrder object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or SoStandingOrder object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoStandingOrderTableMap::DATABASE_NAME);
@@ -522,7 +612,4 @@ class SoStandingOrderTableMap extends TableMap
         });
     }
 
-} // SoStandingOrderTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-SoStandingOrderTableMap::buildTableMap();
+}

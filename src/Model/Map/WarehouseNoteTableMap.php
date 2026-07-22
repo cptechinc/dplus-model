@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class WarehouseNoteTableMap extends TableMap
 {
@@ -34,134 +33,230 @@ class WarehouseNoteTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WarehouseNoteTableMap';
+    public const CLASS_NAME = '.Map.WarehouseNoteTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_whse_invc_stmt';
+    public const TABLE_NAME = 'notes_whse_invc_stmt';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'WarehouseNote';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\WarehouseNote';
+    public const OM_CLASS = '\\WarehouseNote';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'WarehouseNote';
+    public const CLASS_DEFAULT = 'WarehouseNote';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 10;
+    public const NUM_COLUMNS = 10;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 10;
+    public const NUM_HYDRATE_COLUMNS = 10;
 
     /**
      * the column name for the QnType field
      */
-    const COL_QNTYPE = 'notes_whse_invc_stmt.QnType';
+    public const COL_QNTYPE = 'notes_whse_invc_stmt.QnType';
 
     /**
      * the column name for the QnTypeDesc field
      */
-    const COL_QNTYPEDESC = 'notes_whse_invc_stmt.QnTypeDesc';
+    public const COL_QNTYPEDESC = 'notes_whse_invc_stmt.QnTypeDesc';
 
     /**
      * the column name for the IntbWhse field
      */
-    const COL_INTBWHSE = 'notes_whse_invc_stmt.IntbWhse';
+    public const COL_INTBWHSE = 'notes_whse_invc_stmt.IntbWhse';
 
     /**
      * the column name for the QnSeq field
      */
-    const COL_QNSEQ = 'notes_whse_invc_stmt.QnSeq';
+    public const COL_QNSEQ = 'notes_whse_invc_stmt.QnSeq';
 
     /**
      * the column name for the QnNote field
      */
-    const COL_QNNOTE = 'notes_whse_invc_stmt.QnNote';
+    public const COL_QNNOTE = 'notes_whse_invc_stmt.QnNote';
 
     /**
      * the column name for the QnKey2 field
      */
-    const COL_QNKEY2 = 'notes_whse_invc_stmt.QnKey2';
+    public const COL_QNKEY2 = 'notes_whse_invc_stmt.QnKey2';
 
     /**
      * the column name for the QnForm field
      */
-    const COL_QNFORM = 'notes_whse_invc_stmt.QnForm';
+    public const COL_QNFORM = 'notes_whse_invc_stmt.QnForm';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_whse_invc_stmt.DateUpdtd';
+    public const COL_DATEUPDTD = 'notes_whse_invc_stmt.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_whse_invc_stmt.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'notes_whse_invc_stmt.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_whse_invc_stmt.dummy';
+    public const COL_DUMMY = 'notes_whse_invc_stmt.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Intbwhse', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'intbwhse', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(WarehouseNoteTableMap::COL_QNTYPE, WarehouseNoteTableMap::COL_QNTYPEDESC, WarehouseNoteTableMap::COL_INTBWHSE, WarehouseNoteTableMap::COL_QNSEQ, WarehouseNoteTableMap::COL_QNNOTE, WarehouseNoteTableMap::COL_QNKEY2, WarehouseNoteTableMap::COL_QNFORM, WarehouseNoteTableMap::COL_DATEUPDTD, WarehouseNoteTableMap::COL_TIMEUPDTD, WarehouseNoteTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'IntbWhse', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Qntype', 'Qntypedesc', 'Intbwhse', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['qntype', 'qntypedesc', 'intbwhse', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [WarehouseNoteTableMap::COL_QNTYPE, WarehouseNoteTableMap::COL_QNTYPEDESC, WarehouseNoteTableMap::COL_INTBWHSE, WarehouseNoteTableMap::COL_QNSEQ, WarehouseNoteTableMap::COL_QNNOTE, WarehouseNoteTableMap::COL_QNKEY2, WarehouseNoteTableMap::COL_QNFORM, WarehouseNoteTableMap::COL_DATEUPDTD, WarehouseNoteTableMap::COL_TIMEUPDTD, WarehouseNoteTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['QnType', 'QnTypeDesc', 'IntbWhse', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Intbwhse' => 2, 'Qnseq' => 3, 'Qnnote' => 4, 'Qnkey2' => 5, 'Qnform' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
-        self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'intbwhse' => 2, 'qnseq' => 3, 'qnnote' => 4, 'qnkey2' => 5, 'qnform' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(WarehouseNoteTableMap::COL_QNTYPE => 0, WarehouseNoteTableMap::COL_QNTYPEDESC => 1, WarehouseNoteTableMap::COL_INTBWHSE => 2, WarehouseNoteTableMap::COL_QNSEQ => 3, WarehouseNoteTableMap::COL_QNNOTE => 4, WarehouseNoteTableMap::COL_QNKEY2 => 5, WarehouseNoteTableMap::COL_QNFORM => 6, WarehouseNoteTableMap::COL_DATEUPDTD => 7, WarehouseNoteTableMap::COL_TIMEUPDTD => 8, WarehouseNoteTableMap::COL_DUMMY => 9, ),
-        self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'IntbWhse' => 2, 'QnSeq' => 3, 'QnNote' => 4, 'QnKey2' => 5, 'QnForm' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Qntype' => 0, 'Qntypedesc' => 1, 'Intbwhse' => 2, 'Qnseq' => 3, 'Qnnote' => 4, 'Qnkey2' => 5, 'Qnform' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ],
+        self::TYPE_CAMELNAME     => ['qntype' => 0, 'qntypedesc' => 1, 'intbwhse' => 2, 'qnseq' => 3, 'qnnote' => 4, 'qnkey2' => 5, 'qnform' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_COLNAME       => [WarehouseNoteTableMap::COL_QNTYPE => 0, WarehouseNoteTableMap::COL_QNTYPEDESC => 1, WarehouseNoteTableMap::COL_INTBWHSE => 2, WarehouseNoteTableMap::COL_QNSEQ => 3, WarehouseNoteTableMap::COL_QNNOTE => 4, WarehouseNoteTableMap::COL_QNKEY2 => 5, WarehouseNoteTableMap::COL_QNFORM => 6, WarehouseNoteTableMap::COL_DATEUPDTD => 7, WarehouseNoteTableMap::COL_TIMEUPDTD => 8, WarehouseNoteTableMap::COL_DUMMY => 9, ],
+        self::TYPE_FIELDNAME     => ['QnType' => 0, 'QnTypeDesc' => 1, 'IntbWhse' => 2, 'QnSeq' => 3, 'QnNote' => 4, 'QnKey2' => 5, 'QnForm' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Qntype' => 'QNTYPE',
+        'WarehouseNote.Qntype' => 'QNTYPE',
+        'qntype' => 'QNTYPE',
+        'warehouseNote.qntype' => 'QNTYPE',
+        'WarehouseNoteTableMap::COL_QNTYPE' => 'QNTYPE',
+        'COL_QNTYPE' => 'QNTYPE',
+        'QnType' => 'QNTYPE',
+        'notes_whse_invc_stmt.QnType' => 'QNTYPE',
+        'Qntypedesc' => 'QNTYPEDESC',
+        'WarehouseNote.Qntypedesc' => 'QNTYPEDESC',
+        'qntypedesc' => 'QNTYPEDESC',
+        'warehouseNote.qntypedesc' => 'QNTYPEDESC',
+        'WarehouseNoteTableMap::COL_QNTYPEDESC' => 'QNTYPEDESC',
+        'COL_QNTYPEDESC' => 'QNTYPEDESC',
+        'QnTypeDesc' => 'QNTYPEDESC',
+        'notes_whse_invc_stmt.QnTypeDesc' => 'QNTYPEDESC',
+        'Intbwhse' => 'INTBWHSE',
+        'WarehouseNote.Intbwhse' => 'INTBWHSE',
+        'intbwhse' => 'INTBWHSE',
+        'warehouseNote.intbwhse' => 'INTBWHSE',
+        'WarehouseNoteTableMap::COL_INTBWHSE' => 'INTBWHSE',
+        'COL_INTBWHSE' => 'INTBWHSE',
+        'IntbWhse' => 'INTBWHSE',
+        'notes_whse_invc_stmt.IntbWhse' => 'INTBWHSE',
+        'Qnseq' => 'QNSEQ',
+        'WarehouseNote.Qnseq' => 'QNSEQ',
+        'qnseq' => 'QNSEQ',
+        'warehouseNote.qnseq' => 'QNSEQ',
+        'WarehouseNoteTableMap::COL_QNSEQ' => 'QNSEQ',
+        'COL_QNSEQ' => 'QNSEQ',
+        'QnSeq' => 'QNSEQ',
+        'notes_whse_invc_stmt.QnSeq' => 'QNSEQ',
+        'Qnnote' => 'QNNOTE',
+        'WarehouseNote.Qnnote' => 'QNNOTE',
+        'qnnote' => 'QNNOTE',
+        'warehouseNote.qnnote' => 'QNNOTE',
+        'WarehouseNoteTableMap::COL_QNNOTE' => 'QNNOTE',
+        'COL_QNNOTE' => 'QNNOTE',
+        'QnNote' => 'QNNOTE',
+        'notes_whse_invc_stmt.QnNote' => 'QNNOTE',
+        'Qnkey2' => 'QNKEY2',
+        'WarehouseNote.Qnkey2' => 'QNKEY2',
+        'qnkey2' => 'QNKEY2',
+        'warehouseNote.qnkey2' => 'QNKEY2',
+        'WarehouseNoteTableMap::COL_QNKEY2' => 'QNKEY2',
+        'COL_QNKEY2' => 'QNKEY2',
+        'QnKey2' => 'QNKEY2',
+        'notes_whse_invc_stmt.QnKey2' => 'QNKEY2',
+        'Qnform' => 'QNFORM',
+        'WarehouseNote.Qnform' => 'QNFORM',
+        'qnform' => 'QNFORM',
+        'warehouseNote.qnform' => 'QNFORM',
+        'WarehouseNoteTableMap::COL_QNFORM' => 'QNFORM',
+        'COL_QNFORM' => 'QNFORM',
+        'QnForm' => 'QNFORM',
+        'notes_whse_invc_stmt.QnForm' => 'QNFORM',
+        'Dateupdtd' => 'DATEUPDTD',
+        'WarehouseNote.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'warehouseNote.dateupdtd' => 'DATEUPDTD',
+        'WarehouseNoteTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'notes_whse_invc_stmt.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'WarehouseNote.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'warehouseNote.timeupdtd' => 'TIMEUPDTD',
+        'WarehouseNoteTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'notes_whse_invc_stmt.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'WarehouseNote.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'warehouseNote.dummy' => 'DUMMY',
+        'WarehouseNoteTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'notes_whse_invc_stmt.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('notes_whse_invc_stmt');
@@ -181,12 +276,14 @@ class WarehouseNoteTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Warehouse', '\\Warehouse', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -195,7 +292,7 @@ class WarehouseNoteTableMap extends TableMap
     1 => ':IntbWhse',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -206,9 +303,11 @@ class WarehouseNoteTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \WarehouseNote $obj A \WarehouseNote object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(WarehouseNote $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -227,8 +326,10 @@ class WarehouseNoteTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \WarehouseNote object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \WarehouseNote) {
@@ -256,14 +357,14 @@ class WarehouseNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -278,14 +379,14 @@ class WarehouseNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -321,10 +422,10 @@ class WarehouseNoteTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? WarehouseNoteTableMap::CLASS_DEFAULT : WarehouseNoteTableMap::OM_CLASS;
     }
@@ -332,17 +433,17 @@ class WarehouseNoteTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (WarehouseNote object, last column rank)
+     * @return array (WarehouseNote object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = WarehouseNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = WarehouseNoteTableMap::getInstanceFromPool($key))) {
@@ -358,7 +459,7 @@ class WarehouseNoteTableMap extends TableMap
             WarehouseNoteTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -366,13 +467,13 @@ class WarehouseNoteTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -402,12 +503,13 @@ class WarehouseNoteTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(WarehouseNoteTableMap::COL_QNTYPE);
@@ -435,40 +537,68 @@ class WarehouseNoteTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_QNTYPE);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_QNTYPEDESC);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_INTBWHSE);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_QNSEQ);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_QNNOTE);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_QNKEY2);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_QNFORM);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(WarehouseNoteTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.QnType');
+            $criteria->removeSelectColumn($alias . '.QnTypeDesc');
+            $criteria->removeSelectColumn($alias . '.IntbWhse');
+            $criteria->removeSelectColumn($alias . '.QnSeq');
+            $criteria->removeSelectColumn($alias . '.QnNote');
+            $criteria->removeSelectColumn($alias . '.QnKey2');
+            $criteria->removeSelectColumn($alias . '.QnForm');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(WarehouseNoteTableMap::DATABASE_NAME)->getTable(WarehouseNoteTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WarehouseNoteTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WarehouseNoteTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WarehouseNoteTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a WarehouseNote or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or WarehouseNote object or primary key or array of primary keys
+     * @param mixed $values Criteria or WarehouseNote object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNoteTableMap::DATABASE_NAME);
@@ -486,7 +616,7 @@ class WarehouseNoteTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(WarehouseNoteTableMap::COL_QNTYPE, $value[0]);
@@ -516,7 +646,7 @@ class WarehouseNoteTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return WarehouseNoteQuery::create()->doDeleteAll($con);
     }
@@ -524,13 +654,13 @@ class WarehouseNoteTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a WarehouseNote or Criteria object.
      *
-     * @param mixed               $criteria Criteria or WarehouseNote object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or WarehouseNote object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNoteTableMap::DATABASE_NAME);
@@ -553,7 +683,4 @@ class WarehouseNoteTableMap extends TableMap
         });
     }
 
-} // WarehouseNoteTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-WarehouseNoteTableMap::buildTableMap();
+}

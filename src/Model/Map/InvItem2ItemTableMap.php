@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvItem2ItemTableMap extends TableMap
 {
@@ -34,114 +33,178 @@ class InvItem2ItemTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvItem2ItemTableMap';
+    public const CLASS_NAME = '.Map.InvItem2ItemTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_item_2_item';
+    public const TABLE_NAME = 'inv_item_2_item';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvItem2Item';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvItem2Item';
+    public const OM_CLASS = '\\InvItem2Item';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvItem2Item';
+    public const CLASS_DEFAULT = 'InvItem2Item';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 6;
+    public const NUM_COLUMNS = 6;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 6;
+    public const NUM_HYDRATE_COLUMNS = 6;
 
     /**
      * the column name for the I2iMstrItemId field
      */
-    const COL_I2IMSTRITEMID = 'inv_item_2_item.I2iMstrItemId';
+    public const COL_I2IMSTRITEMID = 'inv_item_2_item.I2iMstrItemId';
 
     /**
      * the column name for the I2iChildItemId field
      */
-    const COL_I2ICHILDITEMID = 'inv_item_2_item.I2iChildItemId';
+    public const COL_I2ICHILDITEMID = 'inv_item_2_item.I2iChildItemId';
 
     /**
      * the column name for the I2iSupplyWhse field
      */
-    const COL_I2ISUPPLYWHSE = 'inv_item_2_item.I2iSupplyWhse';
+    public const COL_I2ISUPPLYWHSE = 'inv_item_2_item.I2iSupplyWhse';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_item_2_item.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_item_2_item.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_item_2_item.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_item_2_item.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_item_2_item.dummy';
+    public const COL_DUMMY = 'inv_item_2_item.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('I2imstritemid', 'I2ichilditemid', 'I2isupplywhse', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('i2imstritemid', 'i2ichilditemid', 'i2isupplywhse', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvItem2ItemTableMap::COL_I2IMSTRITEMID, InvItem2ItemTableMap::COL_I2ICHILDITEMID, InvItem2ItemTableMap::COL_I2ISUPPLYWHSE, InvItem2ItemTableMap::COL_DATEUPDTD, InvItem2ItemTableMap::COL_TIMEUPDTD, InvItem2ItemTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('I2iMstrItemId', 'I2iChildItemId', 'I2iSupplyWhse', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['I2imstritemid', 'I2ichilditemid', 'I2isupplywhse', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['i2imstritemid', 'i2ichilditemid', 'i2isupplywhse', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvItem2ItemTableMap::COL_I2IMSTRITEMID, InvItem2ItemTableMap::COL_I2ICHILDITEMID, InvItem2ItemTableMap::COL_I2ISUPPLYWHSE, InvItem2ItemTableMap::COL_DATEUPDTD, InvItem2ItemTableMap::COL_TIMEUPDTD, InvItem2ItemTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['I2iMstrItemId', 'I2iChildItemId', 'I2iSupplyWhse', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('I2imstritemid' => 0, 'I2ichilditemid' => 1, 'I2isupplywhse' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ),
-        self::TYPE_CAMELNAME     => array('i2imstritemid' => 0, 'i2ichilditemid' => 1, 'i2isupplywhse' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_COLNAME       => array(InvItem2ItemTableMap::COL_I2IMSTRITEMID => 0, InvItem2ItemTableMap::COL_I2ICHILDITEMID => 1, InvItem2ItemTableMap::COL_I2ISUPPLYWHSE => 2, InvItem2ItemTableMap::COL_DATEUPDTD => 3, InvItem2ItemTableMap::COL_TIMEUPDTD => 4, InvItem2ItemTableMap::COL_DUMMY => 5, ),
-        self::TYPE_FIELDNAME     => array('I2iMstrItemId' => 0, 'I2iChildItemId' => 1, 'I2iSupplyWhse' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['I2imstritemid' => 0, 'I2ichilditemid' => 1, 'I2isupplywhse' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ],
+        self::TYPE_CAMELNAME     => ['i2imstritemid' => 0, 'i2ichilditemid' => 1, 'i2isupplywhse' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ],
+        self::TYPE_COLNAME       => [InvItem2ItemTableMap::COL_I2IMSTRITEMID => 0, InvItem2ItemTableMap::COL_I2ICHILDITEMID => 1, InvItem2ItemTableMap::COL_I2ISUPPLYWHSE => 2, InvItem2ItemTableMap::COL_DATEUPDTD => 3, InvItem2ItemTableMap::COL_TIMEUPDTD => 4, InvItem2ItemTableMap::COL_DUMMY => 5, ],
+        self::TYPE_FIELDNAME     => ['I2iMstrItemId' => 0, 'I2iChildItemId' => 1, 'I2iSupplyWhse' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'I2imstritemid' => 'I2IMSTRITEMID',
+        'InvItem2Item.I2imstritemid' => 'I2IMSTRITEMID',
+        'i2imstritemid' => 'I2IMSTRITEMID',
+        'invItem2Item.i2imstritemid' => 'I2IMSTRITEMID',
+        'InvItem2ItemTableMap::COL_I2IMSTRITEMID' => 'I2IMSTRITEMID',
+        'COL_I2IMSTRITEMID' => 'I2IMSTRITEMID',
+        'I2iMstrItemId' => 'I2IMSTRITEMID',
+        'inv_item_2_item.I2iMstrItemId' => 'I2IMSTRITEMID',
+        'I2ichilditemid' => 'I2ICHILDITEMID',
+        'InvItem2Item.I2ichilditemid' => 'I2ICHILDITEMID',
+        'i2ichilditemid' => 'I2ICHILDITEMID',
+        'invItem2Item.i2ichilditemid' => 'I2ICHILDITEMID',
+        'InvItem2ItemTableMap::COL_I2ICHILDITEMID' => 'I2ICHILDITEMID',
+        'COL_I2ICHILDITEMID' => 'I2ICHILDITEMID',
+        'I2iChildItemId' => 'I2ICHILDITEMID',
+        'inv_item_2_item.I2iChildItemId' => 'I2ICHILDITEMID',
+        'I2isupplywhse' => 'I2ISUPPLYWHSE',
+        'InvItem2Item.I2isupplywhse' => 'I2ISUPPLYWHSE',
+        'i2isupplywhse' => 'I2ISUPPLYWHSE',
+        'invItem2Item.i2isupplywhse' => 'I2ISUPPLYWHSE',
+        'InvItem2ItemTableMap::COL_I2ISUPPLYWHSE' => 'I2ISUPPLYWHSE',
+        'COL_I2ISUPPLYWHSE' => 'I2ISUPPLYWHSE',
+        'I2iSupplyWhse' => 'I2ISUPPLYWHSE',
+        'inv_item_2_item.I2iSupplyWhse' => 'I2ISUPPLYWHSE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvItem2Item.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invItem2Item.dateupdtd' => 'DATEUPDTD',
+        'InvItem2ItemTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_item_2_item.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvItem2Item.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invItem2Item.timeupdtd' => 'TIMEUPDTD',
+        'InvItem2ItemTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_item_2_item.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvItem2Item.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invItem2Item.dummy' => 'DUMMY',
+        'InvItem2ItemTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_item_2_item.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_item_2_item');
@@ -157,12 +220,14 @@ class InvItem2ItemTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItemRelatedByI2imstritemid', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -178,7 +243,7 @@ class InvItem2ItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -189,9 +254,11 @@ class InvItem2ItemTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvItem2Item $obj A \InvItem2Item object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvItem2Item $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -210,8 +277,10 @@ class InvItem2ItemTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvItem2Item object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvItem2Item) {
@@ -239,14 +308,14 @@ class InvItem2ItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('I2imstritemid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('I2ichilditemid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -261,14 +330,14 @@ class InvItem2ItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -294,10 +363,10 @@ class InvItem2ItemTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvItem2ItemTableMap::CLASS_DEFAULT : InvItem2ItemTableMap::OM_CLASS;
     }
@@ -305,17 +374,17 @@ class InvItem2ItemTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvItem2Item object, last column rank)
+     * @return array (InvItem2Item object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvItem2ItemTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvItem2ItemTableMap::getInstanceFromPool($key))) {
@@ -331,7 +400,7 @@ class InvItem2ItemTableMap extends TableMap
             InvItem2ItemTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -339,13 +408,13 @@ class InvItem2ItemTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -375,12 +444,13 @@ class InvItem2ItemTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvItem2ItemTableMap::COL_I2IMSTRITEMID);
@@ -400,40 +470,60 @@ class InvItem2ItemTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvItem2ItemTableMap::COL_I2IMSTRITEMID);
+            $criteria->removeSelectColumn(InvItem2ItemTableMap::COL_I2ICHILDITEMID);
+            $criteria->removeSelectColumn(InvItem2ItemTableMap::COL_I2ISUPPLYWHSE);
+            $criteria->removeSelectColumn(InvItem2ItemTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvItem2ItemTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvItem2ItemTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.I2iMstrItemId');
+            $criteria->removeSelectColumn($alias . '.I2iChildItemId');
+            $criteria->removeSelectColumn($alias . '.I2iSupplyWhse');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvItem2ItemTableMap::DATABASE_NAME)->getTable(InvItem2ItemTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvItem2ItemTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvItem2ItemTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvItem2ItemTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvItem2Item or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvItem2Item object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvItem2Item object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvItem2ItemTableMap::DATABASE_NAME);
@@ -451,7 +541,7 @@ class InvItem2ItemTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvItem2ItemTableMap::COL_I2IMSTRITEMID, $value[0]);
@@ -479,7 +569,7 @@ class InvItem2ItemTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvItem2ItemQuery::create()->doDeleteAll($con);
     }
@@ -487,13 +577,13 @@ class InvItem2ItemTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvItem2Item or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvItem2Item object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvItem2Item object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvItem2ItemTableMap::DATABASE_NAME);
@@ -516,7 +606,4 @@ class InvItem2ItemTableMap extends TableMap
         });
     }
 
-} // InvItem2ItemTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvItem2ItemTableMap::buildTableMap();
+}

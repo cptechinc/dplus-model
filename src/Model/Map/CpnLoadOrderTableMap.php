@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CpnLoadOrderTableMap extends TableMap
 {
@@ -34,139 +33,243 @@ class CpnLoadOrderTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CpnLoadOrderTableMap';
+    public const CLASS_NAME = '.Map.CpnLoadOrderTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'load_cpn_order';
+    public const TABLE_NAME = 'load_cpn_order';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'CpnLoadOrder';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CpnLoadOrder';
+    public const OM_CLASS = '\\CpnLoadOrder';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CpnLoadOrder';
+    public const CLASS_DEFAULT = 'CpnLoadOrder';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 11;
+    public const NUM_COLUMNS = 11;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 11;
+    public const NUM_HYDRATE_COLUMNS = 11;
 
     /**
      * the column name for the LchdLoadNbr field
      */
-    const COL_LCHDLOADNBR = 'load_cpn_order.LchdLoadNbr';
+    public const COL_LCHDLOADNBR = 'load_cpn_order.LchdLoadNbr';
 
     /**
      * the column name for the LcorOrdrNbr field
      */
-    const COL_LCORORDRNBR = 'load_cpn_order.LcorOrdrNbr';
+    public const COL_LCORORDRNBR = 'load_cpn_order.LcorOrdrNbr';
 
     /**
      * the column name for the LcorShipId field
      */
-    const COL_LCORSHIPID = 'load_cpn_order.LcorShipId';
+    public const COL_LCORSHIPID = 'load_cpn_order.LcorShipId';
 
     /**
      * the column name for the LcorCustPo field
      */
-    const COL_LCORCUSTPO = 'load_cpn_order.LcorCustPo';
+    public const COL_LCORCUSTPO = 'load_cpn_order.LcorCustPo';
 
     /**
      * the column name for the LcorRqstDate field
      */
-    const COL_LCORRQSTDATE = 'load_cpn_order.LcorRqstDate';
+    public const COL_LCORRQSTDATE = 'load_cpn_order.LcorRqstDate';
 
     /**
      * the column name for the LcorNbrOfBoxes field
      */
-    const COL_LCORNBROFBOXES = 'load_cpn_order.LcorNbrOfBoxes';
+    public const COL_LCORNBROFBOXES = 'load_cpn_order.LcorNbrOfBoxes';
 
     /**
      * the column name for the LcorTotWght field
      */
-    const COL_LCORTOTWGHT = 'load_cpn_order.LcorTotWght';
+    public const COL_LCORTOTWGHT = 'load_cpn_order.LcorTotWght';
 
     /**
      * the column name for the LcorOrdrType field
      */
-    const COL_LCORORDRTYPE = 'load_cpn_order.LcorOrdrType';
+    public const COL_LCORORDRTYPE = 'load_cpn_order.LcorOrdrType';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'load_cpn_order.DateUpdtd';
+    public const COL_DATEUPDTD = 'load_cpn_order.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'load_cpn_order.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'load_cpn_order.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'load_cpn_order.dummy';
+    public const COL_DUMMY = 'load_cpn_order.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Lchdloadnbr', 'Lcorordrnbr', 'Lcorshipid', 'Lcorcustpo', 'Lcorrqstdate', 'Lcornbrofboxes', 'Lcortotwght', 'Lcorordrtype', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('lchdloadnbr', 'lcorordrnbr', 'lcorshipid', 'lcorcustpo', 'lcorrqstdate', 'lcornbrofboxes', 'lcortotwght', 'lcorordrtype', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CpnLoadOrderTableMap::COL_LCHDLOADNBR, CpnLoadOrderTableMap::COL_LCORORDRNBR, CpnLoadOrderTableMap::COL_LCORSHIPID, CpnLoadOrderTableMap::COL_LCORCUSTPO, CpnLoadOrderTableMap::COL_LCORRQSTDATE, CpnLoadOrderTableMap::COL_LCORNBROFBOXES, CpnLoadOrderTableMap::COL_LCORTOTWGHT, CpnLoadOrderTableMap::COL_LCORORDRTYPE, CpnLoadOrderTableMap::COL_DATEUPDTD, CpnLoadOrderTableMap::COL_TIMEUPDTD, CpnLoadOrderTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('LchdLoadNbr', 'LcorOrdrNbr', 'LcorShipId', 'LcorCustPo', 'LcorRqstDate', 'LcorNbrOfBoxes', 'LcorTotWght', 'LcorOrdrType', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Lchdloadnbr', 'Lcorordrnbr', 'Lcorshipid', 'Lcorcustpo', 'Lcorrqstdate', 'Lcornbrofboxes', 'Lcortotwght', 'Lcorordrtype', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['lchdloadnbr', 'lcorordrnbr', 'lcorshipid', 'lcorcustpo', 'lcorrqstdate', 'lcornbrofboxes', 'lcortotwght', 'lcorordrtype', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [CpnLoadOrderTableMap::COL_LCHDLOADNBR, CpnLoadOrderTableMap::COL_LCORORDRNBR, CpnLoadOrderTableMap::COL_LCORSHIPID, CpnLoadOrderTableMap::COL_LCORCUSTPO, CpnLoadOrderTableMap::COL_LCORRQSTDATE, CpnLoadOrderTableMap::COL_LCORNBROFBOXES, CpnLoadOrderTableMap::COL_LCORTOTWGHT, CpnLoadOrderTableMap::COL_LCORORDRTYPE, CpnLoadOrderTableMap::COL_DATEUPDTD, CpnLoadOrderTableMap::COL_TIMEUPDTD, CpnLoadOrderTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['LchdLoadNbr', 'LcorOrdrNbr', 'LcorShipId', 'LcorCustPo', 'LcorRqstDate', 'LcorNbrOfBoxes', 'LcorTotWght', 'LcorOrdrType', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Lchdloadnbr' => 0, 'Lcorordrnbr' => 1, 'Lcorshipid' => 2, 'Lcorcustpo' => 3, 'Lcorrqstdate' => 4, 'Lcornbrofboxes' => 5, 'Lcortotwght' => 6, 'Lcorordrtype' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
-        self::TYPE_CAMELNAME     => array('lchdloadnbr' => 0, 'lcorordrnbr' => 1, 'lcorshipid' => 2, 'lcorcustpo' => 3, 'lcorrqstdate' => 4, 'lcornbrofboxes' => 5, 'lcortotwght' => 6, 'lcorordrtype' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(CpnLoadOrderTableMap::COL_LCHDLOADNBR => 0, CpnLoadOrderTableMap::COL_LCORORDRNBR => 1, CpnLoadOrderTableMap::COL_LCORSHIPID => 2, CpnLoadOrderTableMap::COL_LCORCUSTPO => 3, CpnLoadOrderTableMap::COL_LCORRQSTDATE => 4, CpnLoadOrderTableMap::COL_LCORNBROFBOXES => 5, CpnLoadOrderTableMap::COL_LCORTOTWGHT => 6, CpnLoadOrderTableMap::COL_LCORORDRTYPE => 7, CpnLoadOrderTableMap::COL_DATEUPDTD => 8, CpnLoadOrderTableMap::COL_TIMEUPDTD => 9, CpnLoadOrderTableMap::COL_DUMMY => 10, ),
-        self::TYPE_FIELDNAME     => array('LchdLoadNbr' => 0, 'LcorOrdrNbr' => 1, 'LcorShipId' => 2, 'LcorCustPo' => 3, 'LcorRqstDate' => 4, 'LcorNbrOfBoxes' => 5, 'LcorTotWght' => 6, 'LcorOrdrType' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Lchdloadnbr' => 0, 'Lcorordrnbr' => 1, 'Lcorshipid' => 2, 'Lcorcustpo' => 3, 'Lcorrqstdate' => 4, 'Lcornbrofboxes' => 5, 'Lcortotwght' => 6, 'Lcorordrtype' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ],
+        self::TYPE_CAMELNAME     => ['lchdloadnbr' => 0, 'lcorordrnbr' => 1, 'lcorshipid' => 2, 'lcorcustpo' => 3, 'lcorrqstdate' => 4, 'lcornbrofboxes' => 5, 'lcortotwght' => 6, 'lcorordrtype' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ],
+        self::TYPE_COLNAME       => [CpnLoadOrderTableMap::COL_LCHDLOADNBR => 0, CpnLoadOrderTableMap::COL_LCORORDRNBR => 1, CpnLoadOrderTableMap::COL_LCORSHIPID => 2, CpnLoadOrderTableMap::COL_LCORCUSTPO => 3, CpnLoadOrderTableMap::COL_LCORRQSTDATE => 4, CpnLoadOrderTableMap::COL_LCORNBROFBOXES => 5, CpnLoadOrderTableMap::COL_LCORTOTWGHT => 6, CpnLoadOrderTableMap::COL_LCORORDRTYPE => 7, CpnLoadOrderTableMap::COL_DATEUPDTD => 8, CpnLoadOrderTableMap::COL_TIMEUPDTD => 9, CpnLoadOrderTableMap::COL_DUMMY => 10, ],
+        self::TYPE_FIELDNAME     => ['LchdLoadNbr' => 0, 'LcorOrdrNbr' => 1, 'LcorShipId' => 2, 'LcorCustPo' => 3, 'LcorRqstDate' => 4, 'LcorNbrOfBoxes' => 5, 'LcorTotWght' => 6, 'LcorOrdrType' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Lchdloadnbr' => 'LCHDLOADNBR',
+        'CpnLoadOrder.Lchdloadnbr' => 'LCHDLOADNBR',
+        'lchdloadnbr' => 'LCHDLOADNBR',
+        'cpnLoadOrder.lchdloadnbr' => 'LCHDLOADNBR',
+        'CpnLoadOrderTableMap::COL_LCHDLOADNBR' => 'LCHDLOADNBR',
+        'COL_LCHDLOADNBR' => 'LCHDLOADNBR',
+        'LchdLoadNbr' => 'LCHDLOADNBR',
+        'load_cpn_order.LchdLoadNbr' => 'LCHDLOADNBR',
+        'Lcorordrnbr' => 'LCORORDRNBR',
+        'CpnLoadOrder.Lcorordrnbr' => 'LCORORDRNBR',
+        'lcorordrnbr' => 'LCORORDRNBR',
+        'cpnLoadOrder.lcorordrnbr' => 'LCORORDRNBR',
+        'CpnLoadOrderTableMap::COL_LCORORDRNBR' => 'LCORORDRNBR',
+        'COL_LCORORDRNBR' => 'LCORORDRNBR',
+        'LcorOrdrNbr' => 'LCORORDRNBR',
+        'load_cpn_order.LcorOrdrNbr' => 'LCORORDRNBR',
+        'Lcorshipid' => 'LCORSHIPID',
+        'CpnLoadOrder.Lcorshipid' => 'LCORSHIPID',
+        'lcorshipid' => 'LCORSHIPID',
+        'cpnLoadOrder.lcorshipid' => 'LCORSHIPID',
+        'CpnLoadOrderTableMap::COL_LCORSHIPID' => 'LCORSHIPID',
+        'COL_LCORSHIPID' => 'LCORSHIPID',
+        'LcorShipId' => 'LCORSHIPID',
+        'load_cpn_order.LcorShipId' => 'LCORSHIPID',
+        'Lcorcustpo' => 'LCORCUSTPO',
+        'CpnLoadOrder.Lcorcustpo' => 'LCORCUSTPO',
+        'lcorcustpo' => 'LCORCUSTPO',
+        'cpnLoadOrder.lcorcustpo' => 'LCORCUSTPO',
+        'CpnLoadOrderTableMap::COL_LCORCUSTPO' => 'LCORCUSTPO',
+        'COL_LCORCUSTPO' => 'LCORCUSTPO',
+        'LcorCustPo' => 'LCORCUSTPO',
+        'load_cpn_order.LcorCustPo' => 'LCORCUSTPO',
+        'Lcorrqstdate' => 'LCORRQSTDATE',
+        'CpnLoadOrder.Lcorrqstdate' => 'LCORRQSTDATE',
+        'lcorrqstdate' => 'LCORRQSTDATE',
+        'cpnLoadOrder.lcorrqstdate' => 'LCORRQSTDATE',
+        'CpnLoadOrderTableMap::COL_LCORRQSTDATE' => 'LCORRQSTDATE',
+        'COL_LCORRQSTDATE' => 'LCORRQSTDATE',
+        'LcorRqstDate' => 'LCORRQSTDATE',
+        'load_cpn_order.LcorRqstDate' => 'LCORRQSTDATE',
+        'Lcornbrofboxes' => 'LCORNBROFBOXES',
+        'CpnLoadOrder.Lcornbrofboxes' => 'LCORNBROFBOXES',
+        'lcornbrofboxes' => 'LCORNBROFBOXES',
+        'cpnLoadOrder.lcornbrofboxes' => 'LCORNBROFBOXES',
+        'CpnLoadOrderTableMap::COL_LCORNBROFBOXES' => 'LCORNBROFBOXES',
+        'COL_LCORNBROFBOXES' => 'LCORNBROFBOXES',
+        'LcorNbrOfBoxes' => 'LCORNBROFBOXES',
+        'load_cpn_order.LcorNbrOfBoxes' => 'LCORNBROFBOXES',
+        'Lcortotwght' => 'LCORTOTWGHT',
+        'CpnLoadOrder.Lcortotwght' => 'LCORTOTWGHT',
+        'lcortotwght' => 'LCORTOTWGHT',
+        'cpnLoadOrder.lcortotwght' => 'LCORTOTWGHT',
+        'CpnLoadOrderTableMap::COL_LCORTOTWGHT' => 'LCORTOTWGHT',
+        'COL_LCORTOTWGHT' => 'LCORTOTWGHT',
+        'LcorTotWght' => 'LCORTOTWGHT',
+        'load_cpn_order.LcorTotWght' => 'LCORTOTWGHT',
+        'Lcorordrtype' => 'LCORORDRTYPE',
+        'CpnLoadOrder.Lcorordrtype' => 'LCORORDRTYPE',
+        'lcorordrtype' => 'LCORORDRTYPE',
+        'cpnLoadOrder.lcorordrtype' => 'LCORORDRTYPE',
+        'CpnLoadOrderTableMap::COL_LCORORDRTYPE' => 'LCORORDRTYPE',
+        'COL_LCORORDRTYPE' => 'LCORORDRTYPE',
+        'LcorOrdrType' => 'LCORORDRTYPE',
+        'load_cpn_order.LcorOrdrType' => 'LCORORDRTYPE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'CpnLoadOrder.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'cpnLoadOrder.dateupdtd' => 'DATEUPDTD',
+        'CpnLoadOrderTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'load_cpn_order.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'CpnLoadOrder.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'cpnLoadOrder.timeupdtd' => 'TIMEUPDTD',
+        'CpnLoadOrderTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'load_cpn_order.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'CpnLoadOrder.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'cpnLoadOrder.dummy' => 'DUMMY',
+        'CpnLoadOrderTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'load_cpn_order.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('load_cpn_order');
@@ -182,17 +285,19 @@ class CpnLoadOrderTableMap extends TableMap
         $this->addColumn('LcorCustPo', 'Lcorcustpo', 'VARCHAR', true, 20, '');
         $this->addColumn('LcorRqstDate', 'Lcorrqstdate', 'CHAR', true, 8, '');
         $this->addColumn('LcorNbrOfBoxes', 'Lcornbrofboxes', 'INTEGER', true, 8, 0);
-        $this->addColumn('LcorTotWght', 'Lcortotwght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('LcorTotWght', 'Lcortotwght', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('LcorOrdrType', 'Lcorordrtype', 'CHAR', true, null, '');
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('CpnLoad', '\\CpnLoad', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -201,7 +306,7 @@ class CpnLoadOrderTableMap extends TableMap
     1 => ':LchdLoadNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -212,9 +317,11 @@ class CpnLoadOrderTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \CpnLoadOrder $obj A \CpnLoadOrder object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(CpnLoadOrder $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -233,8 +340,10 @@ class CpnLoadOrderTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \CpnLoadOrder object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \CpnLoadOrder) {
@@ -262,14 +371,14 @@ class CpnLoadOrderTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Lchdloadnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lcorordrnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -284,14 +393,14 @@ class CpnLoadOrderTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -317,10 +426,10 @@ class CpnLoadOrderTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CpnLoadOrderTableMap::CLASS_DEFAULT : CpnLoadOrderTableMap::OM_CLASS;
     }
@@ -328,17 +437,17 @@ class CpnLoadOrderTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CpnLoadOrder object, last column rank)
+     * @return array (CpnLoadOrder object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CpnLoadOrderTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CpnLoadOrderTableMap::getInstanceFromPool($key))) {
@@ -354,7 +463,7 @@ class CpnLoadOrderTableMap extends TableMap
             CpnLoadOrderTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -362,13 +471,13 @@ class CpnLoadOrderTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -398,12 +507,13 @@ class CpnLoadOrderTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CpnLoadOrderTableMap::COL_LCHDLOADNBR);
@@ -433,40 +543,70 @@ class CpnLoadOrderTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_LCHDLOADNBR);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_LCORORDRNBR);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_LCORSHIPID);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_LCORCUSTPO);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_LCORRQSTDATE);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_LCORNBROFBOXES);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_LCORTOTWGHT);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_LCORORDRTYPE);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(CpnLoadOrderTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.LchdLoadNbr');
+            $criteria->removeSelectColumn($alias . '.LcorOrdrNbr');
+            $criteria->removeSelectColumn($alias . '.LcorShipId');
+            $criteria->removeSelectColumn($alias . '.LcorCustPo');
+            $criteria->removeSelectColumn($alias . '.LcorRqstDate');
+            $criteria->removeSelectColumn($alias . '.LcorNbrOfBoxes');
+            $criteria->removeSelectColumn($alias . '.LcorTotWght');
+            $criteria->removeSelectColumn($alias . '.LcorOrdrType');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CpnLoadOrderTableMap::DATABASE_NAME)->getTable(CpnLoadOrderTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CpnLoadOrderTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CpnLoadOrderTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CpnLoadOrderTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a CpnLoadOrder or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CpnLoadOrder object or primary key or array of primary keys
+     * @param mixed $values Criteria or CpnLoadOrder object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadOrderTableMap::DATABASE_NAME);
@@ -484,7 +624,7 @@ class CpnLoadOrderTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(CpnLoadOrderTableMap::COL_LCHDLOADNBR, $value[0]);
@@ -512,7 +652,7 @@ class CpnLoadOrderTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CpnLoadOrderQuery::create()->doDeleteAll($con);
     }
@@ -520,13 +660,13 @@ class CpnLoadOrderTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a CpnLoadOrder or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CpnLoadOrder object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or CpnLoadOrder object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadOrderTableMap::DATABASE_NAME);
@@ -549,7 +689,4 @@ class CpnLoadOrderTableMap extends TableMap
         });
     }
 
-} // CpnLoadOrderTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CpnLoadOrderTableMap::buildTableMap();
+}

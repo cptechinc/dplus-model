@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemXrefKeyTableMap extends TableMap
 {
@@ -34,144 +33,256 @@ class ItemXrefKeyTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemXrefKeyTableMap';
+    public const CLASS_NAME = '.Map.ItemXrefKeyTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'item_xref_key';
+    public const TABLE_NAME = 'item_xref_key';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemXrefKey';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemXrefKey';
+    public const OM_CLASS = '\\ItemXrefKey';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemXrefKey';
+    public const CLASS_DEFAULT = 'ItemXrefKey';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 12;
+    public const NUM_COLUMNS = 12;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 12;
+    public const NUM_HYDRATE_COLUMNS = 12;
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'item_xref_key.InitItemNbr';
+    public const COL_INITITEMNBR = 'item_xref_key.InitItemNbr';
 
     /**
      * the column name for the InitDesc1 field
      */
-    const COL_INITDESC1 = 'item_xref_key.InitDesc1';
+    public const COL_INITDESC1 = 'item_xref_key.InitDesc1';
 
     /**
      * the column name for the InitDesc2 field
      */
-    const COL_INITDESC2 = 'item_xref_key.InitDesc2';
+    public const COL_INITDESC2 = 'item_xref_key.InitDesc2';
 
     /**
      * the column name for the RkeyTheirItem field
      */
-    const COL_RKEYTHEIRITEM = 'item_xref_key.RkeyTheirItem';
+    public const COL_RKEYTHEIRITEM = 'item_xref_key.RkeyTheirItem';
 
     /**
      * the column name for the RkeyTheirItemDesc1 field
      */
-    const COL_RKEYTHEIRITEMDESC1 = 'item_xref_key.RkeyTheirItemDesc1';
+    public const COL_RKEYTHEIRITEMDESC1 = 'item_xref_key.RkeyTheirItemDesc1';
 
     /**
      * the column name for the RkeyTheirItemDesc2 field
      */
-    const COL_RKEYTHEIRITEMDESC2 = 'item_xref_key.RkeyTheirItemDesc2';
+    public const COL_RKEYTHEIRITEMDESC2 = 'item_xref_key.RkeyTheirItemDesc2';
 
     /**
      * the column name for the RkeySource field
      */
-    const COL_RKEYSOURCE = 'item_xref_key.RkeySource';
+    public const COL_RKEYSOURCE = 'item_xref_key.RkeySource';
 
     /**
      * the column name for the RkeySourceDesc field
      */
-    const COL_RKEYSOURCEDESC = 'item_xref_key.RkeySourceDesc';
+    public const COL_RKEYSOURCEDESC = 'item_xref_key.RkeySourceDesc';
 
     /**
      * the column name for the RkeyCVId field
      */
-    const COL_RKEYCVID = 'item_xref_key.RkeyCVId';
+    public const COL_RKEYCVID = 'item_xref_key.RkeyCVId';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'item_xref_key.DateUpdtd';
+    public const COL_DATEUPDTD = 'item_xref_key.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'item_xref_key.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'item_xref_key.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'item_xref_key.dummy';
+    public const COL_DUMMY = 'item_xref_key.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Initdesc1', 'Initdesc2', 'Rkeytheiritem', 'Rkeytheiritemdesc1', 'Rkeytheiritemdesc2', 'Rkeysource', 'Rkeysourcedesc', 'Rkeycvid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'initdesc1', 'initdesc2', 'rkeytheiritem', 'rkeytheiritemdesc1', 'rkeytheiritemdesc2', 'rkeysource', 'rkeysourcedesc', 'rkeycvid', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefKeyTableMap::COL_INITITEMNBR, ItemXrefKeyTableMap::COL_INITDESC1, ItemXrefKeyTableMap::COL_INITDESC2, ItemXrefKeyTableMap::COL_RKEYTHEIRITEM, ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC1, ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC2, ItemXrefKeyTableMap::COL_RKEYSOURCE, ItemXrefKeyTableMap::COL_RKEYSOURCEDESC, ItemXrefKeyTableMap::COL_RKEYCVID, ItemXrefKeyTableMap::COL_DATEUPDTD, ItemXrefKeyTableMap::COL_TIMEUPDTD, ItemXrefKeyTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'InitDesc1', 'InitDesc2', 'RkeyTheirItem', 'RkeyTheirItemDesc1', 'RkeyTheirItemDesc2', 'RkeySource', 'RkeySourceDesc', 'RkeyCVId', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Inititemnbr', 'Initdesc1', 'Initdesc2', 'Rkeytheiritem', 'Rkeytheiritemdesc1', 'Rkeytheiritemdesc2', 'Rkeysource', 'Rkeysourcedesc', 'Rkeycvid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['inititemnbr', 'initdesc1', 'initdesc2', 'rkeytheiritem', 'rkeytheiritemdesc1', 'rkeytheiritemdesc2', 'rkeysource', 'rkeysourcedesc', 'rkeycvid', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemXrefKeyTableMap::COL_INITITEMNBR, ItemXrefKeyTableMap::COL_INITDESC1, ItemXrefKeyTableMap::COL_INITDESC2, ItemXrefKeyTableMap::COL_RKEYTHEIRITEM, ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC1, ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC2, ItemXrefKeyTableMap::COL_RKEYSOURCE, ItemXrefKeyTableMap::COL_RKEYSOURCEDESC, ItemXrefKeyTableMap::COL_RKEYCVID, ItemXrefKeyTableMap::COL_DATEUPDTD, ItemXrefKeyTableMap::COL_TIMEUPDTD, ItemXrefKeyTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr', 'InitDesc1', 'InitDesc2', 'RkeyTheirItem', 'RkeyTheirItemDesc1', 'RkeyTheirItemDesc2', 'RkeySource', 'RkeySourceDesc', 'RkeyCVId', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Initdesc1' => 1, 'Initdesc2' => 2, 'Rkeytheiritem' => 3, 'Rkeytheiritemdesc1' => 4, 'Rkeytheiritemdesc2' => 5, 'Rkeysource' => 6, 'Rkeysourcedesc' => 7, 'Rkeycvid' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'initdesc1' => 1, 'initdesc2' => 2, 'rkeytheiritem' => 3, 'rkeytheiritemdesc1' => 4, 'rkeytheiritemdesc2' => 5, 'rkeysource' => 6, 'rkeysourcedesc' => 7, 'rkeycvid' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_COLNAME       => array(ItemXrefKeyTableMap::COL_INITITEMNBR => 0, ItemXrefKeyTableMap::COL_INITDESC1 => 1, ItemXrefKeyTableMap::COL_INITDESC2 => 2, ItemXrefKeyTableMap::COL_RKEYTHEIRITEM => 3, ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC1 => 4, ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC2 => 5, ItemXrefKeyTableMap::COL_RKEYSOURCE => 6, ItemXrefKeyTableMap::COL_RKEYSOURCEDESC => 7, ItemXrefKeyTableMap::COL_RKEYCVID => 8, ItemXrefKeyTableMap::COL_DATEUPDTD => 9, ItemXrefKeyTableMap::COL_TIMEUPDTD => 10, ItemXrefKeyTableMap::COL_DUMMY => 11, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'InitDesc1' => 1, 'InitDesc2' => 2, 'RkeyTheirItem' => 3, 'RkeyTheirItemDesc1' => 4, 'RkeyTheirItemDesc2' => 5, 'RkeySource' => 6, 'RkeySourceDesc' => 7, 'RkeyCVId' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Inititemnbr' => 0, 'Initdesc1' => 1, 'Initdesc2' => 2, 'Rkeytheiritem' => 3, 'Rkeytheiritemdesc1' => 4, 'Rkeytheiritemdesc2' => 5, 'Rkeysource' => 6, 'Rkeysourcedesc' => 7, 'Rkeycvid' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ],
+        self::TYPE_CAMELNAME     => ['inititemnbr' => 0, 'initdesc1' => 1, 'initdesc2' => 2, 'rkeytheiritem' => 3, 'rkeytheiritemdesc1' => 4, 'rkeytheiritemdesc2' => 5, 'rkeysource' => 6, 'rkeysourcedesc' => 7, 'rkeycvid' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ],
+        self::TYPE_COLNAME       => [ItemXrefKeyTableMap::COL_INITITEMNBR => 0, ItemXrefKeyTableMap::COL_INITDESC1 => 1, ItemXrefKeyTableMap::COL_INITDESC2 => 2, ItemXrefKeyTableMap::COL_RKEYTHEIRITEM => 3, ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC1 => 4, ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC2 => 5, ItemXrefKeyTableMap::COL_RKEYSOURCE => 6, ItemXrefKeyTableMap::COL_RKEYSOURCEDESC => 7, ItemXrefKeyTableMap::COL_RKEYCVID => 8, ItemXrefKeyTableMap::COL_DATEUPDTD => 9, ItemXrefKeyTableMap::COL_TIMEUPDTD => 10, ItemXrefKeyTableMap::COL_DUMMY => 11, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr' => 0, 'InitDesc1' => 1, 'InitDesc2' => 2, 'RkeyTheirItem' => 3, 'RkeyTheirItemDesc1' => 4, 'RkeyTheirItemDesc2' => 5, 'RkeySource' => 6, 'RkeySourceDesc' => 7, 'RkeyCVId' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Inititemnbr' => 'INITITEMNBR',
+        'ItemXrefKey.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'itemXrefKey.inititemnbr' => 'INITITEMNBR',
+        'ItemXrefKeyTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'item_xref_key.InitItemNbr' => 'INITITEMNBR',
+        'Initdesc1' => 'INITDESC1',
+        'ItemXrefKey.Initdesc1' => 'INITDESC1',
+        'initdesc1' => 'INITDESC1',
+        'itemXrefKey.initdesc1' => 'INITDESC1',
+        'ItemXrefKeyTableMap::COL_INITDESC1' => 'INITDESC1',
+        'COL_INITDESC1' => 'INITDESC1',
+        'InitDesc1' => 'INITDESC1',
+        'item_xref_key.InitDesc1' => 'INITDESC1',
+        'Initdesc2' => 'INITDESC2',
+        'ItemXrefKey.Initdesc2' => 'INITDESC2',
+        'initdesc2' => 'INITDESC2',
+        'itemXrefKey.initdesc2' => 'INITDESC2',
+        'ItemXrefKeyTableMap::COL_INITDESC2' => 'INITDESC2',
+        'COL_INITDESC2' => 'INITDESC2',
+        'InitDesc2' => 'INITDESC2',
+        'item_xref_key.InitDesc2' => 'INITDESC2',
+        'Rkeytheiritem' => 'RKEYTHEIRITEM',
+        'ItemXrefKey.Rkeytheiritem' => 'RKEYTHEIRITEM',
+        'rkeytheiritem' => 'RKEYTHEIRITEM',
+        'itemXrefKey.rkeytheiritem' => 'RKEYTHEIRITEM',
+        'ItemXrefKeyTableMap::COL_RKEYTHEIRITEM' => 'RKEYTHEIRITEM',
+        'COL_RKEYTHEIRITEM' => 'RKEYTHEIRITEM',
+        'RkeyTheirItem' => 'RKEYTHEIRITEM',
+        'item_xref_key.RkeyTheirItem' => 'RKEYTHEIRITEM',
+        'Rkeytheiritemdesc1' => 'RKEYTHEIRITEMDESC1',
+        'ItemXrefKey.Rkeytheiritemdesc1' => 'RKEYTHEIRITEMDESC1',
+        'rkeytheiritemdesc1' => 'RKEYTHEIRITEMDESC1',
+        'itemXrefKey.rkeytheiritemdesc1' => 'RKEYTHEIRITEMDESC1',
+        'ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC1' => 'RKEYTHEIRITEMDESC1',
+        'COL_RKEYTHEIRITEMDESC1' => 'RKEYTHEIRITEMDESC1',
+        'RkeyTheirItemDesc1' => 'RKEYTHEIRITEMDESC1',
+        'item_xref_key.RkeyTheirItemDesc1' => 'RKEYTHEIRITEMDESC1',
+        'Rkeytheiritemdesc2' => 'RKEYTHEIRITEMDESC2',
+        'ItemXrefKey.Rkeytheiritemdesc2' => 'RKEYTHEIRITEMDESC2',
+        'rkeytheiritemdesc2' => 'RKEYTHEIRITEMDESC2',
+        'itemXrefKey.rkeytheiritemdesc2' => 'RKEYTHEIRITEMDESC2',
+        'ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC2' => 'RKEYTHEIRITEMDESC2',
+        'COL_RKEYTHEIRITEMDESC2' => 'RKEYTHEIRITEMDESC2',
+        'RkeyTheirItemDesc2' => 'RKEYTHEIRITEMDESC2',
+        'item_xref_key.RkeyTheirItemDesc2' => 'RKEYTHEIRITEMDESC2',
+        'Rkeysource' => 'RKEYSOURCE',
+        'ItemXrefKey.Rkeysource' => 'RKEYSOURCE',
+        'rkeysource' => 'RKEYSOURCE',
+        'itemXrefKey.rkeysource' => 'RKEYSOURCE',
+        'ItemXrefKeyTableMap::COL_RKEYSOURCE' => 'RKEYSOURCE',
+        'COL_RKEYSOURCE' => 'RKEYSOURCE',
+        'RkeySource' => 'RKEYSOURCE',
+        'item_xref_key.RkeySource' => 'RKEYSOURCE',
+        'Rkeysourcedesc' => 'RKEYSOURCEDESC',
+        'ItemXrefKey.Rkeysourcedesc' => 'RKEYSOURCEDESC',
+        'rkeysourcedesc' => 'RKEYSOURCEDESC',
+        'itemXrefKey.rkeysourcedesc' => 'RKEYSOURCEDESC',
+        'ItemXrefKeyTableMap::COL_RKEYSOURCEDESC' => 'RKEYSOURCEDESC',
+        'COL_RKEYSOURCEDESC' => 'RKEYSOURCEDESC',
+        'RkeySourceDesc' => 'RKEYSOURCEDESC',
+        'item_xref_key.RkeySourceDesc' => 'RKEYSOURCEDESC',
+        'Rkeycvid' => 'RKEYCVID',
+        'ItemXrefKey.Rkeycvid' => 'RKEYCVID',
+        'rkeycvid' => 'RKEYCVID',
+        'itemXrefKey.rkeycvid' => 'RKEYCVID',
+        'ItemXrefKeyTableMap::COL_RKEYCVID' => 'RKEYCVID',
+        'COL_RKEYCVID' => 'RKEYCVID',
+        'RkeyCVId' => 'RKEYCVID',
+        'item_xref_key.RkeyCVId' => 'RKEYCVID',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemXrefKey.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemXrefKey.dateupdtd' => 'DATEUPDTD',
+        'ItemXrefKeyTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'item_xref_key.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefKey.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemXrefKey.timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefKeyTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'item_xref_key.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemXrefKey.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemXrefKey.dummy' => 'DUMMY',
+        'ItemXrefKeyTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'item_xref_key.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('item_xref_key');
@@ -194,12 +305,14 @@ class ItemXrefKeyTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -222,7 +335,7 @@ class ItemXrefKeyTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -233,9 +346,11 @@ class ItemXrefKeyTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemXrefKey $obj A \ItemXrefKey object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemXrefKey $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -254,8 +369,10 @@ class ItemXrefKeyTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemXrefKey object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemXrefKey) {
@@ -283,14 +400,14 @@ class ItemXrefKeyTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Rkeytheiritem', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Rkeysource', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Rkeycvid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -305,14 +422,14 @@ class ItemXrefKeyTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -348,10 +465,10 @@ class ItemXrefKeyTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemXrefKeyTableMap::CLASS_DEFAULT : ItemXrefKeyTableMap::OM_CLASS;
     }
@@ -359,17 +476,17 @@ class ItemXrefKeyTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemXrefKey object, last column rank)
+     * @return array (ItemXrefKey object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemXrefKeyTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemXrefKeyTableMap::getInstanceFromPool($key))) {
@@ -385,7 +502,7 @@ class ItemXrefKeyTableMap extends TableMap
             ItemXrefKeyTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -393,13 +510,13 @@ class ItemXrefKeyTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -429,12 +546,13 @@ class ItemXrefKeyTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemXrefKeyTableMap::COL_INITITEMNBR);
@@ -466,40 +584,72 @@ class ItemXrefKeyTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_INITDESC1);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_INITDESC2);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_RKEYTHEIRITEM);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC1);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_RKEYTHEIRITEMDESC2);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_RKEYSOURCE);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_RKEYSOURCEDESC);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_RKEYCVID);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefKeyTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.InitDesc1');
+            $criteria->removeSelectColumn($alias . '.InitDesc2');
+            $criteria->removeSelectColumn($alias . '.RkeyTheirItem');
+            $criteria->removeSelectColumn($alias . '.RkeyTheirItemDesc1');
+            $criteria->removeSelectColumn($alias . '.RkeyTheirItemDesc2');
+            $criteria->removeSelectColumn($alias . '.RkeySource');
+            $criteria->removeSelectColumn($alias . '.RkeySourceDesc');
+            $criteria->removeSelectColumn($alias . '.RkeyCVId');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemXrefKeyTableMap::DATABASE_NAME)->getTable(ItemXrefKeyTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemXrefKeyTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemXrefKeyTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemXrefKeyTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemXrefKey or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemXrefKey object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemXrefKey object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefKeyTableMap::DATABASE_NAME);
@@ -517,7 +667,7 @@ class ItemXrefKeyTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemXrefKeyTableMap::COL_INITITEMNBR, $value[0]);
@@ -547,7 +697,7 @@ class ItemXrefKeyTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemXrefKeyQuery::create()->doDeleteAll($con);
     }
@@ -555,13 +705,13 @@ class ItemXrefKeyTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemXrefKey or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemXrefKey object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemXrefKey object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefKeyTableMap::DATABASE_NAME);
@@ -584,7 +734,4 @@ class ItemXrefKeyTableMap extends TableMap
         });
     }
 
-} // ItemXrefKeyTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemXrefKeyTableMap::buildTableMap();
+}

@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class RcyclReceiptLotTableMap extends TableMap
 {
@@ -34,169 +33,334 @@ class RcyclReceiptLotTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.RcyclReceiptLotTableMap';
+    public const CLASS_NAME = '.Map.RcyclReceiptLotTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'rcycl_lot_det';
+    public const TABLE_NAME = 'rcycl_lot_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'RcyclReceiptLot';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\RcyclReceiptLot';
+    public const OM_CLASS = '\\RcyclReceiptLot';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'RcyclReceiptLot';
+    public const CLASS_DEFAULT = 'RcyclReceiptLot';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 17;
+    public const NUM_COLUMNS = 18;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 17;
+    public const NUM_HYDRATE_COLUMNS = 18;
 
     /**
      * the column name for the RcyhdRcptBulk field
      */
-    const COL_RCYHDRCPTBULK = 'rcycl_lot_det.RcyhdRcptBulk';
+    public const COL_RCYHDRCPTBULK = 'rcycl_lot_det.RcyhdRcptBulk';
 
     /**
      * the column name for the RcyhdCntrlNbr field
      */
-    const COL_RCYHDCNTRLNBR = 'rcycl_lot_det.RcyhdCntrlNbr';
+    public const COL_RCYHDCNTRLNBR = 'rcycl_lot_det.RcyhdCntrlNbr';
 
     /**
      * the column name for the RcydtRcptLine field
      */
-    const COL_RCYDTRCPTLINE = 'rcycl_lot_det.RcydtRcptLine';
+    public const COL_RCYDTRCPTLINE = 'rcycl_lot_det.RcydtRcptLine';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'rcycl_lot_det.InitItemNbr';
+    public const COL_INITITEMNBR = 'rcycl_lot_det.InitItemNbr';
 
     /**
      * the column name for the RcysdWhse field
      */
-    const COL_RCYSDWHSE = 'rcycl_lot_det.RcysdWhse';
+    public const COL_RCYSDWHSE = 'rcycl_lot_det.RcysdWhse';
 
     /**
      * the column name for the RcysdLotNbr field
      */
-    const COL_RCYSDLOTNBR = 'rcycl_lot_det.RcysdLotNbr';
+    public const COL_RCYSDLOTNBR = 'rcycl_lot_det.RcysdLotNbr';
 
     /**
      * the column name for the RcysdBin field
      */
-    const COL_RCYSDBIN = 'rcycl_lot_det.RcysdBin';
+    public const COL_RCYSDBIN = 'rcycl_lot_det.RcysdBin';
 
     /**
      * the column name for the RcysdLotQty field
      */
-    const COL_RCYSDLOTQTY = 'rcycl_lot_det.RcysdLotQty';
+    public const COL_RCYSDLOTQTY = 'rcycl_lot_det.RcysdLotQty';
 
     /**
      * the column name for the RcysdLotDate field
      */
-    const COL_RCYSDLOTDATE = 'rcycl_lot_det.RcysdLotDate';
+    public const COL_RCYSDLOTDATE = 'rcycl_lot_det.RcysdLotDate';
 
     /**
      * the column name for the RcysdLotRef field
      */
-    const COL_RCYSDLOTREF = 'rcycl_lot_det.RcysdLotRef';
+    public const COL_RCYSDLOTREF = 'rcycl_lot_det.RcysdLotRef';
 
     /**
      * the column name for the RcysdStatus field
      */
-    const COL_RCYSDSTATUS = 'rcycl_lot_det.RcysdStatus';
+    public const COL_RCYSDSTATUS = 'rcycl_lot_det.RcysdStatus';
 
     /**
      * the column name for the RcysdClosedBy field
      */
-    const COL_RCYSDCLOSEDBY = 'rcycl_lot_det.RcysdClosedBy';
+    public const COL_RCYSDCLOSEDBY = 'rcycl_lot_det.RcysdClosedBy';
 
     /**
      * the column name for the RcysdClosedDate field
      */
-    const COL_RCYSDCLOSEDDATE = 'rcycl_lot_det.RcysdClosedDate';
+    public const COL_RCYSDCLOSEDDATE = 'rcycl_lot_det.RcysdClosedDate';
 
     /**
      * the column name for the RcysdClosedTime field
      */
-    const COL_RCYSDCLOSEDTIME = 'rcycl_lot_det.RcysdClosedTime';
+    public const COL_RCYSDCLOSEDTIME = 'rcycl_lot_det.RcysdClosedTime';
 
     /**
      * the column name for the RcysdTareWght field
      */
-    const COL_RCYSDTAREWGHT = 'rcycl_lot_det.RcysdTareWght';
+    public const COL_RCYSDTAREWGHT = 'rcycl_lot_det.RcysdTareWght';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'rcycl_lot_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'rcycl_lot_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'rcycl_lot_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'rcycl_lot_det.TimeUpdtd';
+
+    /**
+     * the column name for the dummy field
+     */
+    public const COL_DUMMY = 'rcycl_lot_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Rcyhdrcptbulk', 'Rcyhdcntrlnbr', 'Rcydtrcptline', 'Inititemnbr', 'Rcysdwhse', 'Rcysdlotnbr', 'Rcysdbin', 'Rcysdlotqty', 'Rcysdlotdate', 'Rcysdlotref', 'Rcysdstatus', 'Rcysdclosedby', 'Rcysdcloseddate', 'Rcysdclosedtime', 'Rcysdtarewght', 'Dateupdtd', 'Timeupdtd', ),
-        self::TYPE_CAMELNAME     => array('rcyhdrcptbulk', 'rcyhdcntrlnbr', 'rcydtrcptline', 'inititemnbr', 'rcysdwhse', 'rcysdlotnbr', 'rcysdbin', 'rcysdlotqty', 'rcysdlotdate', 'rcysdlotref', 'rcysdstatus', 'rcysdclosedby', 'rcysdcloseddate', 'rcysdclosedtime', 'rcysdtarewght', 'dateupdtd', 'timeupdtd', ),
-        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, RcyclReceiptLotTableMap::COL_INITITEMNBR, RcyclReceiptLotTableMap::COL_RCYSDWHSE, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, RcyclReceiptLotTableMap::COL_RCYSDBIN, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE, RcyclReceiptLotTableMap::COL_RCYSDLOTREF, RcyclReceiptLotTableMap::COL_RCYSDSTATUS, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME, RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT, RcyclReceiptLotTableMap::COL_DATEUPDTD, RcyclReceiptLotTableMap::COL_TIMEUPDTD, ),
-        self::TYPE_FIELDNAME     => array('RcyhdRcptBulk', 'RcyhdCntrlNbr', 'RcydtRcptLine', 'InitItemNbr', 'RcysdWhse', 'RcysdLotNbr', 'RcysdBin', 'RcysdLotQty', 'RcysdLotDate', 'RcysdLotRef', 'RcysdStatus', 'RcysdClosedBy', 'RcysdClosedDate', 'RcysdClosedTime', 'RcysdTareWght', 'DateUpdtd', 'TimeUpdtd', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Rcyhdrcptbulk', 'Rcyhdcntrlnbr', 'Rcydtrcptline', 'Inititemnbr', 'Rcysdwhse', 'Rcysdlotnbr', 'Rcysdbin', 'Rcysdlotqty', 'Rcysdlotdate', 'Rcysdlotref', 'Rcysdstatus', 'Rcysdclosedby', 'Rcysdcloseddate', 'Rcysdclosedtime', 'Rcysdtarewght', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['rcyhdrcptbulk', 'rcyhdcntrlnbr', 'rcydtrcptline', 'inititemnbr', 'rcysdwhse', 'rcysdlotnbr', 'rcysdbin', 'rcysdlotqty', 'rcysdlotdate', 'rcysdlotref', 'rcysdstatus', 'rcysdclosedby', 'rcysdcloseddate', 'rcysdclosedtime', 'rcysdtarewght', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, RcyclReceiptLotTableMap::COL_INITITEMNBR, RcyclReceiptLotTableMap::COL_RCYSDWHSE, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, RcyclReceiptLotTableMap::COL_RCYSDBIN, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE, RcyclReceiptLotTableMap::COL_RCYSDLOTREF, RcyclReceiptLotTableMap::COL_RCYSDSTATUS, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME, RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT, RcyclReceiptLotTableMap::COL_DATEUPDTD, RcyclReceiptLotTableMap::COL_TIMEUPDTD, RcyclReceiptLotTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['RcyhdRcptBulk', 'RcyhdCntrlNbr', 'RcydtRcptLine', 'InitItemNbr', 'RcysdWhse', 'RcysdLotNbr', 'RcysdBin', 'RcysdLotQty', 'RcysdLotDate', 'RcysdLotRef', 'RcysdStatus', 'RcysdClosedBy', 'RcysdClosedDate', 'RcysdClosedTime', 'RcysdTareWght', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Rcyhdrcptbulk' => 0, 'Rcyhdcntrlnbr' => 1, 'Rcydtrcptline' => 2, 'Inititemnbr' => 3, 'Rcysdwhse' => 4, 'Rcysdlotnbr' => 5, 'Rcysdbin' => 6, 'Rcysdlotqty' => 7, 'Rcysdlotdate' => 8, 'Rcysdlotref' => 9, 'Rcysdstatus' => 10, 'Rcysdclosedby' => 11, 'Rcysdcloseddate' => 12, 'Rcysdclosedtime' => 13, 'Rcysdtarewght' => 14, 'Dateupdtd' => 15, 'Timeupdtd' => 16, ),
-        self::TYPE_CAMELNAME     => array('rcyhdrcptbulk' => 0, 'rcyhdcntrlnbr' => 1, 'rcydtrcptline' => 2, 'inititemnbr' => 3, 'rcysdwhse' => 4, 'rcysdlotnbr' => 5, 'rcysdbin' => 6, 'rcysdlotqty' => 7, 'rcysdlotdate' => 8, 'rcysdlotref' => 9, 'rcysdstatus' => 10, 'rcysdclosedby' => 11, 'rcysdcloseddate' => 12, 'rcysdclosedtime' => 13, 'rcysdtarewght' => 14, 'dateupdtd' => 15, 'timeupdtd' => 16, ),
-        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK => 0, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR => 1, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE => 2, RcyclReceiptLotTableMap::COL_INITITEMNBR => 3, RcyclReceiptLotTableMap::COL_RCYSDWHSE => 4, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR => 5, RcyclReceiptLotTableMap::COL_RCYSDBIN => 6, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY => 7, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE => 8, RcyclReceiptLotTableMap::COL_RCYSDLOTREF => 9, RcyclReceiptLotTableMap::COL_RCYSDSTATUS => 10, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY => 11, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE => 12, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME => 13, RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT => 14, RcyclReceiptLotTableMap::COL_DATEUPDTD => 15, RcyclReceiptLotTableMap::COL_TIMEUPDTD => 16, ),
-        self::TYPE_FIELDNAME     => array('RcyhdRcptBulk' => 0, 'RcyhdCntrlNbr' => 1, 'RcydtRcptLine' => 2, 'InitItemNbr' => 3, 'RcysdWhse' => 4, 'RcysdLotNbr' => 5, 'RcysdBin' => 6, 'RcysdLotQty' => 7, 'RcysdLotDate' => 8, 'RcysdLotRef' => 9, 'RcysdStatus' => 10, 'RcysdClosedBy' => 11, 'RcysdClosedDate' => 12, 'RcysdClosedTime' => 13, 'RcysdTareWght' => 14, 'DateUpdtd' => 15, 'TimeUpdtd' => 16, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Rcyhdrcptbulk' => 0, 'Rcyhdcntrlnbr' => 1, 'Rcydtrcptline' => 2, 'Inititemnbr' => 3, 'Rcysdwhse' => 4, 'Rcysdlotnbr' => 5, 'Rcysdbin' => 6, 'Rcysdlotqty' => 7, 'Rcysdlotdate' => 8, 'Rcysdlotref' => 9, 'Rcysdstatus' => 10, 'Rcysdclosedby' => 11, 'Rcysdcloseddate' => 12, 'Rcysdclosedtime' => 13, 'Rcysdtarewght' => 14, 'Dateupdtd' => 15, 'Timeupdtd' => 16, 'Dummy' => 17, ],
+        self::TYPE_CAMELNAME     => ['rcyhdrcptbulk' => 0, 'rcyhdcntrlnbr' => 1, 'rcydtrcptline' => 2, 'inititemnbr' => 3, 'rcysdwhse' => 4, 'rcysdlotnbr' => 5, 'rcysdbin' => 6, 'rcysdlotqty' => 7, 'rcysdlotdate' => 8, 'rcysdlotref' => 9, 'rcysdstatus' => 10, 'rcysdclosedby' => 11, 'rcysdcloseddate' => 12, 'rcysdclosedtime' => 13, 'rcysdtarewght' => 14, 'dateupdtd' => 15, 'timeupdtd' => 16, 'dummy' => 17, ],
+        self::TYPE_COLNAME       => [RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK => 0, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR => 1, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE => 2, RcyclReceiptLotTableMap::COL_INITITEMNBR => 3, RcyclReceiptLotTableMap::COL_RCYSDWHSE => 4, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR => 5, RcyclReceiptLotTableMap::COL_RCYSDBIN => 6, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY => 7, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE => 8, RcyclReceiptLotTableMap::COL_RCYSDLOTREF => 9, RcyclReceiptLotTableMap::COL_RCYSDSTATUS => 10, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY => 11, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE => 12, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME => 13, RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT => 14, RcyclReceiptLotTableMap::COL_DATEUPDTD => 15, RcyclReceiptLotTableMap::COL_TIMEUPDTD => 16, RcyclReceiptLotTableMap::COL_DUMMY => 17, ],
+        self::TYPE_FIELDNAME     => ['RcyhdRcptBulk' => 0, 'RcyhdCntrlNbr' => 1, 'RcydtRcptLine' => 2, 'InitItemNbr' => 3, 'RcysdWhse' => 4, 'RcysdLotNbr' => 5, 'RcysdBin' => 6, 'RcysdLotQty' => 7, 'RcysdLotDate' => 8, 'RcysdLotRef' => 9, 'RcysdStatus' => 10, 'RcysdClosedBy' => 11, 'RcysdClosedDate' => 12, 'RcysdClosedTime' => 13, 'RcysdTareWght' => 14, 'DateUpdtd' => 15, 'TimeUpdtd' => 16, 'dummy' => 17, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Rcyhdrcptbulk' => 'RCYHDRCPTBULK',
+        'RcyclReceiptLot.Rcyhdrcptbulk' => 'RCYHDRCPTBULK',
+        'rcyhdrcptbulk' => 'RCYHDRCPTBULK',
+        'rcyclReceiptLot.rcyhdrcptbulk' => 'RCYHDRCPTBULK',
+        'RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK' => 'RCYHDRCPTBULK',
+        'COL_RCYHDRCPTBULK' => 'RCYHDRCPTBULK',
+        'RcyhdRcptBulk' => 'RCYHDRCPTBULK',
+        'rcycl_lot_det.RcyhdRcptBulk' => 'RCYHDRCPTBULK',
+        'Rcyhdcntrlnbr' => 'RCYHDCNTRLNBR',
+        'RcyclReceiptLot.Rcyhdcntrlnbr' => 'RCYHDCNTRLNBR',
+        'rcyhdcntrlnbr' => 'RCYHDCNTRLNBR',
+        'rcyclReceiptLot.rcyhdcntrlnbr' => 'RCYHDCNTRLNBR',
+        'RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR' => 'RCYHDCNTRLNBR',
+        'COL_RCYHDCNTRLNBR' => 'RCYHDCNTRLNBR',
+        'RcyhdCntrlNbr' => 'RCYHDCNTRLNBR',
+        'rcycl_lot_det.RcyhdCntrlNbr' => 'RCYHDCNTRLNBR',
+        'Rcydtrcptline' => 'RCYDTRCPTLINE',
+        'RcyclReceiptLot.Rcydtrcptline' => 'RCYDTRCPTLINE',
+        'rcydtrcptline' => 'RCYDTRCPTLINE',
+        'rcyclReceiptLot.rcydtrcptline' => 'RCYDTRCPTLINE',
+        'RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE' => 'RCYDTRCPTLINE',
+        'COL_RCYDTRCPTLINE' => 'RCYDTRCPTLINE',
+        'RcydtRcptLine' => 'RCYDTRCPTLINE',
+        'rcycl_lot_det.RcydtRcptLine' => 'RCYDTRCPTLINE',
+        'Inititemnbr' => 'INITITEMNBR',
+        'RcyclReceiptLot.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'rcyclReceiptLot.inititemnbr' => 'INITITEMNBR',
+        'RcyclReceiptLotTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'rcycl_lot_det.InitItemNbr' => 'INITITEMNBR',
+        'Rcysdwhse' => 'RCYSDWHSE',
+        'RcyclReceiptLot.Rcysdwhse' => 'RCYSDWHSE',
+        'rcysdwhse' => 'RCYSDWHSE',
+        'rcyclReceiptLot.rcysdwhse' => 'RCYSDWHSE',
+        'RcyclReceiptLotTableMap::COL_RCYSDWHSE' => 'RCYSDWHSE',
+        'COL_RCYSDWHSE' => 'RCYSDWHSE',
+        'RcysdWhse' => 'RCYSDWHSE',
+        'rcycl_lot_det.RcysdWhse' => 'RCYSDWHSE',
+        'Rcysdlotnbr' => 'RCYSDLOTNBR',
+        'RcyclReceiptLot.Rcysdlotnbr' => 'RCYSDLOTNBR',
+        'rcysdlotnbr' => 'RCYSDLOTNBR',
+        'rcyclReceiptLot.rcysdlotnbr' => 'RCYSDLOTNBR',
+        'RcyclReceiptLotTableMap::COL_RCYSDLOTNBR' => 'RCYSDLOTNBR',
+        'COL_RCYSDLOTNBR' => 'RCYSDLOTNBR',
+        'RcysdLotNbr' => 'RCYSDLOTNBR',
+        'rcycl_lot_det.RcysdLotNbr' => 'RCYSDLOTNBR',
+        'Rcysdbin' => 'RCYSDBIN',
+        'RcyclReceiptLot.Rcysdbin' => 'RCYSDBIN',
+        'rcysdbin' => 'RCYSDBIN',
+        'rcyclReceiptLot.rcysdbin' => 'RCYSDBIN',
+        'RcyclReceiptLotTableMap::COL_RCYSDBIN' => 'RCYSDBIN',
+        'COL_RCYSDBIN' => 'RCYSDBIN',
+        'RcysdBin' => 'RCYSDBIN',
+        'rcycl_lot_det.RcysdBin' => 'RCYSDBIN',
+        'Rcysdlotqty' => 'RCYSDLOTQTY',
+        'RcyclReceiptLot.Rcysdlotqty' => 'RCYSDLOTQTY',
+        'rcysdlotqty' => 'RCYSDLOTQTY',
+        'rcyclReceiptLot.rcysdlotqty' => 'RCYSDLOTQTY',
+        'RcyclReceiptLotTableMap::COL_RCYSDLOTQTY' => 'RCYSDLOTQTY',
+        'COL_RCYSDLOTQTY' => 'RCYSDLOTQTY',
+        'RcysdLotQty' => 'RCYSDLOTQTY',
+        'rcycl_lot_det.RcysdLotQty' => 'RCYSDLOTQTY',
+        'Rcysdlotdate' => 'RCYSDLOTDATE',
+        'RcyclReceiptLot.Rcysdlotdate' => 'RCYSDLOTDATE',
+        'rcysdlotdate' => 'RCYSDLOTDATE',
+        'rcyclReceiptLot.rcysdlotdate' => 'RCYSDLOTDATE',
+        'RcyclReceiptLotTableMap::COL_RCYSDLOTDATE' => 'RCYSDLOTDATE',
+        'COL_RCYSDLOTDATE' => 'RCYSDLOTDATE',
+        'RcysdLotDate' => 'RCYSDLOTDATE',
+        'rcycl_lot_det.RcysdLotDate' => 'RCYSDLOTDATE',
+        'Rcysdlotref' => 'RCYSDLOTREF',
+        'RcyclReceiptLot.Rcysdlotref' => 'RCYSDLOTREF',
+        'rcysdlotref' => 'RCYSDLOTREF',
+        'rcyclReceiptLot.rcysdlotref' => 'RCYSDLOTREF',
+        'RcyclReceiptLotTableMap::COL_RCYSDLOTREF' => 'RCYSDLOTREF',
+        'COL_RCYSDLOTREF' => 'RCYSDLOTREF',
+        'RcysdLotRef' => 'RCYSDLOTREF',
+        'rcycl_lot_det.RcysdLotRef' => 'RCYSDLOTREF',
+        'Rcysdstatus' => 'RCYSDSTATUS',
+        'RcyclReceiptLot.Rcysdstatus' => 'RCYSDSTATUS',
+        'rcysdstatus' => 'RCYSDSTATUS',
+        'rcyclReceiptLot.rcysdstatus' => 'RCYSDSTATUS',
+        'RcyclReceiptLotTableMap::COL_RCYSDSTATUS' => 'RCYSDSTATUS',
+        'COL_RCYSDSTATUS' => 'RCYSDSTATUS',
+        'RcysdStatus' => 'RCYSDSTATUS',
+        'rcycl_lot_det.RcysdStatus' => 'RCYSDSTATUS',
+        'Rcysdclosedby' => 'RCYSDCLOSEDBY',
+        'RcyclReceiptLot.Rcysdclosedby' => 'RCYSDCLOSEDBY',
+        'rcysdclosedby' => 'RCYSDCLOSEDBY',
+        'rcyclReceiptLot.rcysdclosedby' => 'RCYSDCLOSEDBY',
+        'RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY' => 'RCYSDCLOSEDBY',
+        'COL_RCYSDCLOSEDBY' => 'RCYSDCLOSEDBY',
+        'RcysdClosedBy' => 'RCYSDCLOSEDBY',
+        'rcycl_lot_det.RcysdClosedBy' => 'RCYSDCLOSEDBY',
+        'Rcysdcloseddate' => 'RCYSDCLOSEDDATE',
+        'RcyclReceiptLot.Rcysdcloseddate' => 'RCYSDCLOSEDDATE',
+        'rcysdcloseddate' => 'RCYSDCLOSEDDATE',
+        'rcyclReceiptLot.rcysdcloseddate' => 'RCYSDCLOSEDDATE',
+        'RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE' => 'RCYSDCLOSEDDATE',
+        'COL_RCYSDCLOSEDDATE' => 'RCYSDCLOSEDDATE',
+        'RcysdClosedDate' => 'RCYSDCLOSEDDATE',
+        'rcycl_lot_det.RcysdClosedDate' => 'RCYSDCLOSEDDATE',
+        'Rcysdclosedtime' => 'RCYSDCLOSEDTIME',
+        'RcyclReceiptLot.Rcysdclosedtime' => 'RCYSDCLOSEDTIME',
+        'rcysdclosedtime' => 'RCYSDCLOSEDTIME',
+        'rcyclReceiptLot.rcysdclosedtime' => 'RCYSDCLOSEDTIME',
+        'RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME' => 'RCYSDCLOSEDTIME',
+        'COL_RCYSDCLOSEDTIME' => 'RCYSDCLOSEDTIME',
+        'RcysdClosedTime' => 'RCYSDCLOSEDTIME',
+        'rcycl_lot_det.RcysdClosedTime' => 'RCYSDCLOSEDTIME',
+        'Rcysdtarewght' => 'RCYSDTAREWGHT',
+        'RcyclReceiptLot.Rcysdtarewght' => 'RCYSDTAREWGHT',
+        'rcysdtarewght' => 'RCYSDTAREWGHT',
+        'rcyclReceiptLot.rcysdtarewght' => 'RCYSDTAREWGHT',
+        'RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT' => 'RCYSDTAREWGHT',
+        'COL_RCYSDTAREWGHT' => 'RCYSDTAREWGHT',
+        'RcysdTareWght' => 'RCYSDTAREWGHT',
+        'rcycl_lot_det.RcysdTareWght' => 'RCYSDTAREWGHT',
+        'Dateupdtd' => 'DATEUPDTD',
+        'RcyclReceiptLot.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'rcyclReceiptLot.dateupdtd' => 'DATEUPDTD',
+        'RcyclReceiptLotTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'rcycl_lot_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'RcyclReceiptLot.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'rcyclReceiptLot.timeupdtd' => 'TIMEUPDTD',
+        'RcyclReceiptLotTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'rcycl_lot_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'RcyclReceiptLot.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'rcyclReceiptLot.dummy' => 'DUMMY',
+        'RcyclReceiptLotTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'rcycl_lot_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('rcycl_lot_det');
@@ -216,22 +380,25 @@ class RcyclReceiptLotTableMap extends TableMap
         $this->addPrimaryKey('RcysdWhse', 'Rcysdwhse', 'VARCHAR', true, 2, '');
         $this->addPrimaryKey('RcysdLotNbr', 'Rcysdlotnbr', 'VARCHAR', true, 20, '');
         $this->addPrimaryKey('RcysdBin', 'Rcysdbin', 'VARCHAR', true, 8, '');
-        $this->addColumn('RcysdLotQty', 'Rcysdlotqty', 'DECIMAL', true, 20, 0);
+        $this->addColumn('RcysdLotQty', 'Rcysdlotqty', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('RcysdLotDate', 'Rcysdlotdate', 'VARCHAR', true, 8, '');
         $this->addColumn('RcysdLotRef', 'Rcysdlotref', 'VARCHAR', true, 20, '');
         $this->addColumn('RcysdStatus', 'Rcysdstatus', 'CHAR', true, null, 'O');
         $this->addColumn('RcysdClosedBy', 'Rcysdclosedby', 'VARCHAR', true, 8, '');
         $this->addColumn('RcysdClosedDate', 'Rcysdcloseddate', 'VARCHAR', true, 8, '');
         $this->addColumn('RcysdClosedTime', 'Rcysdclosedtime', 'VARCHAR', true, 8, '');
-        $this->addColumn('RcysdTareWght', 'Rcysdtarewght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('RcysdTareWght', 'Rcysdtarewght', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
-    } // initialize()
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('RcyclReceiptDetail', '\\RcyclReceiptDetail', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -274,7 +441,7 @@ class RcyclReceiptLotTableMap extends TableMap
     1 => ':RcyhdRcptBulk',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -285,9 +452,11 @@ class RcyclReceiptLotTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \RcyclReceiptLot $obj A \RcyclReceiptLot object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(RcyclReceiptLot $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -306,8 +475,10 @@ class RcyclReceiptLotTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \RcyclReceiptLot object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \RcyclReceiptLot) {
@@ -335,14 +506,14 @@ class RcyclReceiptLotTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Rcysdwhse', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Rcysdbin', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -357,14 +528,14 @@ class RcyclReceiptLotTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -415,10 +586,10 @@ class RcyclReceiptLotTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? RcyclReceiptLotTableMap::CLASS_DEFAULT : RcyclReceiptLotTableMap::OM_CLASS;
     }
@@ -426,17 +597,17 @@ class RcyclReceiptLotTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (RcyclReceiptLot object, last column rank)
+     * @return array (RcyclReceiptLot object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = RcyclReceiptLotTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = RcyclReceiptLotTableMap::getInstanceFromPool($key))) {
@@ -452,7 +623,7 @@ class RcyclReceiptLotTableMap extends TableMap
             RcyclReceiptLotTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -460,13 +631,13 @@ class RcyclReceiptLotTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -496,12 +667,13 @@ class RcyclReceiptLotTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK);
@@ -521,6 +693,7 @@ class RcyclReceiptLotTableMap extends TableMap
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.RcyhdRcptBulk');
             $criteria->addSelectColumn($alias . '.RcyhdCntrlNbr');
@@ -539,6 +712,62 @@ class RcyclReceiptLotTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.RcysdTareWght');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
+            $criteria->addSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDWHSE);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDBIN);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTQTY);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTDATE);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTREF);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDSTATUS);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(RcyclReceiptLotTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.RcyhdRcptBulk');
+            $criteria->removeSelectColumn($alias . '.RcyhdCntrlNbr');
+            $criteria->removeSelectColumn($alias . '.RcydtRcptLine');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.RcysdWhse');
+            $criteria->removeSelectColumn($alias . '.RcysdLotNbr');
+            $criteria->removeSelectColumn($alias . '.RcysdBin');
+            $criteria->removeSelectColumn($alias . '.RcysdLotQty');
+            $criteria->removeSelectColumn($alias . '.RcysdLotDate');
+            $criteria->removeSelectColumn($alias . '.RcysdLotRef');
+            $criteria->removeSelectColumn($alias . '.RcysdStatus');
+            $criteria->removeSelectColumn($alias . '.RcysdClosedBy');
+            $criteria->removeSelectColumn($alias . '.RcysdClosedDate');
+            $criteria->removeSelectColumn($alias . '.RcysdClosedTime');
+            $criteria->removeSelectColumn($alias . '.RcysdTareWght');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
         }
     }
 
@@ -546,37 +775,26 @@ class RcyclReceiptLotTableMap extends TableMap
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(RcyclReceiptLotTableMap::DATABASE_NAME)->getTable(RcyclReceiptLotTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(RcyclReceiptLotTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(RcyclReceiptLotTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new RcyclReceiptLotTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a RcyclReceiptLot or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or RcyclReceiptLot object or primary key or array of primary keys
+     * @param mixed $values Criteria or RcyclReceiptLot object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclReceiptLotTableMap::DATABASE_NAME);
@@ -594,7 +812,7 @@ class RcyclReceiptLotTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, $value[0]);
@@ -627,7 +845,7 @@ class RcyclReceiptLotTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return RcyclReceiptLotQuery::create()->doDeleteAll($con);
     }
@@ -635,13 +853,13 @@ class RcyclReceiptLotTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a RcyclReceiptLot or Criteria object.
      *
-     * @param mixed               $criteria Criteria or RcyclReceiptLot object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or RcyclReceiptLot object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(RcyclReceiptLotTableMap::DATABASE_NAME);
@@ -664,7 +882,4 @@ class RcyclReceiptLotTableMap extends TableMap
         });
     }
 
-} // RcyclReceiptLotTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-RcyclReceiptLotTableMap::buildTableMap();
+}

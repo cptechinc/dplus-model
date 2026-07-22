@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemXrefCustomerNoteTableMap extends TableMap
 {
@@ -34,164 +33,308 @@ class ItemXrefCustomerNoteTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemXrefCustomerNoteTableMap';
+    public const CLASS_NAME = '.Map.ItemXrefCustomerNoteTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_item_cust_xref';
+    public const TABLE_NAME = 'notes_item_cust_xref';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemXrefCustomerNote';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemXrefCustomerNote';
+    public const OM_CLASS = '\\ItemXrefCustomerNote';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemXrefCustomerNote';
+    public const CLASS_DEFAULT = 'ItemXrefCustomerNote';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 16;
+    public const NUM_COLUMNS = 16;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 16;
+    public const NUM_HYDRATE_COLUMNS = 16;
 
     /**
      * the column name for the QnType field
      */
-    const COL_QNTYPE = 'notes_item_cust_xref.QnType';
+    public const COL_QNTYPE = 'notes_item_cust_xref.QnType';
 
     /**
      * the column name for the QnTypeDesc field
      */
-    const COL_QNTYPEDESC = 'notes_item_cust_xref.QnTypeDesc';
+    public const COL_QNTYPEDESC = 'notes_item_cust_xref.QnTypeDesc';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'notes_item_cust_xref.InitItemNbr';
+    public const COL_INITITEMNBR = 'notes_item_cust_xref.InitItemNbr';
 
     /**
      * the column name for the ArcuCustId field
      */
-    const COL_ARCUCUSTID = 'notes_item_cust_xref.ArcuCustId';
+    public const COL_ARCUCUSTID = 'notes_item_cust_xref.ArcuCustId';
 
     /**
      * the column name for the QnIcxmQuote field
      */
-    const COL_QNICXMQUOTE = 'notes_item_cust_xref.QnIcxmQuote';
+    public const COL_QNICXMQUOTE = 'notes_item_cust_xref.QnIcxmQuote';
 
     /**
      * the column name for the QnIcxmPickTicket field
      */
-    const COL_QNICXMPICKTICKET = 'notes_item_cust_xref.QnIcxmPickTicket';
+    public const COL_QNICXMPICKTICKET = 'notes_item_cust_xref.QnIcxmPickTicket';
 
     /**
      * the column name for the QnIcxmPackTicket field
      */
-    const COL_QNICXMPACKTICKET = 'notes_item_cust_xref.QnIcxmPackTicket';
+    public const COL_QNICXMPACKTICKET = 'notes_item_cust_xref.QnIcxmPackTicket';
 
     /**
      * the column name for the QnIcxmInvoice field
      */
-    const COL_QNICXMINVOICE = 'notes_item_cust_xref.QnIcxmInvoice';
+    public const COL_QNICXMINVOICE = 'notes_item_cust_xref.QnIcxmInvoice';
 
     /**
      * the column name for the QnIcxmAcknow field
      */
-    const COL_QNICXMACKNOW = 'notes_item_cust_xref.QnIcxmAcknow';
+    public const COL_QNICXMACKNOW = 'notes_item_cust_xref.QnIcxmAcknow';
 
     /**
      * the column name for the QnSeq field
      */
-    const COL_QNSEQ = 'notes_item_cust_xref.QnSeq';
+    public const COL_QNSEQ = 'notes_item_cust_xref.QnSeq';
 
     /**
      * the column name for the QnNote field
      */
-    const COL_QNNOTE = 'notes_item_cust_xref.QnNote';
+    public const COL_QNNOTE = 'notes_item_cust_xref.QnNote';
 
     /**
      * the column name for the QnKey2 field
      */
-    const COL_QNKEY2 = 'notes_item_cust_xref.QnKey2';
+    public const COL_QNKEY2 = 'notes_item_cust_xref.QnKey2';
 
     /**
      * the column name for the QnForm field
      */
-    const COL_QNFORM = 'notes_item_cust_xref.QnForm';
+    public const COL_QNFORM = 'notes_item_cust_xref.QnForm';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_item_cust_xref.DateUpdtd';
+    public const COL_DATEUPDTD = 'notes_item_cust_xref.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_item_cust_xref.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'notes_item_cust_xref.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_item_cust_xref.dummy';
+    public const COL_DUMMY = 'notes_item_cust_xref.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Inititemnbr', 'Arcucustid', 'Qnicxmquote', 'Qnicxmpickticket', 'Qnicxmpackticket', 'Qnicxminvoice', 'Qnicxmacknow', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'inititemnbr', 'arcucustid', 'qnicxmquote', 'qnicxmpickticket', 'qnicxmpackticket', 'qnicxminvoice', 'qnicxmacknow', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefCustomerNoteTableMap::COL_QNTYPE, ItemXrefCustomerNoteTableMap::COL_QNTYPEDESC, ItemXrefCustomerNoteTableMap::COL_INITITEMNBR, ItemXrefCustomerNoteTableMap::COL_ARCUCUSTID, ItemXrefCustomerNoteTableMap::COL_QNICXMQUOTE, ItemXrefCustomerNoteTableMap::COL_QNICXMPICKTICKET, ItemXrefCustomerNoteTableMap::COL_QNICXMPACKTICKET, ItemXrefCustomerNoteTableMap::COL_QNICXMINVOICE, ItemXrefCustomerNoteTableMap::COL_QNICXMACKNOW, ItemXrefCustomerNoteTableMap::COL_QNSEQ, ItemXrefCustomerNoteTableMap::COL_QNNOTE, ItemXrefCustomerNoteTableMap::COL_QNKEY2, ItemXrefCustomerNoteTableMap::COL_QNFORM, ItemXrefCustomerNoteTableMap::COL_DATEUPDTD, ItemXrefCustomerNoteTableMap::COL_TIMEUPDTD, ItemXrefCustomerNoteTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'InitItemNbr', 'ArcuCustId', 'QnIcxmQuote', 'QnIcxmPickTicket', 'QnIcxmPackTicket', 'QnIcxmInvoice', 'QnIcxmAcknow', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Qntype', 'Qntypedesc', 'Inititemnbr', 'Arcucustid', 'Qnicxmquote', 'Qnicxmpickticket', 'Qnicxmpackticket', 'Qnicxminvoice', 'Qnicxmacknow', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['qntype', 'qntypedesc', 'inititemnbr', 'arcucustid', 'qnicxmquote', 'qnicxmpickticket', 'qnicxmpackticket', 'qnicxminvoice', 'qnicxmacknow', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemXrefCustomerNoteTableMap::COL_QNTYPE, ItemXrefCustomerNoteTableMap::COL_QNTYPEDESC, ItemXrefCustomerNoteTableMap::COL_INITITEMNBR, ItemXrefCustomerNoteTableMap::COL_ARCUCUSTID, ItemXrefCustomerNoteTableMap::COL_QNICXMQUOTE, ItemXrefCustomerNoteTableMap::COL_QNICXMPICKTICKET, ItemXrefCustomerNoteTableMap::COL_QNICXMPACKTICKET, ItemXrefCustomerNoteTableMap::COL_QNICXMINVOICE, ItemXrefCustomerNoteTableMap::COL_QNICXMACKNOW, ItemXrefCustomerNoteTableMap::COL_QNSEQ, ItemXrefCustomerNoteTableMap::COL_QNNOTE, ItemXrefCustomerNoteTableMap::COL_QNKEY2, ItemXrefCustomerNoteTableMap::COL_QNFORM, ItemXrefCustomerNoteTableMap::COL_DATEUPDTD, ItemXrefCustomerNoteTableMap::COL_TIMEUPDTD, ItemXrefCustomerNoteTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['QnType', 'QnTypeDesc', 'InitItemNbr', 'ArcuCustId', 'QnIcxmQuote', 'QnIcxmPickTicket', 'QnIcxmPackTicket', 'QnIcxmInvoice', 'QnIcxmAcknow', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Inititemnbr' => 2, 'Arcucustid' => 3, 'Qnicxmquote' => 4, 'Qnicxmpickticket' => 5, 'Qnicxmpackticket' => 6, 'Qnicxminvoice' => 7, 'Qnicxmacknow' => 8, 'Qnseq' => 9, 'Qnnote' => 10, 'Qnkey2' => 11, 'Qnform' => 12, 'Dateupdtd' => 13, 'Timeupdtd' => 14, 'Dummy' => 15, ),
-        self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'inititemnbr' => 2, 'arcucustid' => 3, 'qnicxmquote' => 4, 'qnicxmpickticket' => 5, 'qnicxmpackticket' => 6, 'qnicxminvoice' => 7, 'qnicxmacknow' => 8, 'qnseq' => 9, 'qnnote' => 10, 'qnkey2' => 11, 'qnform' => 12, 'dateupdtd' => 13, 'timeupdtd' => 14, 'dummy' => 15, ),
-        self::TYPE_COLNAME       => array(ItemXrefCustomerNoteTableMap::COL_QNTYPE => 0, ItemXrefCustomerNoteTableMap::COL_QNTYPEDESC => 1, ItemXrefCustomerNoteTableMap::COL_INITITEMNBR => 2, ItemXrefCustomerNoteTableMap::COL_ARCUCUSTID => 3, ItemXrefCustomerNoteTableMap::COL_QNICXMQUOTE => 4, ItemXrefCustomerNoteTableMap::COL_QNICXMPICKTICKET => 5, ItemXrefCustomerNoteTableMap::COL_QNICXMPACKTICKET => 6, ItemXrefCustomerNoteTableMap::COL_QNICXMINVOICE => 7, ItemXrefCustomerNoteTableMap::COL_QNICXMACKNOW => 8, ItemXrefCustomerNoteTableMap::COL_QNSEQ => 9, ItemXrefCustomerNoteTableMap::COL_QNNOTE => 10, ItemXrefCustomerNoteTableMap::COL_QNKEY2 => 11, ItemXrefCustomerNoteTableMap::COL_QNFORM => 12, ItemXrefCustomerNoteTableMap::COL_DATEUPDTD => 13, ItemXrefCustomerNoteTableMap::COL_TIMEUPDTD => 14, ItemXrefCustomerNoteTableMap::COL_DUMMY => 15, ),
-        self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'InitItemNbr' => 2, 'ArcuCustId' => 3, 'QnIcxmQuote' => 4, 'QnIcxmPickTicket' => 5, 'QnIcxmPackTicket' => 6, 'QnIcxmInvoice' => 7, 'QnIcxmAcknow' => 8, 'QnSeq' => 9, 'QnNote' => 10, 'QnKey2' => 11, 'QnForm' => 12, 'DateUpdtd' => 13, 'TimeUpdtd' => 14, 'dummy' => 15, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Qntype' => 0, 'Qntypedesc' => 1, 'Inititemnbr' => 2, 'Arcucustid' => 3, 'Qnicxmquote' => 4, 'Qnicxmpickticket' => 5, 'Qnicxmpackticket' => 6, 'Qnicxminvoice' => 7, 'Qnicxmacknow' => 8, 'Qnseq' => 9, 'Qnnote' => 10, 'Qnkey2' => 11, 'Qnform' => 12, 'Dateupdtd' => 13, 'Timeupdtd' => 14, 'Dummy' => 15, ],
+        self::TYPE_CAMELNAME     => ['qntype' => 0, 'qntypedesc' => 1, 'inititemnbr' => 2, 'arcucustid' => 3, 'qnicxmquote' => 4, 'qnicxmpickticket' => 5, 'qnicxmpackticket' => 6, 'qnicxminvoice' => 7, 'qnicxmacknow' => 8, 'qnseq' => 9, 'qnnote' => 10, 'qnkey2' => 11, 'qnform' => 12, 'dateupdtd' => 13, 'timeupdtd' => 14, 'dummy' => 15, ],
+        self::TYPE_COLNAME       => [ItemXrefCustomerNoteTableMap::COL_QNTYPE => 0, ItemXrefCustomerNoteTableMap::COL_QNTYPEDESC => 1, ItemXrefCustomerNoteTableMap::COL_INITITEMNBR => 2, ItemXrefCustomerNoteTableMap::COL_ARCUCUSTID => 3, ItemXrefCustomerNoteTableMap::COL_QNICXMQUOTE => 4, ItemXrefCustomerNoteTableMap::COL_QNICXMPICKTICKET => 5, ItemXrefCustomerNoteTableMap::COL_QNICXMPACKTICKET => 6, ItemXrefCustomerNoteTableMap::COL_QNICXMINVOICE => 7, ItemXrefCustomerNoteTableMap::COL_QNICXMACKNOW => 8, ItemXrefCustomerNoteTableMap::COL_QNSEQ => 9, ItemXrefCustomerNoteTableMap::COL_QNNOTE => 10, ItemXrefCustomerNoteTableMap::COL_QNKEY2 => 11, ItemXrefCustomerNoteTableMap::COL_QNFORM => 12, ItemXrefCustomerNoteTableMap::COL_DATEUPDTD => 13, ItemXrefCustomerNoteTableMap::COL_TIMEUPDTD => 14, ItemXrefCustomerNoteTableMap::COL_DUMMY => 15, ],
+        self::TYPE_FIELDNAME     => ['QnType' => 0, 'QnTypeDesc' => 1, 'InitItemNbr' => 2, 'ArcuCustId' => 3, 'QnIcxmQuote' => 4, 'QnIcxmPickTicket' => 5, 'QnIcxmPackTicket' => 6, 'QnIcxmInvoice' => 7, 'QnIcxmAcknow' => 8, 'QnSeq' => 9, 'QnNote' => 10, 'QnKey2' => 11, 'QnForm' => 12, 'DateUpdtd' => 13, 'TimeUpdtd' => 14, 'dummy' => 15, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Qntype' => 'QNTYPE',
+        'ItemXrefCustomerNote.Qntype' => 'QNTYPE',
+        'qntype' => 'QNTYPE',
+        'itemXrefCustomerNote.qntype' => 'QNTYPE',
+        'ItemXrefCustomerNoteTableMap::COL_QNTYPE' => 'QNTYPE',
+        'COL_QNTYPE' => 'QNTYPE',
+        'QnType' => 'QNTYPE',
+        'notes_item_cust_xref.QnType' => 'QNTYPE',
+        'Qntypedesc' => 'QNTYPEDESC',
+        'ItemXrefCustomerNote.Qntypedesc' => 'QNTYPEDESC',
+        'qntypedesc' => 'QNTYPEDESC',
+        'itemXrefCustomerNote.qntypedesc' => 'QNTYPEDESC',
+        'ItemXrefCustomerNoteTableMap::COL_QNTYPEDESC' => 'QNTYPEDESC',
+        'COL_QNTYPEDESC' => 'QNTYPEDESC',
+        'QnTypeDesc' => 'QNTYPEDESC',
+        'notes_item_cust_xref.QnTypeDesc' => 'QNTYPEDESC',
+        'Inititemnbr' => 'INITITEMNBR',
+        'ItemXrefCustomerNote.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'itemXrefCustomerNote.inititemnbr' => 'INITITEMNBR',
+        'ItemXrefCustomerNoteTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'notes_item_cust_xref.InitItemNbr' => 'INITITEMNBR',
+        'Arcucustid' => 'ARCUCUSTID',
+        'ItemXrefCustomerNote.Arcucustid' => 'ARCUCUSTID',
+        'arcucustid' => 'ARCUCUSTID',
+        'itemXrefCustomerNote.arcucustid' => 'ARCUCUSTID',
+        'ItemXrefCustomerNoteTableMap::COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'ArcuCustId' => 'ARCUCUSTID',
+        'notes_item_cust_xref.ArcuCustId' => 'ARCUCUSTID',
+        'Qnicxmquote' => 'QNICXMQUOTE',
+        'ItemXrefCustomerNote.Qnicxmquote' => 'QNICXMQUOTE',
+        'qnicxmquote' => 'QNICXMQUOTE',
+        'itemXrefCustomerNote.qnicxmquote' => 'QNICXMQUOTE',
+        'ItemXrefCustomerNoteTableMap::COL_QNICXMQUOTE' => 'QNICXMQUOTE',
+        'COL_QNICXMQUOTE' => 'QNICXMQUOTE',
+        'QnIcxmQuote' => 'QNICXMQUOTE',
+        'notes_item_cust_xref.QnIcxmQuote' => 'QNICXMQUOTE',
+        'Qnicxmpickticket' => 'QNICXMPICKTICKET',
+        'ItemXrefCustomerNote.Qnicxmpickticket' => 'QNICXMPICKTICKET',
+        'qnicxmpickticket' => 'QNICXMPICKTICKET',
+        'itemXrefCustomerNote.qnicxmpickticket' => 'QNICXMPICKTICKET',
+        'ItemXrefCustomerNoteTableMap::COL_QNICXMPICKTICKET' => 'QNICXMPICKTICKET',
+        'COL_QNICXMPICKTICKET' => 'QNICXMPICKTICKET',
+        'QnIcxmPickTicket' => 'QNICXMPICKTICKET',
+        'notes_item_cust_xref.QnIcxmPickTicket' => 'QNICXMPICKTICKET',
+        'Qnicxmpackticket' => 'QNICXMPACKTICKET',
+        'ItemXrefCustomerNote.Qnicxmpackticket' => 'QNICXMPACKTICKET',
+        'qnicxmpackticket' => 'QNICXMPACKTICKET',
+        'itemXrefCustomerNote.qnicxmpackticket' => 'QNICXMPACKTICKET',
+        'ItemXrefCustomerNoteTableMap::COL_QNICXMPACKTICKET' => 'QNICXMPACKTICKET',
+        'COL_QNICXMPACKTICKET' => 'QNICXMPACKTICKET',
+        'QnIcxmPackTicket' => 'QNICXMPACKTICKET',
+        'notes_item_cust_xref.QnIcxmPackTicket' => 'QNICXMPACKTICKET',
+        'Qnicxminvoice' => 'QNICXMINVOICE',
+        'ItemXrefCustomerNote.Qnicxminvoice' => 'QNICXMINVOICE',
+        'qnicxminvoice' => 'QNICXMINVOICE',
+        'itemXrefCustomerNote.qnicxminvoice' => 'QNICXMINVOICE',
+        'ItemXrefCustomerNoteTableMap::COL_QNICXMINVOICE' => 'QNICXMINVOICE',
+        'COL_QNICXMINVOICE' => 'QNICXMINVOICE',
+        'QnIcxmInvoice' => 'QNICXMINVOICE',
+        'notes_item_cust_xref.QnIcxmInvoice' => 'QNICXMINVOICE',
+        'Qnicxmacknow' => 'QNICXMACKNOW',
+        'ItemXrefCustomerNote.Qnicxmacknow' => 'QNICXMACKNOW',
+        'qnicxmacknow' => 'QNICXMACKNOW',
+        'itemXrefCustomerNote.qnicxmacknow' => 'QNICXMACKNOW',
+        'ItemXrefCustomerNoteTableMap::COL_QNICXMACKNOW' => 'QNICXMACKNOW',
+        'COL_QNICXMACKNOW' => 'QNICXMACKNOW',
+        'QnIcxmAcknow' => 'QNICXMACKNOW',
+        'notes_item_cust_xref.QnIcxmAcknow' => 'QNICXMACKNOW',
+        'Qnseq' => 'QNSEQ',
+        'ItemXrefCustomerNote.Qnseq' => 'QNSEQ',
+        'qnseq' => 'QNSEQ',
+        'itemXrefCustomerNote.qnseq' => 'QNSEQ',
+        'ItemXrefCustomerNoteTableMap::COL_QNSEQ' => 'QNSEQ',
+        'COL_QNSEQ' => 'QNSEQ',
+        'QnSeq' => 'QNSEQ',
+        'notes_item_cust_xref.QnSeq' => 'QNSEQ',
+        'Qnnote' => 'QNNOTE',
+        'ItemXrefCustomerNote.Qnnote' => 'QNNOTE',
+        'qnnote' => 'QNNOTE',
+        'itemXrefCustomerNote.qnnote' => 'QNNOTE',
+        'ItemXrefCustomerNoteTableMap::COL_QNNOTE' => 'QNNOTE',
+        'COL_QNNOTE' => 'QNNOTE',
+        'QnNote' => 'QNNOTE',
+        'notes_item_cust_xref.QnNote' => 'QNNOTE',
+        'Qnkey2' => 'QNKEY2',
+        'ItemXrefCustomerNote.Qnkey2' => 'QNKEY2',
+        'qnkey2' => 'QNKEY2',
+        'itemXrefCustomerNote.qnkey2' => 'QNKEY2',
+        'ItemXrefCustomerNoteTableMap::COL_QNKEY2' => 'QNKEY2',
+        'COL_QNKEY2' => 'QNKEY2',
+        'QnKey2' => 'QNKEY2',
+        'notes_item_cust_xref.QnKey2' => 'QNKEY2',
+        'Qnform' => 'QNFORM',
+        'ItemXrefCustomerNote.Qnform' => 'QNFORM',
+        'qnform' => 'QNFORM',
+        'itemXrefCustomerNote.qnform' => 'QNFORM',
+        'ItemXrefCustomerNoteTableMap::COL_QNFORM' => 'QNFORM',
+        'COL_QNFORM' => 'QNFORM',
+        'QnForm' => 'QNFORM',
+        'notes_item_cust_xref.QnForm' => 'QNFORM',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemXrefCustomerNote.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemXrefCustomerNote.dateupdtd' => 'DATEUPDTD',
+        'ItemXrefCustomerNoteTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'notes_item_cust_xref.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefCustomerNote.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemXrefCustomerNote.timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefCustomerNoteTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'notes_item_cust_xref.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemXrefCustomerNote.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemXrefCustomerNote.dummy' => 'DUMMY',
+        'ItemXrefCustomerNoteTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'notes_item_cust_xref.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('notes_item_cust_xref');
@@ -217,12 +360,14 @@ class ItemXrefCustomerNoteTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -238,7 +383,7 @@ class ItemXrefCustomerNoteTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -249,9 +394,11 @@ class ItemXrefCustomerNoteTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemXrefCustomerNote $obj A \ItemXrefCustomerNote object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemXrefCustomerNote $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -270,8 +417,10 @@ class ItemXrefCustomerNoteTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemXrefCustomerNote object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemXrefCustomerNote) {
@@ -299,14 +448,14 @@ class ItemXrefCustomerNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 9 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -321,14 +470,14 @@ class ItemXrefCustomerNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -364,10 +513,10 @@ class ItemXrefCustomerNoteTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemXrefCustomerNoteTableMap::CLASS_DEFAULT : ItemXrefCustomerNoteTableMap::OM_CLASS;
     }
@@ -375,17 +524,17 @@ class ItemXrefCustomerNoteTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemXrefCustomerNote object, last column rank)
+     * @return array (ItemXrefCustomerNote object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemXrefCustomerNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemXrefCustomerNoteTableMap::getInstanceFromPool($key))) {
@@ -401,7 +550,7 @@ class ItemXrefCustomerNoteTableMap extends TableMap
             ItemXrefCustomerNoteTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -409,13 +558,13 @@ class ItemXrefCustomerNoteTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -445,12 +594,13 @@ class ItemXrefCustomerNoteTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNTYPE);
@@ -490,40 +640,80 @@ class ItemXrefCustomerNoteTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNTYPE);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNTYPEDESC);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_ARCUCUSTID);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNICXMQUOTE);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNICXMPICKTICKET);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNICXMPACKTICKET);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNICXMINVOICE);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNICXMACKNOW);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNSEQ);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNNOTE);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNKEY2);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_QNFORM);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefCustomerNoteTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.QnType');
+            $criteria->removeSelectColumn($alias . '.QnTypeDesc');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.ArcuCustId');
+            $criteria->removeSelectColumn($alias . '.QnIcxmQuote');
+            $criteria->removeSelectColumn($alias . '.QnIcxmPickTicket');
+            $criteria->removeSelectColumn($alias . '.QnIcxmPackTicket');
+            $criteria->removeSelectColumn($alias . '.QnIcxmInvoice');
+            $criteria->removeSelectColumn($alias . '.QnIcxmAcknow');
+            $criteria->removeSelectColumn($alias . '.QnSeq');
+            $criteria->removeSelectColumn($alias . '.QnNote');
+            $criteria->removeSelectColumn($alias . '.QnKey2');
+            $criteria->removeSelectColumn($alias . '.QnForm');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemXrefCustomerNoteTableMap::DATABASE_NAME)->getTable(ItemXrefCustomerNoteTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemXrefCustomerNoteTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemXrefCustomerNoteTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemXrefCustomerNoteTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemXrefCustomerNote or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemXrefCustomerNote object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemXrefCustomerNote object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefCustomerNoteTableMap::DATABASE_NAME);
@@ -541,7 +731,7 @@ class ItemXrefCustomerNoteTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemXrefCustomerNoteTableMap::COL_QNTYPE, $value[0]);
@@ -571,7 +761,7 @@ class ItemXrefCustomerNoteTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemXrefCustomerNoteQuery::create()->doDeleteAll($con);
     }
@@ -579,13 +769,13 @@ class ItemXrefCustomerNoteTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemXrefCustomerNote or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemXrefCustomerNote object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemXrefCustomerNote object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefCustomerNoteTableMap::DATABASE_NAME);
@@ -608,7 +798,4 @@ class ItemXrefCustomerNoteTableMap extends TableMap
         });
     }
 
-} // ItemXrefCustomerNoteTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemXrefCustomerNoteTableMap::buildTableMap();
+}

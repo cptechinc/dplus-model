@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class PurchaseOrderDetailLotReceivingTableMap extends TableMap
 {
@@ -34,199 +33,399 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.PurchaseOrderDetailLotReceivingTableMap';
+    public const CLASS_NAME = '.Map.PurchaseOrderDetailLotReceivingTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'po_tran_lot_det';
+    public const TABLE_NAME = 'po_tran_lot_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'PurchaseOrderDetailLotReceiving';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\PurchaseOrderDetailLotReceiving';
+    public const OM_CLASS = '\\PurchaseOrderDetailLotReceiving';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'PurchaseOrderDetailLotReceiving';
+    public const CLASS_DEFAULT = 'PurchaseOrderDetailLotReceiving';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 23;
+    public const NUM_COLUMNS = 23;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 23;
+    public const NUM_HYDRATE_COLUMNS = 23;
 
     /**
      * the column name for the PothNbr field
      */
-    const COL_POTHNBR = 'po_tran_lot_det.PothNbr';
+    public const COL_POTHNBR = 'po_tran_lot_det.PothNbr';
 
     /**
      * the column name for the PotdLine field
      */
-    const COL_POTDLINE = 'po_tran_lot_det.PotdLine';
+    public const COL_POTDLINE = 'po_tran_lot_det.PotdLine';
 
     /**
      * the column name for the PotdSeq field
      */
-    const COL_POTDSEQ = 'po_tran_lot_det.PotdSeq';
+    public const COL_POTDSEQ = 'po_tran_lot_det.PotdSeq';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'po_tran_lot_det.InitItemNbr';
+    public const COL_INITITEMNBR = 'po_tran_lot_det.InitItemNbr';
 
     /**
      * the column name for the PotsLotSer field
      */
-    const COL_POTSLOTSER = 'po_tran_lot_det.PotsLotSer';
+    public const COL_POTSLOTSER = 'po_tran_lot_det.PotsLotSer';
 
     /**
      * the column name for the PotsBin field
      */
-    const COL_POTSBIN = 'po_tran_lot_det.PotsBin';
+    public const COL_POTSBIN = 'po_tran_lot_det.PotsBin';
 
     /**
      * the column name for the PotsQtyRec field
      */
-    const COL_POTSQTYREC = 'po_tran_lot_det.PotsQtyRec';
+    public const COL_POTSQTYREC = 'po_tran_lot_det.PotsQtyRec';
 
     /**
      * the column name for the PotsQtyAllo field
      */
-    const COL_POTSQTYALLO = 'po_tran_lot_det.PotsQtyAllo';
+    public const COL_POTSQTYALLO = 'po_tran_lot_det.PotsQtyAllo';
 
     /**
      * the column name for the PotsCases field
      */
-    const COL_POTSCASES = 'po_tran_lot_det.PotsCases';
+    public const COL_POTSCASES = 'po_tran_lot_det.PotsCases';
 
     /**
      * the column name for the PotsTag field
      */
-    const COL_POTSTAG = 'po_tran_lot_det.PotsTag';
+    public const COL_POTSTAG = 'po_tran_lot_det.PotsTag';
 
     /**
      * the column name for the PotsInspctLvl field
      */
-    const COL_POTSINSPCTLVL = 'po_tran_lot_det.PotsInspctLvl';
+    public const COL_POTSINSPCTLVL = 'po_tran_lot_det.PotsInspctLvl';
 
     /**
      * the column name for the PotsLotRef field
      */
-    const COL_POTSLOTREF = 'po_tran_lot_det.PotsLotRef';
+    public const COL_POTSLOTREF = 'po_tran_lot_det.PotsLotRef';
 
     /**
      * the column name for the PotsPutTake field
      */
-    const COL_POTSPUTTAKE = 'po_tran_lot_det.PotsPutTake';
+    public const COL_POTSPUTTAKE = 'po_tran_lot_det.PotsPutTake';
 
     /**
      * the column name for the PotsLandUnitCost field
      */
-    const COL_POTSLANDUNITCOST = 'po_tran_lot_det.PotsLandUnitCost';
+    public const COL_POTSLANDUNITCOST = 'po_tran_lot_det.PotsLandUnitCost';
 
     /**
      * the column name for the PotsFabCostVari field
      */
-    const COL_POTSFABCOSTVARI = 'po_tran_lot_det.PotsFabCostVari';
+    public const COL_POTSFABCOSTVARI = 'po_tran_lot_det.PotsFabCostVari';
 
     /**
      * the column name for the PotsErBatch field
      */
-    const COL_POTSERBATCH = 'po_tran_lot_det.PotsErBatch';
+    public const COL_POTSERBATCH = 'po_tran_lot_det.PotsErBatch';
 
     /**
      * the column name for the PotsErBatchTime field
      */
-    const COL_POTSERBATCHTIME = 'po_tran_lot_det.PotsErBatchTime';
+    public const COL_POTSERBATCHTIME = 'po_tran_lot_det.PotsErBatchTime';
 
     /**
      * the column name for the PotsExpireDateCd field
      */
-    const COL_POTSEXPIREDATECD = 'po_tran_lot_det.PotsExpireDateCd';
+    public const COL_POTSEXPIREDATECD = 'po_tran_lot_det.PotsExpireDateCd';
 
     /**
      * the column name for the PotsExpireDate field
      */
-    const COL_POTSEXPIREDATE = 'po_tran_lot_det.PotsExpireDate';
+    public const COL_POTSEXPIREDATE = 'po_tran_lot_det.PotsExpireDate';
 
     /**
      * the column name for the PotsTariffCost field
      */
-    const COL_POTSTARIFFCOST = 'po_tran_lot_det.PotsTariffCost';
+    public const COL_POTSTARIFFCOST = 'po_tran_lot_det.PotsTariffCost';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'po_tran_lot_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'po_tran_lot_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'po_tran_lot_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'po_tran_lot_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'po_tran_lot_det.dummy';
+    public const COL_DUMMY = 'po_tran_lot_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Pothnbr', 'Potdline', 'Potdseq', 'Inititemnbr', 'Potslotser', 'Potsbin', 'Potsqtyrec', 'Potsqtyallo', 'Potscases', 'Potstag', 'Potsinspctlvl', 'Potslotref', 'Potsputtake', 'Potslandunitcost', 'Potsfabcostvari', 'Potserbatch', 'Potserbatchtime', 'Potsexpiredatecd', 'Potsexpiredate', 'Potstariffcost', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('pothnbr', 'potdline', 'potdseq', 'inititemnbr', 'potslotser', 'potsbin', 'potsqtyrec', 'potsqtyallo', 'potscases', 'potstag', 'potsinspctlvl', 'potslotref', 'potsputtake', 'potslandunitcost', 'potsfabcostvari', 'potserbatch', 'potserbatchtime', 'potsexpiredatecd', 'potsexpiredate', 'potstariffcost', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR, PurchaseOrderDetailLotReceivingTableMap::COL_POTDLINE, PurchaseOrderDetailLotReceivingTableMap::COL_POTDSEQ, PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTSER, PurchaseOrderDetailLotReceivingTableMap::COL_POTSBIN, PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYREC, PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYALLO, PurchaseOrderDetailLotReceivingTableMap::COL_POTSCASES, PurchaseOrderDetailLotReceivingTableMap::COL_POTSTAG, PurchaseOrderDetailLotReceivingTableMap::COL_POTSINSPCTLVL, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTREF, PurchaseOrderDetailLotReceivingTableMap::COL_POTSPUTTAKE, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLANDUNITCOST, PurchaseOrderDetailLotReceivingTableMap::COL_POTSFABCOSTVARI, PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCH, PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCHTIME, PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATECD, PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATE, PurchaseOrderDetailLotReceivingTableMap::COL_POTSTARIFFCOST, PurchaseOrderDetailLotReceivingTableMap::COL_DATEUPDTD, PurchaseOrderDetailLotReceivingTableMap::COL_TIMEUPDTD, PurchaseOrderDetailLotReceivingTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PothNbr', 'PotdLine', 'PotdSeq', 'InitItemNbr', 'PotsLotSer', 'PotsBin', 'PotsQtyRec', 'PotsQtyAllo', 'PotsCases', 'PotsTag', 'PotsInspctLvl', 'PotsLotRef', 'PotsPutTake', 'PotsLandUnitCost', 'PotsFabCostVari', 'PotsErBatch', 'PotsErBatchTime', 'PotsExpireDateCd', 'PotsExpireDate', 'PotsTariffCost', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Pothnbr', 'Potdline', 'Potdseq', 'Inititemnbr', 'Potslotser', 'Potsbin', 'Potsqtyrec', 'Potsqtyallo', 'Potscases', 'Potstag', 'Potsinspctlvl', 'Potslotref', 'Potsputtake', 'Potslandunitcost', 'Potsfabcostvari', 'Potserbatch', 'Potserbatchtime', 'Potsexpiredatecd', 'Potsexpiredate', 'Potstariffcost', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['pothnbr', 'potdline', 'potdseq', 'inititemnbr', 'potslotser', 'potsbin', 'potsqtyrec', 'potsqtyallo', 'potscases', 'potstag', 'potsinspctlvl', 'potslotref', 'potsputtake', 'potslandunitcost', 'potsfabcostvari', 'potserbatch', 'potserbatchtime', 'potsexpiredatecd', 'potsexpiredate', 'potstariffcost', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR, PurchaseOrderDetailLotReceivingTableMap::COL_POTDLINE, PurchaseOrderDetailLotReceivingTableMap::COL_POTDSEQ, PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTSER, PurchaseOrderDetailLotReceivingTableMap::COL_POTSBIN, PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYREC, PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYALLO, PurchaseOrderDetailLotReceivingTableMap::COL_POTSCASES, PurchaseOrderDetailLotReceivingTableMap::COL_POTSTAG, PurchaseOrderDetailLotReceivingTableMap::COL_POTSINSPCTLVL, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTREF, PurchaseOrderDetailLotReceivingTableMap::COL_POTSPUTTAKE, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLANDUNITCOST, PurchaseOrderDetailLotReceivingTableMap::COL_POTSFABCOSTVARI, PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCH, PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCHTIME, PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATECD, PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATE, PurchaseOrderDetailLotReceivingTableMap::COL_POTSTARIFFCOST, PurchaseOrderDetailLotReceivingTableMap::COL_DATEUPDTD, PurchaseOrderDetailLotReceivingTableMap::COL_TIMEUPDTD, PurchaseOrderDetailLotReceivingTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['PothNbr', 'PotdLine', 'PotdSeq', 'InitItemNbr', 'PotsLotSer', 'PotsBin', 'PotsQtyRec', 'PotsQtyAllo', 'PotsCases', 'PotsTag', 'PotsInspctLvl', 'PotsLotRef', 'PotsPutTake', 'PotsLandUnitCost', 'PotsFabCostVari', 'PotsErBatch', 'PotsErBatchTime', 'PotsExpireDateCd', 'PotsExpireDate', 'PotsTariffCost', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Pothnbr' => 0, 'Potdline' => 1, 'Potdseq' => 2, 'Inititemnbr' => 3, 'Potslotser' => 4, 'Potsbin' => 5, 'Potsqtyrec' => 6, 'Potsqtyallo' => 7, 'Potscases' => 8, 'Potstag' => 9, 'Potsinspctlvl' => 10, 'Potslotref' => 11, 'Potsputtake' => 12, 'Potslandunitcost' => 13, 'Potsfabcostvari' => 14, 'Potserbatch' => 15, 'Potserbatchtime' => 16, 'Potsexpiredatecd' => 17, 'Potsexpiredate' => 18, 'Potstariffcost' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ),
-        self::TYPE_CAMELNAME     => array('pothnbr' => 0, 'potdline' => 1, 'potdseq' => 2, 'inititemnbr' => 3, 'potslotser' => 4, 'potsbin' => 5, 'potsqtyrec' => 6, 'potsqtyallo' => 7, 'potscases' => 8, 'potstag' => 9, 'potsinspctlvl' => 10, 'potslotref' => 11, 'potsputtake' => 12, 'potslandunitcost' => 13, 'potsfabcostvari' => 14, 'potserbatch' => 15, 'potserbatchtime' => 16, 'potsexpiredatecd' => 17, 'potsexpiredate' => 18, 'potstariffcost' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_COLNAME       => array(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR => 0, PurchaseOrderDetailLotReceivingTableMap::COL_POTDLINE => 1, PurchaseOrderDetailLotReceivingTableMap::COL_POTDSEQ => 2, PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR => 3, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTSER => 4, PurchaseOrderDetailLotReceivingTableMap::COL_POTSBIN => 5, PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYREC => 6, PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYALLO => 7, PurchaseOrderDetailLotReceivingTableMap::COL_POTSCASES => 8, PurchaseOrderDetailLotReceivingTableMap::COL_POTSTAG => 9, PurchaseOrderDetailLotReceivingTableMap::COL_POTSINSPCTLVL => 10, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTREF => 11, PurchaseOrderDetailLotReceivingTableMap::COL_POTSPUTTAKE => 12, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLANDUNITCOST => 13, PurchaseOrderDetailLotReceivingTableMap::COL_POTSFABCOSTVARI => 14, PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCH => 15, PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCHTIME => 16, PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATECD => 17, PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATE => 18, PurchaseOrderDetailLotReceivingTableMap::COL_POTSTARIFFCOST => 19, PurchaseOrderDetailLotReceivingTableMap::COL_DATEUPDTD => 20, PurchaseOrderDetailLotReceivingTableMap::COL_TIMEUPDTD => 21, PurchaseOrderDetailLotReceivingTableMap::COL_DUMMY => 22, ),
-        self::TYPE_FIELDNAME     => array('PothNbr' => 0, 'PotdLine' => 1, 'PotdSeq' => 2, 'InitItemNbr' => 3, 'PotsLotSer' => 4, 'PotsBin' => 5, 'PotsQtyRec' => 6, 'PotsQtyAllo' => 7, 'PotsCases' => 8, 'PotsTag' => 9, 'PotsInspctLvl' => 10, 'PotsLotRef' => 11, 'PotsPutTake' => 12, 'PotsLandUnitCost' => 13, 'PotsFabCostVari' => 14, 'PotsErBatch' => 15, 'PotsErBatchTime' => 16, 'PotsExpireDateCd' => 17, 'PotsExpireDate' => 18, 'PotsTariffCost' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Pothnbr' => 0, 'Potdline' => 1, 'Potdseq' => 2, 'Inititemnbr' => 3, 'Potslotser' => 4, 'Potsbin' => 5, 'Potsqtyrec' => 6, 'Potsqtyallo' => 7, 'Potscases' => 8, 'Potstag' => 9, 'Potsinspctlvl' => 10, 'Potslotref' => 11, 'Potsputtake' => 12, 'Potslandunitcost' => 13, 'Potsfabcostvari' => 14, 'Potserbatch' => 15, 'Potserbatchtime' => 16, 'Potsexpiredatecd' => 17, 'Potsexpiredate' => 18, 'Potstariffcost' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ],
+        self::TYPE_CAMELNAME     => ['pothnbr' => 0, 'potdline' => 1, 'potdseq' => 2, 'inititemnbr' => 3, 'potslotser' => 4, 'potsbin' => 5, 'potsqtyrec' => 6, 'potsqtyallo' => 7, 'potscases' => 8, 'potstag' => 9, 'potsinspctlvl' => 10, 'potslotref' => 11, 'potsputtake' => 12, 'potslandunitcost' => 13, 'potsfabcostvari' => 14, 'potserbatch' => 15, 'potserbatchtime' => 16, 'potsexpiredatecd' => 17, 'potsexpiredate' => 18, 'potstariffcost' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ],
+        self::TYPE_COLNAME       => [PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR => 0, PurchaseOrderDetailLotReceivingTableMap::COL_POTDLINE => 1, PurchaseOrderDetailLotReceivingTableMap::COL_POTDSEQ => 2, PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR => 3, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTSER => 4, PurchaseOrderDetailLotReceivingTableMap::COL_POTSBIN => 5, PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYREC => 6, PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYALLO => 7, PurchaseOrderDetailLotReceivingTableMap::COL_POTSCASES => 8, PurchaseOrderDetailLotReceivingTableMap::COL_POTSTAG => 9, PurchaseOrderDetailLotReceivingTableMap::COL_POTSINSPCTLVL => 10, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTREF => 11, PurchaseOrderDetailLotReceivingTableMap::COL_POTSPUTTAKE => 12, PurchaseOrderDetailLotReceivingTableMap::COL_POTSLANDUNITCOST => 13, PurchaseOrderDetailLotReceivingTableMap::COL_POTSFABCOSTVARI => 14, PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCH => 15, PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCHTIME => 16, PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATECD => 17, PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATE => 18, PurchaseOrderDetailLotReceivingTableMap::COL_POTSTARIFFCOST => 19, PurchaseOrderDetailLotReceivingTableMap::COL_DATEUPDTD => 20, PurchaseOrderDetailLotReceivingTableMap::COL_TIMEUPDTD => 21, PurchaseOrderDetailLotReceivingTableMap::COL_DUMMY => 22, ],
+        self::TYPE_FIELDNAME     => ['PothNbr' => 0, 'PotdLine' => 1, 'PotdSeq' => 2, 'InitItemNbr' => 3, 'PotsLotSer' => 4, 'PotsBin' => 5, 'PotsQtyRec' => 6, 'PotsQtyAllo' => 7, 'PotsCases' => 8, 'PotsTag' => 9, 'PotsInspctLvl' => 10, 'PotsLotRef' => 11, 'PotsPutTake' => 12, 'PotsLandUnitCost' => 13, 'PotsFabCostVari' => 14, 'PotsErBatch' => 15, 'PotsErBatchTime' => 16, 'PotsExpireDateCd' => 17, 'PotsExpireDate' => 18, 'PotsTariffCost' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Pothnbr' => 'POTHNBR',
+        'PurchaseOrderDetailLotReceiving.Pothnbr' => 'POTHNBR',
+        'pothnbr' => 'POTHNBR',
+        'purchaseOrderDetailLotReceiving.pothnbr' => 'POTHNBR',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR' => 'POTHNBR',
+        'COL_POTHNBR' => 'POTHNBR',
+        'PothNbr' => 'POTHNBR',
+        'po_tran_lot_det.PothNbr' => 'POTHNBR',
+        'Potdline' => 'POTDLINE',
+        'PurchaseOrderDetailLotReceiving.Potdline' => 'POTDLINE',
+        'potdline' => 'POTDLINE',
+        'purchaseOrderDetailLotReceiving.potdline' => 'POTDLINE',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTDLINE' => 'POTDLINE',
+        'COL_POTDLINE' => 'POTDLINE',
+        'PotdLine' => 'POTDLINE',
+        'po_tran_lot_det.PotdLine' => 'POTDLINE',
+        'Potdseq' => 'POTDSEQ',
+        'PurchaseOrderDetailLotReceiving.Potdseq' => 'POTDSEQ',
+        'potdseq' => 'POTDSEQ',
+        'purchaseOrderDetailLotReceiving.potdseq' => 'POTDSEQ',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTDSEQ' => 'POTDSEQ',
+        'COL_POTDSEQ' => 'POTDSEQ',
+        'PotdSeq' => 'POTDSEQ',
+        'po_tran_lot_det.PotdSeq' => 'POTDSEQ',
+        'Inititemnbr' => 'INITITEMNBR',
+        'PurchaseOrderDetailLotReceiving.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'purchaseOrderDetailLotReceiving.inititemnbr' => 'INITITEMNBR',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'po_tran_lot_det.InitItemNbr' => 'INITITEMNBR',
+        'Potslotser' => 'POTSLOTSER',
+        'PurchaseOrderDetailLotReceiving.Potslotser' => 'POTSLOTSER',
+        'potslotser' => 'POTSLOTSER',
+        'purchaseOrderDetailLotReceiving.potslotser' => 'POTSLOTSER',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTSER' => 'POTSLOTSER',
+        'COL_POTSLOTSER' => 'POTSLOTSER',
+        'PotsLotSer' => 'POTSLOTSER',
+        'po_tran_lot_det.PotsLotSer' => 'POTSLOTSER',
+        'Potsbin' => 'POTSBIN',
+        'PurchaseOrderDetailLotReceiving.Potsbin' => 'POTSBIN',
+        'potsbin' => 'POTSBIN',
+        'purchaseOrderDetailLotReceiving.potsbin' => 'POTSBIN',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSBIN' => 'POTSBIN',
+        'COL_POTSBIN' => 'POTSBIN',
+        'PotsBin' => 'POTSBIN',
+        'po_tran_lot_det.PotsBin' => 'POTSBIN',
+        'Potsqtyrec' => 'POTSQTYREC',
+        'PurchaseOrderDetailLotReceiving.Potsqtyrec' => 'POTSQTYREC',
+        'potsqtyrec' => 'POTSQTYREC',
+        'purchaseOrderDetailLotReceiving.potsqtyrec' => 'POTSQTYREC',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYREC' => 'POTSQTYREC',
+        'COL_POTSQTYREC' => 'POTSQTYREC',
+        'PotsQtyRec' => 'POTSQTYREC',
+        'po_tran_lot_det.PotsQtyRec' => 'POTSQTYREC',
+        'Potsqtyallo' => 'POTSQTYALLO',
+        'PurchaseOrderDetailLotReceiving.Potsqtyallo' => 'POTSQTYALLO',
+        'potsqtyallo' => 'POTSQTYALLO',
+        'purchaseOrderDetailLotReceiving.potsqtyallo' => 'POTSQTYALLO',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYALLO' => 'POTSQTYALLO',
+        'COL_POTSQTYALLO' => 'POTSQTYALLO',
+        'PotsQtyAllo' => 'POTSQTYALLO',
+        'po_tran_lot_det.PotsQtyAllo' => 'POTSQTYALLO',
+        'Potscases' => 'POTSCASES',
+        'PurchaseOrderDetailLotReceiving.Potscases' => 'POTSCASES',
+        'potscases' => 'POTSCASES',
+        'purchaseOrderDetailLotReceiving.potscases' => 'POTSCASES',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSCASES' => 'POTSCASES',
+        'COL_POTSCASES' => 'POTSCASES',
+        'PotsCases' => 'POTSCASES',
+        'po_tran_lot_det.PotsCases' => 'POTSCASES',
+        'Potstag' => 'POTSTAG',
+        'PurchaseOrderDetailLotReceiving.Potstag' => 'POTSTAG',
+        'potstag' => 'POTSTAG',
+        'purchaseOrderDetailLotReceiving.potstag' => 'POTSTAG',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSTAG' => 'POTSTAG',
+        'COL_POTSTAG' => 'POTSTAG',
+        'PotsTag' => 'POTSTAG',
+        'po_tran_lot_det.PotsTag' => 'POTSTAG',
+        'Potsinspctlvl' => 'POTSINSPCTLVL',
+        'PurchaseOrderDetailLotReceiving.Potsinspctlvl' => 'POTSINSPCTLVL',
+        'potsinspctlvl' => 'POTSINSPCTLVL',
+        'purchaseOrderDetailLotReceiving.potsinspctlvl' => 'POTSINSPCTLVL',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSINSPCTLVL' => 'POTSINSPCTLVL',
+        'COL_POTSINSPCTLVL' => 'POTSINSPCTLVL',
+        'PotsInspctLvl' => 'POTSINSPCTLVL',
+        'po_tran_lot_det.PotsInspctLvl' => 'POTSINSPCTLVL',
+        'Potslotref' => 'POTSLOTREF',
+        'PurchaseOrderDetailLotReceiving.Potslotref' => 'POTSLOTREF',
+        'potslotref' => 'POTSLOTREF',
+        'purchaseOrderDetailLotReceiving.potslotref' => 'POTSLOTREF',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTREF' => 'POTSLOTREF',
+        'COL_POTSLOTREF' => 'POTSLOTREF',
+        'PotsLotRef' => 'POTSLOTREF',
+        'po_tran_lot_det.PotsLotRef' => 'POTSLOTREF',
+        'Potsputtake' => 'POTSPUTTAKE',
+        'PurchaseOrderDetailLotReceiving.Potsputtake' => 'POTSPUTTAKE',
+        'potsputtake' => 'POTSPUTTAKE',
+        'purchaseOrderDetailLotReceiving.potsputtake' => 'POTSPUTTAKE',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSPUTTAKE' => 'POTSPUTTAKE',
+        'COL_POTSPUTTAKE' => 'POTSPUTTAKE',
+        'PotsPutTake' => 'POTSPUTTAKE',
+        'po_tran_lot_det.PotsPutTake' => 'POTSPUTTAKE',
+        'Potslandunitcost' => 'POTSLANDUNITCOST',
+        'PurchaseOrderDetailLotReceiving.Potslandunitcost' => 'POTSLANDUNITCOST',
+        'potslandunitcost' => 'POTSLANDUNITCOST',
+        'purchaseOrderDetailLotReceiving.potslandunitcost' => 'POTSLANDUNITCOST',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSLANDUNITCOST' => 'POTSLANDUNITCOST',
+        'COL_POTSLANDUNITCOST' => 'POTSLANDUNITCOST',
+        'PotsLandUnitCost' => 'POTSLANDUNITCOST',
+        'po_tran_lot_det.PotsLandUnitCost' => 'POTSLANDUNITCOST',
+        'Potsfabcostvari' => 'POTSFABCOSTVARI',
+        'PurchaseOrderDetailLotReceiving.Potsfabcostvari' => 'POTSFABCOSTVARI',
+        'potsfabcostvari' => 'POTSFABCOSTVARI',
+        'purchaseOrderDetailLotReceiving.potsfabcostvari' => 'POTSFABCOSTVARI',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSFABCOSTVARI' => 'POTSFABCOSTVARI',
+        'COL_POTSFABCOSTVARI' => 'POTSFABCOSTVARI',
+        'PotsFabCostVari' => 'POTSFABCOSTVARI',
+        'po_tran_lot_det.PotsFabCostVari' => 'POTSFABCOSTVARI',
+        'Potserbatch' => 'POTSERBATCH',
+        'PurchaseOrderDetailLotReceiving.Potserbatch' => 'POTSERBATCH',
+        'potserbatch' => 'POTSERBATCH',
+        'purchaseOrderDetailLotReceiving.potserbatch' => 'POTSERBATCH',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCH' => 'POTSERBATCH',
+        'COL_POTSERBATCH' => 'POTSERBATCH',
+        'PotsErBatch' => 'POTSERBATCH',
+        'po_tran_lot_det.PotsErBatch' => 'POTSERBATCH',
+        'Potserbatchtime' => 'POTSERBATCHTIME',
+        'PurchaseOrderDetailLotReceiving.Potserbatchtime' => 'POTSERBATCHTIME',
+        'potserbatchtime' => 'POTSERBATCHTIME',
+        'purchaseOrderDetailLotReceiving.potserbatchtime' => 'POTSERBATCHTIME',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCHTIME' => 'POTSERBATCHTIME',
+        'COL_POTSERBATCHTIME' => 'POTSERBATCHTIME',
+        'PotsErBatchTime' => 'POTSERBATCHTIME',
+        'po_tran_lot_det.PotsErBatchTime' => 'POTSERBATCHTIME',
+        'Potsexpiredatecd' => 'POTSEXPIREDATECD',
+        'PurchaseOrderDetailLotReceiving.Potsexpiredatecd' => 'POTSEXPIREDATECD',
+        'potsexpiredatecd' => 'POTSEXPIREDATECD',
+        'purchaseOrderDetailLotReceiving.potsexpiredatecd' => 'POTSEXPIREDATECD',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATECD' => 'POTSEXPIREDATECD',
+        'COL_POTSEXPIREDATECD' => 'POTSEXPIREDATECD',
+        'PotsExpireDateCd' => 'POTSEXPIREDATECD',
+        'po_tran_lot_det.PotsExpireDateCd' => 'POTSEXPIREDATECD',
+        'Potsexpiredate' => 'POTSEXPIREDATE',
+        'PurchaseOrderDetailLotReceiving.Potsexpiredate' => 'POTSEXPIREDATE',
+        'potsexpiredate' => 'POTSEXPIREDATE',
+        'purchaseOrderDetailLotReceiving.potsexpiredate' => 'POTSEXPIREDATE',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATE' => 'POTSEXPIREDATE',
+        'COL_POTSEXPIREDATE' => 'POTSEXPIREDATE',
+        'PotsExpireDate' => 'POTSEXPIREDATE',
+        'po_tran_lot_det.PotsExpireDate' => 'POTSEXPIREDATE',
+        'Potstariffcost' => 'POTSTARIFFCOST',
+        'PurchaseOrderDetailLotReceiving.Potstariffcost' => 'POTSTARIFFCOST',
+        'potstariffcost' => 'POTSTARIFFCOST',
+        'purchaseOrderDetailLotReceiving.potstariffcost' => 'POTSTARIFFCOST',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_POTSTARIFFCOST' => 'POTSTARIFFCOST',
+        'COL_POTSTARIFFCOST' => 'POTSTARIFFCOST',
+        'PotsTariffCost' => 'POTSTARIFFCOST',
+        'po_tran_lot_det.PotsTariffCost' => 'POTSTARIFFCOST',
+        'Dateupdtd' => 'DATEUPDTD',
+        'PurchaseOrderDetailLotReceiving.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'purchaseOrderDetailLotReceiving.dateupdtd' => 'DATEUPDTD',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'po_tran_lot_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'PurchaseOrderDetailLotReceiving.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'purchaseOrderDetailLotReceiving.timeupdtd' => 'TIMEUPDTD',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'po_tran_lot_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'PurchaseOrderDetailLotReceiving.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'purchaseOrderDetailLotReceiving.dummy' => 'DUMMY',
+        'PurchaseOrderDetailLotReceivingTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'po_tran_lot_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('po_tran_lot_det');
@@ -261,12 +460,14 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -301,7 +502,7 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -312,9 +513,11 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \PurchaseOrderDetailLotReceiving $obj A \PurchaseOrderDetailLotReceiving object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(PurchaseOrderDetailLotReceiving $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -333,8 +536,10 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \PurchaseOrderDetailLotReceiving object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \PurchaseOrderDetailLotReceiving) {
@@ -362,14 +567,14 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pothnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Potdline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Potdseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Potslotser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Potsbin', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -384,14 +589,14 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -437,10 +642,10 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? PurchaseOrderDetailLotReceivingTableMap::CLASS_DEFAULT : PurchaseOrderDetailLotReceivingTableMap::OM_CLASS;
     }
@@ -448,17 +653,17 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (PurchaseOrderDetailLotReceiving object, last column rank)
+     * @return array (PurchaseOrderDetailLotReceiving object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = PurchaseOrderDetailLotReceivingTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = PurchaseOrderDetailLotReceivingTableMap::getInstanceFromPool($key))) {
@@ -474,7 +679,7 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
             PurchaseOrderDetailLotReceivingTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -482,13 +687,13 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -518,12 +723,13 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR);
@@ -577,40 +783,94 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTDLINE);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTDSEQ);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTSER);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSBIN);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYREC);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYALLO);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSCASES);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSTAG);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSINSPCTLVL);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTREF);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSPUTTAKE);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLANDUNITCOST);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSFABCOSTVARI);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCH);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCHTIME);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATECD);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATE);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_POTSTARIFFCOST);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(PurchaseOrderDetailLotReceivingTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.PothNbr');
+            $criteria->removeSelectColumn($alias . '.PotdLine');
+            $criteria->removeSelectColumn($alias . '.PotdSeq');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.PotsLotSer');
+            $criteria->removeSelectColumn($alias . '.PotsBin');
+            $criteria->removeSelectColumn($alias . '.PotsQtyRec');
+            $criteria->removeSelectColumn($alias . '.PotsQtyAllo');
+            $criteria->removeSelectColumn($alias . '.PotsCases');
+            $criteria->removeSelectColumn($alias . '.PotsTag');
+            $criteria->removeSelectColumn($alias . '.PotsInspctLvl');
+            $criteria->removeSelectColumn($alias . '.PotsLotRef');
+            $criteria->removeSelectColumn($alias . '.PotsPutTake');
+            $criteria->removeSelectColumn($alias . '.PotsLandUnitCost');
+            $criteria->removeSelectColumn($alias . '.PotsFabCostVari');
+            $criteria->removeSelectColumn($alias . '.PotsErBatch');
+            $criteria->removeSelectColumn($alias . '.PotsErBatchTime');
+            $criteria->removeSelectColumn($alias . '.PotsExpireDateCd');
+            $criteria->removeSelectColumn($alias . '.PotsExpireDate');
+            $criteria->removeSelectColumn($alias . '.PotsTariffCost');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(PurchaseOrderDetailLotReceivingTableMap::DATABASE_NAME)->getTable(PurchaseOrderDetailLotReceivingTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(PurchaseOrderDetailLotReceivingTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(PurchaseOrderDetailLotReceivingTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new PurchaseOrderDetailLotReceivingTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a PurchaseOrderDetailLotReceiving or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or PurchaseOrderDetailLotReceiving object or primary key or array of primary keys
+     * @param mixed $values Criteria or PurchaseOrderDetailLotReceiving object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailLotReceivingTableMap::DATABASE_NAME);
@@ -628,7 +888,7 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR, $value[0]);
@@ -660,7 +920,7 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return PurchaseOrderDetailLotReceivingQuery::create()->doDeleteAll($con);
     }
@@ -668,13 +928,13 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a PurchaseOrderDetailLotReceiving or Criteria object.
      *
-     * @param mixed               $criteria Criteria or PurchaseOrderDetailLotReceiving object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or PurchaseOrderDetailLotReceiving object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailLotReceivingTableMap::DATABASE_NAME);
@@ -697,7 +957,4 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
         });
     }
 
-} // PurchaseOrderDetailLotReceivingTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-PurchaseOrderDetailLotReceivingTableMap::buildTableMap();
+}

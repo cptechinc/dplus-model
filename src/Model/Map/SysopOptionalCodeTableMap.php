@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class SysopOptionalCodeTableMap extends TableMap
 {
@@ -34,124 +33,204 @@ class SysopOptionalCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SysopOptionalCodeTableMap';
+    public const CLASS_NAME = '.Map.SysopOptionalCodeTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'sys_opt_optcode';
+    public const TABLE_NAME = 'sys_opt_optcode';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'SysopOptionalCode';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\SysopOptionalCode';
+    public const OM_CLASS = '\\SysopOptionalCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'SysopOptionalCode';
+    public const CLASS_DEFAULT = 'SysopOptionalCode';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 8;
+    public const NUM_COLUMNS = 8;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 8;
+    public const NUM_HYDRATE_COLUMNS = 8;
 
     /**
      * the column name for the OptnSystem field
      */
-    const COL_OPTNSYSTEM = 'sys_opt_optcode.OptnSystem';
+    public const COL_OPTNSYSTEM = 'sys_opt_optcode.OptnSystem';
 
     /**
      * the column name for the OptnCode field
      */
-    const COL_OPTNCODE = 'sys_opt_optcode.OptnCode';
+    public const COL_OPTNCODE = 'sys_opt_optcode.OptnCode';
 
     /**
      * the column name for the OptcId field
      */
-    const COL_OPTCID = 'sys_opt_optcode.OptcId';
+    public const COL_OPTCID = 'sys_opt_optcode.OptcId';
 
     /**
      * the column name for the OptcDesc field
      */
-    const COL_OPTCDESC = 'sys_opt_optcode.OptcDesc';
+    public const COL_OPTCDESC = 'sys_opt_optcode.OptcDesc';
 
     /**
      * the column name for the OptcDesc2 field
      */
-    const COL_OPTCDESC2 = 'sys_opt_optcode.OptcDesc2';
+    public const COL_OPTCDESC2 = 'sys_opt_optcode.OptcDesc2';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'sys_opt_optcode.DateUpdtd';
+    public const COL_DATEUPDTD = 'sys_opt_optcode.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'sys_opt_optcode.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'sys_opt_optcode.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'sys_opt_optcode.dummy';
+    public const COL_DUMMY = 'sys_opt_optcode.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Optnsystem', 'Optncode', 'Optcid', 'Optcdesc', 'Optcdesc2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('optnsystem', 'optncode', 'optcid', 'optcdesc', 'optcdesc2', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SysopOptionalCodeTableMap::COL_OPTNSYSTEM, SysopOptionalCodeTableMap::COL_OPTNCODE, SysopOptionalCodeTableMap::COL_OPTCID, SysopOptionalCodeTableMap::COL_OPTCDESC, SysopOptionalCodeTableMap::COL_OPTCDESC2, SysopOptionalCodeTableMap::COL_DATEUPDTD, SysopOptionalCodeTableMap::COL_TIMEUPDTD, SysopOptionalCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OptnSystem', 'OptnCode', 'OptcId', 'OptcDesc', 'OptcDesc2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Optnsystem', 'Optncode', 'Optcid', 'Optcdesc', 'Optcdesc2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['optnsystem', 'optncode', 'optcid', 'optcdesc', 'optcdesc2', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [SysopOptionalCodeTableMap::COL_OPTNSYSTEM, SysopOptionalCodeTableMap::COL_OPTNCODE, SysopOptionalCodeTableMap::COL_OPTCID, SysopOptionalCodeTableMap::COL_OPTCDESC, SysopOptionalCodeTableMap::COL_OPTCDESC2, SysopOptionalCodeTableMap::COL_DATEUPDTD, SysopOptionalCodeTableMap::COL_TIMEUPDTD, SysopOptionalCodeTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['OptnSystem', 'OptnCode', 'OptcId', 'OptcDesc', 'OptcDesc2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Optnsystem' => 0, 'Optncode' => 1, 'Optcid' => 2, 'Optcdesc' => 3, 'Optcdesc2' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ),
-        self::TYPE_CAMELNAME     => array('optnsystem' => 0, 'optncode' => 1, 'optcid' => 2, 'optcdesc' => 3, 'optcdesc2' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_COLNAME       => array(SysopOptionalCodeTableMap::COL_OPTNSYSTEM => 0, SysopOptionalCodeTableMap::COL_OPTNCODE => 1, SysopOptionalCodeTableMap::COL_OPTCID => 2, SysopOptionalCodeTableMap::COL_OPTCDESC => 3, SysopOptionalCodeTableMap::COL_OPTCDESC2 => 4, SysopOptionalCodeTableMap::COL_DATEUPDTD => 5, SysopOptionalCodeTableMap::COL_TIMEUPDTD => 6, SysopOptionalCodeTableMap::COL_DUMMY => 7, ),
-        self::TYPE_FIELDNAME     => array('OptnSystem' => 0, 'OptnCode' => 1, 'OptcId' => 2, 'OptcDesc' => 3, 'OptcDesc2' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Optnsystem' => 0, 'Optncode' => 1, 'Optcid' => 2, 'Optcdesc' => 3, 'Optcdesc2' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ],
+        self::TYPE_CAMELNAME     => ['optnsystem' => 0, 'optncode' => 1, 'optcid' => 2, 'optcdesc' => 3, 'optcdesc2' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ],
+        self::TYPE_COLNAME       => [SysopOptionalCodeTableMap::COL_OPTNSYSTEM => 0, SysopOptionalCodeTableMap::COL_OPTNCODE => 1, SysopOptionalCodeTableMap::COL_OPTCID => 2, SysopOptionalCodeTableMap::COL_OPTCDESC => 3, SysopOptionalCodeTableMap::COL_OPTCDESC2 => 4, SysopOptionalCodeTableMap::COL_DATEUPDTD => 5, SysopOptionalCodeTableMap::COL_TIMEUPDTD => 6, SysopOptionalCodeTableMap::COL_DUMMY => 7, ],
+        self::TYPE_FIELDNAME     => ['OptnSystem' => 0, 'OptnCode' => 1, 'OptcId' => 2, 'OptcDesc' => 3, 'OptcDesc2' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Optnsystem' => 'OPTNSYSTEM',
+        'SysopOptionalCode.Optnsystem' => 'OPTNSYSTEM',
+        'optnsystem' => 'OPTNSYSTEM',
+        'sysopOptionalCode.optnsystem' => 'OPTNSYSTEM',
+        'SysopOptionalCodeTableMap::COL_OPTNSYSTEM' => 'OPTNSYSTEM',
+        'COL_OPTNSYSTEM' => 'OPTNSYSTEM',
+        'OptnSystem' => 'OPTNSYSTEM',
+        'sys_opt_optcode.OptnSystem' => 'OPTNSYSTEM',
+        'Optncode' => 'OPTNCODE',
+        'SysopOptionalCode.Optncode' => 'OPTNCODE',
+        'optncode' => 'OPTNCODE',
+        'sysopOptionalCode.optncode' => 'OPTNCODE',
+        'SysopOptionalCodeTableMap::COL_OPTNCODE' => 'OPTNCODE',
+        'COL_OPTNCODE' => 'OPTNCODE',
+        'OptnCode' => 'OPTNCODE',
+        'sys_opt_optcode.OptnCode' => 'OPTNCODE',
+        'Optcid' => 'OPTCID',
+        'SysopOptionalCode.Optcid' => 'OPTCID',
+        'optcid' => 'OPTCID',
+        'sysopOptionalCode.optcid' => 'OPTCID',
+        'SysopOptionalCodeTableMap::COL_OPTCID' => 'OPTCID',
+        'COL_OPTCID' => 'OPTCID',
+        'OptcId' => 'OPTCID',
+        'sys_opt_optcode.OptcId' => 'OPTCID',
+        'Optcdesc' => 'OPTCDESC',
+        'SysopOptionalCode.Optcdesc' => 'OPTCDESC',
+        'optcdesc' => 'OPTCDESC',
+        'sysopOptionalCode.optcdesc' => 'OPTCDESC',
+        'SysopOptionalCodeTableMap::COL_OPTCDESC' => 'OPTCDESC',
+        'COL_OPTCDESC' => 'OPTCDESC',
+        'OptcDesc' => 'OPTCDESC',
+        'sys_opt_optcode.OptcDesc' => 'OPTCDESC',
+        'Optcdesc2' => 'OPTCDESC2',
+        'SysopOptionalCode.Optcdesc2' => 'OPTCDESC2',
+        'optcdesc2' => 'OPTCDESC2',
+        'sysopOptionalCode.optcdesc2' => 'OPTCDESC2',
+        'SysopOptionalCodeTableMap::COL_OPTCDESC2' => 'OPTCDESC2',
+        'COL_OPTCDESC2' => 'OPTCDESC2',
+        'OptcDesc2' => 'OPTCDESC2',
+        'sys_opt_optcode.OptcDesc2' => 'OPTCDESC2',
+        'Dateupdtd' => 'DATEUPDTD',
+        'SysopOptionalCode.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'sysopOptionalCode.dateupdtd' => 'DATEUPDTD',
+        'SysopOptionalCodeTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'sys_opt_optcode.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'SysopOptionalCode.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'sysopOptionalCode.timeupdtd' => 'TIMEUPDTD',
+        'SysopOptionalCodeTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'sys_opt_optcode.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'SysopOptionalCode.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'sysopOptionalCode.dummy' => 'DUMMY',
+        'SysopOptionalCodeTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'sys_opt_optcode.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('sys_opt_optcode');
@@ -169,14 +248,16 @@ class SysopOptionalCodeTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -187,9 +268,11 @@ class SysopOptionalCodeTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \SysopOptionalCode $obj A \SysopOptionalCode object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(SysopOptionalCode $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -208,8 +291,10 @@ class SysopOptionalCodeTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \SysopOptionalCode object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \SysopOptionalCode) {
@@ -237,14 +322,14 @@ class SysopOptionalCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Optcid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -259,14 +344,14 @@ class SysopOptionalCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -297,10 +382,10 @@ class SysopOptionalCodeTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? SysopOptionalCodeTableMap::CLASS_DEFAULT : SysopOptionalCodeTableMap::OM_CLASS;
     }
@@ -308,17 +393,17 @@ class SysopOptionalCodeTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (SysopOptionalCode object, last column rank)
+     * @return array (SysopOptionalCode object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = SysopOptionalCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = SysopOptionalCodeTableMap::getInstanceFromPool($key))) {
@@ -334,7 +419,7 @@ class SysopOptionalCodeTableMap extends TableMap
             SysopOptionalCodeTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -342,13 +427,13 @@ class SysopOptionalCodeTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -378,12 +463,13 @@ class SysopOptionalCodeTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(SysopOptionalCodeTableMap::COL_OPTNSYSTEM);
@@ -407,40 +493,64 @@ class SysopOptionalCodeTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(SysopOptionalCodeTableMap::COL_OPTNSYSTEM);
+            $criteria->removeSelectColumn(SysopOptionalCodeTableMap::COL_OPTNCODE);
+            $criteria->removeSelectColumn(SysopOptionalCodeTableMap::COL_OPTCID);
+            $criteria->removeSelectColumn(SysopOptionalCodeTableMap::COL_OPTCDESC);
+            $criteria->removeSelectColumn(SysopOptionalCodeTableMap::COL_OPTCDESC2);
+            $criteria->removeSelectColumn(SysopOptionalCodeTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(SysopOptionalCodeTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(SysopOptionalCodeTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.OptnSystem');
+            $criteria->removeSelectColumn($alias . '.OptnCode');
+            $criteria->removeSelectColumn($alias . '.OptcId');
+            $criteria->removeSelectColumn($alias . '.OptcDesc');
+            $criteria->removeSelectColumn($alias . '.OptcDesc2');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(SysopOptionalCodeTableMap::DATABASE_NAME)->getTable(SysopOptionalCodeTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SysopOptionalCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SysopOptionalCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SysopOptionalCodeTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a SysopOptionalCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or SysopOptionalCode object or primary key or array of primary keys
+     * @param mixed $values Criteria or SysopOptionalCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SysopOptionalCodeTableMap::DATABASE_NAME);
@@ -458,7 +568,7 @@ class SysopOptionalCodeTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(SysopOptionalCodeTableMap::COL_OPTNSYSTEM, $value[0]);
@@ -487,7 +597,7 @@ class SysopOptionalCodeTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return SysopOptionalCodeQuery::create()->doDeleteAll($con);
     }
@@ -495,13 +605,13 @@ class SysopOptionalCodeTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a SysopOptionalCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or SysopOptionalCode object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or SysopOptionalCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SysopOptionalCodeTableMap::DATABASE_NAME);
@@ -524,7 +634,4 @@ class SysopOptionalCodeTableMap extends TableMap
         });
     }
 
-} // SysopOptionalCodeTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-SysopOptionalCodeTableMap::buildTableMap();
+}

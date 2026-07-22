@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class DocumentFolderTableMap extends TableMap
 {
@@ -34,144 +33,255 @@ class DocumentFolderTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.DocumentFolderTableMap';
+    public const CLASS_NAME = '.Map.DocumentFolderTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'doc_control';
+    public const TABLE_NAME = 'doc_control';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'DocumentFolder';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\DocumentFolder';
+    public const OM_CLASS = '\\DocumentFolder';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'DocumentFolder';
+    public const CLASS_DEFAULT = 'DocumentFolder';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 12;
+    public const NUM_COLUMNS = 12;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 12;
+    public const NUM_HYDRATE_COLUMNS = 12;
 
     /**
      * the column name for the DoccFolder field
      */
-    const COL_DOCCFOLDER = 'doc_control.DoccFolder';
+    public const COL_DOCCFOLDER = 'doc_control.DoccFolder';
 
     /**
      * the column name for the DoccFolderDesc field
      */
-    const COL_DOCCFOLDERDESC = 'doc_control.DoccFolderDesc';
+    public const COL_DOCCFOLDERDESC = 'doc_control.DoccFolderDesc';
 
     /**
      * the column name for the DoccDir field
      */
-    const COL_DOCCDIR = 'doc_control.DoccDir';
+    public const COL_DOCCDIR = 'doc_control.DoccDir';
 
     /**
      * the column name for the DoccTag field
      */
-    const COL_DOCCTAG = 'doc_control.DoccTag';
+    public const COL_DOCCTAG = 'doc_control.DoccTag';
 
     /**
      * the column name for the DoccMultCopy field
      */
-    const COL_DOCCMULTCOPY = 'doc_control.DoccMultCopy';
+    public const COL_DOCCMULTCOPY = 'doc_control.DoccMultCopy';
 
     /**
      * the column name for the DoccOverWrt field
      */
-    const COL_DOCCOVERWRT = 'doc_control.DoccOverWrt';
+    public const COL_DOCCOVERWRT = 'doc_control.DoccOverWrt';
 
     /**
      * the column name for the DoccFileCnt field
      */
-    const COL_DOCCFILECNT = 'doc_control.DoccFileCnt';
+    public const COL_DOCCFILECNT = 'doc_control.DoccFileCnt';
 
     /**
      * the column name for the DoccAutoScanId field
      */
-    const COL_DOCCAUTOSCANID = 'doc_control.DoccAutoScanId';
+    public const COL_DOCCAUTOSCANID = 'doc_control.DoccAutoScanId';
 
     /**
      * the column name for the DoccUseAutoFile field
      */
-    const COL_DOCCUSEAUTOFILE = 'doc_control.DoccUseAutoFile';
+    public const COL_DOCCUSEAUTOFILE = 'doc_control.DoccUseAutoFile';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'doc_control.DateUpdtd';
+    public const COL_DATEUPDTD = 'doc_control.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'doc_control.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'doc_control.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'doc_control.dummy';
+    public const COL_DUMMY = 'doc_control.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Doccfolder', 'Doccfolderdesc', 'Doccdir', 'Docctag', 'Doccmultcopy', 'Doccoverwrt', 'Doccfilecnt', 'Doccautoscanid', 'DoccUseAutoFile', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('doccfolder', 'doccfolderdesc', 'doccdir', 'docctag', 'doccmultcopy', 'doccoverwrt', 'doccfilecnt', 'doccautoscanid', 'doccUseAutoFil', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(DocumentFolderTableMap::COL_DOCCFOLDER, DocumentFolderTableMap::COL_DOCCFOLDERDESC, DocumentFolderTableMap::COL_DOCCDIR, DocumentFolderTableMap::COL_DOCCTAG, DocumentFolderTableMap::COL_DOCCMULTCOPY, DocumentFolderTableMap::COL_DOCCOVERWRT, DocumentFolderTableMap::COL_DOCCFILECNT, DocumentFolderTableMap::COL_DOCCAUTOSCANID, DocumentFolderTableMap::COL_DOCCUSEAUTOFILE, DocumentFolderTableMap::COL_DATEUPDTD, DocumentFolderTableMap::COL_TIMEUPDTD, DocumentFolderTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('DoccFolder', 'DoccFolderDesc', 'DoccDir', 'DoccTag', 'DoccMultCopy', 'DoccOverWrt', 'DoccFileCnt', 'DoccAutoScanId', 'DoccUseAutoFile', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Doccfolder', 'Doccfolderdesc', 'Doccdir', 'Docctag', 'Doccmultcopy', 'Doccoverwrt', 'Doccfilecnt', 'Doccautoscanid', 'DoccUseAutoFile', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['doccfolder', 'doccfolderdesc', 'doccdir', 'docctag', 'doccmultcopy', 'doccoverwrt', 'doccfilecnt', 'doccautoscanid', 'doccUseAutoFile', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [DocumentFolderTableMap::COL_DOCCFOLDER, DocumentFolderTableMap::COL_DOCCFOLDERDESC, DocumentFolderTableMap::COL_DOCCDIR, DocumentFolderTableMap::COL_DOCCTAG, DocumentFolderTableMap::COL_DOCCMULTCOPY, DocumentFolderTableMap::COL_DOCCOVERWRT, DocumentFolderTableMap::COL_DOCCFILECNT, DocumentFolderTableMap::COL_DOCCAUTOSCANID, DocumentFolderTableMap::COL_DOCCUSEAUTOFILE, DocumentFolderTableMap::COL_DATEUPDTD, DocumentFolderTableMap::COL_TIMEUPDTD, DocumentFolderTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['DoccFolder', 'DoccFolderDesc', 'DoccDir', 'DoccTag', 'DoccMultCopy', 'DoccOverWrt', 'DoccFileCnt', 'DoccAutoScanId', 'DoccUseAutoFile', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Doccfolder' => 0, 'Doccfolderdesc' => 1, 'Doccdir' => 2, 'Docctag' => 3, 'Doccmultcopy' => 4, 'Doccoverwrt' => 5, 'Doccfilecnt' => 6, 'Doccautoscanid' => 7, 'DoccUseAutoFile' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ),
-        self::TYPE_CAMELNAME     => array('doccfolder' => 0, 'doccfolderdesc' => 1, 'doccdir' => 2, 'docctag' => 3, 'doccmultcopy' => 4, 'doccoverwrt' => 5, 'doccfilecnt' => 6, 'doccautoscanid' => 7, 'doccUseAutoFil' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_COLNAME       => array(DocumentFolderTableMap::COL_DOCCFOLDER => 0, DocumentFolderTableMap::COL_DOCCFOLDERDESC => 1, DocumentFolderTableMap::COL_DOCCDIR => 2, DocumentFolderTableMap::COL_DOCCTAG => 3, DocumentFolderTableMap::COL_DOCCMULTCOPY => 4, DocumentFolderTableMap::COL_DOCCOVERWRT => 5, DocumentFolderTableMap::COL_DOCCFILECNT => 6, DocumentFolderTableMap::COL_DOCCAUTOSCANID => 7, DocumentFolderTableMap::COL_DOCCUSEAUTOFILE => 8, DocumentFolderTableMap::COL_DATEUPDTD => 9, DocumentFolderTableMap::COL_TIMEUPDTD => 10, DocumentFolderTableMap::COL_DUMMY => 11, ),
-        self::TYPE_FIELDNAME     => array('DoccFolder' => 0, 'DoccFolderDesc' => 1, 'DoccDir' => 2, 'DoccTag' => 3, 'DoccMultCopy' => 4, 'DoccOverWrt' => 5, 'DoccFileCnt' => 6, 'DoccAutoScanId' => 7, 'DoccUseAutoFile' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Doccfolder' => 0, 'Doccfolderdesc' => 1, 'Doccdir' => 2, 'Docctag' => 3, 'Doccmultcopy' => 4, 'Doccoverwrt' => 5, 'Doccfilecnt' => 6, 'Doccautoscanid' => 7, 'DoccUseAutoFile' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ],
+        self::TYPE_CAMELNAME     => ['doccfolder' => 0, 'doccfolderdesc' => 1, 'doccdir' => 2, 'docctag' => 3, 'doccmultcopy' => 4, 'doccoverwrt' => 5, 'doccfilecnt' => 6, 'doccautoscanid' => 7, 'doccUseAutoFile' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ],
+        self::TYPE_COLNAME       => [DocumentFolderTableMap::COL_DOCCFOLDER => 0, DocumentFolderTableMap::COL_DOCCFOLDERDESC => 1, DocumentFolderTableMap::COL_DOCCDIR => 2, DocumentFolderTableMap::COL_DOCCTAG => 3, DocumentFolderTableMap::COL_DOCCMULTCOPY => 4, DocumentFolderTableMap::COL_DOCCOVERWRT => 5, DocumentFolderTableMap::COL_DOCCFILECNT => 6, DocumentFolderTableMap::COL_DOCCAUTOSCANID => 7, DocumentFolderTableMap::COL_DOCCUSEAUTOFILE => 8, DocumentFolderTableMap::COL_DATEUPDTD => 9, DocumentFolderTableMap::COL_TIMEUPDTD => 10, DocumentFolderTableMap::COL_DUMMY => 11, ],
+        self::TYPE_FIELDNAME     => ['DoccFolder' => 0, 'DoccFolderDesc' => 1, 'DoccDir' => 2, 'DoccTag' => 3, 'DoccMultCopy' => 4, 'DoccOverWrt' => 5, 'DoccFileCnt' => 6, 'DoccAutoScanId' => 7, 'DoccUseAutoFile' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Doccfolder' => 'DOCCFOLDER',
+        'DocumentFolder.Doccfolder' => 'DOCCFOLDER',
+        'doccfolder' => 'DOCCFOLDER',
+        'documentFolder.doccfolder' => 'DOCCFOLDER',
+        'DocumentFolderTableMap::COL_DOCCFOLDER' => 'DOCCFOLDER',
+        'COL_DOCCFOLDER' => 'DOCCFOLDER',
+        'DoccFolder' => 'DOCCFOLDER',
+        'doc_control.DoccFolder' => 'DOCCFOLDER',
+        'Doccfolderdesc' => 'DOCCFOLDERDESC',
+        'DocumentFolder.Doccfolderdesc' => 'DOCCFOLDERDESC',
+        'doccfolderdesc' => 'DOCCFOLDERDESC',
+        'documentFolder.doccfolderdesc' => 'DOCCFOLDERDESC',
+        'DocumentFolderTableMap::COL_DOCCFOLDERDESC' => 'DOCCFOLDERDESC',
+        'COL_DOCCFOLDERDESC' => 'DOCCFOLDERDESC',
+        'DoccFolderDesc' => 'DOCCFOLDERDESC',
+        'doc_control.DoccFolderDesc' => 'DOCCFOLDERDESC',
+        'Doccdir' => 'DOCCDIR',
+        'DocumentFolder.Doccdir' => 'DOCCDIR',
+        'doccdir' => 'DOCCDIR',
+        'documentFolder.doccdir' => 'DOCCDIR',
+        'DocumentFolderTableMap::COL_DOCCDIR' => 'DOCCDIR',
+        'COL_DOCCDIR' => 'DOCCDIR',
+        'DoccDir' => 'DOCCDIR',
+        'doc_control.DoccDir' => 'DOCCDIR',
+        'Docctag' => 'DOCCTAG',
+        'DocumentFolder.Docctag' => 'DOCCTAG',
+        'docctag' => 'DOCCTAG',
+        'documentFolder.docctag' => 'DOCCTAG',
+        'DocumentFolderTableMap::COL_DOCCTAG' => 'DOCCTAG',
+        'COL_DOCCTAG' => 'DOCCTAG',
+        'DoccTag' => 'DOCCTAG',
+        'doc_control.DoccTag' => 'DOCCTAG',
+        'Doccmultcopy' => 'DOCCMULTCOPY',
+        'DocumentFolder.Doccmultcopy' => 'DOCCMULTCOPY',
+        'doccmultcopy' => 'DOCCMULTCOPY',
+        'documentFolder.doccmultcopy' => 'DOCCMULTCOPY',
+        'DocumentFolderTableMap::COL_DOCCMULTCOPY' => 'DOCCMULTCOPY',
+        'COL_DOCCMULTCOPY' => 'DOCCMULTCOPY',
+        'DoccMultCopy' => 'DOCCMULTCOPY',
+        'doc_control.DoccMultCopy' => 'DOCCMULTCOPY',
+        'Doccoverwrt' => 'DOCCOVERWRT',
+        'DocumentFolder.Doccoverwrt' => 'DOCCOVERWRT',
+        'doccoverwrt' => 'DOCCOVERWRT',
+        'documentFolder.doccoverwrt' => 'DOCCOVERWRT',
+        'DocumentFolderTableMap::COL_DOCCOVERWRT' => 'DOCCOVERWRT',
+        'COL_DOCCOVERWRT' => 'DOCCOVERWRT',
+        'DoccOverWrt' => 'DOCCOVERWRT',
+        'doc_control.DoccOverWrt' => 'DOCCOVERWRT',
+        'Doccfilecnt' => 'DOCCFILECNT',
+        'DocumentFolder.Doccfilecnt' => 'DOCCFILECNT',
+        'doccfilecnt' => 'DOCCFILECNT',
+        'documentFolder.doccfilecnt' => 'DOCCFILECNT',
+        'DocumentFolderTableMap::COL_DOCCFILECNT' => 'DOCCFILECNT',
+        'COL_DOCCFILECNT' => 'DOCCFILECNT',
+        'DoccFileCnt' => 'DOCCFILECNT',
+        'doc_control.DoccFileCnt' => 'DOCCFILECNT',
+        'Doccautoscanid' => 'DOCCAUTOSCANID',
+        'DocumentFolder.Doccautoscanid' => 'DOCCAUTOSCANID',
+        'doccautoscanid' => 'DOCCAUTOSCANID',
+        'documentFolder.doccautoscanid' => 'DOCCAUTOSCANID',
+        'DocumentFolderTableMap::COL_DOCCAUTOSCANID' => 'DOCCAUTOSCANID',
+        'COL_DOCCAUTOSCANID' => 'DOCCAUTOSCANID',
+        'DoccAutoScanId' => 'DOCCAUTOSCANID',
+        'doc_control.DoccAutoScanId' => 'DOCCAUTOSCANID',
+        'DoccUseAutoFile' => 'DOCCUSEAUTOFILE',
+        'DocumentFolder.DoccUseAutoFile' => 'DOCCUSEAUTOFILE',
+        'doccUseAutoFile' => 'DOCCUSEAUTOFILE',
+        'documentFolder.doccUseAutoFile' => 'DOCCUSEAUTOFILE',
+        'DocumentFolderTableMap::COL_DOCCUSEAUTOFILE' => 'DOCCUSEAUTOFILE',
+        'COL_DOCCUSEAUTOFILE' => 'DOCCUSEAUTOFILE',
+        'doc_control.DoccUseAutoFile' => 'DOCCUSEAUTOFILE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'DocumentFolder.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'documentFolder.dateupdtd' => 'DATEUPDTD',
+        'DocumentFolderTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'doc_control.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'DocumentFolder.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'documentFolder.timeupdtd' => 'TIMEUPDTD',
+        'DocumentFolderTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'doc_control.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'DocumentFolder.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'documentFolder.dummy' => 'DUMMY',
+        'DocumentFolderTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'doc_control.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('doc_control');
@@ -193,12 +303,14 @@ class DocumentFolderTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Document', '\\Document', RelationMap::ONE_TO_MANY, array (
   0 =>
@@ -207,7 +319,7 @@ class DocumentFolderTableMap extends TableMap
     1 => ':DoccFolder',
   ),
 ), null, null, 'Documents', false);
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -215,14 +327,14 @@ class DocumentFolderTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Doccfolder', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -237,14 +349,14 @@ class DocumentFolderTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -261,10 +373,10 @@ class DocumentFolderTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? DocumentFolderTableMap::CLASS_DEFAULT : DocumentFolderTableMap::OM_CLASS;
     }
@@ -272,17 +384,17 @@ class DocumentFolderTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (DocumentFolder object, last column rank)
+     * @return array (DocumentFolder object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = DocumentFolderTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = DocumentFolderTableMap::getInstanceFromPool($key))) {
@@ -298,7 +410,7 @@ class DocumentFolderTableMap extends TableMap
             DocumentFolderTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -306,13 +418,13 @@ class DocumentFolderTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -342,12 +454,13 @@ class DocumentFolderTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(DocumentFolderTableMap::COL_DOCCFOLDER);
@@ -379,40 +492,72 @@ class DocumentFolderTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCFOLDER);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCFOLDERDESC);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCDIR);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCTAG);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCMULTCOPY);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCOVERWRT);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCFILECNT);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCAUTOSCANID);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(DocumentFolderTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.DoccFolder');
+            $criteria->removeSelectColumn($alias . '.DoccFolderDesc');
+            $criteria->removeSelectColumn($alias . '.DoccDir');
+            $criteria->removeSelectColumn($alias . '.DoccTag');
+            $criteria->removeSelectColumn($alias . '.DoccMultCopy');
+            $criteria->removeSelectColumn($alias . '.DoccOverWrt');
+            $criteria->removeSelectColumn($alias . '.DoccFileCnt');
+            $criteria->removeSelectColumn($alias . '.DoccAutoScanId');
+            $criteria->removeSelectColumn($alias . '.DoccUseAutoFile');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(DocumentFolderTableMap::DATABASE_NAME)->getTable(DocumentFolderTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(DocumentFolderTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(DocumentFolderTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new DocumentFolderTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a DocumentFolder or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or DocumentFolder object or primary key or array of primary keys
+     * @param mixed $values Criteria or DocumentFolder object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(DocumentFolderTableMap::DATABASE_NAME);
@@ -448,7 +593,7 @@ class DocumentFolderTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return DocumentFolderQuery::create()->doDeleteAll($con);
     }
@@ -456,13 +601,13 @@ class DocumentFolderTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a DocumentFolder or Criteria object.
      *
-     * @param mixed               $criteria Criteria or DocumentFolder object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or DocumentFolder object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(DocumentFolderTableMap::DATABASE_NAME);
@@ -485,7 +630,4 @@ class DocumentFolderTableMap extends TableMap
         });
     }
 
-} // DocumentFolderTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-DocumentFolderTableMap::buildTableMap();
+}

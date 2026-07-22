@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class BookingDetailTableMap extends TableMap
 {
@@ -34,209 +33,425 @@ class BookingDetailTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.BookingDetailTableMap';
+    public const CLASS_NAME = '.Map.BookingDetailTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_book_log_det';
+    public const TABLE_NAME = 'so_book_log_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'BookingDetail';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\BookingDetail';
+    public const OM_CLASS = '\\BookingDetail';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'BookingDetail';
+    public const CLASS_DEFAULT = 'BookingDetail';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 25;
+    public const NUM_COLUMNS = 25;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 25;
+    public const NUM_HYDRATE_COLUMNS = 25;
 
     /**
      * the column name for the BklhOrdrBase field
      */
-    const COL_BKLHORDRBASE = 'so_book_log_det.BklhOrdrBase';
+    public const COL_BKLHORDRBASE = 'so_book_log_det.BklhOrdrBase';
 
     /**
      * the column name for the BkldOrigLine field
      */
-    const COL_BKLDORIGLINE = 'so_book_log_det.BkldOrigLine';
+    public const COL_BKLDORIGLINE = 'so_book_log_det.BkldOrigLine';
 
     /**
      * the column name for the BkldSeq field
      */
-    const COL_BKLDSEQ = 'so_book_log_det.BkldSeq';
+    public const COL_BKLDSEQ = 'so_book_log_det.BkldSeq';
 
     /**
      * the column name for the BkldOrdrNbr field
      */
-    const COL_BKLDORDRNBR = 'so_book_log_det.BkldOrdrNbr';
+    public const COL_BKLDORDRNBR = 'so_book_log_det.BkldOrdrNbr';
 
     /**
      * the column name for the BkldTranDate field
      */
-    const COL_BKLDTRANDATE = 'so_book_log_det.BkldTranDate';
+    public const COL_BKLDTRANDATE = 'so_book_log_det.BkldTranDate';
 
     /**
      * the column name for the BkldTranTime field
      */
-    const COL_BKLDTRANTIME = 'so_book_log_det.BkldTranTime';
+    public const COL_BKLDTRANTIME = 'so_book_log_det.BkldTranTime';
 
     /**
      * the column name for the BkldLogIn field
      */
-    const COL_BKLDLOGIN = 'so_book_log_det.BkldLogIn';
+    public const COL_BKLDLOGIN = 'so_book_log_det.BkldLogIn';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'so_book_log_det.InitItemNbr';
+    public const COL_INITITEMNBR = 'so_book_log_det.InitItemNbr';
 
     /**
      * the column name for the IntbWhse field
      */
-    const COL_INTBWHSE = 'so_book_log_det.IntbWhse';
+    public const COL_INTBWHSE = 'so_book_log_det.IntbWhse';
 
     /**
      * the column name for the BkldQty field
      */
-    const COL_BKLDQTY = 'so_book_log_det.BkldQty';
+    public const COL_BKLDQTY = 'so_book_log_det.BkldQty';
 
     /**
      * the column name for the BkldUnitPric field
      */
-    const COL_BKLDUNITPRIC = 'so_book_log_det.BkldUnitPric';
+    public const COL_BKLDUNITPRIC = 'so_book_log_det.BkldUnitPric';
 
     /**
      * the column name for the BkldPgmRef field
      */
-    const COL_BKLDPGMREF = 'so_book_log_det.BkldPgmRef';
+    public const COL_BKLDPGMREF = 'so_book_log_det.BkldPgmRef';
 
     /**
      * the column name for the BkldReasCd field
      */
-    const COL_BKLDREASCD = 'so_book_log_det.BkldReasCd';
+    public const COL_BKLDREASCD = 'so_book_log_det.BkldReasCd';
 
     /**
      * the column name for the BkldBookDate field
      */
-    const COL_BKLDBOOKDATE = 'so_book_log_det.BkldBookDate';
+    public const COL_BKLDBOOKDATE = 'so_book_log_det.BkldBookDate';
 
     /**
      * the column name for the BkldNsItemDesc1 field
      */
-    const COL_BKLDNSITEMDESC1 = 'so_book_log_det.BkldNsItemDesc1';
+    public const COL_BKLDNSITEMDESC1 = 'so_book_log_det.BkldNsItemDesc1';
 
     /**
      * the column name for the BkldNsItemGrup field
      */
-    const COL_BKLDNSITEMGRUP = 'so_book_log_det.BkldNsItemGrup';
+    public const COL_BKLDNSITEMGRUP = 'so_book_log_det.BkldNsItemGrup';
 
     /**
      * the column name for the BkldNsUom field
      */
-    const COL_BKLDNSUOM = 'so_book_log_det.BkldNsUom';
+    public const COL_BKLDNSUOM = 'so_book_log_det.BkldNsUom';
 
     /**
      * the column name for the BkldNsVendId field
      */
-    const COL_BKLDNSVENDID = 'so_book_log_det.BkldNsVendId';
+    public const COL_BKLDNSVENDID = 'so_book_log_det.BkldNsVendId';
 
     /**
      * the column name for the BkldQtyToShip field
      */
-    const COL_BKLDQTYTOSHIP = 'so_book_log_det.BkldQtyToShip';
+    public const COL_BKLDQTYTOSHIP = 'so_book_log_det.BkldQtyToShip';
 
     /**
      * the column name for the BkldTaxCode field
      */
-    const COL_BKLDTAXCODE = 'so_book_log_det.BkldTaxCode';
+    public const COL_BKLDTAXCODE = 'so_book_log_det.BkldTaxCode';
 
     /**
      * the column name for the BkldUnitCost field
      */
-    const COL_BKLDUNITCOST = 'so_book_log_det.BkldUnitCost';
+    public const COL_BKLDUNITCOST = 'so_book_log_det.BkldUnitCost';
 
     /**
      * the column name for the BkldAcSuplyWhse field
      */
-    const COL_BKLDACSUPLYWHSE = 'so_book_log_det.BkldAcSuplyWhse';
+    public const COL_BKLDACSUPLYWHSE = 'so_book_log_det.BkldAcSuplyWhse';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_book_log_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_book_log_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_book_log_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_book_log_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_book_log_det.dummy';
+    public const COL_DUMMY = 'so_book_log_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Bklhordrbase', 'Bkldorigline', 'Bkldseq', 'Bkldordrnbr', 'Bkldtrandate', 'Bkldtrantime', 'Bkldlogin', 'Inititemnbr', 'Intbwhse', 'Bkldqty', 'Bkldunitpric', 'Bkldpgmref', 'Bkldreascd', 'Bkldbookdate', 'Bkldnsitemdesc1', 'Bkldnsitemgrup', 'Bkldnsuom', 'Bkldnsvendid', 'Bkldqtytoship', 'Bkldtaxcode', 'Bkldunitcost', 'Bkldacsuplywhse', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('bklhordrbase', 'bkldorigline', 'bkldseq', 'bkldordrnbr', 'bkldtrandate', 'bkldtrantime', 'bkldlogin', 'inititemnbr', 'intbwhse', 'bkldqty', 'bkldunitpric', 'bkldpgmref', 'bkldreascd', 'bkldbookdate', 'bkldnsitemdesc1', 'bkldnsitemgrup', 'bkldnsuom', 'bkldnsvendid', 'bkldqtytoship', 'bkldtaxcode', 'bkldunitcost', 'bkldacsuplywhse', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(BookingDetailTableMap::COL_BKLHORDRBASE, BookingDetailTableMap::COL_BKLDORIGLINE, BookingDetailTableMap::COL_BKLDSEQ, BookingDetailTableMap::COL_BKLDORDRNBR, BookingDetailTableMap::COL_BKLDTRANDATE, BookingDetailTableMap::COL_BKLDTRANTIME, BookingDetailTableMap::COL_BKLDLOGIN, BookingDetailTableMap::COL_INITITEMNBR, BookingDetailTableMap::COL_INTBWHSE, BookingDetailTableMap::COL_BKLDQTY, BookingDetailTableMap::COL_BKLDUNITPRIC, BookingDetailTableMap::COL_BKLDPGMREF, BookingDetailTableMap::COL_BKLDREASCD, BookingDetailTableMap::COL_BKLDBOOKDATE, BookingDetailTableMap::COL_BKLDNSITEMDESC1, BookingDetailTableMap::COL_BKLDNSITEMGRUP, BookingDetailTableMap::COL_BKLDNSUOM, BookingDetailTableMap::COL_BKLDNSVENDID, BookingDetailTableMap::COL_BKLDQTYTOSHIP, BookingDetailTableMap::COL_BKLDTAXCODE, BookingDetailTableMap::COL_BKLDUNITCOST, BookingDetailTableMap::COL_BKLDACSUPLYWHSE, BookingDetailTableMap::COL_DATEUPDTD, BookingDetailTableMap::COL_TIMEUPDTD, BookingDetailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('BklhOrdrBase', 'BkldOrigLine', 'BkldSeq', 'BkldOrdrNbr', 'BkldTranDate', 'BkldTranTime', 'BkldLogIn', 'InitItemNbr', 'IntbWhse', 'BkldQty', 'BkldUnitPric', 'BkldPgmRef', 'BkldReasCd', 'BkldBookDate', 'BkldNsItemDesc1', 'BkldNsItemGrup', 'BkldNsUom', 'BkldNsVendId', 'BkldQtyToShip', 'BkldTaxCode', 'BkldUnitCost', 'BkldAcSuplyWhse', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Bklhordrbase', 'Bkldorigline', 'Bkldseq', 'Bkldordrnbr', 'Bkldtrandate', 'Bkldtrantime', 'Bkldlogin', 'Inititemnbr', 'Intbwhse', 'Bkldqty', 'Bkldunitpric', 'Bkldpgmref', 'Bkldreascd', 'Bkldbookdate', 'Bkldnsitemdesc1', 'Bkldnsitemgrup', 'Bkldnsuom', 'Bkldnsvendid', 'Bkldqtytoship', 'Bkldtaxcode', 'Bkldunitcost', 'Bkldacsuplywhse', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['bklhordrbase', 'bkldorigline', 'bkldseq', 'bkldordrnbr', 'bkldtrandate', 'bkldtrantime', 'bkldlogin', 'inititemnbr', 'intbwhse', 'bkldqty', 'bkldunitpric', 'bkldpgmref', 'bkldreascd', 'bkldbookdate', 'bkldnsitemdesc1', 'bkldnsitemgrup', 'bkldnsuom', 'bkldnsvendid', 'bkldqtytoship', 'bkldtaxcode', 'bkldunitcost', 'bkldacsuplywhse', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [BookingDetailTableMap::COL_BKLHORDRBASE, BookingDetailTableMap::COL_BKLDORIGLINE, BookingDetailTableMap::COL_BKLDSEQ, BookingDetailTableMap::COL_BKLDORDRNBR, BookingDetailTableMap::COL_BKLDTRANDATE, BookingDetailTableMap::COL_BKLDTRANTIME, BookingDetailTableMap::COL_BKLDLOGIN, BookingDetailTableMap::COL_INITITEMNBR, BookingDetailTableMap::COL_INTBWHSE, BookingDetailTableMap::COL_BKLDQTY, BookingDetailTableMap::COL_BKLDUNITPRIC, BookingDetailTableMap::COL_BKLDPGMREF, BookingDetailTableMap::COL_BKLDREASCD, BookingDetailTableMap::COL_BKLDBOOKDATE, BookingDetailTableMap::COL_BKLDNSITEMDESC1, BookingDetailTableMap::COL_BKLDNSITEMGRUP, BookingDetailTableMap::COL_BKLDNSUOM, BookingDetailTableMap::COL_BKLDNSVENDID, BookingDetailTableMap::COL_BKLDQTYTOSHIP, BookingDetailTableMap::COL_BKLDTAXCODE, BookingDetailTableMap::COL_BKLDUNITCOST, BookingDetailTableMap::COL_BKLDACSUPLYWHSE, BookingDetailTableMap::COL_DATEUPDTD, BookingDetailTableMap::COL_TIMEUPDTD, BookingDetailTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['BklhOrdrBase', 'BkldOrigLine', 'BkldSeq', 'BkldOrdrNbr', 'BkldTranDate', 'BkldTranTime', 'BkldLogIn', 'InitItemNbr', 'IntbWhse', 'BkldQty', 'BkldUnitPric', 'BkldPgmRef', 'BkldReasCd', 'BkldBookDate', 'BkldNsItemDesc1', 'BkldNsItemGrup', 'BkldNsUom', 'BkldNsVendId', 'BkldQtyToShip', 'BkldTaxCode', 'BkldUnitCost', 'BkldAcSuplyWhse', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Bklhordrbase' => 0, 'Bkldorigline' => 1, 'Bkldseq' => 2, 'Bkldordrnbr' => 3, 'Bkldtrandate' => 4, 'Bkldtrantime' => 5, 'Bkldlogin' => 6, 'Inititemnbr' => 7, 'Intbwhse' => 8, 'Bkldqty' => 9, 'Bkldunitpric' => 10, 'Bkldpgmref' => 11, 'Bkldreascd' => 12, 'Bkldbookdate' => 13, 'Bkldnsitemdesc1' => 14, 'Bkldnsitemgrup' => 15, 'Bkldnsuom' => 16, 'Bkldnsvendid' => 17, 'Bkldqtytoship' => 18, 'Bkldtaxcode' => 19, 'Bkldunitcost' => 20, 'Bkldacsuplywhse' => 21, 'Dateupdtd' => 22, 'Timeupdtd' => 23, 'Dummy' => 24, ),
-        self::TYPE_CAMELNAME     => array('bklhordrbase' => 0, 'bkldorigline' => 1, 'bkldseq' => 2, 'bkldordrnbr' => 3, 'bkldtrandate' => 4, 'bkldtrantime' => 5, 'bkldlogin' => 6, 'inititemnbr' => 7, 'intbwhse' => 8, 'bkldqty' => 9, 'bkldunitpric' => 10, 'bkldpgmref' => 11, 'bkldreascd' => 12, 'bkldbookdate' => 13, 'bkldnsitemdesc1' => 14, 'bkldnsitemgrup' => 15, 'bkldnsuom' => 16, 'bkldnsvendid' => 17, 'bkldqtytoship' => 18, 'bkldtaxcode' => 19, 'bkldunitcost' => 20, 'bkldacsuplywhse' => 21, 'dateupdtd' => 22, 'timeupdtd' => 23, 'dummy' => 24, ),
-        self::TYPE_COLNAME       => array(BookingDetailTableMap::COL_BKLHORDRBASE => 0, BookingDetailTableMap::COL_BKLDORIGLINE => 1, BookingDetailTableMap::COL_BKLDSEQ => 2, BookingDetailTableMap::COL_BKLDORDRNBR => 3, BookingDetailTableMap::COL_BKLDTRANDATE => 4, BookingDetailTableMap::COL_BKLDTRANTIME => 5, BookingDetailTableMap::COL_BKLDLOGIN => 6, BookingDetailTableMap::COL_INITITEMNBR => 7, BookingDetailTableMap::COL_INTBWHSE => 8, BookingDetailTableMap::COL_BKLDQTY => 9, BookingDetailTableMap::COL_BKLDUNITPRIC => 10, BookingDetailTableMap::COL_BKLDPGMREF => 11, BookingDetailTableMap::COL_BKLDREASCD => 12, BookingDetailTableMap::COL_BKLDBOOKDATE => 13, BookingDetailTableMap::COL_BKLDNSITEMDESC1 => 14, BookingDetailTableMap::COL_BKLDNSITEMGRUP => 15, BookingDetailTableMap::COL_BKLDNSUOM => 16, BookingDetailTableMap::COL_BKLDNSVENDID => 17, BookingDetailTableMap::COL_BKLDQTYTOSHIP => 18, BookingDetailTableMap::COL_BKLDTAXCODE => 19, BookingDetailTableMap::COL_BKLDUNITCOST => 20, BookingDetailTableMap::COL_BKLDACSUPLYWHSE => 21, BookingDetailTableMap::COL_DATEUPDTD => 22, BookingDetailTableMap::COL_TIMEUPDTD => 23, BookingDetailTableMap::COL_DUMMY => 24, ),
-        self::TYPE_FIELDNAME     => array('BklhOrdrBase' => 0, 'BkldOrigLine' => 1, 'BkldSeq' => 2, 'BkldOrdrNbr' => 3, 'BkldTranDate' => 4, 'BkldTranTime' => 5, 'BkldLogIn' => 6, 'InitItemNbr' => 7, 'IntbWhse' => 8, 'BkldQty' => 9, 'BkldUnitPric' => 10, 'BkldPgmRef' => 11, 'BkldReasCd' => 12, 'BkldBookDate' => 13, 'BkldNsItemDesc1' => 14, 'BkldNsItemGrup' => 15, 'BkldNsUom' => 16, 'BkldNsVendId' => 17, 'BkldQtyToShip' => 18, 'BkldTaxCode' => 19, 'BkldUnitCost' => 20, 'BkldAcSuplyWhse' => 21, 'DateUpdtd' => 22, 'TimeUpdtd' => 23, 'dummy' => 24, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Bklhordrbase' => 0, 'Bkldorigline' => 1, 'Bkldseq' => 2, 'Bkldordrnbr' => 3, 'Bkldtrandate' => 4, 'Bkldtrantime' => 5, 'Bkldlogin' => 6, 'Inititemnbr' => 7, 'Intbwhse' => 8, 'Bkldqty' => 9, 'Bkldunitpric' => 10, 'Bkldpgmref' => 11, 'Bkldreascd' => 12, 'Bkldbookdate' => 13, 'Bkldnsitemdesc1' => 14, 'Bkldnsitemgrup' => 15, 'Bkldnsuom' => 16, 'Bkldnsvendid' => 17, 'Bkldqtytoship' => 18, 'Bkldtaxcode' => 19, 'Bkldunitcost' => 20, 'Bkldacsuplywhse' => 21, 'Dateupdtd' => 22, 'Timeupdtd' => 23, 'Dummy' => 24, ],
+        self::TYPE_CAMELNAME     => ['bklhordrbase' => 0, 'bkldorigline' => 1, 'bkldseq' => 2, 'bkldordrnbr' => 3, 'bkldtrandate' => 4, 'bkldtrantime' => 5, 'bkldlogin' => 6, 'inititemnbr' => 7, 'intbwhse' => 8, 'bkldqty' => 9, 'bkldunitpric' => 10, 'bkldpgmref' => 11, 'bkldreascd' => 12, 'bkldbookdate' => 13, 'bkldnsitemdesc1' => 14, 'bkldnsitemgrup' => 15, 'bkldnsuom' => 16, 'bkldnsvendid' => 17, 'bkldqtytoship' => 18, 'bkldtaxcode' => 19, 'bkldunitcost' => 20, 'bkldacsuplywhse' => 21, 'dateupdtd' => 22, 'timeupdtd' => 23, 'dummy' => 24, ],
+        self::TYPE_COLNAME       => [BookingDetailTableMap::COL_BKLHORDRBASE => 0, BookingDetailTableMap::COL_BKLDORIGLINE => 1, BookingDetailTableMap::COL_BKLDSEQ => 2, BookingDetailTableMap::COL_BKLDORDRNBR => 3, BookingDetailTableMap::COL_BKLDTRANDATE => 4, BookingDetailTableMap::COL_BKLDTRANTIME => 5, BookingDetailTableMap::COL_BKLDLOGIN => 6, BookingDetailTableMap::COL_INITITEMNBR => 7, BookingDetailTableMap::COL_INTBWHSE => 8, BookingDetailTableMap::COL_BKLDQTY => 9, BookingDetailTableMap::COL_BKLDUNITPRIC => 10, BookingDetailTableMap::COL_BKLDPGMREF => 11, BookingDetailTableMap::COL_BKLDREASCD => 12, BookingDetailTableMap::COL_BKLDBOOKDATE => 13, BookingDetailTableMap::COL_BKLDNSITEMDESC1 => 14, BookingDetailTableMap::COL_BKLDNSITEMGRUP => 15, BookingDetailTableMap::COL_BKLDNSUOM => 16, BookingDetailTableMap::COL_BKLDNSVENDID => 17, BookingDetailTableMap::COL_BKLDQTYTOSHIP => 18, BookingDetailTableMap::COL_BKLDTAXCODE => 19, BookingDetailTableMap::COL_BKLDUNITCOST => 20, BookingDetailTableMap::COL_BKLDACSUPLYWHSE => 21, BookingDetailTableMap::COL_DATEUPDTD => 22, BookingDetailTableMap::COL_TIMEUPDTD => 23, BookingDetailTableMap::COL_DUMMY => 24, ],
+        self::TYPE_FIELDNAME     => ['BklhOrdrBase' => 0, 'BkldOrigLine' => 1, 'BkldSeq' => 2, 'BkldOrdrNbr' => 3, 'BkldTranDate' => 4, 'BkldTranTime' => 5, 'BkldLogIn' => 6, 'InitItemNbr' => 7, 'IntbWhse' => 8, 'BkldQty' => 9, 'BkldUnitPric' => 10, 'BkldPgmRef' => 11, 'BkldReasCd' => 12, 'BkldBookDate' => 13, 'BkldNsItemDesc1' => 14, 'BkldNsItemGrup' => 15, 'BkldNsUom' => 16, 'BkldNsVendId' => 17, 'BkldQtyToShip' => 18, 'BkldTaxCode' => 19, 'BkldUnitCost' => 20, 'BkldAcSuplyWhse' => 21, 'DateUpdtd' => 22, 'TimeUpdtd' => 23, 'dummy' => 24, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Bklhordrbase' => 'BKLHORDRBASE',
+        'BookingDetail.Bklhordrbase' => 'BKLHORDRBASE',
+        'bklhordrbase' => 'BKLHORDRBASE',
+        'bookingDetail.bklhordrbase' => 'BKLHORDRBASE',
+        'BookingDetailTableMap::COL_BKLHORDRBASE' => 'BKLHORDRBASE',
+        'COL_BKLHORDRBASE' => 'BKLHORDRBASE',
+        'BklhOrdrBase' => 'BKLHORDRBASE',
+        'so_book_log_det.BklhOrdrBase' => 'BKLHORDRBASE',
+        'Bkldorigline' => 'BKLDORIGLINE',
+        'BookingDetail.Bkldorigline' => 'BKLDORIGLINE',
+        'bkldorigline' => 'BKLDORIGLINE',
+        'bookingDetail.bkldorigline' => 'BKLDORIGLINE',
+        'BookingDetailTableMap::COL_BKLDORIGLINE' => 'BKLDORIGLINE',
+        'COL_BKLDORIGLINE' => 'BKLDORIGLINE',
+        'BkldOrigLine' => 'BKLDORIGLINE',
+        'so_book_log_det.BkldOrigLine' => 'BKLDORIGLINE',
+        'Bkldseq' => 'BKLDSEQ',
+        'BookingDetail.Bkldseq' => 'BKLDSEQ',
+        'bkldseq' => 'BKLDSEQ',
+        'bookingDetail.bkldseq' => 'BKLDSEQ',
+        'BookingDetailTableMap::COL_BKLDSEQ' => 'BKLDSEQ',
+        'COL_BKLDSEQ' => 'BKLDSEQ',
+        'BkldSeq' => 'BKLDSEQ',
+        'so_book_log_det.BkldSeq' => 'BKLDSEQ',
+        'Bkldordrnbr' => 'BKLDORDRNBR',
+        'BookingDetail.Bkldordrnbr' => 'BKLDORDRNBR',
+        'bkldordrnbr' => 'BKLDORDRNBR',
+        'bookingDetail.bkldordrnbr' => 'BKLDORDRNBR',
+        'BookingDetailTableMap::COL_BKLDORDRNBR' => 'BKLDORDRNBR',
+        'COL_BKLDORDRNBR' => 'BKLDORDRNBR',
+        'BkldOrdrNbr' => 'BKLDORDRNBR',
+        'so_book_log_det.BkldOrdrNbr' => 'BKLDORDRNBR',
+        'Bkldtrandate' => 'BKLDTRANDATE',
+        'BookingDetail.Bkldtrandate' => 'BKLDTRANDATE',
+        'bkldtrandate' => 'BKLDTRANDATE',
+        'bookingDetail.bkldtrandate' => 'BKLDTRANDATE',
+        'BookingDetailTableMap::COL_BKLDTRANDATE' => 'BKLDTRANDATE',
+        'COL_BKLDTRANDATE' => 'BKLDTRANDATE',
+        'BkldTranDate' => 'BKLDTRANDATE',
+        'so_book_log_det.BkldTranDate' => 'BKLDTRANDATE',
+        'Bkldtrantime' => 'BKLDTRANTIME',
+        'BookingDetail.Bkldtrantime' => 'BKLDTRANTIME',
+        'bkldtrantime' => 'BKLDTRANTIME',
+        'bookingDetail.bkldtrantime' => 'BKLDTRANTIME',
+        'BookingDetailTableMap::COL_BKLDTRANTIME' => 'BKLDTRANTIME',
+        'COL_BKLDTRANTIME' => 'BKLDTRANTIME',
+        'BkldTranTime' => 'BKLDTRANTIME',
+        'so_book_log_det.BkldTranTime' => 'BKLDTRANTIME',
+        'Bkldlogin' => 'BKLDLOGIN',
+        'BookingDetail.Bkldlogin' => 'BKLDLOGIN',
+        'bkldlogin' => 'BKLDLOGIN',
+        'bookingDetail.bkldlogin' => 'BKLDLOGIN',
+        'BookingDetailTableMap::COL_BKLDLOGIN' => 'BKLDLOGIN',
+        'COL_BKLDLOGIN' => 'BKLDLOGIN',
+        'BkldLogIn' => 'BKLDLOGIN',
+        'so_book_log_det.BkldLogIn' => 'BKLDLOGIN',
+        'Inititemnbr' => 'INITITEMNBR',
+        'BookingDetail.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'bookingDetail.inititemnbr' => 'INITITEMNBR',
+        'BookingDetailTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'so_book_log_det.InitItemNbr' => 'INITITEMNBR',
+        'Intbwhse' => 'INTBWHSE',
+        'BookingDetail.Intbwhse' => 'INTBWHSE',
+        'intbwhse' => 'INTBWHSE',
+        'bookingDetail.intbwhse' => 'INTBWHSE',
+        'BookingDetailTableMap::COL_INTBWHSE' => 'INTBWHSE',
+        'COL_INTBWHSE' => 'INTBWHSE',
+        'IntbWhse' => 'INTBWHSE',
+        'so_book_log_det.IntbWhse' => 'INTBWHSE',
+        'Bkldqty' => 'BKLDQTY',
+        'BookingDetail.Bkldqty' => 'BKLDQTY',
+        'bkldqty' => 'BKLDQTY',
+        'bookingDetail.bkldqty' => 'BKLDQTY',
+        'BookingDetailTableMap::COL_BKLDQTY' => 'BKLDQTY',
+        'COL_BKLDQTY' => 'BKLDQTY',
+        'BkldQty' => 'BKLDQTY',
+        'so_book_log_det.BkldQty' => 'BKLDQTY',
+        'Bkldunitpric' => 'BKLDUNITPRIC',
+        'BookingDetail.Bkldunitpric' => 'BKLDUNITPRIC',
+        'bkldunitpric' => 'BKLDUNITPRIC',
+        'bookingDetail.bkldunitpric' => 'BKLDUNITPRIC',
+        'BookingDetailTableMap::COL_BKLDUNITPRIC' => 'BKLDUNITPRIC',
+        'COL_BKLDUNITPRIC' => 'BKLDUNITPRIC',
+        'BkldUnitPric' => 'BKLDUNITPRIC',
+        'so_book_log_det.BkldUnitPric' => 'BKLDUNITPRIC',
+        'Bkldpgmref' => 'BKLDPGMREF',
+        'BookingDetail.Bkldpgmref' => 'BKLDPGMREF',
+        'bkldpgmref' => 'BKLDPGMREF',
+        'bookingDetail.bkldpgmref' => 'BKLDPGMREF',
+        'BookingDetailTableMap::COL_BKLDPGMREF' => 'BKLDPGMREF',
+        'COL_BKLDPGMREF' => 'BKLDPGMREF',
+        'BkldPgmRef' => 'BKLDPGMREF',
+        'so_book_log_det.BkldPgmRef' => 'BKLDPGMREF',
+        'Bkldreascd' => 'BKLDREASCD',
+        'BookingDetail.Bkldreascd' => 'BKLDREASCD',
+        'bkldreascd' => 'BKLDREASCD',
+        'bookingDetail.bkldreascd' => 'BKLDREASCD',
+        'BookingDetailTableMap::COL_BKLDREASCD' => 'BKLDREASCD',
+        'COL_BKLDREASCD' => 'BKLDREASCD',
+        'BkldReasCd' => 'BKLDREASCD',
+        'so_book_log_det.BkldReasCd' => 'BKLDREASCD',
+        'Bkldbookdate' => 'BKLDBOOKDATE',
+        'BookingDetail.Bkldbookdate' => 'BKLDBOOKDATE',
+        'bkldbookdate' => 'BKLDBOOKDATE',
+        'bookingDetail.bkldbookdate' => 'BKLDBOOKDATE',
+        'BookingDetailTableMap::COL_BKLDBOOKDATE' => 'BKLDBOOKDATE',
+        'COL_BKLDBOOKDATE' => 'BKLDBOOKDATE',
+        'BkldBookDate' => 'BKLDBOOKDATE',
+        'so_book_log_det.BkldBookDate' => 'BKLDBOOKDATE',
+        'Bkldnsitemdesc1' => 'BKLDNSITEMDESC1',
+        'BookingDetail.Bkldnsitemdesc1' => 'BKLDNSITEMDESC1',
+        'bkldnsitemdesc1' => 'BKLDNSITEMDESC1',
+        'bookingDetail.bkldnsitemdesc1' => 'BKLDNSITEMDESC1',
+        'BookingDetailTableMap::COL_BKLDNSITEMDESC1' => 'BKLDNSITEMDESC1',
+        'COL_BKLDNSITEMDESC1' => 'BKLDNSITEMDESC1',
+        'BkldNsItemDesc1' => 'BKLDNSITEMDESC1',
+        'so_book_log_det.BkldNsItemDesc1' => 'BKLDNSITEMDESC1',
+        'Bkldnsitemgrup' => 'BKLDNSITEMGRUP',
+        'BookingDetail.Bkldnsitemgrup' => 'BKLDNSITEMGRUP',
+        'bkldnsitemgrup' => 'BKLDNSITEMGRUP',
+        'bookingDetail.bkldnsitemgrup' => 'BKLDNSITEMGRUP',
+        'BookingDetailTableMap::COL_BKLDNSITEMGRUP' => 'BKLDNSITEMGRUP',
+        'COL_BKLDNSITEMGRUP' => 'BKLDNSITEMGRUP',
+        'BkldNsItemGrup' => 'BKLDNSITEMGRUP',
+        'so_book_log_det.BkldNsItemGrup' => 'BKLDNSITEMGRUP',
+        'Bkldnsuom' => 'BKLDNSUOM',
+        'BookingDetail.Bkldnsuom' => 'BKLDNSUOM',
+        'bkldnsuom' => 'BKLDNSUOM',
+        'bookingDetail.bkldnsuom' => 'BKLDNSUOM',
+        'BookingDetailTableMap::COL_BKLDNSUOM' => 'BKLDNSUOM',
+        'COL_BKLDNSUOM' => 'BKLDNSUOM',
+        'BkldNsUom' => 'BKLDNSUOM',
+        'so_book_log_det.BkldNsUom' => 'BKLDNSUOM',
+        'Bkldnsvendid' => 'BKLDNSVENDID',
+        'BookingDetail.Bkldnsvendid' => 'BKLDNSVENDID',
+        'bkldnsvendid' => 'BKLDNSVENDID',
+        'bookingDetail.bkldnsvendid' => 'BKLDNSVENDID',
+        'BookingDetailTableMap::COL_BKLDNSVENDID' => 'BKLDNSVENDID',
+        'COL_BKLDNSVENDID' => 'BKLDNSVENDID',
+        'BkldNsVendId' => 'BKLDNSVENDID',
+        'so_book_log_det.BkldNsVendId' => 'BKLDNSVENDID',
+        'Bkldqtytoship' => 'BKLDQTYTOSHIP',
+        'BookingDetail.Bkldqtytoship' => 'BKLDQTYTOSHIP',
+        'bkldqtytoship' => 'BKLDQTYTOSHIP',
+        'bookingDetail.bkldqtytoship' => 'BKLDQTYTOSHIP',
+        'BookingDetailTableMap::COL_BKLDQTYTOSHIP' => 'BKLDQTYTOSHIP',
+        'COL_BKLDQTYTOSHIP' => 'BKLDQTYTOSHIP',
+        'BkldQtyToShip' => 'BKLDQTYTOSHIP',
+        'so_book_log_det.BkldQtyToShip' => 'BKLDQTYTOSHIP',
+        'Bkldtaxcode' => 'BKLDTAXCODE',
+        'BookingDetail.Bkldtaxcode' => 'BKLDTAXCODE',
+        'bkldtaxcode' => 'BKLDTAXCODE',
+        'bookingDetail.bkldtaxcode' => 'BKLDTAXCODE',
+        'BookingDetailTableMap::COL_BKLDTAXCODE' => 'BKLDTAXCODE',
+        'COL_BKLDTAXCODE' => 'BKLDTAXCODE',
+        'BkldTaxCode' => 'BKLDTAXCODE',
+        'so_book_log_det.BkldTaxCode' => 'BKLDTAXCODE',
+        'Bkldunitcost' => 'BKLDUNITCOST',
+        'BookingDetail.Bkldunitcost' => 'BKLDUNITCOST',
+        'bkldunitcost' => 'BKLDUNITCOST',
+        'bookingDetail.bkldunitcost' => 'BKLDUNITCOST',
+        'BookingDetailTableMap::COL_BKLDUNITCOST' => 'BKLDUNITCOST',
+        'COL_BKLDUNITCOST' => 'BKLDUNITCOST',
+        'BkldUnitCost' => 'BKLDUNITCOST',
+        'so_book_log_det.BkldUnitCost' => 'BKLDUNITCOST',
+        'Bkldacsuplywhse' => 'BKLDACSUPLYWHSE',
+        'BookingDetail.Bkldacsuplywhse' => 'BKLDACSUPLYWHSE',
+        'bkldacsuplywhse' => 'BKLDACSUPLYWHSE',
+        'bookingDetail.bkldacsuplywhse' => 'BKLDACSUPLYWHSE',
+        'BookingDetailTableMap::COL_BKLDACSUPLYWHSE' => 'BKLDACSUPLYWHSE',
+        'COL_BKLDACSUPLYWHSE' => 'BKLDACSUPLYWHSE',
+        'BkldAcSuplyWhse' => 'BKLDACSUPLYWHSE',
+        'so_book_log_det.BkldAcSuplyWhse' => 'BKLDACSUPLYWHSE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'BookingDetail.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'bookingDetail.dateupdtd' => 'DATEUPDTD',
+        'BookingDetailTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_book_log_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'BookingDetail.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'bookingDetail.timeupdtd' => 'TIMEUPDTD',
+        'BookingDetailTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_book_log_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'BookingDetail.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'bookingDetail.dummy' => 'DUMMY',
+        'BookingDetailTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_book_log_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_book_log_det');
@@ -271,12 +486,14 @@ class BookingDetailTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -285,7 +502,7 @@ class BookingDetailTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -296,9 +513,11 @@ class BookingDetailTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \BookingDetail $obj A \BookingDetail object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(BookingDetail $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -317,8 +536,10 @@ class BookingDetailTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \BookingDetail object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \BookingDetail) {
@@ -346,14 +567,14 @@ class BookingDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Bklhordrbase', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Bkldorigline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Bkldseq', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -368,14 +589,14 @@ class BookingDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -406,10 +627,10 @@ class BookingDetailTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? BookingDetailTableMap::CLASS_DEFAULT : BookingDetailTableMap::OM_CLASS;
     }
@@ -417,17 +638,17 @@ class BookingDetailTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (BookingDetail object, last column rank)
+     * @return array (BookingDetail object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = BookingDetailTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = BookingDetailTableMap::getInstanceFromPool($key))) {
@@ -443,7 +664,7 @@ class BookingDetailTableMap extends TableMap
             BookingDetailTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -451,13 +672,13 @@ class BookingDetailTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -487,12 +708,13 @@ class BookingDetailTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(BookingDetailTableMap::COL_BKLHORDRBASE);
@@ -550,40 +772,98 @@ class BookingDetailTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLHORDRBASE);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDORIGLINE);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDSEQ);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDORDRNBR);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDTRANDATE);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDTRANTIME);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDLOGIN);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_INTBWHSE);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDQTY);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDUNITPRIC);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDPGMREF);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDREASCD);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDBOOKDATE);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDNSITEMDESC1);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDNSITEMGRUP);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDNSUOM);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDNSVENDID);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDQTYTOSHIP);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDTAXCODE);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDUNITCOST);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_BKLDACSUPLYWHSE);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(BookingDetailTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.BklhOrdrBase');
+            $criteria->removeSelectColumn($alias . '.BkldOrigLine');
+            $criteria->removeSelectColumn($alias . '.BkldSeq');
+            $criteria->removeSelectColumn($alias . '.BkldOrdrNbr');
+            $criteria->removeSelectColumn($alias . '.BkldTranDate');
+            $criteria->removeSelectColumn($alias . '.BkldTranTime');
+            $criteria->removeSelectColumn($alias . '.BkldLogIn');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.IntbWhse');
+            $criteria->removeSelectColumn($alias . '.BkldQty');
+            $criteria->removeSelectColumn($alias . '.BkldUnitPric');
+            $criteria->removeSelectColumn($alias . '.BkldPgmRef');
+            $criteria->removeSelectColumn($alias . '.BkldReasCd');
+            $criteria->removeSelectColumn($alias . '.BkldBookDate');
+            $criteria->removeSelectColumn($alias . '.BkldNsItemDesc1');
+            $criteria->removeSelectColumn($alias . '.BkldNsItemGrup');
+            $criteria->removeSelectColumn($alias . '.BkldNsUom');
+            $criteria->removeSelectColumn($alias . '.BkldNsVendId');
+            $criteria->removeSelectColumn($alias . '.BkldQtyToShip');
+            $criteria->removeSelectColumn($alias . '.BkldTaxCode');
+            $criteria->removeSelectColumn($alias . '.BkldUnitCost');
+            $criteria->removeSelectColumn($alias . '.BkldAcSuplyWhse');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(BookingDetailTableMap::DATABASE_NAME)->getTable(BookingDetailTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(BookingDetailTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(BookingDetailTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new BookingDetailTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a BookingDetail or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or BookingDetail object or primary key or array of primary keys
+     * @param mixed $values Criteria or BookingDetail object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingDetailTableMap::DATABASE_NAME);
@@ -601,7 +881,7 @@ class BookingDetailTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(BookingDetailTableMap::COL_BKLHORDRBASE, $value[0]);
@@ -630,7 +910,7 @@ class BookingDetailTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return BookingDetailQuery::create()->doDeleteAll($con);
     }
@@ -638,13 +918,13 @@ class BookingDetailTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a BookingDetail or Criteria object.
      *
-     * @param mixed               $criteria Criteria or BookingDetail object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or BookingDetail object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingDetailTableMap::DATABASE_NAME);
@@ -667,7 +947,4 @@ class BookingDetailTableMap extends TableMap
         });
     }
 
-} // BookingDetailTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-BookingDetailTableMap::buildTableMap();
+}

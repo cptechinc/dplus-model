@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class NoteMnfrTableMap extends TableMap
 {
@@ -34,139 +33,243 @@ class NoteMnfrTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.NoteMnfrTableMap';
+    public const CLASS_NAME = '.Map.NoteMnfrTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_mnfr_det';
+    public const TABLE_NAME = 'notes_mnfr_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'NoteMnfr';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\NoteMnfr';
+    public const OM_CLASS = '\\NoteMnfr';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'NoteMnfr';
+    public const CLASS_DEFAULT = 'NoteMnfr';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 11;
+    public const NUM_COLUMNS = 11;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 11;
+    public const NUM_HYDRATE_COLUMNS = 11;
 
     /**
      * the column name for the PontType field
      */
-    const COL_PONTTYPE = 'notes_mnfr_det.PontType';
+    public const COL_PONTTYPE = 'notes_mnfr_det.PontType';
 
     /**
      * the column name for the PontTypeDesc field
      */
-    const COL_PONTTYPEDESC = 'notes_mnfr_det.PontTypeDesc';
+    public const COL_PONTTYPEDESC = 'notes_mnfr_det.PontTypeDesc';
 
     /**
      * the column name for the MnfrId field
      */
-    const COL_MNFRID = 'notes_mnfr_det.MnfrId';
+    public const COL_MNFRID = 'notes_mnfr_det.MnfrId';
 
     /**
      * the column name for the PontMnfrTheirItem field
      */
-    const COL_PONTMNFRTHEIRITEM = 'notes_mnfr_det.PontMnfrTheirItem';
+    public const COL_PONTMNFRTHEIRITEM = 'notes_mnfr_det.PontMnfrTheirItem';
 
     /**
      * the column name for the PontSeq field
      */
-    const COL_PONTSEQ = 'notes_mnfr_det.PontSeq';
+    public const COL_PONTSEQ = 'notes_mnfr_det.PontSeq';
 
     /**
      * the column name for the PontNote field
      */
-    const COL_PONTNOTE = 'notes_mnfr_det.PontNote';
+    public const COL_PONTNOTE = 'notes_mnfr_det.PontNote';
 
     /**
      * the column name for the PontKey2 field
      */
-    const COL_PONTKEY2 = 'notes_mnfr_det.PontKey2';
+    public const COL_PONTKEY2 = 'notes_mnfr_det.PontKey2';
 
     /**
      * the column name for the PontForm field
      */
-    const COL_PONTFORM = 'notes_mnfr_det.PontForm';
+    public const COL_PONTFORM = 'notes_mnfr_det.PontForm';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_mnfr_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'notes_mnfr_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_mnfr_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'notes_mnfr_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_mnfr_det.dummy';
+    public const COL_DUMMY = 'notes_mnfr_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Mnfrid', 'Pontmnfrtheiritem', 'Pontseq', 'Pontnote', 'Pontkey2', 'Pontform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'mnfrid', 'pontmnfrtheiritem', 'pontseq', 'pontnote', 'pontkey2', 'pontform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(NoteMnfrTableMap::COL_PONTTYPE, NoteMnfrTableMap::COL_PONTTYPEDESC, NoteMnfrTableMap::COL_MNFRID, NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM, NoteMnfrTableMap::COL_PONTSEQ, NoteMnfrTableMap::COL_PONTNOTE, NoteMnfrTableMap::COL_PONTKEY2, NoteMnfrTableMap::COL_PONTFORM, NoteMnfrTableMap::COL_DATEUPDTD, NoteMnfrTableMap::COL_TIMEUPDTD, NoteMnfrTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'MnfrId', 'PontMnfrTheirItem', 'PontSeq', 'PontNote', 'PontKey2', 'PontForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Ponttype', 'Ponttypedesc', 'Mnfrid', 'Pontmnfrtheiritem', 'Pontseq', 'Pontnote', 'Pontkey2', 'Pontform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['ponttype', 'ponttypedesc', 'mnfrid', 'pontmnfrtheiritem', 'pontseq', 'pontnote', 'pontkey2', 'pontform', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [NoteMnfrTableMap::COL_PONTTYPE, NoteMnfrTableMap::COL_PONTTYPEDESC, NoteMnfrTableMap::COL_MNFRID, NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM, NoteMnfrTableMap::COL_PONTSEQ, NoteMnfrTableMap::COL_PONTNOTE, NoteMnfrTableMap::COL_PONTKEY2, NoteMnfrTableMap::COL_PONTFORM, NoteMnfrTableMap::COL_DATEUPDTD, NoteMnfrTableMap::COL_TIMEUPDTD, NoteMnfrTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['PontType', 'PontTypeDesc', 'MnfrId', 'PontMnfrTheirItem', 'PontSeq', 'PontNote', 'PontKey2', 'PontForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Mnfrid' => 2, 'Pontmnfrtheiritem' => 3, 'Pontseq' => 4, 'Pontnote' => 5, 'Pontkey2' => 6, 'Pontform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
-        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'mnfrid' => 2, 'pontmnfrtheiritem' => 3, 'pontseq' => 4, 'pontnote' => 5, 'pontkey2' => 6, 'pontform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(NoteMnfrTableMap::COL_PONTTYPE => 0, NoteMnfrTableMap::COL_PONTTYPEDESC => 1, NoteMnfrTableMap::COL_MNFRID => 2, NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM => 3, NoteMnfrTableMap::COL_PONTSEQ => 4, NoteMnfrTableMap::COL_PONTNOTE => 5, NoteMnfrTableMap::COL_PONTKEY2 => 6, NoteMnfrTableMap::COL_PONTFORM => 7, NoteMnfrTableMap::COL_DATEUPDTD => 8, NoteMnfrTableMap::COL_TIMEUPDTD => 9, NoteMnfrTableMap::COL_DUMMY => 10, ),
-        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'MnfrId' => 2, 'PontMnfrTheirItem' => 3, 'PontSeq' => 4, 'PontNote' => 5, 'PontKey2' => 6, 'PontForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Ponttype' => 0, 'Ponttypedesc' => 1, 'Mnfrid' => 2, 'Pontmnfrtheiritem' => 3, 'Pontseq' => 4, 'Pontnote' => 5, 'Pontkey2' => 6, 'Pontform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ],
+        self::TYPE_CAMELNAME     => ['ponttype' => 0, 'ponttypedesc' => 1, 'mnfrid' => 2, 'pontmnfrtheiritem' => 3, 'pontseq' => 4, 'pontnote' => 5, 'pontkey2' => 6, 'pontform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ],
+        self::TYPE_COLNAME       => [NoteMnfrTableMap::COL_PONTTYPE => 0, NoteMnfrTableMap::COL_PONTTYPEDESC => 1, NoteMnfrTableMap::COL_MNFRID => 2, NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM => 3, NoteMnfrTableMap::COL_PONTSEQ => 4, NoteMnfrTableMap::COL_PONTNOTE => 5, NoteMnfrTableMap::COL_PONTKEY2 => 6, NoteMnfrTableMap::COL_PONTFORM => 7, NoteMnfrTableMap::COL_DATEUPDTD => 8, NoteMnfrTableMap::COL_TIMEUPDTD => 9, NoteMnfrTableMap::COL_DUMMY => 10, ],
+        self::TYPE_FIELDNAME     => ['PontType' => 0, 'PontTypeDesc' => 1, 'MnfrId' => 2, 'PontMnfrTheirItem' => 3, 'PontSeq' => 4, 'PontNote' => 5, 'PontKey2' => 6, 'PontForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Ponttype' => 'PONTTYPE',
+        'NoteMnfr.Ponttype' => 'PONTTYPE',
+        'ponttype' => 'PONTTYPE',
+        'noteMnfr.ponttype' => 'PONTTYPE',
+        'NoteMnfrTableMap::COL_PONTTYPE' => 'PONTTYPE',
+        'COL_PONTTYPE' => 'PONTTYPE',
+        'PontType' => 'PONTTYPE',
+        'notes_mnfr_det.PontType' => 'PONTTYPE',
+        'Ponttypedesc' => 'PONTTYPEDESC',
+        'NoteMnfr.Ponttypedesc' => 'PONTTYPEDESC',
+        'ponttypedesc' => 'PONTTYPEDESC',
+        'noteMnfr.ponttypedesc' => 'PONTTYPEDESC',
+        'NoteMnfrTableMap::COL_PONTTYPEDESC' => 'PONTTYPEDESC',
+        'COL_PONTTYPEDESC' => 'PONTTYPEDESC',
+        'PontTypeDesc' => 'PONTTYPEDESC',
+        'notes_mnfr_det.PontTypeDesc' => 'PONTTYPEDESC',
+        'Mnfrid' => 'MNFRID',
+        'NoteMnfr.Mnfrid' => 'MNFRID',
+        'mnfrid' => 'MNFRID',
+        'noteMnfr.mnfrid' => 'MNFRID',
+        'NoteMnfrTableMap::COL_MNFRID' => 'MNFRID',
+        'COL_MNFRID' => 'MNFRID',
+        'MnfrId' => 'MNFRID',
+        'notes_mnfr_det.MnfrId' => 'MNFRID',
+        'Pontmnfrtheiritem' => 'PONTMNFRTHEIRITEM',
+        'NoteMnfr.Pontmnfrtheiritem' => 'PONTMNFRTHEIRITEM',
+        'pontmnfrtheiritem' => 'PONTMNFRTHEIRITEM',
+        'noteMnfr.pontmnfrtheiritem' => 'PONTMNFRTHEIRITEM',
+        'NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM' => 'PONTMNFRTHEIRITEM',
+        'COL_PONTMNFRTHEIRITEM' => 'PONTMNFRTHEIRITEM',
+        'PontMnfrTheirItem' => 'PONTMNFRTHEIRITEM',
+        'notes_mnfr_det.PontMnfrTheirItem' => 'PONTMNFRTHEIRITEM',
+        'Pontseq' => 'PONTSEQ',
+        'NoteMnfr.Pontseq' => 'PONTSEQ',
+        'pontseq' => 'PONTSEQ',
+        'noteMnfr.pontseq' => 'PONTSEQ',
+        'NoteMnfrTableMap::COL_PONTSEQ' => 'PONTSEQ',
+        'COL_PONTSEQ' => 'PONTSEQ',
+        'PontSeq' => 'PONTSEQ',
+        'notes_mnfr_det.PontSeq' => 'PONTSEQ',
+        'Pontnote' => 'PONTNOTE',
+        'NoteMnfr.Pontnote' => 'PONTNOTE',
+        'pontnote' => 'PONTNOTE',
+        'noteMnfr.pontnote' => 'PONTNOTE',
+        'NoteMnfrTableMap::COL_PONTNOTE' => 'PONTNOTE',
+        'COL_PONTNOTE' => 'PONTNOTE',
+        'PontNote' => 'PONTNOTE',
+        'notes_mnfr_det.PontNote' => 'PONTNOTE',
+        'Pontkey2' => 'PONTKEY2',
+        'NoteMnfr.Pontkey2' => 'PONTKEY2',
+        'pontkey2' => 'PONTKEY2',
+        'noteMnfr.pontkey2' => 'PONTKEY2',
+        'NoteMnfrTableMap::COL_PONTKEY2' => 'PONTKEY2',
+        'COL_PONTKEY2' => 'PONTKEY2',
+        'PontKey2' => 'PONTKEY2',
+        'notes_mnfr_det.PontKey2' => 'PONTKEY2',
+        'Pontform' => 'PONTFORM',
+        'NoteMnfr.Pontform' => 'PONTFORM',
+        'pontform' => 'PONTFORM',
+        'noteMnfr.pontform' => 'PONTFORM',
+        'NoteMnfrTableMap::COL_PONTFORM' => 'PONTFORM',
+        'COL_PONTFORM' => 'PONTFORM',
+        'PontForm' => 'PONTFORM',
+        'notes_mnfr_det.PontForm' => 'PONTFORM',
+        'Dateupdtd' => 'DATEUPDTD',
+        'NoteMnfr.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'noteMnfr.dateupdtd' => 'DATEUPDTD',
+        'NoteMnfrTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'notes_mnfr_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'NoteMnfr.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'noteMnfr.timeupdtd' => 'TIMEUPDTD',
+        'NoteMnfrTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'notes_mnfr_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'NoteMnfr.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'noteMnfr.dummy' => 'DUMMY',
+        'NoteMnfrTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'notes_mnfr_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('notes_mnfr_det');
@@ -187,14 +290,16 @@ class NoteMnfrTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -205,9 +310,11 @@ class NoteMnfrTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \NoteMnfr $obj A \NoteMnfr object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(NoteMnfr $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -226,8 +333,10 @@ class NoteMnfrTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \NoteMnfr object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \NoteMnfr) {
@@ -255,14 +364,14 @@ class NoteMnfrTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Ponttype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Pontseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Pontkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Pontform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -277,14 +386,14 @@ class NoteMnfrTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -320,10 +429,10 @@ class NoteMnfrTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? NoteMnfrTableMap::CLASS_DEFAULT : NoteMnfrTableMap::OM_CLASS;
     }
@@ -331,17 +440,17 @@ class NoteMnfrTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (NoteMnfr object, last column rank)
+     * @return array (NoteMnfr object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = NoteMnfrTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = NoteMnfrTableMap::getInstanceFromPool($key))) {
@@ -357,7 +466,7 @@ class NoteMnfrTableMap extends TableMap
             NoteMnfrTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -365,13 +474,13 @@ class NoteMnfrTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -401,12 +510,13 @@ class NoteMnfrTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(NoteMnfrTableMap::COL_PONTTYPE);
@@ -436,40 +546,70 @@ class NoteMnfrTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_PONTTYPE);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_PONTTYPEDESC);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_MNFRID);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_PONTSEQ);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_PONTNOTE);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_PONTKEY2);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_PONTFORM);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(NoteMnfrTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.PontType');
+            $criteria->removeSelectColumn($alias . '.PontTypeDesc');
+            $criteria->removeSelectColumn($alias . '.MnfrId');
+            $criteria->removeSelectColumn($alias . '.PontMnfrTheirItem');
+            $criteria->removeSelectColumn($alias . '.PontSeq');
+            $criteria->removeSelectColumn($alias . '.PontNote');
+            $criteria->removeSelectColumn($alias . '.PontKey2');
+            $criteria->removeSelectColumn($alias . '.PontForm');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(NoteMnfrTableMap::DATABASE_NAME)->getTable(NoteMnfrTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(NoteMnfrTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(NoteMnfrTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new NoteMnfrTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a NoteMnfr or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or NoteMnfr object or primary key or array of primary keys
+     * @param mixed $values Criteria or NoteMnfr object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NoteMnfrTableMap::DATABASE_NAME);
@@ -487,7 +627,7 @@ class NoteMnfrTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(NoteMnfrTableMap::COL_PONTTYPE, $value[0]);
@@ -517,7 +657,7 @@ class NoteMnfrTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return NoteMnfrQuery::create()->doDeleteAll($con);
     }
@@ -525,13 +665,13 @@ class NoteMnfrTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a NoteMnfr or Criteria object.
      *
-     * @param mixed               $criteria Criteria or NoteMnfr object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or NoteMnfr object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NoteMnfrTableMap::DATABASE_NAME);
@@ -554,7 +694,4 @@ class NoteMnfrTableMap extends TableMap
         });
     }
 
-} // NoteMnfrTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-NoteMnfrTableMap::buildTableMap();
+}

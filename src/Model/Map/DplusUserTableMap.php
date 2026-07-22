@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class DplusUserTableMap extends TableMap
 {
@@ -34,299 +33,659 @@ class DplusUserTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.DplusUserTableMap';
+    public const CLASS_NAME = '.Map.DplusUserTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'sys_login';
+    public const TABLE_NAME = 'sys_login';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'DplusUser';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\DplusUser';
+    public const OM_CLASS = '\\DplusUser';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'DplusUser';
+    public const CLASS_DEFAULT = 'DplusUser';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 43;
+    public const NUM_COLUMNS = 43;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 43;
+    public const NUM_HYDRATE_COLUMNS = 43;
 
     /**
      * the column name for the UsrcId field
      */
-    const COL_USRCID = 'sys_login.UsrcId';
+    public const COL_USRCID = 'sys_login.UsrcId';
 
     /**
      * the column name for the UsrcLoginName field
      */
-    const COL_USRCLOGINNAME = 'sys_login.UsrcLoginName';
+    public const COL_USRCLOGINNAME = 'sys_login.UsrcLoginName';
 
     /**
      * the column name for the IntbWhse field
      */
-    const COL_INTBWHSE = 'sys_login.IntbWhse';
+    public const COL_INTBWHSE = 'sys_login.IntbWhse';
 
     /**
      * the column name for the UsrcDefCmpy field
      */
-    const COL_USRCDEFCMPY = 'sys_login.UsrcDefCmpy';
+    public const COL_USRCDEFCMPY = 'sys_login.UsrcDefCmpy';
 
     /**
      * the column name for the UsrcAdmin field
      */
-    const COL_USRCADMIN = 'sys_login.UsrcAdmin';
+    public const COL_USRCADMIN = 'sys_login.UsrcAdmin';
 
     /**
      * the column name for the UsrcFront field
      */
-    const COL_USRCFRONT = 'sys_login.UsrcFront';
+    public const COL_USRCFRONT = 'sys_login.UsrcFront';
 
     /**
      * the column name for the UsrcCityDesk field
      */
-    const COL_USRCCITYDESK = 'sys_login.UsrcCityDesk';
+    public const COL_USRCCITYDESK = 'sys_login.UsrcCityDesk';
 
     /**
      * the column name for the UsrcReptAdmin field
      */
-    const COL_USRCREPTADMIN = 'sys_login.UsrcReptAdmin';
+    public const COL_USRCREPTADMIN = 'sys_login.UsrcReptAdmin';
 
     /**
      * the column name for the UsrcPrinter field
      */
-    const COL_USRCPRINTER = 'sys_login.UsrcPrinter';
+    public const COL_USRCPRINTER = 'sys_login.UsrcPrinter';
 
     /**
      * the column name for the UsrcPitch field
      */
-    const COL_USRCPITCH = 'sys_login.UsrcPitch';
+    public const COL_USRCPITCH = 'sys_login.UsrcPitch';
 
     /**
      * the column name for the UsrcBrowsePrinter field
      */
-    const COL_USRCBROWSEPRINTER = 'sys_login.UsrcBrowsePrinter';
+    public const COL_USRCBROWSEPRINTER = 'sys_login.UsrcBrowsePrinter';
 
     /**
      * the column name for the UsrcWhseDisplaySeq field
      */
-    const COL_USRCWHSEDISPLAYSEQ = 'sys_login.UsrcWhseDisplaySeq';
+    public const COL_USRCWHSEDISPLAYSEQ = 'sys_login.UsrcWhseDisplaySeq';
 
     /**
      * the column name for the UsrcActiveItemsOnly field
      */
-    const COL_USRCACTIVEITEMSONLY = 'sys_login.UsrcActiveItemsOnly';
+    public const COL_USRCACTIVEITEMSONLY = 'sys_login.UsrcActiveItemsOnly';
 
     /**
      * the column name for the UsrcRestrictAccess field
      */
-    const COL_USRCRESTRICTACCESS = 'sys_login.UsrcRestrictAccess';
+    public const COL_USRCRESTRICTACCESS = 'sys_login.UsrcRestrictAccess';
 
     /**
      * the column name for the UsrcLoginGroup field
      */
-    const COL_USRCLOGINGROUP = 'sys_login.UsrcLoginGroup';
+    public const COL_USRCLOGINGROUP = 'sys_login.UsrcLoginGroup';
 
     /**
      * the column name for the UsrcLoginRole field
      */
-    const COL_USRCLOGINROLE = 'sys_login.UsrcLoginRole';
+    public const COL_USRCLOGINROLE = 'sys_login.UsrcLoginRole';
 
     /**
      * the column name for the UsrcAllowProcRemoval field
      */
-    const COL_USRCALLOWPROCREMOVAL = 'sys_login.UsrcAllowProcRemoval';
+    public const COL_USRCALLOWPROCREMOVAL = 'sys_login.UsrcAllowProcRemoval';
 
     /**
      * the column name for the UsrcAcAllowWarrEdit field
      */
-    const COL_USRCACALLOWWARREDIT = 'sys_login.UsrcAcAllowWarrEdit';
+    public const COL_USRCACALLOWWARREDIT = 'sys_login.UsrcAcAllowWarrEdit';
 
     /**
      * the column name for the UsrcIsProdMgr field
      */
-    const COL_USRCISPRODMGR = 'sys_login.UsrcIsProdMgr';
+    public const COL_USRCISPRODMGR = 'sys_login.UsrcIsProdMgr';
 
     /**
      * the column name for the UsrcLmAllowCrossWhse field
      */
-    const COL_USRCLMALLOWCROSSWHSE = 'sys_login.UsrcLmAllowCrossWhse';
+    public const COL_USRCLMALLOWCROSSWHSE = 'sys_login.UsrcLmAllowCrossWhse';
 
     /**
      * the column name for the UsrcPswd field
      */
-    const COL_USRCPSWD = 'sys_login.UsrcPswd';
+    public const COL_USRCPSWD = 'sys_login.UsrcPswd';
 
     /**
      * the column name for the UsrcFaxName field
      */
-    const COL_USRCFAXNAME = 'sys_login.UsrcFaxName';
+    public const COL_USRCFAXNAME = 'sys_login.UsrcFaxName';
 
     /**
      * the column name for the UsrcFaxCompany field
      */
-    const COL_USRCFAXCOMPANY = 'sys_login.UsrcFaxCompany';
+    public const COL_USRCFAXCOMPANY = 'sys_login.UsrcFaxCompany';
 
     /**
      * the column name for the UsrcFaxArea field
      */
-    const COL_USRCFAXAREA = 'sys_login.UsrcFaxArea';
+    public const COL_USRCFAXAREA = 'sys_login.UsrcFaxArea';
 
     /**
      * the column name for the UsrcFaxFrst3 field
      */
-    const COL_USRCFAXFRST3 = 'sys_login.UsrcFaxFrst3';
+    public const COL_USRCFAXFRST3 = 'sys_login.UsrcFaxFrst3';
 
     /**
      * the column name for the UsrcFaxLast4 field
      */
-    const COL_USRCFAXLAST4 = 'sys_login.UsrcFaxLast4';
+    public const COL_USRCFAXLAST4 = 'sys_login.UsrcFaxLast4';
 
     /**
      * the column name for the UsrcPhoneArea field
      */
-    const COL_USRCPHONEAREA = 'sys_login.UsrcPhoneArea';
+    public const COL_USRCPHONEAREA = 'sys_login.UsrcPhoneArea';
 
     /**
      * the column name for the UsrcPhoneFrst3 field
      */
-    const COL_USRCPHONEFRST3 = 'sys_login.UsrcPhoneFrst3';
+    public const COL_USRCPHONEFRST3 = 'sys_login.UsrcPhoneFrst3';
 
     /**
      * the column name for the UsrcPhoneLast4 field
      */
-    const COL_USRCPHONELAST4 = 'sys_login.UsrcPhoneLast4';
+    public const COL_USRCPHONELAST4 = 'sys_login.UsrcPhoneLast4';
 
     /**
      * the column name for the UsrcPhoneExt field
      */
-    const COL_USRCPHONEEXT = 'sys_login.UsrcPhoneExt';
+    public const COL_USRCPHONEEXT = 'sys_login.UsrcPhoneExt';
 
     /**
      * the column name for the UsrcSendTime field
      */
-    const COL_USRCSENDTIME = 'sys_login.UsrcSendTime';
+    public const COL_USRCSENDTIME = 'sys_login.UsrcSendTime';
 
     /**
      * the column name for the UsrcCoverSheet field
      */
-    const COL_USRCCOVERSHEET = 'sys_login.UsrcCoverSheet';
+    public const COL_USRCCOVERSHEET = 'sys_login.UsrcCoverSheet';
 
     /**
      * the column name for the UsrcSubject field
      */
-    const COL_USRCSUBJECT = 'sys_login.UsrcSubject';
+    public const COL_USRCSUBJECT = 'sys_login.UsrcSubject';
 
     /**
      * the column name for the UsrcNotifyS field
      */
-    const COL_USRCNOTIFYS = 'sys_login.UsrcNotifyS';
+    public const COL_USRCNOTIFYS = 'sys_login.UsrcNotifyS';
 
     /**
      * the column name for the UsrcNotifyF field
      */
-    const COL_USRCNOTIFYF = 'sys_login.UsrcNotifyF';
+    public const COL_USRCNOTIFYF = 'sys_login.UsrcNotifyF';
 
     /**
      * the column name for the UsrcEmailAddr field
      */
-    const COL_USRCEMAILADDR = 'sys_login.UsrcEmailAddr';
+    public const COL_USRCEMAILADDR = 'sys_login.UsrcEmailAddr';
 
     /**
      * the column name for the UsrcScaleWhseId field
      */
-    const COL_USRCSCALEWHSEID = 'sys_login.UsrcScaleWhseId';
+    public const COL_USRCSCALEWHSEID = 'sys_login.UsrcScaleWhseId';
 
     /**
      * the column name for the UsrcScaleDevNbr field
      */
-    const COL_USRCSCALEDEVNBR = 'sys_login.UsrcScaleDevNbr';
+    public const COL_USRCSCALEDEVNBR = 'sys_login.UsrcScaleDevNbr';
 
     /**
      * the column name for the UsrcCcscanWhseId field
      */
-    const COL_USRCCCSCANWHSEID = 'sys_login.UsrcCcscanWhseId';
+    public const COL_USRCCCSCANWHSEID = 'sys_login.UsrcCcscanWhseId';
 
     /**
      * the column name for the UsrcCcscanDevNbr field
      */
-    const COL_USRCCCSCANDEVNBR = 'sys_login.UsrcCcscanDevNbr';
+    public const COL_USRCCCSCANDEVNBR = 'sys_login.UsrcCcscanDevNbr';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'sys_login.DateUpdtd';
+    public const COL_DATEUPDTD = 'sys_login.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'sys_login.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'sys_login.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'sys_login.dummy';
+    public const COL_DUMMY = 'sys_login.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Usrcid', 'Usrcloginname', 'Intbwhse', 'Usrcdefcmpy', 'Usrcadmin', 'Usrcfront', 'Usrccitydesk', 'Usrcreptadmin', 'Usrcprinter', 'Usrcpitch', 'Usrcbrowseprinter', 'Usrcwhsedisplayseq', 'Usrcactiveitemsonly', 'Usrcrestrictaccess', 'Usrclogingroup', 'Usrcloginrole', 'Usrcallowprocremoval', 'Usrcacallowwarredit', 'Usrcisprodmgr', 'Usrclmallowcrosswhse', 'Usrcpswd', 'Usrcfaxname', 'Usrcfaxcompany', 'Usrcfaxarea', 'Usrcfaxfrst3', 'Usrcfaxlast4', 'Usrcphonearea', 'Usrcphonefrst3', 'Usrcphonelast4', 'Usrcphoneext', 'Usrcsendtime', 'Usrccoversheet', 'Usrcsubject', 'Usrcnotifys', 'Usrcnotifyf', 'Usrcemailaddr', 'Usrcscalewhseid', 'Usrcscaledevnbr', 'Usrcccscanwhseid', 'Usrcccscandevnbr', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('usrcid', 'usrcloginname', 'intbwhse', 'usrcdefcmpy', 'usrcadmin', 'usrcfront', 'usrccitydesk', 'usrcreptadmin', 'usrcprinter', 'usrcpitch', 'usrcbrowseprinter', 'usrcwhsedisplayseq', 'usrcactiveitemsonly', 'usrcrestrictaccess', 'usrclogingroup', 'usrcloginrole', 'usrcallowprocremoval', 'usrcacallowwarredit', 'usrcisprodmgr', 'usrclmallowcrosswhse', 'usrcpswd', 'usrcfaxname', 'usrcfaxcompany', 'usrcfaxarea', 'usrcfaxfrst3', 'usrcfaxlast4', 'usrcphonearea', 'usrcphonefrst3', 'usrcphonelast4', 'usrcphoneext', 'usrcsendtime', 'usrccoversheet', 'usrcsubject', 'usrcnotifys', 'usrcnotifyf', 'usrcemailaddr', 'usrcscalewhseid', 'usrcscaledevnbr', 'usrcccscanwhseid', 'usrcccscandevnbr', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(DplusUserTableMap::COL_USRCID, DplusUserTableMap::COL_USRCLOGINNAME, DplusUserTableMap::COL_INTBWHSE, DplusUserTableMap::COL_USRCDEFCMPY, DplusUserTableMap::COL_USRCADMIN, DplusUserTableMap::COL_USRCFRONT, DplusUserTableMap::COL_USRCCITYDESK, DplusUserTableMap::COL_USRCREPTADMIN, DplusUserTableMap::COL_USRCPRINTER, DplusUserTableMap::COL_USRCPITCH, DplusUserTableMap::COL_USRCBROWSEPRINTER, DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ, DplusUserTableMap::COL_USRCACTIVEITEMSONLY, DplusUserTableMap::COL_USRCRESTRICTACCESS, DplusUserTableMap::COL_USRCLOGINGROUP, DplusUserTableMap::COL_USRCLOGINROLE, DplusUserTableMap::COL_USRCALLOWPROCREMOVAL, DplusUserTableMap::COL_USRCACALLOWWARREDIT, DplusUserTableMap::COL_USRCISPRODMGR, DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE, DplusUserTableMap::COL_USRCPSWD, DplusUserTableMap::COL_USRCFAXNAME, DplusUserTableMap::COL_USRCFAXCOMPANY, DplusUserTableMap::COL_USRCFAXAREA, DplusUserTableMap::COL_USRCFAXFRST3, DplusUserTableMap::COL_USRCFAXLAST4, DplusUserTableMap::COL_USRCPHONEAREA, DplusUserTableMap::COL_USRCPHONEFRST3, DplusUserTableMap::COL_USRCPHONELAST4, DplusUserTableMap::COL_USRCPHONEEXT, DplusUserTableMap::COL_USRCSENDTIME, DplusUserTableMap::COL_USRCCOVERSHEET, DplusUserTableMap::COL_USRCSUBJECT, DplusUserTableMap::COL_USRCNOTIFYS, DplusUserTableMap::COL_USRCNOTIFYF, DplusUserTableMap::COL_USRCEMAILADDR, DplusUserTableMap::COL_USRCSCALEWHSEID, DplusUserTableMap::COL_USRCSCALEDEVNBR, DplusUserTableMap::COL_USRCCCSCANWHSEID, DplusUserTableMap::COL_USRCCCSCANDEVNBR, DplusUserTableMap::COL_DATEUPDTD, DplusUserTableMap::COL_TIMEUPDTD, DplusUserTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('UsrcId', 'UsrcLoginName', 'IntbWhse', 'UsrcDefCmpy', 'UsrcAdmin', 'UsrcFront', 'UsrcCityDesk', 'UsrcReptAdmin', 'UsrcPrinter', 'UsrcPitch', 'UsrcBrowsePrinter', 'UsrcWhseDisplaySeq', 'UsrcActiveItemsOnly', 'UsrcRestrictAccess', 'UsrcLoginGroup', 'UsrcLoginRole', 'UsrcAllowProcRemoval', 'UsrcAcAllowWarrEdit', 'UsrcIsProdMgr', 'UsrcLmAllowCrossWhse', 'UsrcPswd', 'UsrcFaxName', 'UsrcFaxCompany', 'UsrcFaxArea', 'UsrcFaxFrst3', 'UsrcFaxLast4', 'UsrcPhoneArea', 'UsrcPhoneFrst3', 'UsrcPhoneLast4', 'UsrcPhoneExt', 'UsrcSendTime', 'UsrcCoverSheet', 'UsrcSubject', 'UsrcNotifyS', 'UsrcNotifyF', 'UsrcEmailAddr', 'UsrcScaleWhseId', 'UsrcScaleDevNbr', 'UsrcCcscanWhseId', 'UsrcCcscanDevNbr', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Usrcid', 'Usrcloginname', 'Intbwhse', 'Usrcdefcmpy', 'Usrcadmin', 'Usrcfront', 'Usrccitydesk', 'Usrcreptadmin', 'Usrcprinter', 'Usrcpitch', 'Usrcbrowseprinter', 'Usrcwhsedisplayseq', 'Usrcactiveitemsonly', 'Usrcrestrictaccess', 'Usrclogingroup', 'Usrcloginrole', 'Usrcallowprocremoval', 'Usrcacallowwarredit', 'Usrcisprodmgr', 'Usrclmallowcrosswhse', 'Usrcpswd', 'Usrcfaxname', 'Usrcfaxcompany', 'Usrcfaxarea', 'Usrcfaxfrst3', 'Usrcfaxlast4', 'Usrcphonearea', 'Usrcphonefrst3', 'Usrcphonelast4', 'Usrcphoneext', 'Usrcsendtime', 'Usrccoversheet', 'Usrcsubject', 'Usrcnotifys', 'Usrcnotifyf', 'Usrcemailaddr', 'Usrcscalewhseid', 'Usrcscaledevnbr', 'Usrcccscanwhseid', 'Usrcccscandevnbr', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['usrcid', 'usrcloginname', 'intbwhse', 'usrcdefcmpy', 'usrcadmin', 'usrcfront', 'usrccitydesk', 'usrcreptadmin', 'usrcprinter', 'usrcpitch', 'usrcbrowseprinter', 'usrcwhsedisplayseq', 'usrcactiveitemsonly', 'usrcrestrictaccess', 'usrclogingroup', 'usrcloginrole', 'usrcallowprocremoval', 'usrcacallowwarredit', 'usrcisprodmgr', 'usrclmallowcrosswhse', 'usrcpswd', 'usrcfaxname', 'usrcfaxcompany', 'usrcfaxarea', 'usrcfaxfrst3', 'usrcfaxlast4', 'usrcphonearea', 'usrcphonefrst3', 'usrcphonelast4', 'usrcphoneext', 'usrcsendtime', 'usrccoversheet', 'usrcsubject', 'usrcnotifys', 'usrcnotifyf', 'usrcemailaddr', 'usrcscalewhseid', 'usrcscaledevnbr', 'usrcccscanwhseid', 'usrcccscandevnbr', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [DplusUserTableMap::COL_USRCID, DplusUserTableMap::COL_USRCLOGINNAME, DplusUserTableMap::COL_INTBWHSE, DplusUserTableMap::COL_USRCDEFCMPY, DplusUserTableMap::COL_USRCADMIN, DplusUserTableMap::COL_USRCFRONT, DplusUserTableMap::COL_USRCCITYDESK, DplusUserTableMap::COL_USRCREPTADMIN, DplusUserTableMap::COL_USRCPRINTER, DplusUserTableMap::COL_USRCPITCH, DplusUserTableMap::COL_USRCBROWSEPRINTER, DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ, DplusUserTableMap::COL_USRCACTIVEITEMSONLY, DplusUserTableMap::COL_USRCRESTRICTACCESS, DplusUserTableMap::COL_USRCLOGINGROUP, DplusUserTableMap::COL_USRCLOGINROLE, DplusUserTableMap::COL_USRCALLOWPROCREMOVAL, DplusUserTableMap::COL_USRCACALLOWWARREDIT, DplusUserTableMap::COL_USRCISPRODMGR, DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE, DplusUserTableMap::COL_USRCPSWD, DplusUserTableMap::COL_USRCFAXNAME, DplusUserTableMap::COL_USRCFAXCOMPANY, DplusUserTableMap::COL_USRCFAXAREA, DplusUserTableMap::COL_USRCFAXFRST3, DplusUserTableMap::COL_USRCFAXLAST4, DplusUserTableMap::COL_USRCPHONEAREA, DplusUserTableMap::COL_USRCPHONEFRST3, DplusUserTableMap::COL_USRCPHONELAST4, DplusUserTableMap::COL_USRCPHONEEXT, DplusUserTableMap::COL_USRCSENDTIME, DplusUserTableMap::COL_USRCCOVERSHEET, DplusUserTableMap::COL_USRCSUBJECT, DplusUserTableMap::COL_USRCNOTIFYS, DplusUserTableMap::COL_USRCNOTIFYF, DplusUserTableMap::COL_USRCEMAILADDR, DplusUserTableMap::COL_USRCSCALEWHSEID, DplusUserTableMap::COL_USRCSCALEDEVNBR, DplusUserTableMap::COL_USRCCCSCANWHSEID, DplusUserTableMap::COL_USRCCCSCANDEVNBR, DplusUserTableMap::COL_DATEUPDTD, DplusUserTableMap::COL_TIMEUPDTD, DplusUserTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['UsrcId', 'UsrcLoginName', 'IntbWhse', 'UsrcDefCmpy', 'UsrcAdmin', 'UsrcFront', 'UsrcCityDesk', 'UsrcReptAdmin', 'UsrcPrinter', 'UsrcPitch', 'UsrcBrowsePrinter', 'UsrcWhseDisplaySeq', 'UsrcActiveItemsOnly', 'UsrcRestrictAccess', 'UsrcLoginGroup', 'UsrcLoginRole', 'UsrcAllowProcRemoval', 'UsrcAcAllowWarrEdit', 'UsrcIsProdMgr', 'UsrcLmAllowCrossWhse', 'UsrcPswd', 'UsrcFaxName', 'UsrcFaxCompany', 'UsrcFaxArea', 'UsrcFaxFrst3', 'UsrcFaxLast4', 'UsrcPhoneArea', 'UsrcPhoneFrst3', 'UsrcPhoneLast4', 'UsrcPhoneExt', 'UsrcSendTime', 'UsrcCoverSheet', 'UsrcSubject', 'UsrcNotifyS', 'UsrcNotifyF', 'UsrcEmailAddr', 'UsrcScaleWhseId', 'UsrcScaleDevNbr', 'UsrcCcscanWhseId', 'UsrcCcscanDevNbr', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Usrcid' => 0, 'Usrcloginname' => 1, 'Intbwhse' => 2, 'Usrcdefcmpy' => 3, 'Usrcadmin' => 4, 'Usrcfront' => 5, 'Usrccitydesk' => 6, 'Usrcreptadmin' => 7, 'Usrcprinter' => 8, 'Usrcpitch' => 9, 'Usrcbrowseprinter' => 10, 'Usrcwhsedisplayseq' => 11, 'Usrcactiveitemsonly' => 12, 'Usrcrestrictaccess' => 13, 'Usrclogingroup' => 14, 'Usrcloginrole' => 15, 'Usrcallowprocremoval' => 16, 'Usrcacallowwarredit' => 17, 'Usrcisprodmgr' => 18, 'Usrclmallowcrosswhse' => 19, 'Usrcpswd' => 20, 'Usrcfaxname' => 21, 'Usrcfaxcompany' => 22, 'Usrcfaxarea' => 23, 'Usrcfaxfrst3' => 24, 'Usrcfaxlast4' => 25, 'Usrcphonearea' => 26, 'Usrcphonefrst3' => 27, 'Usrcphonelast4' => 28, 'Usrcphoneext' => 29, 'Usrcsendtime' => 30, 'Usrccoversheet' => 31, 'Usrcsubject' => 32, 'Usrcnotifys' => 33, 'Usrcnotifyf' => 34, 'Usrcemailaddr' => 35, 'Usrcscalewhseid' => 36, 'Usrcscaledevnbr' => 37, 'Usrcccscanwhseid' => 38, 'Usrcccscandevnbr' => 39, 'Dateupdtd' => 40, 'Timeupdtd' => 41, 'Dummy' => 42, ),
-        self::TYPE_CAMELNAME     => array('usrcid' => 0, 'usrcloginname' => 1, 'intbwhse' => 2, 'usrcdefcmpy' => 3, 'usrcadmin' => 4, 'usrcfront' => 5, 'usrccitydesk' => 6, 'usrcreptadmin' => 7, 'usrcprinter' => 8, 'usrcpitch' => 9, 'usrcbrowseprinter' => 10, 'usrcwhsedisplayseq' => 11, 'usrcactiveitemsonly' => 12, 'usrcrestrictaccess' => 13, 'usrclogingroup' => 14, 'usrcloginrole' => 15, 'usrcallowprocremoval' => 16, 'usrcacallowwarredit' => 17, 'usrcisprodmgr' => 18, 'usrclmallowcrosswhse' => 19, 'usrcpswd' => 20, 'usrcfaxname' => 21, 'usrcfaxcompany' => 22, 'usrcfaxarea' => 23, 'usrcfaxfrst3' => 24, 'usrcfaxlast4' => 25, 'usrcphonearea' => 26, 'usrcphonefrst3' => 27, 'usrcphonelast4' => 28, 'usrcphoneext' => 29, 'usrcsendtime' => 30, 'usrccoversheet' => 31, 'usrcsubject' => 32, 'usrcnotifys' => 33, 'usrcnotifyf' => 34, 'usrcemailaddr' => 35, 'usrcscalewhseid' => 36, 'usrcscaledevnbr' => 37, 'usrcccscanwhseid' => 38, 'usrcccscandevnbr' => 39, 'dateupdtd' => 40, 'timeupdtd' => 41, 'dummy' => 42, ),
-        self::TYPE_COLNAME       => array(DplusUserTableMap::COL_USRCID => 0, DplusUserTableMap::COL_USRCLOGINNAME => 1, DplusUserTableMap::COL_INTBWHSE => 2, DplusUserTableMap::COL_USRCDEFCMPY => 3, DplusUserTableMap::COL_USRCADMIN => 4, DplusUserTableMap::COL_USRCFRONT => 5, DplusUserTableMap::COL_USRCCITYDESK => 6, DplusUserTableMap::COL_USRCREPTADMIN => 7, DplusUserTableMap::COL_USRCPRINTER => 8, DplusUserTableMap::COL_USRCPITCH => 9, DplusUserTableMap::COL_USRCBROWSEPRINTER => 10, DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ => 11, DplusUserTableMap::COL_USRCACTIVEITEMSONLY => 12, DplusUserTableMap::COL_USRCRESTRICTACCESS => 13, DplusUserTableMap::COL_USRCLOGINGROUP => 14, DplusUserTableMap::COL_USRCLOGINROLE => 15, DplusUserTableMap::COL_USRCALLOWPROCREMOVAL => 16, DplusUserTableMap::COL_USRCACALLOWWARREDIT => 17, DplusUserTableMap::COL_USRCISPRODMGR => 18, DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE => 19, DplusUserTableMap::COL_USRCPSWD => 20, DplusUserTableMap::COL_USRCFAXNAME => 21, DplusUserTableMap::COL_USRCFAXCOMPANY => 22, DplusUserTableMap::COL_USRCFAXAREA => 23, DplusUserTableMap::COL_USRCFAXFRST3 => 24, DplusUserTableMap::COL_USRCFAXLAST4 => 25, DplusUserTableMap::COL_USRCPHONEAREA => 26, DplusUserTableMap::COL_USRCPHONEFRST3 => 27, DplusUserTableMap::COL_USRCPHONELAST4 => 28, DplusUserTableMap::COL_USRCPHONEEXT => 29, DplusUserTableMap::COL_USRCSENDTIME => 30, DplusUserTableMap::COL_USRCCOVERSHEET => 31, DplusUserTableMap::COL_USRCSUBJECT => 32, DplusUserTableMap::COL_USRCNOTIFYS => 33, DplusUserTableMap::COL_USRCNOTIFYF => 34, DplusUserTableMap::COL_USRCEMAILADDR => 35, DplusUserTableMap::COL_USRCSCALEWHSEID => 36, DplusUserTableMap::COL_USRCSCALEDEVNBR => 37, DplusUserTableMap::COL_USRCCCSCANWHSEID => 38, DplusUserTableMap::COL_USRCCCSCANDEVNBR => 39, DplusUserTableMap::COL_DATEUPDTD => 40, DplusUserTableMap::COL_TIMEUPDTD => 41, DplusUserTableMap::COL_DUMMY => 42, ),
-        self::TYPE_FIELDNAME     => array('UsrcId' => 0, 'UsrcLoginName' => 1, 'IntbWhse' => 2, 'UsrcDefCmpy' => 3, 'UsrcAdmin' => 4, 'UsrcFront' => 5, 'UsrcCityDesk' => 6, 'UsrcReptAdmin' => 7, 'UsrcPrinter' => 8, 'UsrcPitch' => 9, 'UsrcBrowsePrinter' => 10, 'UsrcWhseDisplaySeq' => 11, 'UsrcActiveItemsOnly' => 12, 'UsrcRestrictAccess' => 13, 'UsrcLoginGroup' => 14, 'UsrcLoginRole' => 15, 'UsrcAllowProcRemoval' => 16, 'UsrcAcAllowWarrEdit' => 17, 'UsrcIsProdMgr' => 18, 'UsrcLmAllowCrossWhse' => 19, 'UsrcPswd' => 20, 'UsrcFaxName' => 21, 'UsrcFaxCompany' => 22, 'UsrcFaxArea' => 23, 'UsrcFaxFrst3' => 24, 'UsrcFaxLast4' => 25, 'UsrcPhoneArea' => 26, 'UsrcPhoneFrst3' => 27, 'UsrcPhoneLast4' => 28, 'UsrcPhoneExt' => 29, 'UsrcSendTime' => 30, 'UsrcCoverSheet' => 31, 'UsrcSubject' => 32, 'UsrcNotifyS' => 33, 'UsrcNotifyF' => 34, 'UsrcEmailAddr' => 35, 'UsrcScaleWhseId' => 36, 'UsrcScaleDevNbr' => 37, 'UsrcCcscanWhseId' => 38, 'UsrcCcscanDevNbr' => 39, 'DateUpdtd' => 40, 'TimeUpdtd' => 41, 'dummy' => 42, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Usrcid' => 0, 'Usrcloginname' => 1, 'Intbwhse' => 2, 'Usrcdefcmpy' => 3, 'Usrcadmin' => 4, 'Usrcfront' => 5, 'Usrccitydesk' => 6, 'Usrcreptadmin' => 7, 'Usrcprinter' => 8, 'Usrcpitch' => 9, 'Usrcbrowseprinter' => 10, 'Usrcwhsedisplayseq' => 11, 'Usrcactiveitemsonly' => 12, 'Usrcrestrictaccess' => 13, 'Usrclogingroup' => 14, 'Usrcloginrole' => 15, 'Usrcallowprocremoval' => 16, 'Usrcacallowwarredit' => 17, 'Usrcisprodmgr' => 18, 'Usrclmallowcrosswhse' => 19, 'Usrcpswd' => 20, 'Usrcfaxname' => 21, 'Usrcfaxcompany' => 22, 'Usrcfaxarea' => 23, 'Usrcfaxfrst3' => 24, 'Usrcfaxlast4' => 25, 'Usrcphonearea' => 26, 'Usrcphonefrst3' => 27, 'Usrcphonelast4' => 28, 'Usrcphoneext' => 29, 'Usrcsendtime' => 30, 'Usrccoversheet' => 31, 'Usrcsubject' => 32, 'Usrcnotifys' => 33, 'Usrcnotifyf' => 34, 'Usrcemailaddr' => 35, 'Usrcscalewhseid' => 36, 'Usrcscaledevnbr' => 37, 'Usrcccscanwhseid' => 38, 'Usrcccscandevnbr' => 39, 'Dateupdtd' => 40, 'Timeupdtd' => 41, 'Dummy' => 42, ],
+        self::TYPE_CAMELNAME     => ['usrcid' => 0, 'usrcloginname' => 1, 'intbwhse' => 2, 'usrcdefcmpy' => 3, 'usrcadmin' => 4, 'usrcfront' => 5, 'usrccitydesk' => 6, 'usrcreptadmin' => 7, 'usrcprinter' => 8, 'usrcpitch' => 9, 'usrcbrowseprinter' => 10, 'usrcwhsedisplayseq' => 11, 'usrcactiveitemsonly' => 12, 'usrcrestrictaccess' => 13, 'usrclogingroup' => 14, 'usrcloginrole' => 15, 'usrcallowprocremoval' => 16, 'usrcacallowwarredit' => 17, 'usrcisprodmgr' => 18, 'usrclmallowcrosswhse' => 19, 'usrcpswd' => 20, 'usrcfaxname' => 21, 'usrcfaxcompany' => 22, 'usrcfaxarea' => 23, 'usrcfaxfrst3' => 24, 'usrcfaxlast4' => 25, 'usrcphonearea' => 26, 'usrcphonefrst3' => 27, 'usrcphonelast4' => 28, 'usrcphoneext' => 29, 'usrcsendtime' => 30, 'usrccoversheet' => 31, 'usrcsubject' => 32, 'usrcnotifys' => 33, 'usrcnotifyf' => 34, 'usrcemailaddr' => 35, 'usrcscalewhseid' => 36, 'usrcscaledevnbr' => 37, 'usrcccscanwhseid' => 38, 'usrcccscandevnbr' => 39, 'dateupdtd' => 40, 'timeupdtd' => 41, 'dummy' => 42, ],
+        self::TYPE_COLNAME       => [DplusUserTableMap::COL_USRCID => 0, DplusUserTableMap::COL_USRCLOGINNAME => 1, DplusUserTableMap::COL_INTBWHSE => 2, DplusUserTableMap::COL_USRCDEFCMPY => 3, DplusUserTableMap::COL_USRCADMIN => 4, DplusUserTableMap::COL_USRCFRONT => 5, DplusUserTableMap::COL_USRCCITYDESK => 6, DplusUserTableMap::COL_USRCREPTADMIN => 7, DplusUserTableMap::COL_USRCPRINTER => 8, DplusUserTableMap::COL_USRCPITCH => 9, DplusUserTableMap::COL_USRCBROWSEPRINTER => 10, DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ => 11, DplusUserTableMap::COL_USRCACTIVEITEMSONLY => 12, DplusUserTableMap::COL_USRCRESTRICTACCESS => 13, DplusUserTableMap::COL_USRCLOGINGROUP => 14, DplusUserTableMap::COL_USRCLOGINROLE => 15, DplusUserTableMap::COL_USRCALLOWPROCREMOVAL => 16, DplusUserTableMap::COL_USRCACALLOWWARREDIT => 17, DplusUserTableMap::COL_USRCISPRODMGR => 18, DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE => 19, DplusUserTableMap::COL_USRCPSWD => 20, DplusUserTableMap::COL_USRCFAXNAME => 21, DplusUserTableMap::COL_USRCFAXCOMPANY => 22, DplusUserTableMap::COL_USRCFAXAREA => 23, DplusUserTableMap::COL_USRCFAXFRST3 => 24, DplusUserTableMap::COL_USRCFAXLAST4 => 25, DplusUserTableMap::COL_USRCPHONEAREA => 26, DplusUserTableMap::COL_USRCPHONEFRST3 => 27, DplusUserTableMap::COL_USRCPHONELAST4 => 28, DplusUserTableMap::COL_USRCPHONEEXT => 29, DplusUserTableMap::COL_USRCSENDTIME => 30, DplusUserTableMap::COL_USRCCOVERSHEET => 31, DplusUserTableMap::COL_USRCSUBJECT => 32, DplusUserTableMap::COL_USRCNOTIFYS => 33, DplusUserTableMap::COL_USRCNOTIFYF => 34, DplusUserTableMap::COL_USRCEMAILADDR => 35, DplusUserTableMap::COL_USRCSCALEWHSEID => 36, DplusUserTableMap::COL_USRCSCALEDEVNBR => 37, DplusUserTableMap::COL_USRCCCSCANWHSEID => 38, DplusUserTableMap::COL_USRCCCSCANDEVNBR => 39, DplusUserTableMap::COL_DATEUPDTD => 40, DplusUserTableMap::COL_TIMEUPDTD => 41, DplusUserTableMap::COL_DUMMY => 42, ],
+        self::TYPE_FIELDNAME     => ['UsrcId' => 0, 'UsrcLoginName' => 1, 'IntbWhse' => 2, 'UsrcDefCmpy' => 3, 'UsrcAdmin' => 4, 'UsrcFront' => 5, 'UsrcCityDesk' => 6, 'UsrcReptAdmin' => 7, 'UsrcPrinter' => 8, 'UsrcPitch' => 9, 'UsrcBrowsePrinter' => 10, 'UsrcWhseDisplaySeq' => 11, 'UsrcActiveItemsOnly' => 12, 'UsrcRestrictAccess' => 13, 'UsrcLoginGroup' => 14, 'UsrcLoginRole' => 15, 'UsrcAllowProcRemoval' => 16, 'UsrcAcAllowWarrEdit' => 17, 'UsrcIsProdMgr' => 18, 'UsrcLmAllowCrossWhse' => 19, 'UsrcPswd' => 20, 'UsrcFaxName' => 21, 'UsrcFaxCompany' => 22, 'UsrcFaxArea' => 23, 'UsrcFaxFrst3' => 24, 'UsrcFaxLast4' => 25, 'UsrcPhoneArea' => 26, 'UsrcPhoneFrst3' => 27, 'UsrcPhoneLast4' => 28, 'UsrcPhoneExt' => 29, 'UsrcSendTime' => 30, 'UsrcCoverSheet' => 31, 'UsrcSubject' => 32, 'UsrcNotifyS' => 33, 'UsrcNotifyF' => 34, 'UsrcEmailAddr' => 35, 'UsrcScaleWhseId' => 36, 'UsrcScaleDevNbr' => 37, 'UsrcCcscanWhseId' => 38, 'UsrcCcscanDevNbr' => 39, 'DateUpdtd' => 40, 'TimeUpdtd' => 41, 'dummy' => 42, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Usrcid' => 'USRCID',
+        'DplusUser.Usrcid' => 'USRCID',
+        'usrcid' => 'USRCID',
+        'dplusUser.usrcid' => 'USRCID',
+        'DplusUserTableMap::COL_USRCID' => 'USRCID',
+        'COL_USRCID' => 'USRCID',
+        'UsrcId' => 'USRCID',
+        'sys_login.UsrcId' => 'USRCID',
+        'Usrcloginname' => 'USRCLOGINNAME',
+        'DplusUser.Usrcloginname' => 'USRCLOGINNAME',
+        'usrcloginname' => 'USRCLOGINNAME',
+        'dplusUser.usrcloginname' => 'USRCLOGINNAME',
+        'DplusUserTableMap::COL_USRCLOGINNAME' => 'USRCLOGINNAME',
+        'COL_USRCLOGINNAME' => 'USRCLOGINNAME',
+        'UsrcLoginName' => 'USRCLOGINNAME',
+        'sys_login.UsrcLoginName' => 'USRCLOGINNAME',
+        'Intbwhse' => 'INTBWHSE',
+        'DplusUser.Intbwhse' => 'INTBWHSE',
+        'intbwhse' => 'INTBWHSE',
+        'dplusUser.intbwhse' => 'INTBWHSE',
+        'DplusUserTableMap::COL_INTBWHSE' => 'INTBWHSE',
+        'COL_INTBWHSE' => 'INTBWHSE',
+        'IntbWhse' => 'INTBWHSE',
+        'sys_login.IntbWhse' => 'INTBWHSE',
+        'Usrcdefcmpy' => 'USRCDEFCMPY',
+        'DplusUser.Usrcdefcmpy' => 'USRCDEFCMPY',
+        'usrcdefcmpy' => 'USRCDEFCMPY',
+        'dplusUser.usrcdefcmpy' => 'USRCDEFCMPY',
+        'DplusUserTableMap::COL_USRCDEFCMPY' => 'USRCDEFCMPY',
+        'COL_USRCDEFCMPY' => 'USRCDEFCMPY',
+        'UsrcDefCmpy' => 'USRCDEFCMPY',
+        'sys_login.UsrcDefCmpy' => 'USRCDEFCMPY',
+        'Usrcadmin' => 'USRCADMIN',
+        'DplusUser.Usrcadmin' => 'USRCADMIN',
+        'usrcadmin' => 'USRCADMIN',
+        'dplusUser.usrcadmin' => 'USRCADMIN',
+        'DplusUserTableMap::COL_USRCADMIN' => 'USRCADMIN',
+        'COL_USRCADMIN' => 'USRCADMIN',
+        'UsrcAdmin' => 'USRCADMIN',
+        'sys_login.UsrcAdmin' => 'USRCADMIN',
+        'Usrcfront' => 'USRCFRONT',
+        'DplusUser.Usrcfront' => 'USRCFRONT',
+        'usrcfront' => 'USRCFRONT',
+        'dplusUser.usrcfront' => 'USRCFRONT',
+        'DplusUserTableMap::COL_USRCFRONT' => 'USRCFRONT',
+        'COL_USRCFRONT' => 'USRCFRONT',
+        'UsrcFront' => 'USRCFRONT',
+        'sys_login.UsrcFront' => 'USRCFRONT',
+        'Usrccitydesk' => 'USRCCITYDESK',
+        'DplusUser.Usrccitydesk' => 'USRCCITYDESK',
+        'usrccitydesk' => 'USRCCITYDESK',
+        'dplusUser.usrccitydesk' => 'USRCCITYDESK',
+        'DplusUserTableMap::COL_USRCCITYDESK' => 'USRCCITYDESK',
+        'COL_USRCCITYDESK' => 'USRCCITYDESK',
+        'UsrcCityDesk' => 'USRCCITYDESK',
+        'sys_login.UsrcCityDesk' => 'USRCCITYDESK',
+        'Usrcreptadmin' => 'USRCREPTADMIN',
+        'DplusUser.Usrcreptadmin' => 'USRCREPTADMIN',
+        'usrcreptadmin' => 'USRCREPTADMIN',
+        'dplusUser.usrcreptadmin' => 'USRCREPTADMIN',
+        'DplusUserTableMap::COL_USRCREPTADMIN' => 'USRCREPTADMIN',
+        'COL_USRCREPTADMIN' => 'USRCREPTADMIN',
+        'UsrcReptAdmin' => 'USRCREPTADMIN',
+        'sys_login.UsrcReptAdmin' => 'USRCREPTADMIN',
+        'Usrcprinter' => 'USRCPRINTER',
+        'DplusUser.Usrcprinter' => 'USRCPRINTER',
+        'usrcprinter' => 'USRCPRINTER',
+        'dplusUser.usrcprinter' => 'USRCPRINTER',
+        'DplusUserTableMap::COL_USRCPRINTER' => 'USRCPRINTER',
+        'COL_USRCPRINTER' => 'USRCPRINTER',
+        'UsrcPrinter' => 'USRCPRINTER',
+        'sys_login.UsrcPrinter' => 'USRCPRINTER',
+        'Usrcpitch' => 'USRCPITCH',
+        'DplusUser.Usrcpitch' => 'USRCPITCH',
+        'usrcpitch' => 'USRCPITCH',
+        'dplusUser.usrcpitch' => 'USRCPITCH',
+        'DplusUserTableMap::COL_USRCPITCH' => 'USRCPITCH',
+        'COL_USRCPITCH' => 'USRCPITCH',
+        'UsrcPitch' => 'USRCPITCH',
+        'sys_login.UsrcPitch' => 'USRCPITCH',
+        'Usrcbrowseprinter' => 'USRCBROWSEPRINTER',
+        'DplusUser.Usrcbrowseprinter' => 'USRCBROWSEPRINTER',
+        'usrcbrowseprinter' => 'USRCBROWSEPRINTER',
+        'dplusUser.usrcbrowseprinter' => 'USRCBROWSEPRINTER',
+        'DplusUserTableMap::COL_USRCBROWSEPRINTER' => 'USRCBROWSEPRINTER',
+        'COL_USRCBROWSEPRINTER' => 'USRCBROWSEPRINTER',
+        'UsrcBrowsePrinter' => 'USRCBROWSEPRINTER',
+        'sys_login.UsrcBrowsePrinter' => 'USRCBROWSEPRINTER',
+        'Usrcwhsedisplayseq' => 'USRCWHSEDISPLAYSEQ',
+        'DplusUser.Usrcwhsedisplayseq' => 'USRCWHSEDISPLAYSEQ',
+        'usrcwhsedisplayseq' => 'USRCWHSEDISPLAYSEQ',
+        'dplusUser.usrcwhsedisplayseq' => 'USRCWHSEDISPLAYSEQ',
+        'DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ' => 'USRCWHSEDISPLAYSEQ',
+        'COL_USRCWHSEDISPLAYSEQ' => 'USRCWHSEDISPLAYSEQ',
+        'UsrcWhseDisplaySeq' => 'USRCWHSEDISPLAYSEQ',
+        'sys_login.UsrcWhseDisplaySeq' => 'USRCWHSEDISPLAYSEQ',
+        'Usrcactiveitemsonly' => 'USRCACTIVEITEMSONLY',
+        'DplusUser.Usrcactiveitemsonly' => 'USRCACTIVEITEMSONLY',
+        'usrcactiveitemsonly' => 'USRCACTIVEITEMSONLY',
+        'dplusUser.usrcactiveitemsonly' => 'USRCACTIVEITEMSONLY',
+        'DplusUserTableMap::COL_USRCACTIVEITEMSONLY' => 'USRCACTIVEITEMSONLY',
+        'COL_USRCACTIVEITEMSONLY' => 'USRCACTIVEITEMSONLY',
+        'UsrcActiveItemsOnly' => 'USRCACTIVEITEMSONLY',
+        'sys_login.UsrcActiveItemsOnly' => 'USRCACTIVEITEMSONLY',
+        'Usrcrestrictaccess' => 'USRCRESTRICTACCESS',
+        'DplusUser.Usrcrestrictaccess' => 'USRCRESTRICTACCESS',
+        'usrcrestrictaccess' => 'USRCRESTRICTACCESS',
+        'dplusUser.usrcrestrictaccess' => 'USRCRESTRICTACCESS',
+        'DplusUserTableMap::COL_USRCRESTRICTACCESS' => 'USRCRESTRICTACCESS',
+        'COL_USRCRESTRICTACCESS' => 'USRCRESTRICTACCESS',
+        'UsrcRestrictAccess' => 'USRCRESTRICTACCESS',
+        'sys_login.UsrcRestrictAccess' => 'USRCRESTRICTACCESS',
+        'Usrclogingroup' => 'USRCLOGINGROUP',
+        'DplusUser.Usrclogingroup' => 'USRCLOGINGROUP',
+        'usrclogingroup' => 'USRCLOGINGROUP',
+        'dplusUser.usrclogingroup' => 'USRCLOGINGROUP',
+        'DplusUserTableMap::COL_USRCLOGINGROUP' => 'USRCLOGINGROUP',
+        'COL_USRCLOGINGROUP' => 'USRCLOGINGROUP',
+        'UsrcLoginGroup' => 'USRCLOGINGROUP',
+        'sys_login.UsrcLoginGroup' => 'USRCLOGINGROUP',
+        'Usrcloginrole' => 'USRCLOGINROLE',
+        'DplusUser.Usrcloginrole' => 'USRCLOGINROLE',
+        'usrcloginrole' => 'USRCLOGINROLE',
+        'dplusUser.usrcloginrole' => 'USRCLOGINROLE',
+        'DplusUserTableMap::COL_USRCLOGINROLE' => 'USRCLOGINROLE',
+        'COL_USRCLOGINROLE' => 'USRCLOGINROLE',
+        'UsrcLoginRole' => 'USRCLOGINROLE',
+        'sys_login.UsrcLoginRole' => 'USRCLOGINROLE',
+        'Usrcallowprocremoval' => 'USRCALLOWPROCREMOVAL',
+        'DplusUser.Usrcallowprocremoval' => 'USRCALLOWPROCREMOVAL',
+        'usrcallowprocremoval' => 'USRCALLOWPROCREMOVAL',
+        'dplusUser.usrcallowprocremoval' => 'USRCALLOWPROCREMOVAL',
+        'DplusUserTableMap::COL_USRCALLOWPROCREMOVAL' => 'USRCALLOWPROCREMOVAL',
+        'COL_USRCALLOWPROCREMOVAL' => 'USRCALLOWPROCREMOVAL',
+        'UsrcAllowProcRemoval' => 'USRCALLOWPROCREMOVAL',
+        'sys_login.UsrcAllowProcRemoval' => 'USRCALLOWPROCREMOVAL',
+        'Usrcacallowwarredit' => 'USRCACALLOWWARREDIT',
+        'DplusUser.Usrcacallowwarredit' => 'USRCACALLOWWARREDIT',
+        'usrcacallowwarredit' => 'USRCACALLOWWARREDIT',
+        'dplusUser.usrcacallowwarredit' => 'USRCACALLOWWARREDIT',
+        'DplusUserTableMap::COL_USRCACALLOWWARREDIT' => 'USRCACALLOWWARREDIT',
+        'COL_USRCACALLOWWARREDIT' => 'USRCACALLOWWARREDIT',
+        'UsrcAcAllowWarrEdit' => 'USRCACALLOWWARREDIT',
+        'sys_login.UsrcAcAllowWarrEdit' => 'USRCACALLOWWARREDIT',
+        'Usrcisprodmgr' => 'USRCISPRODMGR',
+        'DplusUser.Usrcisprodmgr' => 'USRCISPRODMGR',
+        'usrcisprodmgr' => 'USRCISPRODMGR',
+        'dplusUser.usrcisprodmgr' => 'USRCISPRODMGR',
+        'DplusUserTableMap::COL_USRCISPRODMGR' => 'USRCISPRODMGR',
+        'COL_USRCISPRODMGR' => 'USRCISPRODMGR',
+        'UsrcIsProdMgr' => 'USRCISPRODMGR',
+        'sys_login.UsrcIsProdMgr' => 'USRCISPRODMGR',
+        'Usrclmallowcrosswhse' => 'USRCLMALLOWCROSSWHSE',
+        'DplusUser.Usrclmallowcrosswhse' => 'USRCLMALLOWCROSSWHSE',
+        'usrclmallowcrosswhse' => 'USRCLMALLOWCROSSWHSE',
+        'dplusUser.usrclmallowcrosswhse' => 'USRCLMALLOWCROSSWHSE',
+        'DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE' => 'USRCLMALLOWCROSSWHSE',
+        'COL_USRCLMALLOWCROSSWHSE' => 'USRCLMALLOWCROSSWHSE',
+        'UsrcLmAllowCrossWhse' => 'USRCLMALLOWCROSSWHSE',
+        'sys_login.UsrcLmAllowCrossWhse' => 'USRCLMALLOWCROSSWHSE',
+        'Usrcpswd' => 'USRCPSWD',
+        'DplusUser.Usrcpswd' => 'USRCPSWD',
+        'usrcpswd' => 'USRCPSWD',
+        'dplusUser.usrcpswd' => 'USRCPSWD',
+        'DplusUserTableMap::COL_USRCPSWD' => 'USRCPSWD',
+        'COL_USRCPSWD' => 'USRCPSWD',
+        'UsrcPswd' => 'USRCPSWD',
+        'sys_login.UsrcPswd' => 'USRCPSWD',
+        'Usrcfaxname' => 'USRCFAXNAME',
+        'DplusUser.Usrcfaxname' => 'USRCFAXNAME',
+        'usrcfaxname' => 'USRCFAXNAME',
+        'dplusUser.usrcfaxname' => 'USRCFAXNAME',
+        'DplusUserTableMap::COL_USRCFAXNAME' => 'USRCFAXNAME',
+        'COL_USRCFAXNAME' => 'USRCFAXNAME',
+        'UsrcFaxName' => 'USRCFAXNAME',
+        'sys_login.UsrcFaxName' => 'USRCFAXNAME',
+        'Usrcfaxcompany' => 'USRCFAXCOMPANY',
+        'DplusUser.Usrcfaxcompany' => 'USRCFAXCOMPANY',
+        'usrcfaxcompany' => 'USRCFAXCOMPANY',
+        'dplusUser.usrcfaxcompany' => 'USRCFAXCOMPANY',
+        'DplusUserTableMap::COL_USRCFAXCOMPANY' => 'USRCFAXCOMPANY',
+        'COL_USRCFAXCOMPANY' => 'USRCFAXCOMPANY',
+        'UsrcFaxCompany' => 'USRCFAXCOMPANY',
+        'sys_login.UsrcFaxCompany' => 'USRCFAXCOMPANY',
+        'Usrcfaxarea' => 'USRCFAXAREA',
+        'DplusUser.Usrcfaxarea' => 'USRCFAXAREA',
+        'usrcfaxarea' => 'USRCFAXAREA',
+        'dplusUser.usrcfaxarea' => 'USRCFAXAREA',
+        'DplusUserTableMap::COL_USRCFAXAREA' => 'USRCFAXAREA',
+        'COL_USRCFAXAREA' => 'USRCFAXAREA',
+        'UsrcFaxArea' => 'USRCFAXAREA',
+        'sys_login.UsrcFaxArea' => 'USRCFAXAREA',
+        'Usrcfaxfrst3' => 'USRCFAXFRST3',
+        'DplusUser.Usrcfaxfrst3' => 'USRCFAXFRST3',
+        'usrcfaxfrst3' => 'USRCFAXFRST3',
+        'dplusUser.usrcfaxfrst3' => 'USRCFAXFRST3',
+        'DplusUserTableMap::COL_USRCFAXFRST3' => 'USRCFAXFRST3',
+        'COL_USRCFAXFRST3' => 'USRCFAXFRST3',
+        'UsrcFaxFrst3' => 'USRCFAXFRST3',
+        'sys_login.UsrcFaxFrst3' => 'USRCFAXFRST3',
+        'Usrcfaxlast4' => 'USRCFAXLAST4',
+        'DplusUser.Usrcfaxlast4' => 'USRCFAXLAST4',
+        'usrcfaxlast4' => 'USRCFAXLAST4',
+        'dplusUser.usrcfaxlast4' => 'USRCFAXLAST4',
+        'DplusUserTableMap::COL_USRCFAXLAST4' => 'USRCFAXLAST4',
+        'COL_USRCFAXLAST4' => 'USRCFAXLAST4',
+        'UsrcFaxLast4' => 'USRCFAXLAST4',
+        'sys_login.UsrcFaxLast4' => 'USRCFAXLAST4',
+        'Usrcphonearea' => 'USRCPHONEAREA',
+        'DplusUser.Usrcphonearea' => 'USRCPHONEAREA',
+        'usrcphonearea' => 'USRCPHONEAREA',
+        'dplusUser.usrcphonearea' => 'USRCPHONEAREA',
+        'DplusUserTableMap::COL_USRCPHONEAREA' => 'USRCPHONEAREA',
+        'COL_USRCPHONEAREA' => 'USRCPHONEAREA',
+        'UsrcPhoneArea' => 'USRCPHONEAREA',
+        'sys_login.UsrcPhoneArea' => 'USRCPHONEAREA',
+        'Usrcphonefrst3' => 'USRCPHONEFRST3',
+        'DplusUser.Usrcphonefrst3' => 'USRCPHONEFRST3',
+        'usrcphonefrst3' => 'USRCPHONEFRST3',
+        'dplusUser.usrcphonefrst3' => 'USRCPHONEFRST3',
+        'DplusUserTableMap::COL_USRCPHONEFRST3' => 'USRCPHONEFRST3',
+        'COL_USRCPHONEFRST3' => 'USRCPHONEFRST3',
+        'UsrcPhoneFrst3' => 'USRCPHONEFRST3',
+        'sys_login.UsrcPhoneFrst3' => 'USRCPHONEFRST3',
+        'Usrcphonelast4' => 'USRCPHONELAST4',
+        'DplusUser.Usrcphonelast4' => 'USRCPHONELAST4',
+        'usrcphonelast4' => 'USRCPHONELAST4',
+        'dplusUser.usrcphonelast4' => 'USRCPHONELAST4',
+        'DplusUserTableMap::COL_USRCPHONELAST4' => 'USRCPHONELAST4',
+        'COL_USRCPHONELAST4' => 'USRCPHONELAST4',
+        'UsrcPhoneLast4' => 'USRCPHONELAST4',
+        'sys_login.UsrcPhoneLast4' => 'USRCPHONELAST4',
+        'Usrcphoneext' => 'USRCPHONEEXT',
+        'DplusUser.Usrcphoneext' => 'USRCPHONEEXT',
+        'usrcphoneext' => 'USRCPHONEEXT',
+        'dplusUser.usrcphoneext' => 'USRCPHONEEXT',
+        'DplusUserTableMap::COL_USRCPHONEEXT' => 'USRCPHONEEXT',
+        'COL_USRCPHONEEXT' => 'USRCPHONEEXT',
+        'UsrcPhoneExt' => 'USRCPHONEEXT',
+        'sys_login.UsrcPhoneExt' => 'USRCPHONEEXT',
+        'Usrcsendtime' => 'USRCSENDTIME',
+        'DplusUser.Usrcsendtime' => 'USRCSENDTIME',
+        'usrcsendtime' => 'USRCSENDTIME',
+        'dplusUser.usrcsendtime' => 'USRCSENDTIME',
+        'DplusUserTableMap::COL_USRCSENDTIME' => 'USRCSENDTIME',
+        'COL_USRCSENDTIME' => 'USRCSENDTIME',
+        'UsrcSendTime' => 'USRCSENDTIME',
+        'sys_login.UsrcSendTime' => 'USRCSENDTIME',
+        'Usrccoversheet' => 'USRCCOVERSHEET',
+        'DplusUser.Usrccoversheet' => 'USRCCOVERSHEET',
+        'usrccoversheet' => 'USRCCOVERSHEET',
+        'dplusUser.usrccoversheet' => 'USRCCOVERSHEET',
+        'DplusUserTableMap::COL_USRCCOVERSHEET' => 'USRCCOVERSHEET',
+        'COL_USRCCOVERSHEET' => 'USRCCOVERSHEET',
+        'UsrcCoverSheet' => 'USRCCOVERSHEET',
+        'sys_login.UsrcCoverSheet' => 'USRCCOVERSHEET',
+        'Usrcsubject' => 'USRCSUBJECT',
+        'DplusUser.Usrcsubject' => 'USRCSUBJECT',
+        'usrcsubject' => 'USRCSUBJECT',
+        'dplusUser.usrcsubject' => 'USRCSUBJECT',
+        'DplusUserTableMap::COL_USRCSUBJECT' => 'USRCSUBJECT',
+        'COL_USRCSUBJECT' => 'USRCSUBJECT',
+        'UsrcSubject' => 'USRCSUBJECT',
+        'sys_login.UsrcSubject' => 'USRCSUBJECT',
+        'Usrcnotifys' => 'USRCNOTIFYS',
+        'DplusUser.Usrcnotifys' => 'USRCNOTIFYS',
+        'usrcnotifys' => 'USRCNOTIFYS',
+        'dplusUser.usrcnotifys' => 'USRCNOTIFYS',
+        'DplusUserTableMap::COL_USRCNOTIFYS' => 'USRCNOTIFYS',
+        'COL_USRCNOTIFYS' => 'USRCNOTIFYS',
+        'UsrcNotifyS' => 'USRCNOTIFYS',
+        'sys_login.UsrcNotifyS' => 'USRCNOTIFYS',
+        'Usrcnotifyf' => 'USRCNOTIFYF',
+        'DplusUser.Usrcnotifyf' => 'USRCNOTIFYF',
+        'usrcnotifyf' => 'USRCNOTIFYF',
+        'dplusUser.usrcnotifyf' => 'USRCNOTIFYF',
+        'DplusUserTableMap::COL_USRCNOTIFYF' => 'USRCNOTIFYF',
+        'COL_USRCNOTIFYF' => 'USRCNOTIFYF',
+        'UsrcNotifyF' => 'USRCNOTIFYF',
+        'sys_login.UsrcNotifyF' => 'USRCNOTIFYF',
+        'Usrcemailaddr' => 'USRCEMAILADDR',
+        'DplusUser.Usrcemailaddr' => 'USRCEMAILADDR',
+        'usrcemailaddr' => 'USRCEMAILADDR',
+        'dplusUser.usrcemailaddr' => 'USRCEMAILADDR',
+        'DplusUserTableMap::COL_USRCEMAILADDR' => 'USRCEMAILADDR',
+        'COL_USRCEMAILADDR' => 'USRCEMAILADDR',
+        'UsrcEmailAddr' => 'USRCEMAILADDR',
+        'sys_login.UsrcEmailAddr' => 'USRCEMAILADDR',
+        'Usrcscalewhseid' => 'USRCSCALEWHSEID',
+        'DplusUser.Usrcscalewhseid' => 'USRCSCALEWHSEID',
+        'usrcscalewhseid' => 'USRCSCALEWHSEID',
+        'dplusUser.usrcscalewhseid' => 'USRCSCALEWHSEID',
+        'DplusUserTableMap::COL_USRCSCALEWHSEID' => 'USRCSCALEWHSEID',
+        'COL_USRCSCALEWHSEID' => 'USRCSCALEWHSEID',
+        'UsrcScaleWhseId' => 'USRCSCALEWHSEID',
+        'sys_login.UsrcScaleWhseId' => 'USRCSCALEWHSEID',
+        'Usrcscaledevnbr' => 'USRCSCALEDEVNBR',
+        'DplusUser.Usrcscaledevnbr' => 'USRCSCALEDEVNBR',
+        'usrcscaledevnbr' => 'USRCSCALEDEVNBR',
+        'dplusUser.usrcscaledevnbr' => 'USRCSCALEDEVNBR',
+        'DplusUserTableMap::COL_USRCSCALEDEVNBR' => 'USRCSCALEDEVNBR',
+        'COL_USRCSCALEDEVNBR' => 'USRCSCALEDEVNBR',
+        'UsrcScaleDevNbr' => 'USRCSCALEDEVNBR',
+        'sys_login.UsrcScaleDevNbr' => 'USRCSCALEDEVNBR',
+        'Usrcccscanwhseid' => 'USRCCCSCANWHSEID',
+        'DplusUser.Usrcccscanwhseid' => 'USRCCCSCANWHSEID',
+        'usrcccscanwhseid' => 'USRCCCSCANWHSEID',
+        'dplusUser.usrcccscanwhseid' => 'USRCCCSCANWHSEID',
+        'DplusUserTableMap::COL_USRCCCSCANWHSEID' => 'USRCCCSCANWHSEID',
+        'COL_USRCCCSCANWHSEID' => 'USRCCCSCANWHSEID',
+        'UsrcCcscanWhseId' => 'USRCCCSCANWHSEID',
+        'sys_login.UsrcCcscanWhseId' => 'USRCCCSCANWHSEID',
+        'Usrcccscandevnbr' => 'USRCCCSCANDEVNBR',
+        'DplusUser.Usrcccscandevnbr' => 'USRCCCSCANDEVNBR',
+        'usrcccscandevnbr' => 'USRCCCSCANDEVNBR',
+        'dplusUser.usrcccscandevnbr' => 'USRCCCSCANDEVNBR',
+        'DplusUserTableMap::COL_USRCCCSCANDEVNBR' => 'USRCCCSCANDEVNBR',
+        'COL_USRCCCSCANDEVNBR' => 'USRCCCSCANDEVNBR',
+        'UsrcCcscanDevNbr' => 'USRCCCSCANDEVNBR',
+        'sys_login.UsrcCcscanDevNbr' => 'USRCCCSCANDEVNBR',
+        'Dateupdtd' => 'DATEUPDTD',
+        'DplusUser.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'dplusUser.dateupdtd' => 'DATEUPDTD',
+        'DplusUserTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'sys_login.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'DplusUser.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'dplusUser.timeupdtd' => 'TIMEUPDTD',
+        'DplusUserTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'sys_login.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'DplusUser.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'dplusUser.dummy' => 'DUMMY',
+        'DplusUserTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'sys_login.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('sys_login');
@@ -379,12 +738,14 @@ class DplusUserTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('SysLoginGroup', '\\SysLoginGroup', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -421,7 +782,7 @@ class DplusUserTableMap extends TableMap
     1 => ':UsrcId',
   ),
 ), null, null, 'UserLastPrintJobs', false);
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -429,14 +790,14 @@ class DplusUserTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Usrcid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -451,14 +812,14 @@ class DplusUserTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -475,10 +836,10 @@ class DplusUserTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? DplusUserTableMap::CLASS_DEFAULT : DplusUserTableMap::OM_CLASS;
     }
@@ -486,17 +847,17 @@ class DplusUserTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (DplusUser object, last column rank)
+     * @return array (DplusUser object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = DplusUserTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = DplusUserTableMap::getInstanceFromPool($key))) {
@@ -512,7 +873,7 @@ class DplusUserTableMap extends TableMap
             DplusUserTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -520,13 +881,13 @@ class DplusUserTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -556,12 +917,13 @@ class DplusUserTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(DplusUserTableMap::COL_USRCID);
@@ -655,40 +1017,134 @@ class DplusUserTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCID);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCLOGINNAME);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_INTBWHSE);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCDEFCMPY);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCADMIN);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCFRONT);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCCITYDESK);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCREPTADMIN);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCPRINTER);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCPITCH);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCBROWSEPRINTER);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCACTIVEITEMSONLY);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCRESTRICTACCESS);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCLOGINGROUP);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCLOGINROLE);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCALLOWPROCREMOVAL);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCACALLOWWARREDIT);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCISPRODMGR);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCPSWD);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCFAXNAME);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCFAXCOMPANY);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCFAXAREA);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCFAXFRST3);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCFAXLAST4);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCPHONEAREA);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCPHONEFRST3);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCPHONELAST4);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCPHONEEXT);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCSENDTIME);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCCOVERSHEET);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCSUBJECT);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCNOTIFYS);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCNOTIFYF);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCEMAILADDR);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCSCALEWHSEID);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCSCALEDEVNBR);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCCCSCANWHSEID);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_USRCCCSCANDEVNBR);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(DplusUserTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.UsrcId');
+            $criteria->removeSelectColumn($alias . '.UsrcLoginName');
+            $criteria->removeSelectColumn($alias . '.IntbWhse');
+            $criteria->removeSelectColumn($alias . '.UsrcDefCmpy');
+            $criteria->removeSelectColumn($alias . '.UsrcAdmin');
+            $criteria->removeSelectColumn($alias . '.UsrcFront');
+            $criteria->removeSelectColumn($alias . '.UsrcCityDesk');
+            $criteria->removeSelectColumn($alias . '.UsrcReptAdmin');
+            $criteria->removeSelectColumn($alias . '.UsrcPrinter');
+            $criteria->removeSelectColumn($alias . '.UsrcPitch');
+            $criteria->removeSelectColumn($alias . '.UsrcBrowsePrinter');
+            $criteria->removeSelectColumn($alias . '.UsrcWhseDisplaySeq');
+            $criteria->removeSelectColumn($alias . '.UsrcActiveItemsOnly');
+            $criteria->removeSelectColumn($alias . '.UsrcRestrictAccess');
+            $criteria->removeSelectColumn($alias . '.UsrcLoginGroup');
+            $criteria->removeSelectColumn($alias . '.UsrcLoginRole');
+            $criteria->removeSelectColumn($alias . '.UsrcAllowProcRemoval');
+            $criteria->removeSelectColumn($alias . '.UsrcAcAllowWarrEdit');
+            $criteria->removeSelectColumn($alias . '.UsrcIsProdMgr');
+            $criteria->removeSelectColumn($alias . '.UsrcLmAllowCrossWhse');
+            $criteria->removeSelectColumn($alias . '.UsrcPswd');
+            $criteria->removeSelectColumn($alias . '.UsrcFaxName');
+            $criteria->removeSelectColumn($alias . '.UsrcFaxCompany');
+            $criteria->removeSelectColumn($alias . '.UsrcFaxArea');
+            $criteria->removeSelectColumn($alias . '.UsrcFaxFrst3');
+            $criteria->removeSelectColumn($alias . '.UsrcFaxLast4');
+            $criteria->removeSelectColumn($alias . '.UsrcPhoneArea');
+            $criteria->removeSelectColumn($alias . '.UsrcPhoneFrst3');
+            $criteria->removeSelectColumn($alias . '.UsrcPhoneLast4');
+            $criteria->removeSelectColumn($alias . '.UsrcPhoneExt');
+            $criteria->removeSelectColumn($alias . '.UsrcSendTime');
+            $criteria->removeSelectColumn($alias . '.UsrcCoverSheet');
+            $criteria->removeSelectColumn($alias . '.UsrcSubject');
+            $criteria->removeSelectColumn($alias . '.UsrcNotifyS');
+            $criteria->removeSelectColumn($alias . '.UsrcNotifyF');
+            $criteria->removeSelectColumn($alias . '.UsrcEmailAddr');
+            $criteria->removeSelectColumn($alias . '.UsrcScaleWhseId');
+            $criteria->removeSelectColumn($alias . '.UsrcScaleDevNbr');
+            $criteria->removeSelectColumn($alias . '.UsrcCcscanWhseId');
+            $criteria->removeSelectColumn($alias . '.UsrcCcscanDevNbr');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(DplusUserTableMap::DATABASE_NAME)->getTable(DplusUserTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(DplusUserTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(DplusUserTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new DplusUserTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a DplusUser or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or DplusUser object or primary key or array of primary keys
+     * @param mixed $values Criteria or DplusUser object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
@@ -724,7 +1180,7 @@ class DplusUserTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return DplusUserQuery::create()->doDeleteAll($con);
     }
@@ -732,13 +1188,13 @@ class DplusUserTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a DplusUser or Criteria object.
      *
-     * @param mixed               $criteria Criteria or DplusUser object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or DplusUser object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
@@ -761,7 +1217,4 @@ class DplusUserTableMap extends TableMap
         });
     }
 
-} // DplusUserTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-DplusUserTableMap::buildTableMap();
+}

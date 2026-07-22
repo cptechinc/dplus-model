@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ApInvoiceDetailTableMap extends TableMap
 {
@@ -34,199 +33,399 @@ class ApInvoiceDetailTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ApInvoiceDetailTableMap';
+    public const CLASS_NAME = '.Map.ApInvoiceDetailTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'ap_invoice_det';
+    public const TABLE_NAME = 'ap_invoice_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ApInvoiceDetail';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ApInvoiceDetail';
+    public const OM_CLASS = '\\ApInvoiceDetail';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ApInvoiceDetail';
+    public const CLASS_DEFAULT = 'ApInvoiceDetail';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 23;
+    public const NUM_COLUMNS = 23;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 23;
+    public const NUM_HYDRATE_COLUMNS = 23;
 
     /**
      * the column name for the ApveVendId field
      */
-    const COL_APVEVENDID = 'ap_invoice_det.ApveVendId';
+    public const COL_APVEVENDID = 'ap_invoice_det.ApveVendId';
 
     /**
      * the column name for the ApidPayToKey field
      */
-    const COL_APIDPAYTOKEY = 'ap_invoice_det.ApidPayToKey';
+    public const COL_APIDPAYTOKEY = 'ap_invoice_det.ApidPayToKey';
 
     /**
      * the column name for the ApidPtName field
      */
-    const COL_APIDPTNAME = 'ap_invoice_det.ApidPtName';
+    public const COL_APIDPTNAME = 'ap_invoice_det.ApidPtName';
 
     /**
      * the column name for the ApidPtAdr1 field
      */
-    const COL_APIDPTADR1 = 'ap_invoice_det.ApidPtAdr1';
+    public const COL_APIDPTADR1 = 'ap_invoice_det.ApidPtAdr1';
 
     /**
      * the column name for the ApidPtAdr2 field
      */
-    const COL_APIDPTADR2 = 'ap_invoice_det.ApidPtAdr2';
+    public const COL_APIDPTADR2 = 'ap_invoice_det.ApidPtAdr2';
 
     /**
      * the column name for the ApidPtAdr3 field
      */
-    const COL_APIDPTADR3 = 'ap_invoice_det.ApidPtAdr3';
+    public const COL_APIDPTADR3 = 'ap_invoice_det.ApidPtAdr3';
 
     /**
      * the column name for the ApidPtCtry field
      */
-    const COL_APIDPTCTRY = 'ap_invoice_det.ApidPtCtry';
+    public const COL_APIDPTCTRY = 'ap_invoice_det.ApidPtCtry';
 
     /**
      * the column name for the ApidPtCity field
      */
-    const COL_APIDPTCITY = 'ap_invoice_det.ApidPtCity';
+    public const COL_APIDPTCITY = 'ap_invoice_det.ApidPtCity';
 
     /**
      * the column name for the ApidPtStat field
      */
-    const COL_APIDPTSTAT = 'ap_invoice_det.ApidPtStat';
+    public const COL_APIDPTSTAT = 'ap_invoice_det.ApidPtStat';
 
     /**
      * the column name for the ApidPtZipCode field
      */
-    const COL_APIDPTZIPCODE = 'ap_invoice_det.ApidPtZipCode';
+    public const COL_APIDPTZIPCODE = 'ap_invoice_det.ApidPtZipCode';
 
     /**
      * the column name for the ApidPoNbr field
      */
-    const COL_APIDPONBR = 'ap_invoice_det.ApidPoNbr';
+    public const COL_APIDPONBR = 'ap_invoice_det.ApidPoNbr';
 
     /**
      * the column name for the ApidCtrlNbr field
      */
-    const COL_APIDCTRLNBR = 'ap_invoice_det.ApidCtrlNbr';
+    public const COL_APIDCTRLNBR = 'ap_invoice_det.ApidCtrlNbr';
 
     /**
      * the column name for the ApidInvNbr field
      */
-    const COL_APIDINVNBR = 'ap_invoice_det.ApidInvNbr';
+    public const COL_APIDINVNBR = 'ap_invoice_det.ApidInvNbr';
 
     /**
      * the column name for the ApidSeq field
      */
-    const COL_APIDSEQ = 'ap_invoice_det.ApidSeq';
+    public const COL_APIDSEQ = 'ap_invoice_det.ApidSeq';
 
     /**
      * the column name for the ApidLine field
      */
-    const COL_APIDLINE = 'ap_invoice_det.ApidLine';
+    public const COL_APIDLINE = 'ap_invoice_det.ApidLine';
 
     /**
      * the column name for the ApidAmt field
      */
-    const COL_APIDAMT = 'ap_invoice_det.ApidAmt';
+    public const COL_APIDAMT = 'ap_invoice_det.ApidAmt';
 
     /**
      * the column name for the ApidGlAcct field
      */
-    const COL_APIDGLACCT = 'ap_invoice_det.ApidGlAcct';
+    public const COL_APIDGLACCT = 'ap_invoice_det.ApidGlAcct';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'ap_invoice_det.InitItemNbr';
+    public const COL_INITITEMNBR = 'ap_invoice_det.InitItemNbr';
 
     /**
      * the column name for the ApidQtyRec field
      */
-    const COL_APIDQTYREC = 'ap_invoice_det.ApidQtyRec';
+    public const COL_APIDQTYREC = 'ap_invoice_det.ApidQtyRec';
 
     /**
      * the column name for the ApidDesc field
      */
-    const COL_APIDDESC = 'ap_invoice_det.ApidDesc';
+    public const COL_APIDDESC = 'ap_invoice_det.ApidDesc';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'ap_invoice_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'ap_invoice_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'ap_invoice_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'ap_invoice_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'ap_invoice_det.dummy';
+    public const COL_DUMMY = 'ap_invoice_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Apvevendid', 'Apidpaytokey', 'Apidptname', 'Apidptadr1', 'Apidptadr2', 'Apidptadr3', 'Apidptctry', 'Apidptcity', 'Apidptstat', 'Apidptzipcode', 'Apidponbr', 'Apidctrlnbr', 'Apidinvnbr', 'Apidseq', 'Apidline', 'Apidamt', 'Apidglacct', 'Inititemnbr', 'Apidqtyrec', 'Apiddesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('apvevendid', 'apidpaytokey', 'apidptname', 'apidptadr1', 'apidptadr2', 'apidptadr3', 'apidptctry', 'apidptcity', 'apidptstat', 'apidptzipcode', 'apidponbr', 'apidctrlnbr', 'apidinvnbr', 'apidseq', 'apidline', 'apidamt', 'apidglacct', 'inititemnbr', 'apidqtyrec', 'apiddesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ApInvoiceDetailTableMap::COL_APVEVENDID, ApInvoiceDetailTableMap::COL_APIDPAYTOKEY, ApInvoiceDetailTableMap::COL_APIDPTNAME, ApInvoiceDetailTableMap::COL_APIDPTADR1, ApInvoiceDetailTableMap::COL_APIDPTADR2, ApInvoiceDetailTableMap::COL_APIDPTADR3, ApInvoiceDetailTableMap::COL_APIDPTCTRY, ApInvoiceDetailTableMap::COL_APIDPTCITY, ApInvoiceDetailTableMap::COL_APIDPTSTAT, ApInvoiceDetailTableMap::COL_APIDPTZIPCODE, ApInvoiceDetailTableMap::COL_APIDPONBR, ApInvoiceDetailTableMap::COL_APIDCTRLNBR, ApInvoiceDetailTableMap::COL_APIDINVNBR, ApInvoiceDetailTableMap::COL_APIDSEQ, ApInvoiceDetailTableMap::COL_APIDLINE, ApInvoiceDetailTableMap::COL_APIDAMT, ApInvoiceDetailTableMap::COL_APIDGLACCT, ApInvoiceDetailTableMap::COL_INITITEMNBR, ApInvoiceDetailTableMap::COL_APIDQTYREC, ApInvoiceDetailTableMap::COL_APIDDESC, ApInvoiceDetailTableMap::COL_DATEUPDTD, ApInvoiceDetailTableMap::COL_TIMEUPDTD, ApInvoiceDetailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ApveVendId', 'ApidPayToKey', 'ApidPtName', 'ApidPtAdr1', 'ApidPtAdr2', 'ApidPtAdr3', 'ApidPtCtry', 'ApidPtCity', 'ApidPtStat', 'ApidPtZipCode', 'ApidPoNbr', 'ApidCtrlNbr', 'ApidInvNbr', 'ApidSeq', 'ApidLine', 'ApidAmt', 'ApidGlAcct', 'InitItemNbr', 'ApidQtyRec', 'ApidDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Apvevendid', 'Apidpaytokey', 'Apidptname', 'Apidptadr1', 'Apidptadr2', 'Apidptadr3', 'Apidptctry', 'Apidptcity', 'Apidptstat', 'Apidptzipcode', 'Apidponbr', 'Apidctrlnbr', 'Apidinvnbr', 'Apidseq', 'Apidline', 'Apidamt', 'Apidglacct', 'Inititemnbr', 'Apidqtyrec', 'Apiddesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['apvevendid', 'apidpaytokey', 'apidptname', 'apidptadr1', 'apidptadr2', 'apidptadr3', 'apidptctry', 'apidptcity', 'apidptstat', 'apidptzipcode', 'apidponbr', 'apidctrlnbr', 'apidinvnbr', 'apidseq', 'apidline', 'apidamt', 'apidglacct', 'inititemnbr', 'apidqtyrec', 'apiddesc', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ApInvoiceDetailTableMap::COL_APVEVENDID, ApInvoiceDetailTableMap::COL_APIDPAYTOKEY, ApInvoiceDetailTableMap::COL_APIDPTNAME, ApInvoiceDetailTableMap::COL_APIDPTADR1, ApInvoiceDetailTableMap::COL_APIDPTADR2, ApInvoiceDetailTableMap::COL_APIDPTADR3, ApInvoiceDetailTableMap::COL_APIDPTCTRY, ApInvoiceDetailTableMap::COL_APIDPTCITY, ApInvoiceDetailTableMap::COL_APIDPTSTAT, ApInvoiceDetailTableMap::COL_APIDPTZIPCODE, ApInvoiceDetailTableMap::COL_APIDPONBR, ApInvoiceDetailTableMap::COL_APIDCTRLNBR, ApInvoiceDetailTableMap::COL_APIDINVNBR, ApInvoiceDetailTableMap::COL_APIDSEQ, ApInvoiceDetailTableMap::COL_APIDLINE, ApInvoiceDetailTableMap::COL_APIDAMT, ApInvoiceDetailTableMap::COL_APIDGLACCT, ApInvoiceDetailTableMap::COL_INITITEMNBR, ApInvoiceDetailTableMap::COL_APIDQTYREC, ApInvoiceDetailTableMap::COL_APIDDESC, ApInvoiceDetailTableMap::COL_DATEUPDTD, ApInvoiceDetailTableMap::COL_TIMEUPDTD, ApInvoiceDetailTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ApveVendId', 'ApidPayToKey', 'ApidPtName', 'ApidPtAdr1', 'ApidPtAdr2', 'ApidPtAdr3', 'ApidPtCtry', 'ApidPtCity', 'ApidPtStat', 'ApidPtZipCode', 'ApidPoNbr', 'ApidCtrlNbr', 'ApidInvNbr', 'ApidSeq', 'ApidLine', 'ApidAmt', 'ApidGlAcct', 'InitItemNbr', 'ApidQtyRec', 'ApidDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Apvevendid' => 0, 'Apidpaytokey' => 1, 'Apidptname' => 2, 'Apidptadr1' => 3, 'Apidptadr2' => 4, 'Apidptadr3' => 5, 'Apidptctry' => 6, 'Apidptcity' => 7, 'Apidptstat' => 8, 'Apidptzipcode' => 9, 'Apidponbr' => 10, 'Apidctrlnbr' => 11, 'Apidinvnbr' => 12, 'Apidseq' => 13, 'Apidline' => 14, 'Apidamt' => 15, 'Apidglacct' => 16, 'Inititemnbr' => 17, 'Apidqtyrec' => 18, 'Apiddesc' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ),
-        self::TYPE_CAMELNAME     => array('apvevendid' => 0, 'apidpaytokey' => 1, 'apidptname' => 2, 'apidptadr1' => 3, 'apidptadr2' => 4, 'apidptadr3' => 5, 'apidptctry' => 6, 'apidptcity' => 7, 'apidptstat' => 8, 'apidptzipcode' => 9, 'apidponbr' => 10, 'apidctrlnbr' => 11, 'apidinvnbr' => 12, 'apidseq' => 13, 'apidline' => 14, 'apidamt' => 15, 'apidglacct' => 16, 'inititemnbr' => 17, 'apidqtyrec' => 18, 'apiddesc' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_COLNAME       => array(ApInvoiceDetailTableMap::COL_APVEVENDID => 0, ApInvoiceDetailTableMap::COL_APIDPAYTOKEY => 1, ApInvoiceDetailTableMap::COL_APIDPTNAME => 2, ApInvoiceDetailTableMap::COL_APIDPTADR1 => 3, ApInvoiceDetailTableMap::COL_APIDPTADR2 => 4, ApInvoiceDetailTableMap::COL_APIDPTADR3 => 5, ApInvoiceDetailTableMap::COL_APIDPTCTRY => 6, ApInvoiceDetailTableMap::COL_APIDPTCITY => 7, ApInvoiceDetailTableMap::COL_APIDPTSTAT => 8, ApInvoiceDetailTableMap::COL_APIDPTZIPCODE => 9, ApInvoiceDetailTableMap::COL_APIDPONBR => 10, ApInvoiceDetailTableMap::COL_APIDCTRLNBR => 11, ApInvoiceDetailTableMap::COL_APIDINVNBR => 12, ApInvoiceDetailTableMap::COL_APIDSEQ => 13, ApInvoiceDetailTableMap::COL_APIDLINE => 14, ApInvoiceDetailTableMap::COL_APIDAMT => 15, ApInvoiceDetailTableMap::COL_APIDGLACCT => 16, ApInvoiceDetailTableMap::COL_INITITEMNBR => 17, ApInvoiceDetailTableMap::COL_APIDQTYREC => 18, ApInvoiceDetailTableMap::COL_APIDDESC => 19, ApInvoiceDetailTableMap::COL_DATEUPDTD => 20, ApInvoiceDetailTableMap::COL_TIMEUPDTD => 21, ApInvoiceDetailTableMap::COL_DUMMY => 22, ),
-        self::TYPE_FIELDNAME     => array('ApveVendId' => 0, 'ApidPayToKey' => 1, 'ApidPtName' => 2, 'ApidPtAdr1' => 3, 'ApidPtAdr2' => 4, 'ApidPtAdr3' => 5, 'ApidPtCtry' => 6, 'ApidPtCity' => 7, 'ApidPtStat' => 8, 'ApidPtZipCode' => 9, 'ApidPoNbr' => 10, 'ApidCtrlNbr' => 11, 'ApidInvNbr' => 12, 'ApidSeq' => 13, 'ApidLine' => 14, 'ApidAmt' => 15, 'ApidGlAcct' => 16, 'InitItemNbr' => 17, 'ApidQtyRec' => 18, 'ApidDesc' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Apvevendid' => 0, 'Apidpaytokey' => 1, 'Apidptname' => 2, 'Apidptadr1' => 3, 'Apidptadr2' => 4, 'Apidptadr3' => 5, 'Apidptctry' => 6, 'Apidptcity' => 7, 'Apidptstat' => 8, 'Apidptzipcode' => 9, 'Apidponbr' => 10, 'Apidctrlnbr' => 11, 'Apidinvnbr' => 12, 'Apidseq' => 13, 'Apidline' => 14, 'Apidamt' => 15, 'Apidglacct' => 16, 'Inititemnbr' => 17, 'Apidqtyrec' => 18, 'Apiddesc' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ],
+        self::TYPE_CAMELNAME     => ['apvevendid' => 0, 'apidpaytokey' => 1, 'apidptname' => 2, 'apidptadr1' => 3, 'apidptadr2' => 4, 'apidptadr3' => 5, 'apidptctry' => 6, 'apidptcity' => 7, 'apidptstat' => 8, 'apidptzipcode' => 9, 'apidponbr' => 10, 'apidctrlnbr' => 11, 'apidinvnbr' => 12, 'apidseq' => 13, 'apidline' => 14, 'apidamt' => 15, 'apidglacct' => 16, 'inititemnbr' => 17, 'apidqtyrec' => 18, 'apiddesc' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ],
+        self::TYPE_COLNAME       => [ApInvoiceDetailTableMap::COL_APVEVENDID => 0, ApInvoiceDetailTableMap::COL_APIDPAYTOKEY => 1, ApInvoiceDetailTableMap::COL_APIDPTNAME => 2, ApInvoiceDetailTableMap::COL_APIDPTADR1 => 3, ApInvoiceDetailTableMap::COL_APIDPTADR2 => 4, ApInvoiceDetailTableMap::COL_APIDPTADR3 => 5, ApInvoiceDetailTableMap::COL_APIDPTCTRY => 6, ApInvoiceDetailTableMap::COL_APIDPTCITY => 7, ApInvoiceDetailTableMap::COL_APIDPTSTAT => 8, ApInvoiceDetailTableMap::COL_APIDPTZIPCODE => 9, ApInvoiceDetailTableMap::COL_APIDPONBR => 10, ApInvoiceDetailTableMap::COL_APIDCTRLNBR => 11, ApInvoiceDetailTableMap::COL_APIDINVNBR => 12, ApInvoiceDetailTableMap::COL_APIDSEQ => 13, ApInvoiceDetailTableMap::COL_APIDLINE => 14, ApInvoiceDetailTableMap::COL_APIDAMT => 15, ApInvoiceDetailTableMap::COL_APIDGLACCT => 16, ApInvoiceDetailTableMap::COL_INITITEMNBR => 17, ApInvoiceDetailTableMap::COL_APIDQTYREC => 18, ApInvoiceDetailTableMap::COL_APIDDESC => 19, ApInvoiceDetailTableMap::COL_DATEUPDTD => 20, ApInvoiceDetailTableMap::COL_TIMEUPDTD => 21, ApInvoiceDetailTableMap::COL_DUMMY => 22, ],
+        self::TYPE_FIELDNAME     => ['ApveVendId' => 0, 'ApidPayToKey' => 1, 'ApidPtName' => 2, 'ApidPtAdr1' => 3, 'ApidPtAdr2' => 4, 'ApidPtAdr3' => 5, 'ApidPtCtry' => 6, 'ApidPtCity' => 7, 'ApidPtStat' => 8, 'ApidPtZipCode' => 9, 'ApidPoNbr' => 10, 'ApidCtrlNbr' => 11, 'ApidInvNbr' => 12, 'ApidSeq' => 13, 'ApidLine' => 14, 'ApidAmt' => 15, 'ApidGlAcct' => 16, 'InitItemNbr' => 17, 'ApidQtyRec' => 18, 'ApidDesc' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Apvevendid' => 'APVEVENDID',
+        'ApInvoiceDetail.Apvevendid' => 'APVEVENDID',
+        'apvevendid' => 'APVEVENDID',
+        'apInvoiceDetail.apvevendid' => 'APVEVENDID',
+        'ApInvoiceDetailTableMap::COL_APVEVENDID' => 'APVEVENDID',
+        'COL_APVEVENDID' => 'APVEVENDID',
+        'ApveVendId' => 'APVEVENDID',
+        'ap_invoice_det.ApveVendId' => 'APVEVENDID',
+        'Apidpaytokey' => 'APIDPAYTOKEY',
+        'ApInvoiceDetail.Apidpaytokey' => 'APIDPAYTOKEY',
+        'apidpaytokey' => 'APIDPAYTOKEY',
+        'apInvoiceDetail.apidpaytokey' => 'APIDPAYTOKEY',
+        'ApInvoiceDetailTableMap::COL_APIDPAYTOKEY' => 'APIDPAYTOKEY',
+        'COL_APIDPAYTOKEY' => 'APIDPAYTOKEY',
+        'ApidPayToKey' => 'APIDPAYTOKEY',
+        'ap_invoice_det.ApidPayToKey' => 'APIDPAYTOKEY',
+        'Apidptname' => 'APIDPTNAME',
+        'ApInvoiceDetail.Apidptname' => 'APIDPTNAME',
+        'apidptname' => 'APIDPTNAME',
+        'apInvoiceDetail.apidptname' => 'APIDPTNAME',
+        'ApInvoiceDetailTableMap::COL_APIDPTNAME' => 'APIDPTNAME',
+        'COL_APIDPTNAME' => 'APIDPTNAME',
+        'ApidPtName' => 'APIDPTNAME',
+        'ap_invoice_det.ApidPtName' => 'APIDPTNAME',
+        'Apidptadr1' => 'APIDPTADR1',
+        'ApInvoiceDetail.Apidptadr1' => 'APIDPTADR1',
+        'apidptadr1' => 'APIDPTADR1',
+        'apInvoiceDetail.apidptadr1' => 'APIDPTADR1',
+        'ApInvoiceDetailTableMap::COL_APIDPTADR1' => 'APIDPTADR1',
+        'COL_APIDPTADR1' => 'APIDPTADR1',
+        'ApidPtAdr1' => 'APIDPTADR1',
+        'ap_invoice_det.ApidPtAdr1' => 'APIDPTADR1',
+        'Apidptadr2' => 'APIDPTADR2',
+        'ApInvoiceDetail.Apidptadr2' => 'APIDPTADR2',
+        'apidptadr2' => 'APIDPTADR2',
+        'apInvoiceDetail.apidptadr2' => 'APIDPTADR2',
+        'ApInvoiceDetailTableMap::COL_APIDPTADR2' => 'APIDPTADR2',
+        'COL_APIDPTADR2' => 'APIDPTADR2',
+        'ApidPtAdr2' => 'APIDPTADR2',
+        'ap_invoice_det.ApidPtAdr2' => 'APIDPTADR2',
+        'Apidptadr3' => 'APIDPTADR3',
+        'ApInvoiceDetail.Apidptadr3' => 'APIDPTADR3',
+        'apidptadr3' => 'APIDPTADR3',
+        'apInvoiceDetail.apidptadr3' => 'APIDPTADR3',
+        'ApInvoiceDetailTableMap::COL_APIDPTADR3' => 'APIDPTADR3',
+        'COL_APIDPTADR3' => 'APIDPTADR3',
+        'ApidPtAdr3' => 'APIDPTADR3',
+        'ap_invoice_det.ApidPtAdr3' => 'APIDPTADR3',
+        'Apidptctry' => 'APIDPTCTRY',
+        'ApInvoiceDetail.Apidptctry' => 'APIDPTCTRY',
+        'apidptctry' => 'APIDPTCTRY',
+        'apInvoiceDetail.apidptctry' => 'APIDPTCTRY',
+        'ApInvoiceDetailTableMap::COL_APIDPTCTRY' => 'APIDPTCTRY',
+        'COL_APIDPTCTRY' => 'APIDPTCTRY',
+        'ApidPtCtry' => 'APIDPTCTRY',
+        'ap_invoice_det.ApidPtCtry' => 'APIDPTCTRY',
+        'Apidptcity' => 'APIDPTCITY',
+        'ApInvoiceDetail.Apidptcity' => 'APIDPTCITY',
+        'apidptcity' => 'APIDPTCITY',
+        'apInvoiceDetail.apidptcity' => 'APIDPTCITY',
+        'ApInvoiceDetailTableMap::COL_APIDPTCITY' => 'APIDPTCITY',
+        'COL_APIDPTCITY' => 'APIDPTCITY',
+        'ApidPtCity' => 'APIDPTCITY',
+        'ap_invoice_det.ApidPtCity' => 'APIDPTCITY',
+        'Apidptstat' => 'APIDPTSTAT',
+        'ApInvoiceDetail.Apidptstat' => 'APIDPTSTAT',
+        'apidptstat' => 'APIDPTSTAT',
+        'apInvoiceDetail.apidptstat' => 'APIDPTSTAT',
+        'ApInvoiceDetailTableMap::COL_APIDPTSTAT' => 'APIDPTSTAT',
+        'COL_APIDPTSTAT' => 'APIDPTSTAT',
+        'ApidPtStat' => 'APIDPTSTAT',
+        'ap_invoice_det.ApidPtStat' => 'APIDPTSTAT',
+        'Apidptzipcode' => 'APIDPTZIPCODE',
+        'ApInvoiceDetail.Apidptzipcode' => 'APIDPTZIPCODE',
+        'apidptzipcode' => 'APIDPTZIPCODE',
+        'apInvoiceDetail.apidptzipcode' => 'APIDPTZIPCODE',
+        'ApInvoiceDetailTableMap::COL_APIDPTZIPCODE' => 'APIDPTZIPCODE',
+        'COL_APIDPTZIPCODE' => 'APIDPTZIPCODE',
+        'ApidPtZipCode' => 'APIDPTZIPCODE',
+        'ap_invoice_det.ApidPtZipCode' => 'APIDPTZIPCODE',
+        'Apidponbr' => 'APIDPONBR',
+        'ApInvoiceDetail.Apidponbr' => 'APIDPONBR',
+        'apidponbr' => 'APIDPONBR',
+        'apInvoiceDetail.apidponbr' => 'APIDPONBR',
+        'ApInvoiceDetailTableMap::COL_APIDPONBR' => 'APIDPONBR',
+        'COL_APIDPONBR' => 'APIDPONBR',
+        'ApidPoNbr' => 'APIDPONBR',
+        'ap_invoice_det.ApidPoNbr' => 'APIDPONBR',
+        'Apidctrlnbr' => 'APIDCTRLNBR',
+        'ApInvoiceDetail.Apidctrlnbr' => 'APIDCTRLNBR',
+        'apidctrlnbr' => 'APIDCTRLNBR',
+        'apInvoiceDetail.apidctrlnbr' => 'APIDCTRLNBR',
+        'ApInvoiceDetailTableMap::COL_APIDCTRLNBR' => 'APIDCTRLNBR',
+        'COL_APIDCTRLNBR' => 'APIDCTRLNBR',
+        'ApidCtrlNbr' => 'APIDCTRLNBR',
+        'ap_invoice_det.ApidCtrlNbr' => 'APIDCTRLNBR',
+        'Apidinvnbr' => 'APIDINVNBR',
+        'ApInvoiceDetail.Apidinvnbr' => 'APIDINVNBR',
+        'apidinvnbr' => 'APIDINVNBR',
+        'apInvoiceDetail.apidinvnbr' => 'APIDINVNBR',
+        'ApInvoiceDetailTableMap::COL_APIDINVNBR' => 'APIDINVNBR',
+        'COL_APIDINVNBR' => 'APIDINVNBR',
+        'ApidInvNbr' => 'APIDINVNBR',
+        'ap_invoice_det.ApidInvNbr' => 'APIDINVNBR',
+        'Apidseq' => 'APIDSEQ',
+        'ApInvoiceDetail.Apidseq' => 'APIDSEQ',
+        'apidseq' => 'APIDSEQ',
+        'apInvoiceDetail.apidseq' => 'APIDSEQ',
+        'ApInvoiceDetailTableMap::COL_APIDSEQ' => 'APIDSEQ',
+        'COL_APIDSEQ' => 'APIDSEQ',
+        'ApidSeq' => 'APIDSEQ',
+        'ap_invoice_det.ApidSeq' => 'APIDSEQ',
+        'Apidline' => 'APIDLINE',
+        'ApInvoiceDetail.Apidline' => 'APIDLINE',
+        'apidline' => 'APIDLINE',
+        'apInvoiceDetail.apidline' => 'APIDLINE',
+        'ApInvoiceDetailTableMap::COL_APIDLINE' => 'APIDLINE',
+        'COL_APIDLINE' => 'APIDLINE',
+        'ApidLine' => 'APIDLINE',
+        'ap_invoice_det.ApidLine' => 'APIDLINE',
+        'Apidamt' => 'APIDAMT',
+        'ApInvoiceDetail.Apidamt' => 'APIDAMT',
+        'apidamt' => 'APIDAMT',
+        'apInvoiceDetail.apidamt' => 'APIDAMT',
+        'ApInvoiceDetailTableMap::COL_APIDAMT' => 'APIDAMT',
+        'COL_APIDAMT' => 'APIDAMT',
+        'ApidAmt' => 'APIDAMT',
+        'ap_invoice_det.ApidAmt' => 'APIDAMT',
+        'Apidglacct' => 'APIDGLACCT',
+        'ApInvoiceDetail.Apidglacct' => 'APIDGLACCT',
+        'apidglacct' => 'APIDGLACCT',
+        'apInvoiceDetail.apidglacct' => 'APIDGLACCT',
+        'ApInvoiceDetailTableMap::COL_APIDGLACCT' => 'APIDGLACCT',
+        'COL_APIDGLACCT' => 'APIDGLACCT',
+        'ApidGlAcct' => 'APIDGLACCT',
+        'ap_invoice_det.ApidGlAcct' => 'APIDGLACCT',
+        'Inititemnbr' => 'INITITEMNBR',
+        'ApInvoiceDetail.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'apInvoiceDetail.inititemnbr' => 'INITITEMNBR',
+        'ApInvoiceDetailTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'ap_invoice_det.InitItemNbr' => 'INITITEMNBR',
+        'Apidqtyrec' => 'APIDQTYREC',
+        'ApInvoiceDetail.Apidqtyrec' => 'APIDQTYREC',
+        'apidqtyrec' => 'APIDQTYREC',
+        'apInvoiceDetail.apidqtyrec' => 'APIDQTYREC',
+        'ApInvoiceDetailTableMap::COL_APIDQTYREC' => 'APIDQTYREC',
+        'COL_APIDQTYREC' => 'APIDQTYREC',
+        'ApidQtyRec' => 'APIDQTYREC',
+        'ap_invoice_det.ApidQtyRec' => 'APIDQTYREC',
+        'Apiddesc' => 'APIDDESC',
+        'ApInvoiceDetail.Apiddesc' => 'APIDDESC',
+        'apiddesc' => 'APIDDESC',
+        'apInvoiceDetail.apiddesc' => 'APIDDESC',
+        'ApInvoiceDetailTableMap::COL_APIDDESC' => 'APIDDESC',
+        'COL_APIDDESC' => 'APIDDESC',
+        'ApidDesc' => 'APIDDESC',
+        'ap_invoice_det.ApidDesc' => 'APIDDESC',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ApInvoiceDetail.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'apInvoiceDetail.dateupdtd' => 'DATEUPDTD',
+        'ApInvoiceDetailTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'ap_invoice_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ApInvoiceDetail.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'apInvoiceDetail.timeupdtd' => 'TIMEUPDTD',
+        'ApInvoiceDetailTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'ap_invoice_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ApInvoiceDetail.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'apInvoiceDetail.dummy' => 'DUMMY',
+        'ApInvoiceDetailTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'ap_invoice_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('ap_invoice_det');
@@ -260,12 +459,14 @@ class ApInvoiceDetailTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -306,7 +507,7 @@ class ApInvoiceDetailTableMap extends TableMap
     1 => ':ApveVendId',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -317,9 +518,11 @@ class ApInvoiceDetailTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ApInvoiceDetail $obj A \ApInvoiceDetail object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ApInvoiceDetail $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -338,8 +541,10 @@ class ApInvoiceDetailTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ApInvoiceDetail object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ApInvoiceDetail) {
@@ -367,14 +572,14 @@ class ApInvoiceDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Apidpaytokey', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Apidponbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Apidctrlnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Apidinvnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Apidseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Apidline', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -389,14 +594,14 @@ class ApInvoiceDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -447,10 +652,10 @@ class ApInvoiceDetailTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ApInvoiceDetailTableMap::CLASS_DEFAULT : ApInvoiceDetailTableMap::OM_CLASS;
     }
@@ -458,17 +663,17 @@ class ApInvoiceDetailTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ApInvoiceDetail object, last column rank)
+     * @return array (ApInvoiceDetail object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ApInvoiceDetailTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ApInvoiceDetailTableMap::getInstanceFromPool($key))) {
@@ -484,7 +689,7 @@ class ApInvoiceDetailTableMap extends TableMap
             ApInvoiceDetailTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -492,13 +697,13 @@ class ApInvoiceDetailTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -528,12 +733,13 @@ class ApInvoiceDetailTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ApInvoiceDetailTableMap::COL_APVEVENDID);
@@ -587,40 +793,94 @@ class ApInvoiceDetailTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APVEVENDID);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPAYTOKEY);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPTNAME);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPTADR1);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPTADR2);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPTADR3);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPTCTRY);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPTCITY);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPTSTAT);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPTZIPCODE);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDPONBR);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDCTRLNBR);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDINVNBR);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDSEQ);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDLINE);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDAMT);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDGLACCT);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDQTYREC);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_APIDDESC);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ApInvoiceDetailTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ApveVendId');
+            $criteria->removeSelectColumn($alias . '.ApidPayToKey');
+            $criteria->removeSelectColumn($alias . '.ApidPtName');
+            $criteria->removeSelectColumn($alias . '.ApidPtAdr1');
+            $criteria->removeSelectColumn($alias . '.ApidPtAdr2');
+            $criteria->removeSelectColumn($alias . '.ApidPtAdr3');
+            $criteria->removeSelectColumn($alias . '.ApidPtCtry');
+            $criteria->removeSelectColumn($alias . '.ApidPtCity');
+            $criteria->removeSelectColumn($alias . '.ApidPtStat');
+            $criteria->removeSelectColumn($alias . '.ApidPtZipCode');
+            $criteria->removeSelectColumn($alias . '.ApidPoNbr');
+            $criteria->removeSelectColumn($alias . '.ApidCtrlNbr');
+            $criteria->removeSelectColumn($alias . '.ApidInvNbr');
+            $criteria->removeSelectColumn($alias . '.ApidSeq');
+            $criteria->removeSelectColumn($alias . '.ApidLine');
+            $criteria->removeSelectColumn($alias . '.ApidAmt');
+            $criteria->removeSelectColumn($alias . '.ApidGlAcct');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.ApidQtyRec');
+            $criteria->removeSelectColumn($alias . '.ApidDesc');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ApInvoiceDetailTableMap::DATABASE_NAME)->getTable(ApInvoiceDetailTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ApInvoiceDetailTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ApInvoiceDetailTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ApInvoiceDetailTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ApInvoiceDetail or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ApInvoiceDetail object or primary key or array of primary keys
+     * @param mixed $values Criteria or ApInvoiceDetail object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApInvoiceDetailTableMap::DATABASE_NAME);
@@ -638,7 +898,7 @@ class ApInvoiceDetailTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ApInvoiceDetailTableMap::COL_APVEVENDID, $value[0]);
@@ -671,7 +931,7 @@ class ApInvoiceDetailTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ApInvoiceDetailQuery::create()->doDeleteAll($con);
     }
@@ -679,13 +939,13 @@ class ApInvoiceDetailTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ApInvoiceDetail or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ApInvoiceDetail object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ApInvoiceDetail object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApInvoiceDetailTableMap::DATABASE_NAME);
@@ -708,7 +968,4 @@ class ApInvoiceDetailTableMap extends TableMap
         });
     }
 
-} // ApInvoiceDetailTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ApInvoiceDetailTableMap::buildTableMap();
+}

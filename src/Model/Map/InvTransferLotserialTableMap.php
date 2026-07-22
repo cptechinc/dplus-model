@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvTransferLotserialTableMap extends TableMap
 {
@@ -34,219 +33,451 @@ class InvTransferLotserialTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvTransferLotserialTableMap';
+    public const CLASS_NAME = '.Map.InvTransferLotserialTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_trans_lotser';
+    public const TABLE_NAME = 'inv_trans_lotser';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvTransferLotserial';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvTransferLotserial';
+    public const OM_CLASS = '\\InvTransferLotserial';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvTransferLotserial';
+    public const CLASS_DEFAULT = 'InvTransferLotserial';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 27;
+    public const NUM_COLUMNS = 27;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 27;
+    public const NUM_HYDRATE_COLUMNS = 27;
 
     /**
      * the column name for the InhdNbr field
      */
-    const COL_INHDNBR = 'inv_trans_lotser.InhdNbr';
+    public const COL_INHDNBR = 'inv_trans_lotser.InhdNbr';
 
     /**
      * the column name for the IndtLine field
      */
-    const COL_INDTLINE = 'inv_trans_lotser.IndtLine';
+    public const COL_INDTLINE = 'inv_trans_lotser.IndtLine';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_trans_lotser.InitItemNbr';
+    public const COL_INITITEMNBR = 'inv_trans_lotser.InitItemNbr';
 
     /**
      * the column name for the InsdLotSer field
      */
-    const COL_INSDLOTSER = 'inv_trans_lotser.InsdLotSer';
+    public const COL_INSDLOTSER = 'inv_trans_lotser.InsdLotSer';
 
     /**
      * the column name for the InsdBin field
      */
-    const COL_INSDBIN = 'inv_trans_lotser.InsdBin';
+    public const COL_INSDBIN = 'inv_trans_lotser.InsdBin';
 
     /**
      * the column name for the InsdPlltNbr field
      */
-    const COL_INSDPLLTNBR = 'inv_trans_lotser.InsdPlltNbr';
+    public const COL_INSDPLLTNBR = 'inv_trans_lotser.InsdPlltNbr';
 
     /**
      * the column name for the InsdCrtnNbr field
      */
-    const COL_INSDCRTNNBR = 'inv_trans_lotser.InsdCrtnNbr';
+    public const COL_INSDCRTNNBR = 'inv_trans_lotser.InsdCrtnNbr';
 
     /**
      * the column name for the InsdQtyResv field
      */
-    const COL_INSDQTYRESV = 'inv_trans_lotser.InsdQtyResv';
+    public const COL_INSDQTYRESV = 'inv_trans_lotser.InsdQtyResv';
 
     /**
      * the column name for the InsdQtyShip field
      */
-    const COL_INSDQTYSHIP = 'inv_trans_lotser.InsdQtyShip';
+    public const COL_INSDQTYSHIP = 'inv_trans_lotser.InsdQtyShip';
 
     /**
      * the column name for the InsdQtyNotPost field
      */
-    const COL_INSDQTYNOTPOST = 'inv_trans_lotser.InsdQtyNotPost';
+    public const COL_INSDQTYNOTPOST = 'inv_trans_lotser.InsdQtyNotPost';
 
     /**
      * the column name for the InsdUnitCost field
      */
-    const COL_INSDUNITCOST = 'inv_trans_lotser.InsdUnitCost';
+    public const COL_INSDUNITCOST = 'inv_trans_lotser.InsdUnitCost';
 
     /**
      * the column name for the InsdLotSerFrom field
      */
-    const COL_INSDLOTSERFROM = 'inv_trans_lotser.InsdLotSerFrom';
+    public const COL_INSDLOTSERFROM = 'inv_trans_lotser.InsdLotSerFrom';
 
     /**
      * the column name for the InsdBinFrom field
      */
-    const COL_INSDBINFROM = 'inv_trans_lotser.InsdBinFrom';
+    public const COL_INSDBINFROM = 'inv_trans_lotser.InsdBinFrom';
 
     /**
      * the column name for the InsdCases field
      */
-    const COL_INSDCASES = 'inv_trans_lotser.InsdCases';
+    public const COL_INSDCASES = 'inv_trans_lotser.InsdCases';
 
     /**
      * the column name for the InsdTag field
      */
-    const COL_INSDTAG = 'inv_trans_lotser.InsdTag';
+    public const COL_INSDTAG = 'inv_trans_lotser.InsdTag';
 
     /**
      * the column name for the InsdInspctLvl field
      */
-    const COL_INSDINSPCTLVL = 'inv_trans_lotser.InsdInspctLvl';
+    public const COL_INSDINSPCTLVL = 'inv_trans_lotser.InsdInspctLvl';
 
     /**
      * the column name for the InsdLotRef field
      */
-    const COL_INSDLOTREF = 'inv_trans_lotser.InsdLotRef';
+    public const COL_INSDLOTREF = 'inv_trans_lotser.InsdLotRef';
 
     /**
      * the column name for the InsdCrtnQty field
      */
-    const COL_INSDCRTNQTY = 'inv_trans_lotser.InsdCrtnQty';
+    public const COL_INSDCRTNQTY = 'inv_trans_lotser.InsdCrtnQty';
 
     /**
      * the column name for the InsdDateShipped field
      */
-    const COL_INSDDATESHIPPED = 'inv_trans_lotser.InsdDateShipped';
+    public const COL_INSDDATESHIPPED = 'inv_trans_lotser.InsdDateShipped';
 
     /**
      * the column name for the InsdToWhseBin field
      */
-    const COL_INSDTOWHSEBIN = 'inv_trans_lotser.InsdToWhseBin';
+    public const COL_INSDTOWHSEBIN = 'inv_trans_lotser.InsdToWhseBin';
 
     /**
      * the column name for the InsdLblPrtd field
      */
-    const COL_INSDLBLPRTD = 'inv_trans_lotser.InsdLblPrtd';
+    public const COL_INSDLBLPRTD = 'inv_trans_lotser.InsdLblPrtd';
 
     /**
      * the column name for the InsdBatch field
      */
-    const COL_INSDBATCH = 'inv_trans_lotser.InsdBatch';
+    public const COL_INSDBATCH = 'inv_trans_lotser.InsdBatch';
 
     /**
      * the column name for the InsdCureDate field
      */
-    const COL_INSDCUREDATE = 'inv_trans_lotser.InsdCureDate';
+    public const COL_INSDCUREDATE = 'inv_trans_lotser.InsdCureDate';
 
     /**
      * the column name for the InsdBinTo field
      */
-    const COL_INSDBINTO = 'inv_trans_lotser.InsdBinTo';
+    public const COL_INSDBINTO = 'inv_trans_lotser.InsdBinTo';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_trans_lotser.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_trans_lotser.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_trans_lotser.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_trans_lotser.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_trans_lotser.dummy';
+    public const COL_DUMMY = 'inv_trans_lotser.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inhdnbr', 'Indtline', 'Inititemnbr', 'Insdlotser', 'Insdbin', 'Insdplltnbr', 'Insdcrtnnbr', 'Insdqtyresv', 'Insdqtyship', 'Insdqtynotpost', 'Insdunitcost', 'Insdlotserfrom', 'Insdbinfrom', 'Insdcases', 'Insdtag', 'Insdinspctlvl', 'Insdlotref', 'Insdcrtnqty', 'Insddateshipped', 'Insdtowhsebin', 'Insdlblprtd', 'Insdbatch', 'Insdcuredate', 'Insdbinto', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inhdnbr', 'indtline', 'inititemnbr', 'insdlotser', 'insdbin', 'insdplltnbr', 'insdcrtnnbr', 'insdqtyresv', 'insdqtyship', 'insdqtynotpost', 'insdunitcost', 'insdlotserfrom', 'insdbinfrom', 'insdcases', 'insdtag', 'insdinspctlvl', 'insdlotref', 'insdcrtnqty', 'insddateshipped', 'insdtowhsebin', 'insdlblprtd', 'insdbatch', 'insdcuredate', 'insdbinto', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvTransferLotserialTableMap::COL_INHDNBR, InvTransferLotserialTableMap::COL_INDTLINE, InvTransferLotserialTableMap::COL_INITITEMNBR, InvTransferLotserialTableMap::COL_INSDLOTSER, InvTransferLotserialTableMap::COL_INSDBIN, InvTransferLotserialTableMap::COL_INSDPLLTNBR, InvTransferLotserialTableMap::COL_INSDCRTNNBR, InvTransferLotserialTableMap::COL_INSDQTYRESV, InvTransferLotserialTableMap::COL_INSDQTYSHIP, InvTransferLotserialTableMap::COL_INSDQTYNOTPOST, InvTransferLotserialTableMap::COL_INSDUNITCOST, InvTransferLotserialTableMap::COL_INSDLOTSERFROM, InvTransferLotserialTableMap::COL_INSDBINFROM, InvTransferLotserialTableMap::COL_INSDCASES, InvTransferLotserialTableMap::COL_INSDTAG, InvTransferLotserialTableMap::COL_INSDINSPCTLVL, InvTransferLotserialTableMap::COL_INSDLOTREF, InvTransferLotserialTableMap::COL_INSDCRTNQTY, InvTransferLotserialTableMap::COL_INSDDATESHIPPED, InvTransferLotserialTableMap::COL_INSDTOWHSEBIN, InvTransferLotserialTableMap::COL_INSDLBLPRTD, InvTransferLotserialTableMap::COL_INSDBATCH, InvTransferLotserialTableMap::COL_INSDCUREDATE, InvTransferLotserialTableMap::COL_INSDBINTO, InvTransferLotserialTableMap::COL_DATEUPDTD, InvTransferLotserialTableMap::COL_TIMEUPDTD, InvTransferLotserialTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InhdNbr', 'IndtLine', 'InitItemNbr', 'InsdLotSer', 'InsdBin', 'InsdPlltNbr', 'InsdCrtnNbr', 'InsdQtyResv', 'InsdQtyShip', 'InsdQtyNotPost', 'InsdUnitCost', 'InsdLotSerFrom', 'InsdBinFrom', 'InsdCases', 'InsdTag', 'InsdInspctLvl', 'InsdLotRef', 'InsdCrtnQty', 'InsdDateShipped', 'InsdToWhseBin', 'InsdLblPrtd', 'InsdBatch', 'InsdCureDate', 'InsdBinTo', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Inhdnbr', 'Indtline', 'Inititemnbr', 'Insdlotser', 'Insdbin', 'Insdplltnbr', 'Insdcrtnnbr', 'Insdqtyresv', 'Insdqtyship', 'Insdqtynotpost', 'Insdunitcost', 'Insdlotserfrom', 'Insdbinfrom', 'Insdcases', 'Insdtag', 'Insdinspctlvl', 'Insdlotref', 'Insdcrtnqty', 'Insddateshipped', 'Insdtowhsebin', 'Insdlblprtd', 'Insdbatch', 'Insdcuredate', 'Insdbinto', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['inhdnbr', 'indtline', 'inititemnbr', 'insdlotser', 'insdbin', 'insdplltnbr', 'insdcrtnnbr', 'insdqtyresv', 'insdqtyship', 'insdqtynotpost', 'insdunitcost', 'insdlotserfrom', 'insdbinfrom', 'insdcases', 'insdtag', 'insdinspctlvl', 'insdlotref', 'insdcrtnqty', 'insddateshipped', 'insdtowhsebin', 'insdlblprtd', 'insdbatch', 'insdcuredate', 'insdbinto', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvTransferLotserialTableMap::COL_INHDNBR, InvTransferLotserialTableMap::COL_INDTLINE, InvTransferLotserialTableMap::COL_INITITEMNBR, InvTransferLotserialTableMap::COL_INSDLOTSER, InvTransferLotserialTableMap::COL_INSDBIN, InvTransferLotserialTableMap::COL_INSDPLLTNBR, InvTransferLotserialTableMap::COL_INSDCRTNNBR, InvTransferLotserialTableMap::COL_INSDQTYRESV, InvTransferLotserialTableMap::COL_INSDQTYSHIP, InvTransferLotserialTableMap::COL_INSDQTYNOTPOST, InvTransferLotserialTableMap::COL_INSDUNITCOST, InvTransferLotserialTableMap::COL_INSDLOTSERFROM, InvTransferLotserialTableMap::COL_INSDBINFROM, InvTransferLotserialTableMap::COL_INSDCASES, InvTransferLotserialTableMap::COL_INSDTAG, InvTransferLotserialTableMap::COL_INSDINSPCTLVL, InvTransferLotserialTableMap::COL_INSDLOTREF, InvTransferLotserialTableMap::COL_INSDCRTNQTY, InvTransferLotserialTableMap::COL_INSDDATESHIPPED, InvTransferLotserialTableMap::COL_INSDTOWHSEBIN, InvTransferLotserialTableMap::COL_INSDLBLPRTD, InvTransferLotserialTableMap::COL_INSDBATCH, InvTransferLotserialTableMap::COL_INSDCUREDATE, InvTransferLotserialTableMap::COL_INSDBINTO, InvTransferLotserialTableMap::COL_DATEUPDTD, InvTransferLotserialTableMap::COL_TIMEUPDTD, InvTransferLotserialTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['InhdNbr', 'IndtLine', 'InitItemNbr', 'InsdLotSer', 'InsdBin', 'InsdPlltNbr', 'InsdCrtnNbr', 'InsdQtyResv', 'InsdQtyShip', 'InsdQtyNotPost', 'InsdUnitCost', 'InsdLotSerFrom', 'InsdBinFrom', 'InsdCases', 'InsdTag', 'InsdInspctLvl', 'InsdLotRef', 'InsdCrtnQty', 'InsdDateShipped', 'InsdToWhseBin', 'InsdLblPrtd', 'InsdBatch', 'InsdCureDate', 'InsdBinTo', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inhdnbr' => 0, 'Indtline' => 1, 'Inititemnbr' => 2, 'Insdlotser' => 3, 'Insdbin' => 4, 'Insdplltnbr' => 5, 'Insdcrtnnbr' => 6, 'Insdqtyresv' => 7, 'Insdqtyship' => 8, 'Insdqtynotpost' => 9, 'Insdunitcost' => 10, 'Insdlotserfrom' => 11, 'Insdbinfrom' => 12, 'Insdcases' => 13, 'Insdtag' => 14, 'Insdinspctlvl' => 15, 'Insdlotref' => 16, 'Insdcrtnqty' => 17, 'Insddateshipped' => 18, 'Insdtowhsebin' => 19, 'Insdlblprtd' => 20, 'Insdbatch' => 21, 'Insdcuredate' => 22, 'Insdbinto' => 23, 'Dateupdtd' => 24, 'Timeupdtd' => 25, 'Dummy' => 26, ),
-        self::TYPE_CAMELNAME     => array('inhdnbr' => 0, 'indtline' => 1, 'inititemnbr' => 2, 'insdlotser' => 3, 'insdbin' => 4, 'insdplltnbr' => 5, 'insdcrtnnbr' => 6, 'insdqtyresv' => 7, 'insdqtyship' => 8, 'insdqtynotpost' => 9, 'insdunitcost' => 10, 'insdlotserfrom' => 11, 'insdbinfrom' => 12, 'insdcases' => 13, 'insdtag' => 14, 'insdinspctlvl' => 15, 'insdlotref' => 16, 'insdcrtnqty' => 17, 'insddateshipped' => 18, 'insdtowhsebin' => 19, 'insdlblprtd' => 20, 'insdbatch' => 21, 'insdcuredate' => 22, 'insdbinto' => 23, 'dateupdtd' => 24, 'timeupdtd' => 25, 'dummy' => 26, ),
-        self::TYPE_COLNAME       => array(InvTransferLotserialTableMap::COL_INHDNBR => 0, InvTransferLotserialTableMap::COL_INDTLINE => 1, InvTransferLotserialTableMap::COL_INITITEMNBR => 2, InvTransferLotserialTableMap::COL_INSDLOTSER => 3, InvTransferLotserialTableMap::COL_INSDBIN => 4, InvTransferLotserialTableMap::COL_INSDPLLTNBR => 5, InvTransferLotserialTableMap::COL_INSDCRTNNBR => 6, InvTransferLotserialTableMap::COL_INSDQTYRESV => 7, InvTransferLotserialTableMap::COL_INSDQTYSHIP => 8, InvTransferLotserialTableMap::COL_INSDQTYNOTPOST => 9, InvTransferLotserialTableMap::COL_INSDUNITCOST => 10, InvTransferLotserialTableMap::COL_INSDLOTSERFROM => 11, InvTransferLotserialTableMap::COL_INSDBINFROM => 12, InvTransferLotserialTableMap::COL_INSDCASES => 13, InvTransferLotserialTableMap::COL_INSDTAG => 14, InvTransferLotserialTableMap::COL_INSDINSPCTLVL => 15, InvTransferLotserialTableMap::COL_INSDLOTREF => 16, InvTransferLotserialTableMap::COL_INSDCRTNQTY => 17, InvTransferLotserialTableMap::COL_INSDDATESHIPPED => 18, InvTransferLotserialTableMap::COL_INSDTOWHSEBIN => 19, InvTransferLotserialTableMap::COL_INSDLBLPRTD => 20, InvTransferLotserialTableMap::COL_INSDBATCH => 21, InvTransferLotserialTableMap::COL_INSDCUREDATE => 22, InvTransferLotserialTableMap::COL_INSDBINTO => 23, InvTransferLotserialTableMap::COL_DATEUPDTD => 24, InvTransferLotserialTableMap::COL_TIMEUPDTD => 25, InvTransferLotserialTableMap::COL_DUMMY => 26, ),
-        self::TYPE_FIELDNAME     => array('InhdNbr' => 0, 'IndtLine' => 1, 'InitItemNbr' => 2, 'InsdLotSer' => 3, 'InsdBin' => 4, 'InsdPlltNbr' => 5, 'InsdCrtnNbr' => 6, 'InsdQtyResv' => 7, 'InsdQtyShip' => 8, 'InsdQtyNotPost' => 9, 'InsdUnitCost' => 10, 'InsdLotSerFrom' => 11, 'InsdBinFrom' => 12, 'InsdCases' => 13, 'InsdTag' => 14, 'InsdInspctLvl' => 15, 'InsdLotRef' => 16, 'InsdCrtnQty' => 17, 'InsdDateShipped' => 18, 'InsdToWhseBin' => 19, 'InsdLblPrtd' => 20, 'InsdBatch' => 21, 'InsdCureDate' => 22, 'InsdBinTo' => 23, 'DateUpdtd' => 24, 'TimeUpdtd' => 25, 'dummy' => 26, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Inhdnbr' => 0, 'Indtline' => 1, 'Inititemnbr' => 2, 'Insdlotser' => 3, 'Insdbin' => 4, 'Insdplltnbr' => 5, 'Insdcrtnnbr' => 6, 'Insdqtyresv' => 7, 'Insdqtyship' => 8, 'Insdqtynotpost' => 9, 'Insdunitcost' => 10, 'Insdlotserfrom' => 11, 'Insdbinfrom' => 12, 'Insdcases' => 13, 'Insdtag' => 14, 'Insdinspctlvl' => 15, 'Insdlotref' => 16, 'Insdcrtnqty' => 17, 'Insddateshipped' => 18, 'Insdtowhsebin' => 19, 'Insdlblprtd' => 20, 'Insdbatch' => 21, 'Insdcuredate' => 22, 'Insdbinto' => 23, 'Dateupdtd' => 24, 'Timeupdtd' => 25, 'Dummy' => 26, ],
+        self::TYPE_CAMELNAME     => ['inhdnbr' => 0, 'indtline' => 1, 'inititemnbr' => 2, 'insdlotser' => 3, 'insdbin' => 4, 'insdplltnbr' => 5, 'insdcrtnnbr' => 6, 'insdqtyresv' => 7, 'insdqtyship' => 8, 'insdqtynotpost' => 9, 'insdunitcost' => 10, 'insdlotserfrom' => 11, 'insdbinfrom' => 12, 'insdcases' => 13, 'insdtag' => 14, 'insdinspctlvl' => 15, 'insdlotref' => 16, 'insdcrtnqty' => 17, 'insddateshipped' => 18, 'insdtowhsebin' => 19, 'insdlblprtd' => 20, 'insdbatch' => 21, 'insdcuredate' => 22, 'insdbinto' => 23, 'dateupdtd' => 24, 'timeupdtd' => 25, 'dummy' => 26, ],
+        self::TYPE_COLNAME       => [InvTransferLotserialTableMap::COL_INHDNBR => 0, InvTransferLotserialTableMap::COL_INDTLINE => 1, InvTransferLotserialTableMap::COL_INITITEMNBR => 2, InvTransferLotserialTableMap::COL_INSDLOTSER => 3, InvTransferLotserialTableMap::COL_INSDBIN => 4, InvTransferLotserialTableMap::COL_INSDPLLTNBR => 5, InvTransferLotserialTableMap::COL_INSDCRTNNBR => 6, InvTransferLotserialTableMap::COL_INSDQTYRESV => 7, InvTransferLotserialTableMap::COL_INSDQTYSHIP => 8, InvTransferLotserialTableMap::COL_INSDQTYNOTPOST => 9, InvTransferLotserialTableMap::COL_INSDUNITCOST => 10, InvTransferLotserialTableMap::COL_INSDLOTSERFROM => 11, InvTransferLotserialTableMap::COL_INSDBINFROM => 12, InvTransferLotserialTableMap::COL_INSDCASES => 13, InvTransferLotserialTableMap::COL_INSDTAG => 14, InvTransferLotserialTableMap::COL_INSDINSPCTLVL => 15, InvTransferLotserialTableMap::COL_INSDLOTREF => 16, InvTransferLotserialTableMap::COL_INSDCRTNQTY => 17, InvTransferLotserialTableMap::COL_INSDDATESHIPPED => 18, InvTransferLotserialTableMap::COL_INSDTOWHSEBIN => 19, InvTransferLotserialTableMap::COL_INSDLBLPRTD => 20, InvTransferLotserialTableMap::COL_INSDBATCH => 21, InvTransferLotserialTableMap::COL_INSDCUREDATE => 22, InvTransferLotserialTableMap::COL_INSDBINTO => 23, InvTransferLotserialTableMap::COL_DATEUPDTD => 24, InvTransferLotserialTableMap::COL_TIMEUPDTD => 25, InvTransferLotserialTableMap::COL_DUMMY => 26, ],
+        self::TYPE_FIELDNAME     => ['InhdNbr' => 0, 'IndtLine' => 1, 'InitItemNbr' => 2, 'InsdLotSer' => 3, 'InsdBin' => 4, 'InsdPlltNbr' => 5, 'InsdCrtnNbr' => 6, 'InsdQtyResv' => 7, 'InsdQtyShip' => 8, 'InsdQtyNotPost' => 9, 'InsdUnitCost' => 10, 'InsdLotSerFrom' => 11, 'InsdBinFrom' => 12, 'InsdCases' => 13, 'InsdTag' => 14, 'InsdInspctLvl' => 15, 'InsdLotRef' => 16, 'InsdCrtnQty' => 17, 'InsdDateShipped' => 18, 'InsdToWhseBin' => 19, 'InsdLblPrtd' => 20, 'InsdBatch' => 21, 'InsdCureDate' => 22, 'InsdBinTo' => 23, 'DateUpdtd' => 24, 'TimeUpdtd' => 25, 'dummy' => 26, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Inhdnbr' => 'INHDNBR',
+        'InvTransferLotserial.Inhdnbr' => 'INHDNBR',
+        'inhdnbr' => 'INHDNBR',
+        'invTransferLotserial.inhdnbr' => 'INHDNBR',
+        'InvTransferLotserialTableMap::COL_INHDNBR' => 'INHDNBR',
+        'COL_INHDNBR' => 'INHDNBR',
+        'InhdNbr' => 'INHDNBR',
+        'inv_trans_lotser.InhdNbr' => 'INHDNBR',
+        'Indtline' => 'INDTLINE',
+        'InvTransferLotserial.Indtline' => 'INDTLINE',
+        'indtline' => 'INDTLINE',
+        'invTransferLotserial.indtline' => 'INDTLINE',
+        'InvTransferLotserialTableMap::COL_INDTLINE' => 'INDTLINE',
+        'COL_INDTLINE' => 'INDTLINE',
+        'IndtLine' => 'INDTLINE',
+        'inv_trans_lotser.IndtLine' => 'INDTLINE',
+        'Inititemnbr' => 'INITITEMNBR',
+        'InvTransferLotserial.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'invTransferLotserial.inititemnbr' => 'INITITEMNBR',
+        'InvTransferLotserialTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'inv_trans_lotser.InitItemNbr' => 'INITITEMNBR',
+        'Insdlotser' => 'INSDLOTSER',
+        'InvTransferLotserial.Insdlotser' => 'INSDLOTSER',
+        'insdlotser' => 'INSDLOTSER',
+        'invTransferLotserial.insdlotser' => 'INSDLOTSER',
+        'InvTransferLotserialTableMap::COL_INSDLOTSER' => 'INSDLOTSER',
+        'COL_INSDLOTSER' => 'INSDLOTSER',
+        'InsdLotSer' => 'INSDLOTSER',
+        'inv_trans_lotser.InsdLotSer' => 'INSDLOTSER',
+        'Insdbin' => 'INSDBIN',
+        'InvTransferLotserial.Insdbin' => 'INSDBIN',
+        'insdbin' => 'INSDBIN',
+        'invTransferLotserial.insdbin' => 'INSDBIN',
+        'InvTransferLotserialTableMap::COL_INSDBIN' => 'INSDBIN',
+        'COL_INSDBIN' => 'INSDBIN',
+        'InsdBin' => 'INSDBIN',
+        'inv_trans_lotser.InsdBin' => 'INSDBIN',
+        'Insdplltnbr' => 'INSDPLLTNBR',
+        'InvTransferLotserial.Insdplltnbr' => 'INSDPLLTNBR',
+        'insdplltnbr' => 'INSDPLLTNBR',
+        'invTransferLotserial.insdplltnbr' => 'INSDPLLTNBR',
+        'InvTransferLotserialTableMap::COL_INSDPLLTNBR' => 'INSDPLLTNBR',
+        'COL_INSDPLLTNBR' => 'INSDPLLTNBR',
+        'InsdPlltNbr' => 'INSDPLLTNBR',
+        'inv_trans_lotser.InsdPlltNbr' => 'INSDPLLTNBR',
+        'Insdcrtnnbr' => 'INSDCRTNNBR',
+        'InvTransferLotserial.Insdcrtnnbr' => 'INSDCRTNNBR',
+        'insdcrtnnbr' => 'INSDCRTNNBR',
+        'invTransferLotserial.insdcrtnnbr' => 'INSDCRTNNBR',
+        'InvTransferLotserialTableMap::COL_INSDCRTNNBR' => 'INSDCRTNNBR',
+        'COL_INSDCRTNNBR' => 'INSDCRTNNBR',
+        'InsdCrtnNbr' => 'INSDCRTNNBR',
+        'inv_trans_lotser.InsdCrtnNbr' => 'INSDCRTNNBR',
+        'Insdqtyresv' => 'INSDQTYRESV',
+        'InvTransferLotserial.Insdqtyresv' => 'INSDQTYRESV',
+        'insdqtyresv' => 'INSDQTYRESV',
+        'invTransferLotserial.insdqtyresv' => 'INSDQTYRESV',
+        'InvTransferLotserialTableMap::COL_INSDQTYRESV' => 'INSDQTYRESV',
+        'COL_INSDQTYRESV' => 'INSDQTYRESV',
+        'InsdQtyResv' => 'INSDQTYRESV',
+        'inv_trans_lotser.InsdQtyResv' => 'INSDQTYRESV',
+        'Insdqtyship' => 'INSDQTYSHIP',
+        'InvTransferLotserial.Insdqtyship' => 'INSDQTYSHIP',
+        'insdqtyship' => 'INSDQTYSHIP',
+        'invTransferLotserial.insdqtyship' => 'INSDQTYSHIP',
+        'InvTransferLotserialTableMap::COL_INSDQTYSHIP' => 'INSDQTYSHIP',
+        'COL_INSDQTYSHIP' => 'INSDQTYSHIP',
+        'InsdQtyShip' => 'INSDQTYSHIP',
+        'inv_trans_lotser.InsdQtyShip' => 'INSDQTYSHIP',
+        'Insdqtynotpost' => 'INSDQTYNOTPOST',
+        'InvTransferLotserial.Insdqtynotpost' => 'INSDQTYNOTPOST',
+        'insdqtynotpost' => 'INSDQTYNOTPOST',
+        'invTransferLotserial.insdqtynotpost' => 'INSDQTYNOTPOST',
+        'InvTransferLotserialTableMap::COL_INSDQTYNOTPOST' => 'INSDQTYNOTPOST',
+        'COL_INSDQTYNOTPOST' => 'INSDQTYNOTPOST',
+        'InsdQtyNotPost' => 'INSDQTYNOTPOST',
+        'inv_trans_lotser.InsdQtyNotPost' => 'INSDQTYNOTPOST',
+        'Insdunitcost' => 'INSDUNITCOST',
+        'InvTransferLotserial.Insdunitcost' => 'INSDUNITCOST',
+        'insdunitcost' => 'INSDUNITCOST',
+        'invTransferLotserial.insdunitcost' => 'INSDUNITCOST',
+        'InvTransferLotserialTableMap::COL_INSDUNITCOST' => 'INSDUNITCOST',
+        'COL_INSDUNITCOST' => 'INSDUNITCOST',
+        'InsdUnitCost' => 'INSDUNITCOST',
+        'inv_trans_lotser.InsdUnitCost' => 'INSDUNITCOST',
+        'Insdlotserfrom' => 'INSDLOTSERFROM',
+        'InvTransferLotserial.Insdlotserfrom' => 'INSDLOTSERFROM',
+        'insdlotserfrom' => 'INSDLOTSERFROM',
+        'invTransferLotserial.insdlotserfrom' => 'INSDLOTSERFROM',
+        'InvTransferLotserialTableMap::COL_INSDLOTSERFROM' => 'INSDLOTSERFROM',
+        'COL_INSDLOTSERFROM' => 'INSDLOTSERFROM',
+        'InsdLotSerFrom' => 'INSDLOTSERFROM',
+        'inv_trans_lotser.InsdLotSerFrom' => 'INSDLOTSERFROM',
+        'Insdbinfrom' => 'INSDBINFROM',
+        'InvTransferLotserial.Insdbinfrom' => 'INSDBINFROM',
+        'insdbinfrom' => 'INSDBINFROM',
+        'invTransferLotserial.insdbinfrom' => 'INSDBINFROM',
+        'InvTransferLotserialTableMap::COL_INSDBINFROM' => 'INSDBINFROM',
+        'COL_INSDBINFROM' => 'INSDBINFROM',
+        'InsdBinFrom' => 'INSDBINFROM',
+        'inv_trans_lotser.InsdBinFrom' => 'INSDBINFROM',
+        'Insdcases' => 'INSDCASES',
+        'InvTransferLotserial.Insdcases' => 'INSDCASES',
+        'insdcases' => 'INSDCASES',
+        'invTransferLotserial.insdcases' => 'INSDCASES',
+        'InvTransferLotserialTableMap::COL_INSDCASES' => 'INSDCASES',
+        'COL_INSDCASES' => 'INSDCASES',
+        'InsdCases' => 'INSDCASES',
+        'inv_trans_lotser.InsdCases' => 'INSDCASES',
+        'Insdtag' => 'INSDTAG',
+        'InvTransferLotserial.Insdtag' => 'INSDTAG',
+        'insdtag' => 'INSDTAG',
+        'invTransferLotserial.insdtag' => 'INSDTAG',
+        'InvTransferLotserialTableMap::COL_INSDTAG' => 'INSDTAG',
+        'COL_INSDTAG' => 'INSDTAG',
+        'InsdTag' => 'INSDTAG',
+        'inv_trans_lotser.InsdTag' => 'INSDTAG',
+        'Insdinspctlvl' => 'INSDINSPCTLVL',
+        'InvTransferLotserial.Insdinspctlvl' => 'INSDINSPCTLVL',
+        'insdinspctlvl' => 'INSDINSPCTLVL',
+        'invTransferLotserial.insdinspctlvl' => 'INSDINSPCTLVL',
+        'InvTransferLotserialTableMap::COL_INSDINSPCTLVL' => 'INSDINSPCTLVL',
+        'COL_INSDINSPCTLVL' => 'INSDINSPCTLVL',
+        'InsdInspctLvl' => 'INSDINSPCTLVL',
+        'inv_trans_lotser.InsdInspctLvl' => 'INSDINSPCTLVL',
+        'Insdlotref' => 'INSDLOTREF',
+        'InvTransferLotserial.Insdlotref' => 'INSDLOTREF',
+        'insdlotref' => 'INSDLOTREF',
+        'invTransferLotserial.insdlotref' => 'INSDLOTREF',
+        'InvTransferLotserialTableMap::COL_INSDLOTREF' => 'INSDLOTREF',
+        'COL_INSDLOTREF' => 'INSDLOTREF',
+        'InsdLotRef' => 'INSDLOTREF',
+        'inv_trans_lotser.InsdLotRef' => 'INSDLOTREF',
+        'Insdcrtnqty' => 'INSDCRTNQTY',
+        'InvTransferLotserial.Insdcrtnqty' => 'INSDCRTNQTY',
+        'insdcrtnqty' => 'INSDCRTNQTY',
+        'invTransferLotserial.insdcrtnqty' => 'INSDCRTNQTY',
+        'InvTransferLotserialTableMap::COL_INSDCRTNQTY' => 'INSDCRTNQTY',
+        'COL_INSDCRTNQTY' => 'INSDCRTNQTY',
+        'InsdCrtnQty' => 'INSDCRTNQTY',
+        'inv_trans_lotser.InsdCrtnQty' => 'INSDCRTNQTY',
+        'Insddateshipped' => 'INSDDATESHIPPED',
+        'InvTransferLotserial.Insddateshipped' => 'INSDDATESHIPPED',
+        'insddateshipped' => 'INSDDATESHIPPED',
+        'invTransferLotserial.insddateshipped' => 'INSDDATESHIPPED',
+        'InvTransferLotserialTableMap::COL_INSDDATESHIPPED' => 'INSDDATESHIPPED',
+        'COL_INSDDATESHIPPED' => 'INSDDATESHIPPED',
+        'InsdDateShipped' => 'INSDDATESHIPPED',
+        'inv_trans_lotser.InsdDateShipped' => 'INSDDATESHIPPED',
+        'Insdtowhsebin' => 'INSDTOWHSEBIN',
+        'InvTransferLotserial.Insdtowhsebin' => 'INSDTOWHSEBIN',
+        'insdtowhsebin' => 'INSDTOWHSEBIN',
+        'invTransferLotserial.insdtowhsebin' => 'INSDTOWHSEBIN',
+        'InvTransferLotserialTableMap::COL_INSDTOWHSEBIN' => 'INSDTOWHSEBIN',
+        'COL_INSDTOWHSEBIN' => 'INSDTOWHSEBIN',
+        'InsdToWhseBin' => 'INSDTOWHSEBIN',
+        'inv_trans_lotser.InsdToWhseBin' => 'INSDTOWHSEBIN',
+        'Insdlblprtd' => 'INSDLBLPRTD',
+        'InvTransferLotserial.Insdlblprtd' => 'INSDLBLPRTD',
+        'insdlblprtd' => 'INSDLBLPRTD',
+        'invTransferLotserial.insdlblprtd' => 'INSDLBLPRTD',
+        'InvTransferLotserialTableMap::COL_INSDLBLPRTD' => 'INSDLBLPRTD',
+        'COL_INSDLBLPRTD' => 'INSDLBLPRTD',
+        'InsdLblPrtd' => 'INSDLBLPRTD',
+        'inv_trans_lotser.InsdLblPrtd' => 'INSDLBLPRTD',
+        'Insdbatch' => 'INSDBATCH',
+        'InvTransferLotserial.Insdbatch' => 'INSDBATCH',
+        'insdbatch' => 'INSDBATCH',
+        'invTransferLotserial.insdbatch' => 'INSDBATCH',
+        'InvTransferLotserialTableMap::COL_INSDBATCH' => 'INSDBATCH',
+        'COL_INSDBATCH' => 'INSDBATCH',
+        'InsdBatch' => 'INSDBATCH',
+        'inv_trans_lotser.InsdBatch' => 'INSDBATCH',
+        'Insdcuredate' => 'INSDCUREDATE',
+        'InvTransferLotserial.Insdcuredate' => 'INSDCUREDATE',
+        'insdcuredate' => 'INSDCUREDATE',
+        'invTransferLotserial.insdcuredate' => 'INSDCUREDATE',
+        'InvTransferLotserialTableMap::COL_INSDCUREDATE' => 'INSDCUREDATE',
+        'COL_INSDCUREDATE' => 'INSDCUREDATE',
+        'InsdCureDate' => 'INSDCUREDATE',
+        'inv_trans_lotser.InsdCureDate' => 'INSDCUREDATE',
+        'Insdbinto' => 'INSDBINTO',
+        'InvTransferLotserial.Insdbinto' => 'INSDBINTO',
+        'insdbinto' => 'INSDBINTO',
+        'invTransferLotserial.insdbinto' => 'INSDBINTO',
+        'InvTransferLotserialTableMap::COL_INSDBINTO' => 'INSDBINTO',
+        'COL_INSDBINTO' => 'INSDBINTO',
+        'InsdBinTo' => 'INSDBINTO',
+        'inv_trans_lotser.InsdBinTo' => 'INSDBINTO',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvTransferLotserial.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invTransferLotserial.dateupdtd' => 'DATEUPDTD',
+        'InvTransferLotserialTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_trans_lotser.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvTransferLotserial.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invTransferLotserial.timeupdtd' => 'TIMEUPDTD',
+        'InvTransferLotserialTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_trans_lotser.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvTransferLotserial.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invTransferLotserial.dummy' => 'DUMMY',
+        'InvTransferLotserialTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_trans_lotser.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_trans_lotser');
@@ -267,10 +498,10 @@ class InvTransferLotserialTableMap extends TableMap
         $this->addPrimaryKey('InsdBin', 'Insdbin', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('InsdPlltNbr', 'Insdplltnbr', 'INTEGER', true, 4, 0);
         $this->addPrimaryKey('InsdCrtnNbr', 'Insdcrtnnbr', 'INTEGER', true, 4, 0);
-        $this->addColumn('InsdQtyResv', 'Insdqtyresv', 'DECIMAL', true, 20, 0);
-        $this->addColumn('InsdQtyShip', 'Insdqtyship', 'DECIMAL', true, 20, 0);
-        $this->addColumn('InsdQtyNotPost', 'Insdqtynotpost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('InsdUnitCost', 'Insdunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InsdQtyResv', 'Insdqtyresv', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('InsdQtyShip', 'Insdqtyship', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('InsdQtyNotPost', 'Insdqtynotpost', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('InsdUnitCost', 'Insdunitcost', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('InsdLotSerFrom', 'Insdlotserfrom', 'VARCHAR', true, 20, '');
         $this->addColumn('InsdBinFrom', 'Insdbinfrom', 'VARCHAR', true, 8, '');
         $this->addColumn('InsdCases', 'Insdcases', 'INTEGER', true, 5, 0);
@@ -287,12 +518,14 @@ class InvTransferLotserialTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -344,7 +577,7 @@ class InvTransferLotserialTableMap extends TableMap
     1 => ':SermSerNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -355,9 +588,11 @@ class InvTransferLotserialTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvTransferLotserial $obj A \InvTransferLotserial object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvTransferLotserial $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -376,8 +611,10 @@ class InvTransferLotserialTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvTransferLotserial object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvTransferLotserial) {
@@ -405,14 +642,14 @@ class InvTransferLotserialTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Insdlotser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Insdbin', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Insdplltnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Insdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -427,14 +664,14 @@ class InvTransferLotserialTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -485,10 +722,10 @@ class InvTransferLotserialTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvTransferLotserialTableMap::CLASS_DEFAULT : InvTransferLotserialTableMap::OM_CLASS;
     }
@@ -496,17 +733,17 @@ class InvTransferLotserialTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvTransferLotserial object, last column rank)
+     * @return array (InvTransferLotserial object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvTransferLotserialTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvTransferLotserialTableMap::getInstanceFromPool($key))) {
@@ -522,7 +759,7 @@ class InvTransferLotserialTableMap extends TableMap
             InvTransferLotserialTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -530,13 +767,13 @@ class InvTransferLotserialTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -566,12 +803,13 @@ class InvTransferLotserialTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvTransferLotserialTableMap::COL_INHDNBR);
@@ -633,40 +871,102 @@ class InvTransferLotserialTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INHDNBR);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INDTLINE);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDLOTSER);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDBIN);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDPLLTNBR);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDCRTNNBR);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDQTYRESV);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDQTYSHIP);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDQTYNOTPOST);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDUNITCOST);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDLOTSERFROM);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDBINFROM);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDCASES);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDTAG);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDINSPCTLVL);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDLOTREF);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDCRTNQTY);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDDATESHIPPED);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDTOWHSEBIN);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDLBLPRTD);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDBATCH);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDCUREDATE);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_INSDBINTO);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvTransferLotserialTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.InhdNbr');
+            $criteria->removeSelectColumn($alias . '.IndtLine');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.InsdLotSer');
+            $criteria->removeSelectColumn($alias . '.InsdBin');
+            $criteria->removeSelectColumn($alias . '.InsdPlltNbr');
+            $criteria->removeSelectColumn($alias . '.InsdCrtnNbr');
+            $criteria->removeSelectColumn($alias . '.InsdQtyResv');
+            $criteria->removeSelectColumn($alias . '.InsdQtyShip');
+            $criteria->removeSelectColumn($alias . '.InsdQtyNotPost');
+            $criteria->removeSelectColumn($alias . '.InsdUnitCost');
+            $criteria->removeSelectColumn($alias . '.InsdLotSerFrom');
+            $criteria->removeSelectColumn($alias . '.InsdBinFrom');
+            $criteria->removeSelectColumn($alias . '.InsdCases');
+            $criteria->removeSelectColumn($alias . '.InsdTag');
+            $criteria->removeSelectColumn($alias . '.InsdInspctLvl');
+            $criteria->removeSelectColumn($alias . '.InsdLotRef');
+            $criteria->removeSelectColumn($alias . '.InsdCrtnQty');
+            $criteria->removeSelectColumn($alias . '.InsdDateShipped');
+            $criteria->removeSelectColumn($alias . '.InsdToWhseBin');
+            $criteria->removeSelectColumn($alias . '.InsdLblPrtd');
+            $criteria->removeSelectColumn($alias . '.InsdBatch');
+            $criteria->removeSelectColumn($alias . '.InsdCureDate');
+            $criteria->removeSelectColumn($alias . '.InsdBinTo');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvTransferLotserialTableMap::DATABASE_NAME)->getTable(InvTransferLotserialTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvTransferLotserialTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvTransferLotserialTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvTransferLotserialTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvTransferLotserial or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvTransferLotserial object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvTransferLotserial object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferLotserialTableMap::DATABASE_NAME);
@@ -684,7 +984,7 @@ class InvTransferLotserialTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvTransferLotserialTableMap::COL_INHDNBR, $value[0]);
@@ -717,7 +1017,7 @@ class InvTransferLotserialTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvTransferLotserialQuery::create()->doDeleteAll($con);
     }
@@ -725,13 +1025,13 @@ class InvTransferLotserialTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvTransferLotserial or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvTransferLotserial object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvTransferLotserial object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferLotserialTableMap::DATABASE_NAME);
@@ -754,7 +1054,4 @@ class InvTransferLotserialTableMap extends TableMap
         });
     }
 
-} // InvTransferLotserialTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvTransferLotserialTableMap::buildTableMap();
+}

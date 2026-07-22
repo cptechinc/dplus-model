@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ConfigPmTableMap extends TableMap
 {
@@ -34,274 +33,594 @@ class ConfigPmTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ConfigPmTableMap';
+    public const CLASS_NAME = '.Map.ConfigPmTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'pm_config';
+    public const TABLE_NAME = 'pm_config';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ConfigPm';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ConfigPm';
+    public const OM_CLASS = '\\ConfigPm';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ConfigPm';
+    public const CLASS_DEFAULT = 'ConfigPm';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 38;
+    public const NUM_COLUMNS = 38;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 38;
+    public const NUM_HYDRATE_COLUMNS = 38;
 
     /**
      * the column name for the PmtbConfKey field
      */
-    const COL_PMTBCONFKEY = 'pm_config.PmtbConfKey';
+    public const COL_PMTBCONFKEY = 'pm_config.PmtbConfKey';
 
     /**
      * the column name for the PmtbConfBaseSystem field
      */
-    const COL_PMTBCONFBASESYSTEM = 'pm_config.PmtbConfBaseSystem';
+    public const COL_PMTBCONFBASESYSTEM = 'pm_config.PmtbConfBaseSystem';
 
     /**
      * the column name for the PmtbConfAdvancedSystem field
      */
-    const COL_PMTBCONFADVANCEDSYSTEM = 'pm_config.PmtbConfAdvancedSystem';
+    public const COL_PMTBCONFADVANCEDSYSTEM = 'pm_config.PmtbConfAdvancedSystem';
 
     /**
      * the column name for the PmtbConfAllowNegUse field
      */
-    const COL_PMTBCONFALLOWNEGUSE = 'pm_config.PmtbConfAllowNegUse';
+    public const COL_PMTBCONFALLOWNEGUSE = 'pm_config.PmtbConfAllowNegUse';
 
     /**
      * the column name for the PmtbConfScrapUnused field
      */
-    const COL_PMTBCONFSCRAPUNUSED = 'pm_config.PmtbConfScrapUnused';
+    public const COL_PMTBCONFSCRAPUNUSED = 'pm_config.PmtbConfScrapUnused';
 
     /**
      * the column name for the PmtbConfScrapGl field
      */
-    const COL_PMTBCONFSCRAPGL = 'pm_config.PmtbConfScrapGl';
+    public const COL_PMTBCONFSCRAPGL = 'pm_config.PmtbConfScrapGl';
 
     /**
      * the column name for the PmtbConfWarnQtyToZero field
      */
-    const COL_PMTBCONFWARNQTYTOZERO = 'pm_config.PmtbConfWarnQtyToZero';
+    public const COL_PMTBCONFWARNQTYTOZERO = 'pm_config.PmtbConfWarnQtyToZero';
 
     /**
      * the column name for the PmtbConfVarGl field
      */
-    const COL_PMTBCONFVARGL = 'pm_config.PmtbConfVarGl';
+    public const COL_PMTBCONFVARGL = 'pm_config.PmtbConfVarGl';
 
     /**
      * the column name for the PmtbConfPutBinCode field
      */
-    const COL_PMTBCONFPUTBINCODE = 'pm_config.PmtbConfPutBinCode';
+    public const COL_PMTBCONFPUTBINCODE = 'pm_config.PmtbConfPutBinCode';
 
     /**
      * the column name for the PmtbConfPutBinDflt field
      */
-    const COL_PMTBCONFPUTBINDFLT = 'pm_config.PmtbConfPutBinDflt';
+    public const COL_PMTBCONFPUTBINDFLT = 'pm_config.PmtbConfPutBinDflt';
 
     /**
      * the column name for the PmtbConfSerialBase field
      */
-    const COL_PMTBCONFSERIALBASE = 'pm_config.PmtbConfSerialBase';
+    public const COL_PMTBCONFSERIALBASE = 'pm_config.PmtbConfSerialBase';
 
     /**
      * the column name for the PmtbConfFgAtStan field
      */
-    const COL_PMTBCONFFGATSTAN = 'pm_config.PmtbConfFgAtStan';
+    public const COL_PMTBCONFFGATSTAN = 'pm_config.PmtbConfFgAtStan';
 
     /**
      * the column name for the PmtbConfGlFgToMat field
      */
-    const COL_PMTBCONFGLFGTOMAT = 'pm_config.PmtbConfGlFgToMat';
+    public const COL_PMTBCONFGLFGTOMAT = 'pm_config.PmtbConfGlFgToMat';
 
     /**
      * the column name for the PmtbConfPostDetSum field
      */
-    const COL_PMTBCONFPOSTDETSUM = 'pm_config.PmtbConfPostDetSum';
+    public const COL_PMTBCONFPOSTDETSUM = 'pm_config.PmtbConfPostDetSum';
 
     /**
      * the column name for the PmtbConfSort field
      */
-    const COL_PMTBCONFSORT = 'pm_config.PmtbConfSort';
+    public const COL_PMTBCONFSORT = 'pm_config.PmtbConfSort';
 
     /**
      * the column name for the PmtbConfLastCost field
      */
-    const COL_PMTBCONFLASTCOST = 'pm_config.PmtbConfLastCost';
+    public const COL_PMTBCONFLASTCOST = 'pm_config.PmtbConfLastCost';
 
     /**
      * the column name for the PmtbConfAskBom field
      */
-    const COL_PMTBCONFASKBOM = 'pm_config.PmtbConfAskBom';
+    public const COL_PMTBCONFASKBOM = 'pm_config.PmtbConfAskBom';
 
     /**
      * the column name for the PmtbConfDefBom field
      */
-    const COL_PMTBCONFDEFBOM = 'pm_config.PmtbConfDefBom';
+    public const COL_PMTBCONFDEFBOM = 'pm_config.PmtbConfDefBom';
 
     /**
      * the column name for the PmtbConfAutoSelectLots field
      */
-    const COL_PMTBCONFAUTOSELECTLOTS = 'pm_config.PmtbConfAutoSelectLots';
+    public const COL_PMTBCONFAUTOSELECTLOTS = 'pm_config.PmtbConfAutoSelectLots';
 
     /**
      * the column name for the PmtbConfAllocWhenIC field
      */
-    const COL_PMTBCONFALLOCWHENIC = 'pm_config.PmtbConfAllocWhenIC';
+    public const COL_PMTBCONFALLOCWHENIC = 'pm_config.PmtbConfAllocWhenIC';
 
     /**
      * the column name for the PmtbConfUseWpc field
      */
-    const COL_PMTBCONFUSEWPC = 'pm_config.PmtbConfUseWpc';
+    public const COL_PMTBCONFUSEWPC = 'pm_config.PmtbConfUseWpc';
 
     /**
      * the column name for the PmtbConfPowgWipInProc field
      */
-    const COL_PMTBCONFPOWGWIPINPROC = 'pm_config.PmtbConfPowgWipInProc';
+    public const COL_PMTBCONFPOWGWIPINPROC = 'pm_config.PmtbConfPowgWipInProc';
 
     /**
      * the column name for the PmtbConfLrsCost field
      */
-    const COL_PMTBCONFLRSCOST = 'pm_config.PmtbConfLrsCost';
+    public const COL_PMTBCONFLRSCOST = 'pm_config.PmtbConfLrsCost';
 
     /**
      * the column name for the PmtbConfVariAcctg field
      */
-    const COL_PMTBCONFVARIACCTG = 'pm_config.PmtbConfVariAcctg';
+    public const COL_PMTBCONFVARIACCTG = 'pm_config.PmtbConfVariAcctg';
 
     /**
      * the column name for the PmtbConfTakeBinCode field
      */
-    const COL_PMTBCONFTAKEBINCODE = 'pm_config.PmtbConfTakeBinCode';
+    public const COL_PMTBCONFTAKEBINCODE = 'pm_config.PmtbConfTakeBinCode';
 
     /**
      * the column name for the PmtbConfUseFgUom field
      */
-    const COL_PMTBCONFUSEFGUOM = 'pm_config.PmtbConfUseFgUom';
+    public const COL_PMTBCONFUSEFGUOM = 'pm_config.PmtbConfUseFgUom';
 
     /**
      * the column name for the PmtbConfUseNc field
      */
-    const COL_PMTBCONFUSENC = 'pm_config.PmtbConfUseNc';
+    public const COL_PMTBCONFUSENC = 'pm_config.PmtbConfUseNc';
 
     /**
      * the column name for the PmtbConfUseNegWip field
      */
-    const COL_PMTBCONFUSENEGWIP = 'pm_config.PmtbConfUseNegWip';
+    public const COL_PMTBCONFUSENEGWIP = 'pm_config.PmtbConfUseNegWip';
 
     /**
      * the column name for the PmtbCon2AdvWipActEntry field
      */
-    const COL_PMTBCON2ADVWIPACTENTRY = 'pm_config.PmtbCon2AdvWipActEntry';
+    public const COL_PMTBCON2ADVWIPACTENTRY = 'pm_config.PmtbCon2AdvWipActEntry';
 
     /**
      * the column name for the PmtbCon2MachLaborGl field
      */
-    const COL_PMTBCON2MACHLABORGL = 'pm_config.PmtbCon2MachLaborGl';
+    public const COL_PMTBCON2MACHLABORGL = 'pm_config.PmtbCon2MachLaborGl';
 
     /**
      * the column name for the PmtbCon2MachSetupGl field
      */
-    const COL_PMTBCON2MACHSETUPGL = 'pm_config.PmtbCon2MachSetupGl';
+    public const COL_PMTBCON2MACHSETUPGL = 'pm_config.PmtbCon2MachSetupGl';
 
     /**
      * the column name for the PmtbCon2BurdenLaborGl field
      */
-    const COL_PMTBCON2BURDENLABORGL = 'pm_config.PmtbCon2BurdenLaborGl';
+    public const COL_PMTBCON2BURDENLABORGL = 'pm_config.PmtbCon2BurdenLaborGl';
 
     /**
      * the column name for the PmtbCon2BurdenMachGl field
      */
-    const COL_PMTBCON2BURDENMACHGL = 'pm_config.PmtbCon2BurdenMachGl';
+    public const COL_PMTBCON2BURDENMACHGL = 'pm_config.PmtbCon2BurdenMachGl';
 
     /**
      * the column name for the PmtbCon2BurdenAdminGl field
      */
-    const COL_PMTBCON2BURDENADMINGL = 'pm_config.PmtbCon2BurdenAdminGl';
+    public const COL_PMTBCON2BURDENADMINGL = 'pm_config.PmtbCon2BurdenAdminGl';
 
     /**
      * the column name for the PmtbCon2SetupAsOper field
      */
-    const COL_PMTBCON2SETUPASOPER = 'pm_config.PmtbCon2SetupAsOper';
+    public const COL_PMTBCON2SETUPASOPER = 'pm_config.PmtbCon2SetupAsOper';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'pm_config.DateUpdtd';
+    public const COL_DATEUPDTD = 'pm_config.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'pm_config.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'pm_config.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'pm_config.dummy';
+    public const COL_DUMMY = 'pm_config.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Pmtbconfkey', 'Pmtbconfbasesystem', 'Pmtbconfadvancedsystem', 'Pmtbconfallowneguse', 'Pmtbconfscrapunused', 'Pmtbconfscrapgl', 'Pmtbconfwarnqtytozero', 'Pmtbconfvargl', 'Pmtbconfputbincode', 'Pmtbconfputbindflt', 'Pmtbconfserialbase', 'Pmtbconffgatstan', 'Pmtbconfglfgtomat', 'Pmtbconfpostdetsum', 'Pmtbconfsort', 'Pmtbconflastcost', 'Pmtbconfaskbom', 'Pmtbconfdefbom', 'Pmtbconfautoselectlots', 'Pmtbconfallocwhenic', 'Pmtbconfusewpc', 'Pmtbconfpowgwipinproc', 'Pmtbconflrscost', 'Pmtbconfvariacctg', 'Pmtbconftakebincode', 'Pmtbconfusefguom', 'Pmtbconfusenc', 'Pmtbconfusenegwip', 'Pmtbcon2advwipactentry', 'Pmtbcon2machlaborgl', 'Pmtbcon2machsetupgl', 'Pmtbcon2burdenlaborgl', 'Pmtbcon2burdenmachgl', 'Pmtbcon2burdenadmingl', 'Pmtbcon2setupasoper', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('pmtbconfkey', 'pmtbconfbasesystem', 'pmtbconfadvancedsystem', 'pmtbconfallowneguse', 'pmtbconfscrapunused', 'pmtbconfscrapgl', 'pmtbconfwarnqtytozero', 'pmtbconfvargl', 'pmtbconfputbincode', 'pmtbconfputbindflt', 'pmtbconfserialbase', 'pmtbconffgatstan', 'pmtbconfglfgtomat', 'pmtbconfpostdetsum', 'pmtbconfsort', 'pmtbconflastcost', 'pmtbconfaskbom', 'pmtbconfdefbom', 'pmtbconfautoselectlots', 'pmtbconfallocwhenic', 'pmtbconfusewpc', 'pmtbconfpowgwipinproc', 'pmtbconflrscost', 'pmtbconfvariacctg', 'pmtbconftakebincode', 'pmtbconfusefguom', 'pmtbconfusenc', 'pmtbconfusenegwip', 'pmtbcon2advwipactentry', 'pmtbcon2machlaborgl', 'pmtbcon2machsetupgl', 'pmtbcon2burdenlaborgl', 'pmtbcon2burdenmachgl', 'pmtbcon2burdenadmingl', 'pmtbcon2setupasoper', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ConfigPmTableMap::COL_PMTBCONFKEY, ConfigPmTableMap::COL_PMTBCONFBASESYSTEM, ConfigPmTableMap::COL_PMTBCONFADVANCEDSYSTEM, ConfigPmTableMap::COL_PMTBCONFALLOWNEGUSE, ConfigPmTableMap::COL_PMTBCONFSCRAPUNUSED, ConfigPmTableMap::COL_PMTBCONFSCRAPGL, ConfigPmTableMap::COL_PMTBCONFWARNQTYTOZERO, ConfigPmTableMap::COL_PMTBCONFVARGL, ConfigPmTableMap::COL_PMTBCONFPUTBINCODE, ConfigPmTableMap::COL_PMTBCONFPUTBINDFLT, ConfigPmTableMap::COL_PMTBCONFSERIALBASE, ConfigPmTableMap::COL_PMTBCONFFGATSTAN, ConfigPmTableMap::COL_PMTBCONFGLFGTOMAT, ConfigPmTableMap::COL_PMTBCONFPOSTDETSUM, ConfigPmTableMap::COL_PMTBCONFSORT, ConfigPmTableMap::COL_PMTBCONFLASTCOST, ConfigPmTableMap::COL_PMTBCONFASKBOM, ConfigPmTableMap::COL_PMTBCONFDEFBOM, ConfigPmTableMap::COL_PMTBCONFAUTOSELECTLOTS, ConfigPmTableMap::COL_PMTBCONFALLOCWHENIC, ConfigPmTableMap::COL_PMTBCONFUSEWPC, ConfigPmTableMap::COL_PMTBCONFPOWGWIPINPROC, ConfigPmTableMap::COL_PMTBCONFLRSCOST, ConfigPmTableMap::COL_PMTBCONFVARIACCTG, ConfigPmTableMap::COL_PMTBCONFTAKEBINCODE, ConfigPmTableMap::COL_PMTBCONFUSEFGUOM, ConfigPmTableMap::COL_PMTBCONFUSENC, ConfigPmTableMap::COL_PMTBCONFUSENEGWIP, ConfigPmTableMap::COL_PMTBCON2ADVWIPACTENTRY, ConfigPmTableMap::COL_PMTBCON2MACHLABORGL, ConfigPmTableMap::COL_PMTBCON2MACHSETUPGL, ConfigPmTableMap::COL_PMTBCON2BURDENLABORGL, ConfigPmTableMap::COL_PMTBCON2BURDENMACHGL, ConfigPmTableMap::COL_PMTBCON2BURDENADMINGL, ConfigPmTableMap::COL_PMTBCON2SETUPASOPER, ConfigPmTableMap::COL_DATEUPDTD, ConfigPmTableMap::COL_TIMEUPDTD, ConfigPmTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PmtbConfKey', 'PmtbConfBaseSystem', 'PmtbConfAdvancedSystem', 'PmtbConfAllowNegUse', 'PmtbConfScrapUnused', 'PmtbConfScrapGl', 'PmtbConfWarnQtyToZero', 'PmtbConfVarGl', 'PmtbConfPutBinCode', 'PmtbConfPutBinDflt', 'PmtbConfSerialBase', 'PmtbConfFgAtStan', 'PmtbConfGlFgToMat', 'PmtbConfPostDetSum', 'PmtbConfSort', 'PmtbConfLastCost', 'PmtbConfAskBom', 'PmtbConfDefBom', 'PmtbConfAutoSelectLots', 'PmtbConfAllocWhenIC', 'PmtbConfUseWpc', 'PmtbConfPowgWipInProc', 'PmtbConfLrsCost', 'PmtbConfVariAcctg', 'PmtbConfTakeBinCode', 'PmtbConfUseFgUom', 'PmtbConfUseNc', 'PmtbConfUseNegWip', 'PmtbCon2AdvWipActEntry', 'PmtbCon2MachLaborGl', 'PmtbCon2MachSetupGl', 'PmtbCon2BurdenLaborGl', 'PmtbCon2BurdenMachGl', 'PmtbCon2BurdenAdminGl', 'PmtbCon2SetupAsOper', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Pmtbconfkey', 'Pmtbconfbasesystem', 'Pmtbconfadvancedsystem', 'Pmtbconfallowneguse', 'Pmtbconfscrapunused', 'Pmtbconfscrapgl', 'Pmtbconfwarnqtytozero', 'Pmtbconfvargl', 'Pmtbconfputbincode', 'Pmtbconfputbindflt', 'Pmtbconfserialbase', 'Pmtbconffgatstan', 'Pmtbconfglfgtomat', 'Pmtbconfpostdetsum', 'Pmtbconfsort', 'Pmtbconflastcost', 'Pmtbconfaskbom', 'Pmtbconfdefbom', 'Pmtbconfautoselectlots', 'Pmtbconfallocwhenic', 'Pmtbconfusewpc', 'Pmtbconfpowgwipinproc', 'Pmtbconflrscost', 'Pmtbconfvariacctg', 'Pmtbconftakebincode', 'Pmtbconfusefguom', 'Pmtbconfusenc', 'Pmtbconfusenegwip', 'Pmtbcon2advwipactentry', 'Pmtbcon2machlaborgl', 'Pmtbcon2machsetupgl', 'Pmtbcon2burdenlaborgl', 'Pmtbcon2burdenmachgl', 'Pmtbcon2burdenadmingl', 'Pmtbcon2setupasoper', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['pmtbconfkey', 'pmtbconfbasesystem', 'pmtbconfadvancedsystem', 'pmtbconfallowneguse', 'pmtbconfscrapunused', 'pmtbconfscrapgl', 'pmtbconfwarnqtytozero', 'pmtbconfvargl', 'pmtbconfputbincode', 'pmtbconfputbindflt', 'pmtbconfserialbase', 'pmtbconffgatstan', 'pmtbconfglfgtomat', 'pmtbconfpostdetsum', 'pmtbconfsort', 'pmtbconflastcost', 'pmtbconfaskbom', 'pmtbconfdefbom', 'pmtbconfautoselectlots', 'pmtbconfallocwhenic', 'pmtbconfusewpc', 'pmtbconfpowgwipinproc', 'pmtbconflrscost', 'pmtbconfvariacctg', 'pmtbconftakebincode', 'pmtbconfusefguom', 'pmtbconfusenc', 'pmtbconfusenegwip', 'pmtbcon2advwipactentry', 'pmtbcon2machlaborgl', 'pmtbcon2machsetupgl', 'pmtbcon2burdenlaborgl', 'pmtbcon2burdenmachgl', 'pmtbcon2burdenadmingl', 'pmtbcon2setupasoper', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ConfigPmTableMap::COL_PMTBCONFKEY, ConfigPmTableMap::COL_PMTBCONFBASESYSTEM, ConfigPmTableMap::COL_PMTBCONFADVANCEDSYSTEM, ConfigPmTableMap::COL_PMTBCONFALLOWNEGUSE, ConfigPmTableMap::COL_PMTBCONFSCRAPUNUSED, ConfigPmTableMap::COL_PMTBCONFSCRAPGL, ConfigPmTableMap::COL_PMTBCONFWARNQTYTOZERO, ConfigPmTableMap::COL_PMTBCONFVARGL, ConfigPmTableMap::COL_PMTBCONFPUTBINCODE, ConfigPmTableMap::COL_PMTBCONFPUTBINDFLT, ConfigPmTableMap::COL_PMTBCONFSERIALBASE, ConfigPmTableMap::COL_PMTBCONFFGATSTAN, ConfigPmTableMap::COL_PMTBCONFGLFGTOMAT, ConfigPmTableMap::COL_PMTBCONFPOSTDETSUM, ConfigPmTableMap::COL_PMTBCONFSORT, ConfigPmTableMap::COL_PMTBCONFLASTCOST, ConfigPmTableMap::COL_PMTBCONFASKBOM, ConfigPmTableMap::COL_PMTBCONFDEFBOM, ConfigPmTableMap::COL_PMTBCONFAUTOSELECTLOTS, ConfigPmTableMap::COL_PMTBCONFALLOCWHENIC, ConfigPmTableMap::COL_PMTBCONFUSEWPC, ConfigPmTableMap::COL_PMTBCONFPOWGWIPINPROC, ConfigPmTableMap::COL_PMTBCONFLRSCOST, ConfigPmTableMap::COL_PMTBCONFVARIACCTG, ConfigPmTableMap::COL_PMTBCONFTAKEBINCODE, ConfigPmTableMap::COL_PMTBCONFUSEFGUOM, ConfigPmTableMap::COL_PMTBCONFUSENC, ConfigPmTableMap::COL_PMTBCONFUSENEGWIP, ConfigPmTableMap::COL_PMTBCON2ADVWIPACTENTRY, ConfigPmTableMap::COL_PMTBCON2MACHLABORGL, ConfigPmTableMap::COL_PMTBCON2MACHSETUPGL, ConfigPmTableMap::COL_PMTBCON2BURDENLABORGL, ConfigPmTableMap::COL_PMTBCON2BURDENMACHGL, ConfigPmTableMap::COL_PMTBCON2BURDENADMINGL, ConfigPmTableMap::COL_PMTBCON2SETUPASOPER, ConfigPmTableMap::COL_DATEUPDTD, ConfigPmTableMap::COL_TIMEUPDTD, ConfigPmTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['PmtbConfKey', 'PmtbConfBaseSystem', 'PmtbConfAdvancedSystem', 'PmtbConfAllowNegUse', 'PmtbConfScrapUnused', 'PmtbConfScrapGl', 'PmtbConfWarnQtyToZero', 'PmtbConfVarGl', 'PmtbConfPutBinCode', 'PmtbConfPutBinDflt', 'PmtbConfSerialBase', 'PmtbConfFgAtStan', 'PmtbConfGlFgToMat', 'PmtbConfPostDetSum', 'PmtbConfSort', 'PmtbConfLastCost', 'PmtbConfAskBom', 'PmtbConfDefBom', 'PmtbConfAutoSelectLots', 'PmtbConfAllocWhenIC', 'PmtbConfUseWpc', 'PmtbConfPowgWipInProc', 'PmtbConfLrsCost', 'PmtbConfVariAcctg', 'PmtbConfTakeBinCode', 'PmtbConfUseFgUom', 'PmtbConfUseNc', 'PmtbConfUseNegWip', 'PmtbCon2AdvWipActEntry', 'PmtbCon2MachLaborGl', 'PmtbCon2MachSetupGl', 'PmtbCon2BurdenLaborGl', 'PmtbCon2BurdenMachGl', 'PmtbCon2BurdenAdminGl', 'PmtbCon2SetupAsOper', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Pmtbconfkey' => 0, 'Pmtbconfbasesystem' => 1, 'Pmtbconfadvancedsystem' => 2, 'Pmtbconfallowneguse' => 3, 'Pmtbconfscrapunused' => 4, 'Pmtbconfscrapgl' => 5, 'Pmtbconfwarnqtytozero' => 6, 'Pmtbconfvargl' => 7, 'Pmtbconfputbincode' => 8, 'Pmtbconfputbindflt' => 9, 'Pmtbconfserialbase' => 10, 'Pmtbconffgatstan' => 11, 'Pmtbconfglfgtomat' => 12, 'Pmtbconfpostdetsum' => 13, 'Pmtbconfsort' => 14, 'Pmtbconflastcost' => 15, 'Pmtbconfaskbom' => 16, 'Pmtbconfdefbom' => 17, 'Pmtbconfautoselectlots' => 18, 'Pmtbconfallocwhenic' => 19, 'Pmtbconfusewpc' => 20, 'Pmtbconfpowgwipinproc' => 21, 'Pmtbconflrscost' => 22, 'Pmtbconfvariacctg' => 23, 'Pmtbconftakebincode' => 24, 'Pmtbconfusefguom' => 25, 'Pmtbconfusenc' => 26, 'Pmtbconfusenegwip' => 27, 'Pmtbcon2advwipactentry' => 28, 'Pmtbcon2machlaborgl' => 29, 'Pmtbcon2machsetupgl' => 30, 'Pmtbcon2burdenlaborgl' => 31, 'Pmtbcon2burdenmachgl' => 32, 'Pmtbcon2burdenadmingl' => 33, 'Pmtbcon2setupasoper' => 34, 'Dateupdtd' => 35, 'Timeupdtd' => 36, 'Dummy' => 37, ),
-        self::TYPE_CAMELNAME     => array('pmtbconfkey' => 0, 'pmtbconfbasesystem' => 1, 'pmtbconfadvancedsystem' => 2, 'pmtbconfallowneguse' => 3, 'pmtbconfscrapunused' => 4, 'pmtbconfscrapgl' => 5, 'pmtbconfwarnqtytozero' => 6, 'pmtbconfvargl' => 7, 'pmtbconfputbincode' => 8, 'pmtbconfputbindflt' => 9, 'pmtbconfserialbase' => 10, 'pmtbconffgatstan' => 11, 'pmtbconfglfgtomat' => 12, 'pmtbconfpostdetsum' => 13, 'pmtbconfsort' => 14, 'pmtbconflastcost' => 15, 'pmtbconfaskbom' => 16, 'pmtbconfdefbom' => 17, 'pmtbconfautoselectlots' => 18, 'pmtbconfallocwhenic' => 19, 'pmtbconfusewpc' => 20, 'pmtbconfpowgwipinproc' => 21, 'pmtbconflrscost' => 22, 'pmtbconfvariacctg' => 23, 'pmtbconftakebincode' => 24, 'pmtbconfusefguom' => 25, 'pmtbconfusenc' => 26, 'pmtbconfusenegwip' => 27, 'pmtbcon2advwipactentry' => 28, 'pmtbcon2machlaborgl' => 29, 'pmtbcon2machsetupgl' => 30, 'pmtbcon2burdenlaborgl' => 31, 'pmtbcon2burdenmachgl' => 32, 'pmtbcon2burdenadmingl' => 33, 'pmtbcon2setupasoper' => 34, 'dateupdtd' => 35, 'timeupdtd' => 36, 'dummy' => 37, ),
-        self::TYPE_COLNAME       => array(ConfigPmTableMap::COL_PMTBCONFKEY => 0, ConfigPmTableMap::COL_PMTBCONFBASESYSTEM => 1, ConfigPmTableMap::COL_PMTBCONFADVANCEDSYSTEM => 2, ConfigPmTableMap::COL_PMTBCONFALLOWNEGUSE => 3, ConfigPmTableMap::COL_PMTBCONFSCRAPUNUSED => 4, ConfigPmTableMap::COL_PMTBCONFSCRAPGL => 5, ConfigPmTableMap::COL_PMTBCONFWARNQTYTOZERO => 6, ConfigPmTableMap::COL_PMTBCONFVARGL => 7, ConfigPmTableMap::COL_PMTBCONFPUTBINCODE => 8, ConfigPmTableMap::COL_PMTBCONFPUTBINDFLT => 9, ConfigPmTableMap::COL_PMTBCONFSERIALBASE => 10, ConfigPmTableMap::COL_PMTBCONFFGATSTAN => 11, ConfigPmTableMap::COL_PMTBCONFGLFGTOMAT => 12, ConfigPmTableMap::COL_PMTBCONFPOSTDETSUM => 13, ConfigPmTableMap::COL_PMTBCONFSORT => 14, ConfigPmTableMap::COL_PMTBCONFLASTCOST => 15, ConfigPmTableMap::COL_PMTBCONFASKBOM => 16, ConfigPmTableMap::COL_PMTBCONFDEFBOM => 17, ConfigPmTableMap::COL_PMTBCONFAUTOSELECTLOTS => 18, ConfigPmTableMap::COL_PMTBCONFALLOCWHENIC => 19, ConfigPmTableMap::COL_PMTBCONFUSEWPC => 20, ConfigPmTableMap::COL_PMTBCONFPOWGWIPINPROC => 21, ConfigPmTableMap::COL_PMTBCONFLRSCOST => 22, ConfigPmTableMap::COL_PMTBCONFVARIACCTG => 23, ConfigPmTableMap::COL_PMTBCONFTAKEBINCODE => 24, ConfigPmTableMap::COL_PMTBCONFUSEFGUOM => 25, ConfigPmTableMap::COL_PMTBCONFUSENC => 26, ConfigPmTableMap::COL_PMTBCONFUSENEGWIP => 27, ConfigPmTableMap::COL_PMTBCON2ADVWIPACTENTRY => 28, ConfigPmTableMap::COL_PMTBCON2MACHLABORGL => 29, ConfigPmTableMap::COL_PMTBCON2MACHSETUPGL => 30, ConfigPmTableMap::COL_PMTBCON2BURDENLABORGL => 31, ConfigPmTableMap::COL_PMTBCON2BURDENMACHGL => 32, ConfigPmTableMap::COL_PMTBCON2BURDENADMINGL => 33, ConfigPmTableMap::COL_PMTBCON2SETUPASOPER => 34, ConfigPmTableMap::COL_DATEUPDTD => 35, ConfigPmTableMap::COL_TIMEUPDTD => 36, ConfigPmTableMap::COL_DUMMY => 37, ),
-        self::TYPE_FIELDNAME     => array('PmtbConfKey' => 0, 'PmtbConfBaseSystem' => 1, 'PmtbConfAdvancedSystem' => 2, 'PmtbConfAllowNegUse' => 3, 'PmtbConfScrapUnused' => 4, 'PmtbConfScrapGl' => 5, 'PmtbConfWarnQtyToZero' => 6, 'PmtbConfVarGl' => 7, 'PmtbConfPutBinCode' => 8, 'PmtbConfPutBinDflt' => 9, 'PmtbConfSerialBase' => 10, 'PmtbConfFgAtStan' => 11, 'PmtbConfGlFgToMat' => 12, 'PmtbConfPostDetSum' => 13, 'PmtbConfSort' => 14, 'PmtbConfLastCost' => 15, 'PmtbConfAskBom' => 16, 'PmtbConfDefBom' => 17, 'PmtbConfAutoSelectLots' => 18, 'PmtbConfAllocWhenIC' => 19, 'PmtbConfUseWpc' => 20, 'PmtbConfPowgWipInProc' => 21, 'PmtbConfLrsCost' => 22, 'PmtbConfVariAcctg' => 23, 'PmtbConfTakeBinCode' => 24, 'PmtbConfUseFgUom' => 25, 'PmtbConfUseNc' => 26, 'PmtbConfUseNegWip' => 27, 'PmtbCon2AdvWipActEntry' => 28, 'PmtbCon2MachLaborGl' => 29, 'PmtbCon2MachSetupGl' => 30, 'PmtbCon2BurdenLaborGl' => 31, 'PmtbCon2BurdenMachGl' => 32, 'PmtbCon2BurdenAdminGl' => 33, 'PmtbCon2SetupAsOper' => 34, 'DateUpdtd' => 35, 'TimeUpdtd' => 36, 'dummy' => 37, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Pmtbconfkey' => 0, 'Pmtbconfbasesystem' => 1, 'Pmtbconfadvancedsystem' => 2, 'Pmtbconfallowneguse' => 3, 'Pmtbconfscrapunused' => 4, 'Pmtbconfscrapgl' => 5, 'Pmtbconfwarnqtytozero' => 6, 'Pmtbconfvargl' => 7, 'Pmtbconfputbincode' => 8, 'Pmtbconfputbindflt' => 9, 'Pmtbconfserialbase' => 10, 'Pmtbconffgatstan' => 11, 'Pmtbconfglfgtomat' => 12, 'Pmtbconfpostdetsum' => 13, 'Pmtbconfsort' => 14, 'Pmtbconflastcost' => 15, 'Pmtbconfaskbom' => 16, 'Pmtbconfdefbom' => 17, 'Pmtbconfautoselectlots' => 18, 'Pmtbconfallocwhenic' => 19, 'Pmtbconfusewpc' => 20, 'Pmtbconfpowgwipinproc' => 21, 'Pmtbconflrscost' => 22, 'Pmtbconfvariacctg' => 23, 'Pmtbconftakebincode' => 24, 'Pmtbconfusefguom' => 25, 'Pmtbconfusenc' => 26, 'Pmtbconfusenegwip' => 27, 'Pmtbcon2advwipactentry' => 28, 'Pmtbcon2machlaborgl' => 29, 'Pmtbcon2machsetupgl' => 30, 'Pmtbcon2burdenlaborgl' => 31, 'Pmtbcon2burdenmachgl' => 32, 'Pmtbcon2burdenadmingl' => 33, 'Pmtbcon2setupasoper' => 34, 'Dateupdtd' => 35, 'Timeupdtd' => 36, 'Dummy' => 37, ],
+        self::TYPE_CAMELNAME     => ['pmtbconfkey' => 0, 'pmtbconfbasesystem' => 1, 'pmtbconfadvancedsystem' => 2, 'pmtbconfallowneguse' => 3, 'pmtbconfscrapunused' => 4, 'pmtbconfscrapgl' => 5, 'pmtbconfwarnqtytozero' => 6, 'pmtbconfvargl' => 7, 'pmtbconfputbincode' => 8, 'pmtbconfputbindflt' => 9, 'pmtbconfserialbase' => 10, 'pmtbconffgatstan' => 11, 'pmtbconfglfgtomat' => 12, 'pmtbconfpostdetsum' => 13, 'pmtbconfsort' => 14, 'pmtbconflastcost' => 15, 'pmtbconfaskbom' => 16, 'pmtbconfdefbom' => 17, 'pmtbconfautoselectlots' => 18, 'pmtbconfallocwhenic' => 19, 'pmtbconfusewpc' => 20, 'pmtbconfpowgwipinproc' => 21, 'pmtbconflrscost' => 22, 'pmtbconfvariacctg' => 23, 'pmtbconftakebincode' => 24, 'pmtbconfusefguom' => 25, 'pmtbconfusenc' => 26, 'pmtbconfusenegwip' => 27, 'pmtbcon2advwipactentry' => 28, 'pmtbcon2machlaborgl' => 29, 'pmtbcon2machsetupgl' => 30, 'pmtbcon2burdenlaborgl' => 31, 'pmtbcon2burdenmachgl' => 32, 'pmtbcon2burdenadmingl' => 33, 'pmtbcon2setupasoper' => 34, 'dateupdtd' => 35, 'timeupdtd' => 36, 'dummy' => 37, ],
+        self::TYPE_COLNAME       => [ConfigPmTableMap::COL_PMTBCONFKEY => 0, ConfigPmTableMap::COL_PMTBCONFBASESYSTEM => 1, ConfigPmTableMap::COL_PMTBCONFADVANCEDSYSTEM => 2, ConfigPmTableMap::COL_PMTBCONFALLOWNEGUSE => 3, ConfigPmTableMap::COL_PMTBCONFSCRAPUNUSED => 4, ConfigPmTableMap::COL_PMTBCONFSCRAPGL => 5, ConfigPmTableMap::COL_PMTBCONFWARNQTYTOZERO => 6, ConfigPmTableMap::COL_PMTBCONFVARGL => 7, ConfigPmTableMap::COL_PMTBCONFPUTBINCODE => 8, ConfigPmTableMap::COL_PMTBCONFPUTBINDFLT => 9, ConfigPmTableMap::COL_PMTBCONFSERIALBASE => 10, ConfigPmTableMap::COL_PMTBCONFFGATSTAN => 11, ConfigPmTableMap::COL_PMTBCONFGLFGTOMAT => 12, ConfigPmTableMap::COL_PMTBCONFPOSTDETSUM => 13, ConfigPmTableMap::COL_PMTBCONFSORT => 14, ConfigPmTableMap::COL_PMTBCONFLASTCOST => 15, ConfigPmTableMap::COL_PMTBCONFASKBOM => 16, ConfigPmTableMap::COL_PMTBCONFDEFBOM => 17, ConfigPmTableMap::COL_PMTBCONFAUTOSELECTLOTS => 18, ConfigPmTableMap::COL_PMTBCONFALLOCWHENIC => 19, ConfigPmTableMap::COL_PMTBCONFUSEWPC => 20, ConfigPmTableMap::COL_PMTBCONFPOWGWIPINPROC => 21, ConfigPmTableMap::COL_PMTBCONFLRSCOST => 22, ConfigPmTableMap::COL_PMTBCONFVARIACCTG => 23, ConfigPmTableMap::COL_PMTBCONFTAKEBINCODE => 24, ConfigPmTableMap::COL_PMTBCONFUSEFGUOM => 25, ConfigPmTableMap::COL_PMTBCONFUSENC => 26, ConfigPmTableMap::COL_PMTBCONFUSENEGWIP => 27, ConfigPmTableMap::COL_PMTBCON2ADVWIPACTENTRY => 28, ConfigPmTableMap::COL_PMTBCON2MACHLABORGL => 29, ConfigPmTableMap::COL_PMTBCON2MACHSETUPGL => 30, ConfigPmTableMap::COL_PMTBCON2BURDENLABORGL => 31, ConfigPmTableMap::COL_PMTBCON2BURDENMACHGL => 32, ConfigPmTableMap::COL_PMTBCON2BURDENADMINGL => 33, ConfigPmTableMap::COL_PMTBCON2SETUPASOPER => 34, ConfigPmTableMap::COL_DATEUPDTD => 35, ConfigPmTableMap::COL_TIMEUPDTD => 36, ConfigPmTableMap::COL_DUMMY => 37, ],
+        self::TYPE_FIELDNAME     => ['PmtbConfKey' => 0, 'PmtbConfBaseSystem' => 1, 'PmtbConfAdvancedSystem' => 2, 'PmtbConfAllowNegUse' => 3, 'PmtbConfScrapUnused' => 4, 'PmtbConfScrapGl' => 5, 'PmtbConfWarnQtyToZero' => 6, 'PmtbConfVarGl' => 7, 'PmtbConfPutBinCode' => 8, 'PmtbConfPutBinDflt' => 9, 'PmtbConfSerialBase' => 10, 'PmtbConfFgAtStan' => 11, 'PmtbConfGlFgToMat' => 12, 'PmtbConfPostDetSum' => 13, 'PmtbConfSort' => 14, 'PmtbConfLastCost' => 15, 'PmtbConfAskBom' => 16, 'PmtbConfDefBom' => 17, 'PmtbConfAutoSelectLots' => 18, 'PmtbConfAllocWhenIC' => 19, 'PmtbConfUseWpc' => 20, 'PmtbConfPowgWipInProc' => 21, 'PmtbConfLrsCost' => 22, 'PmtbConfVariAcctg' => 23, 'PmtbConfTakeBinCode' => 24, 'PmtbConfUseFgUom' => 25, 'PmtbConfUseNc' => 26, 'PmtbConfUseNegWip' => 27, 'PmtbCon2AdvWipActEntry' => 28, 'PmtbCon2MachLaborGl' => 29, 'PmtbCon2MachSetupGl' => 30, 'PmtbCon2BurdenLaborGl' => 31, 'PmtbCon2BurdenMachGl' => 32, 'PmtbCon2BurdenAdminGl' => 33, 'PmtbCon2SetupAsOper' => 34, 'DateUpdtd' => 35, 'TimeUpdtd' => 36, 'dummy' => 37, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Pmtbconfkey' => 'PMTBCONFKEY',
+        'ConfigPm.Pmtbconfkey' => 'PMTBCONFKEY',
+        'pmtbconfkey' => 'PMTBCONFKEY',
+        'configPm.pmtbconfkey' => 'PMTBCONFKEY',
+        'ConfigPmTableMap::COL_PMTBCONFKEY' => 'PMTBCONFKEY',
+        'COL_PMTBCONFKEY' => 'PMTBCONFKEY',
+        'PmtbConfKey' => 'PMTBCONFKEY',
+        'pm_config.PmtbConfKey' => 'PMTBCONFKEY',
+        'Pmtbconfbasesystem' => 'PMTBCONFBASESYSTEM',
+        'ConfigPm.Pmtbconfbasesystem' => 'PMTBCONFBASESYSTEM',
+        'pmtbconfbasesystem' => 'PMTBCONFBASESYSTEM',
+        'configPm.pmtbconfbasesystem' => 'PMTBCONFBASESYSTEM',
+        'ConfigPmTableMap::COL_PMTBCONFBASESYSTEM' => 'PMTBCONFBASESYSTEM',
+        'COL_PMTBCONFBASESYSTEM' => 'PMTBCONFBASESYSTEM',
+        'PmtbConfBaseSystem' => 'PMTBCONFBASESYSTEM',
+        'pm_config.PmtbConfBaseSystem' => 'PMTBCONFBASESYSTEM',
+        'Pmtbconfadvancedsystem' => 'PMTBCONFADVANCEDSYSTEM',
+        'ConfigPm.Pmtbconfadvancedsystem' => 'PMTBCONFADVANCEDSYSTEM',
+        'pmtbconfadvancedsystem' => 'PMTBCONFADVANCEDSYSTEM',
+        'configPm.pmtbconfadvancedsystem' => 'PMTBCONFADVANCEDSYSTEM',
+        'ConfigPmTableMap::COL_PMTBCONFADVANCEDSYSTEM' => 'PMTBCONFADVANCEDSYSTEM',
+        'COL_PMTBCONFADVANCEDSYSTEM' => 'PMTBCONFADVANCEDSYSTEM',
+        'PmtbConfAdvancedSystem' => 'PMTBCONFADVANCEDSYSTEM',
+        'pm_config.PmtbConfAdvancedSystem' => 'PMTBCONFADVANCEDSYSTEM',
+        'Pmtbconfallowneguse' => 'PMTBCONFALLOWNEGUSE',
+        'ConfigPm.Pmtbconfallowneguse' => 'PMTBCONFALLOWNEGUSE',
+        'pmtbconfallowneguse' => 'PMTBCONFALLOWNEGUSE',
+        'configPm.pmtbconfallowneguse' => 'PMTBCONFALLOWNEGUSE',
+        'ConfigPmTableMap::COL_PMTBCONFALLOWNEGUSE' => 'PMTBCONFALLOWNEGUSE',
+        'COL_PMTBCONFALLOWNEGUSE' => 'PMTBCONFALLOWNEGUSE',
+        'PmtbConfAllowNegUse' => 'PMTBCONFALLOWNEGUSE',
+        'pm_config.PmtbConfAllowNegUse' => 'PMTBCONFALLOWNEGUSE',
+        'Pmtbconfscrapunused' => 'PMTBCONFSCRAPUNUSED',
+        'ConfigPm.Pmtbconfscrapunused' => 'PMTBCONFSCRAPUNUSED',
+        'pmtbconfscrapunused' => 'PMTBCONFSCRAPUNUSED',
+        'configPm.pmtbconfscrapunused' => 'PMTBCONFSCRAPUNUSED',
+        'ConfigPmTableMap::COL_PMTBCONFSCRAPUNUSED' => 'PMTBCONFSCRAPUNUSED',
+        'COL_PMTBCONFSCRAPUNUSED' => 'PMTBCONFSCRAPUNUSED',
+        'PmtbConfScrapUnused' => 'PMTBCONFSCRAPUNUSED',
+        'pm_config.PmtbConfScrapUnused' => 'PMTBCONFSCRAPUNUSED',
+        'Pmtbconfscrapgl' => 'PMTBCONFSCRAPGL',
+        'ConfigPm.Pmtbconfscrapgl' => 'PMTBCONFSCRAPGL',
+        'pmtbconfscrapgl' => 'PMTBCONFSCRAPGL',
+        'configPm.pmtbconfscrapgl' => 'PMTBCONFSCRAPGL',
+        'ConfigPmTableMap::COL_PMTBCONFSCRAPGL' => 'PMTBCONFSCRAPGL',
+        'COL_PMTBCONFSCRAPGL' => 'PMTBCONFSCRAPGL',
+        'PmtbConfScrapGl' => 'PMTBCONFSCRAPGL',
+        'pm_config.PmtbConfScrapGl' => 'PMTBCONFSCRAPGL',
+        'Pmtbconfwarnqtytozero' => 'PMTBCONFWARNQTYTOZERO',
+        'ConfigPm.Pmtbconfwarnqtytozero' => 'PMTBCONFWARNQTYTOZERO',
+        'pmtbconfwarnqtytozero' => 'PMTBCONFWARNQTYTOZERO',
+        'configPm.pmtbconfwarnqtytozero' => 'PMTBCONFWARNQTYTOZERO',
+        'ConfigPmTableMap::COL_PMTBCONFWARNQTYTOZERO' => 'PMTBCONFWARNQTYTOZERO',
+        'COL_PMTBCONFWARNQTYTOZERO' => 'PMTBCONFWARNQTYTOZERO',
+        'PmtbConfWarnQtyToZero' => 'PMTBCONFWARNQTYTOZERO',
+        'pm_config.PmtbConfWarnQtyToZero' => 'PMTBCONFWARNQTYTOZERO',
+        'Pmtbconfvargl' => 'PMTBCONFVARGL',
+        'ConfigPm.Pmtbconfvargl' => 'PMTBCONFVARGL',
+        'pmtbconfvargl' => 'PMTBCONFVARGL',
+        'configPm.pmtbconfvargl' => 'PMTBCONFVARGL',
+        'ConfigPmTableMap::COL_PMTBCONFVARGL' => 'PMTBCONFVARGL',
+        'COL_PMTBCONFVARGL' => 'PMTBCONFVARGL',
+        'PmtbConfVarGl' => 'PMTBCONFVARGL',
+        'pm_config.PmtbConfVarGl' => 'PMTBCONFVARGL',
+        'Pmtbconfputbincode' => 'PMTBCONFPUTBINCODE',
+        'ConfigPm.Pmtbconfputbincode' => 'PMTBCONFPUTBINCODE',
+        'pmtbconfputbincode' => 'PMTBCONFPUTBINCODE',
+        'configPm.pmtbconfputbincode' => 'PMTBCONFPUTBINCODE',
+        'ConfigPmTableMap::COL_PMTBCONFPUTBINCODE' => 'PMTBCONFPUTBINCODE',
+        'COL_PMTBCONFPUTBINCODE' => 'PMTBCONFPUTBINCODE',
+        'PmtbConfPutBinCode' => 'PMTBCONFPUTBINCODE',
+        'pm_config.PmtbConfPutBinCode' => 'PMTBCONFPUTBINCODE',
+        'Pmtbconfputbindflt' => 'PMTBCONFPUTBINDFLT',
+        'ConfigPm.Pmtbconfputbindflt' => 'PMTBCONFPUTBINDFLT',
+        'pmtbconfputbindflt' => 'PMTBCONFPUTBINDFLT',
+        'configPm.pmtbconfputbindflt' => 'PMTBCONFPUTBINDFLT',
+        'ConfigPmTableMap::COL_PMTBCONFPUTBINDFLT' => 'PMTBCONFPUTBINDFLT',
+        'COL_PMTBCONFPUTBINDFLT' => 'PMTBCONFPUTBINDFLT',
+        'PmtbConfPutBinDflt' => 'PMTBCONFPUTBINDFLT',
+        'pm_config.PmtbConfPutBinDflt' => 'PMTBCONFPUTBINDFLT',
+        'Pmtbconfserialbase' => 'PMTBCONFSERIALBASE',
+        'ConfigPm.Pmtbconfserialbase' => 'PMTBCONFSERIALBASE',
+        'pmtbconfserialbase' => 'PMTBCONFSERIALBASE',
+        'configPm.pmtbconfserialbase' => 'PMTBCONFSERIALBASE',
+        'ConfigPmTableMap::COL_PMTBCONFSERIALBASE' => 'PMTBCONFSERIALBASE',
+        'COL_PMTBCONFSERIALBASE' => 'PMTBCONFSERIALBASE',
+        'PmtbConfSerialBase' => 'PMTBCONFSERIALBASE',
+        'pm_config.PmtbConfSerialBase' => 'PMTBCONFSERIALBASE',
+        'Pmtbconffgatstan' => 'PMTBCONFFGATSTAN',
+        'ConfigPm.Pmtbconffgatstan' => 'PMTBCONFFGATSTAN',
+        'pmtbconffgatstan' => 'PMTBCONFFGATSTAN',
+        'configPm.pmtbconffgatstan' => 'PMTBCONFFGATSTAN',
+        'ConfigPmTableMap::COL_PMTBCONFFGATSTAN' => 'PMTBCONFFGATSTAN',
+        'COL_PMTBCONFFGATSTAN' => 'PMTBCONFFGATSTAN',
+        'PmtbConfFgAtStan' => 'PMTBCONFFGATSTAN',
+        'pm_config.PmtbConfFgAtStan' => 'PMTBCONFFGATSTAN',
+        'Pmtbconfglfgtomat' => 'PMTBCONFGLFGTOMAT',
+        'ConfigPm.Pmtbconfglfgtomat' => 'PMTBCONFGLFGTOMAT',
+        'pmtbconfglfgtomat' => 'PMTBCONFGLFGTOMAT',
+        'configPm.pmtbconfglfgtomat' => 'PMTBCONFGLFGTOMAT',
+        'ConfigPmTableMap::COL_PMTBCONFGLFGTOMAT' => 'PMTBCONFGLFGTOMAT',
+        'COL_PMTBCONFGLFGTOMAT' => 'PMTBCONFGLFGTOMAT',
+        'PmtbConfGlFgToMat' => 'PMTBCONFGLFGTOMAT',
+        'pm_config.PmtbConfGlFgToMat' => 'PMTBCONFGLFGTOMAT',
+        'Pmtbconfpostdetsum' => 'PMTBCONFPOSTDETSUM',
+        'ConfigPm.Pmtbconfpostdetsum' => 'PMTBCONFPOSTDETSUM',
+        'pmtbconfpostdetsum' => 'PMTBCONFPOSTDETSUM',
+        'configPm.pmtbconfpostdetsum' => 'PMTBCONFPOSTDETSUM',
+        'ConfigPmTableMap::COL_PMTBCONFPOSTDETSUM' => 'PMTBCONFPOSTDETSUM',
+        'COL_PMTBCONFPOSTDETSUM' => 'PMTBCONFPOSTDETSUM',
+        'PmtbConfPostDetSum' => 'PMTBCONFPOSTDETSUM',
+        'pm_config.PmtbConfPostDetSum' => 'PMTBCONFPOSTDETSUM',
+        'Pmtbconfsort' => 'PMTBCONFSORT',
+        'ConfigPm.Pmtbconfsort' => 'PMTBCONFSORT',
+        'pmtbconfsort' => 'PMTBCONFSORT',
+        'configPm.pmtbconfsort' => 'PMTBCONFSORT',
+        'ConfigPmTableMap::COL_PMTBCONFSORT' => 'PMTBCONFSORT',
+        'COL_PMTBCONFSORT' => 'PMTBCONFSORT',
+        'PmtbConfSort' => 'PMTBCONFSORT',
+        'pm_config.PmtbConfSort' => 'PMTBCONFSORT',
+        'Pmtbconflastcost' => 'PMTBCONFLASTCOST',
+        'ConfigPm.Pmtbconflastcost' => 'PMTBCONFLASTCOST',
+        'pmtbconflastcost' => 'PMTBCONFLASTCOST',
+        'configPm.pmtbconflastcost' => 'PMTBCONFLASTCOST',
+        'ConfigPmTableMap::COL_PMTBCONFLASTCOST' => 'PMTBCONFLASTCOST',
+        'COL_PMTBCONFLASTCOST' => 'PMTBCONFLASTCOST',
+        'PmtbConfLastCost' => 'PMTBCONFLASTCOST',
+        'pm_config.PmtbConfLastCost' => 'PMTBCONFLASTCOST',
+        'Pmtbconfaskbom' => 'PMTBCONFASKBOM',
+        'ConfigPm.Pmtbconfaskbom' => 'PMTBCONFASKBOM',
+        'pmtbconfaskbom' => 'PMTBCONFASKBOM',
+        'configPm.pmtbconfaskbom' => 'PMTBCONFASKBOM',
+        'ConfigPmTableMap::COL_PMTBCONFASKBOM' => 'PMTBCONFASKBOM',
+        'COL_PMTBCONFASKBOM' => 'PMTBCONFASKBOM',
+        'PmtbConfAskBom' => 'PMTBCONFASKBOM',
+        'pm_config.PmtbConfAskBom' => 'PMTBCONFASKBOM',
+        'Pmtbconfdefbom' => 'PMTBCONFDEFBOM',
+        'ConfigPm.Pmtbconfdefbom' => 'PMTBCONFDEFBOM',
+        'pmtbconfdefbom' => 'PMTBCONFDEFBOM',
+        'configPm.pmtbconfdefbom' => 'PMTBCONFDEFBOM',
+        'ConfigPmTableMap::COL_PMTBCONFDEFBOM' => 'PMTBCONFDEFBOM',
+        'COL_PMTBCONFDEFBOM' => 'PMTBCONFDEFBOM',
+        'PmtbConfDefBom' => 'PMTBCONFDEFBOM',
+        'pm_config.PmtbConfDefBom' => 'PMTBCONFDEFBOM',
+        'Pmtbconfautoselectlots' => 'PMTBCONFAUTOSELECTLOTS',
+        'ConfigPm.Pmtbconfautoselectlots' => 'PMTBCONFAUTOSELECTLOTS',
+        'pmtbconfautoselectlots' => 'PMTBCONFAUTOSELECTLOTS',
+        'configPm.pmtbconfautoselectlots' => 'PMTBCONFAUTOSELECTLOTS',
+        'ConfigPmTableMap::COL_PMTBCONFAUTOSELECTLOTS' => 'PMTBCONFAUTOSELECTLOTS',
+        'COL_PMTBCONFAUTOSELECTLOTS' => 'PMTBCONFAUTOSELECTLOTS',
+        'PmtbConfAutoSelectLots' => 'PMTBCONFAUTOSELECTLOTS',
+        'pm_config.PmtbConfAutoSelectLots' => 'PMTBCONFAUTOSELECTLOTS',
+        'Pmtbconfallocwhenic' => 'PMTBCONFALLOCWHENIC',
+        'ConfigPm.Pmtbconfallocwhenic' => 'PMTBCONFALLOCWHENIC',
+        'pmtbconfallocwhenic' => 'PMTBCONFALLOCWHENIC',
+        'configPm.pmtbconfallocwhenic' => 'PMTBCONFALLOCWHENIC',
+        'ConfigPmTableMap::COL_PMTBCONFALLOCWHENIC' => 'PMTBCONFALLOCWHENIC',
+        'COL_PMTBCONFALLOCWHENIC' => 'PMTBCONFALLOCWHENIC',
+        'PmtbConfAllocWhenIC' => 'PMTBCONFALLOCWHENIC',
+        'pm_config.PmtbConfAllocWhenIC' => 'PMTBCONFALLOCWHENIC',
+        'Pmtbconfusewpc' => 'PMTBCONFUSEWPC',
+        'ConfigPm.Pmtbconfusewpc' => 'PMTBCONFUSEWPC',
+        'pmtbconfusewpc' => 'PMTBCONFUSEWPC',
+        'configPm.pmtbconfusewpc' => 'PMTBCONFUSEWPC',
+        'ConfigPmTableMap::COL_PMTBCONFUSEWPC' => 'PMTBCONFUSEWPC',
+        'COL_PMTBCONFUSEWPC' => 'PMTBCONFUSEWPC',
+        'PmtbConfUseWpc' => 'PMTBCONFUSEWPC',
+        'pm_config.PmtbConfUseWpc' => 'PMTBCONFUSEWPC',
+        'Pmtbconfpowgwipinproc' => 'PMTBCONFPOWGWIPINPROC',
+        'ConfigPm.Pmtbconfpowgwipinproc' => 'PMTBCONFPOWGWIPINPROC',
+        'pmtbconfpowgwipinproc' => 'PMTBCONFPOWGWIPINPROC',
+        'configPm.pmtbconfpowgwipinproc' => 'PMTBCONFPOWGWIPINPROC',
+        'ConfigPmTableMap::COL_PMTBCONFPOWGWIPINPROC' => 'PMTBCONFPOWGWIPINPROC',
+        'COL_PMTBCONFPOWGWIPINPROC' => 'PMTBCONFPOWGWIPINPROC',
+        'PmtbConfPowgWipInProc' => 'PMTBCONFPOWGWIPINPROC',
+        'pm_config.PmtbConfPowgWipInProc' => 'PMTBCONFPOWGWIPINPROC',
+        'Pmtbconflrscost' => 'PMTBCONFLRSCOST',
+        'ConfigPm.Pmtbconflrscost' => 'PMTBCONFLRSCOST',
+        'pmtbconflrscost' => 'PMTBCONFLRSCOST',
+        'configPm.pmtbconflrscost' => 'PMTBCONFLRSCOST',
+        'ConfigPmTableMap::COL_PMTBCONFLRSCOST' => 'PMTBCONFLRSCOST',
+        'COL_PMTBCONFLRSCOST' => 'PMTBCONFLRSCOST',
+        'PmtbConfLrsCost' => 'PMTBCONFLRSCOST',
+        'pm_config.PmtbConfLrsCost' => 'PMTBCONFLRSCOST',
+        'Pmtbconfvariacctg' => 'PMTBCONFVARIACCTG',
+        'ConfigPm.Pmtbconfvariacctg' => 'PMTBCONFVARIACCTG',
+        'pmtbconfvariacctg' => 'PMTBCONFVARIACCTG',
+        'configPm.pmtbconfvariacctg' => 'PMTBCONFVARIACCTG',
+        'ConfigPmTableMap::COL_PMTBCONFVARIACCTG' => 'PMTBCONFVARIACCTG',
+        'COL_PMTBCONFVARIACCTG' => 'PMTBCONFVARIACCTG',
+        'PmtbConfVariAcctg' => 'PMTBCONFVARIACCTG',
+        'pm_config.PmtbConfVariAcctg' => 'PMTBCONFVARIACCTG',
+        'Pmtbconftakebincode' => 'PMTBCONFTAKEBINCODE',
+        'ConfigPm.Pmtbconftakebincode' => 'PMTBCONFTAKEBINCODE',
+        'pmtbconftakebincode' => 'PMTBCONFTAKEBINCODE',
+        'configPm.pmtbconftakebincode' => 'PMTBCONFTAKEBINCODE',
+        'ConfigPmTableMap::COL_PMTBCONFTAKEBINCODE' => 'PMTBCONFTAKEBINCODE',
+        'COL_PMTBCONFTAKEBINCODE' => 'PMTBCONFTAKEBINCODE',
+        'PmtbConfTakeBinCode' => 'PMTBCONFTAKEBINCODE',
+        'pm_config.PmtbConfTakeBinCode' => 'PMTBCONFTAKEBINCODE',
+        'Pmtbconfusefguom' => 'PMTBCONFUSEFGUOM',
+        'ConfigPm.Pmtbconfusefguom' => 'PMTBCONFUSEFGUOM',
+        'pmtbconfusefguom' => 'PMTBCONFUSEFGUOM',
+        'configPm.pmtbconfusefguom' => 'PMTBCONFUSEFGUOM',
+        'ConfigPmTableMap::COL_PMTBCONFUSEFGUOM' => 'PMTBCONFUSEFGUOM',
+        'COL_PMTBCONFUSEFGUOM' => 'PMTBCONFUSEFGUOM',
+        'PmtbConfUseFgUom' => 'PMTBCONFUSEFGUOM',
+        'pm_config.PmtbConfUseFgUom' => 'PMTBCONFUSEFGUOM',
+        'Pmtbconfusenc' => 'PMTBCONFUSENC',
+        'ConfigPm.Pmtbconfusenc' => 'PMTBCONFUSENC',
+        'pmtbconfusenc' => 'PMTBCONFUSENC',
+        'configPm.pmtbconfusenc' => 'PMTBCONFUSENC',
+        'ConfigPmTableMap::COL_PMTBCONFUSENC' => 'PMTBCONFUSENC',
+        'COL_PMTBCONFUSENC' => 'PMTBCONFUSENC',
+        'PmtbConfUseNc' => 'PMTBCONFUSENC',
+        'pm_config.PmtbConfUseNc' => 'PMTBCONFUSENC',
+        'Pmtbconfusenegwip' => 'PMTBCONFUSENEGWIP',
+        'ConfigPm.Pmtbconfusenegwip' => 'PMTBCONFUSENEGWIP',
+        'pmtbconfusenegwip' => 'PMTBCONFUSENEGWIP',
+        'configPm.pmtbconfusenegwip' => 'PMTBCONFUSENEGWIP',
+        'ConfigPmTableMap::COL_PMTBCONFUSENEGWIP' => 'PMTBCONFUSENEGWIP',
+        'COL_PMTBCONFUSENEGWIP' => 'PMTBCONFUSENEGWIP',
+        'PmtbConfUseNegWip' => 'PMTBCONFUSENEGWIP',
+        'pm_config.PmtbConfUseNegWip' => 'PMTBCONFUSENEGWIP',
+        'Pmtbcon2advwipactentry' => 'PMTBCON2ADVWIPACTENTRY',
+        'ConfigPm.Pmtbcon2advwipactentry' => 'PMTBCON2ADVWIPACTENTRY',
+        'pmtbcon2advwipactentry' => 'PMTBCON2ADVWIPACTENTRY',
+        'configPm.pmtbcon2advwipactentry' => 'PMTBCON2ADVWIPACTENTRY',
+        'ConfigPmTableMap::COL_PMTBCON2ADVWIPACTENTRY' => 'PMTBCON2ADVWIPACTENTRY',
+        'COL_PMTBCON2ADVWIPACTENTRY' => 'PMTBCON2ADVWIPACTENTRY',
+        'PmtbCon2AdvWipActEntry' => 'PMTBCON2ADVWIPACTENTRY',
+        'pm_config.PmtbCon2AdvWipActEntry' => 'PMTBCON2ADVWIPACTENTRY',
+        'Pmtbcon2machlaborgl' => 'PMTBCON2MACHLABORGL',
+        'ConfigPm.Pmtbcon2machlaborgl' => 'PMTBCON2MACHLABORGL',
+        'pmtbcon2machlaborgl' => 'PMTBCON2MACHLABORGL',
+        'configPm.pmtbcon2machlaborgl' => 'PMTBCON2MACHLABORGL',
+        'ConfigPmTableMap::COL_PMTBCON2MACHLABORGL' => 'PMTBCON2MACHLABORGL',
+        'COL_PMTBCON2MACHLABORGL' => 'PMTBCON2MACHLABORGL',
+        'PmtbCon2MachLaborGl' => 'PMTBCON2MACHLABORGL',
+        'pm_config.PmtbCon2MachLaborGl' => 'PMTBCON2MACHLABORGL',
+        'Pmtbcon2machsetupgl' => 'PMTBCON2MACHSETUPGL',
+        'ConfigPm.Pmtbcon2machsetupgl' => 'PMTBCON2MACHSETUPGL',
+        'pmtbcon2machsetupgl' => 'PMTBCON2MACHSETUPGL',
+        'configPm.pmtbcon2machsetupgl' => 'PMTBCON2MACHSETUPGL',
+        'ConfigPmTableMap::COL_PMTBCON2MACHSETUPGL' => 'PMTBCON2MACHSETUPGL',
+        'COL_PMTBCON2MACHSETUPGL' => 'PMTBCON2MACHSETUPGL',
+        'PmtbCon2MachSetupGl' => 'PMTBCON2MACHSETUPGL',
+        'pm_config.PmtbCon2MachSetupGl' => 'PMTBCON2MACHSETUPGL',
+        'Pmtbcon2burdenlaborgl' => 'PMTBCON2BURDENLABORGL',
+        'ConfigPm.Pmtbcon2burdenlaborgl' => 'PMTBCON2BURDENLABORGL',
+        'pmtbcon2burdenlaborgl' => 'PMTBCON2BURDENLABORGL',
+        'configPm.pmtbcon2burdenlaborgl' => 'PMTBCON2BURDENLABORGL',
+        'ConfigPmTableMap::COL_PMTBCON2BURDENLABORGL' => 'PMTBCON2BURDENLABORGL',
+        'COL_PMTBCON2BURDENLABORGL' => 'PMTBCON2BURDENLABORGL',
+        'PmtbCon2BurdenLaborGl' => 'PMTBCON2BURDENLABORGL',
+        'pm_config.PmtbCon2BurdenLaborGl' => 'PMTBCON2BURDENLABORGL',
+        'Pmtbcon2burdenmachgl' => 'PMTBCON2BURDENMACHGL',
+        'ConfigPm.Pmtbcon2burdenmachgl' => 'PMTBCON2BURDENMACHGL',
+        'pmtbcon2burdenmachgl' => 'PMTBCON2BURDENMACHGL',
+        'configPm.pmtbcon2burdenmachgl' => 'PMTBCON2BURDENMACHGL',
+        'ConfigPmTableMap::COL_PMTBCON2BURDENMACHGL' => 'PMTBCON2BURDENMACHGL',
+        'COL_PMTBCON2BURDENMACHGL' => 'PMTBCON2BURDENMACHGL',
+        'PmtbCon2BurdenMachGl' => 'PMTBCON2BURDENMACHGL',
+        'pm_config.PmtbCon2BurdenMachGl' => 'PMTBCON2BURDENMACHGL',
+        'Pmtbcon2burdenadmingl' => 'PMTBCON2BURDENADMINGL',
+        'ConfigPm.Pmtbcon2burdenadmingl' => 'PMTBCON2BURDENADMINGL',
+        'pmtbcon2burdenadmingl' => 'PMTBCON2BURDENADMINGL',
+        'configPm.pmtbcon2burdenadmingl' => 'PMTBCON2BURDENADMINGL',
+        'ConfigPmTableMap::COL_PMTBCON2BURDENADMINGL' => 'PMTBCON2BURDENADMINGL',
+        'COL_PMTBCON2BURDENADMINGL' => 'PMTBCON2BURDENADMINGL',
+        'PmtbCon2BurdenAdminGl' => 'PMTBCON2BURDENADMINGL',
+        'pm_config.PmtbCon2BurdenAdminGl' => 'PMTBCON2BURDENADMINGL',
+        'Pmtbcon2setupasoper' => 'PMTBCON2SETUPASOPER',
+        'ConfigPm.Pmtbcon2setupasoper' => 'PMTBCON2SETUPASOPER',
+        'pmtbcon2setupasoper' => 'PMTBCON2SETUPASOPER',
+        'configPm.pmtbcon2setupasoper' => 'PMTBCON2SETUPASOPER',
+        'ConfigPmTableMap::COL_PMTBCON2SETUPASOPER' => 'PMTBCON2SETUPASOPER',
+        'COL_PMTBCON2SETUPASOPER' => 'PMTBCON2SETUPASOPER',
+        'PmtbCon2SetupAsOper' => 'PMTBCON2SETUPASOPER',
+        'pm_config.PmtbCon2SetupAsOper' => 'PMTBCON2SETUPASOPER',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ConfigPm.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'configPm.dateupdtd' => 'DATEUPDTD',
+        'ConfigPmTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'pm_config.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ConfigPm.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'configPm.timeupdtd' => 'TIMEUPDTD',
+        'ConfigPmTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'pm_config.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ConfigPm.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'configPm.dummy' => 'DUMMY',
+        'ConfigPmTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'pm_config.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('pm_config');
@@ -349,14 +668,16 @@ class ConfigPmTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -364,14 +685,14 @@ class ConfigPmTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pmtbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -386,14 +707,14 @@ class ConfigPmTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -410,10 +731,10 @@ class ConfigPmTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ConfigPmTableMap::CLASS_DEFAULT : ConfigPmTableMap::OM_CLASS;
     }
@@ -421,17 +742,17 @@ class ConfigPmTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ConfigPm object, last column rank)
+     * @return array (ConfigPm object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ConfigPmTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ConfigPmTableMap::getInstanceFromPool($key))) {
@@ -447,7 +768,7 @@ class ConfigPmTableMap extends TableMap
             ConfigPmTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -455,13 +776,13 @@ class ConfigPmTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -491,12 +812,13 @@ class ConfigPmTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ConfigPmTableMap::COL_PMTBCONFKEY);
@@ -580,40 +902,124 @@ class ConfigPmTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFKEY);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFBASESYSTEM);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFADVANCEDSYSTEM);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFALLOWNEGUSE);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFSCRAPUNUSED);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFSCRAPGL);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFWARNQTYTOZERO);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFVARGL);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFPUTBINCODE);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFPUTBINDFLT);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFSERIALBASE);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFFGATSTAN);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFGLFGTOMAT);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFPOSTDETSUM);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFSORT);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFLASTCOST);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFASKBOM);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFDEFBOM);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFAUTOSELECTLOTS);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFALLOCWHENIC);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFUSEWPC);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFPOWGWIPINPROC);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFLRSCOST);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFVARIACCTG);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFTAKEBINCODE);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFUSEFGUOM);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFUSENC);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCONFUSENEGWIP);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCON2ADVWIPACTENTRY);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCON2MACHLABORGL);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCON2MACHSETUPGL);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCON2BURDENLABORGL);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCON2BURDENMACHGL);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCON2BURDENADMINGL);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_PMTBCON2SETUPASOPER);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ConfigPmTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.PmtbConfKey');
+            $criteria->removeSelectColumn($alias . '.PmtbConfBaseSystem');
+            $criteria->removeSelectColumn($alias . '.PmtbConfAdvancedSystem');
+            $criteria->removeSelectColumn($alias . '.PmtbConfAllowNegUse');
+            $criteria->removeSelectColumn($alias . '.PmtbConfScrapUnused');
+            $criteria->removeSelectColumn($alias . '.PmtbConfScrapGl');
+            $criteria->removeSelectColumn($alias . '.PmtbConfWarnQtyToZero');
+            $criteria->removeSelectColumn($alias . '.PmtbConfVarGl');
+            $criteria->removeSelectColumn($alias . '.PmtbConfPutBinCode');
+            $criteria->removeSelectColumn($alias . '.PmtbConfPutBinDflt');
+            $criteria->removeSelectColumn($alias . '.PmtbConfSerialBase');
+            $criteria->removeSelectColumn($alias . '.PmtbConfFgAtStan');
+            $criteria->removeSelectColumn($alias . '.PmtbConfGlFgToMat');
+            $criteria->removeSelectColumn($alias . '.PmtbConfPostDetSum');
+            $criteria->removeSelectColumn($alias . '.PmtbConfSort');
+            $criteria->removeSelectColumn($alias . '.PmtbConfLastCost');
+            $criteria->removeSelectColumn($alias . '.PmtbConfAskBom');
+            $criteria->removeSelectColumn($alias . '.PmtbConfDefBom');
+            $criteria->removeSelectColumn($alias . '.PmtbConfAutoSelectLots');
+            $criteria->removeSelectColumn($alias . '.PmtbConfAllocWhenIC');
+            $criteria->removeSelectColumn($alias . '.PmtbConfUseWpc');
+            $criteria->removeSelectColumn($alias . '.PmtbConfPowgWipInProc');
+            $criteria->removeSelectColumn($alias . '.PmtbConfLrsCost');
+            $criteria->removeSelectColumn($alias . '.PmtbConfVariAcctg');
+            $criteria->removeSelectColumn($alias . '.PmtbConfTakeBinCode');
+            $criteria->removeSelectColumn($alias . '.PmtbConfUseFgUom');
+            $criteria->removeSelectColumn($alias . '.PmtbConfUseNc');
+            $criteria->removeSelectColumn($alias . '.PmtbConfUseNegWip');
+            $criteria->removeSelectColumn($alias . '.PmtbCon2AdvWipActEntry');
+            $criteria->removeSelectColumn($alias . '.PmtbCon2MachLaborGl');
+            $criteria->removeSelectColumn($alias . '.PmtbCon2MachSetupGl');
+            $criteria->removeSelectColumn($alias . '.PmtbCon2BurdenLaborGl');
+            $criteria->removeSelectColumn($alias . '.PmtbCon2BurdenMachGl');
+            $criteria->removeSelectColumn($alias . '.PmtbCon2BurdenAdminGl');
+            $criteria->removeSelectColumn($alias . '.PmtbCon2SetupAsOper');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ConfigPmTableMap::DATABASE_NAME)->getTable(ConfigPmTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ConfigPmTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ConfigPmTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ConfigPmTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ConfigPm or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ConfigPm object or primary key or array of primary keys
+     * @param mixed $values Criteria or ConfigPm object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPmTableMap::DATABASE_NAME);
@@ -649,7 +1055,7 @@ class ConfigPmTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ConfigPmQuery::create()->doDeleteAll($con);
     }
@@ -657,13 +1063,13 @@ class ConfigPmTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ConfigPm or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ConfigPm object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ConfigPm object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPmTableMap::DATABASE_NAME);
@@ -686,7 +1092,4 @@ class ConfigPmTableMap extends TableMap
         });
     }
 
-} // ConfigPmTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ConfigPmTableMap::buildTableMap();
+}

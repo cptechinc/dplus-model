@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvKitComponentTableMap extends TableMap
 {
@@ -34,134 +33,229 @@ class InvKitComponentTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvKitComponentTableMap';
+    public const CLASS_NAME = '.Map.InvKitComponentTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_kit_detail';
+    public const TABLE_NAME = 'inv_kit_detail';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvKitComponent';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvKitComponent';
+    public const OM_CLASS = '\\InvKitComponent';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvKitComponent';
+    public const CLASS_DEFAULT = 'InvKitComponent';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 10;
+    public const NUM_COLUMNS = 10;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 10;
+    public const NUM_HYDRATE_COLUMNS = 10;
 
     /**
      * the column name for the KtdtKey1 field
      */
-    const COL_KTDTKEY1 = 'inv_kit_detail.KtdtKey1';
+    public const COL_KTDTKEY1 = 'inv_kit_detail.KtdtKey1';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_kit_detail.InitItemNbr';
+    public const COL_INITITEMNBR = 'inv_kit_detail.InitItemNbr';
 
     /**
      * the column name for the KtdtUom field
      */
-    const COL_KTDTUOM = 'inv_kit_detail.KtdtUom';
+    public const COL_KTDTUOM = 'inv_kit_detail.KtdtUom';
 
     /**
      * the column name for the KtdtUsagRate field
      */
-    const COL_KTDTUSAGRATE = 'inv_kit_detail.KtdtUsagRate';
+    public const COL_KTDTUSAGRATE = 'inv_kit_detail.KtdtUsagRate';
 
     /**
      * the column name for the KtdtVendSupply field
      */
-    const COL_KTDTVENDSUPPLY = 'inv_kit_detail.KtdtVendSupply';
+    public const COL_KTDTVENDSUPPLY = 'inv_kit_detail.KtdtVendSupply';
 
     /**
      * the column name for the KtdtFreeGoods field
      */
-    const COL_KTDTFREEGOODS = 'inv_kit_detail.KtdtFreeGoods';
+    public const COL_KTDTFREEGOODS = 'inv_kit_detail.KtdtFreeGoods';
 
     /**
      * the column name for the KtdtUsagTag field
      */
-    const COL_KTDTUSAGTAG = 'inv_kit_detail.KtdtUsagTag';
+    public const COL_KTDTUSAGTAG = 'inv_kit_detail.KtdtUsagTag';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_kit_detail.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_kit_detail.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_kit_detail.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_kit_detail.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_kit_detail.dummy';
+    public const COL_DUMMY = 'inv_kit_detail.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ktdtkey1', 'Inititemnbr', 'Ktdtuom', 'Ktdtusagrate', 'Ktdtvendsupply', 'Ktdtfreegoods', 'KtdtUsagTag', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ktdtkey1', 'inititemnbr', 'ktdtuom', 'ktdtusagrate', 'ktdtvendsupply', 'ktdtfreegoods', 'ktdtUsagTag', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvKitComponentTableMap::COL_KTDTKEY1, InvKitComponentTableMap::COL_INITITEMNBR, InvKitComponentTableMap::COL_KTDTUOM, InvKitComponentTableMap::COL_KTDTUSAGRATE, InvKitComponentTableMap::COL_KTDTVENDSUPPLY, InvKitComponentTableMap::COL_KTDTFREEGOODS, InvKitComponentTableMap::COL_KTDTUSAGTAG, InvKitComponentTableMap::COL_DATEUPDTD, InvKitComponentTableMap::COL_TIMEUPDTD, InvKitComponentTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('KtdtKey1', 'InitItemNbr', 'KtdtUom', 'KtdtUsagRate', 'KtdtVendSupply', 'KtdtFreeGoods', 'KtdtUsagTag', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Ktdtkey1', 'Inititemnbr', 'Ktdtuom', 'Ktdtusagrate', 'Ktdtvendsupply', 'Ktdtfreegoods', 'KtdtUsagTag', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['ktdtkey1', 'inititemnbr', 'ktdtuom', 'ktdtusagrate', 'ktdtvendsupply', 'ktdtfreegoods', 'ktdtUsagTag', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvKitComponentTableMap::COL_KTDTKEY1, InvKitComponentTableMap::COL_INITITEMNBR, InvKitComponentTableMap::COL_KTDTUOM, InvKitComponentTableMap::COL_KTDTUSAGRATE, InvKitComponentTableMap::COL_KTDTVENDSUPPLY, InvKitComponentTableMap::COL_KTDTFREEGOODS, InvKitComponentTableMap::COL_KTDTUSAGTAG, InvKitComponentTableMap::COL_DATEUPDTD, InvKitComponentTableMap::COL_TIMEUPDTD, InvKitComponentTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['KtdtKey1', 'InitItemNbr', 'KtdtUom', 'KtdtUsagRate', 'KtdtVendSupply', 'KtdtFreeGoods', 'KtdtUsagTag', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ktdtkey1' => 0, 'Inititemnbr' => 1, 'Ktdtuom' => 2, 'Ktdtusagrate' => 3, 'Ktdtvendsupply' => 4, 'Ktdtfreegoods' => 5, 'KtdtUsagTag' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
-        self::TYPE_CAMELNAME     => array('ktdtkey1' => 0, 'inititemnbr' => 1, 'ktdtuom' => 2, 'ktdtusagrate' => 3, 'ktdtvendsupply' => 4, 'ktdtfreegoods' => 5, 'ktdtUsagTag' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(InvKitComponentTableMap::COL_KTDTKEY1 => 0, InvKitComponentTableMap::COL_INITITEMNBR => 1, InvKitComponentTableMap::COL_KTDTUOM => 2, InvKitComponentTableMap::COL_KTDTUSAGRATE => 3, InvKitComponentTableMap::COL_KTDTVENDSUPPLY => 4, InvKitComponentTableMap::COL_KTDTFREEGOODS => 5, InvKitComponentTableMap::COL_KTDTUSAGTAG => 6, InvKitComponentTableMap::COL_DATEUPDTD => 7, InvKitComponentTableMap::COL_TIMEUPDTD => 8, InvKitComponentTableMap::COL_DUMMY => 9, ),
-        self::TYPE_FIELDNAME     => array('KtdtKey1' => 0, 'InitItemNbr' => 1, 'KtdtUom' => 2, 'KtdtUsagRate' => 3, 'KtdtVendSupply' => 4, 'KtdtFreeGoods' => 5, 'KtdtUsagTag' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Ktdtkey1' => 0, 'Inititemnbr' => 1, 'Ktdtuom' => 2, 'Ktdtusagrate' => 3, 'Ktdtvendsupply' => 4, 'Ktdtfreegoods' => 5, 'KtdtUsagTag' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ],
+        self::TYPE_CAMELNAME     => ['ktdtkey1' => 0, 'inititemnbr' => 1, 'ktdtuom' => 2, 'ktdtusagrate' => 3, 'ktdtvendsupply' => 4, 'ktdtfreegoods' => 5, 'ktdtUsagTag' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_COLNAME       => [InvKitComponentTableMap::COL_KTDTKEY1 => 0, InvKitComponentTableMap::COL_INITITEMNBR => 1, InvKitComponentTableMap::COL_KTDTUOM => 2, InvKitComponentTableMap::COL_KTDTUSAGRATE => 3, InvKitComponentTableMap::COL_KTDTVENDSUPPLY => 4, InvKitComponentTableMap::COL_KTDTFREEGOODS => 5, InvKitComponentTableMap::COL_KTDTUSAGTAG => 6, InvKitComponentTableMap::COL_DATEUPDTD => 7, InvKitComponentTableMap::COL_TIMEUPDTD => 8, InvKitComponentTableMap::COL_DUMMY => 9, ],
+        self::TYPE_FIELDNAME     => ['KtdtKey1' => 0, 'InitItemNbr' => 1, 'KtdtUom' => 2, 'KtdtUsagRate' => 3, 'KtdtVendSupply' => 4, 'KtdtFreeGoods' => 5, 'KtdtUsagTag' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Ktdtkey1' => 'KTDTKEY1',
+        'InvKitComponent.Ktdtkey1' => 'KTDTKEY1',
+        'ktdtkey1' => 'KTDTKEY1',
+        'invKitComponent.ktdtkey1' => 'KTDTKEY1',
+        'InvKitComponentTableMap::COL_KTDTKEY1' => 'KTDTKEY1',
+        'COL_KTDTKEY1' => 'KTDTKEY1',
+        'KtdtKey1' => 'KTDTKEY1',
+        'inv_kit_detail.KtdtKey1' => 'KTDTKEY1',
+        'Inititemnbr' => 'INITITEMNBR',
+        'InvKitComponent.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'invKitComponent.inititemnbr' => 'INITITEMNBR',
+        'InvKitComponentTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'inv_kit_detail.InitItemNbr' => 'INITITEMNBR',
+        'Ktdtuom' => 'KTDTUOM',
+        'InvKitComponent.Ktdtuom' => 'KTDTUOM',
+        'ktdtuom' => 'KTDTUOM',
+        'invKitComponent.ktdtuom' => 'KTDTUOM',
+        'InvKitComponentTableMap::COL_KTDTUOM' => 'KTDTUOM',
+        'COL_KTDTUOM' => 'KTDTUOM',
+        'KtdtUom' => 'KTDTUOM',
+        'inv_kit_detail.KtdtUom' => 'KTDTUOM',
+        'Ktdtusagrate' => 'KTDTUSAGRATE',
+        'InvKitComponent.Ktdtusagrate' => 'KTDTUSAGRATE',
+        'ktdtusagrate' => 'KTDTUSAGRATE',
+        'invKitComponent.ktdtusagrate' => 'KTDTUSAGRATE',
+        'InvKitComponentTableMap::COL_KTDTUSAGRATE' => 'KTDTUSAGRATE',
+        'COL_KTDTUSAGRATE' => 'KTDTUSAGRATE',
+        'KtdtUsagRate' => 'KTDTUSAGRATE',
+        'inv_kit_detail.KtdtUsagRate' => 'KTDTUSAGRATE',
+        'Ktdtvendsupply' => 'KTDTVENDSUPPLY',
+        'InvKitComponent.Ktdtvendsupply' => 'KTDTVENDSUPPLY',
+        'ktdtvendsupply' => 'KTDTVENDSUPPLY',
+        'invKitComponent.ktdtvendsupply' => 'KTDTVENDSUPPLY',
+        'InvKitComponentTableMap::COL_KTDTVENDSUPPLY' => 'KTDTVENDSUPPLY',
+        'COL_KTDTVENDSUPPLY' => 'KTDTVENDSUPPLY',
+        'KtdtVendSupply' => 'KTDTVENDSUPPLY',
+        'inv_kit_detail.KtdtVendSupply' => 'KTDTVENDSUPPLY',
+        'Ktdtfreegoods' => 'KTDTFREEGOODS',
+        'InvKitComponent.Ktdtfreegoods' => 'KTDTFREEGOODS',
+        'ktdtfreegoods' => 'KTDTFREEGOODS',
+        'invKitComponent.ktdtfreegoods' => 'KTDTFREEGOODS',
+        'InvKitComponentTableMap::COL_KTDTFREEGOODS' => 'KTDTFREEGOODS',
+        'COL_KTDTFREEGOODS' => 'KTDTFREEGOODS',
+        'KtdtFreeGoods' => 'KTDTFREEGOODS',
+        'inv_kit_detail.KtdtFreeGoods' => 'KTDTFREEGOODS',
+        'KtdtUsagTag' => 'KTDTUSAGTAG',
+        'InvKitComponent.KtdtUsagTag' => 'KTDTUSAGTAG',
+        'ktdtUsagTag' => 'KTDTUSAGTAG',
+        'invKitComponent.ktdtUsagTag' => 'KTDTUSAGTAG',
+        'InvKitComponentTableMap::COL_KTDTUSAGTAG' => 'KTDTUSAGTAG',
+        'COL_KTDTUSAGTAG' => 'KTDTUSAGTAG',
+        'inv_kit_detail.KtdtUsagTag' => 'KTDTUSAGTAG',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvKitComponent.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invKitComponent.dateupdtd' => 'DATEUPDTD',
+        'InvKitComponentTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_kit_detail.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvKitComponent.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invKitComponent.timeupdtd' => 'TIMEUPDTD',
+        'InvKitComponentTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_kit_detail.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvKitComponent.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invKitComponent.dummy' => 'DUMMY',
+        'InvKitComponentTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_kit_detail.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_kit_detail');
@@ -181,12 +275,14 @@ class InvKitComponentTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -202,7 +298,7 @@ class InvKitComponentTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -213,9 +309,11 @@ class InvKitComponentTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvKitComponent $obj A \InvKitComponent object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvKitComponent $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -234,8 +332,10 @@ class InvKitComponentTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvKitComponent object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvKitComponent) {
@@ -263,14 +363,14 @@ class InvKitComponentTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Ktdtkey1', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -285,14 +385,14 @@ class InvKitComponentTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -318,10 +418,10 @@ class InvKitComponentTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvKitComponentTableMap::CLASS_DEFAULT : InvKitComponentTableMap::OM_CLASS;
     }
@@ -329,17 +429,17 @@ class InvKitComponentTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvKitComponent object, last column rank)
+     * @return array (InvKitComponent object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvKitComponentTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvKitComponentTableMap::getInstanceFromPool($key))) {
@@ -355,7 +455,7 @@ class InvKitComponentTableMap extends TableMap
             InvKitComponentTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -363,13 +463,13 @@ class InvKitComponentTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -399,12 +499,13 @@ class InvKitComponentTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTKEY1);
@@ -432,40 +533,68 @@ class InvKitComponentTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_KTDTKEY1);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_KTDTUOM);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_KTDTUSAGRATE);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_KTDTVENDSUPPLY);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_KTDTFREEGOODS);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_KTDTUSAGTAG);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvKitComponentTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.KtdtKey1');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.KtdtUom');
+            $criteria->removeSelectColumn($alias . '.KtdtUsagRate');
+            $criteria->removeSelectColumn($alias . '.KtdtVendSupply');
+            $criteria->removeSelectColumn($alias . '.KtdtFreeGoods');
+            $criteria->removeSelectColumn($alias . '.KtdtUsagTag');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvKitComponentTableMap::DATABASE_NAME)->getTable(InvKitComponentTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvKitComponentTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvKitComponentTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvKitComponentTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvKitComponent or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvKitComponent object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvKitComponent object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvKitComponentTableMap::DATABASE_NAME);
@@ -483,7 +612,7 @@ class InvKitComponentTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvKitComponentTableMap::COL_KTDTKEY1, $value[0]);
@@ -511,7 +640,7 @@ class InvKitComponentTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvKitComponentQuery::create()->doDeleteAll($con);
     }
@@ -519,13 +648,13 @@ class InvKitComponentTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvKitComponent or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvKitComponent object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvKitComponent object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvKitComponentTableMap::DATABASE_NAME);
@@ -548,7 +677,4 @@ class InvKitComponentTableMap extends TableMap
         });
     }
 
-} // InvKitComponentTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvKitComponentTableMap::buildTableMap();
+}

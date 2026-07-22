@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CpnLoadItemTableMap extends TableMap
 {
@@ -34,164 +33,308 @@ class CpnLoadItemTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CpnLoadItemTableMap';
+    public const CLASS_NAME = '.Map.CpnLoadItemTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'load_cpn_item';
+    public const TABLE_NAME = 'load_cpn_item';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'CpnLoadItem';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CpnLoadItem';
+    public const OM_CLASS = '\\CpnLoadItem';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CpnLoadItem';
+    public const CLASS_DEFAULT = 'CpnLoadItem';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 16;
+    public const NUM_COLUMNS = 16;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 16;
+    public const NUM_HYDRATE_COLUMNS = 16;
 
     /**
      * the column name for the LchdLoadNbr field
      */
-    const COL_LCHDLOADNBR = 'load_cpn_item.LchdLoadNbr';
+    public const COL_LCHDLOADNBR = 'load_cpn_item.LchdLoadNbr';
 
     /**
      * the column name for the LcorOrdrNbr field
      */
-    const COL_LCORORDRNBR = 'load_cpn_item.LcorOrdrNbr';
+    public const COL_LCORORDRNBR = 'load_cpn_item.LcorOrdrNbr';
 
     /**
      * the column name for the LcitLineNbr field
      */
-    const COL_LCITLINENBR = 'load_cpn_item.LcitLineNbr';
+    public const COL_LCITLINENBR = 'load_cpn_item.LcitLineNbr';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'load_cpn_item.InitItemNbr';
+    public const COL_INITITEMNBR = 'load_cpn_item.InitItemNbr';
 
     /**
      * the column name for the LcitLotSer field
      */
-    const COL_LCITLOTSER = 'load_cpn_item.LcitLotSer';
+    public const COL_LCITLOTSER = 'load_cpn_item.LcitLotSer';
 
     /**
      * the column name for the LcitSkidNbr field
      */
-    const COL_LCITSKIDNBR = 'load_cpn_item.LcitSkidNbr';
+    public const COL_LCITSKIDNBR = 'load_cpn_item.LcitSkidNbr';
 
     /**
      * the column name for the LcitQtyOrd field
      */
-    const COL_LCITQTYORD = 'load_cpn_item.LcitQtyOrd';
+    public const COL_LCITQTYORD = 'load_cpn_item.LcitQtyOrd';
 
     /**
      * the column name for the LcitRqstDate field
      */
-    const COL_LCITRQSTDATE = 'load_cpn_item.LcitRqstDate';
+    public const COL_LCITRQSTDATE = 'load_cpn_item.LcitRqstDate';
 
     /**
      * the column name for the LcitQtyPerBox field
      */
-    const COL_LCITQTYPERBOX = 'load_cpn_item.LcitQtyPerBox';
+    public const COL_LCITQTYPERBOX = 'load_cpn_item.LcitQtyPerBox';
 
     /**
      * the column name for the LcitNbrOfBoxes field
      */
-    const COL_LCITNBROFBOXES = 'load_cpn_item.LcitNbrOfBoxes';
+    public const COL_LCITNBROFBOXES = 'load_cpn_item.LcitNbrOfBoxes';
 
     /**
      * the column name for the LcitTotWght field
      */
-    const COL_LCITTOTWGHT = 'load_cpn_item.LcitTotWght';
+    public const COL_LCITTOTWGHT = 'load_cpn_item.LcitTotWght';
 
     /**
      * the column name for the LcitUom field
      */
-    const COL_LCITUOM = 'load_cpn_item.LcitUom';
+    public const COL_LCITUOM = 'load_cpn_item.LcitUom';
 
     /**
      * the column name for the LcitQtyShip field
      */
-    const COL_LCITQTYSHIP = 'load_cpn_item.LcitQtyShip';
+    public const COL_LCITQTYSHIP = 'load_cpn_item.LcitQtyShip';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'load_cpn_item.DateUpdtd';
+    public const COL_DATEUPDTD = 'load_cpn_item.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'load_cpn_item.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'load_cpn_item.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'load_cpn_item.dummy';
+    public const COL_DUMMY = 'load_cpn_item.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Lchdloadnbr', 'Lcorordrnbr', 'Lcitlinenbr', 'Inititemnbr', 'Lcitlotser', 'Lcitskidnbr', 'Lcitqtyord', 'Lcitrqstdate', 'Lcitqtyperbox', 'Lcitnbrofboxes', 'Lcittotwght', 'Lcituom', 'Lcitqtyship', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('lchdloadnbr', 'lcorordrnbr', 'lcitlinenbr', 'inititemnbr', 'lcitlotser', 'lcitskidnbr', 'lcitqtyord', 'lcitrqstdate', 'lcitqtyperbox', 'lcitnbrofboxes', 'lcittotwght', 'lcituom', 'lcitqtyship', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CpnLoadItemTableMap::COL_LCHDLOADNBR, CpnLoadItemTableMap::COL_LCORORDRNBR, CpnLoadItemTableMap::COL_LCITLINENBR, CpnLoadItemTableMap::COL_INITITEMNBR, CpnLoadItemTableMap::COL_LCITLOTSER, CpnLoadItemTableMap::COL_LCITSKIDNBR, CpnLoadItemTableMap::COL_LCITQTYORD, CpnLoadItemTableMap::COL_LCITRQSTDATE, CpnLoadItemTableMap::COL_LCITQTYPERBOX, CpnLoadItemTableMap::COL_LCITNBROFBOXES, CpnLoadItemTableMap::COL_LCITTOTWGHT, CpnLoadItemTableMap::COL_LCITUOM, CpnLoadItemTableMap::COL_LCITQTYSHIP, CpnLoadItemTableMap::COL_DATEUPDTD, CpnLoadItemTableMap::COL_TIMEUPDTD, CpnLoadItemTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('LchdLoadNbr', 'LcorOrdrNbr', 'LcitLineNbr', 'InitItemNbr', 'LcitLotSer', 'LcitSkidNbr', 'LcitQtyOrd', 'LcitRqstDate', 'LcitQtyPerBox', 'LcitNbrOfBoxes', 'LcitTotWght', 'LcitUom', 'LcitQtyShip', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Lchdloadnbr', 'Lcorordrnbr', 'Lcitlinenbr', 'Inititemnbr', 'Lcitlotser', 'Lcitskidnbr', 'Lcitqtyord', 'Lcitrqstdate', 'Lcitqtyperbox', 'Lcitnbrofboxes', 'Lcittotwght', 'Lcituom', 'Lcitqtyship', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['lchdloadnbr', 'lcorordrnbr', 'lcitlinenbr', 'inititemnbr', 'lcitlotser', 'lcitskidnbr', 'lcitqtyord', 'lcitrqstdate', 'lcitqtyperbox', 'lcitnbrofboxes', 'lcittotwght', 'lcituom', 'lcitqtyship', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [CpnLoadItemTableMap::COL_LCHDLOADNBR, CpnLoadItemTableMap::COL_LCORORDRNBR, CpnLoadItemTableMap::COL_LCITLINENBR, CpnLoadItemTableMap::COL_INITITEMNBR, CpnLoadItemTableMap::COL_LCITLOTSER, CpnLoadItemTableMap::COL_LCITSKIDNBR, CpnLoadItemTableMap::COL_LCITQTYORD, CpnLoadItemTableMap::COL_LCITRQSTDATE, CpnLoadItemTableMap::COL_LCITQTYPERBOX, CpnLoadItemTableMap::COL_LCITNBROFBOXES, CpnLoadItemTableMap::COL_LCITTOTWGHT, CpnLoadItemTableMap::COL_LCITUOM, CpnLoadItemTableMap::COL_LCITQTYSHIP, CpnLoadItemTableMap::COL_DATEUPDTD, CpnLoadItemTableMap::COL_TIMEUPDTD, CpnLoadItemTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['LchdLoadNbr', 'LcorOrdrNbr', 'LcitLineNbr', 'InitItemNbr', 'LcitLotSer', 'LcitSkidNbr', 'LcitQtyOrd', 'LcitRqstDate', 'LcitQtyPerBox', 'LcitNbrOfBoxes', 'LcitTotWght', 'LcitUom', 'LcitQtyShip', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Lchdloadnbr' => 0, 'Lcorordrnbr' => 1, 'Lcitlinenbr' => 2, 'Inititemnbr' => 3, 'Lcitlotser' => 4, 'Lcitskidnbr' => 5, 'Lcitqtyord' => 6, 'Lcitrqstdate' => 7, 'Lcitqtyperbox' => 8, 'Lcitnbrofboxes' => 9, 'Lcittotwght' => 10, 'Lcituom' => 11, 'Lcitqtyship' => 12, 'Dateupdtd' => 13, 'Timeupdtd' => 14, 'Dummy' => 15, ),
-        self::TYPE_CAMELNAME     => array('lchdloadnbr' => 0, 'lcorordrnbr' => 1, 'lcitlinenbr' => 2, 'inititemnbr' => 3, 'lcitlotser' => 4, 'lcitskidnbr' => 5, 'lcitqtyord' => 6, 'lcitrqstdate' => 7, 'lcitqtyperbox' => 8, 'lcitnbrofboxes' => 9, 'lcittotwght' => 10, 'lcituom' => 11, 'lcitqtyship' => 12, 'dateupdtd' => 13, 'timeupdtd' => 14, 'dummy' => 15, ),
-        self::TYPE_COLNAME       => array(CpnLoadItemTableMap::COL_LCHDLOADNBR => 0, CpnLoadItemTableMap::COL_LCORORDRNBR => 1, CpnLoadItemTableMap::COL_LCITLINENBR => 2, CpnLoadItemTableMap::COL_INITITEMNBR => 3, CpnLoadItemTableMap::COL_LCITLOTSER => 4, CpnLoadItemTableMap::COL_LCITSKIDNBR => 5, CpnLoadItemTableMap::COL_LCITQTYORD => 6, CpnLoadItemTableMap::COL_LCITRQSTDATE => 7, CpnLoadItemTableMap::COL_LCITQTYPERBOX => 8, CpnLoadItemTableMap::COL_LCITNBROFBOXES => 9, CpnLoadItemTableMap::COL_LCITTOTWGHT => 10, CpnLoadItemTableMap::COL_LCITUOM => 11, CpnLoadItemTableMap::COL_LCITQTYSHIP => 12, CpnLoadItemTableMap::COL_DATEUPDTD => 13, CpnLoadItemTableMap::COL_TIMEUPDTD => 14, CpnLoadItemTableMap::COL_DUMMY => 15, ),
-        self::TYPE_FIELDNAME     => array('LchdLoadNbr' => 0, 'LcorOrdrNbr' => 1, 'LcitLineNbr' => 2, 'InitItemNbr' => 3, 'LcitLotSer' => 4, 'LcitSkidNbr' => 5, 'LcitQtyOrd' => 6, 'LcitRqstDate' => 7, 'LcitQtyPerBox' => 8, 'LcitNbrOfBoxes' => 9, 'LcitTotWght' => 10, 'LcitUom' => 11, 'LcitQtyShip' => 12, 'DateUpdtd' => 13, 'TimeUpdtd' => 14, 'dummy' => 15, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Lchdloadnbr' => 0, 'Lcorordrnbr' => 1, 'Lcitlinenbr' => 2, 'Inititemnbr' => 3, 'Lcitlotser' => 4, 'Lcitskidnbr' => 5, 'Lcitqtyord' => 6, 'Lcitrqstdate' => 7, 'Lcitqtyperbox' => 8, 'Lcitnbrofboxes' => 9, 'Lcittotwght' => 10, 'Lcituom' => 11, 'Lcitqtyship' => 12, 'Dateupdtd' => 13, 'Timeupdtd' => 14, 'Dummy' => 15, ],
+        self::TYPE_CAMELNAME     => ['lchdloadnbr' => 0, 'lcorordrnbr' => 1, 'lcitlinenbr' => 2, 'inititemnbr' => 3, 'lcitlotser' => 4, 'lcitskidnbr' => 5, 'lcitqtyord' => 6, 'lcitrqstdate' => 7, 'lcitqtyperbox' => 8, 'lcitnbrofboxes' => 9, 'lcittotwght' => 10, 'lcituom' => 11, 'lcitqtyship' => 12, 'dateupdtd' => 13, 'timeupdtd' => 14, 'dummy' => 15, ],
+        self::TYPE_COLNAME       => [CpnLoadItemTableMap::COL_LCHDLOADNBR => 0, CpnLoadItemTableMap::COL_LCORORDRNBR => 1, CpnLoadItemTableMap::COL_LCITLINENBR => 2, CpnLoadItemTableMap::COL_INITITEMNBR => 3, CpnLoadItemTableMap::COL_LCITLOTSER => 4, CpnLoadItemTableMap::COL_LCITSKIDNBR => 5, CpnLoadItemTableMap::COL_LCITQTYORD => 6, CpnLoadItemTableMap::COL_LCITRQSTDATE => 7, CpnLoadItemTableMap::COL_LCITQTYPERBOX => 8, CpnLoadItemTableMap::COL_LCITNBROFBOXES => 9, CpnLoadItemTableMap::COL_LCITTOTWGHT => 10, CpnLoadItemTableMap::COL_LCITUOM => 11, CpnLoadItemTableMap::COL_LCITQTYSHIP => 12, CpnLoadItemTableMap::COL_DATEUPDTD => 13, CpnLoadItemTableMap::COL_TIMEUPDTD => 14, CpnLoadItemTableMap::COL_DUMMY => 15, ],
+        self::TYPE_FIELDNAME     => ['LchdLoadNbr' => 0, 'LcorOrdrNbr' => 1, 'LcitLineNbr' => 2, 'InitItemNbr' => 3, 'LcitLotSer' => 4, 'LcitSkidNbr' => 5, 'LcitQtyOrd' => 6, 'LcitRqstDate' => 7, 'LcitQtyPerBox' => 8, 'LcitNbrOfBoxes' => 9, 'LcitTotWght' => 10, 'LcitUom' => 11, 'LcitQtyShip' => 12, 'DateUpdtd' => 13, 'TimeUpdtd' => 14, 'dummy' => 15, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Lchdloadnbr' => 'LCHDLOADNBR',
+        'CpnLoadItem.Lchdloadnbr' => 'LCHDLOADNBR',
+        'lchdloadnbr' => 'LCHDLOADNBR',
+        'cpnLoadItem.lchdloadnbr' => 'LCHDLOADNBR',
+        'CpnLoadItemTableMap::COL_LCHDLOADNBR' => 'LCHDLOADNBR',
+        'COL_LCHDLOADNBR' => 'LCHDLOADNBR',
+        'LchdLoadNbr' => 'LCHDLOADNBR',
+        'load_cpn_item.LchdLoadNbr' => 'LCHDLOADNBR',
+        'Lcorordrnbr' => 'LCORORDRNBR',
+        'CpnLoadItem.Lcorordrnbr' => 'LCORORDRNBR',
+        'lcorordrnbr' => 'LCORORDRNBR',
+        'cpnLoadItem.lcorordrnbr' => 'LCORORDRNBR',
+        'CpnLoadItemTableMap::COL_LCORORDRNBR' => 'LCORORDRNBR',
+        'COL_LCORORDRNBR' => 'LCORORDRNBR',
+        'LcorOrdrNbr' => 'LCORORDRNBR',
+        'load_cpn_item.LcorOrdrNbr' => 'LCORORDRNBR',
+        'Lcitlinenbr' => 'LCITLINENBR',
+        'CpnLoadItem.Lcitlinenbr' => 'LCITLINENBR',
+        'lcitlinenbr' => 'LCITLINENBR',
+        'cpnLoadItem.lcitlinenbr' => 'LCITLINENBR',
+        'CpnLoadItemTableMap::COL_LCITLINENBR' => 'LCITLINENBR',
+        'COL_LCITLINENBR' => 'LCITLINENBR',
+        'LcitLineNbr' => 'LCITLINENBR',
+        'load_cpn_item.LcitLineNbr' => 'LCITLINENBR',
+        'Inititemnbr' => 'INITITEMNBR',
+        'CpnLoadItem.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'cpnLoadItem.inititemnbr' => 'INITITEMNBR',
+        'CpnLoadItemTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'load_cpn_item.InitItemNbr' => 'INITITEMNBR',
+        'Lcitlotser' => 'LCITLOTSER',
+        'CpnLoadItem.Lcitlotser' => 'LCITLOTSER',
+        'lcitlotser' => 'LCITLOTSER',
+        'cpnLoadItem.lcitlotser' => 'LCITLOTSER',
+        'CpnLoadItemTableMap::COL_LCITLOTSER' => 'LCITLOTSER',
+        'COL_LCITLOTSER' => 'LCITLOTSER',
+        'LcitLotSer' => 'LCITLOTSER',
+        'load_cpn_item.LcitLotSer' => 'LCITLOTSER',
+        'Lcitskidnbr' => 'LCITSKIDNBR',
+        'CpnLoadItem.Lcitskidnbr' => 'LCITSKIDNBR',
+        'lcitskidnbr' => 'LCITSKIDNBR',
+        'cpnLoadItem.lcitskidnbr' => 'LCITSKIDNBR',
+        'CpnLoadItemTableMap::COL_LCITSKIDNBR' => 'LCITSKIDNBR',
+        'COL_LCITSKIDNBR' => 'LCITSKIDNBR',
+        'LcitSkidNbr' => 'LCITSKIDNBR',
+        'load_cpn_item.LcitSkidNbr' => 'LCITSKIDNBR',
+        'Lcitqtyord' => 'LCITQTYORD',
+        'CpnLoadItem.Lcitqtyord' => 'LCITQTYORD',
+        'lcitqtyord' => 'LCITQTYORD',
+        'cpnLoadItem.lcitqtyord' => 'LCITQTYORD',
+        'CpnLoadItemTableMap::COL_LCITQTYORD' => 'LCITQTYORD',
+        'COL_LCITQTYORD' => 'LCITQTYORD',
+        'LcitQtyOrd' => 'LCITQTYORD',
+        'load_cpn_item.LcitQtyOrd' => 'LCITQTYORD',
+        'Lcitrqstdate' => 'LCITRQSTDATE',
+        'CpnLoadItem.Lcitrqstdate' => 'LCITRQSTDATE',
+        'lcitrqstdate' => 'LCITRQSTDATE',
+        'cpnLoadItem.lcitrqstdate' => 'LCITRQSTDATE',
+        'CpnLoadItemTableMap::COL_LCITRQSTDATE' => 'LCITRQSTDATE',
+        'COL_LCITRQSTDATE' => 'LCITRQSTDATE',
+        'LcitRqstDate' => 'LCITRQSTDATE',
+        'load_cpn_item.LcitRqstDate' => 'LCITRQSTDATE',
+        'Lcitqtyperbox' => 'LCITQTYPERBOX',
+        'CpnLoadItem.Lcitqtyperbox' => 'LCITQTYPERBOX',
+        'lcitqtyperbox' => 'LCITQTYPERBOX',
+        'cpnLoadItem.lcitqtyperbox' => 'LCITQTYPERBOX',
+        'CpnLoadItemTableMap::COL_LCITQTYPERBOX' => 'LCITQTYPERBOX',
+        'COL_LCITQTYPERBOX' => 'LCITQTYPERBOX',
+        'LcitQtyPerBox' => 'LCITQTYPERBOX',
+        'load_cpn_item.LcitQtyPerBox' => 'LCITQTYPERBOX',
+        'Lcitnbrofboxes' => 'LCITNBROFBOXES',
+        'CpnLoadItem.Lcitnbrofboxes' => 'LCITNBROFBOXES',
+        'lcitnbrofboxes' => 'LCITNBROFBOXES',
+        'cpnLoadItem.lcitnbrofboxes' => 'LCITNBROFBOXES',
+        'CpnLoadItemTableMap::COL_LCITNBROFBOXES' => 'LCITNBROFBOXES',
+        'COL_LCITNBROFBOXES' => 'LCITNBROFBOXES',
+        'LcitNbrOfBoxes' => 'LCITNBROFBOXES',
+        'load_cpn_item.LcitNbrOfBoxes' => 'LCITNBROFBOXES',
+        'Lcittotwght' => 'LCITTOTWGHT',
+        'CpnLoadItem.Lcittotwght' => 'LCITTOTWGHT',
+        'lcittotwght' => 'LCITTOTWGHT',
+        'cpnLoadItem.lcittotwght' => 'LCITTOTWGHT',
+        'CpnLoadItemTableMap::COL_LCITTOTWGHT' => 'LCITTOTWGHT',
+        'COL_LCITTOTWGHT' => 'LCITTOTWGHT',
+        'LcitTotWght' => 'LCITTOTWGHT',
+        'load_cpn_item.LcitTotWght' => 'LCITTOTWGHT',
+        'Lcituom' => 'LCITUOM',
+        'CpnLoadItem.Lcituom' => 'LCITUOM',
+        'lcituom' => 'LCITUOM',
+        'cpnLoadItem.lcituom' => 'LCITUOM',
+        'CpnLoadItemTableMap::COL_LCITUOM' => 'LCITUOM',
+        'COL_LCITUOM' => 'LCITUOM',
+        'LcitUom' => 'LCITUOM',
+        'load_cpn_item.LcitUom' => 'LCITUOM',
+        'Lcitqtyship' => 'LCITQTYSHIP',
+        'CpnLoadItem.Lcitqtyship' => 'LCITQTYSHIP',
+        'lcitqtyship' => 'LCITQTYSHIP',
+        'cpnLoadItem.lcitqtyship' => 'LCITQTYSHIP',
+        'CpnLoadItemTableMap::COL_LCITQTYSHIP' => 'LCITQTYSHIP',
+        'COL_LCITQTYSHIP' => 'LCITQTYSHIP',
+        'LcitQtyShip' => 'LCITQTYSHIP',
+        'load_cpn_item.LcitQtyShip' => 'LCITQTYSHIP',
+        'Dateupdtd' => 'DATEUPDTD',
+        'CpnLoadItem.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'cpnLoadItem.dateupdtd' => 'DATEUPDTD',
+        'CpnLoadItemTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'load_cpn_item.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'CpnLoadItem.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'cpnLoadItem.timeupdtd' => 'TIMEUPDTD',
+        'CpnLoadItemTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'load_cpn_item.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'CpnLoadItem.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'cpnLoadItem.dummy' => 'DUMMY',
+        'CpnLoadItemTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'load_cpn_item.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('load_cpn_item');
@@ -207,22 +350,24 @@ class CpnLoadItemTableMap extends TableMap
         $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
         $this->addPrimaryKey('LcitLotSer', 'Lcitlotser', 'VARCHAR', true, 20, '');
         $this->addPrimaryKey('LcitSkidNbr', 'Lcitskidnbr', 'INTEGER', true, 4, 0);
-        $this->addColumn('LcitQtyOrd', 'Lcitqtyord', 'DECIMAL', true, 20, 0);
+        $this->addColumn('LcitQtyOrd', 'Lcitqtyord', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('LcitRqstDate', 'Lcitrqstdate', 'CHAR', true, 8, '');
         $this->addColumn('LcitQtyPerBox', 'Lcitqtyperbox', 'INTEGER', true, 8, 0);
         $this->addColumn('LcitNbrOfBoxes', 'Lcitnbrofboxes', 'INTEGER', true, 8, 0);
-        $this->addColumn('LcitTotWght', 'Lcittotwght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('LcitTotWght', 'Lcittotwght', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('LcitUom', 'Lcituom', 'VARCHAR', true, 4, '');
-        $this->addColumn('LcitQtyShip', 'Lcitqtyship', 'DECIMAL', true, 20, 0);
+        $this->addColumn('LcitQtyShip', 'Lcitqtyship', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('CpnLoad', '\\CpnLoad', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -231,7 +376,7 @@ class CpnLoadItemTableMap extends TableMap
     1 => ':LchdLoadNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -242,9 +387,11 @@ class CpnLoadItemTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \CpnLoadItem $obj A \CpnLoadItem object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(CpnLoadItem $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -263,8 +410,10 @@ class CpnLoadItemTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \CpnLoadItem object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \CpnLoadItem) {
@@ -292,14 +441,14 @@ class CpnLoadItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Lchdloadnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lcorordrnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Lcitlinenbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Lcitlotser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Lcitskidnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -314,14 +463,14 @@ class CpnLoadItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -367,10 +516,10 @@ class CpnLoadItemTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CpnLoadItemTableMap::CLASS_DEFAULT : CpnLoadItemTableMap::OM_CLASS;
     }
@@ -378,17 +527,17 @@ class CpnLoadItemTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CpnLoadItem object, last column rank)
+     * @return array (CpnLoadItem object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CpnLoadItemTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CpnLoadItemTableMap::getInstanceFromPool($key))) {
@@ -404,7 +553,7 @@ class CpnLoadItemTableMap extends TableMap
             CpnLoadItemTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -412,13 +561,13 @@ class CpnLoadItemTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -448,12 +597,13 @@ class CpnLoadItemTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CpnLoadItemTableMap::COL_LCHDLOADNBR);
@@ -493,40 +643,80 @@ class CpnLoadItemTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCHDLOADNBR);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCORORDRNBR);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITLINENBR);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITLOTSER);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITSKIDNBR);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITQTYORD);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITRQSTDATE);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITQTYPERBOX);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITNBROFBOXES);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITTOTWGHT);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITUOM);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_LCITQTYSHIP);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(CpnLoadItemTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.LchdLoadNbr');
+            $criteria->removeSelectColumn($alias . '.LcorOrdrNbr');
+            $criteria->removeSelectColumn($alias . '.LcitLineNbr');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.LcitLotSer');
+            $criteria->removeSelectColumn($alias . '.LcitSkidNbr');
+            $criteria->removeSelectColumn($alias . '.LcitQtyOrd');
+            $criteria->removeSelectColumn($alias . '.LcitRqstDate');
+            $criteria->removeSelectColumn($alias . '.LcitQtyPerBox');
+            $criteria->removeSelectColumn($alias . '.LcitNbrOfBoxes');
+            $criteria->removeSelectColumn($alias . '.LcitTotWght');
+            $criteria->removeSelectColumn($alias . '.LcitUom');
+            $criteria->removeSelectColumn($alias . '.LcitQtyShip');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CpnLoadItemTableMap::DATABASE_NAME)->getTable(CpnLoadItemTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CpnLoadItemTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CpnLoadItemTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CpnLoadItemTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a CpnLoadItem or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CpnLoadItem object or primary key or array of primary keys
+     * @param mixed $values Criteria or CpnLoadItem object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadItemTableMap::DATABASE_NAME);
@@ -544,7 +734,7 @@ class CpnLoadItemTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(CpnLoadItemTableMap::COL_LCHDLOADNBR, $value[0]);
@@ -576,7 +766,7 @@ class CpnLoadItemTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CpnLoadItemQuery::create()->doDeleteAll($con);
     }
@@ -584,13 +774,13 @@ class CpnLoadItemTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a CpnLoadItem or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CpnLoadItem object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or CpnLoadItem object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadItemTableMap::DATABASE_NAME);
@@ -613,7 +803,4 @@ class CpnLoadItemTableMap extends TableMap
         });
     }
 
-} // CpnLoadItemTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CpnLoadItemTableMap::buildTableMap();
+}

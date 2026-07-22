@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CstkHeadTableMap extends TableMap
 {
@@ -34,154 +33,282 @@ class CstkHeadTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CstkHeadTableMap';
+    public const CLASS_NAME = '.Map.CstkHeadTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'cust_stock_head';
+    public const TABLE_NAME = 'cust_stock_head';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'CstkHead';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CstkHead';
+    public const OM_CLASS = '\\CstkHead';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CstkHead';
+    public const CLASS_DEFAULT = 'CstkHead';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 14;
+    public const NUM_COLUMNS = 14;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 14;
+    public const NUM_HYDRATE_COLUMNS = 14;
 
     /**
      * the column name for the ArcuCustId field
      */
-    const COL_ARCUCUSTID = 'cust_stock_head.ArcuCustId';
+    public const COL_ARCUCUSTID = 'cust_stock_head.ArcuCustId';
 
     /**
      * the column name for the ArstShipId field
      */
-    const COL_ARSTSHIPID = 'cust_stock_head.ArstShipId';
+    public const COL_ARSTSHIPID = 'cust_stock_head.ArstShipId';
 
     /**
      * the column name for the CskhCell field
      */
-    const COL_CSKHCELL = 'cust_stock_head.CskhCell';
+    public const COL_CSKHCELL = 'cust_stock_head.CskhCell';
 
     /**
      * the column name for the CskhEnterDate field
      */
-    const COL_CSKHENTERDATE = 'cust_stock_head.CskhEnterDate';
+    public const COL_CSKHENTERDATE = 'cust_stock_head.CskhEnterDate';
 
     /**
      * the column name for the CskhConsign field
      */
-    const COL_CSKHCONSIGN = 'cust_stock_head.CskhConsign';
+    public const COL_CSKHCONSIGN = 'cust_stock_head.CskhConsign';
 
     /**
      * the column name for the CskhReplCnt field
      */
-    const COL_CSKHREPLCNT = 'cust_stock_head.CskhReplCnt';
+    public const COL_CSKHREPLCNT = 'cust_stock_head.CskhReplCnt';
 
     /**
      * the column name for the CskhLabelFormat field
      */
-    const COL_CSKHLABELFORMAT = 'cust_stock_head.CskhLabelFormat';
+    public const COL_CSKHLABELFORMAT = 'cust_stock_head.CskhLabelFormat';
 
     /**
      * the column name for the CskhWhse field
      */
-    const COL_CSKHWHSE = 'cust_stock_head.CskhWhse';
+    public const COL_CSKHWHSE = 'cust_stock_head.CskhWhse';
 
     /**
      * the column name for the CskhApproved field
      */
-    const COL_CSKHAPPROVED = 'cust_stock_head.CskhApproved';
+    public const COL_CSKHAPPROVED = 'cust_stock_head.CskhApproved';
 
     /**
      * the column name for the CskhConsignBinWhse field
      */
-    const COL_CSKHCONSIGNBINWHSE = 'cust_stock_head.CskhConsignBinWhse';
+    public const COL_CSKHCONSIGNBINWHSE = 'cust_stock_head.CskhConsignBinWhse';
 
     /**
      * the column name for the CskhConsignBinCust field
      */
-    const COL_CSKHCONSIGNBINCUST = 'cust_stock_head.CskhConsignBinCust';
+    public const COL_CSKHCONSIGNBINCUST = 'cust_stock_head.CskhConsignBinCust';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'cust_stock_head.DateUpdtd';
+    public const COL_DATEUPDTD = 'cust_stock_head.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'cust_stock_head.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'cust_stock_head.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'cust_stock_head.dummy';
+    public const COL_DUMMY = 'cust_stock_head.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Arcucustid', 'Arstshipid', 'Cskhcell', 'Cskhenterdate', 'Cskhconsign', 'Cskhreplcnt', 'Cskhlabelformat', 'Cskhwhse', 'Cskhapproved', 'Cskhconsignbinwhse', 'Cskhconsignbincust', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('arcucustid', 'arstshipid', 'cskhcell', 'cskhenterdate', 'cskhconsign', 'cskhreplcnt', 'cskhlabelformat', 'cskhwhse', 'cskhapproved', 'cskhconsignbinwhse', 'cskhconsignbincust', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CstkHeadTableMap::COL_ARCUCUSTID, CstkHeadTableMap::COL_ARSTSHIPID, CstkHeadTableMap::COL_CSKHCELL, CstkHeadTableMap::COL_CSKHENTERDATE, CstkHeadTableMap::COL_CSKHCONSIGN, CstkHeadTableMap::COL_CSKHREPLCNT, CstkHeadTableMap::COL_CSKHLABELFORMAT, CstkHeadTableMap::COL_CSKHWHSE, CstkHeadTableMap::COL_CSKHAPPROVED, CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE, CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, CstkHeadTableMap::COL_DATEUPDTD, CstkHeadTableMap::COL_TIMEUPDTD, CstkHeadTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId', 'ArstShipId', 'CskhCell', 'CskhEnterDate', 'CskhConsign', 'CskhReplCnt', 'CskhLabelFormat', 'CskhWhse', 'CskhApproved', 'CskhConsignBinWhse', 'CskhConsignBinCust', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Arcucustid', 'Arstshipid', 'Cskhcell', 'Cskhenterdate', 'Cskhconsign', 'Cskhreplcnt', 'Cskhlabelformat', 'Cskhwhse', 'Cskhapproved', 'Cskhconsignbinwhse', 'Cskhconsignbincust', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['arcucustid', 'arstshipid', 'cskhcell', 'cskhenterdate', 'cskhconsign', 'cskhreplcnt', 'cskhlabelformat', 'cskhwhse', 'cskhapproved', 'cskhconsignbinwhse', 'cskhconsignbincust', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [CstkHeadTableMap::COL_ARCUCUSTID, CstkHeadTableMap::COL_ARSTSHIPID, CstkHeadTableMap::COL_CSKHCELL, CstkHeadTableMap::COL_CSKHENTERDATE, CstkHeadTableMap::COL_CSKHCONSIGN, CstkHeadTableMap::COL_CSKHREPLCNT, CstkHeadTableMap::COL_CSKHLABELFORMAT, CstkHeadTableMap::COL_CSKHWHSE, CstkHeadTableMap::COL_CSKHAPPROVED, CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE, CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, CstkHeadTableMap::COL_DATEUPDTD, CstkHeadTableMap::COL_TIMEUPDTD, CstkHeadTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ArcuCustId', 'ArstShipId', 'CskhCell', 'CskhEnterDate', 'CskhConsign', 'CskhReplCnt', 'CskhLabelFormat', 'CskhWhse', 'CskhApproved', 'CskhConsignBinWhse', 'CskhConsignBinCust', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Arstshipid' => 1, 'Cskhcell' => 2, 'Cskhenterdate' => 3, 'Cskhconsign' => 4, 'Cskhreplcnt' => 5, 'Cskhlabelformat' => 6, 'Cskhwhse' => 7, 'Cskhapproved' => 8, 'Cskhconsignbinwhse' => 9, 'Cskhconsignbincust' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ),
-        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'arstshipid' => 1, 'cskhcell' => 2, 'cskhenterdate' => 3, 'cskhconsign' => 4, 'cskhreplcnt' => 5, 'cskhlabelformat' => 6, 'cskhwhse' => 7, 'cskhapproved' => 8, 'cskhconsignbinwhse' => 9, 'cskhconsignbincust' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ),
-        self::TYPE_COLNAME       => array(CstkHeadTableMap::COL_ARCUCUSTID => 0, CstkHeadTableMap::COL_ARSTSHIPID => 1, CstkHeadTableMap::COL_CSKHCELL => 2, CstkHeadTableMap::COL_CSKHENTERDATE => 3, CstkHeadTableMap::COL_CSKHCONSIGN => 4, CstkHeadTableMap::COL_CSKHREPLCNT => 5, CstkHeadTableMap::COL_CSKHLABELFORMAT => 6, CstkHeadTableMap::COL_CSKHWHSE => 7, CstkHeadTableMap::COL_CSKHAPPROVED => 8, CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE => 9, CstkHeadTableMap::COL_CSKHCONSIGNBINCUST => 10, CstkHeadTableMap::COL_DATEUPDTD => 11, CstkHeadTableMap::COL_TIMEUPDTD => 12, CstkHeadTableMap::COL_DUMMY => 13, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'ArstShipId' => 1, 'CskhCell' => 2, 'CskhEnterDate' => 3, 'CskhConsign' => 4, 'CskhReplCnt' => 5, 'CskhLabelFormat' => 6, 'CskhWhse' => 7, 'CskhApproved' => 8, 'CskhConsignBinWhse' => 9, 'CskhConsignBinCust' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Arcucustid' => 0, 'Arstshipid' => 1, 'Cskhcell' => 2, 'Cskhenterdate' => 3, 'Cskhconsign' => 4, 'Cskhreplcnt' => 5, 'Cskhlabelformat' => 6, 'Cskhwhse' => 7, 'Cskhapproved' => 8, 'Cskhconsignbinwhse' => 9, 'Cskhconsignbincust' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ],
+        self::TYPE_CAMELNAME     => ['arcucustid' => 0, 'arstshipid' => 1, 'cskhcell' => 2, 'cskhenterdate' => 3, 'cskhconsign' => 4, 'cskhreplcnt' => 5, 'cskhlabelformat' => 6, 'cskhwhse' => 7, 'cskhapproved' => 8, 'cskhconsignbinwhse' => 9, 'cskhconsignbincust' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ],
+        self::TYPE_COLNAME       => [CstkHeadTableMap::COL_ARCUCUSTID => 0, CstkHeadTableMap::COL_ARSTSHIPID => 1, CstkHeadTableMap::COL_CSKHCELL => 2, CstkHeadTableMap::COL_CSKHENTERDATE => 3, CstkHeadTableMap::COL_CSKHCONSIGN => 4, CstkHeadTableMap::COL_CSKHREPLCNT => 5, CstkHeadTableMap::COL_CSKHLABELFORMAT => 6, CstkHeadTableMap::COL_CSKHWHSE => 7, CstkHeadTableMap::COL_CSKHAPPROVED => 8, CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE => 9, CstkHeadTableMap::COL_CSKHCONSIGNBINCUST => 10, CstkHeadTableMap::COL_DATEUPDTD => 11, CstkHeadTableMap::COL_TIMEUPDTD => 12, CstkHeadTableMap::COL_DUMMY => 13, ],
+        self::TYPE_FIELDNAME     => ['ArcuCustId' => 0, 'ArstShipId' => 1, 'CskhCell' => 2, 'CskhEnterDate' => 3, 'CskhConsign' => 4, 'CskhReplCnt' => 5, 'CskhLabelFormat' => 6, 'CskhWhse' => 7, 'CskhApproved' => 8, 'CskhConsignBinWhse' => 9, 'CskhConsignBinCust' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Arcucustid' => 'ARCUCUSTID',
+        'CstkHead.Arcucustid' => 'ARCUCUSTID',
+        'arcucustid' => 'ARCUCUSTID',
+        'cstkHead.arcucustid' => 'ARCUCUSTID',
+        'CstkHeadTableMap::COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'ArcuCustId' => 'ARCUCUSTID',
+        'cust_stock_head.ArcuCustId' => 'ARCUCUSTID',
+        'Arstshipid' => 'ARSTSHIPID',
+        'CstkHead.Arstshipid' => 'ARSTSHIPID',
+        'arstshipid' => 'ARSTSHIPID',
+        'cstkHead.arstshipid' => 'ARSTSHIPID',
+        'CstkHeadTableMap::COL_ARSTSHIPID' => 'ARSTSHIPID',
+        'COL_ARSTSHIPID' => 'ARSTSHIPID',
+        'ArstShipId' => 'ARSTSHIPID',
+        'cust_stock_head.ArstShipId' => 'ARSTSHIPID',
+        'Cskhcell' => 'CSKHCELL',
+        'CstkHead.Cskhcell' => 'CSKHCELL',
+        'cskhcell' => 'CSKHCELL',
+        'cstkHead.cskhcell' => 'CSKHCELL',
+        'CstkHeadTableMap::COL_CSKHCELL' => 'CSKHCELL',
+        'COL_CSKHCELL' => 'CSKHCELL',
+        'CskhCell' => 'CSKHCELL',
+        'cust_stock_head.CskhCell' => 'CSKHCELL',
+        'Cskhenterdate' => 'CSKHENTERDATE',
+        'CstkHead.Cskhenterdate' => 'CSKHENTERDATE',
+        'cskhenterdate' => 'CSKHENTERDATE',
+        'cstkHead.cskhenterdate' => 'CSKHENTERDATE',
+        'CstkHeadTableMap::COL_CSKHENTERDATE' => 'CSKHENTERDATE',
+        'COL_CSKHENTERDATE' => 'CSKHENTERDATE',
+        'CskhEnterDate' => 'CSKHENTERDATE',
+        'cust_stock_head.CskhEnterDate' => 'CSKHENTERDATE',
+        'Cskhconsign' => 'CSKHCONSIGN',
+        'CstkHead.Cskhconsign' => 'CSKHCONSIGN',
+        'cskhconsign' => 'CSKHCONSIGN',
+        'cstkHead.cskhconsign' => 'CSKHCONSIGN',
+        'CstkHeadTableMap::COL_CSKHCONSIGN' => 'CSKHCONSIGN',
+        'COL_CSKHCONSIGN' => 'CSKHCONSIGN',
+        'CskhConsign' => 'CSKHCONSIGN',
+        'cust_stock_head.CskhConsign' => 'CSKHCONSIGN',
+        'Cskhreplcnt' => 'CSKHREPLCNT',
+        'CstkHead.Cskhreplcnt' => 'CSKHREPLCNT',
+        'cskhreplcnt' => 'CSKHREPLCNT',
+        'cstkHead.cskhreplcnt' => 'CSKHREPLCNT',
+        'CstkHeadTableMap::COL_CSKHREPLCNT' => 'CSKHREPLCNT',
+        'COL_CSKHREPLCNT' => 'CSKHREPLCNT',
+        'CskhReplCnt' => 'CSKHREPLCNT',
+        'cust_stock_head.CskhReplCnt' => 'CSKHREPLCNT',
+        'Cskhlabelformat' => 'CSKHLABELFORMAT',
+        'CstkHead.Cskhlabelformat' => 'CSKHLABELFORMAT',
+        'cskhlabelformat' => 'CSKHLABELFORMAT',
+        'cstkHead.cskhlabelformat' => 'CSKHLABELFORMAT',
+        'CstkHeadTableMap::COL_CSKHLABELFORMAT' => 'CSKHLABELFORMAT',
+        'COL_CSKHLABELFORMAT' => 'CSKHLABELFORMAT',
+        'CskhLabelFormat' => 'CSKHLABELFORMAT',
+        'cust_stock_head.CskhLabelFormat' => 'CSKHLABELFORMAT',
+        'Cskhwhse' => 'CSKHWHSE',
+        'CstkHead.Cskhwhse' => 'CSKHWHSE',
+        'cskhwhse' => 'CSKHWHSE',
+        'cstkHead.cskhwhse' => 'CSKHWHSE',
+        'CstkHeadTableMap::COL_CSKHWHSE' => 'CSKHWHSE',
+        'COL_CSKHWHSE' => 'CSKHWHSE',
+        'CskhWhse' => 'CSKHWHSE',
+        'cust_stock_head.CskhWhse' => 'CSKHWHSE',
+        'Cskhapproved' => 'CSKHAPPROVED',
+        'CstkHead.Cskhapproved' => 'CSKHAPPROVED',
+        'cskhapproved' => 'CSKHAPPROVED',
+        'cstkHead.cskhapproved' => 'CSKHAPPROVED',
+        'CstkHeadTableMap::COL_CSKHAPPROVED' => 'CSKHAPPROVED',
+        'COL_CSKHAPPROVED' => 'CSKHAPPROVED',
+        'CskhApproved' => 'CSKHAPPROVED',
+        'cust_stock_head.CskhApproved' => 'CSKHAPPROVED',
+        'Cskhconsignbinwhse' => 'CSKHCONSIGNBINWHSE',
+        'CstkHead.Cskhconsignbinwhse' => 'CSKHCONSIGNBINWHSE',
+        'cskhconsignbinwhse' => 'CSKHCONSIGNBINWHSE',
+        'cstkHead.cskhconsignbinwhse' => 'CSKHCONSIGNBINWHSE',
+        'CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE' => 'CSKHCONSIGNBINWHSE',
+        'COL_CSKHCONSIGNBINWHSE' => 'CSKHCONSIGNBINWHSE',
+        'CskhConsignBinWhse' => 'CSKHCONSIGNBINWHSE',
+        'cust_stock_head.CskhConsignBinWhse' => 'CSKHCONSIGNBINWHSE',
+        'Cskhconsignbincust' => 'CSKHCONSIGNBINCUST',
+        'CstkHead.Cskhconsignbincust' => 'CSKHCONSIGNBINCUST',
+        'cskhconsignbincust' => 'CSKHCONSIGNBINCUST',
+        'cstkHead.cskhconsignbincust' => 'CSKHCONSIGNBINCUST',
+        'CstkHeadTableMap::COL_CSKHCONSIGNBINCUST' => 'CSKHCONSIGNBINCUST',
+        'COL_CSKHCONSIGNBINCUST' => 'CSKHCONSIGNBINCUST',
+        'CskhConsignBinCust' => 'CSKHCONSIGNBINCUST',
+        'cust_stock_head.CskhConsignBinCust' => 'CSKHCONSIGNBINCUST',
+        'Dateupdtd' => 'DATEUPDTD',
+        'CstkHead.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'cstkHead.dateupdtd' => 'DATEUPDTD',
+        'CstkHeadTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'cust_stock_head.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'CstkHead.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'cstkHead.timeupdtd' => 'TIMEUPDTD',
+        'CstkHeadTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'cust_stock_head.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'CstkHead.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'cstkHead.dummy' => 'DUMMY',
+        'CstkHeadTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'cust_stock_head.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('cust_stock_head');
@@ -195,23 +322,25 @@ class CstkHeadTableMap extends TableMap
         $this->addForeignPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR' , 'ar_ship_to', 'ArcuCustId', true, 6, '');
         $this->addForeignPrimaryKey('ArstShipId', 'Arstshipid', 'VARCHAR' , 'ar_ship_to', 'ArstShipId', true, 6, '');
         $this->addPrimaryKey('CskhCell', 'Cskhcell', 'VARCHAR', true, 8, '');
-        $this->addColumn('CskhEnterDate', 'Cskhenterdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('CskhConsign', 'Cskhconsign', 'VARCHAR', false, 1, null);
-        $this->addColumn('CskhReplCnt', 'Cskhreplcnt', 'VARCHAR', false, 1, null);
-        $this->addColumn('CskhLabelFormat', 'Cskhlabelformat', 'VARCHAR', false, 8, null);
-        $this->addColumn('CskhWhse', 'Cskhwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('CskhApproved', 'Cskhapproved', 'VARCHAR', false, 1, null);
-        $this->addColumn('CskhConsignBinWhse', 'Cskhconsignbinwhse', 'VARCHAR', false, 8, null);
-        $this->addColumn('CskhConsignBinCust', 'Cskhconsignbincust', 'VARCHAR', false, 8, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+        $this->addColumn('CskhEnterDate', 'Cskhenterdate', 'VARCHAR', true, 8, '');
+        $this->addColumn('CskhConsign', 'Cskhconsign', 'VARCHAR', true, 1, 'N');
+        $this->addColumn('CskhReplCnt', 'Cskhreplcnt', 'VARCHAR', true, 1, 'R');
+        $this->addColumn('CskhLabelFormat', 'Cskhlabelformat', 'VARCHAR', true, 8, '');
+        $this->addColumn('CskhWhse', 'Cskhwhse', 'VARCHAR', true, 2, '');
+        $this->addColumn('CskhApproved', 'Cskhapproved', 'VARCHAR', true, 1, 'N');
+        $this->addColumn('CskhConsignBinWhse', 'Cskhconsignbinwhse', 'VARCHAR', true, 8, '');
+        $this->addColumn('CskhConsignBinCust', 'Cskhconsignbincust', 'VARCHAR', true, 8, '');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'VARCHAR', true, 1, 'P');
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -232,24 +361,7 @@ class CstkHeadTableMap extends TableMap
     1 => ':ArstShipId',
   ),
 ), null, null, null, false);
-        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY, array (
-  0 =>
-  array (
-    0 => ':ArcuCustId',
-    1 => ':ArcuCustId',
-  ),
-  1 =>
-  array (
-    0 => ':ArstShipId',
-    1 => ':ArstShipId',
-  ),
-  2 =>
-  array (
-    0 => ':CskhCell',
-    1 => ':CskhCell',
-  ),
-), null, null, 'CstkItems', false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -260,9 +372,11 @@ class CstkHeadTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \CstkHead $obj A \CstkHead object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(CstkHead $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -281,8 +395,10 @@ class CstkHeadTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \CstkHead object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \CstkHead) {
@@ -310,14 +426,14 @@ class CstkHeadTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Cskhcell', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -332,14 +448,14 @@ class CstkHeadTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -370,10 +486,10 @@ class CstkHeadTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CstkHeadTableMap::CLASS_DEFAULT : CstkHeadTableMap::OM_CLASS;
     }
@@ -381,17 +497,17 @@ class CstkHeadTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CstkHead object, last column rank)
+     * @return array (CstkHead object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CstkHeadTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CstkHeadTableMap::getInstanceFromPool($key))) {
@@ -407,7 +523,7 @@ class CstkHeadTableMap extends TableMap
             CstkHeadTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -415,13 +531,13 @@ class CstkHeadTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -451,12 +567,13 @@ class CstkHeadTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CstkHeadTableMap::COL_ARCUCUSTID);
@@ -492,40 +609,76 @@ class CstkHeadTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_ARCUCUSTID);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_ARSTSHIPID);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHCELL);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHENTERDATE);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHCONSIGN);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHREPLCNT);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHLABELFORMAT);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHWHSE);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHAPPROVED);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(CstkHeadTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ArcuCustId');
+            $criteria->removeSelectColumn($alias . '.ArstShipId');
+            $criteria->removeSelectColumn($alias . '.CskhCell');
+            $criteria->removeSelectColumn($alias . '.CskhEnterDate');
+            $criteria->removeSelectColumn($alias . '.CskhConsign');
+            $criteria->removeSelectColumn($alias . '.CskhReplCnt');
+            $criteria->removeSelectColumn($alias . '.CskhLabelFormat');
+            $criteria->removeSelectColumn($alias . '.CskhWhse');
+            $criteria->removeSelectColumn($alias . '.CskhApproved');
+            $criteria->removeSelectColumn($alias . '.CskhConsignBinWhse');
+            $criteria->removeSelectColumn($alias . '.CskhConsignBinCust');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CstkHeadTableMap::DATABASE_NAME)->getTable(CstkHeadTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CstkHeadTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CstkHeadTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CstkHeadTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a CstkHead or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CstkHead object or primary key or array of primary keys
+     * @param mixed $values Criteria or CstkHead object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CstkHeadTableMap::DATABASE_NAME);
@@ -543,7 +696,7 @@ class CstkHeadTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(CstkHeadTableMap::COL_ARCUCUSTID, $value[0]);
@@ -572,7 +725,7 @@ class CstkHeadTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CstkHeadQuery::create()->doDeleteAll($con);
     }
@@ -580,13 +733,13 @@ class CstkHeadTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a CstkHead or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CstkHead object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or CstkHead object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CstkHeadTableMap::DATABASE_NAME);
@@ -609,7 +762,4 @@ class CstkHeadTableMap extends TableMap
         });
     }
 
-} // CstkHeadTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CstkHeadTableMap::buildTableMap();
+}

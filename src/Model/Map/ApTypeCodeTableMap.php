@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ApTypeCodeTableMap extends TableMap
 {
@@ -34,124 +33,204 @@ class ApTypeCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ApTypeCodeTableMap';
+    public const CLASS_NAME = '.Map.ApTypeCodeTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'ap_type_code';
+    public const TABLE_NAME = 'ap_type_code';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ApTypeCode';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ApTypeCode';
+    public const OM_CLASS = '\\ApTypeCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ApTypeCode';
+    public const CLASS_DEFAULT = 'ApTypeCode';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 8;
+    public const NUM_COLUMNS = 8;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 8;
+    public const NUM_HYDRATE_COLUMNS = 8;
 
     /**
      * the column name for the AptbTypeCode field
      */
-    const COL_APTBTYPECODE = 'ap_type_code.AptbTypeCode';
+    public const COL_APTBTYPECODE = 'ap_type_code.AptbTypeCode';
 
     /**
      * the column name for the AptbTypeDesc field
      */
-    const COL_APTBTYPEDESC = 'ap_type_code.AptbTypeDesc';
+    public const COL_APTBTYPEDESC = 'ap_type_code.AptbTypeDesc';
 
     /**
      * the column name for the AptbTypeFab field
      */
-    const COL_APTBTYPEFAB = 'ap_type_code.AptbTypeFab';
+    public const COL_APTBTYPEFAB = 'ap_type_code.AptbTypeFab';
 
     /**
      * the column name for the AptbTypeProd field
      */
-    const COL_APTBTYPEPROD = 'ap_type_code.AptbTypeProd';
+    public const COL_APTBTYPEPROD = 'ap_type_code.AptbTypeProd';
 
     /**
      * the column name for the AptbTypeComp field
      */
-    const COL_APTBTYPECOMP = 'ap_type_code.AptbTypeComp';
+    public const COL_APTBTYPECOMP = 'ap_type_code.AptbTypeComp';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'ap_type_code.DateUpdtd';
+    public const COL_DATEUPDTD = 'ap_type_code.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'ap_type_code.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'ap_type_code.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'ap_type_code.dummy';
+    public const COL_DUMMY = 'ap_type_code.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Aptbtypecode', 'Aptbtypedesc', 'Aptbtypefab', 'Aptbtypeprod', 'Aptbtypecomp', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('aptbtypecode', 'aptbtypedesc', 'aptbtypefab', 'aptbtypeprod', 'aptbtypecomp', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ApTypeCodeTableMap::COL_APTBTYPECODE, ApTypeCodeTableMap::COL_APTBTYPEDESC, ApTypeCodeTableMap::COL_APTBTYPEFAB, ApTypeCodeTableMap::COL_APTBTYPEPROD, ApTypeCodeTableMap::COL_APTBTYPECOMP, ApTypeCodeTableMap::COL_DATEUPDTD, ApTypeCodeTableMap::COL_TIMEUPDTD, ApTypeCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('AptbTypeCode', 'AptbTypeDesc', 'AptbTypeFab', 'AptbTypeProd', 'AptbTypeComp', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Aptbtypecode', 'Aptbtypedesc', 'Aptbtypefab', 'Aptbtypeprod', 'Aptbtypecomp', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['aptbtypecode', 'aptbtypedesc', 'aptbtypefab', 'aptbtypeprod', 'aptbtypecomp', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ApTypeCodeTableMap::COL_APTBTYPECODE, ApTypeCodeTableMap::COL_APTBTYPEDESC, ApTypeCodeTableMap::COL_APTBTYPEFAB, ApTypeCodeTableMap::COL_APTBTYPEPROD, ApTypeCodeTableMap::COL_APTBTYPECOMP, ApTypeCodeTableMap::COL_DATEUPDTD, ApTypeCodeTableMap::COL_TIMEUPDTD, ApTypeCodeTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['AptbTypeCode', 'AptbTypeDesc', 'AptbTypeFab', 'AptbTypeProd', 'AptbTypeComp', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Aptbtypecode' => 0, 'Aptbtypedesc' => 1, 'Aptbtypefab' => 2, 'Aptbtypeprod' => 3, 'Aptbtypecomp' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ),
-        self::TYPE_CAMELNAME     => array('aptbtypecode' => 0, 'aptbtypedesc' => 1, 'aptbtypefab' => 2, 'aptbtypeprod' => 3, 'aptbtypecomp' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_COLNAME       => array(ApTypeCodeTableMap::COL_APTBTYPECODE => 0, ApTypeCodeTableMap::COL_APTBTYPEDESC => 1, ApTypeCodeTableMap::COL_APTBTYPEFAB => 2, ApTypeCodeTableMap::COL_APTBTYPEPROD => 3, ApTypeCodeTableMap::COL_APTBTYPECOMP => 4, ApTypeCodeTableMap::COL_DATEUPDTD => 5, ApTypeCodeTableMap::COL_TIMEUPDTD => 6, ApTypeCodeTableMap::COL_DUMMY => 7, ),
-        self::TYPE_FIELDNAME     => array('AptbTypeCode' => 0, 'AptbTypeDesc' => 1, 'AptbTypeFab' => 2, 'AptbTypeProd' => 3, 'AptbTypeComp' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Aptbtypecode' => 0, 'Aptbtypedesc' => 1, 'Aptbtypefab' => 2, 'Aptbtypeprod' => 3, 'Aptbtypecomp' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ],
+        self::TYPE_CAMELNAME     => ['aptbtypecode' => 0, 'aptbtypedesc' => 1, 'aptbtypefab' => 2, 'aptbtypeprod' => 3, 'aptbtypecomp' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ],
+        self::TYPE_COLNAME       => [ApTypeCodeTableMap::COL_APTBTYPECODE => 0, ApTypeCodeTableMap::COL_APTBTYPEDESC => 1, ApTypeCodeTableMap::COL_APTBTYPEFAB => 2, ApTypeCodeTableMap::COL_APTBTYPEPROD => 3, ApTypeCodeTableMap::COL_APTBTYPECOMP => 4, ApTypeCodeTableMap::COL_DATEUPDTD => 5, ApTypeCodeTableMap::COL_TIMEUPDTD => 6, ApTypeCodeTableMap::COL_DUMMY => 7, ],
+        self::TYPE_FIELDNAME     => ['AptbTypeCode' => 0, 'AptbTypeDesc' => 1, 'AptbTypeFab' => 2, 'AptbTypeProd' => 3, 'AptbTypeComp' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Aptbtypecode' => 'APTBTYPECODE',
+        'ApTypeCode.Aptbtypecode' => 'APTBTYPECODE',
+        'aptbtypecode' => 'APTBTYPECODE',
+        'apTypeCode.aptbtypecode' => 'APTBTYPECODE',
+        'ApTypeCodeTableMap::COL_APTBTYPECODE' => 'APTBTYPECODE',
+        'COL_APTBTYPECODE' => 'APTBTYPECODE',
+        'AptbTypeCode' => 'APTBTYPECODE',
+        'ap_type_code.AptbTypeCode' => 'APTBTYPECODE',
+        'Aptbtypedesc' => 'APTBTYPEDESC',
+        'ApTypeCode.Aptbtypedesc' => 'APTBTYPEDESC',
+        'aptbtypedesc' => 'APTBTYPEDESC',
+        'apTypeCode.aptbtypedesc' => 'APTBTYPEDESC',
+        'ApTypeCodeTableMap::COL_APTBTYPEDESC' => 'APTBTYPEDESC',
+        'COL_APTBTYPEDESC' => 'APTBTYPEDESC',
+        'AptbTypeDesc' => 'APTBTYPEDESC',
+        'ap_type_code.AptbTypeDesc' => 'APTBTYPEDESC',
+        'Aptbtypefab' => 'APTBTYPEFAB',
+        'ApTypeCode.Aptbtypefab' => 'APTBTYPEFAB',
+        'aptbtypefab' => 'APTBTYPEFAB',
+        'apTypeCode.aptbtypefab' => 'APTBTYPEFAB',
+        'ApTypeCodeTableMap::COL_APTBTYPEFAB' => 'APTBTYPEFAB',
+        'COL_APTBTYPEFAB' => 'APTBTYPEFAB',
+        'AptbTypeFab' => 'APTBTYPEFAB',
+        'ap_type_code.AptbTypeFab' => 'APTBTYPEFAB',
+        'Aptbtypeprod' => 'APTBTYPEPROD',
+        'ApTypeCode.Aptbtypeprod' => 'APTBTYPEPROD',
+        'aptbtypeprod' => 'APTBTYPEPROD',
+        'apTypeCode.aptbtypeprod' => 'APTBTYPEPROD',
+        'ApTypeCodeTableMap::COL_APTBTYPEPROD' => 'APTBTYPEPROD',
+        'COL_APTBTYPEPROD' => 'APTBTYPEPROD',
+        'AptbTypeProd' => 'APTBTYPEPROD',
+        'ap_type_code.AptbTypeProd' => 'APTBTYPEPROD',
+        'Aptbtypecomp' => 'APTBTYPECOMP',
+        'ApTypeCode.Aptbtypecomp' => 'APTBTYPECOMP',
+        'aptbtypecomp' => 'APTBTYPECOMP',
+        'apTypeCode.aptbtypecomp' => 'APTBTYPECOMP',
+        'ApTypeCodeTableMap::COL_APTBTYPECOMP' => 'APTBTYPECOMP',
+        'COL_APTBTYPECOMP' => 'APTBTYPECOMP',
+        'AptbTypeComp' => 'APTBTYPECOMP',
+        'ap_type_code.AptbTypeComp' => 'APTBTYPECOMP',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ApTypeCode.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'apTypeCode.dateupdtd' => 'DATEUPDTD',
+        'ApTypeCodeTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'ap_type_code.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ApTypeCode.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'apTypeCode.timeupdtd' => 'TIMEUPDTD',
+        'ApTypeCodeTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'ap_type_code.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ApTypeCode.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'apTypeCode.dummy' => 'DUMMY',
+        'ApTypeCodeTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'ap_type_code.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('ap_type_code');
@@ -169,12 +248,14 @@ class ApTypeCodeTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Vendor', '\\Vendor', RelationMap::ONE_TO_MANY, array (
   0 =>
@@ -183,7 +264,7 @@ class ApTypeCodeTableMap extends TableMap
     1 => ':AptbTypeCode',
   ),
 ), null, null, 'Vendors', false);
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -191,14 +272,14 @@ class ApTypeCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Aptbtypecode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -213,14 +294,14 @@ class ApTypeCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -237,10 +318,10 @@ class ApTypeCodeTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ApTypeCodeTableMap::CLASS_DEFAULT : ApTypeCodeTableMap::OM_CLASS;
     }
@@ -248,17 +329,17 @@ class ApTypeCodeTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ApTypeCode object, last column rank)
+     * @return array (ApTypeCode object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ApTypeCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ApTypeCodeTableMap::getInstanceFromPool($key))) {
@@ -274,7 +355,7 @@ class ApTypeCodeTableMap extends TableMap
             ApTypeCodeTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -282,13 +363,13 @@ class ApTypeCodeTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -318,12 +399,13 @@ class ApTypeCodeTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ApTypeCodeTableMap::COL_APTBTYPECODE);
@@ -347,40 +429,64 @@ class ApTypeCodeTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ApTypeCodeTableMap::COL_APTBTYPECODE);
+            $criteria->removeSelectColumn(ApTypeCodeTableMap::COL_APTBTYPEDESC);
+            $criteria->removeSelectColumn(ApTypeCodeTableMap::COL_APTBTYPEFAB);
+            $criteria->removeSelectColumn(ApTypeCodeTableMap::COL_APTBTYPEPROD);
+            $criteria->removeSelectColumn(ApTypeCodeTableMap::COL_APTBTYPECOMP);
+            $criteria->removeSelectColumn(ApTypeCodeTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ApTypeCodeTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ApTypeCodeTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.AptbTypeCode');
+            $criteria->removeSelectColumn($alias . '.AptbTypeDesc');
+            $criteria->removeSelectColumn($alias . '.AptbTypeFab');
+            $criteria->removeSelectColumn($alias . '.AptbTypeProd');
+            $criteria->removeSelectColumn($alias . '.AptbTypeComp');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ApTypeCodeTableMap::DATABASE_NAME)->getTable(ApTypeCodeTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ApTypeCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ApTypeCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ApTypeCodeTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ApTypeCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ApTypeCode object or primary key or array of primary keys
+     * @param mixed $values Criteria or ApTypeCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApTypeCodeTableMap::DATABASE_NAME);
@@ -416,7 +522,7 @@ class ApTypeCodeTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ApTypeCodeQuery::create()->doDeleteAll($con);
     }
@@ -424,13 +530,13 @@ class ApTypeCodeTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ApTypeCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ApTypeCode object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ApTypeCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApTypeCodeTableMap::DATABASE_NAME);
@@ -453,7 +559,4 @@ class ApTypeCodeTableMap extends TableMap
         });
     }
 
-} // ApTypeCodeTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ApTypeCodeTableMap::buildTableMap();
+}

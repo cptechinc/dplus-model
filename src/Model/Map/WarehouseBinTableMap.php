@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class WarehouseBinTableMap extends TableMap
 {
@@ -34,129 +33,217 @@ class WarehouseBinTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WarehouseBinTableMap';
+    public const CLASS_NAME = '.Map.WarehouseBinTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_bin_cntrl';
+    public const TABLE_NAME = 'inv_bin_cntrl';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'WarehouseBin';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\WarehouseBin';
+    public const OM_CLASS = '\\WarehouseBin';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'WarehouseBin';
+    public const CLASS_DEFAULT = 'WarehouseBin';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 9;
+    public const NUM_COLUMNS = 9;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 9;
+    public const NUM_HYDRATE_COLUMNS = 9;
 
     /**
      * the column name for the IntbWhse field
      */
-    const COL_INTBWHSE = 'inv_bin_cntrl.IntbWhse';
+    public const COL_INTBWHSE = 'inv_bin_cntrl.IntbWhse';
 
     /**
      * the column name for the BnctBinFrom field
      */
-    const COL_BNCTBINFROM = 'inv_bin_cntrl.BnctBinFrom';
+    public const COL_BNCTBINFROM = 'inv_bin_cntrl.BnctBinFrom';
 
     /**
      * the column name for the BnctBinThru field
      */
-    const COL_BNCTBINTHRU = 'inv_bin_cntrl.BnctBinThru';
+    public const COL_BNCTBINTHRU = 'inv_bin_cntrl.BnctBinThru';
 
     /**
      * the column name for the BnctTypeDesc field
      */
-    const COL_BNCTTYPEDESC = 'inv_bin_cntrl.BnctTypeDesc';
+    public const COL_BNCTTYPEDESC = 'inv_bin_cntrl.BnctTypeDesc';
 
     /**
      * the column name for the BnctBinArea field
      */
-    const COL_BNCTBINAREA = 'inv_bin_cntrl.BnctBinArea';
+    public const COL_BNCTBINAREA = 'inv_bin_cntrl.BnctBinArea';
 
     /**
      * the column name for the BnctBinDesc field
      */
-    const COL_BNCTBINDESC = 'inv_bin_cntrl.BnctBinDesc';
+    public const COL_BNCTBINDESC = 'inv_bin_cntrl.BnctBinDesc';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_bin_cntrl.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_bin_cntrl.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_bin_cntrl.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_bin_cntrl.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_bin_cntrl.dummy';
+    public const COL_DUMMY = 'inv_bin_cntrl.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Intbwhse', 'Bnctbinfrom', 'Bnctbinthru', 'Bncttypedesc', 'Bnctbinarea', 'Bnctbindesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('intbwhse', 'bnctbinfrom', 'bnctbinthru', 'bncttypedesc', 'bnctbinarea', 'bnctbindesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(WarehouseBinTableMap::COL_INTBWHSE, WarehouseBinTableMap::COL_BNCTBINFROM, WarehouseBinTableMap::COL_BNCTBINTHRU, WarehouseBinTableMap::COL_BNCTTYPEDESC, WarehouseBinTableMap::COL_BNCTBINAREA, WarehouseBinTableMap::COL_BNCTBINDESC, WarehouseBinTableMap::COL_DATEUPDTD, WarehouseBinTableMap::COL_TIMEUPDTD, WarehouseBinTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('IntbWhse', 'BnctBinFrom', 'BnctBinThru', 'BnctTypeDesc', 'BnctBinArea', 'BnctBinDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Intbwhse', 'Bnctbinfrom', 'Bnctbinthru', 'Bncttypedesc', 'Bnctbinarea', 'Bnctbindesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['intbwhse', 'bnctbinfrom', 'bnctbinthru', 'bncttypedesc', 'bnctbinarea', 'bnctbindesc', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [WarehouseBinTableMap::COL_INTBWHSE, WarehouseBinTableMap::COL_BNCTBINFROM, WarehouseBinTableMap::COL_BNCTBINTHRU, WarehouseBinTableMap::COL_BNCTTYPEDESC, WarehouseBinTableMap::COL_BNCTBINAREA, WarehouseBinTableMap::COL_BNCTBINDESC, WarehouseBinTableMap::COL_DATEUPDTD, WarehouseBinTableMap::COL_TIMEUPDTD, WarehouseBinTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['IntbWhse', 'BnctBinFrom', 'BnctBinThru', 'BnctTypeDesc', 'BnctBinArea', 'BnctBinDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Intbwhse' => 0, 'Bnctbinfrom' => 1, 'Bnctbinthru' => 2, 'Bncttypedesc' => 3, 'Bnctbinarea' => 4, 'Bnctbindesc' => 5, 'Dateupdtd' => 6, 'Timeupdtd' => 7, 'Dummy' => 8, ),
-        self::TYPE_CAMELNAME     => array('intbwhse' => 0, 'bnctbinfrom' => 1, 'bnctbinthru' => 2, 'bncttypedesc' => 3, 'bnctbinarea' => 4, 'bnctbindesc' => 5, 'dateupdtd' => 6, 'timeupdtd' => 7, 'dummy' => 8, ),
-        self::TYPE_COLNAME       => array(WarehouseBinTableMap::COL_INTBWHSE => 0, WarehouseBinTableMap::COL_BNCTBINFROM => 1, WarehouseBinTableMap::COL_BNCTBINTHRU => 2, WarehouseBinTableMap::COL_BNCTTYPEDESC => 3, WarehouseBinTableMap::COL_BNCTBINAREA => 4, WarehouseBinTableMap::COL_BNCTBINDESC => 5, WarehouseBinTableMap::COL_DATEUPDTD => 6, WarehouseBinTableMap::COL_TIMEUPDTD => 7, WarehouseBinTableMap::COL_DUMMY => 8, ),
-        self::TYPE_FIELDNAME     => array('IntbWhse' => 0, 'BnctBinFrom' => 1, 'BnctBinThru' => 2, 'BnctTypeDesc' => 3, 'BnctBinArea' => 4, 'BnctBinDesc' => 5, 'DateUpdtd' => 6, 'TimeUpdtd' => 7, 'dummy' => 8, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Intbwhse' => 0, 'Bnctbinfrom' => 1, 'Bnctbinthru' => 2, 'Bncttypedesc' => 3, 'Bnctbinarea' => 4, 'Bnctbindesc' => 5, 'Dateupdtd' => 6, 'Timeupdtd' => 7, 'Dummy' => 8, ],
+        self::TYPE_CAMELNAME     => ['intbwhse' => 0, 'bnctbinfrom' => 1, 'bnctbinthru' => 2, 'bncttypedesc' => 3, 'bnctbinarea' => 4, 'bnctbindesc' => 5, 'dateupdtd' => 6, 'timeupdtd' => 7, 'dummy' => 8, ],
+        self::TYPE_COLNAME       => [WarehouseBinTableMap::COL_INTBWHSE => 0, WarehouseBinTableMap::COL_BNCTBINFROM => 1, WarehouseBinTableMap::COL_BNCTBINTHRU => 2, WarehouseBinTableMap::COL_BNCTTYPEDESC => 3, WarehouseBinTableMap::COL_BNCTBINAREA => 4, WarehouseBinTableMap::COL_BNCTBINDESC => 5, WarehouseBinTableMap::COL_DATEUPDTD => 6, WarehouseBinTableMap::COL_TIMEUPDTD => 7, WarehouseBinTableMap::COL_DUMMY => 8, ],
+        self::TYPE_FIELDNAME     => ['IntbWhse' => 0, 'BnctBinFrom' => 1, 'BnctBinThru' => 2, 'BnctTypeDesc' => 3, 'BnctBinArea' => 4, 'BnctBinDesc' => 5, 'DateUpdtd' => 6, 'TimeUpdtd' => 7, 'dummy' => 8, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Intbwhse' => 'INTBWHSE',
+        'WarehouseBin.Intbwhse' => 'INTBWHSE',
+        'intbwhse' => 'INTBWHSE',
+        'warehouseBin.intbwhse' => 'INTBWHSE',
+        'WarehouseBinTableMap::COL_INTBWHSE' => 'INTBWHSE',
+        'COL_INTBWHSE' => 'INTBWHSE',
+        'IntbWhse' => 'INTBWHSE',
+        'inv_bin_cntrl.IntbWhse' => 'INTBWHSE',
+        'Bnctbinfrom' => 'BNCTBINFROM',
+        'WarehouseBin.Bnctbinfrom' => 'BNCTBINFROM',
+        'bnctbinfrom' => 'BNCTBINFROM',
+        'warehouseBin.bnctbinfrom' => 'BNCTBINFROM',
+        'WarehouseBinTableMap::COL_BNCTBINFROM' => 'BNCTBINFROM',
+        'COL_BNCTBINFROM' => 'BNCTBINFROM',
+        'BnctBinFrom' => 'BNCTBINFROM',
+        'inv_bin_cntrl.BnctBinFrom' => 'BNCTBINFROM',
+        'Bnctbinthru' => 'BNCTBINTHRU',
+        'WarehouseBin.Bnctbinthru' => 'BNCTBINTHRU',
+        'bnctbinthru' => 'BNCTBINTHRU',
+        'warehouseBin.bnctbinthru' => 'BNCTBINTHRU',
+        'WarehouseBinTableMap::COL_BNCTBINTHRU' => 'BNCTBINTHRU',
+        'COL_BNCTBINTHRU' => 'BNCTBINTHRU',
+        'BnctBinThru' => 'BNCTBINTHRU',
+        'inv_bin_cntrl.BnctBinThru' => 'BNCTBINTHRU',
+        'Bncttypedesc' => 'BNCTTYPEDESC',
+        'WarehouseBin.Bncttypedesc' => 'BNCTTYPEDESC',
+        'bncttypedesc' => 'BNCTTYPEDESC',
+        'warehouseBin.bncttypedesc' => 'BNCTTYPEDESC',
+        'WarehouseBinTableMap::COL_BNCTTYPEDESC' => 'BNCTTYPEDESC',
+        'COL_BNCTTYPEDESC' => 'BNCTTYPEDESC',
+        'BnctTypeDesc' => 'BNCTTYPEDESC',
+        'inv_bin_cntrl.BnctTypeDesc' => 'BNCTTYPEDESC',
+        'Bnctbinarea' => 'BNCTBINAREA',
+        'WarehouseBin.Bnctbinarea' => 'BNCTBINAREA',
+        'bnctbinarea' => 'BNCTBINAREA',
+        'warehouseBin.bnctbinarea' => 'BNCTBINAREA',
+        'WarehouseBinTableMap::COL_BNCTBINAREA' => 'BNCTBINAREA',
+        'COL_BNCTBINAREA' => 'BNCTBINAREA',
+        'BnctBinArea' => 'BNCTBINAREA',
+        'inv_bin_cntrl.BnctBinArea' => 'BNCTBINAREA',
+        'Bnctbindesc' => 'BNCTBINDESC',
+        'WarehouseBin.Bnctbindesc' => 'BNCTBINDESC',
+        'bnctbindesc' => 'BNCTBINDESC',
+        'warehouseBin.bnctbindesc' => 'BNCTBINDESC',
+        'WarehouseBinTableMap::COL_BNCTBINDESC' => 'BNCTBINDESC',
+        'COL_BNCTBINDESC' => 'BNCTBINDESC',
+        'BnctBinDesc' => 'BNCTBINDESC',
+        'inv_bin_cntrl.BnctBinDesc' => 'BNCTBINDESC',
+        'Dateupdtd' => 'DATEUPDTD',
+        'WarehouseBin.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'warehouseBin.dateupdtd' => 'DATEUPDTD',
+        'WarehouseBinTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_bin_cntrl.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'WarehouseBin.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'warehouseBin.timeupdtd' => 'TIMEUPDTD',
+        'WarehouseBinTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_bin_cntrl.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'WarehouseBin.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'warehouseBin.dummy' => 'DUMMY',
+        'WarehouseBinTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_bin_cntrl.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_bin_cntrl');
@@ -175,12 +262,14 @@ class WarehouseBinTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Warehouse', '\\Warehouse', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -196,7 +285,7 @@ class WarehouseBinTableMap extends TableMap
     1 => ':IntbBinaCode',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -207,9 +296,11 @@ class WarehouseBinTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \WarehouseBin $obj A \WarehouseBin object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(WarehouseBin $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -228,8 +319,10 @@ class WarehouseBinTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \WarehouseBin object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \WarehouseBin) {
@@ -257,14 +350,14 @@ class WarehouseBinTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Bnctbinfrom', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Bnctbinthru', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -279,14 +372,14 @@ class WarehouseBinTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -317,10 +410,10 @@ class WarehouseBinTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? WarehouseBinTableMap::CLASS_DEFAULT : WarehouseBinTableMap::OM_CLASS;
     }
@@ -328,17 +421,17 @@ class WarehouseBinTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (WarehouseBin object, last column rank)
+     * @return array (WarehouseBin object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = WarehouseBinTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = WarehouseBinTableMap::getInstanceFromPool($key))) {
@@ -354,7 +447,7 @@ class WarehouseBinTableMap extends TableMap
             WarehouseBinTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -362,13 +455,13 @@ class WarehouseBinTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -398,12 +491,13 @@ class WarehouseBinTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(WarehouseBinTableMap::COL_INTBWHSE);
@@ -429,40 +523,66 @@ class WarehouseBinTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_INTBWHSE);
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_BNCTBINFROM);
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_BNCTBINTHRU);
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_BNCTTYPEDESC);
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_BNCTBINAREA);
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_BNCTBINDESC);
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(WarehouseBinTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.IntbWhse');
+            $criteria->removeSelectColumn($alias . '.BnctBinFrom');
+            $criteria->removeSelectColumn($alias . '.BnctBinThru');
+            $criteria->removeSelectColumn($alias . '.BnctTypeDesc');
+            $criteria->removeSelectColumn($alias . '.BnctBinArea');
+            $criteria->removeSelectColumn($alias . '.BnctBinDesc');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(WarehouseBinTableMap::DATABASE_NAME)->getTable(WarehouseBinTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WarehouseBinTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WarehouseBinTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WarehouseBinTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a WarehouseBin or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or WarehouseBin object or primary key or array of primary keys
+     * @param mixed $values Criteria or WarehouseBin object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseBinTableMap::DATABASE_NAME);
@@ -480,7 +600,7 @@ class WarehouseBinTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(WarehouseBinTableMap::COL_INTBWHSE, $value[0]);
@@ -509,7 +629,7 @@ class WarehouseBinTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return WarehouseBinQuery::create()->doDeleteAll($con);
     }
@@ -517,13 +637,13 @@ class WarehouseBinTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a WarehouseBin or Criteria object.
      *
-     * @param mixed               $criteria Criteria or WarehouseBin object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or WarehouseBin object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseBinTableMap::DATABASE_NAME);
@@ -546,7 +666,4 @@ class WarehouseBinTableMap extends TableMap
         });
     }
 
-} // WarehouseBinTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-WarehouseBinTableMap::buildTableMap();
+}

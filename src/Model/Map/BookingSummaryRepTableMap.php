@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class BookingSummaryRepTableMap extends TableMap
 {
@@ -34,194 +33,386 @@ class BookingSummaryRepTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.BookingSummaryRepTableMap';
+    public const CLASS_NAME = '.Map.BookingSummaryRepTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_book_by_rep_sumry';
+    public const TABLE_NAME = 'so_book_by_rep_sumry';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'BookingSummaryRep';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\BookingSummaryRep';
+    public const OM_CLASS = '\\BookingSummaryRep';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'BookingSummaryRep';
+    public const CLASS_DEFAULT = 'BookingSummaryRep';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 22;
+    public const NUM_COLUMNS = 22;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 22;
+    public const NUM_HYDRATE_COLUMNS = 22;
 
     /**
      * the column name for the ArspSalePer1 field
      */
-    const COL_ARSPSALEPER1 = 'so_book_by_rep_sumry.ArspSalePer1';
+    public const COL_ARSPSALEPER1 = 'so_book_by_rep_sumry.ArspSalePer1';
 
     /**
      * the column name for the IntbWhse field
      */
-    const COL_INTBWHSE = 'so_book_by_rep_sumry.IntbWhse';
+    public const COL_INTBWHSE = 'so_book_by_rep_sumry.IntbWhse';
 
     /**
      * the column name for the BkrpToday field
      */
-    const COL_BKRPTODAY = 'so_book_by_rep_sumry.BkrpToday';
+    public const COL_BKRPTODAY = 'so_book_by_rep_sumry.BkrpToday';
 
     /**
      * the column name for the BkrpWeekToDate field
      */
-    const COL_BKRPWEEKTODATE = 'so_book_by_rep_sumry.BkrpWeekToDate';
+    public const COL_BKRPWEEKTODATE = 'so_book_by_rep_sumry.BkrpWeekToDate';
 
     /**
      * the column name for the BkrpMonthToDate field
      */
-    const COL_BKRPMONTHTODATE = 'so_book_by_rep_sumry.BkrpMonthToDate';
+    public const COL_BKRPMONTHTODATE = 'so_book_by_rep_sumry.BkrpMonthToDate';
 
     /**
      * the column name for the Bkrp12moAmt1 field
      */
-    const COL_BKRP12MOAMT1 = 'so_book_by_rep_sumry.Bkrp12moAmt1';
+    public const COL_BKRP12MOAMT1 = 'so_book_by_rep_sumry.Bkrp12moAmt1';
 
     /**
      * the column name for the Bkrp12moAmt2 field
      */
-    const COL_BKRP12MOAMT2 = 'so_book_by_rep_sumry.Bkrp12moAmt2';
+    public const COL_BKRP12MOAMT2 = 'so_book_by_rep_sumry.Bkrp12moAmt2';
 
     /**
      * the column name for the Bkrp12moAmt3 field
      */
-    const COL_BKRP12MOAMT3 = 'so_book_by_rep_sumry.Bkrp12moAmt3';
+    public const COL_BKRP12MOAMT3 = 'so_book_by_rep_sumry.Bkrp12moAmt3';
 
     /**
      * the column name for the Bkrp12moAmt4 field
      */
-    const COL_BKRP12MOAMT4 = 'so_book_by_rep_sumry.Bkrp12moAmt4';
+    public const COL_BKRP12MOAMT4 = 'so_book_by_rep_sumry.Bkrp12moAmt4';
 
     /**
      * the column name for the Bkrp12moAmt5 field
      */
-    const COL_BKRP12MOAMT5 = 'so_book_by_rep_sumry.Bkrp12moAmt5';
+    public const COL_BKRP12MOAMT5 = 'so_book_by_rep_sumry.Bkrp12moAmt5';
 
     /**
      * the column name for the Bkrp12moAmt6 field
      */
-    const COL_BKRP12MOAMT6 = 'so_book_by_rep_sumry.Bkrp12moAmt6';
+    public const COL_BKRP12MOAMT6 = 'so_book_by_rep_sumry.Bkrp12moAmt6';
 
     /**
      * the column name for the Bkrp12moAmt7 field
      */
-    const COL_BKRP12MOAMT7 = 'so_book_by_rep_sumry.Bkrp12moAmt7';
+    public const COL_BKRP12MOAMT7 = 'so_book_by_rep_sumry.Bkrp12moAmt7';
 
     /**
      * the column name for the Bkrp12moAmt8 field
      */
-    const COL_BKRP12MOAMT8 = 'so_book_by_rep_sumry.Bkrp12moAmt8';
+    public const COL_BKRP12MOAMT8 = 'so_book_by_rep_sumry.Bkrp12moAmt8';
 
     /**
      * the column name for the Bkrp12moAmt9 field
      */
-    const COL_BKRP12MOAMT9 = 'so_book_by_rep_sumry.Bkrp12moAmt9';
+    public const COL_BKRP12MOAMT9 = 'so_book_by_rep_sumry.Bkrp12moAmt9';
 
     /**
      * the column name for the Bkrp12moAmt10 field
      */
-    const COL_BKRP12MOAMT10 = 'so_book_by_rep_sumry.Bkrp12moAmt10';
+    public const COL_BKRP12MOAMT10 = 'so_book_by_rep_sumry.Bkrp12moAmt10';
 
     /**
      * the column name for the Bkrp12moAmt11 field
      */
-    const COL_BKRP12MOAMT11 = 'so_book_by_rep_sumry.Bkrp12moAmt11';
+    public const COL_BKRP12MOAMT11 = 'so_book_by_rep_sumry.Bkrp12moAmt11';
 
     /**
      * the column name for the Bkrp12moAmt12 field
      */
-    const COL_BKRP12MOAMT12 = 'so_book_by_rep_sumry.Bkrp12moAmt12';
+    public const COL_BKRP12MOAMT12 = 'so_book_by_rep_sumry.Bkrp12moAmt12';
 
     /**
      * the column name for the BkrpLastDate field
      */
-    const COL_BKRPLASTDATE = 'so_book_by_rep_sumry.BkrpLastDate';
+    public const COL_BKRPLASTDATE = 'so_book_by_rep_sumry.BkrpLastDate';
 
     /**
      * the column name for the BkrpLastTime field
      */
-    const COL_BKRPLASTTIME = 'so_book_by_rep_sumry.BkrpLastTime';
+    public const COL_BKRPLASTTIME = 'so_book_by_rep_sumry.BkrpLastTime';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_book_by_rep_sumry.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_book_by_rep_sumry.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_book_by_rep_sumry.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_book_by_rep_sumry.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_book_by_rep_sumry.dummy';
+    public const COL_DUMMY = 'so_book_by_rep_sumry.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Arspsaleper1', 'Intbwhse', 'Bkrptoday', 'Bkrpweektodate', 'Bkrpmonthtodate', 'Bkrp12moamt1', 'Bkrp12moamt2', 'Bkrp12moamt3', 'Bkrp12moamt4', 'Bkrp12moamt5', 'Bkrp12moamt6', 'Bkrp12moamt7', 'Bkrp12moamt8', 'Bkrp12moamt9', 'Bkrp12moamt10', 'Bkrp12moamt11', 'Bkrp12moamt12', 'Bkrplastdate', 'Bkrplasttime', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('arspsaleper1', 'intbwhse', 'bkrptoday', 'bkrpweektodate', 'bkrpmonthtodate', 'bkrp12moamt1', 'bkrp12moamt2', 'bkrp12moamt3', 'bkrp12moamt4', 'bkrp12moamt5', 'bkrp12moamt6', 'bkrp12moamt7', 'bkrp12moamt8', 'bkrp12moamt9', 'bkrp12moamt10', 'bkrp12moamt11', 'bkrp12moamt12', 'bkrplastdate', 'bkrplasttime', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(BookingSummaryRepTableMap::COL_ARSPSALEPER1, BookingSummaryRepTableMap::COL_INTBWHSE, BookingSummaryRepTableMap::COL_BKRPTODAY, BookingSummaryRepTableMap::COL_BKRPWEEKTODATE, BookingSummaryRepTableMap::COL_BKRPMONTHTODATE, BookingSummaryRepTableMap::COL_BKRP12MOAMT1, BookingSummaryRepTableMap::COL_BKRP12MOAMT2, BookingSummaryRepTableMap::COL_BKRP12MOAMT3, BookingSummaryRepTableMap::COL_BKRP12MOAMT4, BookingSummaryRepTableMap::COL_BKRP12MOAMT5, BookingSummaryRepTableMap::COL_BKRP12MOAMT6, BookingSummaryRepTableMap::COL_BKRP12MOAMT7, BookingSummaryRepTableMap::COL_BKRP12MOAMT8, BookingSummaryRepTableMap::COL_BKRP12MOAMT9, BookingSummaryRepTableMap::COL_BKRP12MOAMT10, BookingSummaryRepTableMap::COL_BKRP12MOAMT11, BookingSummaryRepTableMap::COL_BKRP12MOAMT12, BookingSummaryRepTableMap::COL_BKRPLASTDATE, BookingSummaryRepTableMap::COL_BKRPLASTTIME, BookingSummaryRepTableMap::COL_DATEUPDTD, BookingSummaryRepTableMap::COL_TIMEUPDTD, BookingSummaryRepTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArspSalePer1', 'IntbWhse', 'BkrpToday', 'BkrpWeekToDate', 'BkrpMonthToDate', 'Bkrp12moAmt1', 'Bkrp12moAmt2', 'Bkrp12moAmt3', 'Bkrp12moAmt4', 'Bkrp12moAmt5', 'Bkrp12moAmt6', 'Bkrp12moAmt7', 'Bkrp12moAmt8', 'Bkrp12moAmt9', 'Bkrp12moAmt10', 'Bkrp12moAmt11', 'Bkrp12moAmt12', 'BkrpLastDate', 'BkrpLastTime', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Arspsaleper1', 'Intbwhse', 'Bkrptoday', 'Bkrpweektodate', 'Bkrpmonthtodate', 'Bkrp12moamt1', 'Bkrp12moamt2', 'Bkrp12moamt3', 'Bkrp12moamt4', 'Bkrp12moamt5', 'Bkrp12moamt6', 'Bkrp12moamt7', 'Bkrp12moamt8', 'Bkrp12moamt9', 'Bkrp12moamt10', 'Bkrp12moamt11', 'Bkrp12moamt12', 'Bkrplastdate', 'Bkrplasttime', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['arspsaleper1', 'intbwhse', 'bkrptoday', 'bkrpweektodate', 'bkrpmonthtodate', 'bkrp12moamt1', 'bkrp12moamt2', 'bkrp12moamt3', 'bkrp12moamt4', 'bkrp12moamt5', 'bkrp12moamt6', 'bkrp12moamt7', 'bkrp12moamt8', 'bkrp12moamt9', 'bkrp12moamt10', 'bkrp12moamt11', 'bkrp12moamt12', 'bkrplastdate', 'bkrplasttime', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [BookingSummaryRepTableMap::COL_ARSPSALEPER1, BookingSummaryRepTableMap::COL_INTBWHSE, BookingSummaryRepTableMap::COL_BKRPTODAY, BookingSummaryRepTableMap::COL_BKRPWEEKTODATE, BookingSummaryRepTableMap::COL_BKRPMONTHTODATE, BookingSummaryRepTableMap::COL_BKRP12MOAMT1, BookingSummaryRepTableMap::COL_BKRP12MOAMT2, BookingSummaryRepTableMap::COL_BKRP12MOAMT3, BookingSummaryRepTableMap::COL_BKRP12MOAMT4, BookingSummaryRepTableMap::COL_BKRP12MOAMT5, BookingSummaryRepTableMap::COL_BKRP12MOAMT6, BookingSummaryRepTableMap::COL_BKRP12MOAMT7, BookingSummaryRepTableMap::COL_BKRP12MOAMT8, BookingSummaryRepTableMap::COL_BKRP12MOAMT9, BookingSummaryRepTableMap::COL_BKRP12MOAMT10, BookingSummaryRepTableMap::COL_BKRP12MOAMT11, BookingSummaryRepTableMap::COL_BKRP12MOAMT12, BookingSummaryRepTableMap::COL_BKRPLASTDATE, BookingSummaryRepTableMap::COL_BKRPLASTTIME, BookingSummaryRepTableMap::COL_DATEUPDTD, BookingSummaryRepTableMap::COL_TIMEUPDTD, BookingSummaryRepTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ArspSalePer1', 'IntbWhse', 'BkrpToday', 'BkrpWeekToDate', 'BkrpMonthToDate', 'Bkrp12moAmt1', 'Bkrp12moAmt2', 'Bkrp12moAmt3', 'Bkrp12moAmt4', 'Bkrp12moAmt5', 'Bkrp12moAmt6', 'Bkrp12moAmt7', 'Bkrp12moAmt8', 'Bkrp12moAmt9', 'Bkrp12moAmt10', 'Bkrp12moAmt11', 'Bkrp12moAmt12', 'BkrpLastDate', 'BkrpLastTime', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Arspsaleper1' => 0, 'Intbwhse' => 1, 'Bkrptoday' => 2, 'Bkrpweektodate' => 3, 'Bkrpmonthtodate' => 4, 'Bkrp12moamt1' => 5, 'Bkrp12moamt2' => 6, 'Bkrp12moamt3' => 7, 'Bkrp12moamt4' => 8, 'Bkrp12moamt5' => 9, 'Bkrp12moamt6' => 10, 'Bkrp12moamt7' => 11, 'Bkrp12moamt8' => 12, 'Bkrp12moamt9' => 13, 'Bkrp12moamt10' => 14, 'Bkrp12moamt11' => 15, 'Bkrp12moamt12' => 16, 'Bkrplastdate' => 17, 'Bkrplasttime' => 18, 'Dateupdtd' => 19, 'Timeupdtd' => 20, 'Dummy' => 21, ),
-        self::TYPE_CAMELNAME     => array('arspsaleper1' => 0, 'intbwhse' => 1, 'bkrptoday' => 2, 'bkrpweektodate' => 3, 'bkrpmonthtodate' => 4, 'bkrp12moamt1' => 5, 'bkrp12moamt2' => 6, 'bkrp12moamt3' => 7, 'bkrp12moamt4' => 8, 'bkrp12moamt5' => 9, 'bkrp12moamt6' => 10, 'bkrp12moamt7' => 11, 'bkrp12moamt8' => 12, 'bkrp12moamt9' => 13, 'bkrp12moamt10' => 14, 'bkrp12moamt11' => 15, 'bkrp12moamt12' => 16, 'bkrplastdate' => 17, 'bkrplasttime' => 18, 'dateupdtd' => 19, 'timeupdtd' => 20, 'dummy' => 21, ),
-        self::TYPE_COLNAME       => array(BookingSummaryRepTableMap::COL_ARSPSALEPER1 => 0, BookingSummaryRepTableMap::COL_INTBWHSE => 1, BookingSummaryRepTableMap::COL_BKRPTODAY => 2, BookingSummaryRepTableMap::COL_BKRPWEEKTODATE => 3, BookingSummaryRepTableMap::COL_BKRPMONTHTODATE => 4, BookingSummaryRepTableMap::COL_BKRP12MOAMT1 => 5, BookingSummaryRepTableMap::COL_BKRP12MOAMT2 => 6, BookingSummaryRepTableMap::COL_BKRP12MOAMT3 => 7, BookingSummaryRepTableMap::COL_BKRP12MOAMT4 => 8, BookingSummaryRepTableMap::COL_BKRP12MOAMT5 => 9, BookingSummaryRepTableMap::COL_BKRP12MOAMT6 => 10, BookingSummaryRepTableMap::COL_BKRP12MOAMT7 => 11, BookingSummaryRepTableMap::COL_BKRP12MOAMT8 => 12, BookingSummaryRepTableMap::COL_BKRP12MOAMT9 => 13, BookingSummaryRepTableMap::COL_BKRP12MOAMT10 => 14, BookingSummaryRepTableMap::COL_BKRP12MOAMT11 => 15, BookingSummaryRepTableMap::COL_BKRP12MOAMT12 => 16, BookingSummaryRepTableMap::COL_BKRPLASTDATE => 17, BookingSummaryRepTableMap::COL_BKRPLASTTIME => 18, BookingSummaryRepTableMap::COL_DATEUPDTD => 19, BookingSummaryRepTableMap::COL_TIMEUPDTD => 20, BookingSummaryRepTableMap::COL_DUMMY => 21, ),
-        self::TYPE_FIELDNAME     => array('ArspSalePer1' => 0, 'IntbWhse' => 1, 'BkrpToday' => 2, 'BkrpWeekToDate' => 3, 'BkrpMonthToDate' => 4, 'Bkrp12moAmt1' => 5, 'Bkrp12moAmt2' => 6, 'Bkrp12moAmt3' => 7, 'Bkrp12moAmt4' => 8, 'Bkrp12moAmt5' => 9, 'Bkrp12moAmt6' => 10, 'Bkrp12moAmt7' => 11, 'Bkrp12moAmt8' => 12, 'Bkrp12moAmt9' => 13, 'Bkrp12moAmt10' => 14, 'Bkrp12moAmt11' => 15, 'Bkrp12moAmt12' => 16, 'BkrpLastDate' => 17, 'BkrpLastTime' => 18, 'DateUpdtd' => 19, 'TimeUpdtd' => 20, 'dummy' => 21, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Arspsaleper1' => 0, 'Intbwhse' => 1, 'Bkrptoday' => 2, 'Bkrpweektodate' => 3, 'Bkrpmonthtodate' => 4, 'Bkrp12moamt1' => 5, 'Bkrp12moamt2' => 6, 'Bkrp12moamt3' => 7, 'Bkrp12moamt4' => 8, 'Bkrp12moamt5' => 9, 'Bkrp12moamt6' => 10, 'Bkrp12moamt7' => 11, 'Bkrp12moamt8' => 12, 'Bkrp12moamt9' => 13, 'Bkrp12moamt10' => 14, 'Bkrp12moamt11' => 15, 'Bkrp12moamt12' => 16, 'Bkrplastdate' => 17, 'Bkrplasttime' => 18, 'Dateupdtd' => 19, 'Timeupdtd' => 20, 'Dummy' => 21, ],
+        self::TYPE_CAMELNAME     => ['arspsaleper1' => 0, 'intbwhse' => 1, 'bkrptoday' => 2, 'bkrpweektodate' => 3, 'bkrpmonthtodate' => 4, 'bkrp12moamt1' => 5, 'bkrp12moamt2' => 6, 'bkrp12moamt3' => 7, 'bkrp12moamt4' => 8, 'bkrp12moamt5' => 9, 'bkrp12moamt6' => 10, 'bkrp12moamt7' => 11, 'bkrp12moamt8' => 12, 'bkrp12moamt9' => 13, 'bkrp12moamt10' => 14, 'bkrp12moamt11' => 15, 'bkrp12moamt12' => 16, 'bkrplastdate' => 17, 'bkrplasttime' => 18, 'dateupdtd' => 19, 'timeupdtd' => 20, 'dummy' => 21, ],
+        self::TYPE_COLNAME       => [BookingSummaryRepTableMap::COL_ARSPSALEPER1 => 0, BookingSummaryRepTableMap::COL_INTBWHSE => 1, BookingSummaryRepTableMap::COL_BKRPTODAY => 2, BookingSummaryRepTableMap::COL_BKRPWEEKTODATE => 3, BookingSummaryRepTableMap::COL_BKRPMONTHTODATE => 4, BookingSummaryRepTableMap::COL_BKRP12MOAMT1 => 5, BookingSummaryRepTableMap::COL_BKRP12MOAMT2 => 6, BookingSummaryRepTableMap::COL_BKRP12MOAMT3 => 7, BookingSummaryRepTableMap::COL_BKRP12MOAMT4 => 8, BookingSummaryRepTableMap::COL_BKRP12MOAMT5 => 9, BookingSummaryRepTableMap::COL_BKRP12MOAMT6 => 10, BookingSummaryRepTableMap::COL_BKRP12MOAMT7 => 11, BookingSummaryRepTableMap::COL_BKRP12MOAMT8 => 12, BookingSummaryRepTableMap::COL_BKRP12MOAMT9 => 13, BookingSummaryRepTableMap::COL_BKRP12MOAMT10 => 14, BookingSummaryRepTableMap::COL_BKRP12MOAMT11 => 15, BookingSummaryRepTableMap::COL_BKRP12MOAMT12 => 16, BookingSummaryRepTableMap::COL_BKRPLASTDATE => 17, BookingSummaryRepTableMap::COL_BKRPLASTTIME => 18, BookingSummaryRepTableMap::COL_DATEUPDTD => 19, BookingSummaryRepTableMap::COL_TIMEUPDTD => 20, BookingSummaryRepTableMap::COL_DUMMY => 21, ],
+        self::TYPE_FIELDNAME     => ['ArspSalePer1' => 0, 'IntbWhse' => 1, 'BkrpToday' => 2, 'BkrpWeekToDate' => 3, 'BkrpMonthToDate' => 4, 'Bkrp12moAmt1' => 5, 'Bkrp12moAmt2' => 6, 'Bkrp12moAmt3' => 7, 'Bkrp12moAmt4' => 8, 'Bkrp12moAmt5' => 9, 'Bkrp12moAmt6' => 10, 'Bkrp12moAmt7' => 11, 'Bkrp12moAmt8' => 12, 'Bkrp12moAmt9' => 13, 'Bkrp12moAmt10' => 14, 'Bkrp12moAmt11' => 15, 'Bkrp12moAmt12' => 16, 'BkrpLastDate' => 17, 'BkrpLastTime' => 18, 'DateUpdtd' => 19, 'TimeUpdtd' => 20, 'dummy' => 21, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Arspsaleper1' => 'ARSPSALEPER1',
+        'BookingSummaryRep.Arspsaleper1' => 'ARSPSALEPER1',
+        'arspsaleper1' => 'ARSPSALEPER1',
+        'bookingSummaryRep.arspsaleper1' => 'ARSPSALEPER1',
+        'BookingSummaryRepTableMap::COL_ARSPSALEPER1' => 'ARSPSALEPER1',
+        'COL_ARSPSALEPER1' => 'ARSPSALEPER1',
+        'ArspSalePer1' => 'ARSPSALEPER1',
+        'so_book_by_rep_sumry.ArspSalePer1' => 'ARSPSALEPER1',
+        'Intbwhse' => 'INTBWHSE',
+        'BookingSummaryRep.Intbwhse' => 'INTBWHSE',
+        'intbwhse' => 'INTBWHSE',
+        'bookingSummaryRep.intbwhse' => 'INTBWHSE',
+        'BookingSummaryRepTableMap::COL_INTBWHSE' => 'INTBWHSE',
+        'COL_INTBWHSE' => 'INTBWHSE',
+        'IntbWhse' => 'INTBWHSE',
+        'so_book_by_rep_sumry.IntbWhse' => 'INTBWHSE',
+        'Bkrptoday' => 'BKRPTODAY',
+        'BookingSummaryRep.Bkrptoday' => 'BKRPTODAY',
+        'bkrptoday' => 'BKRPTODAY',
+        'bookingSummaryRep.bkrptoday' => 'BKRPTODAY',
+        'BookingSummaryRepTableMap::COL_BKRPTODAY' => 'BKRPTODAY',
+        'COL_BKRPTODAY' => 'BKRPTODAY',
+        'BkrpToday' => 'BKRPTODAY',
+        'so_book_by_rep_sumry.BkrpToday' => 'BKRPTODAY',
+        'Bkrpweektodate' => 'BKRPWEEKTODATE',
+        'BookingSummaryRep.Bkrpweektodate' => 'BKRPWEEKTODATE',
+        'bkrpweektodate' => 'BKRPWEEKTODATE',
+        'bookingSummaryRep.bkrpweektodate' => 'BKRPWEEKTODATE',
+        'BookingSummaryRepTableMap::COL_BKRPWEEKTODATE' => 'BKRPWEEKTODATE',
+        'COL_BKRPWEEKTODATE' => 'BKRPWEEKTODATE',
+        'BkrpWeekToDate' => 'BKRPWEEKTODATE',
+        'so_book_by_rep_sumry.BkrpWeekToDate' => 'BKRPWEEKTODATE',
+        'Bkrpmonthtodate' => 'BKRPMONTHTODATE',
+        'BookingSummaryRep.Bkrpmonthtodate' => 'BKRPMONTHTODATE',
+        'bkrpmonthtodate' => 'BKRPMONTHTODATE',
+        'bookingSummaryRep.bkrpmonthtodate' => 'BKRPMONTHTODATE',
+        'BookingSummaryRepTableMap::COL_BKRPMONTHTODATE' => 'BKRPMONTHTODATE',
+        'COL_BKRPMONTHTODATE' => 'BKRPMONTHTODATE',
+        'BkrpMonthToDate' => 'BKRPMONTHTODATE',
+        'so_book_by_rep_sumry.BkrpMonthToDate' => 'BKRPMONTHTODATE',
+        'Bkrp12moamt1' => 'BKRP12MOAMT1',
+        'BookingSummaryRep.Bkrp12moamt1' => 'BKRP12MOAMT1',
+        'bkrp12moamt1' => 'BKRP12MOAMT1',
+        'bookingSummaryRep.bkrp12moamt1' => 'BKRP12MOAMT1',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT1' => 'BKRP12MOAMT1',
+        'COL_BKRP12MOAMT1' => 'BKRP12MOAMT1',
+        'Bkrp12moAmt1' => 'BKRP12MOAMT1',
+        'so_book_by_rep_sumry.Bkrp12moAmt1' => 'BKRP12MOAMT1',
+        'Bkrp12moamt2' => 'BKRP12MOAMT2',
+        'BookingSummaryRep.Bkrp12moamt2' => 'BKRP12MOAMT2',
+        'bkrp12moamt2' => 'BKRP12MOAMT2',
+        'bookingSummaryRep.bkrp12moamt2' => 'BKRP12MOAMT2',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT2' => 'BKRP12MOAMT2',
+        'COL_BKRP12MOAMT2' => 'BKRP12MOAMT2',
+        'Bkrp12moAmt2' => 'BKRP12MOAMT2',
+        'so_book_by_rep_sumry.Bkrp12moAmt2' => 'BKRP12MOAMT2',
+        'Bkrp12moamt3' => 'BKRP12MOAMT3',
+        'BookingSummaryRep.Bkrp12moamt3' => 'BKRP12MOAMT3',
+        'bkrp12moamt3' => 'BKRP12MOAMT3',
+        'bookingSummaryRep.bkrp12moamt3' => 'BKRP12MOAMT3',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT3' => 'BKRP12MOAMT3',
+        'COL_BKRP12MOAMT3' => 'BKRP12MOAMT3',
+        'Bkrp12moAmt3' => 'BKRP12MOAMT3',
+        'so_book_by_rep_sumry.Bkrp12moAmt3' => 'BKRP12MOAMT3',
+        'Bkrp12moamt4' => 'BKRP12MOAMT4',
+        'BookingSummaryRep.Bkrp12moamt4' => 'BKRP12MOAMT4',
+        'bkrp12moamt4' => 'BKRP12MOAMT4',
+        'bookingSummaryRep.bkrp12moamt4' => 'BKRP12MOAMT4',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT4' => 'BKRP12MOAMT4',
+        'COL_BKRP12MOAMT4' => 'BKRP12MOAMT4',
+        'Bkrp12moAmt4' => 'BKRP12MOAMT4',
+        'so_book_by_rep_sumry.Bkrp12moAmt4' => 'BKRP12MOAMT4',
+        'Bkrp12moamt5' => 'BKRP12MOAMT5',
+        'BookingSummaryRep.Bkrp12moamt5' => 'BKRP12MOAMT5',
+        'bkrp12moamt5' => 'BKRP12MOAMT5',
+        'bookingSummaryRep.bkrp12moamt5' => 'BKRP12MOAMT5',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT5' => 'BKRP12MOAMT5',
+        'COL_BKRP12MOAMT5' => 'BKRP12MOAMT5',
+        'Bkrp12moAmt5' => 'BKRP12MOAMT5',
+        'so_book_by_rep_sumry.Bkrp12moAmt5' => 'BKRP12MOAMT5',
+        'Bkrp12moamt6' => 'BKRP12MOAMT6',
+        'BookingSummaryRep.Bkrp12moamt6' => 'BKRP12MOAMT6',
+        'bkrp12moamt6' => 'BKRP12MOAMT6',
+        'bookingSummaryRep.bkrp12moamt6' => 'BKRP12MOAMT6',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT6' => 'BKRP12MOAMT6',
+        'COL_BKRP12MOAMT6' => 'BKRP12MOAMT6',
+        'Bkrp12moAmt6' => 'BKRP12MOAMT6',
+        'so_book_by_rep_sumry.Bkrp12moAmt6' => 'BKRP12MOAMT6',
+        'Bkrp12moamt7' => 'BKRP12MOAMT7',
+        'BookingSummaryRep.Bkrp12moamt7' => 'BKRP12MOAMT7',
+        'bkrp12moamt7' => 'BKRP12MOAMT7',
+        'bookingSummaryRep.bkrp12moamt7' => 'BKRP12MOAMT7',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT7' => 'BKRP12MOAMT7',
+        'COL_BKRP12MOAMT7' => 'BKRP12MOAMT7',
+        'Bkrp12moAmt7' => 'BKRP12MOAMT7',
+        'so_book_by_rep_sumry.Bkrp12moAmt7' => 'BKRP12MOAMT7',
+        'Bkrp12moamt8' => 'BKRP12MOAMT8',
+        'BookingSummaryRep.Bkrp12moamt8' => 'BKRP12MOAMT8',
+        'bkrp12moamt8' => 'BKRP12MOAMT8',
+        'bookingSummaryRep.bkrp12moamt8' => 'BKRP12MOAMT8',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT8' => 'BKRP12MOAMT8',
+        'COL_BKRP12MOAMT8' => 'BKRP12MOAMT8',
+        'Bkrp12moAmt8' => 'BKRP12MOAMT8',
+        'so_book_by_rep_sumry.Bkrp12moAmt8' => 'BKRP12MOAMT8',
+        'Bkrp12moamt9' => 'BKRP12MOAMT9',
+        'BookingSummaryRep.Bkrp12moamt9' => 'BKRP12MOAMT9',
+        'bkrp12moamt9' => 'BKRP12MOAMT9',
+        'bookingSummaryRep.bkrp12moamt9' => 'BKRP12MOAMT9',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT9' => 'BKRP12MOAMT9',
+        'COL_BKRP12MOAMT9' => 'BKRP12MOAMT9',
+        'Bkrp12moAmt9' => 'BKRP12MOAMT9',
+        'so_book_by_rep_sumry.Bkrp12moAmt9' => 'BKRP12MOAMT9',
+        'Bkrp12moamt10' => 'BKRP12MOAMT10',
+        'BookingSummaryRep.Bkrp12moamt10' => 'BKRP12MOAMT10',
+        'bkrp12moamt10' => 'BKRP12MOAMT10',
+        'bookingSummaryRep.bkrp12moamt10' => 'BKRP12MOAMT10',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT10' => 'BKRP12MOAMT10',
+        'COL_BKRP12MOAMT10' => 'BKRP12MOAMT10',
+        'Bkrp12moAmt10' => 'BKRP12MOAMT10',
+        'so_book_by_rep_sumry.Bkrp12moAmt10' => 'BKRP12MOAMT10',
+        'Bkrp12moamt11' => 'BKRP12MOAMT11',
+        'BookingSummaryRep.Bkrp12moamt11' => 'BKRP12MOAMT11',
+        'bkrp12moamt11' => 'BKRP12MOAMT11',
+        'bookingSummaryRep.bkrp12moamt11' => 'BKRP12MOAMT11',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT11' => 'BKRP12MOAMT11',
+        'COL_BKRP12MOAMT11' => 'BKRP12MOAMT11',
+        'Bkrp12moAmt11' => 'BKRP12MOAMT11',
+        'so_book_by_rep_sumry.Bkrp12moAmt11' => 'BKRP12MOAMT11',
+        'Bkrp12moamt12' => 'BKRP12MOAMT12',
+        'BookingSummaryRep.Bkrp12moamt12' => 'BKRP12MOAMT12',
+        'bkrp12moamt12' => 'BKRP12MOAMT12',
+        'bookingSummaryRep.bkrp12moamt12' => 'BKRP12MOAMT12',
+        'BookingSummaryRepTableMap::COL_BKRP12MOAMT12' => 'BKRP12MOAMT12',
+        'COL_BKRP12MOAMT12' => 'BKRP12MOAMT12',
+        'Bkrp12moAmt12' => 'BKRP12MOAMT12',
+        'so_book_by_rep_sumry.Bkrp12moAmt12' => 'BKRP12MOAMT12',
+        'Bkrplastdate' => 'BKRPLASTDATE',
+        'BookingSummaryRep.Bkrplastdate' => 'BKRPLASTDATE',
+        'bkrplastdate' => 'BKRPLASTDATE',
+        'bookingSummaryRep.bkrplastdate' => 'BKRPLASTDATE',
+        'BookingSummaryRepTableMap::COL_BKRPLASTDATE' => 'BKRPLASTDATE',
+        'COL_BKRPLASTDATE' => 'BKRPLASTDATE',
+        'BkrpLastDate' => 'BKRPLASTDATE',
+        'so_book_by_rep_sumry.BkrpLastDate' => 'BKRPLASTDATE',
+        'Bkrplasttime' => 'BKRPLASTTIME',
+        'BookingSummaryRep.Bkrplasttime' => 'BKRPLASTTIME',
+        'bkrplasttime' => 'BKRPLASTTIME',
+        'bookingSummaryRep.bkrplasttime' => 'BKRPLASTTIME',
+        'BookingSummaryRepTableMap::COL_BKRPLASTTIME' => 'BKRPLASTTIME',
+        'COL_BKRPLASTTIME' => 'BKRPLASTTIME',
+        'BkrpLastTime' => 'BKRPLASTTIME',
+        'so_book_by_rep_sumry.BkrpLastTime' => 'BKRPLASTTIME',
+        'Dateupdtd' => 'DATEUPDTD',
+        'BookingSummaryRep.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'bookingSummaryRep.dateupdtd' => 'DATEUPDTD',
+        'BookingSummaryRepTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_book_by_rep_sumry.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'BookingSummaryRep.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'bookingSummaryRep.timeupdtd' => 'TIMEUPDTD',
+        'BookingSummaryRepTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_book_by_rep_sumry.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'BookingSummaryRep.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'bookingSummaryRep.dummy' => 'DUMMY',
+        'BookingSummaryRepTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_book_by_rep_sumry.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_book_by_rep_sumry');
@@ -253,12 +444,14 @@ class BookingSummaryRepTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('SalesPerson', '\\SalesPerson', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -267,7 +460,7 @@ class BookingSummaryRepTableMap extends TableMap
     1 => ':ArspSalePer1',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -278,9 +471,11 @@ class BookingSummaryRepTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \BookingSummaryRep $obj A \BookingSummaryRep object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(BookingSummaryRep $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -299,8 +494,10 @@ class BookingSummaryRepTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \BookingSummaryRep object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \BookingSummaryRep) {
@@ -328,14 +525,14 @@ class BookingSummaryRepTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -350,14 +547,14 @@ class BookingSummaryRepTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -383,10 +580,10 @@ class BookingSummaryRepTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? BookingSummaryRepTableMap::CLASS_DEFAULT : BookingSummaryRepTableMap::OM_CLASS;
     }
@@ -394,17 +591,17 @@ class BookingSummaryRepTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (BookingSummaryRep object, last column rank)
+     * @return array (BookingSummaryRep object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = BookingSummaryRepTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = BookingSummaryRepTableMap::getInstanceFromPool($key))) {
@@ -420,7 +617,7 @@ class BookingSummaryRepTableMap extends TableMap
             BookingSummaryRepTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -428,13 +625,13 @@ class BookingSummaryRepTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -464,12 +661,13 @@ class BookingSummaryRepTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(BookingSummaryRepTableMap::COL_ARSPSALEPER1);
@@ -521,40 +719,92 @@ class BookingSummaryRepTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_ARSPSALEPER1);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_INTBWHSE);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRPTODAY);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRPWEEKTODATE);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRPMONTHTODATE);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT1);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT2);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT3);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT4);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT5);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT6);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT7);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT8);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT9);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT10);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT11);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRP12MOAMT12);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRPLASTDATE);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_BKRPLASTTIME);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(BookingSummaryRepTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ArspSalePer1');
+            $criteria->removeSelectColumn($alias . '.IntbWhse');
+            $criteria->removeSelectColumn($alias . '.BkrpToday');
+            $criteria->removeSelectColumn($alias . '.BkrpWeekToDate');
+            $criteria->removeSelectColumn($alias . '.BkrpMonthToDate');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt1');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt2');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt3');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt4');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt5');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt6');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt7');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt8');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt9');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt10');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt11');
+            $criteria->removeSelectColumn($alias . '.Bkrp12moAmt12');
+            $criteria->removeSelectColumn($alias . '.BkrpLastDate');
+            $criteria->removeSelectColumn($alias . '.BkrpLastTime');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(BookingSummaryRepTableMap::DATABASE_NAME)->getTable(BookingSummaryRepTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(BookingSummaryRepTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(BookingSummaryRepTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new BookingSummaryRepTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a BookingSummaryRep or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or BookingSummaryRep object or primary key or array of primary keys
+     * @param mixed $values Criteria or BookingSummaryRep object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingSummaryRepTableMap::DATABASE_NAME);
@@ -572,7 +822,7 @@ class BookingSummaryRepTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(BookingSummaryRepTableMap::COL_ARSPSALEPER1, $value[0]);
@@ -600,7 +850,7 @@ class BookingSummaryRepTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return BookingSummaryRepQuery::create()->doDeleteAll($con);
     }
@@ -608,13 +858,13 @@ class BookingSummaryRepTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a BookingSummaryRep or Criteria object.
      *
-     * @param mixed               $criteria Criteria or BookingSummaryRep object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or BookingSummaryRep object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingSummaryRepTableMap::DATABASE_NAME);
@@ -637,7 +887,4 @@ class BookingSummaryRepTableMap extends TableMap
         });
     }
 
-} // BookingSummaryRepTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-BookingSummaryRepTableMap::buildTableMap();
+}

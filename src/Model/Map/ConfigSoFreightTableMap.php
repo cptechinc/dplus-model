@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ConfigSoFreightTableMap extends TableMap
 {
@@ -34,219 +33,451 @@ class ConfigSoFreightTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ConfigSoFreightTableMap';
+    public const CLASS_NAME = '.Map.ConfigSoFreightTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_frt_config';
+    public const TABLE_NAME = 'so_frt_config';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ConfigSoFreight';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ConfigSoFreight';
+    public const OM_CLASS = '\\ConfigSoFreight';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ConfigSoFreight';
+    public const CLASS_DEFAULT = 'ConfigSoFreight';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 27;
+    public const NUM_COLUMNS = 27;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 27;
+    public const NUM_HYDRATE_COLUMNS = 27;
 
     /**
      * the column name for the OetbConfKey field
      */
-    const COL_OETBCONFKEY = 'so_frt_config.OetbConfKey';
+    public const COL_OETBCONFKEY = 'so_frt_config.OetbConfKey';
 
     /**
      * the column name for the OetbConfUseFrtCost field
      */
-    const COL_OETBCONFUSEFRTCOST = 'so_frt_config.OetbConfUseFrtCost';
+    public const COL_OETBCONFUSEFRTCOST = 'so_frt_config.OetbConfUseFrtCost';
 
     /**
      * the column name for the OetbCon2FrtRateTabl field
      */
-    const COL_OETBCON2FRTRATETABL = 'so_frt_config.OetbCon2FrtRateTabl';
+    public const COL_OETBCON2FRTRATETABL = 'so_frt_config.OetbCon2FrtRateTabl';
 
     /**
      * the column name for the OetbCon2FrtZoneSorZ field
      */
-    const COL_OETBCON2FRTZONESORZ = 'so_frt_config.OetbCon2FrtZoneSorZ';
+    public const COL_OETBCON2FRTZONESORZ = 'so_frt_config.OetbCon2FrtZoneSorZ';
 
     /**
      * the column name for the OetbCon2ChrgActFrt field
      */
-    const COL_OETBCON2CHRGACTFRT = 'so_frt_config.OetbCon2ChrgActFrt';
+    public const COL_OETBCON2CHRGACTFRT = 'so_frt_config.OetbCon2ChrgActFrt';
 
     /**
      * the column name for the OetbCon3UseFrtGrup field
      */
-    const COL_OETBCON3USEFRTGRUP = 'so_frt_config.OetbCon3UseFrtGrup';
+    public const COL_OETBCON3USEFRTGRUP = 'so_frt_config.OetbCon3UseFrtGrup';
 
     /**
      * the column name for the OetbCon2FrghtOrdrAmtA field
      */
-    const COL_OETBCON2FRGHTORDRAMTA = 'so_frt_config.OetbCon2FrghtOrdrAmtA';
+    public const COL_OETBCON2FRGHTORDRAMTA = 'so_frt_config.OetbCon2FrghtOrdrAmtA';
 
     /**
      * the column name for the OetbCon2FrghtOrdrAmtB field
      */
-    const COL_OETBCON2FRGHTORDRAMTB = 'so_frt_config.OetbCon2FrghtOrdrAmtB';
+    public const COL_OETBCON2FRGHTORDRAMTB = 'so_frt_config.OetbCon2FrghtOrdrAmtB';
 
     /**
      * the column name for the OetbCon2FrghtOrdrAmtC field
      */
-    const COL_OETBCON2FRGHTORDRAMTC = 'so_frt_config.OetbCon2FrghtOrdrAmtC';
+    public const COL_OETBCON2FRGHTORDRAMTC = 'so_frt_config.OetbCon2FrghtOrdrAmtC';
 
     /**
      * the column name for the OetbCon2FrghtOrdrAmtD field
      */
-    const COL_OETBCON2FRGHTORDRAMTD = 'so_frt_config.OetbCon2FrghtOrdrAmtD';
+    public const COL_OETBCON2FRGHTORDRAMTD = 'so_frt_config.OetbCon2FrghtOrdrAmtD';
 
     /**
      * the column name for the OetbCon2FrghtOrdrAmtE field
      */
-    const COL_OETBCON2FRGHTORDRAMTE = 'so_frt_config.OetbCon2FrghtOrdrAmtE';
+    public const COL_OETBCON2FRGHTORDRAMTE = 'so_frt_config.OetbCon2FrghtOrdrAmtE';
 
     /**
      * the column name for the OetbCon2ChrgFrghtBkord field
      */
-    const COL_OETBCON2CHRGFRGHTBKORD = 'so_frt_config.OetbCon2ChrgFrghtBkord';
+    public const COL_OETBCON2CHRGFRGHTBKORD = 'so_frt_config.OetbCon2ChrgFrghtBkord';
 
     /**
      * the column name for the OetbCon3MnRtlDelFeeMin field
      */
-    const COL_OETBCON3MNRTLDELFEEMIN = 'so_frt_config.OetbCon3MnRtlDelFeeMin';
+    public const COL_OETBCON3MNRTLDELFEEMIN = 'so_frt_config.OetbCon3MnRtlDelFeeMin';
 
     /**
      * the column name for the OetbCon3MnRtlDelFeeAmt field
      */
-    const COL_OETBCON3MNRTLDELFEEAMT = 'so_frt_config.OetbCon3MnRtlDelFeeAmt';
+    public const COL_OETBCON3MNRTLDELFEEAMT = 'so_frt_config.OetbCon3MnRtlDelFeeAmt';
 
     /**
      * the column name for the OetbCon2FrghtAddMeth field
      */
-    const COL_OETBCON2FRGHTADDMETH = 'so_frt_config.OetbCon2FrghtAddMeth';
+    public const COL_OETBCON2FRGHTADDMETH = 'so_frt_config.OetbCon2FrghtAddMeth';
 
     /**
      * the column name for the OetbCon2FrghtOrder field
      */
-    const COL_OETBCON2FRGHTORDER = 'so_frt_config.OetbCon2FrghtOrder';
+    public const COL_OETBCON2FRGHTORDER = 'so_frt_config.OetbCon2FrghtOrder';
 
     /**
      * the column name for the OetbCon2FrghtCntnr field
      */
-    const COL_OETBCON2FRGHTCNTNR = 'so_frt_config.OetbCon2FrghtCntnr';
+    public const COL_OETBCON2FRGHTCNTNR = 'so_frt_config.OetbCon2FrghtCntnr';
 
     /**
      * the column name for the OetbCon2FrghtAdd1 field
      */
-    const COL_OETBCON2FRGHTADD1 = 'so_frt_config.OetbCon2FrghtAdd1';
+    public const COL_OETBCON2FRGHTADD1 = 'so_frt_config.OetbCon2FrghtAdd1';
 
     /**
      * the column name for the OetbCon2FrghtAddAmt1 field
      */
-    const COL_OETBCON2FRGHTADDAMT1 = 'so_frt_config.OetbCon2FrghtAddAmt1';
+    public const COL_OETBCON2FRGHTADDAMT1 = 'so_frt_config.OetbCon2FrghtAddAmt1';
 
     /**
      * the column name for the OetbCon2FrghtAddPer field
      */
-    const COL_OETBCON2FRGHTADDPER = 'so_frt_config.OetbCon2FrghtAddPer';
+    public const COL_OETBCON2FRGHTADDPER = 'so_frt_config.OetbCon2FrghtAddPer';
 
     /**
      * the column name for the OetbCon2FrghtAddAmtPer field
      */
-    const COL_OETBCON2FRGHTADDAMTPER = 'so_frt_config.OetbCon2FrghtAddAmtPer';
+    public const COL_OETBCON2FRGHTADDAMTPER = 'so_frt_config.OetbCon2FrghtAddAmtPer';
 
     /**
      * the column name for the OetbCon2FrghtAddAmtMax field
      */
-    const COL_OETBCON2FRGHTADDAMTMAX = 'so_frt_config.OetbCon2FrghtAddAmtMax';
+    public const COL_OETBCON2FRGHTADDAMTMAX = 'so_frt_config.OetbCon2FrghtAddAmtMax';
 
     /**
      * the column name for the OetbCon2FrghtAddPct field
      */
-    const COL_OETBCON2FRGHTADDPCT = 'so_frt_config.OetbCon2FrghtAddPct';
+    public const COL_OETBCON2FRGHTADDPCT = 'so_frt_config.OetbCon2FrghtAddPct';
 
     /**
      * the column name for the OetbCon2FrghtMinChrg field
      */
-    const COL_OETBCON2FRGHTMINCHRG = 'so_frt_config.OetbCon2FrghtMinChrg';
+    public const COL_OETBCON2FRGHTMINCHRG = 'so_frt_config.OetbCon2FrghtMinChrg';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_frt_config.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_frt_config.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_frt_config.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_frt_config.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_frt_config.dummy';
+    public const COL_DUMMY = 'so_frt_config.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oetbconfkey', 'Oetbconfusefrtcost', 'Oetbcon2frtratetabl', 'Oetbcon2frtzonesorz', 'Oetbcon2chrgactfrt', 'Oetbcon3usefrtgrup', 'Oetbcon2frghtordramta', 'Oetbcon2frghtordramtb', 'Oetbcon2frghtordramtc', 'Oetbcon2frghtordramtd', 'Oetbcon2frghtordramte', 'Oetbcon2chrgfrghtbkord', 'Oetbcon3mnrtldelfeemin', 'Oetbcon3mnrtldelfeeamt', 'Oetbcon2frghtaddmeth', 'Oetbcon2frghtorder', 'Oetbcon2frghtcntnr', 'Oetbcon2frghtadd1', 'Oetbcon2frghtaddamt1', 'Oetbcon2frghtaddper', 'Oetbcon2frghtaddamtper', 'Oetbcon2frghtaddamtmax', 'Oetbcon2frghtaddpct', 'Oetbcon2frghtminchrg', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oetbconfkey', 'oetbconfusefrtcost', 'oetbcon2frtratetabl', 'oetbcon2frtzonesorz', 'oetbcon2chrgactfrt', 'oetbcon3usefrtgrup', 'oetbcon2frghtordramta', 'oetbcon2frghtordramtb', 'oetbcon2frghtordramtc', 'oetbcon2frghtordramtd', 'oetbcon2frghtordramte', 'oetbcon2chrgfrghtbkord', 'oetbcon3mnrtldelfeemin', 'oetbcon3mnrtldelfeeamt', 'oetbcon2frghtaddmeth', 'oetbcon2frghtorder', 'oetbcon2frghtcntnr', 'oetbcon2frghtadd1', 'oetbcon2frghtaddamt1', 'oetbcon2frghtaddper', 'oetbcon2frghtaddamtper', 'oetbcon2frghtaddamtmax', 'oetbcon2frghtaddpct', 'oetbcon2frghtminchrg', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ConfigSoFreightTableMap::COL_OETBCONFKEY, ConfigSoFreightTableMap::COL_OETBCONFUSEFRTCOST, ConfigSoFreightTableMap::COL_OETBCON2FRTRATETABL, ConfigSoFreightTableMap::COL_OETBCON2FRTZONESORZ, ConfigSoFreightTableMap::COL_OETBCON2CHRGACTFRT, ConfigSoFreightTableMap::COL_OETBCON3USEFRTGRUP, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTA, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTB, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTC, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTD, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTE, ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD, ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN, ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDER, ConfigSoFreightTableMap::COL_OETBCON2FRGHTCNTNR, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADD1, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMT1, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPER, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTPER, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTMAX, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPCT, ConfigSoFreightTableMap::COL_OETBCON2FRGHTMINCHRG, ConfigSoFreightTableMap::COL_DATEUPDTD, ConfigSoFreightTableMap::COL_TIMEUPDTD, ConfigSoFreightTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OetbConfKey', 'OetbConfUseFrtCost', 'OetbCon2FrtRateTabl', 'OetbCon2FrtZoneSorZ', 'OetbCon2ChrgActFrt', 'OetbCon3UseFrtGrup', 'OetbCon2FrghtOrdrAmtA', 'OetbCon2FrghtOrdrAmtB', 'OetbCon2FrghtOrdrAmtC', 'OetbCon2FrghtOrdrAmtD', 'OetbCon2FrghtOrdrAmtE', 'OetbCon2ChrgFrghtBkord', 'OetbCon3MnRtlDelFeeMin', 'OetbCon3MnRtlDelFeeAmt', 'OetbCon2FrghtAddMeth', 'OetbCon2FrghtOrder', 'OetbCon2FrghtCntnr', 'OetbCon2FrghtAdd1', 'OetbCon2FrghtAddAmt1', 'OetbCon2FrghtAddPer', 'OetbCon2FrghtAddAmtPer', 'OetbCon2FrghtAddAmtMax', 'OetbCon2FrghtAddPct', 'OetbCon2FrghtMinChrg', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Oetbconfkey', 'Oetbconfusefrtcost', 'Oetbcon2frtratetabl', 'Oetbcon2frtzonesorz', 'Oetbcon2chrgactfrt', 'Oetbcon3usefrtgrup', 'Oetbcon2frghtordramta', 'Oetbcon2frghtordramtb', 'Oetbcon2frghtordramtc', 'Oetbcon2frghtordramtd', 'Oetbcon2frghtordramte', 'Oetbcon2chrgfrghtbkord', 'Oetbcon3mnrtldelfeemin', 'Oetbcon3mnrtldelfeeamt', 'Oetbcon2frghtaddmeth', 'Oetbcon2frghtorder', 'Oetbcon2frghtcntnr', 'Oetbcon2frghtadd1', 'Oetbcon2frghtaddamt1', 'Oetbcon2frghtaddper', 'Oetbcon2frghtaddamtper', 'Oetbcon2frghtaddamtmax', 'Oetbcon2frghtaddpct', 'Oetbcon2frghtminchrg', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['oetbconfkey', 'oetbconfusefrtcost', 'oetbcon2frtratetabl', 'oetbcon2frtzonesorz', 'oetbcon2chrgactfrt', 'oetbcon3usefrtgrup', 'oetbcon2frghtordramta', 'oetbcon2frghtordramtb', 'oetbcon2frghtordramtc', 'oetbcon2frghtordramtd', 'oetbcon2frghtordramte', 'oetbcon2chrgfrghtbkord', 'oetbcon3mnrtldelfeemin', 'oetbcon3mnrtldelfeeamt', 'oetbcon2frghtaddmeth', 'oetbcon2frghtorder', 'oetbcon2frghtcntnr', 'oetbcon2frghtadd1', 'oetbcon2frghtaddamt1', 'oetbcon2frghtaddper', 'oetbcon2frghtaddamtper', 'oetbcon2frghtaddamtmax', 'oetbcon2frghtaddpct', 'oetbcon2frghtminchrg', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ConfigSoFreightTableMap::COL_OETBCONFKEY, ConfigSoFreightTableMap::COL_OETBCONFUSEFRTCOST, ConfigSoFreightTableMap::COL_OETBCON2FRTRATETABL, ConfigSoFreightTableMap::COL_OETBCON2FRTZONESORZ, ConfigSoFreightTableMap::COL_OETBCON2CHRGACTFRT, ConfigSoFreightTableMap::COL_OETBCON3USEFRTGRUP, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTA, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTB, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTC, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTD, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTE, ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD, ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN, ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDER, ConfigSoFreightTableMap::COL_OETBCON2FRGHTCNTNR, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADD1, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMT1, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPER, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTPER, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTMAX, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPCT, ConfigSoFreightTableMap::COL_OETBCON2FRGHTMINCHRG, ConfigSoFreightTableMap::COL_DATEUPDTD, ConfigSoFreightTableMap::COL_TIMEUPDTD, ConfigSoFreightTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['OetbConfKey', 'OetbConfUseFrtCost', 'OetbCon2FrtRateTabl', 'OetbCon2FrtZoneSorZ', 'OetbCon2ChrgActFrt', 'OetbCon3UseFrtGrup', 'OetbCon2FrghtOrdrAmtA', 'OetbCon2FrghtOrdrAmtB', 'OetbCon2FrghtOrdrAmtC', 'OetbCon2FrghtOrdrAmtD', 'OetbCon2FrghtOrdrAmtE', 'OetbCon2ChrgFrghtBkord', 'OetbCon3MnRtlDelFeeMin', 'OetbCon3MnRtlDelFeeAmt', 'OetbCon2FrghtAddMeth', 'OetbCon2FrghtOrder', 'OetbCon2FrghtCntnr', 'OetbCon2FrghtAdd1', 'OetbCon2FrghtAddAmt1', 'OetbCon2FrghtAddPer', 'OetbCon2FrghtAddAmtPer', 'OetbCon2FrghtAddAmtMax', 'OetbCon2FrghtAddPct', 'OetbCon2FrghtMinChrg', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oetbconfkey' => 0, 'Oetbconfusefrtcost' => 1, 'Oetbcon2frtratetabl' => 2, 'Oetbcon2frtzonesorz' => 3, 'Oetbcon2chrgactfrt' => 4, 'Oetbcon3usefrtgrup' => 5, 'Oetbcon2frghtordramta' => 6, 'Oetbcon2frghtordramtb' => 7, 'Oetbcon2frghtordramtc' => 8, 'Oetbcon2frghtordramtd' => 9, 'Oetbcon2frghtordramte' => 10, 'Oetbcon2chrgfrghtbkord' => 11, 'Oetbcon3mnrtldelfeemin' => 12, 'Oetbcon3mnrtldelfeeamt' => 13, 'Oetbcon2frghtaddmeth' => 14, 'Oetbcon2frghtorder' => 15, 'Oetbcon2frghtcntnr' => 16, 'Oetbcon2frghtadd1' => 17, 'Oetbcon2frghtaddamt1' => 18, 'Oetbcon2frghtaddper' => 19, 'Oetbcon2frghtaddamtper' => 20, 'Oetbcon2frghtaddamtmax' => 21, 'Oetbcon2frghtaddpct' => 22, 'Oetbcon2frghtminchrg' => 23, 'Dateupdtd' => 24, 'Timeupdtd' => 25, 'Dummy' => 26, ),
-        self::TYPE_CAMELNAME     => array('oetbconfkey' => 0, 'oetbconfusefrtcost' => 1, 'oetbcon2frtratetabl' => 2, 'oetbcon2frtzonesorz' => 3, 'oetbcon2chrgactfrt' => 4, 'oetbcon3usefrtgrup' => 5, 'oetbcon2frghtordramta' => 6, 'oetbcon2frghtordramtb' => 7, 'oetbcon2frghtordramtc' => 8, 'oetbcon2frghtordramtd' => 9, 'oetbcon2frghtordramte' => 10, 'oetbcon2chrgfrghtbkord' => 11, 'oetbcon3mnrtldelfeemin' => 12, 'oetbcon3mnrtldelfeeamt' => 13, 'oetbcon2frghtaddmeth' => 14, 'oetbcon2frghtorder' => 15, 'oetbcon2frghtcntnr' => 16, 'oetbcon2frghtadd1' => 17, 'oetbcon2frghtaddamt1' => 18, 'oetbcon2frghtaddper' => 19, 'oetbcon2frghtaddamtper' => 20, 'oetbcon2frghtaddamtmax' => 21, 'oetbcon2frghtaddpct' => 22, 'oetbcon2frghtminchrg' => 23, 'dateupdtd' => 24, 'timeupdtd' => 25, 'dummy' => 26, ),
-        self::TYPE_COLNAME       => array(ConfigSoFreightTableMap::COL_OETBCONFKEY => 0, ConfigSoFreightTableMap::COL_OETBCONFUSEFRTCOST => 1, ConfigSoFreightTableMap::COL_OETBCON2FRTRATETABL => 2, ConfigSoFreightTableMap::COL_OETBCON2FRTZONESORZ => 3, ConfigSoFreightTableMap::COL_OETBCON2CHRGACTFRT => 4, ConfigSoFreightTableMap::COL_OETBCON3USEFRTGRUP => 5, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTA => 6, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTB => 7, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTC => 8, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTD => 9, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTE => 10, ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD => 11, ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN => 12, ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT => 13, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH => 14, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDER => 15, ConfigSoFreightTableMap::COL_OETBCON2FRGHTCNTNR => 16, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADD1 => 17, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMT1 => 18, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPER => 19, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTPER => 20, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTMAX => 21, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPCT => 22, ConfigSoFreightTableMap::COL_OETBCON2FRGHTMINCHRG => 23, ConfigSoFreightTableMap::COL_DATEUPDTD => 24, ConfigSoFreightTableMap::COL_TIMEUPDTD => 25, ConfigSoFreightTableMap::COL_DUMMY => 26, ),
-        self::TYPE_FIELDNAME     => array('OetbConfKey' => 0, 'OetbConfUseFrtCost' => 1, 'OetbCon2FrtRateTabl' => 2, 'OetbCon2FrtZoneSorZ' => 3, 'OetbCon2ChrgActFrt' => 4, 'OetbCon3UseFrtGrup' => 5, 'OetbCon2FrghtOrdrAmtA' => 6, 'OetbCon2FrghtOrdrAmtB' => 7, 'OetbCon2FrghtOrdrAmtC' => 8, 'OetbCon2FrghtOrdrAmtD' => 9, 'OetbCon2FrghtOrdrAmtE' => 10, 'OetbCon2ChrgFrghtBkord' => 11, 'OetbCon3MnRtlDelFeeMin' => 12, 'OetbCon3MnRtlDelFeeAmt' => 13, 'OetbCon2FrghtAddMeth' => 14, 'OetbCon2FrghtOrder' => 15, 'OetbCon2FrghtCntnr' => 16, 'OetbCon2FrghtAdd1' => 17, 'OetbCon2FrghtAddAmt1' => 18, 'OetbCon2FrghtAddPer' => 19, 'OetbCon2FrghtAddAmtPer' => 20, 'OetbCon2FrghtAddAmtMax' => 21, 'OetbCon2FrghtAddPct' => 22, 'OetbCon2FrghtMinChrg' => 23, 'DateUpdtd' => 24, 'TimeUpdtd' => 25, 'dummy' => 26, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Oetbconfkey' => 0, 'Oetbconfusefrtcost' => 1, 'Oetbcon2frtratetabl' => 2, 'Oetbcon2frtzonesorz' => 3, 'Oetbcon2chrgactfrt' => 4, 'Oetbcon3usefrtgrup' => 5, 'Oetbcon2frghtordramta' => 6, 'Oetbcon2frghtordramtb' => 7, 'Oetbcon2frghtordramtc' => 8, 'Oetbcon2frghtordramtd' => 9, 'Oetbcon2frghtordramte' => 10, 'Oetbcon2chrgfrghtbkord' => 11, 'Oetbcon3mnrtldelfeemin' => 12, 'Oetbcon3mnrtldelfeeamt' => 13, 'Oetbcon2frghtaddmeth' => 14, 'Oetbcon2frghtorder' => 15, 'Oetbcon2frghtcntnr' => 16, 'Oetbcon2frghtadd1' => 17, 'Oetbcon2frghtaddamt1' => 18, 'Oetbcon2frghtaddper' => 19, 'Oetbcon2frghtaddamtper' => 20, 'Oetbcon2frghtaddamtmax' => 21, 'Oetbcon2frghtaddpct' => 22, 'Oetbcon2frghtminchrg' => 23, 'Dateupdtd' => 24, 'Timeupdtd' => 25, 'Dummy' => 26, ],
+        self::TYPE_CAMELNAME     => ['oetbconfkey' => 0, 'oetbconfusefrtcost' => 1, 'oetbcon2frtratetabl' => 2, 'oetbcon2frtzonesorz' => 3, 'oetbcon2chrgactfrt' => 4, 'oetbcon3usefrtgrup' => 5, 'oetbcon2frghtordramta' => 6, 'oetbcon2frghtordramtb' => 7, 'oetbcon2frghtordramtc' => 8, 'oetbcon2frghtordramtd' => 9, 'oetbcon2frghtordramte' => 10, 'oetbcon2chrgfrghtbkord' => 11, 'oetbcon3mnrtldelfeemin' => 12, 'oetbcon3mnrtldelfeeamt' => 13, 'oetbcon2frghtaddmeth' => 14, 'oetbcon2frghtorder' => 15, 'oetbcon2frghtcntnr' => 16, 'oetbcon2frghtadd1' => 17, 'oetbcon2frghtaddamt1' => 18, 'oetbcon2frghtaddper' => 19, 'oetbcon2frghtaddamtper' => 20, 'oetbcon2frghtaddamtmax' => 21, 'oetbcon2frghtaddpct' => 22, 'oetbcon2frghtminchrg' => 23, 'dateupdtd' => 24, 'timeupdtd' => 25, 'dummy' => 26, ],
+        self::TYPE_COLNAME       => [ConfigSoFreightTableMap::COL_OETBCONFKEY => 0, ConfigSoFreightTableMap::COL_OETBCONFUSEFRTCOST => 1, ConfigSoFreightTableMap::COL_OETBCON2FRTRATETABL => 2, ConfigSoFreightTableMap::COL_OETBCON2FRTZONESORZ => 3, ConfigSoFreightTableMap::COL_OETBCON2CHRGACTFRT => 4, ConfigSoFreightTableMap::COL_OETBCON3USEFRTGRUP => 5, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTA => 6, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTB => 7, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTC => 8, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTD => 9, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTE => 10, ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD => 11, ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN => 12, ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT => 13, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH => 14, ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDER => 15, ConfigSoFreightTableMap::COL_OETBCON2FRGHTCNTNR => 16, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADD1 => 17, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMT1 => 18, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPER => 19, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTPER => 20, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTMAX => 21, ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPCT => 22, ConfigSoFreightTableMap::COL_OETBCON2FRGHTMINCHRG => 23, ConfigSoFreightTableMap::COL_DATEUPDTD => 24, ConfigSoFreightTableMap::COL_TIMEUPDTD => 25, ConfigSoFreightTableMap::COL_DUMMY => 26, ],
+        self::TYPE_FIELDNAME     => ['OetbConfKey' => 0, 'OetbConfUseFrtCost' => 1, 'OetbCon2FrtRateTabl' => 2, 'OetbCon2FrtZoneSorZ' => 3, 'OetbCon2ChrgActFrt' => 4, 'OetbCon3UseFrtGrup' => 5, 'OetbCon2FrghtOrdrAmtA' => 6, 'OetbCon2FrghtOrdrAmtB' => 7, 'OetbCon2FrghtOrdrAmtC' => 8, 'OetbCon2FrghtOrdrAmtD' => 9, 'OetbCon2FrghtOrdrAmtE' => 10, 'OetbCon2ChrgFrghtBkord' => 11, 'OetbCon3MnRtlDelFeeMin' => 12, 'OetbCon3MnRtlDelFeeAmt' => 13, 'OetbCon2FrghtAddMeth' => 14, 'OetbCon2FrghtOrder' => 15, 'OetbCon2FrghtCntnr' => 16, 'OetbCon2FrghtAdd1' => 17, 'OetbCon2FrghtAddAmt1' => 18, 'OetbCon2FrghtAddPer' => 19, 'OetbCon2FrghtAddAmtPer' => 20, 'OetbCon2FrghtAddAmtMax' => 21, 'OetbCon2FrghtAddPct' => 22, 'OetbCon2FrghtMinChrg' => 23, 'DateUpdtd' => 24, 'TimeUpdtd' => 25, 'dummy' => 26, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Oetbconfkey' => 'OETBCONFKEY',
+        'ConfigSoFreight.Oetbconfkey' => 'OETBCONFKEY',
+        'oetbconfkey' => 'OETBCONFKEY',
+        'configSoFreight.oetbconfkey' => 'OETBCONFKEY',
+        'ConfigSoFreightTableMap::COL_OETBCONFKEY' => 'OETBCONFKEY',
+        'COL_OETBCONFKEY' => 'OETBCONFKEY',
+        'OetbConfKey' => 'OETBCONFKEY',
+        'so_frt_config.OetbConfKey' => 'OETBCONFKEY',
+        'Oetbconfusefrtcost' => 'OETBCONFUSEFRTCOST',
+        'ConfigSoFreight.Oetbconfusefrtcost' => 'OETBCONFUSEFRTCOST',
+        'oetbconfusefrtcost' => 'OETBCONFUSEFRTCOST',
+        'configSoFreight.oetbconfusefrtcost' => 'OETBCONFUSEFRTCOST',
+        'ConfigSoFreightTableMap::COL_OETBCONFUSEFRTCOST' => 'OETBCONFUSEFRTCOST',
+        'COL_OETBCONFUSEFRTCOST' => 'OETBCONFUSEFRTCOST',
+        'OetbConfUseFrtCost' => 'OETBCONFUSEFRTCOST',
+        'so_frt_config.OetbConfUseFrtCost' => 'OETBCONFUSEFRTCOST',
+        'Oetbcon2frtratetabl' => 'OETBCON2FRTRATETABL',
+        'ConfigSoFreight.Oetbcon2frtratetabl' => 'OETBCON2FRTRATETABL',
+        'oetbcon2frtratetabl' => 'OETBCON2FRTRATETABL',
+        'configSoFreight.oetbcon2frtratetabl' => 'OETBCON2FRTRATETABL',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRTRATETABL' => 'OETBCON2FRTRATETABL',
+        'COL_OETBCON2FRTRATETABL' => 'OETBCON2FRTRATETABL',
+        'OetbCon2FrtRateTabl' => 'OETBCON2FRTRATETABL',
+        'so_frt_config.OetbCon2FrtRateTabl' => 'OETBCON2FRTRATETABL',
+        'Oetbcon2frtzonesorz' => 'OETBCON2FRTZONESORZ',
+        'ConfigSoFreight.Oetbcon2frtzonesorz' => 'OETBCON2FRTZONESORZ',
+        'oetbcon2frtzonesorz' => 'OETBCON2FRTZONESORZ',
+        'configSoFreight.oetbcon2frtzonesorz' => 'OETBCON2FRTZONESORZ',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRTZONESORZ' => 'OETBCON2FRTZONESORZ',
+        'COL_OETBCON2FRTZONESORZ' => 'OETBCON2FRTZONESORZ',
+        'OetbCon2FrtZoneSorZ' => 'OETBCON2FRTZONESORZ',
+        'so_frt_config.OetbCon2FrtZoneSorZ' => 'OETBCON2FRTZONESORZ',
+        'Oetbcon2chrgactfrt' => 'OETBCON2CHRGACTFRT',
+        'ConfigSoFreight.Oetbcon2chrgactfrt' => 'OETBCON2CHRGACTFRT',
+        'oetbcon2chrgactfrt' => 'OETBCON2CHRGACTFRT',
+        'configSoFreight.oetbcon2chrgactfrt' => 'OETBCON2CHRGACTFRT',
+        'ConfigSoFreightTableMap::COL_OETBCON2CHRGACTFRT' => 'OETBCON2CHRGACTFRT',
+        'COL_OETBCON2CHRGACTFRT' => 'OETBCON2CHRGACTFRT',
+        'OetbCon2ChrgActFrt' => 'OETBCON2CHRGACTFRT',
+        'so_frt_config.OetbCon2ChrgActFrt' => 'OETBCON2CHRGACTFRT',
+        'Oetbcon3usefrtgrup' => 'OETBCON3USEFRTGRUP',
+        'ConfigSoFreight.Oetbcon3usefrtgrup' => 'OETBCON3USEFRTGRUP',
+        'oetbcon3usefrtgrup' => 'OETBCON3USEFRTGRUP',
+        'configSoFreight.oetbcon3usefrtgrup' => 'OETBCON3USEFRTGRUP',
+        'ConfigSoFreightTableMap::COL_OETBCON3USEFRTGRUP' => 'OETBCON3USEFRTGRUP',
+        'COL_OETBCON3USEFRTGRUP' => 'OETBCON3USEFRTGRUP',
+        'OetbCon3UseFrtGrup' => 'OETBCON3USEFRTGRUP',
+        'so_frt_config.OetbCon3UseFrtGrup' => 'OETBCON3USEFRTGRUP',
+        'Oetbcon2frghtordramta' => 'OETBCON2FRGHTORDRAMTA',
+        'ConfigSoFreight.Oetbcon2frghtordramta' => 'OETBCON2FRGHTORDRAMTA',
+        'oetbcon2frghtordramta' => 'OETBCON2FRGHTORDRAMTA',
+        'configSoFreight.oetbcon2frghtordramta' => 'OETBCON2FRGHTORDRAMTA',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTA' => 'OETBCON2FRGHTORDRAMTA',
+        'COL_OETBCON2FRGHTORDRAMTA' => 'OETBCON2FRGHTORDRAMTA',
+        'OetbCon2FrghtOrdrAmtA' => 'OETBCON2FRGHTORDRAMTA',
+        'so_frt_config.OetbCon2FrghtOrdrAmtA' => 'OETBCON2FRGHTORDRAMTA',
+        'Oetbcon2frghtordramtb' => 'OETBCON2FRGHTORDRAMTB',
+        'ConfigSoFreight.Oetbcon2frghtordramtb' => 'OETBCON2FRGHTORDRAMTB',
+        'oetbcon2frghtordramtb' => 'OETBCON2FRGHTORDRAMTB',
+        'configSoFreight.oetbcon2frghtordramtb' => 'OETBCON2FRGHTORDRAMTB',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTB' => 'OETBCON2FRGHTORDRAMTB',
+        'COL_OETBCON2FRGHTORDRAMTB' => 'OETBCON2FRGHTORDRAMTB',
+        'OetbCon2FrghtOrdrAmtB' => 'OETBCON2FRGHTORDRAMTB',
+        'so_frt_config.OetbCon2FrghtOrdrAmtB' => 'OETBCON2FRGHTORDRAMTB',
+        'Oetbcon2frghtordramtc' => 'OETBCON2FRGHTORDRAMTC',
+        'ConfigSoFreight.Oetbcon2frghtordramtc' => 'OETBCON2FRGHTORDRAMTC',
+        'oetbcon2frghtordramtc' => 'OETBCON2FRGHTORDRAMTC',
+        'configSoFreight.oetbcon2frghtordramtc' => 'OETBCON2FRGHTORDRAMTC',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTC' => 'OETBCON2FRGHTORDRAMTC',
+        'COL_OETBCON2FRGHTORDRAMTC' => 'OETBCON2FRGHTORDRAMTC',
+        'OetbCon2FrghtOrdrAmtC' => 'OETBCON2FRGHTORDRAMTC',
+        'so_frt_config.OetbCon2FrghtOrdrAmtC' => 'OETBCON2FRGHTORDRAMTC',
+        'Oetbcon2frghtordramtd' => 'OETBCON2FRGHTORDRAMTD',
+        'ConfigSoFreight.Oetbcon2frghtordramtd' => 'OETBCON2FRGHTORDRAMTD',
+        'oetbcon2frghtordramtd' => 'OETBCON2FRGHTORDRAMTD',
+        'configSoFreight.oetbcon2frghtordramtd' => 'OETBCON2FRGHTORDRAMTD',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTD' => 'OETBCON2FRGHTORDRAMTD',
+        'COL_OETBCON2FRGHTORDRAMTD' => 'OETBCON2FRGHTORDRAMTD',
+        'OetbCon2FrghtOrdrAmtD' => 'OETBCON2FRGHTORDRAMTD',
+        'so_frt_config.OetbCon2FrghtOrdrAmtD' => 'OETBCON2FRGHTORDRAMTD',
+        'Oetbcon2frghtordramte' => 'OETBCON2FRGHTORDRAMTE',
+        'ConfigSoFreight.Oetbcon2frghtordramte' => 'OETBCON2FRGHTORDRAMTE',
+        'oetbcon2frghtordramte' => 'OETBCON2FRGHTORDRAMTE',
+        'configSoFreight.oetbcon2frghtordramte' => 'OETBCON2FRGHTORDRAMTE',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTE' => 'OETBCON2FRGHTORDRAMTE',
+        'COL_OETBCON2FRGHTORDRAMTE' => 'OETBCON2FRGHTORDRAMTE',
+        'OetbCon2FrghtOrdrAmtE' => 'OETBCON2FRGHTORDRAMTE',
+        'so_frt_config.OetbCon2FrghtOrdrAmtE' => 'OETBCON2FRGHTORDRAMTE',
+        'Oetbcon2chrgfrghtbkord' => 'OETBCON2CHRGFRGHTBKORD',
+        'ConfigSoFreight.Oetbcon2chrgfrghtbkord' => 'OETBCON2CHRGFRGHTBKORD',
+        'oetbcon2chrgfrghtbkord' => 'OETBCON2CHRGFRGHTBKORD',
+        'configSoFreight.oetbcon2chrgfrghtbkord' => 'OETBCON2CHRGFRGHTBKORD',
+        'ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD' => 'OETBCON2CHRGFRGHTBKORD',
+        'COL_OETBCON2CHRGFRGHTBKORD' => 'OETBCON2CHRGFRGHTBKORD',
+        'OetbCon2ChrgFrghtBkord' => 'OETBCON2CHRGFRGHTBKORD',
+        'so_frt_config.OetbCon2ChrgFrghtBkord' => 'OETBCON2CHRGFRGHTBKORD',
+        'Oetbcon3mnrtldelfeemin' => 'OETBCON3MNRTLDELFEEMIN',
+        'ConfigSoFreight.Oetbcon3mnrtldelfeemin' => 'OETBCON3MNRTLDELFEEMIN',
+        'oetbcon3mnrtldelfeemin' => 'OETBCON3MNRTLDELFEEMIN',
+        'configSoFreight.oetbcon3mnrtldelfeemin' => 'OETBCON3MNRTLDELFEEMIN',
+        'ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN' => 'OETBCON3MNRTLDELFEEMIN',
+        'COL_OETBCON3MNRTLDELFEEMIN' => 'OETBCON3MNRTLDELFEEMIN',
+        'OetbCon3MnRtlDelFeeMin' => 'OETBCON3MNRTLDELFEEMIN',
+        'so_frt_config.OetbCon3MnRtlDelFeeMin' => 'OETBCON3MNRTLDELFEEMIN',
+        'Oetbcon3mnrtldelfeeamt' => 'OETBCON3MNRTLDELFEEAMT',
+        'ConfigSoFreight.Oetbcon3mnrtldelfeeamt' => 'OETBCON3MNRTLDELFEEAMT',
+        'oetbcon3mnrtldelfeeamt' => 'OETBCON3MNRTLDELFEEAMT',
+        'configSoFreight.oetbcon3mnrtldelfeeamt' => 'OETBCON3MNRTLDELFEEAMT',
+        'ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT' => 'OETBCON3MNRTLDELFEEAMT',
+        'COL_OETBCON3MNRTLDELFEEAMT' => 'OETBCON3MNRTLDELFEEAMT',
+        'OetbCon3MnRtlDelFeeAmt' => 'OETBCON3MNRTLDELFEEAMT',
+        'so_frt_config.OetbCon3MnRtlDelFeeAmt' => 'OETBCON3MNRTLDELFEEAMT',
+        'Oetbcon2frghtaddmeth' => 'OETBCON2FRGHTADDMETH',
+        'ConfigSoFreight.Oetbcon2frghtaddmeth' => 'OETBCON2FRGHTADDMETH',
+        'oetbcon2frghtaddmeth' => 'OETBCON2FRGHTADDMETH',
+        'configSoFreight.oetbcon2frghtaddmeth' => 'OETBCON2FRGHTADDMETH',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH' => 'OETBCON2FRGHTADDMETH',
+        'COL_OETBCON2FRGHTADDMETH' => 'OETBCON2FRGHTADDMETH',
+        'OetbCon2FrghtAddMeth' => 'OETBCON2FRGHTADDMETH',
+        'so_frt_config.OetbCon2FrghtAddMeth' => 'OETBCON2FRGHTADDMETH',
+        'Oetbcon2frghtorder' => 'OETBCON2FRGHTORDER',
+        'ConfigSoFreight.Oetbcon2frghtorder' => 'OETBCON2FRGHTORDER',
+        'oetbcon2frghtorder' => 'OETBCON2FRGHTORDER',
+        'configSoFreight.oetbcon2frghtorder' => 'OETBCON2FRGHTORDER',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDER' => 'OETBCON2FRGHTORDER',
+        'COL_OETBCON2FRGHTORDER' => 'OETBCON2FRGHTORDER',
+        'OetbCon2FrghtOrder' => 'OETBCON2FRGHTORDER',
+        'so_frt_config.OetbCon2FrghtOrder' => 'OETBCON2FRGHTORDER',
+        'Oetbcon2frghtcntnr' => 'OETBCON2FRGHTCNTNR',
+        'ConfigSoFreight.Oetbcon2frghtcntnr' => 'OETBCON2FRGHTCNTNR',
+        'oetbcon2frghtcntnr' => 'OETBCON2FRGHTCNTNR',
+        'configSoFreight.oetbcon2frghtcntnr' => 'OETBCON2FRGHTCNTNR',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTCNTNR' => 'OETBCON2FRGHTCNTNR',
+        'COL_OETBCON2FRGHTCNTNR' => 'OETBCON2FRGHTCNTNR',
+        'OetbCon2FrghtCntnr' => 'OETBCON2FRGHTCNTNR',
+        'so_frt_config.OetbCon2FrghtCntnr' => 'OETBCON2FRGHTCNTNR',
+        'Oetbcon2frghtadd1' => 'OETBCON2FRGHTADD1',
+        'ConfigSoFreight.Oetbcon2frghtadd1' => 'OETBCON2FRGHTADD1',
+        'oetbcon2frghtadd1' => 'OETBCON2FRGHTADD1',
+        'configSoFreight.oetbcon2frghtadd1' => 'OETBCON2FRGHTADD1',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTADD1' => 'OETBCON2FRGHTADD1',
+        'COL_OETBCON2FRGHTADD1' => 'OETBCON2FRGHTADD1',
+        'OetbCon2FrghtAdd1' => 'OETBCON2FRGHTADD1',
+        'so_frt_config.OetbCon2FrghtAdd1' => 'OETBCON2FRGHTADD1',
+        'Oetbcon2frghtaddamt1' => 'OETBCON2FRGHTADDAMT1',
+        'ConfigSoFreight.Oetbcon2frghtaddamt1' => 'OETBCON2FRGHTADDAMT1',
+        'oetbcon2frghtaddamt1' => 'OETBCON2FRGHTADDAMT1',
+        'configSoFreight.oetbcon2frghtaddamt1' => 'OETBCON2FRGHTADDAMT1',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMT1' => 'OETBCON2FRGHTADDAMT1',
+        'COL_OETBCON2FRGHTADDAMT1' => 'OETBCON2FRGHTADDAMT1',
+        'OetbCon2FrghtAddAmt1' => 'OETBCON2FRGHTADDAMT1',
+        'so_frt_config.OetbCon2FrghtAddAmt1' => 'OETBCON2FRGHTADDAMT1',
+        'Oetbcon2frghtaddper' => 'OETBCON2FRGHTADDPER',
+        'ConfigSoFreight.Oetbcon2frghtaddper' => 'OETBCON2FRGHTADDPER',
+        'oetbcon2frghtaddper' => 'OETBCON2FRGHTADDPER',
+        'configSoFreight.oetbcon2frghtaddper' => 'OETBCON2FRGHTADDPER',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPER' => 'OETBCON2FRGHTADDPER',
+        'COL_OETBCON2FRGHTADDPER' => 'OETBCON2FRGHTADDPER',
+        'OetbCon2FrghtAddPer' => 'OETBCON2FRGHTADDPER',
+        'so_frt_config.OetbCon2FrghtAddPer' => 'OETBCON2FRGHTADDPER',
+        'Oetbcon2frghtaddamtper' => 'OETBCON2FRGHTADDAMTPER',
+        'ConfigSoFreight.Oetbcon2frghtaddamtper' => 'OETBCON2FRGHTADDAMTPER',
+        'oetbcon2frghtaddamtper' => 'OETBCON2FRGHTADDAMTPER',
+        'configSoFreight.oetbcon2frghtaddamtper' => 'OETBCON2FRGHTADDAMTPER',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTPER' => 'OETBCON2FRGHTADDAMTPER',
+        'COL_OETBCON2FRGHTADDAMTPER' => 'OETBCON2FRGHTADDAMTPER',
+        'OetbCon2FrghtAddAmtPer' => 'OETBCON2FRGHTADDAMTPER',
+        'so_frt_config.OetbCon2FrghtAddAmtPer' => 'OETBCON2FRGHTADDAMTPER',
+        'Oetbcon2frghtaddamtmax' => 'OETBCON2FRGHTADDAMTMAX',
+        'ConfigSoFreight.Oetbcon2frghtaddamtmax' => 'OETBCON2FRGHTADDAMTMAX',
+        'oetbcon2frghtaddamtmax' => 'OETBCON2FRGHTADDAMTMAX',
+        'configSoFreight.oetbcon2frghtaddamtmax' => 'OETBCON2FRGHTADDAMTMAX',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTMAX' => 'OETBCON2FRGHTADDAMTMAX',
+        'COL_OETBCON2FRGHTADDAMTMAX' => 'OETBCON2FRGHTADDAMTMAX',
+        'OetbCon2FrghtAddAmtMax' => 'OETBCON2FRGHTADDAMTMAX',
+        'so_frt_config.OetbCon2FrghtAddAmtMax' => 'OETBCON2FRGHTADDAMTMAX',
+        'Oetbcon2frghtaddpct' => 'OETBCON2FRGHTADDPCT',
+        'ConfigSoFreight.Oetbcon2frghtaddpct' => 'OETBCON2FRGHTADDPCT',
+        'oetbcon2frghtaddpct' => 'OETBCON2FRGHTADDPCT',
+        'configSoFreight.oetbcon2frghtaddpct' => 'OETBCON2FRGHTADDPCT',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPCT' => 'OETBCON2FRGHTADDPCT',
+        'COL_OETBCON2FRGHTADDPCT' => 'OETBCON2FRGHTADDPCT',
+        'OetbCon2FrghtAddPct' => 'OETBCON2FRGHTADDPCT',
+        'so_frt_config.OetbCon2FrghtAddPct' => 'OETBCON2FRGHTADDPCT',
+        'Oetbcon2frghtminchrg' => 'OETBCON2FRGHTMINCHRG',
+        'ConfigSoFreight.Oetbcon2frghtminchrg' => 'OETBCON2FRGHTMINCHRG',
+        'oetbcon2frghtminchrg' => 'OETBCON2FRGHTMINCHRG',
+        'configSoFreight.oetbcon2frghtminchrg' => 'OETBCON2FRGHTMINCHRG',
+        'ConfigSoFreightTableMap::COL_OETBCON2FRGHTMINCHRG' => 'OETBCON2FRGHTMINCHRG',
+        'COL_OETBCON2FRGHTMINCHRG' => 'OETBCON2FRGHTMINCHRG',
+        'OetbCon2FrghtMinChrg' => 'OETBCON2FRGHTMINCHRG',
+        'so_frt_config.OetbCon2FrghtMinChrg' => 'OETBCON2FRGHTMINCHRG',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ConfigSoFreight.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'configSoFreight.dateupdtd' => 'DATEUPDTD',
+        'ConfigSoFreightTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_frt_config.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ConfigSoFreight.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'configSoFreight.timeupdtd' => 'TIMEUPDTD',
+        'ConfigSoFreightTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_frt_config.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ConfigSoFreight.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'configSoFreight.dummy' => 'DUMMY',
+        'ConfigSoFreightTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_frt_config.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_frt_config');
@@ -262,35 +493,37 @@ class ConfigSoFreightTableMap extends TableMap
         $this->addColumn('OetbCon2FrtZoneSorZ', 'Oetbcon2frtzonesorz', 'CHAR', true, null, 'Z');
         $this->addColumn('OetbCon2ChrgActFrt', 'Oetbcon2chrgactfrt', 'CHAR', true, null, 'Y');
         $this->addColumn('OetbCon3UseFrtGrup', 'Oetbcon3usefrtgrup', 'CHAR', true, null, 'N');
-        $this->addColumn('OetbCon2FrghtOrdrAmtA', 'Oetbcon2frghtordramta', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtOrdrAmtB', 'Oetbcon2frghtordramtb', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtOrdrAmtC', 'Oetbcon2frghtordramtc', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtOrdrAmtD', 'Oetbcon2frghtordramtd', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtOrdrAmtE', 'Oetbcon2frghtordramte', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OetbCon2FrghtOrdrAmtA', 'Oetbcon2frghtordramta', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtOrdrAmtB', 'Oetbcon2frghtordramtb', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtOrdrAmtC', 'Oetbcon2frghtordramtc', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtOrdrAmtD', 'Oetbcon2frghtordramtd', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtOrdrAmtE', 'Oetbcon2frghtordramte', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('OetbCon2ChrgFrghtBkord', 'Oetbcon2chrgfrghtbkord', 'CHAR', true, null, 'N');
-        $this->addColumn('OetbCon3MnRtlDelFeeMin', 'Oetbcon3mnrtldelfeemin', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon3MnRtlDelFeeAmt', 'Oetbcon3mnrtldelfeeamt', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OetbCon3MnRtlDelFeeMin', 'Oetbcon3mnrtldelfeemin', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon3MnRtlDelFeeAmt', 'Oetbcon3mnrtldelfeeamt', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('OetbCon2FrghtAddMeth', 'Oetbcon2frghtaddmeth', 'CHAR', true, null, '1');
-        $this->addColumn('OetbCon2FrghtOrder', 'Oetbcon2frghtorder', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtCntnr', 'Oetbcon2frghtcntnr', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtAdd1', 'Oetbcon2frghtadd1', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtAddAmt1', 'Oetbcon2frghtaddamt1', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtAddPer', 'Oetbcon2frghtaddper', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtAddAmtPer', 'Oetbcon2frghtaddamtper', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtAddAmtMax', 'Oetbcon2frghtaddamtmax', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtAddPct', 'Oetbcon2frghtaddpct', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetbCon2FrghtMinChrg', 'Oetbcon2frghtminchrg', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OetbCon2FrghtOrder', 'Oetbcon2frghtorder', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtCntnr', 'Oetbcon2frghtcntnr', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtAdd1', 'Oetbcon2frghtadd1', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtAddAmt1', 'Oetbcon2frghtaddamt1', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtAddPer', 'Oetbcon2frghtaddper', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtAddAmtPer', 'Oetbcon2frghtaddamtper', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtAddAmtMax', 'Oetbcon2frghtaddamtmax', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtAddPct', 'Oetbcon2frghtaddpct', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OetbCon2FrghtMinChrg', 'Oetbcon2frghtminchrg', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -298,14 +531,14 @@ class ConfigSoFreightTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Oetbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -320,14 +553,14 @@ class ConfigSoFreightTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -344,10 +577,10 @@ class ConfigSoFreightTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ConfigSoFreightTableMap::CLASS_DEFAULT : ConfigSoFreightTableMap::OM_CLASS;
     }
@@ -355,17 +588,17 @@ class ConfigSoFreightTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ConfigSoFreight object, last column rank)
+     * @return array (ConfigSoFreight object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ConfigSoFreightTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ConfigSoFreightTableMap::getInstanceFromPool($key))) {
@@ -381,7 +614,7 @@ class ConfigSoFreightTableMap extends TableMap
             ConfigSoFreightTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -389,13 +622,13 @@ class ConfigSoFreightTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -425,12 +658,13 @@ class ConfigSoFreightTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ConfigSoFreightTableMap::COL_OETBCONFKEY);
@@ -492,40 +726,102 @@ class ConfigSoFreightTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCONFKEY);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCONFUSEFRTCOST);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRTRATETABL);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRTZONESORZ);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2CHRGACTFRT);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON3USEFRTGRUP);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTA);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTB);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTC);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTD);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDRAMTE);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTORDER);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTCNTNR);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADD1);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMT1);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPER);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTPER);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDAMTMAX);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDPCT);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_OETBCON2FRGHTMINCHRG);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ConfigSoFreightTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.OetbConfKey');
+            $criteria->removeSelectColumn($alias . '.OetbConfUseFrtCost');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrtRateTabl');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrtZoneSorZ');
+            $criteria->removeSelectColumn($alias . '.OetbCon2ChrgActFrt');
+            $criteria->removeSelectColumn($alias . '.OetbCon3UseFrtGrup');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtOrdrAmtA');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtOrdrAmtB');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtOrdrAmtC');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtOrdrAmtD');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtOrdrAmtE');
+            $criteria->removeSelectColumn($alias . '.OetbCon2ChrgFrghtBkord');
+            $criteria->removeSelectColumn($alias . '.OetbCon3MnRtlDelFeeMin');
+            $criteria->removeSelectColumn($alias . '.OetbCon3MnRtlDelFeeAmt');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtAddMeth');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtOrder');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtCntnr');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtAdd1');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtAddAmt1');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtAddPer');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtAddAmtPer');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtAddAmtMax');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtAddPct');
+            $criteria->removeSelectColumn($alias . '.OetbCon2FrghtMinChrg');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ConfigSoFreightTableMap::DATABASE_NAME)->getTable(ConfigSoFreightTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ConfigSoFreightTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ConfigSoFreightTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ConfigSoFreightTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ConfigSoFreight or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ConfigSoFreight object or primary key or array of primary keys
+     * @param mixed $values Criteria or ConfigSoFreight object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSoFreightTableMap::DATABASE_NAME);
@@ -561,7 +857,7 @@ class ConfigSoFreightTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ConfigSoFreightQuery::create()->doDeleteAll($con);
     }
@@ -569,13 +865,13 @@ class ConfigSoFreightTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ConfigSoFreight or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ConfigSoFreight object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ConfigSoFreight object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSoFreightTableMap::DATABASE_NAME);
@@ -598,7 +894,4 @@ class ConfigSoFreightTableMap extends TableMap
         });
     }
 
-} // ConfigSoFreightTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ConfigSoFreightTableMap::buildTableMap();
+}

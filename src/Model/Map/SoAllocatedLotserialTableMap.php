@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class SoAllocatedLotserialTableMap extends TableMap
 {
@@ -34,179 +33,347 @@ class SoAllocatedLotserialTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SoAllocatedLotserialTableMap';
+    public const CLASS_NAME = '.Map.SoAllocatedLotserialTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_pre_allo';
+    public const TABLE_NAME = 'so_pre_allo';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'SoAllocatedLotserial';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\SoAllocatedLotserial';
+    public const OM_CLASS = '\\SoAllocatedLotserial';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'SoAllocatedLotserial';
+    public const CLASS_DEFAULT = 'SoAllocatedLotserial';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 19;
+    public const NUM_COLUMNS = 19;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 19;
+    public const NUM_HYDRATE_COLUMNS = 19;
 
     /**
      * the column name for the OehdNbr field
      */
-    const COL_OEHDNBR = 'so_pre_allo.OehdNbr';
+    public const COL_OEHDNBR = 'so_pre_allo.OehdNbr';
 
     /**
      * the column name for the OedtLine field
      */
-    const COL_OEDTLINE = 'so_pre_allo.OedtLine';
+    public const COL_OEDTLINE = 'so_pre_allo.OedtLine';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'so_pre_allo.InitItemNbr';
+    public const COL_INITITEMNBR = 'so_pre_allo.InitItemNbr';
 
     /**
      * the column name for the OeidLotSer field
      */
-    const COL_OEIDLOTSER = 'so_pre_allo.OeidLotSer';
+    public const COL_OEIDLOTSER = 'so_pre_allo.OeidLotSer';
 
     /**
      * the column name for the OeidBin field
      */
-    const COL_OEIDBIN = 'so_pre_allo.OeidBin';
+    public const COL_OEIDBIN = 'so_pre_allo.OeidBin';
 
     /**
      * the column name for the OeidPlltNbr field
      */
-    const COL_OEIDPLLTNBR = 'so_pre_allo.OeidPlltNbr';
+    public const COL_OEIDPLLTNBR = 'so_pre_allo.OeidPlltNbr';
 
     /**
      * the column name for the OeidCrtnNbr field
      */
-    const COL_OEIDCRTNNBR = 'so_pre_allo.OeidCrtnNbr';
+    public const COL_OEIDCRTNNBR = 'so_pre_allo.OeidCrtnNbr';
 
     /**
      * the column name for the OeidQtyShip field
      */
-    const COL_OEIDQTYSHIP = 'so_pre_allo.OeidQtyShip';
+    public const COL_OEIDQTYSHIP = 'so_pre_allo.OeidQtyShip';
 
     /**
      * the column name for the OeidLotRef field
      */
-    const COL_OEIDLOTREF = 'so_pre_allo.OeidLotRef';
+    public const COL_OEIDLOTREF = 'so_pre_allo.OeidLotRef';
 
     /**
      * the column name for the OeidCntrQty field
      */
-    const COL_OEIDCNTRQTY = 'so_pre_allo.OeidCntrQty';
+    public const COL_OEIDCNTRQTY = 'so_pre_allo.OeidCntrQty';
 
     /**
      * the column name for the OeidBatch field
      */
-    const COL_OEIDBATCH = 'so_pre_allo.OeidBatch';
+    public const COL_OEIDBATCH = 'so_pre_allo.OeidBatch';
 
     /**
      * the column name for the OeidCureDate field
      */
-    const COL_OEIDCUREDATE = 'so_pre_allo.OeidCureDate';
+    public const COL_OEIDCUREDATE = 'so_pre_allo.OeidCureDate';
 
     /**
      * the column name for the OeidPlltType field
      */
-    const COL_OEIDPLLTTYPE = 'so_pre_allo.OeidPlltType';
+    public const COL_OEIDPLLTTYPE = 'so_pre_allo.OeidPlltType';
 
     /**
      * the column name for the OeidLblPrtd field
      */
-    const COL_OEIDLBLPRTD = 'so_pre_allo.OeidLblPrtd';
+    public const COL_OEIDLBLPRTD = 'so_pre_allo.OeidLblPrtd';
 
     /**
      * the column name for the OeidOrigBin field
      */
-    const COL_OEIDORIGBIN = 'so_pre_allo.OeidOrigBin';
+    public const COL_OEIDORIGBIN = 'so_pre_allo.OeidOrigBin';
 
     /**
      * the column name for the OeidPlltID field
      */
-    const COL_OEIDPLLTID = 'so_pre_allo.OeidPlltID';
+    public const COL_OEIDPLLTID = 'so_pre_allo.OeidPlltID';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_pre_allo.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_pre_allo.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_pre_allo.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_pre_allo.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_pre_allo.dummy';
+    public const COL_DUMMY = 'so_pre_allo.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oeidlotser', 'Oeidbin', 'Oeidplltnbr', 'Oeidcrtnnbr', 'Oeidqtyship', 'Oeidlotref', 'Oeidcntrqty', 'Oeidbatch', 'Oeidcuredate', 'Oeidpllttype', 'Oeidlblprtd', 'Oeidorigbin', 'Oeidplltid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oehdnbr', 'oedtline', 'inititemnbr', 'oeidlotser', 'oeidbin', 'oeidplltnbr', 'oeidcrtnnbr', 'oeidqtyship', 'oeidlotref', 'oeidcntrqty', 'oeidbatch', 'oeidcuredate', 'oeidpllttype', 'oeidlblprtd', 'oeidorigbin', 'oeidplltid', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SoAllocatedLotserialTableMap::COL_OEHDNBR, SoAllocatedLotserialTableMap::COL_OEDTLINE, SoAllocatedLotserialTableMap::COL_INITITEMNBR, SoAllocatedLotserialTableMap::COL_OEIDLOTSER, SoAllocatedLotserialTableMap::COL_OEIDBIN, SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR, SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR, SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP, SoAllocatedLotserialTableMap::COL_OEIDLOTREF, SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY, SoAllocatedLotserialTableMap::COL_OEIDBATCH, SoAllocatedLotserialTableMap::COL_OEIDCUREDATE, SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE, SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD, SoAllocatedLotserialTableMap::COL_OEIDORIGBIN, SoAllocatedLotserialTableMap::COL_OEIDPLLTID, SoAllocatedLotserialTableMap::COL_DATEUPDTD, SoAllocatedLotserialTableMap::COL_TIMEUPDTD, SoAllocatedLotserialTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OehdNbr', 'OedtLine', 'InitItemNbr', 'OeidLotSer', 'OeidBin', 'OeidPlltNbr', 'OeidCrtnNbr', 'OeidQtyShip', 'OeidLotRef', 'OeidCntrQty', 'OeidBatch', 'OeidCureDate', 'OeidPlltType', 'OeidLblPrtd', 'OeidOrigBin', 'OeidPlltID', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oeidlotser', 'Oeidbin', 'Oeidplltnbr', 'Oeidcrtnnbr', 'Oeidqtyship', 'Oeidlotref', 'Oeidcntrqty', 'Oeidbatch', 'Oeidcuredate', 'Oeidpllttype', 'Oeidlblprtd', 'Oeidorigbin', 'Oeidplltid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['oehdnbr', 'oedtline', 'inititemnbr', 'oeidlotser', 'oeidbin', 'oeidplltnbr', 'oeidcrtnnbr', 'oeidqtyship', 'oeidlotref', 'oeidcntrqty', 'oeidbatch', 'oeidcuredate', 'oeidpllttype', 'oeidlblprtd', 'oeidorigbin', 'oeidplltid', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [SoAllocatedLotserialTableMap::COL_OEHDNBR, SoAllocatedLotserialTableMap::COL_OEDTLINE, SoAllocatedLotserialTableMap::COL_INITITEMNBR, SoAllocatedLotserialTableMap::COL_OEIDLOTSER, SoAllocatedLotserialTableMap::COL_OEIDBIN, SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR, SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR, SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP, SoAllocatedLotserialTableMap::COL_OEIDLOTREF, SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY, SoAllocatedLotserialTableMap::COL_OEIDBATCH, SoAllocatedLotserialTableMap::COL_OEIDCUREDATE, SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE, SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD, SoAllocatedLotserialTableMap::COL_OEIDORIGBIN, SoAllocatedLotserialTableMap::COL_OEIDPLLTID, SoAllocatedLotserialTableMap::COL_DATEUPDTD, SoAllocatedLotserialTableMap::COL_TIMEUPDTD, SoAllocatedLotserialTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['OehdNbr', 'OedtLine', 'InitItemNbr', 'OeidLotSer', 'OeidBin', 'OeidPlltNbr', 'OeidCrtnNbr', 'OeidQtyShip', 'OeidLotRef', 'OeidCntrQty', 'OeidBatch', 'OeidCureDate', 'OeidPlltType', 'OeidLblPrtd', 'OeidOrigBin', 'OeidPlltID', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oeidlotser' => 3, 'Oeidbin' => 4, 'Oeidplltnbr' => 5, 'Oeidcrtnnbr' => 6, 'Oeidqtyship' => 7, 'Oeidlotref' => 8, 'Oeidcntrqty' => 9, 'Oeidbatch' => 10, 'Oeidcuredate' => 11, 'Oeidpllttype' => 12, 'Oeidlblprtd' => 13, 'Oeidorigbin' => 14, 'Oeidplltid' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
-        self::TYPE_CAMELNAME     => array('oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oeidlotser' => 3, 'oeidbin' => 4, 'oeidplltnbr' => 5, 'oeidcrtnnbr' => 6, 'oeidqtyship' => 7, 'oeidlotref' => 8, 'oeidcntrqty' => 9, 'oeidbatch' => 10, 'oeidcuredate' => 11, 'oeidpllttype' => 12, 'oeidlblprtd' => 13, 'oeidorigbin' => 14, 'oeidplltid' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_COLNAME       => array(SoAllocatedLotserialTableMap::COL_OEHDNBR => 0, SoAllocatedLotserialTableMap::COL_OEDTLINE => 1, SoAllocatedLotserialTableMap::COL_INITITEMNBR => 2, SoAllocatedLotserialTableMap::COL_OEIDLOTSER => 3, SoAllocatedLotserialTableMap::COL_OEIDBIN => 4, SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR => 5, SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR => 6, SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP => 7, SoAllocatedLotserialTableMap::COL_OEIDLOTREF => 8, SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY => 9, SoAllocatedLotserialTableMap::COL_OEIDBATCH => 10, SoAllocatedLotserialTableMap::COL_OEIDCUREDATE => 11, SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE => 12, SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD => 13, SoAllocatedLotserialTableMap::COL_OEIDORIGBIN => 14, SoAllocatedLotserialTableMap::COL_OEIDPLLTID => 15, SoAllocatedLotserialTableMap::COL_DATEUPDTD => 16, SoAllocatedLotserialTableMap::COL_TIMEUPDTD => 17, SoAllocatedLotserialTableMap::COL_DUMMY => 18, ),
-        self::TYPE_FIELDNAME     => array('OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OeidLotSer' => 3, 'OeidBin' => 4, 'OeidPlltNbr' => 5, 'OeidCrtnNbr' => 6, 'OeidQtyShip' => 7, 'OeidLotRef' => 8, 'OeidCntrQty' => 9, 'OeidBatch' => 10, 'OeidCureDate' => 11, 'OeidPlltType' => 12, 'OeidLblPrtd' => 13, 'OeidOrigBin' => 14, 'OeidPlltID' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oeidlotser' => 3, 'Oeidbin' => 4, 'Oeidplltnbr' => 5, 'Oeidcrtnnbr' => 6, 'Oeidqtyship' => 7, 'Oeidlotref' => 8, 'Oeidcntrqty' => 9, 'Oeidbatch' => 10, 'Oeidcuredate' => 11, 'Oeidpllttype' => 12, 'Oeidlblprtd' => 13, 'Oeidorigbin' => 14, 'Oeidplltid' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ],
+        self::TYPE_CAMELNAME     => ['oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oeidlotser' => 3, 'oeidbin' => 4, 'oeidplltnbr' => 5, 'oeidcrtnnbr' => 6, 'oeidqtyship' => 7, 'oeidlotref' => 8, 'oeidcntrqty' => 9, 'oeidbatch' => 10, 'oeidcuredate' => 11, 'oeidpllttype' => 12, 'oeidlblprtd' => 13, 'oeidorigbin' => 14, 'oeidplltid' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ],
+        self::TYPE_COLNAME       => [SoAllocatedLotserialTableMap::COL_OEHDNBR => 0, SoAllocatedLotserialTableMap::COL_OEDTLINE => 1, SoAllocatedLotserialTableMap::COL_INITITEMNBR => 2, SoAllocatedLotserialTableMap::COL_OEIDLOTSER => 3, SoAllocatedLotserialTableMap::COL_OEIDBIN => 4, SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR => 5, SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR => 6, SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP => 7, SoAllocatedLotserialTableMap::COL_OEIDLOTREF => 8, SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY => 9, SoAllocatedLotserialTableMap::COL_OEIDBATCH => 10, SoAllocatedLotserialTableMap::COL_OEIDCUREDATE => 11, SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE => 12, SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD => 13, SoAllocatedLotserialTableMap::COL_OEIDORIGBIN => 14, SoAllocatedLotserialTableMap::COL_OEIDPLLTID => 15, SoAllocatedLotserialTableMap::COL_DATEUPDTD => 16, SoAllocatedLotserialTableMap::COL_TIMEUPDTD => 17, SoAllocatedLotserialTableMap::COL_DUMMY => 18, ],
+        self::TYPE_FIELDNAME     => ['OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OeidLotSer' => 3, 'OeidBin' => 4, 'OeidPlltNbr' => 5, 'OeidCrtnNbr' => 6, 'OeidQtyShip' => 7, 'OeidLotRef' => 8, 'OeidCntrQty' => 9, 'OeidBatch' => 10, 'OeidCureDate' => 11, 'OeidPlltType' => 12, 'OeidLblPrtd' => 13, 'OeidOrigBin' => 14, 'OeidPlltID' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Oehdnbr' => 'OEHDNBR',
+        'SoAllocatedLotserial.Oehdnbr' => 'OEHDNBR',
+        'oehdnbr' => 'OEHDNBR',
+        'soAllocatedLotserial.oehdnbr' => 'OEHDNBR',
+        'SoAllocatedLotserialTableMap::COL_OEHDNBR' => 'OEHDNBR',
+        'COL_OEHDNBR' => 'OEHDNBR',
+        'OehdNbr' => 'OEHDNBR',
+        'so_pre_allo.OehdNbr' => 'OEHDNBR',
+        'Oedtline' => 'OEDTLINE',
+        'SoAllocatedLotserial.Oedtline' => 'OEDTLINE',
+        'oedtline' => 'OEDTLINE',
+        'soAllocatedLotserial.oedtline' => 'OEDTLINE',
+        'SoAllocatedLotserialTableMap::COL_OEDTLINE' => 'OEDTLINE',
+        'COL_OEDTLINE' => 'OEDTLINE',
+        'OedtLine' => 'OEDTLINE',
+        'so_pre_allo.OedtLine' => 'OEDTLINE',
+        'Inititemnbr' => 'INITITEMNBR',
+        'SoAllocatedLotserial.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'soAllocatedLotserial.inititemnbr' => 'INITITEMNBR',
+        'SoAllocatedLotserialTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'so_pre_allo.InitItemNbr' => 'INITITEMNBR',
+        'Oeidlotser' => 'OEIDLOTSER',
+        'SoAllocatedLotserial.Oeidlotser' => 'OEIDLOTSER',
+        'oeidlotser' => 'OEIDLOTSER',
+        'soAllocatedLotserial.oeidlotser' => 'OEIDLOTSER',
+        'SoAllocatedLotserialTableMap::COL_OEIDLOTSER' => 'OEIDLOTSER',
+        'COL_OEIDLOTSER' => 'OEIDLOTSER',
+        'OeidLotSer' => 'OEIDLOTSER',
+        'so_pre_allo.OeidLotSer' => 'OEIDLOTSER',
+        'Oeidbin' => 'OEIDBIN',
+        'SoAllocatedLotserial.Oeidbin' => 'OEIDBIN',
+        'oeidbin' => 'OEIDBIN',
+        'soAllocatedLotserial.oeidbin' => 'OEIDBIN',
+        'SoAllocatedLotserialTableMap::COL_OEIDBIN' => 'OEIDBIN',
+        'COL_OEIDBIN' => 'OEIDBIN',
+        'OeidBin' => 'OEIDBIN',
+        'so_pre_allo.OeidBin' => 'OEIDBIN',
+        'Oeidplltnbr' => 'OEIDPLLTNBR',
+        'SoAllocatedLotserial.Oeidplltnbr' => 'OEIDPLLTNBR',
+        'oeidplltnbr' => 'OEIDPLLTNBR',
+        'soAllocatedLotserial.oeidplltnbr' => 'OEIDPLLTNBR',
+        'SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR' => 'OEIDPLLTNBR',
+        'COL_OEIDPLLTNBR' => 'OEIDPLLTNBR',
+        'OeidPlltNbr' => 'OEIDPLLTNBR',
+        'so_pre_allo.OeidPlltNbr' => 'OEIDPLLTNBR',
+        'Oeidcrtnnbr' => 'OEIDCRTNNBR',
+        'SoAllocatedLotserial.Oeidcrtnnbr' => 'OEIDCRTNNBR',
+        'oeidcrtnnbr' => 'OEIDCRTNNBR',
+        'soAllocatedLotserial.oeidcrtnnbr' => 'OEIDCRTNNBR',
+        'SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR' => 'OEIDCRTNNBR',
+        'COL_OEIDCRTNNBR' => 'OEIDCRTNNBR',
+        'OeidCrtnNbr' => 'OEIDCRTNNBR',
+        'so_pre_allo.OeidCrtnNbr' => 'OEIDCRTNNBR',
+        'Oeidqtyship' => 'OEIDQTYSHIP',
+        'SoAllocatedLotserial.Oeidqtyship' => 'OEIDQTYSHIP',
+        'oeidqtyship' => 'OEIDQTYSHIP',
+        'soAllocatedLotserial.oeidqtyship' => 'OEIDQTYSHIP',
+        'SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP' => 'OEIDQTYSHIP',
+        'COL_OEIDQTYSHIP' => 'OEIDQTYSHIP',
+        'OeidQtyShip' => 'OEIDQTYSHIP',
+        'so_pre_allo.OeidQtyShip' => 'OEIDQTYSHIP',
+        'Oeidlotref' => 'OEIDLOTREF',
+        'SoAllocatedLotserial.Oeidlotref' => 'OEIDLOTREF',
+        'oeidlotref' => 'OEIDLOTREF',
+        'soAllocatedLotserial.oeidlotref' => 'OEIDLOTREF',
+        'SoAllocatedLotserialTableMap::COL_OEIDLOTREF' => 'OEIDLOTREF',
+        'COL_OEIDLOTREF' => 'OEIDLOTREF',
+        'OeidLotRef' => 'OEIDLOTREF',
+        'so_pre_allo.OeidLotRef' => 'OEIDLOTREF',
+        'Oeidcntrqty' => 'OEIDCNTRQTY',
+        'SoAllocatedLotserial.Oeidcntrqty' => 'OEIDCNTRQTY',
+        'oeidcntrqty' => 'OEIDCNTRQTY',
+        'soAllocatedLotserial.oeidcntrqty' => 'OEIDCNTRQTY',
+        'SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY' => 'OEIDCNTRQTY',
+        'COL_OEIDCNTRQTY' => 'OEIDCNTRQTY',
+        'OeidCntrQty' => 'OEIDCNTRQTY',
+        'so_pre_allo.OeidCntrQty' => 'OEIDCNTRQTY',
+        'Oeidbatch' => 'OEIDBATCH',
+        'SoAllocatedLotserial.Oeidbatch' => 'OEIDBATCH',
+        'oeidbatch' => 'OEIDBATCH',
+        'soAllocatedLotserial.oeidbatch' => 'OEIDBATCH',
+        'SoAllocatedLotserialTableMap::COL_OEIDBATCH' => 'OEIDBATCH',
+        'COL_OEIDBATCH' => 'OEIDBATCH',
+        'OeidBatch' => 'OEIDBATCH',
+        'so_pre_allo.OeidBatch' => 'OEIDBATCH',
+        'Oeidcuredate' => 'OEIDCUREDATE',
+        'SoAllocatedLotserial.Oeidcuredate' => 'OEIDCUREDATE',
+        'oeidcuredate' => 'OEIDCUREDATE',
+        'soAllocatedLotserial.oeidcuredate' => 'OEIDCUREDATE',
+        'SoAllocatedLotserialTableMap::COL_OEIDCUREDATE' => 'OEIDCUREDATE',
+        'COL_OEIDCUREDATE' => 'OEIDCUREDATE',
+        'OeidCureDate' => 'OEIDCUREDATE',
+        'so_pre_allo.OeidCureDate' => 'OEIDCUREDATE',
+        'Oeidpllttype' => 'OEIDPLLTTYPE',
+        'SoAllocatedLotserial.Oeidpllttype' => 'OEIDPLLTTYPE',
+        'oeidpllttype' => 'OEIDPLLTTYPE',
+        'soAllocatedLotserial.oeidpllttype' => 'OEIDPLLTTYPE',
+        'SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE' => 'OEIDPLLTTYPE',
+        'COL_OEIDPLLTTYPE' => 'OEIDPLLTTYPE',
+        'OeidPlltType' => 'OEIDPLLTTYPE',
+        'so_pre_allo.OeidPlltType' => 'OEIDPLLTTYPE',
+        'Oeidlblprtd' => 'OEIDLBLPRTD',
+        'SoAllocatedLotserial.Oeidlblprtd' => 'OEIDLBLPRTD',
+        'oeidlblprtd' => 'OEIDLBLPRTD',
+        'soAllocatedLotserial.oeidlblprtd' => 'OEIDLBLPRTD',
+        'SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD' => 'OEIDLBLPRTD',
+        'COL_OEIDLBLPRTD' => 'OEIDLBLPRTD',
+        'OeidLblPrtd' => 'OEIDLBLPRTD',
+        'so_pre_allo.OeidLblPrtd' => 'OEIDLBLPRTD',
+        'Oeidorigbin' => 'OEIDORIGBIN',
+        'SoAllocatedLotserial.Oeidorigbin' => 'OEIDORIGBIN',
+        'oeidorigbin' => 'OEIDORIGBIN',
+        'soAllocatedLotserial.oeidorigbin' => 'OEIDORIGBIN',
+        'SoAllocatedLotserialTableMap::COL_OEIDORIGBIN' => 'OEIDORIGBIN',
+        'COL_OEIDORIGBIN' => 'OEIDORIGBIN',
+        'OeidOrigBin' => 'OEIDORIGBIN',
+        'so_pre_allo.OeidOrigBin' => 'OEIDORIGBIN',
+        'Oeidplltid' => 'OEIDPLLTID',
+        'SoAllocatedLotserial.Oeidplltid' => 'OEIDPLLTID',
+        'oeidplltid' => 'OEIDPLLTID',
+        'soAllocatedLotserial.oeidplltid' => 'OEIDPLLTID',
+        'SoAllocatedLotserialTableMap::COL_OEIDPLLTID' => 'OEIDPLLTID',
+        'COL_OEIDPLLTID' => 'OEIDPLLTID',
+        'OeidPlltID' => 'OEIDPLLTID',
+        'so_pre_allo.OeidPlltID' => 'OEIDPLLTID',
+        'Dateupdtd' => 'DATEUPDTD',
+        'SoAllocatedLotserial.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'soAllocatedLotserial.dateupdtd' => 'DATEUPDTD',
+        'SoAllocatedLotserialTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_pre_allo.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'SoAllocatedLotserial.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'soAllocatedLotserial.timeupdtd' => 'TIMEUPDTD',
+        'SoAllocatedLotserialTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_pre_allo.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'SoAllocatedLotserial.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'soAllocatedLotserial.dummy' => 'DUMMY',
+        'SoAllocatedLotserialTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_pre_allo.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_pre_allo');
@@ -225,7 +392,7 @@ class SoAllocatedLotserialTableMap extends TableMap
         $this->addPrimaryKey('OeidBin', 'Oeidbin', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('OeidPlltNbr', 'Oeidplltnbr', 'INTEGER', true, 4, 0);
         $this->addPrimaryKey('OeidCrtnNbr', 'Oeidcrtnnbr', 'INTEGER', true, 4, 0);
-        $this->addColumn('OeidQtyShip', 'Oeidqtyship', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OeidQtyShip', 'Oeidqtyship', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('OeidLotRef', 'Oeidlotref', 'VARCHAR', true, 20, '');
         $this->addColumn('OeidCntrQty', 'Oeidcntrqty', 'DECIMAL', true, 20, 0);
         $this->addColumn('OeidBatch', 'Oeidbatch', 'VARCHAR', true, 15, '');
@@ -237,12 +404,14 @@ class SoAllocatedLotserialTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -282,7 +451,7 @@ class SoAllocatedLotserialTableMap extends TableMap
     1 => ':LotmLotNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -293,9 +462,11 @@ class SoAllocatedLotserialTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \SoAllocatedLotserial $obj A \SoAllocatedLotserial object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(SoAllocatedLotserial $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -314,8 +485,10 @@ class SoAllocatedLotserialTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \SoAllocatedLotserial object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \SoAllocatedLotserial) {
@@ -343,14 +516,14 @@ class SoAllocatedLotserialTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Oedtline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Oeidlotser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Oeidbin', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Oeidplltnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Oeidcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -365,14 +538,14 @@ class SoAllocatedLotserialTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -423,10 +596,10 @@ class SoAllocatedLotserialTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? SoAllocatedLotserialTableMap::CLASS_DEFAULT : SoAllocatedLotserialTableMap::OM_CLASS;
     }
@@ -434,17 +607,17 @@ class SoAllocatedLotserialTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (SoAllocatedLotserial object, last column rank)
+     * @return array (SoAllocatedLotserial object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = SoAllocatedLotserialTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = SoAllocatedLotserialTableMap::getInstanceFromPool($key))) {
@@ -460,7 +633,7 @@ class SoAllocatedLotserialTableMap extends TableMap
             SoAllocatedLotserialTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -468,13 +641,13 @@ class SoAllocatedLotserialTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -504,12 +677,13 @@ class SoAllocatedLotserialTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_OEHDNBR);
@@ -555,40 +729,86 @@ class SoAllocatedLotserialTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEHDNBR);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEDTLINE);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDLOTSER);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDBIN);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDLOTREF);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDBATCH);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDCUREDATE);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDORIGBIN);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDPLLTID);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(SoAllocatedLotserialTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.OehdNbr');
+            $criteria->removeSelectColumn($alias . '.OedtLine');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.OeidLotSer');
+            $criteria->removeSelectColumn($alias . '.OeidBin');
+            $criteria->removeSelectColumn($alias . '.OeidPlltNbr');
+            $criteria->removeSelectColumn($alias . '.OeidCrtnNbr');
+            $criteria->removeSelectColumn($alias . '.OeidQtyShip');
+            $criteria->removeSelectColumn($alias . '.OeidLotRef');
+            $criteria->removeSelectColumn($alias . '.OeidCntrQty');
+            $criteria->removeSelectColumn($alias . '.OeidBatch');
+            $criteria->removeSelectColumn($alias . '.OeidCureDate');
+            $criteria->removeSelectColumn($alias . '.OeidPlltType');
+            $criteria->removeSelectColumn($alias . '.OeidLblPrtd');
+            $criteria->removeSelectColumn($alias . '.OeidOrigBin');
+            $criteria->removeSelectColumn($alias . '.OeidPlltID');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(SoAllocatedLotserialTableMap::DATABASE_NAME)->getTable(SoAllocatedLotserialTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SoAllocatedLotserialTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SoAllocatedLotserialTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SoAllocatedLotserialTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a SoAllocatedLotserial or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or SoAllocatedLotserial object or primary key or array of primary keys
+     * @param mixed $values Criteria or SoAllocatedLotserial object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoAllocatedLotserialTableMap::DATABASE_NAME);
@@ -606,7 +826,7 @@ class SoAllocatedLotserialTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(SoAllocatedLotserialTableMap::COL_OEHDNBR, $value[0]);
@@ -639,7 +859,7 @@ class SoAllocatedLotserialTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return SoAllocatedLotserialQuery::create()->doDeleteAll($con);
     }
@@ -647,13 +867,13 @@ class SoAllocatedLotserialTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a SoAllocatedLotserial or Criteria object.
      *
-     * @param mixed               $criteria Criteria or SoAllocatedLotserial object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or SoAllocatedLotserial object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoAllocatedLotserialTableMap::DATABASE_NAME);
@@ -676,7 +896,4 @@ class SoAllocatedLotserialTableMap extends TableMap
         });
     }
 
-} // SoAllocatedLotserialTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-SoAllocatedLotserialTableMap::buildTableMap();
+}

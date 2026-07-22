@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ConfigCcTableMap extends TableMap
 {
@@ -34,259 +33,555 @@ class ConfigCcTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ConfigCcTableMap';
+    public const CLASS_NAME = '.Map.ConfigCcTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'cc_config';
+    public const TABLE_NAME = 'cc_config';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ConfigCc';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ConfigCc';
+    public const OM_CLASS = '\\ConfigCc';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ConfigCc';
+    public const CLASS_DEFAULT = 'ConfigCc';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 35;
+    public const NUM_COLUMNS = 35;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 35;
+    public const NUM_HYDRATE_COLUMNS = 35;
 
     /**
      * the column name for the CctbConfKey field
      */
-    const COL_CCTBCONFKEY = 'cc_config.CctbConfKey';
+    public const COL_CCTBCONFKEY = 'cc_config.CctbConfKey';
 
     /**
      * the column name for the CctbConfCredLine field
      */
-    const COL_CCTBCONFCREDLINE = 'cc_config.CctbConfCredLine';
+    public const COL_CCTBCONFCREDLINE = 'cc_config.CctbConfCredLine';
 
     /**
      * the column name for the CctbConfCredCols field
      */
-    const COL_CCTBCONFCREDCOLS = 'cc_config.CctbConfCredCols';
+    public const COL_CCTBCONFCREDCOLS = 'cc_config.CctbConfCredCols';
 
     /**
      * the column name for the CctbConfNoteStoreDays field
      */
-    const COL_CCTBCONFNOTESTOREDAYS = 'cc_config.CctbConfNoteStoreDays';
+    public const COL_CCTBCONFNOTESTOREDAYS = 'cc_config.CctbConfNoteStoreDays';
 
     /**
      * the column name for the CctbConfAvgMonths field
      */
-    const COL_CCTBCONFAVGMONTHS = 'cc_config.CctbConfAvgMonths';
+    public const COL_CCTBCONFAVGMONTHS = 'cc_config.CctbConfAvgMonths';
 
     /**
      * the column name for the CctbConfAvgFinChrg field
      */
-    const COL_CCTBCONFAVGFINCHRG = 'cc_config.CctbConfAvgFinChrg';
+    public const COL_CCTBCONFAVGFINCHRG = 'cc_config.CctbConfAvgFinChrg';
 
     /**
      * the column name for the CctbConfAllTerms field
      */
-    const COL_CCTBCONFALLTERMS = 'cc_config.CctbConfAllTerms';
+    public const COL_CCTBCONFALLTERMS = 'cc_config.CctbConfAllTerms';
 
     /**
      * the column name for the CctbConfTerms01 field
      */
-    const COL_CCTBCONFTERMS01 = 'cc_config.CctbConfTerms01';
+    public const COL_CCTBCONFTERMS01 = 'cc_config.CctbConfTerms01';
 
     /**
      * the column name for the CctbConfTerms02 field
      */
-    const COL_CCTBCONFTERMS02 = 'cc_config.CctbConfTerms02';
+    public const COL_CCTBCONFTERMS02 = 'cc_config.CctbConfTerms02';
 
     /**
      * the column name for the CctbConfTerms03 field
      */
-    const COL_CCTBCONFTERMS03 = 'cc_config.CctbConfTerms03';
+    public const COL_CCTBCONFTERMS03 = 'cc_config.CctbConfTerms03';
 
     /**
      * the column name for the CctbConfTerms04 field
      */
-    const COL_CCTBCONFTERMS04 = 'cc_config.CctbConfTerms04';
+    public const COL_CCTBCONFTERMS04 = 'cc_config.CctbConfTerms04';
 
     /**
      * the column name for the CctbConfTerms05 field
      */
-    const COL_CCTBCONFTERMS05 = 'cc_config.CctbConfTerms05';
+    public const COL_CCTBCONFTERMS05 = 'cc_config.CctbConfTerms05';
 
     /**
      * the column name for the CctbConfTerms06 field
      */
-    const COL_CCTBCONFTERMS06 = 'cc_config.CctbConfTerms06';
+    public const COL_CCTBCONFTERMS06 = 'cc_config.CctbConfTerms06';
 
     /**
      * the column name for the CctbConfTerms07 field
      */
-    const COL_CCTBCONFTERMS07 = 'cc_config.CctbConfTerms07';
+    public const COL_CCTBCONFTERMS07 = 'cc_config.CctbConfTerms07';
 
     /**
      * the column name for the CctbConfTerms08 field
      */
-    const COL_CCTBCONFTERMS08 = 'cc_config.CctbConfTerms08';
+    public const COL_CCTBCONFTERMS08 = 'cc_config.CctbConfTerms08';
 
     /**
      * the column name for the CctbConfTerms09 field
      */
-    const COL_CCTBCONFTERMS09 = 'cc_config.CctbConfTerms09';
+    public const COL_CCTBCONFTERMS09 = 'cc_config.CctbConfTerms09';
 
     /**
      * the column name for the CctbConfTerms10 field
      */
-    const COL_CCTBCONFTERMS10 = 'cc_config.CctbConfTerms10';
+    public const COL_CCTBCONFTERMS10 = 'cc_config.CctbConfTerms10';
 
     /**
      * the column name for the CctbConfTerms11 field
      */
-    const COL_CCTBCONFTERMS11 = 'cc_config.CctbConfTerms11';
+    public const COL_CCTBCONFTERMS11 = 'cc_config.CctbConfTerms11';
 
     /**
      * the column name for the CctbConfTerms12 field
      */
-    const COL_CCTBCONFTERMS12 = 'cc_config.CctbConfTerms12';
+    public const COL_CCTBCONFTERMS12 = 'cc_config.CctbConfTerms12';
 
     /**
      * the column name for the CctbConfFutOrdrs field
      */
-    const COL_CCTBCONFFUTORDRS = 'cc_config.CctbConfFutOrdrs';
+    public const COL_CCTBCONFFUTORDRS = 'cc_config.CctbConfFutOrdrs';
 
     /**
      * the column name for the CctbConfPickTicket field
      */
-    const COL_CCTBCONFPICKTICKET = 'cc_config.CctbConfPickTicket';
+    public const COL_CCTBCONFPICKTICKET = 'cc_config.CctbConfPickTicket';
 
     /**
      * the column name for the CctbConfPickAlt field
      */
-    const COL_CCTBCONFPICKALT = 'cc_config.CctbConfPickAlt';
+    public const COL_CCTBCONFPICKALT = 'cc_config.CctbConfPickAlt';
 
     /**
      * the column name for the CctbConfPickRel field
      */
-    const COL_CCTBCONFPICKREL = 'cc_config.CctbConfPickRel';
+    public const COL_CCTBCONFPICKREL = 'cc_config.CctbConfPickRel';
 
     /**
      * the column name for the CctbConfUseOdue field
      */
-    const COL_CCTBCONFUSEODUE = 'cc_config.CctbConfUseOdue';
+    public const COL_CCTBCONFUSEODUE = 'cc_config.CctbConfUseOdue';
 
     /**
      * the column name for the CctbConfAgeLevlHold field
      */
-    const COL_CCTBCONFAGELEVLHOLD = 'cc_config.CctbConfAgeLevlHold';
+    public const COL_CCTBCONFAGELEVLHOLD = 'cc_config.CctbConfAgeLevlHold';
 
     /**
      * the column name for the CctbConfLevlAmt field
      */
-    const COL_CCTBCONFLEVLAMT = 'cc_config.CctbConfLevlAmt';
+    public const COL_CCTBCONFLEVLAMT = 'cc_config.CctbConfLevlAmt';
 
     /**
      * the column name for the CctbConfUseCredLmt field
      */
-    const COL_CCTBCONFUSECREDLMT = 'cc_config.CctbConfUseCredLmt';
+    public const COL_CCTBCONFUSECREDLMT = 'cc_config.CctbConfUseCredLmt';
 
     /**
      * the column name for the CctbConfPctToHold field
      */
-    const COL_CCTBCONFPCTTOHOLD = 'cc_config.CctbConfPctToHold';
+    public const COL_CCTBCONFPCTTOHOLD = 'cc_config.CctbConfPctToHold';
 
     /**
      * the column name for the CctbConfAddCurr field
      */
-    const COL_CCTBCONFADDCURR = 'cc_config.CctbConfAddCurr';
+    public const COL_CCTBCONFADDCURR = 'cc_config.CctbConfAddCurr';
 
     /**
      * the column name for the CctbConfMinMargHold field
      */
-    const COL_CCTBCONFMINMARGHOLD = 'cc_config.CctbConfMinMargHold';
+    public const COL_CCTBCONFMINMARGHOLD = 'cc_config.CctbConfMinMargHold';
 
     /**
      * the column name for the CctbConfMinMargBase field
      */
-    const COL_CCTBCONFMINMARGBASE = 'cc_config.CctbConfMinMargBase';
+    public const COL_CCTBCONFMINMARGBASE = 'cc_config.CctbConfMinMargBase';
 
     /**
      * the column name for the CctbConfHighLevlHold field
      */
-    const COL_CCTBCONFHIGHLEVLHOLD = 'cc_config.CctbConfHighLevlHold';
+    public const COL_CCTBCONFHIGHLEVLHOLD = 'cc_config.CctbConfHighLevlHold';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'cc_config.DateUpdtd';
+    public const COL_DATEUPDTD = 'cc_config.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'cc_config.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'cc_config.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'cc_config.dummy';
+    public const COL_DUMMY = 'cc_config.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Cctbconfkey', 'Cctbconfcredline', 'Cctbconfcredcols', 'Cctbconfnotestoredays', 'Cctbconfavgmonths', 'Cctbconfavgfinchrg', 'Cctbconfallterms', 'Cctbconfterms01', 'Cctbconfterms02', 'Cctbconfterms03', 'Cctbconfterms04', 'Cctbconfterms05', 'Cctbconfterms06', 'Cctbconfterms07', 'Cctbconfterms08', 'Cctbconfterms09', 'Cctbconfterms10', 'Cctbconfterms11', 'Cctbconfterms12', 'Cctbconffutordrs', 'Cctbconfpickticket', 'Cctbconfpickalt', 'Cctbconfpickrel', 'Cctbconfuseodue', 'Cctbconfagelevlhold', 'Cctbconflevlamt', 'Cctbconfusecredlmt', 'Cctbconfpcttohold', 'Cctbconfaddcurr', 'Cctbconfminmarghold', 'Cctbconfminmargbase', 'Cctbconfhighlevlhold', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('cctbconfkey', 'cctbconfcredline', 'cctbconfcredcols', 'cctbconfnotestoredays', 'cctbconfavgmonths', 'cctbconfavgfinchrg', 'cctbconfallterms', 'cctbconfterms01', 'cctbconfterms02', 'cctbconfterms03', 'cctbconfterms04', 'cctbconfterms05', 'cctbconfterms06', 'cctbconfterms07', 'cctbconfterms08', 'cctbconfterms09', 'cctbconfterms10', 'cctbconfterms11', 'cctbconfterms12', 'cctbconffutordrs', 'cctbconfpickticket', 'cctbconfpickalt', 'cctbconfpickrel', 'cctbconfuseodue', 'cctbconfagelevlhold', 'cctbconflevlamt', 'cctbconfusecredlmt', 'cctbconfpcttohold', 'cctbconfaddcurr', 'cctbconfminmarghold', 'cctbconfminmargbase', 'cctbconfhighlevlhold', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ConfigCcTableMap::COL_CCTBCONFKEY, ConfigCcTableMap::COL_CCTBCONFCREDLINE, ConfigCcTableMap::COL_CCTBCONFCREDCOLS, ConfigCcTableMap::COL_CCTBCONFNOTESTOREDAYS, ConfigCcTableMap::COL_CCTBCONFAVGMONTHS, ConfigCcTableMap::COL_CCTBCONFAVGFINCHRG, ConfigCcTableMap::COL_CCTBCONFALLTERMS, ConfigCcTableMap::COL_CCTBCONFTERMS01, ConfigCcTableMap::COL_CCTBCONFTERMS02, ConfigCcTableMap::COL_CCTBCONFTERMS03, ConfigCcTableMap::COL_CCTBCONFTERMS04, ConfigCcTableMap::COL_CCTBCONFTERMS05, ConfigCcTableMap::COL_CCTBCONFTERMS06, ConfigCcTableMap::COL_CCTBCONFTERMS07, ConfigCcTableMap::COL_CCTBCONFTERMS08, ConfigCcTableMap::COL_CCTBCONFTERMS09, ConfigCcTableMap::COL_CCTBCONFTERMS10, ConfigCcTableMap::COL_CCTBCONFTERMS11, ConfigCcTableMap::COL_CCTBCONFTERMS12, ConfigCcTableMap::COL_CCTBCONFFUTORDRS, ConfigCcTableMap::COL_CCTBCONFPICKTICKET, ConfigCcTableMap::COL_CCTBCONFPICKALT, ConfigCcTableMap::COL_CCTBCONFPICKREL, ConfigCcTableMap::COL_CCTBCONFUSEODUE, ConfigCcTableMap::COL_CCTBCONFAGELEVLHOLD, ConfigCcTableMap::COL_CCTBCONFLEVLAMT, ConfigCcTableMap::COL_CCTBCONFUSECREDLMT, ConfigCcTableMap::COL_CCTBCONFPCTTOHOLD, ConfigCcTableMap::COL_CCTBCONFADDCURR, ConfigCcTableMap::COL_CCTBCONFMINMARGHOLD, ConfigCcTableMap::COL_CCTBCONFMINMARGBASE, ConfigCcTableMap::COL_CCTBCONFHIGHLEVLHOLD, ConfigCcTableMap::COL_DATEUPDTD, ConfigCcTableMap::COL_TIMEUPDTD, ConfigCcTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('CctbConfKey', 'CctbConfCredLine', 'CctbConfCredCols', 'CctbConfNoteStoreDays', 'CctbConfAvgMonths', 'CctbConfAvgFinChrg', 'CctbConfAllTerms', 'CctbConfTerms01', 'CctbConfTerms02', 'CctbConfTerms03', 'CctbConfTerms04', 'CctbConfTerms05', 'CctbConfTerms06', 'CctbConfTerms07', 'CctbConfTerms08', 'CctbConfTerms09', 'CctbConfTerms10', 'CctbConfTerms11', 'CctbConfTerms12', 'CctbConfFutOrdrs', 'CctbConfPickTicket', 'CctbConfPickAlt', 'CctbConfPickRel', 'CctbConfUseOdue', 'CctbConfAgeLevlHold', 'CctbConfLevlAmt', 'CctbConfUseCredLmt', 'CctbConfPctToHold', 'CctbConfAddCurr', 'CctbConfMinMargHold', 'CctbConfMinMargBase', 'CctbConfHighLevlHold', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Cctbconfkey', 'Cctbconfcredline', 'Cctbconfcredcols', 'Cctbconfnotestoredays', 'Cctbconfavgmonths', 'Cctbconfavgfinchrg', 'Cctbconfallterms', 'Cctbconfterms01', 'Cctbconfterms02', 'Cctbconfterms03', 'Cctbconfterms04', 'Cctbconfterms05', 'Cctbconfterms06', 'Cctbconfterms07', 'Cctbconfterms08', 'Cctbconfterms09', 'Cctbconfterms10', 'Cctbconfterms11', 'Cctbconfterms12', 'Cctbconffutordrs', 'Cctbconfpickticket', 'Cctbconfpickalt', 'Cctbconfpickrel', 'Cctbconfuseodue', 'Cctbconfagelevlhold', 'Cctbconflevlamt', 'Cctbconfusecredlmt', 'Cctbconfpcttohold', 'Cctbconfaddcurr', 'Cctbconfminmarghold', 'Cctbconfminmargbase', 'Cctbconfhighlevlhold', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['cctbconfkey', 'cctbconfcredline', 'cctbconfcredcols', 'cctbconfnotestoredays', 'cctbconfavgmonths', 'cctbconfavgfinchrg', 'cctbconfallterms', 'cctbconfterms01', 'cctbconfterms02', 'cctbconfterms03', 'cctbconfterms04', 'cctbconfterms05', 'cctbconfterms06', 'cctbconfterms07', 'cctbconfterms08', 'cctbconfterms09', 'cctbconfterms10', 'cctbconfterms11', 'cctbconfterms12', 'cctbconffutordrs', 'cctbconfpickticket', 'cctbconfpickalt', 'cctbconfpickrel', 'cctbconfuseodue', 'cctbconfagelevlhold', 'cctbconflevlamt', 'cctbconfusecredlmt', 'cctbconfpcttohold', 'cctbconfaddcurr', 'cctbconfminmarghold', 'cctbconfminmargbase', 'cctbconfhighlevlhold', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ConfigCcTableMap::COL_CCTBCONFKEY, ConfigCcTableMap::COL_CCTBCONFCREDLINE, ConfigCcTableMap::COL_CCTBCONFCREDCOLS, ConfigCcTableMap::COL_CCTBCONFNOTESTOREDAYS, ConfigCcTableMap::COL_CCTBCONFAVGMONTHS, ConfigCcTableMap::COL_CCTBCONFAVGFINCHRG, ConfigCcTableMap::COL_CCTBCONFALLTERMS, ConfigCcTableMap::COL_CCTBCONFTERMS01, ConfigCcTableMap::COL_CCTBCONFTERMS02, ConfigCcTableMap::COL_CCTBCONFTERMS03, ConfigCcTableMap::COL_CCTBCONFTERMS04, ConfigCcTableMap::COL_CCTBCONFTERMS05, ConfigCcTableMap::COL_CCTBCONFTERMS06, ConfigCcTableMap::COL_CCTBCONFTERMS07, ConfigCcTableMap::COL_CCTBCONFTERMS08, ConfigCcTableMap::COL_CCTBCONFTERMS09, ConfigCcTableMap::COL_CCTBCONFTERMS10, ConfigCcTableMap::COL_CCTBCONFTERMS11, ConfigCcTableMap::COL_CCTBCONFTERMS12, ConfigCcTableMap::COL_CCTBCONFFUTORDRS, ConfigCcTableMap::COL_CCTBCONFPICKTICKET, ConfigCcTableMap::COL_CCTBCONFPICKALT, ConfigCcTableMap::COL_CCTBCONFPICKREL, ConfigCcTableMap::COL_CCTBCONFUSEODUE, ConfigCcTableMap::COL_CCTBCONFAGELEVLHOLD, ConfigCcTableMap::COL_CCTBCONFLEVLAMT, ConfigCcTableMap::COL_CCTBCONFUSECREDLMT, ConfigCcTableMap::COL_CCTBCONFPCTTOHOLD, ConfigCcTableMap::COL_CCTBCONFADDCURR, ConfigCcTableMap::COL_CCTBCONFMINMARGHOLD, ConfigCcTableMap::COL_CCTBCONFMINMARGBASE, ConfigCcTableMap::COL_CCTBCONFHIGHLEVLHOLD, ConfigCcTableMap::COL_DATEUPDTD, ConfigCcTableMap::COL_TIMEUPDTD, ConfigCcTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['CctbConfKey', 'CctbConfCredLine', 'CctbConfCredCols', 'CctbConfNoteStoreDays', 'CctbConfAvgMonths', 'CctbConfAvgFinChrg', 'CctbConfAllTerms', 'CctbConfTerms01', 'CctbConfTerms02', 'CctbConfTerms03', 'CctbConfTerms04', 'CctbConfTerms05', 'CctbConfTerms06', 'CctbConfTerms07', 'CctbConfTerms08', 'CctbConfTerms09', 'CctbConfTerms10', 'CctbConfTerms11', 'CctbConfTerms12', 'CctbConfFutOrdrs', 'CctbConfPickTicket', 'CctbConfPickAlt', 'CctbConfPickRel', 'CctbConfUseOdue', 'CctbConfAgeLevlHold', 'CctbConfLevlAmt', 'CctbConfUseCredLmt', 'CctbConfPctToHold', 'CctbConfAddCurr', 'CctbConfMinMargHold', 'CctbConfMinMargBase', 'CctbConfHighLevlHold', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Cctbconfkey' => 0, 'Cctbconfcredline' => 1, 'Cctbconfcredcols' => 2, 'Cctbconfnotestoredays' => 3, 'Cctbconfavgmonths' => 4, 'Cctbconfavgfinchrg' => 5, 'Cctbconfallterms' => 6, 'Cctbconfterms01' => 7, 'Cctbconfterms02' => 8, 'Cctbconfterms03' => 9, 'Cctbconfterms04' => 10, 'Cctbconfterms05' => 11, 'Cctbconfterms06' => 12, 'Cctbconfterms07' => 13, 'Cctbconfterms08' => 14, 'Cctbconfterms09' => 15, 'Cctbconfterms10' => 16, 'Cctbconfterms11' => 17, 'Cctbconfterms12' => 18, 'Cctbconffutordrs' => 19, 'Cctbconfpickticket' => 20, 'Cctbconfpickalt' => 21, 'Cctbconfpickrel' => 22, 'Cctbconfuseodue' => 23, 'Cctbconfagelevlhold' => 24, 'Cctbconflevlamt' => 25, 'Cctbconfusecredlmt' => 26, 'Cctbconfpcttohold' => 27, 'Cctbconfaddcurr' => 28, 'Cctbconfminmarghold' => 29, 'Cctbconfminmargbase' => 30, 'Cctbconfhighlevlhold' => 31, 'Dateupdtd' => 32, 'Timeupdtd' => 33, 'Dummy' => 34, ),
-        self::TYPE_CAMELNAME     => array('cctbconfkey' => 0, 'cctbconfcredline' => 1, 'cctbconfcredcols' => 2, 'cctbconfnotestoredays' => 3, 'cctbconfavgmonths' => 4, 'cctbconfavgfinchrg' => 5, 'cctbconfallterms' => 6, 'cctbconfterms01' => 7, 'cctbconfterms02' => 8, 'cctbconfterms03' => 9, 'cctbconfterms04' => 10, 'cctbconfterms05' => 11, 'cctbconfterms06' => 12, 'cctbconfterms07' => 13, 'cctbconfterms08' => 14, 'cctbconfterms09' => 15, 'cctbconfterms10' => 16, 'cctbconfterms11' => 17, 'cctbconfterms12' => 18, 'cctbconffutordrs' => 19, 'cctbconfpickticket' => 20, 'cctbconfpickalt' => 21, 'cctbconfpickrel' => 22, 'cctbconfuseodue' => 23, 'cctbconfagelevlhold' => 24, 'cctbconflevlamt' => 25, 'cctbconfusecredlmt' => 26, 'cctbconfpcttohold' => 27, 'cctbconfaddcurr' => 28, 'cctbconfminmarghold' => 29, 'cctbconfminmargbase' => 30, 'cctbconfhighlevlhold' => 31, 'dateupdtd' => 32, 'timeupdtd' => 33, 'dummy' => 34, ),
-        self::TYPE_COLNAME       => array(ConfigCcTableMap::COL_CCTBCONFKEY => 0, ConfigCcTableMap::COL_CCTBCONFCREDLINE => 1, ConfigCcTableMap::COL_CCTBCONFCREDCOLS => 2, ConfigCcTableMap::COL_CCTBCONFNOTESTOREDAYS => 3, ConfigCcTableMap::COL_CCTBCONFAVGMONTHS => 4, ConfigCcTableMap::COL_CCTBCONFAVGFINCHRG => 5, ConfigCcTableMap::COL_CCTBCONFALLTERMS => 6, ConfigCcTableMap::COL_CCTBCONFTERMS01 => 7, ConfigCcTableMap::COL_CCTBCONFTERMS02 => 8, ConfigCcTableMap::COL_CCTBCONFTERMS03 => 9, ConfigCcTableMap::COL_CCTBCONFTERMS04 => 10, ConfigCcTableMap::COL_CCTBCONFTERMS05 => 11, ConfigCcTableMap::COL_CCTBCONFTERMS06 => 12, ConfigCcTableMap::COL_CCTBCONFTERMS07 => 13, ConfigCcTableMap::COL_CCTBCONFTERMS08 => 14, ConfigCcTableMap::COL_CCTBCONFTERMS09 => 15, ConfigCcTableMap::COL_CCTBCONFTERMS10 => 16, ConfigCcTableMap::COL_CCTBCONFTERMS11 => 17, ConfigCcTableMap::COL_CCTBCONFTERMS12 => 18, ConfigCcTableMap::COL_CCTBCONFFUTORDRS => 19, ConfigCcTableMap::COL_CCTBCONFPICKTICKET => 20, ConfigCcTableMap::COL_CCTBCONFPICKALT => 21, ConfigCcTableMap::COL_CCTBCONFPICKREL => 22, ConfigCcTableMap::COL_CCTBCONFUSEODUE => 23, ConfigCcTableMap::COL_CCTBCONFAGELEVLHOLD => 24, ConfigCcTableMap::COL_CCTBCONFLEVLAMT => 25, ConfigCcTableMap::COL_CCTBCONFUSECREDLMT => 26, ConfigCcTableMap::COL_CCTBCONFPCTTOHOLD => 27, ConfigCcTableMap::COL_CCTBCONFADDCURR => 28, ConfigCcTableMap::COL_CCTBCONFMINMARGHOLD => 29, ConfigCcTableMap::COL_CCTBCONFMINMARGBASE => 30, ConfigCcTableMap::COL_CCTBCONFHIGHLEVLHOLD => 31, ConfigCcTableMap::COL_DATEUPDTD => 32, ConfigCcTableMap::COL_TIMEUPDTD => 33, ConfigCcTableMap::COL_DUMMY => 34, ),
-        self::TYPE_FIELDNAME     => array('CctbConfKey' => 0, 'CctbConfCredLine' => 1, 'CctbConfCredCols' => 2, 'CctbConfNoteStoreDays' => 3, 'CctbConfAvgMonths' => 4, 'CctbConfAvgFinChrg' => 5, 'CctbConfAllTerms' => 6, 'CctbConfTerms01' => 7, 'CctbConfTerms02' => 8, 'CctbConfTerms03' => 9, 'CctbConfTerms04' => 10, 'CctbConfTerms05' => 11, 'CctbConfTerms06' => 12, 'CctbConfTerms07' => 13, 'CctbConfTerms08' => 14, 'CctbConfTerms09' => 15, 'CctbConfTerms10' => 16, 'CctbConfTerms11' => 17, 'CctbConfTerms12' => 18, 'CctbConfFutOrdrs' => 19, 'CctbConfPickTicket' => 20, 'CctbConfPickAlt' => 21, 'CctbConfPickRel' => 22, 'CctbConfUseOdue' => 23, 'CctbConfAgeLevlHold' => 24, 'CctbConfLevlAmt' => 25, 'CctbConfUseCredLmt' => 26, 'CctbConfPctToHold' => 27, 'CctbConfAddCurr' => 28, 'CctbConfMinMargHold' => 29, 'CctbConfMinMargBase' => 30, 'CctbConfHighLevlHold' => 31, 'DateUpdtd' => 32, 'TimeUpdtd' => 33, 'dummy' => 34, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Cctbconfkey' => 0, 'Cctbconfcredline' => 1, 'Cctbconfcredcols' => 2, 'Cctbconfnotestoredays' => 3, 'Cctbconfavgmonths' => 4, 'Cctbconfavgfinchrg' => 5, 'Cctbconfallterms' => 6, 'Cctbconfterms01' => 7, 'Cctbconfterms02' => 8, 'Cctbconfterms03' => 9, 'Cctbconfterms04' => 10, 'Cctbconfterms05' => 11, 'Cctbconfterms06' => 12, 'Cctbconfterms07' => 13, 'Cctbconfterms08' => 14, 'Cctbconfterms09' => 15, 'Cctbconfterms10' => 16, 'Cctbconfterms11' => 17, 'Cctbconfterms12' => 18, 'Cctbconffutordrs' => 19, 'Cctbconfpickticket' => 20, 'Cctbconfpickalt' => 21, 'Cctbconfpickrel' => 22, 'Cctbconfuseodue' => 23, 'Cctbconfagelevlhold' => 24, 'Cctbconflevlamt' => 25, 'Cctbconfusecredlmt' => 26, 'Cctbconfpcttohold' => 27, 'Cctbconfaddcurr' => 28, 'Cctbconfminmarghold' => 29, 'Cctbconfminmargbase' => 30, 'Cctbconfhighlevlhold' => 31, 'Dateupdtd' => 32, 'Timeupdtd' => 33, 'Dummy' => 34, ],
+        self::TYPE_CAMELNAME     => ['cctbconfkey' => 0, 'cctbconfcredline' => 1, 'cctbconfcredcols' => 2, 'cctbconfnotestoredays' => 3, 'cctbconfavgmonths' => 4, 'cctbconfavgfinchrg' => 5, 'cctbconfallterms' => 6, 'cctbconfterms01' => 7, 'cctbconfterms02' => 8, 'cctbconfterms03' => 9, 'cctbconfterms04' => 10, 'cctbconfterms05' => 11, 'cctbconfterms06' => 12, 'cctbconfterms07' => 13, 'cctbconfterms08' => 14, 'cctbconfterms09' => 15, 'cctbconfterms10' => 16, 'cctbconfterms11' => 17, 'cctbconfterms12' => 18, 'cctbconffutordrs' => 19, 'cctbconfpickticket' => 20, 'cctbconfpickalt' => 21, 'cctbconfpickrel' => 22, 'cctbconfuseodue' => 23, 'cctbconfagelevlhold' => 24, 'cctbconflevlamt' => 25, 'cctbconfusecredlmt' => 26, 'cctbconfpcttohold' => 27, 'cctbconfaddcurr' => 28, 'cctbconfminmarghold' => 29, 'cctbconfminmargbase' => 30, 'cctbconfhighlevlhold' => 31, 'dateupdtd' => 32, 'timeupdtd' => 33, 'dummy' => 34, ],
+        self::TYPE_COLNAME       => [ConfigCcTableMap::COL_CCTBCONFKEY => 0, ConfigCcTableMap::COL_CCTBCONFCREDLINE => 1, ConfigCcTableMap::COL_CCTBCONFCREDCOLS => 2, ConfigCcTableMap::COL_CCTBCONFNOTESTOREDAYS => 3, ConfigCcTableMap::COL_CCTBCONFAVGMONTHS => 4, ConfigCcTableMap::COL_CCTBCONFAVGFINCHRG => 5, ConfigCcTableMap::COL_CCTBCONFALLTERMS => 6, ConfigCcTableMap::COL_CCTBCONFTERMS01 => 7, ConfigCcTableMap::COL_CCTBCONFTERMS02 => 8, ConfigCcTableMap::COL_CCTBCONFTERMS03 => 9, ConfigCcTableMap::COL_CCTBCONFTERMS04 => 10, ConfigCcTableMap::COL_CCTBCONFTERMS05 => 11, ConfigCcTableMap::COL_CCTBCONFTERMS06 => 12, ConfigCcTableMap::COL_CCTBCONFTERMS07 => 13, ConfigCcTableMap::COL_CCTBCONFTERMS08 => 14, ConfigCcTableMap::COL_CCTBCONFTERMS09 => 15, ConfigCcTableMap::COL_CCTBCONFTERMS10 => 16, ConfigCcTableMap::COL_CCTBCONFTERMS11 => 17, ConfigCcTableMap::COL_CCTBCONFTERMS12 => 18, ConfigCcTableMap::COL_CCTBCONFFUTORDRS => 19, ConfigCcTableMap::COL_CCTBCONFPICKTICKET => 20, ConfigCcTableMap::COL_CCTBCONFPICKALT => 21, ConfigCcTableMap::COL_CCTBCONFPICKREL => 22, ConfigCcTableMap::COL_CCTBCONFUSEODUE => 23, ConfigCcTableMap::COL_CCTBCONFAGELEVLHOLD => 24, ConfigCcTableMap::COL_CCTBCONFLEVLAMT => 25, ConfigCcTableMap::COL_CCTBCONFUSECREDLMT => 26, ConfigCcTableMap::COL_CCTBCONFPCTTOHOLD => 27, ConfigCcTableMap::COL_CCTBCONFADDCURR => 28, ConfigCcTableMap::COL_CCTBCONFMINMARGHOLD => 29, ConfigCcTableMap::COL_CCTBCONFMINMARGBASE => 30, ConfigCcTableMap::COL_CCTBCONFHIGHLEVLHOLD => 31, ConfigCcTableMap::COL_DATEUPDTD => 32, ConfigCcTableMap::COL_TIMEUPDTD => 33, ConfigCcTableMap::COL_DUMMY => 34, ],
+        self::TYPE_FIELDNAME     => ['CctbConfKey' => 0, 'CctbConfCredLine' => 1, 'CctbConfCredCols' => 2, 'CctbConfNoteStoreDays' => 3, 'CctbConfAvgMonths' => 4, 'CctbConfAvgFinChrg' => 5, 'CctbConfAllTerms' => 6, 'CctbConfTerms01' => 7, 'CctbConfTerms02' => 8, 'CctbConfTerms03' => 9, 'CctbConfTerms04' => 10, 'CctbConfTerms05' => 11, 'CctbConfTerms06' => 12, 'CctbConfTerms07' => 13, 'CctbConfTerms08' => 14, 'CctbConfTerms09' => 15, 'CctbConfTerms10' => 16, 'CctbConfTerms11' => 17, 'CctbConfTerms12' => 18, 'CctbConfFutOrdrs' => 19, 'CctbConfPickTicket' => 20, 'CctbConfPickAlt' => 21, 'CctbConfPickRel' => 22, 'CctbConfUseOdue' => 23, 'CctbConfAgeLevlHold' => 24, 'CctbConfLevlAmt' => 25, 'CctbConfUseCredLmt' => 26, 'CctbConfPctToHold' => 27, 'CctbConfAddCurr' => 28, 'CctbConfMinMargHold' => 29, 'CctbConfMinMargBase' => 30, 'CctbConfHighLevlHold' => 31, 'DateUpdtd' => 32, 'TimeUpdtd' => 33, 'dummy' => 34, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Cctbconfkey' => 'CCTBCONFKEY',
+        'ConfigCc.Cctbconfkey' => 'CCTBCONFKEY',
+        'cctbconfkey' => 'CCTBCONFKEY',
+        'configCc.cctbconfkey' => 'CCTBCONFKEY',
+        'ConfigCcTableMap::COL_CCTBCONFKEY' => 'CCTBCONFKEY',
+        'COL_CCTBCONFKEY' => 'CCTBCONFKEY',
+        'CctbConfKey' => 'CCTBCONFKEY',
+        'cc_config.CctbConfKey' => 'CCTBCONFKEY',
+        'Cctbconfcredline' => 'CCTBCONFCREDLINE',
+        'ConfigCc.Cctbconfcredline' => 'CCTBCONFCREDLINE',
+        'cctbconfcredline' => 'CCTBCONFCREDLINE',
+        'configCc.cctbconfcredline' => 'CCTBCONFCREDLINE',
+        'ConfigCcTableMap::COL_CCTBCONFCREDLINE' => 'CCTBCONFCREDLINE',
+        'COL_CCTBCONFCREDLINE' => 'CCTBCONFCREDLINE',
+        'CctbConfCredLine' => 'CCTBCONFCREDLINE',
+        'cc_config.CctbConfCredLine' => 'CCTBCONFCREDLINE',
+        'Cctbconfcredcols' => 'CCTBCONFCREDCOLS',
+        'ConfigCc.Cctbconfcredcols' => 'CCTBCONFCREDCOLS',
+        'cctbconfcredcols' => 'CCTBCONFCREDCOLS',
+        'configCc.cctbconfcredcols' => 'CCTBCONFCREDCOLS',
+        'ConfigCcTableMap::COL_CCTBCONFCREDCOLS' => 'CCTBCONFCREDCOLS',
+        'COL_CCTBCONFCREDCOLS' => 'CCTBCONFCREDCOLS',
+        'CctbConfCredCols' => 'CCTBCONFCREDCOLS',
+        'cc_config.CctbConfCredCols' => 'CCTBCONFCREDCOLS',
+        'Cctbconfnotestoredays' => 'CCTBCONFNOTESTOREDAYS',
+        'ConfigCc.Cctbconfnotestoredays' => 'CCTBCONFNOTESTOREDAYS',
+        'cctbconfnotestoredays' => 'CCTBCONFNOTESTOREDAYS',
+        'configCc.cctbconfnotestoredays' => 'CCTBCONFNOTESTOREDAYS',
+        'ConfigCcTableMap::COL_CCTBCONFNOTESTOREDAYS' => 'CCTBCONFNOTESTOREDAYS',
+        'COL_CCTBCONFNOTESTOREDAYS' => 'CCTBCONFNOTESTOREDAYS',
+        'CctbConfNoteStoreDays' => 'CCTBCONFNOTESTOREDAYS',
+        'cc_config.CctbConfNoteStoreDays' => 'CCTBCONFNOTESTOREDAYS',
+        'Cctbconfavgmonths' => 'CCTBCONFAVGMONTHS',
+        'ConfigCc.Cctbconfavgmonths' => 'CCTBCONFAVGMONTHS',
+        'cctbconfavgmonths' => 'CCTBCONFAVGMONTHS',
+        'configCc.cctbconfavgmonths' => 'CCTBCONFAVGMONTHS',
+        'ConfigCcTableMap::COL_CCTBCONFAVGMONTHS' => 'CCTBCONFAVGMONTHS',
+        'COL_CCTBCONFAVGMONTHS' => 'CCTBCONFAVGMONTHS',
+        'CctbConfAvgMonths' => 'CCTBCONFAVGMONTHS',
+        'cc_config.CctbConfAvgMonths' => 'CCTBCONFAVGMONTHS',
+        'Cctbconfavgfinchrg' => 'CCTBCONFAVGFINCHRG',
+        'ConfigCc.Cctbconfavgfinchrg' => 'CCTBCONFAVGFINCHRG',
+        'cctbconfavgfinchrg' => 'CCTBCONFAVGFINCHRG',
+        'configCc.cctbconfavgfinchrg' => 'CCTBCONFAVGFINCHRG',
+        'ConfigCcTableMap::COL_CCTBCONFAVGFINCHRG' => 'CCTBCONFAVGFINCHRG',
+        'COL_CCTBCONFAVGFINCHRG' => 'CCTBCONFAVGFINCHRG',
+        'CctbConfAvgFinChrg' => 'CCTBCONFAVGFINCHRG',
+        'cc_config.CctbConfAvgFinChrg' => 'CCTBCONFAVGFINCHRG',
+        'Cctbconfallterms' => 'CCTBCONFALLTERMS',
+        'ConfigCc.Cctbconfallterms' => 'CCTBCONFALLTERMS',
+        'cctbconfallterms' => 'CCTBCONFALLTERMS',
+        'configCc.cctbconfallterms' => 'CCTBCONFALLTERMS',
+        'ConfigCcTableMap::COL_CCTBCONFALLTERMS' => 'CCTBCONFALLTERMS',
+        'COL_CCTBCONFALLTERMS' => 'CCTBCONFALLTERMS',
+        'CctbConfAllTerms' => 'CCTBCONFALLTERMS',
+        'cc_config.CctbConfAllTerms' => 'CCTBCONFALLTERMS',
+        'Cctbconfterms01' => 'CCTBCONFTERMS01',
+        'ConfigCc.Cctbconfterms01' => 'CCTBCONFTERMS01',
+        'cctbconfterms01' => 'CCTBCONFTERMS01',
+        'configCc.cctbconfterms01' => 'CCTBCONFTERMS01',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS01' => 'CCTBCONFTERMS01',
+        'COL_CCTBCONFTERMS01' => 'CCTBCONFTERMS01',
+        'CctbConfTerms01' => 'CCTBCONFTERMS01',
+        'cc_config.CctbConfTerms01' => 'CCTBCONFTERMS01',
+        'Cctbconfterms02' => 'CCTBCONFTERMS02',
+        'ConfigCc.Cctbconfterms02' => 'CCTBCONFTERMS02',
+        'cctbconfterms02' => 'CCTBCONFTERMS02',
+        'configCc.cctbconfterms02' => 'CCTBCONFTERMS02',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS02' => 'CCTBCONFTERMS02',
+        'COL_CCTBCONFTERMS02' => 'CCTBCONFTERMS02',
+        'CctbConfTerms02' => 'CCTBCONFTERMS02',
+        'cc_config.CctbConfTerms02' => 'CCTBCONFTERMS02',
+        'Cctbconfterms03' => 'CCTBCONFTERMS03',
+        'ConfigCc.Cctbconfterms03' => 'CCTBCONFTERMS03',
+        'cctbconfterms03' => 'CCTBCONFTERMS03',
+        'configCc.cctbconfterms03' => 'CCTBCONFTERMS03',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS03' => 'CCTBCONFTERMS03',
+        'COL_CCTBCONFTERMS03' => 'CCTBCONFTERMS03',
+        'CctbConfTerms03' => 'CCTBCONFTERMS03',
+        'cc_config.CctbConfTerms03' => 'CCTBCONFTERMS03',
+        'Cctbconfterms04' => 'CCTBCONFTERMS04',
+        'ConfigCc.Cctbconfterms04' => 'CCTBCONFTERMS04',
+        'cctbconfterms04' => 'CCTBCONFTERMS04',
+        'configCc.cctbconfterms04' => 'CCTBCONFTERMS04',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS04' => 'CCTBCONFTERMS04',
+        'COL_CCTBCONFTERMS04' => 'CCTBCONFTERMS04',
+        'CctbConfTerms04' => 'CCTBCONFTERMS04',
+        'cc_config.CctbConfTerms04' => 'CCTBCONFTERMS04',
+        'Cctbconfterms05' => 'CCTBCONFTERMS05',
+        'ConfigCc.Cctbconfterms05' => 'CCTBCONFTERMS05',
+        'cctbconfterms05' => 'CCTBCONFTERMS05',
+        'configCc.cctbconfterms05' => 'CCTBCONFTERMS05',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS05' => 'CCTBCONFTERMS05',
+        'COL_CCTBCONFTERMS05' => 'CCTBCONFTERMS05',
+        'CctbConfTerms05' => 'CCTBCONFTERMS05',
+        'cc_config.CctbConfTerms05' => 'CCTBCONFTERMS05',
+        'Cctbconfterms06' => 'CCTBCONFTERMS06',
+        'ConfigCc.Cctbconfterms06' => 'CCTBCONFTERMS06',
+        'cctbconfterms06' => 'CCTBCONFTERMS06',
+        'configCc.cctbconfterms06' => 'CCTBCONFTERMS06',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS06' => 'CCTBCONFTERMS06',
+        'COL_CCTBCONFTERMS06' => 'CCTBCONFTERMS06',
+        'CctbConfTerms06' => 'CCTBCONFTERMS06',
+        'cc_config.CctbConfTerms06' => 'CCTBCONFTERMS06',
+        'Cctbconfterms07' => 'CCTBCONFTERMS07',
+        'ConfigCc.Cctbconfterms07' => 'CCTBCONFTERMS07',
+        'cctbconfterms07' => 'CCTBCONFTERMS07',
+        'configCc.cctbconfterms07' => 'CCTBCONFTERMS07',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS07' => 'CCTBCONFTERMS07',
+        'COL_CCTBCONFTERMS07' => 'CCTBCONFTERMS07',
+        'CctbConfTerms07' => 'CCTBCONFTERMS07',
+        'cc_config.CctbConfTerms07' => 'CCTBCONFTERMS07',
+        'Cctbconfterms08' => 'CCTBCONFTERMS08',
+        'ConfigCc.Cctbconfterms08' => 'CCTBCONFTERMS08',
+        'cctbconfterms08' => 'CCTBCONFTERMS08',
+        'configCc.cctbconfterms08' => 'CCTBCONFTERMS08',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS08' => 'CCTBCONFTERMS08',
+        'COL_CCTBCONFTERMS08' => 'CCTBCONFTERMS08',
+        'CctbConfTerms08' => 'CCTBCONFTERMS08',
+        'cc_config.CctbConfTerms08' => 'CCTBCONFTERMS08',
+        'Cctbconfterms09' => 'CCTBCONFTERMS09',
+        'ConfigCc.Cctbconfterms09' => 'CCTBCONFTERMS09',
+        'cctbconfterms09' => 'CCTBCONFTERMS09',
+        'configCc.cctbconfterms09' => 'CCTBCONFTERMS09',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS09' => 'CCTBCONFTERMS09',
+        'COL_CCTBCONFTERMS09' => 'CCTBCONFTERMS09',
+        'CctbConfTerms09' => 'CCTBCONFTERMS09',
+        'cc_config.CctbConfTerms09' => 'CCTBCONFTERMS09',
+        'Cctbconfterms10' => 'CCTBCONFTERMS10',
+        'ConfigCc.Cctbconfterms10' => 'CCTBCONFTERMS10',
+        'cctbconfterms10' => 'CCTBCONFTERMS10',
+        'configCc.cctbconfterms10' => 'CCTBCONFTERMS10',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS10' => 'CCTBCONFTERMS10',
+        'COL_CCTBCONFTERMS10' => 'CCTBCONFTERMS10',
+        'CctbConfTerms10' => 'CCTBCONFTERMS10',
+        'cc_config.CctbConfTerms10' => 'CCTBCONFTERMS10',
+        'Cctbconfterms11' => 'CCTBCONFTERMS11',
+        'ConfigCc.Cctbconfterms11' => 'CCTBCONFTERMS11',
+        'cctbconfterms11' => 'CCTBCONFTERMS11',
+        'configCc.cctbconfterms11' => 'CCTBCONFTERMS11',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS11' => 'CCTBCONFTERMS11',
+        'COL_CCTBCONFTERMS11' => 'CCTBCONFTERMS11',
+        'CctbConfTerms11' => 'CCTBCONFTERMS11',
+        'cc_config.CctbConfTerms11' => 'CCTBCONFTERMS11',
+        'Cctbconfterms12' => 'CCTBCONFTERMS12',
+        'ConfigCc.Cctbconfterms12' => 'CCTBCONFTERMS12',
+        'cctbconfterms12' => 'CCTBCONFTERMS12',
+        'configCc.cctbconfterms12' => 'CCTBCONFTERMS12',
+        'ConfigCcTableMap::COL_CCTBCONFTERMS12' => 'CCTBCONFTERMS12',
+        'COL_CCTBCONFTERMS12' => 'CCTBCONFTERMS12',
+        'CctbConfTerms12' => 'CCTBCONFTERMS12',
+        'cc_config.CctbConfTerms12' => 'CCTBCONFTERMS12',
+        'Cctbconffutordrs' => 'CCTBCONFFUTORDRS',
+        'ConfigCc.Cctbconffutordrs' => 'CCTBCONFFUTORDRS',
+        'cctbconffutordrs' => 'CCTBCONFFUTORDRS',
+        'configCc.cctbconffutordrs' => 'CCTBCONFFUTORDRS',
+        'ConfigCcTableMap::COL_CCTBCONFFUTORDRS' => 'CCTBCONFFUTORDRS',
+        'COL_CCTBCONFFUTORDRS' => 'CCTBCONFFUTORDRS',
+        'CctbConfFutOrdrs' => 'CCTBCONFFUTORDRS',
+        'cc_config.CctbConfFutOrdrs' => 'CCTBCONFFUTORDRS',
+        'Cctbconfpickticket' => 'CCTBCONFPICKTICKET',
+        'ConfigCc.Cctbconfpickticket' => 'CCTBCONFPICKTICKET',
+        'cctbconfpickticket' => 'CCTBCONFPICKTICKET',
+        'configCc.cctbconfpickticket' => 'CCTBCONFPICKTICKET',
+        'ConfigCcTableMap::COL_CCTBCONFPICKTICKET' => 'CCTBCONFPICKTICKET',
+        'COL_CCTBCONFPICKTICKET' => 'CCTBCONFPICKTICKET',
+        'CctbConfPickTicket' => 'CCTBCONFPICKTICKET',
+        'cc_config.CctbConfPickTicket' => 'CCTBCONFPICKTICKET',
+        'Cctbconfpickalt' => 'CCTBCONFPICKALT',
+        'ConfigCc.Cctbconfpickalt' => 'CCTBCONFPICKALT',
+        'cctbconfpickalt' => 'CCTBCONFPICKALT',
+        'configCc.cctbconfpickalt' => 'CCTBCONFPICKALT',
+        'ConfigCcTableMap::COL_CCTBCONFPICKALT' => 'CCTBCONFPICKALT',
+        'COL_CCTBCONFPICKALT' => 'CCTBCONFPICKALT',
+        'CctbConfPickAlt' => 'CCTBCONFPICKALT',
+        'cc_config.CctbConfPickAlt' => 'CCTBCONFPICKALT',
+        'Cctbconfpickrel' => 'CCTBCONFPICKREL',
+        'ConfigCc.Cctbconfpickrel' => 'CCTBCONFPICKREL',
+        'cctbconfpickrel' => 'CCTBCONFPICKREL',
+        'configCc.cctbconfpickrel' => 'CCTBCONFPICKREL',
+        'ConfigCcTableMap::COL_CCTBCONFPICKREL' => 'CCTBCONFPICKREL',
+        'COL_CCTBCONFPICKREL' => 'CCTBCONFPICKREL',
+        'CctbConfPickRel' => 'CCTBCONFPICKREL',
+        'cc_config.CctbConfPickRel' => 'CCTBCONFPICKREL',
+        'Cctbconfuseodue' => 'CCTBCONFUSEODUE',
+        'ConfigCc.Cctbconfuseodue' => 'CCTBCONFUSEODUE',
+        'cctbconfuseodue' => 'CCTBCONFUSEODUE',
+        'configCc.cctbconfuseodue' => 'CCTBCONFUSEODUE',
+        'ConfigCcTableMap::COL_CCTBCONFUSEODUE' => 'CCTBCONFUSEODUE',
+        'COL_CCTBCONFUSEODUE' => 'CCTBCONFUSEODUE',
+        'CctbConfUseOdue' => 'CCTBCONFUSEODUE',
+        'cc_config.CctbConfUseOdue' => 'CCTBCONFUSEODUE',
+        'Cctbconfagelevlhold' => 'CCTBCONFAGELEVLHOLD',
+        'ConfigCc.Cctbconfagelevlhold' => 'CCTBCONFAGELEVLHOLD',
+        'cctbconfagelevlhold' => 'CCTBCONFAGELEVLHOLD',
+        'configCc.cctbconfagelevlhold' => 'CCTBCONFAGELEVLHOLD',
+        'ConfigCcTableMap::COL_CCTBCONFAGELEVLHOLD' => 'CCTBCONFAGELEVLHOLD',
+        'COL_CCTBCONFAGELEVLHOLD' => 'CCTBCONFAGELEVLHOLD',
+        'CctbConfAgeLevlHold' => 'CCTBCONFAGELEVLHOLD',
+        'cc_config.CctbConfAgeLevlHold' => 'CCTBCONFAGELEVLHOLD',
+        'Cctbconflevlamt' => 'CCTBCONFLEVLAMT',
+        'ConfigCc.Cctbconflevlamt' => 'CCTBCONFLEVLAMT',
+        'cctbconflevlamt' => 'CCTBCONFLEVLAMT',
+        'configCc.cctbconflevlamt' => 'CCTBCONFLEVLAMT',
+        'ConfigCcTableMap::COL_CCTBCONFLEVLAMT' => 'CCTBCONFLEVLAMT',
+        'COL_CCTBCONFLEVLAMT' => 'CCTBCONFLEVLAMT',
+        'CctbConfLevlAmt' => 'CCTBCONFLEVLAMT',
+        'cc_config.CctbConfLevlAmt' => 'CCTBCONFLEVLAMT',
+        'Cctbconfusecredlmt' => 'CCTBCONFUSECREDLMT',
+        'ConfigCc.Cctbconfusecredlmt' => 'CCTBCONFUSECREDLMT',
+        'cctbconfusecredlmt' => 'CCTBCONFUSECREDLMT',
+        'configCc.cctbconfusecredlmt' => 'CCTBCONFUSECREDLMT',
+        'ConfigCcTableMap::COL_CCTBCONFUSECREDLMT' => 'CCTBCONFUSECREDLMT',
+        'COL_CCTBCONFUSECREDLMT' => 'CCTBCONFUSECREDLMT',
+        'CctbConfUseCredLmt' => 'CCTBCONFUSECREDLMT',
+        'cc_config.CctbConfUseCredLmt' => 'CCTBCONFUSECREDLMT',
+        'Cctbconfpcttohold' => 'CCTBCONFPCTTOHOLD',
+        'ConfigCc.Cctbconfpcttohold' => 'CCTBCONFPCTTOHOLD',
+        'cctbconfpcttohold' => 'CCTBCONFPCTTOHOLD',
+        'configCc.cctbconfpcttohold' => 'CCTBCONFPCTTOHOLD',
+        'ConfigCcTableMap::COL_CCTBCONFPCTTOHOLD' => 'CCTBCONFPCTTOHOLD',
+        'COL_CCTBCONFPCTTOHOLD' => 'CCTBCONFPCTTOHOLD',
+        'CctbConfPctToHold' => 'CCTBCONFPCTTOHOLD',
+        'cc_config.CctbConfPctToHold' => 'CCTBCONFPCTTOHOLD',
+        'Cctbconfaddcurr' => 'CCTBCONFADDCURR',
+        'ConfigCc.Cctbconfaddcurr' => 'CCTBCONFADDCURR',
+        'cctbconfaddcurr' => 'CCTBCONFADDCURR',
+        'configCc.cctbconfaddcurr' => 'CCTBCONFADDCURR',
+        'ConfigCcTableMap::COL_CCTBCONFADDCURR' => 'CCTBCONFADDCURR',
+        'COL_CCTBCONFADDCURR' => 'CCTBCONFADDCURR',
+        'CctbConfAddCurr' => 'CCTBCONFADDCURR',
+        'cc_config.CctbConfAddCurr' => 'CCTBCONFADDCURR',
+        'Cctbconfminmarghold' => 'CCTBCONFMINMARGHOLD',
+        'ConfigCc.Cctbconfminmarghold' => 'CCTBCONFMINMARGHOLD',
+        'cctbconfminmarghold' => 'CCTBCONFMINMARGHOLD',
+        'configCc.cctbconfminmarghold' => 'CCTBCONFMINMARGHOLD',
+        'ConfigCcTableMap::COL_CCTBCONFMINMARGHOLD' => 'CCTBCONFMINMARGHOLD',
+        'COL_CCTBCONFMINMARGHOLD' => 'CCTBCONFMINMARGHOLD',
+        'CctbConfMinMargHold' => 'CCTBCONFMINMARGHOLD',
+        'cc_config.CctbConfMinMargHold' => 'CCTBCONFMINMARGHOLD',
+        'Cctbconfminmargbase' => 'CCTBCONFMINMARGBASE',
+        'ConfigCc.Cctbconfminmargbase' => 'CCTBCONFMINMARGBASE',
+        'cctbconfminmargbase' => 'CCTBCONFMINMARGBASE',
+        'configCc.cctbconfminmargbase' => 'CCTBCONFMINMARGBASE',
+        'ConfigCcTableMap::COL_CCTBCONFMINMARGBASE' => 'CCTBCONFMINMARGBASE',
+        'COL_CCTBCONFMINMARGBASE' => 'CCTBCONFMINMARGBASE',
+        'CctbConfMinMargBase' => 'CCTBCONFMINMARGBASE',
+        'cc_config.CctbConfMinMargBase' => 'CCTBCONFMINMARGBASE',
+        'Cctbconfhighlevlhold' => 'CCTBCONFHIGHLEVLHOLD',
+        'ConfigCc.Cctbconfhighlevlhold' => 'CCTBCONFHIGHLEVLHOLD',
+        'cctbconfhighlevlhold' => 'CCTBCONFHIGHLEVLHOLD',
+        'configCc.cctbconfhighlevlhold' => 'CCTBCONFHIGHLEVLHOLD',
+        'ConfigCcTableMap::COL_CCTBCONFHIGHLEVLHOLD' => 'CCTBCONFHIGHLEVLHOLD',
+        'COL_CCTBCONFHIGHLEVLHOLD' => 'CCTBCONFHIGHLEVLHOLD',
+        'CctbConfHighLevlHold' => 'CCTBCONFHIGHLEVLHOLD',
+        'cc_config.CctbConfHighLevlHold' => 'CCTBCONFHIGHLEVLHOLD',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ConfigCc.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'configCc.dateupdtd' => 'DATEUPDTD',
+        'ConfigCcTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'cc_config.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ConfigCc.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'configCc.timeupdtd' => 'TIMEUPDTD',
+        'ConfigCcTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'cc_config.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ConfigCc.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'configCc.dummy' => 'DUMMY',
+        'ConfigCcTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'cc_config.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('cc_config');
@@ -331,14 +626,16 @@ class ConfigCcTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -346,14 +643,14 @@ class ConfigCcTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Cctbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -368,14 +665,14 @@ class ConfigCcTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -392,10 +689,10 @@ class ConfigCcTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ConfigCcTableMap::CLASS_DEFAULT : ConfigCcTableMap::OM_CLASS;
     }
@@ -403,17 +700,17 @@ class ConfigCcTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ConfigCc object, last column rank)
+     * @return array (ConfigCc object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ConfigCcTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ConfigCcTableMap::getInstanceFromPool($key))) {
@@ -429,7 +726,7 @@ class ConfigCcTableMap extends TableMap
             ConfigCcTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -437,13 +734,13 @@ class ConfigCcTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -473,12 +770,13 @@ class ConfigCcTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ConfigCcTableMap::COL_CCTBCONFKEY);
@@ -556,40 +854,118 @@ class ConfigCcTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFKEY);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFCREDLINE);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFCREDCOLS);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFNOTESTOREDAYS);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFAVGMONTHS);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFAVGFINCHRG);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFALLTERMS);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS01);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS02);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS03);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS04);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS05);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS06);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS07);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS08);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS09);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS10);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS11);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFTERMS12);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFFUTORDRS);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFPICKTICKET);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFPICKALT);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFPICKREL);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFUSEODUE);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFAGELEVLHOLD);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFLEVLAMT);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFUSECREDLMT);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFPCTTOHOLD);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFADDCURR);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFMINMARGHOLD);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFMINMARGBASE);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_CCTBCONFHIGHLEVLHOLD);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ConfigCcTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.CctbConfKey');
+            $criteria->removeSelectColumn($alias . '.CctbConfCredLine');
+            $criteria->removeSelectColumn($alias . '.CctbConfCredCols');
+            $criteria->removeSelectColumn($alias . '.CctbConfNoteStoreDays');
+            $criteria->removeSelectColumn($alias . '.CctbConfAvgMonths');
+            $criteria->removeSelectColumn($alias . '.CctbConfAvgFinChrg');
+            $criteria->removeSelectColumn($alias . '.CctbConfAllTerms');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms01');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms02');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms03');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms04');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms05');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms06');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms07');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms08');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms09');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms10');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms11');
+            $criteria->removeSelectColumn($alias . '.CctbConfTerms12');
+            $criteria->removeSelectColumn($alias . '.CctbConfFutOrdrs');
+            $criteria->removeSelectColumn($alias . '.CctbConfPickTicket');
+            $criteria->removeSelectColumn($alias . '.CctbConfPickAlt');
+            $criteria->removeSelectColumn($alias . '.CctbConfPickRel');
+            $criteria->removeSelectColumn($alias . '.CctbConfUseOdue');
+            $criteria->removeSelectColumn($alias . '.CctbConfAgeLevlHold');
+            $criteria->removeSelectColumn($alias . '.CctbConfLevlAmt');
+            $criteria->removeSelectColumn($alias . '.CctbConfUseCredLmt');
+            $criteria->removeSelectColumn($alias . '.CctbConfPctToHold');
+            $criteria->removeSelectColumn($alias . '.CctbConfAddCurr');
+            $criteria->removeSelectColumn($alias . '.CctbConfMinMargHold');
+            $criteria->removeSelectColumn($alias . '.CctbConfMinMargBase');
+            $criteria->removeSelectColumn($alias . '.CctbConfHighLevlHold');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ConfigCcTableMap::DATABASE_NAME)->getTable(ConfigCcTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ConfigCcTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ConfigCcTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ConfigCcTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ConfigCc or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ConfigCc object or primary key or array of primary keys
+     * @param mixed $values Criteria or ConfigCc object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigCcTableMap::DATABASE_NAME);
@@ -625,7 +1001,7 @@ class ConfigCcTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ConfigCcQuery::create()->doDeleteAll($con);
     }
@@ -633,13 +1009,13 @@ class ConfigCcTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ConfigCc or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ConfigCc object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ConfigCc object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigCcTableMap::DATABASE_NAME);
@@ -662,7 +1038,4 @@ class ConfigCcTableMap extends TableMap
         });
     }
 
-} // ConfigCcTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ConfigCcTableMap::buildTableMap();
+}

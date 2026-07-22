@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ConfigApTableMap extends TableMap
 {
@@ -34,489 +33,1152 @@ class ConfigApTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ConfigApTableMap';
+    public const CLASS_NAME = '.Map.ConfigApTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'ap_config';
+    public const TABLE_NAME = 'ap_config';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ConfigAp';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ConfigAp';
+    public const OM_CLASS = '\\ConfigAp';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ConfigAp';
+    public const CLASS_DEFAULT = 'ConfigAp';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 81;
+    public const NUM_COLUMNS = 81;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 81;
+    public const NUM_HYDRATE_COLUMNS = 81;
 
     /**
      * the column name for the AptbConfKey field
      */
-    const COL_APTBCONFKEY = 'ap_config.AptbConfKey';
+    public const COL_APTBCONFKEY = 'ap_config.AptbConfKey';
 
     /**
      * the column name for the AptbConfGlIfac field
      */
-    const COL_APTBCONFGLIFAC = 'ap_config.AptbConfGlIfac';
+    public const COL_APTBCONFGLIFAC = 'ap_config.AptbConfGlIfac';
 
     /**
      * the column name for the AptbConfInIfac field
      */
-    const COL_APTBCONFINIFAC = 'ap_config.AptbConfInIfac';
+    public const COL_APTBCONFINIFAC = 'ap_config.AptbConfInIfac';
 
     /**
      * the column name for the AptbConfSoIfac field
      */
-    const COL_APTBCONFSOIFAC = 'ap_config.AptbConfSoIfac';
+    public const COL_APTBCONFSOIFAC = 'ap_config.AptbConfSoIfac';
 
     /**
      * the column name for the AptbConfPoIfac field
      */
-    const COL_APTBCONFPOIFAC = 'ap_config.AptbConfPoIfac';
+    public const COL_APTBCONFPOIFAC = 'ap_config.AptbConfPoIfac';
 
     /**
      * the column name for the AptbConfFrtAcct field
      */
-    const COL_APTBCONFFRTACCT = 'ap_config.AptbConfFrtAcct';
+    public const COL_APTBCONFFRTACCT = 'ap_config.AptbConfFrtAcct';
 
     /**
      * the column name for the AptbConfMiscAcct field
      */
-    const COL_APTBCONFMISCACCT = 'ap_config.AptbConfMiscAcct';
+    public const COL_APTBCONFMISCACCT = 'ap_config.AptbConfMiscAcct';
 
     /**
      * the column name for the AptbConfApAcct field
      */
-    const COL_APTBCONFAPACCT = 'ap_config.AptbConfApAcct';
+    public const COL_APTBCONFAPACCT = 'ap_config.AptbConfApAcct';
 
     /**
      * the column name for the AptbConfCashAcct field
      */
-    const COL_APTBCONFCASHACCT = 'ap_config.AptbConfCashAcct';
+    public const COL_APTBCONFCASHACCT = 'ap_config.AptbConfCashAcct';
 
     /**
      * the column name for the AptbConfDiscAcct field
      */
-    const COL_APTBCONFDISCACCT = 'ap_config.AptbConfDiscAcct';
+    public const COL_APTBCONFDISCACCT = 'ap_config.AptbConfDiscAcct';
 
     /**
      * the column name for the AptbConfTaxAcct field
      */
-    const COL_APTBCONFTAXACCT = 'ap_config.AptbConfTaxAcct';
+    public const COL_APTBCONFTAXACCT = 'ap_config.AptbConfTaxAcct';
 
     /**
      * the column name for the AptbConfPurAcct field
      */
-    const COL_APTBCONFPURACCT = 'ap_config.AptbConfPurAcct';
+    public const COL_APTBCONFPURACCT = 'ap_config.AptbConfPurAcct';
 
     /**
      * the column name for the AptbConfVarAcct field
      */
-    const COL_APTBCONFVARACCT = 'ap_config.AptbConfVarAcct';
+    public const COL_APTBCONFVARACCT = 'ap_config.AptbConfVarAcct';
 
     /**
      * the column name for the AptbConfVendDisc field
      */
-    const COL_APTBCONFVENDDISC = 'ap_config.AptbConfVendDisc';
+    public const COL_APTBCONFVENDDISC = 'ap_config.AptbConfVendDisc';
 
     /**
      * the column name for the AptbConfApInvVarAcct field
      */
-    const COL_APTBCONFAPINVVARACCT = 'ap_config.AptbConfApInvVarAcct';
+    public const COL_APTBCONFAPINVVARACCT = 'ap_config.AptbConfApInvVarAcct';
 
     /**
      * the column name for the AptbConfUseRoyal field
      */
-    const COL_APTBCONFUSEROYAL = 'ap_config.AptbConfUseRoyal';
+    public const COL_APTBCONFUSEROYAL = 'ap_config.AptbConfUseRoyal';
 
     /**
      * the column name for the AptbConfDefBuyrCode field
      */
-    const COL_APTBCONFDEFBUYRCODE = 'ap_config.AptbConfDefBuyrCode';
+    public const COL_APTBCONFDEFBUYRCODE = 'ap_config.AptbConfDefBuyrCode';
 
     /**
      * the column name for the AptbConfDefTermCode field
      */
-    const COL_APTBCONFDEFTERMCODE = 'ap_config.AptbConfDefTermCode';
+    public const COL_APTBCONFDEFTERMCODE = 'ap_config.AptbConfDefTermCode';
 
     /**
      * the column name for the AptbConfDefSviaCode field
      */
-    const COL_APTBCONFDEFSVIACODE = 'ap_config.AptbConfDefSviaCode';
+    public const COL_APTBCONFDEFSVIACODE = 'ap_config.AptbConfDefSviaCode';
 
     /**
      * the column name for the AptbConfDefTypeCode field
      */
-    const COL_APTBCONFDEFTYPECODE = 'ap_config.AptbConfDefTypeCode';
+    public const COL_APTBCONFDEFTYPECODE = 'ap_config.AptbConfDefTypeCode';
 
     /**
      * the column name for the AptbConfVendLine field
      */
-    const COL_APTBCONFVENDLINE = 'ap_config.AptbConfVendLine';
+    public const COL_APTBCONFVENDLINE = 'ap_config.AptbConfVendLine';
 
     /**
      * the column name for the AptbConfVendCols field
      */
-    const COL_APTBCONFVENDCOLS = 'ap_config.AptbConfVendCols';
+    public const COL_APTBCONFVENDCOLS = 'ap_config.AptbConfVendCols';
 
     /**
      * the column name for the AptbConfPoLine field
      */
-    const COL_APTBCONFPOLINE = 'ap_config.AptbConfPoLine';
+    public const COL_APTBCONFPOLINE = 'ap_config.AptbConfPoLine';
 
     /**
      * the column name for the AptbConfPoCols field
      */
-    const COL_APTBCONFPOCOLS = 'ap_config.AptbConfPoCols';
+    public const COL_APTBCONFPOCOLS = 'ap_config.AptbConfPoCols';
 
     /**
      * the column name for the AptbConfVendGetOpt field
      */
-    const COL_APTBCONFVENDGETOPT = 'ap_config.AptbConfVendGetOpt';
+    public const COL_APTBCONFVENDGETOPT = 'ap_config.AptbConfVendGetOpt';
 
     /**
      * the column name for the AptbConfPaytoShipfr field
      */
-    const COL_APTBCONFPAYTOSHIPFR = 'ap_config.AptbConfPaytoShipfr';
+    public const COL_APTBCONFPAYTOSHIPFR = 'ap_config.AptbConfPaytoShipfr';
 
     /**
      * the column name for the AptbConfHoldStat field
      */
-    const COL_APTBCONFHOLDSTAT = 'ap_config.AptbConfHoldStat';
+    public const COL_APTBCONFHOLDSTAT = 'ap_config.AptbConfHoldStat';
 
     /**
      * the column name for the AptbConfDiscRet field
      */
-    const COL_APTBCONFDISCRET = 'ap_config.AptbConfDiscRet';
+    public const COL_APTBCONFDISCRET = 'ap_config.AptbConfDiscRet';
 
     /**
      * the column name for the AptbConfStopVendChg field
      */
-    const COL_APTBCONFSTOPVENDCHG = 'ap_config.AptbConfStopVendChg';
+    public const COL_APTBCONFSTOPVENDCHG = 'ap_config.AptbConfStopVendChg';
 
     /**
      * the column name for the AptbConfReqDate2 field
      */
-    const COL_APTBCONFREQDATE2 = 'ap_config.AptbConfReqDate2';
+    public const COL_APTBCONFREQDATE2 = 'ap_config.AptbConfReqDate2';
 
     /**
      * the column name for the AptbConfReqDate3 field
      */
-    const COL_APTBCONFREQDATE3 = 'ap_config.AptbConfReqDate3';
+    public const COL_APTBCONFREQDATE3 = 'ap_config.AptbConfReqDate3';
 
     /**
      * the column name for the AptbConfReqDate4 field
      */
-    const COL_APTBCONFREQDATE4 = 'ap_config.AptbConfReqDate4';
+    public const COL_APTBCONFREQDATE4 = 'ap_config.AptbConfReqDate4';
 
     /**
      * the column name for the AptbConf1099Name field
      */
-    const COL_APTBCONF1099NAME = 'ap_config.AptbConf1099Name';
+    public const COL_APTBCONF1099NAME = 'ap_config.AptbConf1099Name';
 
     /**
      * the column name for the AptbConf1099Adr1 field
      */
-    const COL_APTBCONF1099ADR1 = 'ap_config.AptbConf1099Adr1';
+    public const COL_APTBCONF1099ADR1 = 'ap_config.AptbConf1099Adr1';
 
     /**
      * the column name for the AptbConf1099Adr2 field
      */
-    const COL_APTBCONF1099ADR2 = 'ap_config.AptbConf1099Adr2';
+    public const COL_APTBCONF1099ADR2 = 'ap_config.AptbConf1099Adr2';
 
     /**
      * the column name for the AptbConf1099Adr3 field
      */
-    const COL_APTBCONF1099ADR3 = 'ap_config.AptbConf1099Adr3';
+    public const COL_APTBCONF1099ADR3 = 'ap_config.AptbConf1099Adr3';
 
     /**
      * the column name for the AptbConf1099City field
      */
-    const COL_APTBCONF1099CITY = 'ap_config.AptbConf1099City';
+    public const COL_APTBCONF1099CITY = 'ap_config.AptbConf1099City';
 
     /**
      * the column name for the AptbConf1099Stat field
      */
-    const COL_APTBCONF1099STAT = 'ap_config.AptbConf1099Stat';
+    public const COL_APTBCONF1099STAT = 'ap_config.AptbConf1099Stat';
 
     /**
      * the column name for the AptbConf1099ZipCode field
      */
-    const COL_APTBCONF1099ZIPCODE = 'ap_config.AptbConf1099ZipCode';
+    public const COL_APTBCONF1099ZIPCODE = 'ap_config.AptbConf1099ZipCode';
 
     /**
      * the column name for the AptbConf1099Id field
      */
-    const COL_APTBCONF1099ID = 'ap_config.AptbConf1099Id';
+    public const COL_APTBCONF1099ID = 'ap_config.AptbConf1099Id';
 
     /**
      * the column name for the AptbConfStubSort field
      */
-    const COL_APTBCONFSTUBSORT = 'ap_config.AptbConfStubSort';
+    public const COL_APTBCONFSTUBSORT = 'ap_config.AptbConfStubSort';
 
     /**
      * the column name for the AptbConfUseAch field
      */
-    const COL_APTBCONFUSEACH = 'ap_config.AptbConfUseAch';
+    public const COL_APTBCONFUSEACH = 'ap_config.AptbConfUseAch';
 
     /**
      * the column name for the AptbConfOver1 field
      */
-    const COL_APTBCONFOVER1 = 'ap_config.AptbConfOver1';
+    public const COL_APTBCONFOVER1 = 'ap_config.AptbConfOver1';
 
     /**
      * the column name for the AptbConfOver2 field
      */
-    const COL_APTBCONFOVER2 = 'ap_config.AptbConfOver2';
+    public const COL_APTBCONFOVER2 = 'ap_config.AptbConfOver2';
 
     /**
      * the column name for the AptbConfPrtChk field
      */
-    const COL_APTBCONFPRTCHK = 'ap_config.AptbConfPrtChk';
+    public const COL_APTBCONFPRTCHK = 'ap_config.AptbConfPrtChk';
 
     /**
      * the column name for the AptbConfEiUnrecQty field
      */
-    const COL_APTBCONFEIUNRECQTY = 'ap_config.AptbConfEiUnrecQty';
+    public const COL_APTBCONFEIUNRECQTY = 'ap_config.AptbConfEiUnrecQty';
 
     /**
      * the column name for the AptbConfEiRecQtyAsk field
      */
-    const COL_APTBCONFEIRECQTYASK = 'ap_config.AptbConfEiRecQtyAsk';
+    public const COL_APTBCONFEIRECQTYASK = 'ap_config.AptbConfEiRecQtyAsk';
 
     /**
      * the column name for the AptbConfEiRecQtyDef field
      */
-    const COL_APTBCONFEIRECQTYDEF = 'ap_config.AptbConfEiRecQtyDef';
+    public const COL_APTBCONFEIRECQTYDEF = 'ap_config.AptbConfEiRecQtyDef';
 
     /**
      * the column name for the AptbConfAllowMultPos field
      */
-    const COL_APTBCONFALLOWMULTPOS = 'ap_config.AptbConfAllowMultPos';
+    public const COL_APTBCONFALLOWMULTPOS = 'ap_config.AptbConfAllowMultPos';
 
     /**
      * the column name for the AptbConfEiByClerk field
      */
-    const COL_APTBCONFEIBYCLERK = 'ap_config.AptbConfEiByClerk';
+    public const COL_APTBCONFEIBYCLERK = 'ap_config.AptbConfEiByClerk';
 
     /**
      * the column name for the AptbConfEiBatchProc field
      */
-    const COL_APTBCONFEIBATCHPROC = 'ap_config.AptbConfEiBatchProc';
+    public const COL_APTBCONFEIBATCHPROC = 'ap_config.AptbConfEiBatchProc';
 
     /**
      * the column name for the AptbConfEiDispStanCost field
      */
-    const COL_APTBCONFEIDISPSTANCOST = 'ap_config.AptbConfEiDispStanCost';
+    public const COL_APTBCONFEIDISPSTANCOST = 'ap_config.AptbConfEiDispStanCost';
 
     /**
      * the column name for the AptbConfEiAssetAcctChg field
      */
-    const COL_APTBCONFEIASSETACCTCHG = 'ap_config.AptbConfEiAssetAcctChg';
+    public const COL_APTBCONFEIASSETACCTCHG = 'ap_config.AptbConfEiAssetAcctChg';
 
     /**
      * the column name for the AptbConfAllowDupInvc field
      */
-    const COL_APTBCONFALLOWDUPINVC = 'ap_config.AptbConfAllowDupInvc';
+    public const COL_APTBCONFALLOWDUPINVC = 'ap_config.AptbConfAllowDupInvc';
 
     /**
      * the column name for the AptbConfPrtSoRept field
      */
-    const COL_APTBCONFPRTSOREPT = 'ap_config.AptbConfPrtSoRept';
+    public const COL_APTBCONFPRTSOREPT = 'ap_config.AptbConfPrtSoRept';
 
     /**
      * the column name for the AptbConfEiCheckHist field
      */
-    const COL_APTBCONFEICHECKHIST = 'ap_config.AptbConfEiCheckHist';
+    public const COL_APTBCONFEICHECKHIST = 'ap_config.AptbConfEiCheckHist';
 
     /**
      * the column name for the AptbConfSummGl field
      */
-    const COL_APTBCONFSUMMGL = 'ap_config.AptbConfSummGl';
+    public const COL_APTBCONFSUMMGL = 'ap_config.AptbConfSummGl';
 
     /**
      * the column name for the AptbConfVxmUserLabel field
      */
-    const COL_APTBCONFVXMUSERLABEL = 'ap_config.AptbConfVxmUserLabel';
+    public const COL_APTBCONFVXMUSERLABEL = 'ap_config.AptbConfVxmUserLabel';
 
     /**
      * the column name for the AptbConfVendCostBreaks field
      */
-    const COL_APTBCONFVENDCOSTBREAKS = 'ap_config.AptbConfVendCostBreaks';
+    public const COL_APTBCONFVENDCOSTBREAKS = 'ap_config.AptbConfVendCostBreaks';
 
     /**
      * the column name for the AptbConfMyeClrClosPo field
      */
-    const COL_APTBCONFMYECLRCLOSPO = 'ap_config.AptbConfMyeClrClosPo';
+    public const COL_APTBCONFMYECLRCLOSPO = 'ap_config.AptbConfMyeClrClosPo';
 
     /**
      * the column name for the AptbConfMyeClrClosDate field
      */
-    const COL_APTBCONFMYECLRCLOSDATE = 'ap_config.AptbConfMyeClrClosDate';
+    public const COL_APTBCONFMYECLRCLOSDATE = 'ap_config.AptbConfMyeClrClosDate';
 
     /**
      * the column name for the AptbConfMyeClrPoHist field
      */
-    const COL_APTBCONFMYECLRPOHIST = 'ap_config.AptbConfMyeClrPoHist';
+    public const COL_APTBCONFMYECLRPOHIST = 'ap_config.AptbConfMyeClrPoHist';
 
     /**
      * the column name for the AptbConfMyeClrPoDate field
      */
-    const COL_APTBCONFMYECLRPODATE = 'ap_config.AptbConfMyeClrPoDate';
+    public const COL_APTBCONFMYECLRPODATE = 'ap_config.AptbConfMyeClrPoDate';
 
     /**
      * the column name for the AptbConfMyeClrCkHist field
      */
-    const COL_APTBCONFMYECLRCKHIST = 'ap_config.AptbConfMyeClrCkHist';
+    public const COL_APTBCONFMYECLRCKHIST = 'ap_config.AptbConfMyeClrCkHist';
 
     /**
      * the column name for the AptbConfMyeClrCkDate field
      */
-    const COL_APTBCONFMYECLRCKDATE = 'ap_config.AptbConfMyeClrCkDate';
+    public const COL_APTBCONFMYECLRCKDATE = 'ap_config.AptbConfMyeClrCkDate';
 
     /**
      * the column name for the AptbConfMyeClrOpenCk field
      */
-    const COL_APTBCONFMYECLROPENCK = 'ap_config.AptbConfMyeClrOpenCk';
+    public const COL_APTBCONFMYECLROPENCK = 'ap_config.AptbConfMyeClrOpenCk';
 
     /**
      * the column name for the AptbConfLead field
      */
-    const COL_APTBCONFLEAD = 'ap_config.AptbConfLead';
+    public const COL_APTBCONFLEAD = 'ap_config.AptbConfLead';
 
     /**
      * the column name for the AptbConfVrReworkItem field
      */
-    const COL_APTBCONFVRREWORKITEM = 'ap_config.AptbConfVrReworkItem';
+    public const COL_APTBCONFVRREWORKITEM = 'ap_config.AptbConfVrReworkItem';
 
     /**
      * the column name for the AptbConfVrqcWhse field
      */
-    const COL_APTBCONFVRQCWHSE = 'ap_config.AptbConfVrqcWhse';
+    public const COL_APTBCONFVRQCWHSE = 'ap_config.AptbConfVrqcWhse';
 
     /**
      * the column name for the AptbConfVrGlAcct field
      */
-    const COL_APTBCONFVRGLACCT = 'ap_config.AptbConfVrGlAcct';
+    public const COL_APTBCONFVRGLACCT = 'ap_config.AptbConfVrGlAcct';
 
     /**
      * the column name for the AptbConfVxmListPc field
      */
-    const COL_APTBCONFVXMLISTPC = 'ap_config.AptbConfVxmListPc';
+    public const COL_APTBCONFVXMLISTPC = 'ap_config.AptbConfVxmListPc';
 
     /**
      * the column name for the AptbConfVxmListItemUpd field
      */
-    const COL_APTBCONFVXMLISTITEMUPD = 'ap_config.AptbConfVxmListItemUpd';
+    public const COL_APTBCONFVXMLISTITEMUPD = 'ap_config.AptbConfVxmListItemUpd';
 
     /**
      * the column name for the AptbConfVxmGrossLc field
      */
-    const COL_APTBCONFVXMGROSSLC = 'ap_config.AptbConfVxmGrossLc';
+    public const COL_APTBCONFVXMGROSSLC = 'ap_config.AptbConfVxmGrossLc';
 
     /**
      * the column name for the AptbConfVxmCostLp field
      */
-    const COL_APTBCONFVXMCOSTLP = 'ap_config.AptbConfVxmCostLp';
+    public const COL_APTBCONFVXMCOSTLP = 'ap_config.AptbConfVxmCostLp';
 
     /**
      * the column name for the AptbConfVxmCostItemUpd field
      */
-    const COL_APTBCONFVXMCOSTITEMUPD = 'ap_config.AptbConfVxmCostItemUpd';
+    public const COL_APTBCONFVXMCOSTITEMUPD = 'ap_config.AptbConfVxmCostItemUpd';
 
     /**
      * the column name for the AptbConfVxmCostRMesg field
      */
-    const COL_APTBCONFVXMCOSTRMESG = 'ap_config.AptbConfVxmCostRMesg';
+    public const COL_APTBCONFVXMCOSTRMESG = 'ap_config.AptbConfVxmCostRMesg';
 
     /**
      * the column name for the AptbConfVxmCostItemUpdM field
      */
-    const COL_APTBCONFVXMCOSTITEMUPDM = 'ap_config.AptbConfVxmCostItemUpdM';
+    public const COL_APTBCONFVXMCOSTITEMUPDM = 'ap_config.AptbConfVxmCostItemUpdM';
 
     /**
      * the column name for the AptbConfVxmCostMMesg field
      */
-    const COL_APTBCONFVXMCOSTMMESG = 'ap_config.AptbConfVxmCostMMesg';
+    public const COL_APTBCONFVXMCOSTMMESG = 'ap_config.AptbConfVxmCostMMesg';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'ap_config.DateUpdtd';
+    public const COL_DATEUPDTD = 'ap_config.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'ap_config.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'ap_config.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'ap_config.dummy';
+    public const COL_DUMMY = 'ap_config.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Aptbconfkey', 'Aptbconfglifac', 'Aptbconfinifac', 'Aptbconfsoifac', 'Aptbconfpoifac', 'Aptbconffrtacct', 'Aptbconfmiscacct', 'Aptbconfapacct', 'Aptbconfcashacct', 'Aptbconfdiscacct', 'Aptbconftaxacct', 'Aptbconfpuracct', 'Aptbconfvaracct', 'Aptbconfvenddisc', 'Aptbconfapinvvaracct', 'Aptbconfuseroyal', 'Aptbconfdefbuyrcode', 'Aptbconfdeftermcode', 'Aptbconfdefsviacode', 'Aptbconfdeftypecode', 'Aptbconfvendline', 'Aptbconfvendcols', 'Aptbconfpoline', 'Aptbconfpocols', 'Aptbconfvendgetopt', 'Aptbconfpaytoshipfr', 'Aptbconfholdstat', 'Aptbconfdiscret', 'Aptbconfstopvendchg', 'Aptbconfreqdate2', 'Aptbconfreqdate3', 'Aptbconfreqdate4', 'Aptbconf1099name', 'Aptbconf1099adr1', 'Aptbconf1099adr2', 'Aptbconf1099adr3', 'Aptbconf1099city', 'Aptbconf1099stat', 'Aptbconf1099zipcode', 'Aptbconf1099id', 'Aptbconfstubsort', 'AptbConfUseAch', 'Aptbconfover1', 'Aptbconfover2', 'Aptbconfprtchk', 'Aptbconfeiunrecqty', 'Aptbconfeirecqtyask', 'Aptbconfeirecqtydef', 'Aptbconfallowmultpos', 'Aptbconfeibyclerk', 'Aptbconfeibatchproc', 'Aptbconfeidispstancost', 'Aptbconfeiassetacctchg', 'Aptbconfallowdupinvc', 'Aptbconfprtsorept', 'Aptbconfeicheckhist', 'Aptbconfsummgl', 'Aptbconfvxmuserlabel', 'Aptbconfvendcostbreaks', 'Aptbconfmyeclrclospo', 'Aptbconfmyeclrclosdate', 'Aptbconfmyeclrpohist', 'Aptbconfmyeclrpodate', 'Aptbconfmyeclrckhist', 'Aptbconfmyeclrckdate', 'Aptbconfmyeclropenck', 'Aptbconflead', 'Aptbconfvrreworkitem', 'Aptbconfvrqcwhse', 'Aptbconfvrglacct', 'Aptbconfvxmlistpc', 'Aptbconfvxmlistitemupd', 'Aptbconfvxmgrosslc', 'Aptbconfvxmcostlp', 'Aptbconfvxmcostitemupd', 'Aptbconfvxmcostrmesg', 'Aptbconfvxmcostitemupdm', 'Aptbconfvxmcostmmesg', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('aptbconfkey', 'aptbconfglifac', 'aptbconfinifac', 'aptbconfsoifac', 'aptbconfpoifac', 'aptbconffrtacct', 'aptbconfmiscacct', 'aptbconfapacct', 'aptbconfcashacct', 'aptbconfdiscacct', 'aptbconftaxacct', 'aptbconfpuracct', 'aptbconfvaracct', 'aptbconfvenddisc', 'aptbconfapinvvaracct', 'aptbconfuseroyal', 'aptbconfdefbuyrcode', 'aptbconfdeftermcode', 'aptbconfdefsviacode', 'aptbconfdeftypecode', 'aptbconfvendline', 'aptbconfvendcols', 'aptbconfpoline', 'aptbconfpocols', 'aptbconfvendgetopt', 'aptbconfpaytoshipfr', 'aptbconfholdstat', 'aptbconfdiscret', 'aptbconfstopvendchg', 'aptbconfreqdate2', 'aptbconfreqdate3', 'aptbconfreqdate4', 'aptbconf1099name', 'aptbconf1099adr1', 'aptbconf1099adr2', 'aptbconf1099adr3', 'aptbconf1099city', 'aptbconf1099stat', 'aptbconf1099zipcode', 'aptbconf1099id', 'aptbconfstubsort', 'aptbConfUseAch', 'aptbconfover1', 'aptbconfover2', 'aptbconfprtchk', 'aptbconfeiunrecqty', 'aptbconfeirecqtyask', 'aptbconfeirecqtydef', 'aptbconfallowmultpos', 'aptbconfeibyclerk', 'aptbconfeibatchproc', 'aptbconfeidispstancost', 'aptbconfeiassetacctchg', 'aptbconfallowdupinvc', 'aptbconfprtsorept', 'aptbconfeicheckhist', 'aptbconfsummgl', 'aptbconfvxmuserlabel', 'aptbconfvendcostbreaks', 'aptbconfmyeclrclospo', 'aptbconfmyeclrclosdate', 'aptbconfmyeclrpohist', 'aptbconfmyeclrpodate', 'aptbconfmyeclrckhist', 'aptbconfmyeclrckdate', 'aptbconfmyeclropenck', 'aptbconflead', 'aptbconfvrreworkitem', 'aptbconfvrqcwhse', 'aptbconfvrglacct', 'aptbconfvxmlistpc', 'aptbconfvxmlistitemupd', 'aptbconfvxmgrosslc', 'aptbconfvxmcostlp', 'aptbconfvxmcostitemupd', 'aptbconfvxmcostrmesg', 'aptbconfvxmcostitemupdm', 'aptbconfvxmcostmmesg', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ConfigApTableMap::COL_APTBCONFKEY, ConfigApTableMap::COL_APTBCONFGLIFAC, ConfigApTableMap::COL_APTBCONFINIFAC, ConfigApTableMap::COL_APTBCONFSOIFAC, ConfigApTableMap::COL_APTBCONFPOIFAC, ConfigApTableMap::COL_APTBCONFFRTACCT, ConfigApTableMap::COL_APTBCONFMISCACCT, ConfigApTableMap::COL_APTBCONFAPACCT, ConfigApTableMap::COL_APTBCONFCASHACCT, ConfigApTableMap::COL_APTBCONFDISCACCT, ConfigApTableMap::COL_APTBCONFTAXACCT, ConfigApTableMap::COL_APTBCONFPURACCT, ConfigApTableMap::COL_APTBCONFVARACCT, ConfigApTableMap::COL_APTBCONFVENDDISC, ConfigApTableMap::COL_APTBCONFAPINVVARACCT, ConfigApTableMap::COL_APTBCONFUSEROYAL, ConfigApTableMap::COL_APTBCONFDEFBUYRCODE, ConfigApTableMap::COL_APTBCONFDEFTERMCODE, ConfigApTableMap::COL_APTBCONFDEFSVIACODE, ConfigApTableMap::COL_APTBCONFDEFTYPECODE, ConfigApTableMap::COL_APTBCONFVENDLINE, ConfigApTableMap::COL_APTBCONFVENDCOLS, ConfigApTableMap::COL_APTBCONFPOLINE, ConfigApTableMap::COL_APTBCONFPOCOLS, ConfigApTableMap::COL_APTBCONFVENDGETOPT, ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR, ConfigApTableMap::COL_APTBCONFHOLDSTAT, ConfigApTableMap::COL_APTBCONFDISCRET, ConfigApTableMap::COL_APTBCONFSTOPVENDCHG, ConfigApTableMap::COL_APTBCONFREQDATE2, ConfigApTableMap::COL_APTBCONFREQDATE3, ConfigApTableMap::COL_APTBCONFREQDATE4, ConfigApTableMap::COL_APTBCONF1099NAME, ConfigApTableMap::COL_APTBCONF1099ADR1, ConfigApTableMap::COL_APTBCONF1099ADR2, ConfigApTableMap::COL_APTBCONF1099ADR3, ConfigApTableMap::COL_APTBCONF1099CITY, ConfigApTableMap::COL_APTBCONF1099STAT, ConfigApTableMap::COL_APTBCONF1099ZIPCODE, ConfigApTableMap::COL_APTBCONF1099ID, ConfigApTableMap::COL_APTBCONFSTUBSORT, ConfigApTableMap::COL_APTBCONFUSEACH, ConfigApTableMap::COL_APTBCONFOVER1, ConfigApTableMap::COL_APTBCONFOVER2, ConfigApTableMap::COL_APTBCONFPRTCHK, ConfigApTableMap::COL_APTBCONFEIUNRECQTY, ConfigApTableMap::COL_APTBCONFEIRECQTYASK, ConfigApTableMap::COL_APTBCONFEIRECQTYDEF, ConfigApTableMap::COL_APTBCONFALLOWMULTPOS, ConfigApTableMap::COL_APTBCONFEIBYCLERK, ConfigApTableMap::COL_APTBCONFEIBATCHPROC, ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST, ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG, ConfigApTableMap::COL_APTBCONFALLOWDUPINVC, ConfigApTableMap::COL_APTBCONFPRTSOREPT, ConfigApTableMap::COL_APTBCONFEICHECKHIST, ConfigApTableMap::COL_APTBCONFSUMMGL, ConfigApTableMap::COL_APTBCONFVXMUSERLABEL, ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS, ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO, ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE, ConfigApTableMap::COL_APTBCONFMYECLRPOHIST, ConfigApTableMap::COL_APTBCONFMYECLRPODATE, ConfigApTableMap::COL_APTBCONFMYECLRCKHIST, ConfigApTableMap::COL_APTBCONFMYECLRCKDATE, ConfigApTableMap::COL_APTBCONFMYECLROPENCK, ConfigApTableMap::COL_APTBCONFLEAD, ConfigApTableMap::COL_APTBCONFVRREWORKITEM, ConfigApTableMap::COL_APTBCONFVRQCWHSE, ConfigApTableMap::COL_APTBCONFVRGLACCT, ConfigApTableMap::COL_APTBCONFVXMLISTPC, ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD, ConfigApTableMap::COL_APTBCONFVXMGROSSLC, ConfigApTableMap::COL_APTBCONFVXMCOSTLP, ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD, ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG, ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM, ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG, ConfigApTableMap::COL_DATEUPDTD, ConfigApTableMap::COL_TIMEUPDTD, ConfigApTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('AptbConfKey', 'AptbConfGlIfac', 'AptbConfInIfac', 'AptbConfSoIfac', 'AptbConfPoIfac', 'AptbConfFrtAcct', 'AptbConfMiscAcct', 'AptbConfApAcct', 'AptbConfCashAcct', 'AptbConfDiscAcct', 'AptbConfTaxAcct', 'AptbConfPurAcct', 'AptbConfVarAcct', 'AptbConfVendDisc', 'AptbConfApInvVarAcct', 'AptbConfUseRoyal', 'AptbConfDefBuyrCode', 'AptbConfDefTermCode', 'AptbConfDefSviaCode', 'AptbConfDefTypeCode', 'AptbConfVendLine', 'AptbConfVendCols', 'AptbConfPoLine', 'AptbConfPoCols', 'AptbConfVendGetOpt', 'AptbConfPaytoShipfr', 'AptbConfHoldStat', 'AptbConfDiscRet', 'AptbConfStopVendChg', 'AptbConfReqDate2', 'AptbConfReqDate3', 'AptbConfReqDate4', 'AptbConf1099Name', 'AptbConf1099Adr1', 'AptbConf1099Adr2', 'AptbConf1099Adr3', 'AptbConf1099City', 'AptbConf1099Stat', 'AptbConf1099ZipCode', 'AptbConf1099Id', 'AptbConfStubSort', 'AptbConfUseAch', 'AptbConfOver1', 'AptbConfOver2', 'AptbConfPrtChk', 'AptbConfEiUnrecQty', 'AptbConfEiRecQtyAsk', 'AptbConfEiRecQtyDef', 'AptbConfAllowMultPos', 'AptbConfEiByClerk', 'AptbConfEiBatchProc', 'AptbConfEiDispStanCost', 'AptbConfEiAssetAcctChg', 'AptbConfAllowDupInvc', 'AptbConfPrtSoRept', 'AptbConfEiCheckHist', 'AptbConfSummGl', 'AptbConfVxmUserLabel', 'AptbConfVendCostBreaks', 'AptbConfMyeClrClosPo', 'AptbConfMyeClrClosDate', 'AptbConfMyeClrPoHist', 'AptbConfMyeClrPoDate', 'AptbConfMyeClrCkHist', 'AptbConfMyeClrCkDate', 'AptbConfMyeClrOpenCk', 'AptbConfLead', 'AptbConfVrReworkItem', 'AptbConfVrqcWhse', 'AptbConfVrGlAcct', 'AptbConfVxmListPc', 'AptbConfVxmListItemUpd', 'AptbConfVxmGrossLc', 'AptbConfVxmCostLp', 'AptbConfVxmCostItemUpd', 'AptbConfVxmCostRMesg', 'AptbConfVxmCostItemUpdM', 'AptbConfVxmCostMMesg', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Aptbconfkey', 'Aptbconfglifac', 'Aptbconfinifac', 'Aptbconfsoifac', 'Aptbconfpoifac', 'Aptbconffrtacct', 'Aptbconfmiscacct', 'Aptbconfapacct', 'Aptbconfcashacct', 'Aptbconfdiscacct', 'Aptbconftaxacct', 'Aptbconfpuracct', 'Aptbconfvaracct', 'Aptbconfvenddisc', 'Aptbconfapinvvaracct', 'Aptbconfuseroyal', 'Aptbconfdefbuyrcode', 'Aptbconfdeftermcode', 'Aptbconfdefsviacode', 'Aptbconfdeftypecode', 'Aptbconfvendline', 'Aptbconfvendcols', 'Aptbconfpoline', 'Aptbconfpocols', 'Aptbconfvendgetopt', 'Aptbconfpaytoshipfr', 'Aptbconfholdstat', 'Aptbconfdiscret', 'Aptbconfstopvendchg', 'Aptbconfreqdate2', 'Aptbconfreqdate3', 'Aptbconfreqdate4', 'Aptbconf1099name', 'Aptbconf1099adr1', 'Aptbconf1099adr2', 'Aptbconf1099adr3', 'Aptbconf1099city', 'Aptbconf1099stat', 'Aptbconf1099zipcode', 'Aptbconf1099id', 'Aptbconfstubsort', 'AptbConfUseAch', 'Aptbconfover1', 'Aptbconfover2', 'Aptbconfprtchk', 'Aptbconfeiunrecqty', 'Aptbconfeirecqtyask', 'Aptbconfeirecqtydef', 'Aptbconfallowmultpos', 'Aptbconfeibyclerk', 'Aptbconfeibatchproc', 'Aptbconfeidispstancost', 'Aptbconfeiassetacctchg', 'Aptbconfallowdupinvc', 'Aptbconfprtsorept', 'Aptbconfeicheckhist', 'Aptbconfsummgl', 'Aptbconfvxmuserlabel', 'Aptbconfvendcostbreaks', 'Aptbconfmyeclrclospo', 'Aptbconfmyeclrclosdate', 'Aptbconfmyeclrpohist', 'Aptbconfmyeclrpodate', 'Aptbconfmyeclrckhist', 'Aptbconfmyeclrckdate', 'Aptbconfmyeclropenck', 'Aptbconflead', 'Aptbconfvrreworkitem', 'Aptbconfvrqcwhse', 'Aptbconfvrglacct', 'Aptbconfvxmlistpc', 'Aptbconfvxmlistitemupd', 'Aptbconfvxmgrosslc', 'Aptbconfvxmcostlp', 'Aptbconfvxmcostitemupd', 'Aptbconfvxmcostrmesg', 'Aptbconfvxmcostitemupdm', 'Aptbconfvxmcostmmesg', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['aptbconfkey', 'aptbconfglifac', 'aptbconfinifac', 'aptbconfsoifac', 'aptbconfpoifac', 'aptbconffrtacct', 'aptbconfmiscacct', 'aptbconfapacct', 'aptbconfcashacct', 'aptbconfdiscacct', 'aptbconftaxacct', 'aptbconfpuracct', 'aptbconfvaracct', 'aptbconfvenddisc', 'aptbconfapinvvaracct', 'aptbconfuseroyal', 'aptbconfdefbuyrcode', 'aptbconfdeftermcode', 'aptbconfdefsviacode', 'aptbconfdeftypecode', 'aptbconfvendline', 'aptbconfvendcols', 'aptbconfpoline', 'aptbconfpocols', 'aptbconfvendgetopt', 'aptbconfpaytoshipfr', 'aptbconfholdstat', 'aptbconfdiscret', 'aptbconfstopvendchg', 'aptbconfreqdate2', 'aptbconfreqdate3', 'aptbconfreqdate4', 'aptbconf1099name', 'aptbconf1099adr1', 'aptbconf1099adr2', 'aptbconf1099adr3', 'aptbconf1099city', 'aptbconf1099stat', 'aptbconf1099zipcode', 'aptbconf1099id', 'aptbconfstubsort', 'aptbConfUseAch', 'aptbconfover1', 'aptbconfover2', 'aptbconfprtchk', 'aptbconfeiunrecqty', 'aptbconfeirecqtyask', 'aptbconfeirecqtydef', 'aptbconfallowmultpos', 'aptbconfeibyclerk', 'aptbconfeibatchproc', 'aptbconfeidispstancost', 'aptbconfeiassetacctchg', 'aptbconfallowdupinvc', 'aptbconfprtsorept', 'aptbconfeicheckhist', 'aptbconfsummgl', 'aptbconfvxmuserlabel', 'aptbconfvendcostbreaks', 'aptbconfmyeclrclospo', 'aptbconfmyeclrclosdate', 'aptbconfmyeclrpohist', 'aptbconfmyeclrpodate', 'aptbconfmyeclrckhist', 'aptbconfmyeclrckdate', 'aptbconfmyeclropenck', 'aptbconflead', 'aptbconfvrreworkitem', 'aptbconfvrqcwhse', 'aptbconfvrglacct', 'aptbconfvxmlistpc', 'aptbconfvxmlistitemupd', 'aptbconfvxmgrosslc', 'aptbconfvxmcostlp', 'aptbconfvxmcostitemupd', 'aptbconfvxmcostrmesg', 'aptbconfvxmcostitemupdm', 'aptbconfvxmcostmmesg', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ConfigApTableMap::COL_APTBCONFKEY, ConfigApTableMap::COL_APTBCONFGLIFAC, ConfigApTableMap::COL_APTBCONFINIFAC, ConfigApTableMap::COL_APTBCONFSOIFAC, ConfigApTableMap::COL_APTBCONFPOIFAC, ConfigApTableMap::COL_APTBCONFFRTACCT, ConfigApTableMap::COL_APTBCONFMISCACCT, ConfigApTableMap::COL_APTBCONFAPACCT, ConfigApTableMap::COL_APTBCONFCASHACCT, ConfigApTableMap::COL_APTBCONFDISCACCT, ConfigApTableMap::COL_APTBCONFTAXACCT, ConfigApTableMap::COL_APTBCONFPURACCT, ConfigApTableMap::COL_APTBCONFVARACCT, ConfigApTableMap::COL_APTBCONFVENDDISC, ConfigApTableMap::COL_APTBCONFAPINVVARACCT, ConfigApTableMap::COL_APTBCONFUSEROYAL, ConfigApTableMap::COL_APTBCONFDEFBUYRCODE, ConfigApTableMap::COL_APTBCONFDEFTERMCODE, ConfigApTableMap::COL_APTBCONFDEFSVIACODE, ConfigApTableMap::COL_APTBCONFDEFTYPECODE, ConfigApTableMap::COL_APTBCONFVENDLINE, ConfigApTableMap::COL_APTBCONFVENDCOLS, ConfigApTableMap::COL_APTBCONFPOLINE, ConfigApTableMap::COL_APTBCONFPOCOLS, ConfigApTableMap::COL_APTBCONFVENDGETOPT, ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR, ConfigApTableMap::COL_APTBCONFHOLDSTAT, ConfigApTableMap::COL_APTBCONFDISCRET, ConfigApTableMap::COL_APTBCONFSTOPVENDCHG, ConfigApTableMap::COL_APTBCONFREQDATE2, ConfigApTableMap::COL_APTBCONFREQDATE3, ConfigApTableMap::COL_APTBCONFREQDATE4, ConfigApTableMap::COL_APTBCONF1099NAME, ConfigApTableMap::COL_APTBCONF1099ADR1, ConfigApTableMap::COL_APTBCONF1099ADR2, ConfigApTableMap::COL_APTBCONF1099ADR3, ConfigApTableMap::COL_APTBCONF1099CITY, ConfigApTableMap::COL_APTBCONF1099STAT, ConfigApTableMap::COL_APTBCONF1099ZIPCODE, ConfigApTableMap::COL_APTBCONF1099ID, ConfigApTableMap::COL_APTBCONFSTUBSORT, ConfigApTableMap::COL_APTBCONFUSEACH, ConfigApTableMap::COL_APTBCONFOVER1, ConfigApTableMap::COL_APTBCONFOVER2, ConfigApTableMap::COL_APTBCONFPRTCHK, ConfigApTableMap::COL_APTBCONFEIUNRECQTY, ConfigApTableMap::COL_APTBCONFEIRECQTYASK, ConfigApTableMap::COL_APTBCONFEIRECQTYDEF, ConfigApTableMap::COL_APTBCONFALLOWMULTPOS, ConfigApTableMap::COL_APTBCONFEIBYCLERK, ConfigApTableMap::COL_APTBCONFEIBATCHPROC, ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST, ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG, ConfigApTableMap::COL_APTBCONFALLOWDUPINVC, ConfigApTableMap::COL_APTBCONFPRTSOREPT, ConfigApTableMap::COL_APTBCONFEICHECKHIST, ConfigApTableMap::COL_APTBCONFSUMMGL, ConfigApTableMap::COL_APTBCONFVXMUSERLABEL, ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS, ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO, ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE, ConfigApTableMap::COL_APTBCONFMYECLRPOHIST, ConfigApTableMap::COL_APTBCONFMYECLRPODATE, ConfigApTableMap::COL_APTBCONFMYECLRCKHIST, ConfigApTableMap::COL_APTBCONFMYECLRCKDATE, ConfigApTableMap::COL_APTBCONFMYECLROPENCK, ConfigApTableMap::COL_APTBCONFLEAD, ConfigApTableMap::COL_APTBCONFVRREWORKITEM, ConfigApTableMap::COL_APTBCONFVRQCWHSE, ConfigApTableMap::COL_APTBCONFVRGLACCT, ConfigApTableMap::COL_APTBCONFVXMLISTPC, ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD, ConfigApTableMap::COL_APTBCONFVXMGROSSLC, ConfigApTableMap::COL_APTBCONFVXMCOSTLP, ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD, ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG, ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM, ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG, ConfigApTableMap::COL_DATEUPDTD, ConfigApTableMap::COL_TIMEUPDTD, ConfigApTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['AptbConfKey', 'AptbConfGlIfac', 'AptbConfInIfac', 'AptbConfSoIfac', 'AptbConfPoIfac', 'AptbConfFrtAcct', 'AptbConfMiscAcct', 'AptbConfApAcct', 'AptbConfCashAcct', 'AptbConfDiscAcct', 'AptbConfTaxAcct', 'AptbConfPurAcct', 'AptbConfVarAcct', 'AptbConfVendDisc', 'AptbConfApInvVarAcct', 'AptbConfUseRoyal', 'AptbConfDefBuyrCode', 'AptbConfDefTermCode', 'AptbConfDefSviaCode', 'AptbConfDefTypeCode', 'AptbConfVendLine', 'AptbConfVendCols', 'AptbConfPoLine', 'AptbConfPoCols', 'AptbConfVendGetOpt', 'AptbConfPaytoShipfr', 'AptbConfHoldStat', 'AptbConfDiscRet', 'AptbConfStopVendChg', 'AptbConfReqDate2', 'AptbConfReqDate3', 'AptbConfReqDate4', 'AptbConf1099Name', 'AptbConf1099Adr1', 'AptbConf1099Adr2', 'AptbConf1099Adr3', 'AptbConf1099City', 'AptbConf1099Stat', 'AptbConf1099ZipCode', 'AptbConf1099Id', 'AptbConfStubSort', 'AptbConfUseAch', 'AptbConfOver1', 'AptbConfOver2', 'AptbConfPrtChk', 'AptbConfEiUnrecQty', 'AptbConfEiRecQtyAsk', 'AptbConfEiRecQtyDef', 'AptbConfAllowMultPos', 'AptbConfEiByClerk', 'AptbConfEiBatchProc', 'AptbConfEiDispStanCost', 'AptbConfEiAssetAcctChg', 'AptbConfAllowDupInvc', 'AptbConfPrtSoRept', 'AptbConfEiCheckHist', 'AptbConfSummGl', 'AptbConfVxmUserLabel', 'AptbConfVendCostBreaks', 'AptbConfMyeClrClosPo', 'AptbConfMyeClrClosDate', 'AptbConfMyeClrPoHist', 'AptbConfMyeClrPoDate', 'AptbConfMyeClrCkHist', 'AptbConfMyeClrCkDate', 'AptbConfMyeClrOpenCk', 'AptbConfLead', 'AptbConfVrReworkItem', 'AptbConfVrqcWhse', 'AptbConfVrGlAcct', 'AptbConfVxmListPc', 'AptbConfVxmListItemUpd', 'AptbConfVxmGrossLc', 'AptbConfVxmCostLp', 'AptbConfVxmCostItemUpd', 'AptbConfVxmCostRMesg', 'AptbConfVxmCostItemUpdM', 'AptbConfVxmCostMMesg', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Aptbconfkey' => 0, 'Aptbconfglifac' => 1, 'Aptbconfinifac' => 2, 'Aptbconfsoifac' => 3, 'Aptbconfpoifac' => 4, 'Aptbconffrtacct' => 5, 'Aptbconfmiscacct' => 6, 'Aptbconfapacct' => 7, 'Aptbconfcashacct' => 8, 'Aptbconfdiscacct' => 9, 'Aptbconftaxacct' => 10, 'Aptbconfpuracct' => 11, 'Aptbconfvaracct' => 12, 'Aptbconfvenddisc' => 13, 'Aptbconfapinvvaracct' => 14, 'Aptbconfuseroyal' => 15, 'Aptbconfdefbuyrcode' => 16, 'Aptbconfdeftermcode' => 17, 'Aptbconfdefsviacode' => 18, 'Aptbconfdeftypecode' => 19, 'Aptbconfvendline' => 20, 'Aptbconfvendcols' => 21, 'Aptbconfpoline' => 22, 'Aptbconfpocols' => 23, 'Aptbconfvendgetopt' => 24, 'Aptbconfpaytoshipfr' => 25, 'Aptbconfholdstat' => 26, 'Aptbconfdiscret' => 27, 'Aptbconfstopvendchg' => 28, 'Aptbconfreqdate2' => 29, 'Aptbconfreqdate3' => 30, 'Aptbconfreqdate4' => 31, 'Aptbconf1099name' => 32, 'Aptbconf1099adr1' => 33, 'Aptbconf1099adr2' => 34, 'Aptbconf1099adr3' => 35, 'Aptbconf1099city' => 36, 'Aptbconf1099stat' => 37, 'Aptbconf1099zipcode' => 38, 'Aptbconf1099id' => 39, 'Aptbconfstubsort' => 40, 'AptbConfUseAch' => 41, 'Aptbconfover1' => 42, 'Aptbconfover2' => 43, 'Aptbconfprtchk' => 44, 'Aptbconfeiunrecqty' => 45, 'Aptbconfeirecqtyask' => 46, 'Aptbconfeirecqtydef' => 47, 'Aptbconfallowmultpos' => 48, 'Aptbconfeibyclerk' => 49, 'Aptbconfeibatchproc' => 50, 'Aptbconfeidispstancost' => 51, 'Aptbconfeiassetacctchg' => 52, 'Aptbconfallowdupinvc' => 53, 'Aptbconfprtsorept' => 54, 'Aptbconfeicheckhist' => 55, 'Aptbconfsummgl' => 56, 'Aptbconfvxmuserlabel' => 57, 'Aptbconfvendcostbreaks' => 58, 'Aptbconfmyeclrclospo' => 59, 'Aptbconfmyeclrclosdate' => 60, 'Aptbconfmyeclrpohist' => 61, 'Aptbconfmyeclrpodate' => 62, 'Aptbconfmyeclrckhist' => 63, 'Aptbconfmyeclrckdate' => 64, 'Aptbconfmyeclropenck' => 65, 'Aptbconflead' => 66, 'Aptbconfvrreworkitem' => 67, 'Aptbconfvrqcwhse' => 68, 'Aptbconfvrglacct' => 69, 'Aptbconfvxmlistpc' => 70, 'Aptbconfvxmlistitemupd' => 71, 'Aptbconfvxmgrosslc' => 72, 'Aptbconfvxmcostlp' => 73, 'Aptbconfvxmcostitemupd' => 74, 'Aptbconfvxmcostrmesg' => 75, 'Aptbconfvxmcostitemupdm' => 76, 'Aptbconfvxmcostmmesg' => 77, 'Dateupdtd' => 78, 'Timeupdtd' => 79, 'Dummy' => 80, ),
-        self::TYPE_CAMELNAME     => array('aptbconfkey' => 0, 'aptbconfglifac' => 1, 'aptbconfinifac' => 2, 'aptbconfsoifac' => 3, 'aptbconfpoifac' => 4, 'aptbconffrtacct' => 5, 'aptbconfmiscacct' => 6, 'aptbconfapacct' => 7, 'aptbconfcashacct' => 8, 'aptbconfdiscacct' => 9, 'aptbconftaxacct' => 10, 'aptbconfpuracct' => 11, 'aptbconfvaracct' => 12, 'aptbconfvenddisc' => 13, 'aptbconfapinvvaracct' => 14, 'aptbconfuseroyal' => 15, 'aptbconfdefbuyrcode' => 16, 'aptbconfdeftermcode' => 17, 'aptbconfdefsviacode' => 18, 'aptbconfdeftypecode' => 19, 'aptbconfvendline' => 20, 'aptbconfvendcols' => 21, 'aptbconfpoline' => 22, 'aptbconfpocols' => 23, 'aptbconfvendgetopt' => 24, 'aptbconfpaytoshipfr' => 25, 'aptbconfholdstat' => 26, 'aptbconfdiscret' => 27, 'aptbconfstopvendchg' => 28, 'aptbconfreqdate2' => 29, 'aptbconfreqdate3' => 30, 'aptbconfreqdate4' => 31, 'aptbconf1099name' => 32, 'aptbconf1099adr1' => 33, 'aptbconf1099adr2' => 34, 'aptbconf1099adr3' => 35, 'aptbconf1099city' => 36, 'aptbconf1099stat' => 37, 'aptbconf1099zipcode' => 38, 'aptbconf1099id' => 39, 'aptbconfstubsort' => 40, 'aptbConfUseAch' => 41, 'aptbconfover1' => 42, 'aptbconfover2' => 43, 'aptbconfprtchk' => 44, 'aptbconfeiunrecqty' => 45, 'aptbconfeirecqtyask' => 46, 'aptbconfeirecqtydef' => 47, 'aptbconfallowmultpos' => 48, 'aptbconfeibyclerk' => 49, 'aptbconfeibatchproc' => 50, 'aptbconfeidispstancost' => 51, 'aptbconfeiassetacctchg' => 52, 'aptbconfallowdupinvc' => 53, 'aptbconfprtsorept' => 54, 'aptbconfeicheckhist' => 55, 'aptbconfsummgl' => 56, 'aptbconfvxmuserlabel' => 57, 'aptbconfvendcostbreaks' => 58, 'aptbconfmyeclrclospo' => 59, 'aptbconfmyeclrclosdate' => 60, 'aptbconfmyeclrpohist' => 61, 'aptbconfmyeclrpodate' => 62, 'aptbconfmyeclrckhist' => 63, 'aptbconfmyeclrckdate' => 64, 'aptbconfmyeclropenck' => 65, 'aptbconflead' => 66, 'aptbconfvrreworkitem' => 67, 'aptbconfvrqcwhse' => 68, 'aptbconfvrglacct' => 69, 'aptbconfvxmlistpc' => 70, 'aptbconfvxmlistitemupd' => 71, 'aptbconfvxmgrosslc' => 72, 'aptbconfvxmcostlp' => 73, 'aptbconfvxmcostitemupd' => 74, 'aptbconfvxmcostrmesg' => 75, 'aptbconfvxmcostitemupdm' => 76, 'aptbconfvxmcostmmesg' => 77, 'dateupdtd' => 78, 'timeupdtd' => 79, 'dummy' => 80, ),
-        self::TYPE_COLNAME       => array(ConfigApTableMap::COL_APTBCONFKEY => 0, ConfigApTableMap::COL_APTBCONFGLIFAC => 1, ConfigApTableMap::COL_APTBCONFINIFAC => 2, ConfigApTableMap::COL_APTBCONFSOIFAC => 3, ConfigApTableMap::COL_APTBCONFPOIFAC => 4, ConfigApTableMap::COL_APTBCONFFRTACCT => 5, ConfigApTableMap::COL_APTBCONFMISCACCT => 6, ConfigApTableMap::COL_APTBCONFAPACCT => 7, ConfigApTableMap::COL_APTBCONFCASHACCT => 8, ConfigApTableMap::COL_APTBCONFDISCACCT => 9, ConfigApTableMap::COL_APTBCONFTAXACCT => 10, ConfigApTableMap::COL_APTBCONFPURACCT => 11, ConfigApTableMap::COL_APTBCONFVARACCT => 12, ConfigApTableMap::COL_APTBCONFVENDDISC => 13, ConfigApTableMap::COL_APTBCONFAPINVVARACCT => 14, ConfigApTableMap::COL_APTBCONFUSEROYAL => 15, ConfigApTableMap::COL_APTBCONFDEFBUYRCODE => 16, ConfigApTableMap::COL_APTBCONFDEFTERMCODE => 17, ConfigApTableMap::COL_APTBCONFDEFSVIACODE => 18, ConfigApTableMap::COL_APTBCONFDEFTYPECODE => 19, ConfigApTableMap::COL_APTBCONFVENDLINE => 20, ConfigApTableMap::COL_APTBCONFVENDCOLS => 21, ConfigApTableMap::COL_APTBCONFPOLINE => 22, ConfigApTableMap::COL_APTBCONFPOCOLS => 23, ConfigApTableMap::COL_APTBCONFVENDGETOPT => 24, ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR => 25, ConfigApTableMap::COL_APTBCONFHOLDSTAT => 26, ConfigApTableMap::COL_APTBCONFDISCRET => 27, ConfigApTableMap::COL_APTBCONFSTOPVENDCHG => 28, ConfigApTableMap::COL_APTBCONFREQDATE2 => 29, ConfigApTableMap::COL_APTBCONFREQDATE3 => 30, ConfigApTableMap::COL_APTBCONFREQDATE4 => 31, ConfigApTableMap::COL_APTBCONF1099NAME => 32, ConfigApTableMap::COL_APTBCONF1099ADR1 => 33, ConfigApTableMap::COL_APTBCONF1099ADR2 => 34, ConfigApTableMap::COL_APTBCONF1099ADR3 => 35, ConfigApTableMap::COL_APTBCONF1099CITY => 36, ConfigApTableMap::COL_APTBCONF1099STAT => 37, ConfigApTableMap::COL_APTBCONF1099ZIPCODE => 38, ConfigApTableMap::COL_APTBCONF1099ID => 39, ConfigApTableMap::COL_APTBCONFSTUBSORT => 40, ConfigApTableMap::COL_APTBCONFUSEACH => 41, ConfigApTableMap::COL_APTBCONFOVER1 => 42, ConfigApTableMap::COL_APTBCONFOVER2 => 43, ConfigApTableMap::COL_APTBCONFPRTCHK => 44, ConfigApTableMap::COL_APTBCONFEIUNRECQTY => 45, ConfigApTableMap::COL_APTBCONFEIRECQTYASK => 46, ConfigApTableMap::COL_APTBCONFEIRECQTYDEF => 47, ConfigApTableMap::COL_APTBCONFALLOWMULTPOS => 48, ConfigApTableMap::COL_APTBCONFEIBYCLERK => 49, ConfigApTableMap::COL_APTBCONFEIBATCHPROC => 50, ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST => 51, ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG => 52, ConfigApTableMap::COL_APTBCONFALLOWDUPINVC => 53, ConfigApTableMap::COL_APTBCONFPRTSOREPT => 54, ConfigApTableMap::COL_APTBCONFEICHECKHIST => 55, ConfigApTableMap::COL_APTBCONFSUMMGL => 56, ConfigApTableMap::COL_APTBCONFVXMUSERLABEL => 57, ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS => 58, ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO => 59, ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE => 60, ConfigApTableMap::COL_APTBCONFMYECLRPOHIST => 61, ConfigApTableMap::COL_APTBCONFMYECLRPODATE => 62, ConfigApTableMap::COL_APTBCONFMYECLRCKHIST => 63, ConfigApTableMap::COL_APTBCONFMYECLRCKDATE => 64, ConfigApTableMap::COL_APTBCONFMYECLROPENCK => 65, ConfigApTableMap::COL_APTBCONFLEAD => 66, ConfigApTableMap::COL_APTBCONFVRREWORKITEM => 67, ConfigApTableMap::COL_APTBCONFVRQCWHSE => 68, ConfigApTableMap::COL_APTBCONFVRGLACCT => 69, ConfigApTableMap::COL_APTBCONFVXMLISTPC => 70, ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD => 71, ConfigApTableMap::COL_APTBCONFVXMGROSSLC => 72, ConfigApTableMap::COL_APTBCONFVXMCOSTLP => 73, ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD => 74, ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG => 75, ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM => 76, ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG => 77, ConfigApTableMap::COL_DATEUPDTD => 78, ConfigApTableMap::COL_TIMEUPDTD => 79, ConfigApTableMap::COL_DUMMY => 80, ),
-        self::TYPE_FIELDNAME     => array('AptbConfKey' => 0, 'AptbConfGlIfac' => 1, 'AptbConfInIfac' => 2, 'AptbConfSoIfac' => 3, 'AptbConfPoIfac' => 4, 'AptbConfFrtAcct' => 5, 'AptbConfMiscAcct' => 6, 'AptbConfApAcct' => 7, 'AptbConfCashAcct' => 8, 'AptbConfDiscAcct' => 9, 'AptbConfTaxAcct' => 10, 'AptbConfPurAcct' => 11, 'AptbConfVarAcct' => 12, 'AptbConfVendDisc' => 13, 'AptbConfApInvVarAcct' => 14, 'AptbConfUseRoyal' => 15, 'AptbConfDefBuyrCode' => 16, 'AptbConfDefTermCode' => 17, 'AptbConfDefSviaCode' => 18, 'AptbConfDefTypeCode' => 19, 'AptbConfVendLine' => 20, 'AptbConfVendCols' => 21, 'AptbConfPoLine' => 22, 'AptbConfPoCols' => 23, 'AptbConfVendGetOpt' => 24, 'AptbConfPaytoShipfr' => 25, 'AptbConfHoldStat' => 26, 'AptbConfDiscRet' => 27, 'AptbConfStopVendChg' => 28, 'AptbConfReqDate2' => 29, 'AptbConfReqDate3' => 30, 'AptbConfReqDate4' => 31, 'AptbConf1099Name' => 32, 'AptbConf1099Adr1' => 33, 'AptbConf1099Adr2' => 34, 'AptbConf1099Adr3' => 35, 'AptbConf1099City' => 36, 'AptbConf1099Stat' => 37, 'AptbConf1099ZipCode' => 38, 'AptbConf1099Id' => 39, 'AptbConfStubSort' => 40, 'AptbConfUseAch' => 41, 'AptbConfOver1' => 42, 'AptbConfOver2' => 43, 'AptbConfPrtChk' => 44, 'AptbConfEiUnrecQty' => 45, 'AptbConfEiRecQtyAsk' => 46, 'AptbConfEiRecQtyDef' => 47, 'AptbConfAllowMultPos' => 48, 'AptbConfEiByClerk' => 49, 'AptbConfEiBatchProc' => 50, 'AptbConfEiDispStanCost' => 51, 'AptbConfEiAssetAcctChg' => 52, 'AptbConfAllowDupInvc' => 53, 'AptbConfPrtSoRept' => 54, 'AptbConfEiCheckHist' => 55, 'AptbConfSummGl' => 56, 'AptbConfVxmUserLabel' => 57, 'AptbConfVendCostBreaks' => 58, 'AptbConfMyeClrClosPo' => 59, 'AptbConfMyeClrClosDate' => 60, 'AptbConfMyeClrPoHist' => 61, 'AptbConfMyeClrPoDate' => 62, 'AptbConfMyeClrCkHist' => 63, 'AptbConfMyeClrCkDate' => 64, 'AptbConfMyeClrOpenCk' => 65, 'AptbConfLead' => 66, 'AptbConfVrReworkItem' => 67, 'AptbConfVrqcWhse' => 68, 'AptbConfVrGlAcct' => 69, 'AptbConfVxmListPc' => 70, 'AptbConfVxmListItemUpd' => 71, 'AptbConfVxmGrossLc' => 72, 'AptbConfVxmCostLp' => 73, 'AptbConfVxmCostItemUpd' => 74, 'AptbConfVxmCostRMesg' => 75, 'AptbConfVxmCostItemUpdM' => 76, 'AptbConfVxmCostMMesg' => 77, 'DateUpdtd' => 78, 'TimeUpdtd' => 79, 'dummy' => 80, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Aptbconfkey' => 0, 'Aptbconfglifac' => 1, 'Aptbconfinifac' => 2, 'Aptbconfsoifac' => 3, 'Aptbconfpoifac' => 4, 'Aptbconffrtacct' => 5, 'Aptbconfmiscacct' => 6, 'Aptbconfapacct' => 7, 'Aptbconfcashacct' => 8, 'Aptbconfdiscacct' => 9, 'Aptbconftaxacct' => 10, 'Aptbconfpuracct' => 11, 'Aptbconfvaracct' => 12, 'Aptbconfvenddisc' => 13, 'Aptbconfapinvvaracct' => 14, 'Aptbconfuseroyal' => 15, 'Aptbconfdefbuyrcode' => 16, 'Aptbconfdeftermcode' => 17, 'Aptbconfdefsviacode' => 18, 'Aptbconfdeftypecode' => 19, 'Aptbconfvendline' => 20, 'Aptbconfvendcols' => 21, 'Aptbconfpoline' => 22, 'Aptbconfpocols' => 23, 'Aptbconfvendgetopt' => 24, 'Aptbconfpaytoshipfr' => 25, 'Aptbconfholdstat' => 26, 'Aptbconfdiscret' => 27, 'Aptbconfstopvendchg' => 28, 'Aptbconfreqdate2' => 29, 'Aptbconfreqdate3' => 30, 'Aptbconfreqdate4' => 31, 'Aptbconf1099name' => 32, 'Aptbconf1099adr1' => 33, 'Aptbconf1099adr2' => 34, 'Aptbconf1099adr3' => 35, 'Aptbconf1099city' => 36, 'Aptbconf1099stat' => 37, 'Aptbconf1099zipcode' => 38, 'Aptbconf1099id' => 39, 'Aptbconfstubsort' => 40, 'AptbConfUseAch' => 41, 'Aptbconfover1' => 42, 'Aptbconfover2' => 43, 'Aptbconfprtchk' => 44, 'Aptbconfeiunrecqty' => 45, 'Aptbconfeirecqtyask' => 46, 'Aptbconfeirecqtydef' => 47, 'Aptbconfallowmultpos' => 48, 'Aptbconfeibyclerk' => 49, 'Aptbconfeibatchproc' => 50, 'Aptbconfeidispstancost' => 51, 'Aptbconfeiassetacctchg' => 52, 'Aptbconfallowdupinvc' => 53, 'Aptbconfprtsorept' => 54, 'Aptbconfeicheckhist' => 55, 'Aptbconfsummgl' => 56, 'Aptbconfvxmuserlabel' => 57, 'Aptbconfvendcostbreaks' => 58, 'Aptbconfmyeclrclospo' => 59, 'Aptbconfmyeclrclosdate' => 60, 'Aptbconfmyeclrpohist' => 61, 'Aptbconfmyeclrpodate' => 62, 'Aptbconfmyeclrckhist' => 63, 'Aptbconfmyeclrckdate' => 64, 'Aptbconfmyeclropenck' => 65, 'Aptbconflead' => 66, 'Aptbconfvrreworkitem' => 67, 'Aptbconfvrqcwhse' => 68, 'Aptbconfvrglacct' => 69, 'Aptbconfvxmlistpc' => 70, 'Aptbconfvxmlistitemupd' => 71, 'Aptbconfvxmgrosslc' => 72, 'Aptbconfvxmcostlp' => 73, 'Aptbconfvxmcostitemupd' => 74, 'Aptbconfvxmcostrmesg' => 75, 'Aptbconfvxmcostitemupdm' => 76, 'Aptbconfvxmcostmmesg' => 77, 'Dateupdtd' => 78, 'Timeupdtd' => 79, 'Dummy' => 80, ],
+        self::TYPE_CAMELNAME     => ['aptbconfkey' => 0, 'aptbconfglifac' => 1, 'aptbconfinifac' => 2, 'aptbconfsoifac' => 3, 'aptbconfpoifac' => 4, 'aptbconffrtacct' => 5, 'aptbconfmiscacct' => 6, 'aptbconfapacct' => 7, 'aptbconfcashacct' => 8, 'aptbconfdiscacct' => 9, 'aptbconftaxacct' => 10, 'aptbconfpuracct' => 11, 'aptbconfvaracct' => 12, 'aptbconfvenddisc' => 13, 'aptbconfapinvvaracct' => 14, 'aptbconfuseroyal' => 15, 'aptbconfdefbuyrcode' => 16, 'aptbconfdeftermcode' => 17, 'aptbconfdefsviacode' => 18, 'aptbconfdeftypecode' => 19, 'aptbconfvendline' => 20, 'aptbconfvendcols' => 21, 'aptbconfpoline' => 22, 'aptbconfpocols' => 23, 'aptbconfvendgetopt' => 24, 'aptbconfpaytoshipfr' => 25, 'aptbconfholdstat' => 26, 'aptbconfdiscret' => 27, 'aptbconfstopvendchg' => 28, 'aptbconfreqdate2' => 29, 'aptbconfreqdate3' => 30, 'aptbconfreqdate4' => 31, 'aptbconf1099name' => 32, 'aptbconf1099adr1' => 33, 'aptbconf1099adr2' => 34, 'aptbconf1099adr3' => 35, 'aptbconf1099city' => 36, 'aptbconf1099stat' => 37, 'aptbconf1099zipcode' => 38, 'aptbconf1099id' => 39, 'aptbconfstubsort' => 40, 'aptbConfUseAch' => 41, 'aptbconfover1' => 42, 'aptbconfover2' => 43, 'aptbconfprtchk' => 44, 'aptbconfeiunrecqty' => 45, 'aptbconfeirecqtyask' => 46, 'aptbconfeirecqtydef' => 47, 'aptbconfallowmultpos' => 48, 'aptbconfeibyclerk' => 49, 'aptbconfeibatchproc' => 50, 'aptbconfeidispstancost' => 51, 'aptbconfeiassetacctchg' => 52, 'aptbconfallowdupinvc' => 53, 'aptbconfprtsorept' => 54, 'aptbconfeicheckhist' => 55, 'aptbconfsummgl' => 56, 'aptbconfvxmuserlabel' => 57, 'aptbconfvendcostbreaks' => 58, 'aptbconfmyeclrclospo' => 59, 'aptbconfmyeclrclosdate' => 60, 'aptbconfmyeclrpohist' => 61, 'aptbconfmyeclrpodate' => 62, 'aptbconfmyeclrckhist' => 63, 'aptbconfmyeclrckdate' => 64, 'aptbconfmyeclropenck' => 65, 'aptbconflead' => 66, 'aptbconfvrreworkitem' => 67, 'aptbconfvrqcwhse' => 68, 'aptbconfvrglacct' => 69, 'aptbconfvxmlistpc' => 70, 'aptbconfvxmlistitemupd' => 71, 'aptbconfvxmgrosslc' => 72, 'aptbconfvxmcostlp' => 73, 'aptbconfvxmcostitemupd' => 74, 'aptbconfvxmcostrmesg' => 75, 'aptbconfvxmcostitemupdm' => 76, 'aptbconfvxmcostmmesg' => 77, 'dateupdtd' => 78, 'timeupdtd' => 79, 'dummy' => 80, ],
+        self::TYPE_COLNAME       => [ConfigApTableMap::COL_APTBCONFKEY => 0, ConfigApTableMap::COL_APTBCONFGLIFAC => 1, ConfigApTableMap::COL_APTBCONFINIFAC => 2, ConfigApTableMap::COL_APTBCONFSOIFAC => 3, ConfigApTableMap::COL_APTBCONFPOIFAC => 4, ConfigApTableMap::COL_APTBCONFFRTACCT => 5, ConfigApTableMap::COL_APTBCONFMISCACCT => 6, ConfigApTableMap::COL_APTBCONFAPACCT => 7, ConfigApTableMap::COL_APTBCONFCASHACCT => 8, ConfigApTableMap::COL_APTBCONFDISCACCT => 9, ConfigApTableMap::COL_APTBCONFTAXACCT => 10, ConfigApTableMap::COL_APTBCONFPURACCT => 11, ConfigApTableMap::COL_APTBCONFVARACCT => 12, ConfigApTableMap::COL_APTBCONFVENDDISC => 13, ConfigApTableMap::COL_APTBCONFAPINVVARACCT => 14, ConfigApTableMap::COL_APTBCONFUSEROYAL => 15, ConfigApTableMap::COL_APTBCONFDEFBUYRCODE => 16, ConfigApTableMap::COL_APTBCONFDEFTERMCODE => 17, ConfigApTableMap::COL_APTBCONFDEFSVIACODE => 18, ConfigApTableMap::COL_APTBCONFDEFTYPECODE => 19, ConfigApTableMap::COL_APTBCONFVENDLINE => 20, ConfigApTableMap::COL_APTBCONFVENDCOLS => 21, ConfigApTableMap::COL_APTBCONFPOLINE => 22, ConfigApTableMap::COL_APTBCONFPOCOLS => 23, ConfigApTableMap::COL_APTBCONFVENDGETOPT => 24, ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR => 25, ConfigApTableMap::COL_APTBCONFHOLDSTAT => 26, ConfigApTableMap::COL_APTBCONFDISCRET => 27, ConfigApTableMap::COL_APTBCONFSTOPVENDCHG => 28, ConfigApTableMap::COL_APTBCONFREQDATE2 => 29, ConfigApTableMap::COL_APTBCONFREQDATE3 => 30, ConfigApTableMap::COL_APTBCONFREQDATE4 => 31, ConfigApTableMap::COL_APTBCONF1099NAME => 32, ConfigApTableMap::COL_APTBCONF1099ADR1 => 33, ConfigApTableMap::COL_APTBCONF1099ADR2 => 34, ConfigApTableMap::COL_APTBCONF1099ADR3 => 35, ConfigApTableMap::COL_APTBCONF1099CITY => 36, ConfigApTableMap::COL_APTBCONF1099STAT => 37, ConfigApTableMap::COL_APTBCONF1099ZIPCODE => 38, ConfigApTableMap::COL_APTBCONF1099ID => 39, ConfigApTableMap::COL_APTBCONFSTUBSORT => 40, ConfigApTableMap::COL_APTBCONFUSEACH => 41, ConfigApTableMap::COL_APTBCONFOVER1 => 42, ConfigApTableMap::COL_APTBCONFOVER2 => 43, ConfigApTableMap::COL_APTBCONFPRTCHK => 44, ConfigApTableMap::COL_APTBCONFEIUNRECQTY => 45, ConfigApTableMap::COL_APTBCONFEIRECQTYASK => 46, ConfigApTableMap::COL_APTBCONFEIRECQTYDEF => 47, ConfigApTableMap::COL_APTBCONFALLOWMULTPOS => 48, ConfigApTableMap::COL_APTBCONFEIBYCLERK => 49, ConfigApTableMap::COL_APTBCONFEIBATCHPROC => 50, ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST => 51, ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG => 52, ConfigApTableMap::COL_APTBCONFALLOWDUPINVC => 53, ConfigApTableMap::COL_APTBCONFPRTSOREPT => 54, ConfigApTableMap::COL_APTBCONFEICHECKHIST => 55, ConfigApTableMap::COL_APTBCONFSUMMGL => 56, ConfigApTableMap::COL_APTBCONFVXMUSERLABEL => 57, ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS => 58, ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO => 59, ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE => 60, ConfigApTableMap::COL_APTBCONFMYECLRPOHIST => 61, ConfigApTableMap::COL_APTBCONFMYECLRPODATE => 62, ConfigApTableMap::COL_APTBCONFMYECLRCKHIST => 63, ConfigApTableMap::COL_APTBCONFMYECLRCKDATE => 64, ConfigApTableMap::COL_APTBCONFMYECLROPENCK => 65, ConfigApTableMap::COL_APTBCONFLEAD => 66, ConfigApTableMap::COL_APTBCONFVRREWORKITEM => 67, ConfigApTableMap::COL_APTBCONFVRQCWHSE => 68, ConfigApTableMap::COL_APTBCONFVRGLACCT => 69, ConfigApTableMap::COL_APTBCONFVXMLISTPC => 70, ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD => 71, ConfigApTableMap::COL_APTBCONFVXMGROSSLC => 72, ConfigApTableMap::COL_APTBCONFVXMCOSTLP => 73, ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD => 74, ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG => 75, ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM => 76, ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG => 77, ConfigApTableMap::COL_DATEUPDTD => 78, ConfigApTableMap::COL_TIMEUPDTD => 79, ConfigApTableMap::COL_DUMMY => 80, ],
+        self::TYPE_FIELDNAME     => ['AptbConfKey' => 0, 'AptbConfGlIfac' => 1, 'AptbConfInIfac' => 2, 'AptbConfSoIfac' => 3, 'AptbConfPoIfac' => 4, 'AptbConfFrtAcct' => 5, 'AptbConfMiscAcct' => 6, 'AptbConfApAcct' => 7, 'AptbConfCashAcct' => 8, 'AptbConfDiscAcct' => 9, 'AptbConfTaxAcct' => 10, 'AptbConfPurAcct' => 11, 'AptbConfVarAcct' => 12, 'AptbConfVendDisc' => 13, 'AptbConfApInvVarAcct' => 14, 'AptbConfUseRoyal' => 15, 'AptbConfDefBuyrCode' => 16, 'AptbConfDefTermCode' => 17, 'AptbConfDefSviaCode' => 18, 'AptbConfDefTypeCode' => 19, 'AptbConfVendLine' => 20, 'AptbConfVendCols' => 21, 'AptbConfPoLine' => 22, 'AptbConfPoCols' => 23, 'AptbConfVendGetOpt' => 24, 'AptbConfPaytoShipfr' => 25, 'AptbConfHoldStat' => 26, 'AptbConfDiscRet' => 27, 'AptbConfStopVendChg' => 28, 'AptbConfReqDate2' => 29, 'AptbConfReqDate3' => 30, 'AptbConfReqDate4' => 31, 'AptbConf1099Name' => 32, 'AptbConf1099Adr1' => 33, 'AptbConf1099Adr2' => 34, 'AptbConf1099Adr3' => 35, 'AptbConf1099City' => 36, 'AptbConf1099Stat' => 37, 'AptbConf1099ZipCode' => 38, 'AptbConf1099Id' => 39, 'AptbConfStubSort' => 40, 'AptbConfUseAch' => 41, 'AptbConfOver1' => 42, 'AptbConfOver2' => 43, 'AptbConfPrtChk' => 44, 'AptbConfEiUnrecQty' => 45, 'AptbConfEiRecQtyAsk' => 46, 'AptbConfEiRecQtyDef' => 47, 'AptbConfAllowMultPos' => 48, 'AptbConfEiByClerk' => 49, 'AptbConfEiBatchProc' => 50, 'AptbConfEiDispStanCost' => 51, 'AptbConfEiAssetAcctChg' => 52, 'AptbConfAllowDupInvc' => 53, 'AptbConfPrtSoRept' => 54, 'AptbConfEiCheckHist' => 55, 'AptbConfSummGl' => 56, 'AptbConfVxmUserLabel' => 57, 'AptbConfVendCostBreaks' => 58, 'AptbConfMyeClrClosPo' => 59, 'AptbConfMyeClrClosDate' => 60, 'AptbConfMyeClrPoHist' => 61, 'AptbConfMyeClrPoDate' => 62, 'AptbConfMyeClrCkHist' => 63, 'AptbConfMyeClrCkDate' => 64, 'AptbConfMyeClrOpenCk' => 65, 'AptbConfLead' => 66, 'AptbConfVrReworkItem' => 67, 'AptbConfVrqcWhse' => 68, 'AptbConfVrGlAcct' => 69, 'AptbConfVxmListPc' => 70, 'AptbConfVxmListItemUpd' => 71, 'AptbConfVxmGrossLc' => 72, 'AptbConfVxmCostLp' => 73, 'AptbConfVxmCostItemUpd' => 74, 'AptbConfVxmCostRMesg' => 75, 'AptbConfVxmCostItemUpdM' => 76, 'AptbConfVxmCostMMesg' => 77, 'DateUpdtd' => 78, 'TimeUpdtd' => 79, 'dummy' => 80, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Aptbconfkey' => 'APTBCONFKEY',
+        'ConfigAp.Aptbconfkey' => 'APTBCONFKEY',
+        'aptbconfkey' => 'APTBCONFKEY',
+        'configAp.aptbconfkey' => 'APTBCONFKEY',
+        'ConfigApTableMap::COL_APTBCONFKEY' => 'APTBCONFKEY',
+        'COL_APTBCONFKEY' => 'APTBCONFKEY',
+        'AptbConfKey' => 'APTBCONFKEY',
+        'ap_config.AptbConfKey' => 'APTBCONFKEY',
+        'Aptbconfglifac' => 'APTBCONFGLIFAC',
+        'ConfigAp.Aptbconfglifac' => 'APTBCONFGLIFAC',
+        'aptbconfglifac' => 'APTBCONFGLIFAC',
+        'configAp.aptbconfglifac' => 'APTBCONFGLIFAC',
+        'ConfigApTableMap::COL_APTBCONFGLIFAC' => 'APTBCONFGLIFAC',
+        'COL_APTBCONFGLIFAC' => 'APTBCONFGLIFAC',
+        'AptbConfGlIfac' => 'APTBCONFGLIFAC',
+        'ap_config.AptbConfGlIfac' => 'APTBCONFGLIFAC',
+        'Aptbconfinifac' => 'APTBCONFINIFAC',
+        'ConfigAp.Aptbconfinifac' => 'APTBCONFINIFAC',
+        'aptbconfinifac' => 'APTBCONFINIFAC',
+        'configAp.aptbconfinifac' => 'APTBCONFINIFAC',
+        'ConfigApTableMap::COL_APTBCONFINIFAC' => 'APTBCONFINIFAC',
+        'COL_APTBCONFINIFAC' => 'APTBCONFINIFAC',
+        'AptbConfInIfac' => 'APTBCONFINIFAC',
+        'ap_config.AptbConfInIfac' => 'APTBCONFINIFAC',
+        'Aptbconfsoifac' => 'APTBCONFSOIFAC',
+        'ConfigAp.Aptbconfsoifac' => 'APTBCONFSOIFAC',
+        'aptbconfsoifac' => 'APTBCONFSOIFAC',
+        'configAp.aptbconfsoifac' => 'APTBCONFSOIFAC',
+        'ConfigApTableMap::COL_APTBCONFSOIFAC' => 'APTBCONFSOIFAC',
+        'COL_APTBCONFSOIFAC' => 'APTBCONFSOIFAC',
+        'AptbConfSoIfac' => 'APTBCONFSOIFAC',
+        'ap_config.AptbConfSoIfac' => 'APTBCONFSOIFAC',
+        'Aptbconfpoifac' => 'APTBCONFPOIFAC',
+        'ConfigAp.Aptbconfpoifac' => 'APTBCONFPOIFAC',
+        'aptbconfpoifac' => 'APTBCONFPOIFAC',
+        'configAp.aptbconfpoifac' => 'APTBCONFPOIFAC',
+        'ConfigApTableMap::COL_APTBCONFPOIFAC' => 'APTBCONFPOIFAC',
+        'COL_APTBCONFPOIFAC' => 'APTBCONFPOIFAC',
+        'AptbConfPoIfac' => 'APTBCONFPOIFAC',
+        'ap_config.AptbConfPoIfac' => 'APTBCONFPOIFAC',
+        'Aptbconffrtacct' => 'APTBCONFFRTACCT',
+        'ConfigAp.Aptbconffrtacct' => 'APTBCONFFRTACCT',
+        'aptbconffrtacct' => 'APTBCONFFRTACCT',
+        'configAp.aptbconffrtacct' => 'APTBCONFFRTACCT',
+        'ConfigApTableMap::COL_APTBCONFFRTACCT' => 'APTBCONFFRTACCT',
+        'COL_APTBCONFFRTACCT' => 'APTBCONFFRTACCT',
+        'AptbConfFrtAcct' => 'APTBCONFFRTACCT',
+        'ap_config.AptbConfFrtAcct' => 'APTBCONFFRTACCT',
+        'Aptbconfmiscacct' => 'APTBCONFMISCACCT',
+        'ConfigAp.Aptbconfmiscacct' => 'APTBCONFMISCACCT',
+        'aptbconfmiscacct' => 'APTBCONFMISCACCT',
+        'configAp.aptbconfmiscacct' => 'APTBCONFMISCACCT',
+        'ConfigApTableMap::COL_APTBCONFMISCACCT' => 'APTBCONFMISCACCT',
+        'COL_APTBCONFMISCACCT' => 'APTBCONFMISCACCT',
+        'AptbConfMiscAcct' => 'APTBCONFMISCACCT',
+        'ap_config.AptbConfMiscAcct' => 'APTBCONFMISCACCT',
+        'Aptbconfapacct' => 'APTBCONFAPACCT',
+        'ConfigAp.Aptbconfapacct' => 'APTBCONFAPACCT',
+        'aptbconfapacct' => 'APTBCONFAPACCT',
+        'configAp.aptbconfapacct' => 'APTBCONFAPACCT',
+        'ConfigApTableMap::COL_APTBCONFAPACCT' => 'APTBCONFAPACCT',
+        'COL_APTBCONFAPACCT' => 'APTBCONFAPACCT',
+        'AptbConfApAcct' => 'APTBCONFAPACCT',
+        'ap_config.AptbConfApAcct' => 'APTBCONFAPACCT',
+        'Aptbconfcashacct' => 'APTBCONFCASHACCT',
+        'ConfigAp.Aptbconfcashacct' => 'APTBCONFCASHACCT',
+        'aptbconfcashacct' => 'APTBCONFCASHACCT',
+        'configAp.aptbconfcashacct' => 'APTBCONFCASHACCT',
+        'ConfigApTableMap::COL_APTBCONFCASHACCT' => 'APTBCONFCASHACCT',
+        'COL_APTBCONFCASHACCT' => 'APTBCONFCASHACCT',
+        'AptbConfCashAcct' => 'APTBCONFCASHACCT',
+        'ap_config.AptbConfCashAcct' => 'APTBCONFCASHACCT',
+        'Aptbconfdiscacct' => 'APTBCONFDISCACCT',
+        'ConfigAp.Aptbconfdiscacct' => 'APTBCONFDISCACCT',
+        'aptbconfdiscacct' => 'APTBCONFDISCACCT',
+        'configAp.aptbconfdiscacct' => 'APTBCONFDISCACCT',
+        'ConfigApTableMap::COL_APTBCONFDISCACCT' => 'APTBCONFDISCACCT',
+        'COL_APTBCONFDISCACCT' => 'APTBCONFDISCACCT',
+        'AptbConfDiscAcct' => 'APTBCONFDISCACCT',
+        'ap_config.AptbConfDiscAcct' => 'APTBCONFDISCACCT',
+        'Aptbconftaxacct' => 'APTBCONFTAXACCT',
+        'ConfigAp.Aptbconftaxacct' => 'APTBCONFTAXACCT',
+        'aptbconftaxacct' => 'APTBCONFTAXACCT',
+        'configAp.aptbconftaxacct' => 'APTBCONFTAXACCT',
+        'ConfigApTableMap::COL_APTBCONFTAXACCT' => 'APTBCONFTAXACCT',
+        'COL_APTBCONFTAXACCT' => 'APTBCONFTAXACCT',
+        'AptbConfTaxAcct' => 'APTBCONFTAXACCT',
+        'ap_config.AptbConfTaxAcct' => 'APTBCONFTAXACCT',
+        'Aptbconfpuracct' => 'APTBCONFPURACCT',
+        'ConfigAp.Aptbconfpuracct' => 'APTBCONFPURACCT',
+        'aptbconfpuracct' => 'APTBCONFPURACCT',
+        'configAp.aptbconfpuracct' => 'APTBCONFPURACCT',
+        'ConfigApTableMap::COL_APTBCONFPURACCT' => 'APTBCONFPURACCT',
+        'COL_APTBCONFPURACCT' => 'APTBCONFPURACCT',
+        'AptbConfPurAcct' => 'APTBCONFPURACCT',
+        'ap_config.AptbConfPurAcct' => 'APTBCONFPURACCT',
+        'Aptbconfvaracct' => 'APTBCONFVARACCT',
+        'ConfigAp.Aptbconfvaracct' => 'APTBCONFVARACCT',
+        'aptbconfvaracct' => 'APTBCONFVARACCT',
+        'configAp.aptbconfvaracct' => 'APTBCONFVARACCT',
+        'ConfigApTableMap::COL_APTBCONFVARACCT' => 'APTBCONFVARACCT',
+        'COL_APTBCONFVARACCT' => 'APTBCONFVARACCT',
+        'AptbConfVarAcct' => 'APTBCONFVARACCT',
+        'ap_config.AptbConfVarAcct' => 'APTBCONFVARACCT',
+        'Aptbconfvenddisc' => 'APTBCONFVENDDISC',
+        'ConfigAp.Aptbconfvenddisc' => 'APTBCONFVENDDISC',
+        'aptbconfvenddisc' => 'APTBCONFVENDDISC',
+        'configAp.aptbconfvenddisc' => 'APTBCONFVENDDISC',
+        'ConfigApTableMap::COL_APTBCONFVENDDISC' => 'APTBCONFVENDDISC',
+        'COL_APTBCONFVENDDISC' => 'APTBCONFVENDDISC',
+        'AptbConfVendDisc' => 'APTBCONFVENDDISC',
+        'ap_config.AptbConfVendDisc' => 'APTBCONFVENDDISC',
+        'Aptbconfapinvvaracct' => 'APTBCONFAPINVVARACCT',
+        'ConfigAp.Aptbconfapinvvaracct' => 'APTBCONFAPINVVARACCT',
+        'aptbconfapinvvaracct' => 'APTBCONFAPINVVARACCT',
+        'configAp.aptbconfapinvvaracct' => 'APTBCONFAPINVVARACCT',
+        'ConfigApTableMap::COL_APTBCONFAPINVVARACCT' => 'APTBCONFAPINVVARACCT',
+        'COL_APTBCONFAPINVVARACCT' => 'APTBCONFAPINVVARACCT',
+        'AptbConfApInvVarAcct' => 'APTBCONFAPINVVARACCT',
+        'ap_config.AptbConfApInvVarAcct' => 'APTBCONFAPINVVARACCT',
+        'Aptbconfuseroyal' => 'APTBCONFUSEROYAL',
+        'ConfigAp.Aptbconfuseroyal' => 'APTBCONFUSEROYAL',
+        'aptbconfuseroyal' => 'APTBCONFUSEROYAL',
+        'configAp.aptbconfuseroyal' => 'APTBCONFUSEROYAL',
+        'ConfigApTableMap::COL_APTBCONFUSEROYAL' => 'APTBCONFUSEROYAL',
+        'COL_APTBCONFUSEROYAL' => 'APTBCONFUSEROYAL',
+        'AptbConfUseRoyal' => 'APTBCONFUSEROYAL',
+        'ap_config.AptbConfUseRoyal' => 'APTBCONFUSEROYAL',
+        'Aptbconfdefbuyrcode' => 'APTBCONFDEFBUYRCODE',
+        'ConfigAp.Aptbconfdefbuyrcode' => 'APTBCONFDEFBUYRCODE',
+        'aptbconfdefbuyrcode' => 'APTBCONFDEFBUYRCODE',
+        'configAp.aptbconfdefbuyrcode' => 'APTBCONFDEFBUYRCODE',
+        'ConfigApTableMap::COL_APTBCONFDEFBUYRCODE' => 'APTBCONFDEFBUYRCODE',
+        'COL_APTBCONFDEFBUYRCODE' => 'APTBCONFDEFBUYRCODE',
+        'AptbConfDefBuyrCode' => 'APTBCONFDEFBUYRCODE',
+        'ap_config.AptbConfDefBuyrCode' => 'APTBCONFDEFBUYRCODE',
+        'Aptbconfdeftermcode' => 'APTBCONFDEFTERMCODE',
+        'ConfigAp.Aptbconfdeftermcode' => 'APTBCONFDEFTERMCODE',
+        'aptbconfdeftermcode' => 'APTBCONFDEFTERMCODE',
+        'configAp.aptbconfdeftermcode' => 'APTBCONFDEFTERMCODE',
+        'ConfigApTableMap::COL_APTBCONFDEFTERMCODE' => 'APTBCONFDEFTERMCODE',
+        'COL_APTBCONFDEFTERMCODE' => 'APTBCONFDEFTERMCODE',
+        'AptbConfDefTermCode' => 'APTBCONFDEFTERMCODE',
+        'ap_config.AptbConfDefTermCode' => 'APTBCONFDEFTERMCODE',
+        'Aptbconfdefsviacode' => 'APTBCONFDEFSVIACODE',
+        'ConfigAp.Aptbconfdefsviacode' => 'APTBCONFDEFSVIACODE',
+        'aptbconfdefsviacode' => 'APTBCONFDEFSVIACODE',
+        'configAp.aptbconfdefsviacode' => 'APTBCONFDEFSVIACODE',
+        'ConfigApTableMap::COL_APTBCONFDEFSVIACODE' => 'APTBCONFDEFSVIACODE',
+        'COL_APTBCONFDEFSVIACODE' => 'APTBCONFDEFSVIACODE',
+        'AptbConfDefSviaCode' => 'APTBCONFDEFSVIACODE',
+        'ap_config.AptbConfDefSviaCode' => 'APTBCONFDEFSVIACODE',
+        'Aptbconfdeftypecode' => 'APTBCONFDEFTYPECODE',
+        'ConfigAp.Aptbconfdeftypecode' => 'APTBCONFDEFTYPECODE',
+        'aptbconfdeftypecode' => 'APTBCONFDEFTYPECODE',
+        'configAp.aptbconfdeftypecode' => 'APTBCONFDEFTYPECODE',
+        'ConfigApTableMap::COL_APTBCONFDEFTYPECODE' => 'APTBCONFDEFTYPECODE',
+        'COL_APTBCONFDEFTYPECODE' => 'APTBCONFDEFTYPECODE',
+        'AptbConfDefTypeCode' => 'APTBCONFDEFTYPECODE',
+        'ap_config.AptbConfDefTypeCode' => 'APTBCONFDEFTYPECODE',
+        'Aptbconfvendline' => 'APTBCONFVENDLINE',
+        'ConfigAp.Aptbconfvendline' => 'APTBCONFVENDLINE',
+        'aptbconfvendline' => 'APTBCONFVENDLINE',
+        'configAp.aptbconfvendline' => 'APTBCONFVENDLINE',
+        'ConfigApTableMap::COL_APTBCONFVENDLINE' => 'APTBCONFVENDLINE',
+        'COL_APTBCONFVENDLINE' => 'APTBCONFVENDLINE',
+        'AptbConfVendLine' => 'APTBCONFVENDLINE',
+        'ap_config.AptbConfVendLine' => 'APTBCONFVENDLINE',
+        'Aptbconfvendcols' => 'APTBCONFVENDCOLS',
+        'ConfigAp.Aptbconfvendcols' => 'APTBCONFVENDCOLS',
+        'aptbconfvendcols' => 'APTBCONFVENDCOLS',
+        'configAp.aptbconfvendcols' => 'APTBCONFVENDCOLS',
+        'ConfigApTableMap::COL_APTBCONFVENDCOLS' => 'APTBCONFVENDCOLS',
+        'COL_APTBCONFVENDCOLS' => 'APTBCONFVENDCOLS',
+        'AptbConfVendCols' => 'APTBCONFVENDCOLS',
+        'ap_config.AptbConfVendCols' => 'APTBCONFVENDCOLS',
+        'Aptbconfpoline' => 'APTBCONFPOLINE',
+        'ConfigAp.Aptbconfpoline' => 'APTBCONFPOLINE',
+        'aptbconfpoline' => 'APTBCONFPOLINE',
+        'configAp.aptbconfpoline' => 'APTBCONFPOLINE',
+        'ConfigApTableMap::COL_APTBCONFPOLINE' => 'APTBCONFPOLINE',
+        'COL_APTBCONFPOLINE' => 'APTBCONFPOLINE',
+        'AptbConfPoLine' => 'APTBCONFPOLINE',
+        'ap_config.AptbConfPoLine' => 'APTBCONFPOLINE',
+        'Aptbconfpocols' => 'APTBCONFPOCOLS',
+        'ConfigAp.Aptbconfpocols' => 'APTBCONFPOCOLS',
+        'aptbconfpocols' => 'APTBCONFPOCOLS',
+        'configAp.aptbconfpocols' => 'APTBCONFPOCOLS',
+        'ConfigApTableMap::COL_APTBCONFPOCOLS' => 'APTBCONFPOCOLS',
+        'COL_APTBCONFPOCOLS' => 'APTBCONFPOCOLS',
+        'AptbConfPoCols' => 'APTBCONFPOCOLS',
+        'ap_config.AptbConfPoCols' => 'APTBCONFPOCOLS',
+        'Aptbconfvendgetopt' => 'APTBCONFVENDGETOPT',
+        'ConfigAp.Aptbconfvendgetopt' => 'APTBCONFVENDGETOPT',
+        'aptbconfvendgetopt' => 'APTBCONFVENDGETOPT',
+        'configAp.aptbconfvendgetopt' => 'APTBCONFVENDGETOPT',
+        'ConfigApTableMap::COL_APTBCONFVENDGETOPT' => 'APTBCONFVENDGETOPT',
+        'COL_APTBCONFVENDGETOPT' => 'APTBCONFVENDGETOPT',
+        'AptbConfVendGetOpt' => 'APTBCONFVENDGETOPT',
+        'ap_config.AptbConfVendGetOpt' => 'APTBCONFVENDGETOPT',
+        'Aptbconfpaytoshipfr' => 'APTBCONFPAYTOSHIPFR',
+        'ConfigAp.Aptbconfpaytoshipfr' => 'APTBCONFPAYTOSHIPFR',
+        'aptbconfpaytoshipfr' => 'APTBCONFPAYTOSHIPFR',
+        'configAp.aptbconfpaytoshipfr' => 'APTBCONFPAYTOSHIPFR',
+        'ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR' => 'APTBCONFPAYTOSHIPFR',
+        'COL_APTBCONFPAYTOSHIPFR' => 'APTBCONFPAYTOSHIPFR',
+        'AptbConfPaytoShipfr' => 'APTBCONFPAYTOSHIPFR',
+        'ap_config.AptbConfPaytoShipfr' => 'APTBCONFPAYTOSHIPFR',
+        'Aptbconfholdstat' => 'APTBCONFHOLDSTAT',
+        'ConfigAp.Aptbconfholdstat' => 'APTBCONFHOLDSTAT',
+        'aptbconfholdstat' => 'APTBCONFHOLDSTAT',
+        'configAp.aptbconfholdstat' => 'APTBCONFHOLDSTAT',
+        'ConfigApTableMap::COL_APTBCONFHOLDSTAT' => 'APTBCONFHOLDSTAT',
+        'COL_APTBCONFHOLDSTAT' => 'APTBCONFHOLDSTAT',
+        'AptbConfHoldStat' => 'APTBCONFHOLDSTAT',
+        'ap_config.AptbConfHoldStat' => 'APTBCONFHOLDSTAT',
+        'Aptbconfdiscret' => 'APTBCONFDISCRET',
+        'ConfigAp.Aptbconfdiscret' => 'APTBCONFDISCRET',
+        'aptbconfdiscret' => 'APTBCONFDISCRET',
+        'configAp.aptbconfdiscret' => 'APTBCONFDISCRET',
+        'ConfigApTableMap::COL_APTBCONFDISCRET' => 'APTBCONFDISCRET',
+        'COL_APTBCONFDISCRET' => 'APTBCONFDISCRET',
+        'AptbConfDiscRet' => 'APTBCONFDISCRET',
+        'ap_config.AptbConfDiscRet' => 'APTBCONFDISCRET',
+        'Aptbconfstopvendchg' => 'APTBCONFSTOPVENDCHG',
+        'ConfigAp.Aptbconfstopvendchg' => 'APTBCONFSTOPVENDCHG',
+        'aptbconfstopvendchg' => 'APTBCONFSTOPVENDCHG',
+        'configAp.aptbconfstopvendchg' => 'APTBCONFSTOPVENDCHG',
+        'ConfigApTableMap::COL_APTBCONFSTOPVENDCHG' => 'APTBCONFSTOPVENDCHG',
+        'COL_APTBCONFSTOPVENDCHG' => 'APTBCONFSTOPVENDCHG',
+        'AptbConfStopVendChg' => 'APTBCONFSTOPVENDCHG',
+        'ap_config.AptbConfStopVendChg' => 'APTBCONFSTOPVENDCHG',
+        'Aptbconfreqdate2' => 'APTBCONFREQDATE2',
+        'ConfigAp.Aptbconfreqdate2' => 'APTBCONFREQDATE2',
+        'aptbconfreqdate2' => 'APTBCONFREQDATE2',
+        'configAp.aptbconfreqdate2' => 'APTBCONFREQDATE2',
+        'ConfigApTableMap::COL_APTBCONFREQDATE2' => 'APTBCONFREQDATE2',
+        'COL_APTBCONFREQDATE2' => 'APTBCONFREQDATE2',
+        'AptbConfReqDate2' => 'APTBCONFREQDATE2',
+        'ap_config.AptbConfReqDate2' => 'APTBCONFREQDATE2',
+        'Aptbconfreqdate3' => 'APTBCONFREQDATE3',
+        'ConfigAp.Aptbconfreqdate3' => 'APTBCONFREQDATE3',
+        'aptbconfreqdate3' => 'APTBCONFREQDATE3',
+        'configAp.aptbconfreqdate3' => 'APTBCONFREQDATE3',
+        'ConfigApTableMap::COL_APTBCONFREQDATE3' => 'APTBCONFREQDATE3',
+        'COL_APTBCONFREQDATE3' => 'APTBCONFREQDATE3',
+        'AptbConfReqDate3' => 'APTBCONFREQDATE3',
+        'ap_config.AptbConfReqDate3' => 'APTBCONFREQDATE3',
+        'Aptbconfreqdate4' => 'APTBCONFREQDATE4',
+        'ConfigAp.Aptbconfreqdate4' => 'APTBCONFREQDATE4',
+        'aptbconfreqdate4' => 'APTBCONFREQDATE4',
+        'configAp.aptbconfreqdate4' => 'APTBCONFREQDATE4',
+        'ConfigApTableMap::COL_APTBCONFREQDATE4' => 'APTBCONFREQDATE4',
+        'COL_APTBCONFREQDATE4' => 'APTBCONFREQDATE4',
+        'AptbConfReqDate4' => 'APTBCONFREQDATE4',
+        'ap_config.AptbConfReqDate4' => 'APTBCONFREQDATE4',
+        'Aptbconf1099name' => 'APTBCONF1099NAME',
+        'ConfigAp.Aptbconf1099name' => 'APTBCONF1099NAME',
+        'aptbconf1099name' => 'APTBCONF1099NAME',
+        'configAp.aptbconf1099name' => 'APTBCONF1099NAME',
+        'ConfigApTableMap::COL_APTBCONF1099NAME' => 'APTBCONF1099NAME',
+        'COL_APTBCONF1099NAME' => 'APTBCONF1099NAME',
+        'AptbConf1099Name' => 'APTBCONF1099NAME',
+        'ap_config.AptbConf1099Name' => 'APTBCONF1099NAME',
+        'Aptbconf1099adr1' => 'APTBCONF1099ADR1',
+        'ConfigAp.Aptbconf1099adr1' => 'APTBCONF1099ADR1',
+        'aptbconf1099adr1' => 'APTBCONF1099ADR1',
+        'configAp.aptbconf1099adr1' => 'APTBCONF1099ADR1',
+        'ConfigApTableMap::COL_APTBCONF1099ADR1' => 'APTBCONF1099ADR1',
+        'COL_APTBCONF1099ADR1' => 'APTBCONF1099ADR1',
+        'AptbConf1099Adr1' => 'APTBCONF1099ADR1',
+        'ap_config.AptbConf1099Adr1' => 'APTBCONF1099ADR1',
+        'Aptbconf1099adr2' => 'APTBCONF1099ADR2',
+        'ConfigAp.Aptbconf1099adr2' => 'APTBCONF1099ADR2',
+        'aptbconf1099adr2' => 'APTBCONF1099ADR2',
+        'configAp.aptbconf1099adr2' => 'APTBCONF1099ADR2',
+        'ConfigApTableMap::COL_APTBCONF1099ADR2' => 'APTBCONF1099ADR2',
+        'COL_APTBCONF1099ADR2' => 'APTBCONF1099ADR2',
+        'AptbConf1099Adr2' => 'APTBCONF1099ADR2',
+        'ap_config.AptbConf1099Adr2' => 'APTBCONF1099ADR2',
+        'Aptbconf1099adr3' => 'APTBCONF1099ADR3',
+        'ConfigAp.Aptbconf1099adr3' => 'APTBCONF1099ADR3',
+        'aptbconf1099adr3' => 'APTBCONF1099ADR3',
+        'configAp.aptbconf1099adr3' => 'APTBCONF1099ADR3',
+        'ConfigApTableMap::COL_APTBCONF1099ADR3' => 'APTBCONF1099ADR3',
+        'COL_APTBCONF1099ADR3' => 'APTBCONF1099ADR3',
+        'AptbConf1099Adr3' => 'APTBCONF1099ADR3',
+        'ap_config.AptbConf1099Adr3' => 'APTBCONF1099ADR3',
+        'Aptbconf1099city' => 'APTBCONF1099CITY',
+        'ConfigAp.Aptbconf1099city' => 'APTBCONF1099CITY',
+        'aptbconf1099city' => 'APTBCONF1099CITY',
+        'configAp.aptbconf1099city' => 'APTBCONF1099CITY',
+        'ConfigApTableMap::COL_APTBCONF1099CITY' => 'APTBCONF1099CITY',
+        'COL_APTBCONF1099CITY' => 'APTBCONF1099CITY',
+        'AptbConf1099City' => 'APTBCONF1099CITY',
+        'ap_config.AptbConf1099City' => 'APTBCONF1099CITY',
+        'Aptbconf1099stat' => 'APTBCONF1099STAT',
+        'ConfigAp.Aptbconf1099stat' => 'APTBCONF1099STAT',
+        'aptbconf1099stat' => 'APTBCONF1099STAT',
+        'configAp.aptbconf1099stat' => 'APTBCONF1099STAT',
+        'ConfigApTableMap::COL_APTBCONF1099STAT' => 'APTBCONF1099STAT',
+        'COL_APTBCONF1099STAT' => 'APTBCONF1099STAT',
+        'AptbConf1099Stat' => 'APTBCONF1099STAT',
+        'ap_config.AptbConf1099Stat' => 'APTBCONF1099STAT',
+        'Aptbconf1099zipcode' => 'APTBCONF1099ZIPCODE',
+        'ConfigAp.Aptbconf1099zipcode' => 'APTBCONF1099ZIPCODE',
+        'aptbconf1099zipcode' => 'APTBCONF1099ZIPCODE',
+        'configAp.aptbconf1099zipcode' => 'APTBCONF1099ZIPCODE',
+        'ConfigApTableMap::COL_APTBCONF1099ZIPCODE' => 'APTBCONF1099ZIPCODE',
+        'COL_APTBCONF1099ZIPCODE' => 'APTBCONF1099ZIPCODE',
+        'AptbConf1099ZipCode' => 'APTBCONF1099ZIPCODE',
+        'ap_config.AptbConf1099ZipCode' => 'APTBCONF1099ZIPCODE',
+        'Aptbconf1099id' => 'APTBCONF1099ID',
+        'ConfigAp.Aptbconf1099id' => 'APTBCONF1099ID',
+        'aptbconf1099id' => 'APTBCONF1099ID',
+        'configAp.aptbconf1099id' => 'APTBCONF1099ID',
+        'ConfigApTableMap::COL_APTBCONF1099ID' => 'APTBCONF1099ID',
+        'COL_APTBCONF1099ID' => 'APTBCONF1099ID',
+        'AptbConf1099Id' => 'APTBCONF1099ID',
+        'ap_config.AptbConf1099Id' => 'APTBCONF1099ID',
+        'Aptbconfstubsort' => 'APTBCONFSTUBSORT',
+        'ConfigAp.Aptbconfstubsort' => 'APTBCONFSTUBSORT',
+        'aptbconfstubsort' => 'APTBCONFSTUBSORT',
+        'configAp.aptbconfstubsort' => 'APTBCONFSTUBSORT',
+        'ConfigApTableMap::COL_APTBCONFSTUBSORT' => 'APTBCONFSTUBSORT',
+        'COL_APTBCONFSTUBSORT' => 'APTBCONFSTUBSORT',
+        'AptbConfStubSort' => 'APTBCONFSTUBSORT',
+        'ap_config.AptbConfStubSort' => 'APTBCONFSTUBSORT',
+        'AptbConfUseAch' => 'APTBCONFUSEACH',
+        'ConfigAp.AptbConfUseAch' => 'APTBCONFUSEACH',
+        'aptbConfUseAch' => 'APTBCONFUSEACH',
+        'configAp.aptbConfUseAch' => 'APTBCONFUSEACH',
+        'ConfigApTableMap::COL_APTBCONFUSEACH' => 'APTBCONFUSEACH',
+        'COL_APTBCONFUSEACH' => 'APTBCONFUSEACH',
+        'ap_config.AptbConfUseAch' => 'APTBCONFUSEACH',
+        'Aptbconfover1' => 'APTBCONFOVER1',
+        'ConfigAp.Aptbconfover1' => 'APTBCONFOVER1',
+        'aptbconfover1' => 'APTBCONFOVER1',
+        'configAp.aptbconfover1' => 'APTBCONFOVER1',
+        'ConfigApTableMap::COL_APTBCONFOVER1' => 'APTBCONFOVER1',
+        'COL_APTBCONFOVER1' => 'APTBCONFOVER1',
+        'AptbConfOver1' => 'APTBCONFOVER1',
+        'ap_config.AptbConfOver1' => 'APTBCONFOVER1',
+        'Aptbconfover2' => 'APTBCONFOVER2',
+        'ConfigAp.Aptbconfover2' => 'APTBCONFOVER2',
+        'aptbconfover2' => 'APTBCONFOVER2',
+        'configAp.aptbconfover2' => 'APTBCONFOVER2',
+        'ConfigApTableMap::COL_APTBCONFOVER2' => 'APTBCONFOVER2',
+        'COL_APTBCONFOVER2' => 'APTBCONFOVER2',
+        'AptbConfOver2' => 'APTBCONFOVER2',
+        'ap_config.AptbConfOver2' => 'APTBCONFOVER2',
+        'Aptbconfprtchk' => 'APTBCONFPRTCHK',
+        'ConfigAp.Aptbconfprtchk' => 'APTBCONFPRTCHK',
+        'aptbconfprtchk' => 'APTBCONFPRTCHK',
+        'configAp.aptbconfprtchk' => 'APTBCONFPRTCHK',
+        'ConfigApTableMap::COL_APTBCONFPRTCHK' => 'APTBCONFPRTCHK',
+        'COL_APTBCONFPRTCHK' => 'APTBCONFPRTCHK',
+        'AptbConfPrtChk' => 'APTBCONFPRTCHK',
+        'ap_config.AptbConfPrtChk' => 'APTBCONFPRTCHK',
+        'Aptbconfeiunrecqty' => 'APTBCONFEIUNRECQTY',
+        'ConfigAp.Aptbconfeiunrecqty' => 'APTBCONFEIUNRECQTY',
+        'aptbconfeiunrecqty' => 'APTBCONFEIUNRECQTY',
+        'configAp.aptbconfeiunrecqty' => 'APTBCONFEIUNRECQTY',
+        'ConfigApTableMap::COL_APTBCONFEIUNRECQTY' => 'APTBCONFEIUNRECQTY',
+        'COL_APTBCONFEIUNRECQTY' => 'APTBCONFEIUNRECQTY',
+        'AptbConfEiUnrecQty' => 'APTBCONFEIUNRECQTY',
+        'ap_config.AptbConfEiUnrecQty' => 'APTBCONFEIUNRECQTY',
+        'Aptbconfeirecqtyask' => 'APTBCONFEIRECQTYASK',
+        'ConfigAp.Aptbconfeirecqtyask' => 'APTBCONFEIRECQTYASK',
+        'aptbconfeirecqtyask' => 'APTBCONFEIRECQTYASK',
+        'configAp.aptbconfeirecqtyask' => 'APTBCONFEIRECQTYASK',
+        'ConfigApTableMap::COL_APTBCONFEIRECQTYASK' => 'APTBCONFEIRECQTYASK',
+        'COL_APTBCONFEIRECQTYASK' => 'APTBCONFEIRECQTYASK',
+        'AptbConfEiRecQtyAsk' => 'APTBCONFEIRECQTYASK',
+        'ap_config.AptbConfEiRecQtyAsk' => 'APTBCONFEIRECQTYASK',
+        'Aptbconfeirecqtydef' => 'APTBCONFEIRECQTYDEF',
+        'ConfigAp.Aptbconfeirecqtydef' => 'APTBCONFEIRECQTYDEF',
+        'aptbconfeirecqtydef' => 'APTBCONFEIRECQTYDEF',
+        'configAp.aptbconfeirecqtydef' => 'APTBCONFEIRECQTYDEF',
+        'ConfigApTableMap::COL_APTBCONFEIRECQTYDEF' => 'APTBCONFEIRECQTYDEF',
+        'COL_APTBCONFEIRECQTYDEF' => 'APTBCONFEIRECQTYDEF',
+        'AptbConfEiRecQtyDef' => 'APTBCONFEIRECQTYDEF',
+        'ap_config.AptbConfEiRecQtyDef' => 'APTBCONFEIRECQTYDEF',
+        'Aptbconfallowmultpos' => 'APTBCONFALLOWMULTPOS',
+        'ConfigAp.Aptbconfallowmultpos' => 'APTBCONFALLOWMULTPOS',
+        'aptbconfallowmultpos' => 'APTBCONFALLOWMULTPOS',
+        'configAp.aptbconfallowmultpos' => 'APTBCONFALLOWMULTPOS',
+        'ConfigApTableMap::COL_APTBCONFALLOWMULTPOS' => 'APTBCONFALLOWMULTPOS',
+        'COL_APTBCONFALLOWMULTPOS' => 'APTBCONFALLOWMULTPOS',
+        'AptbConfAllowMultPos' => 'APTBCONFALLOWMULTPOS',
+        'ap_config.AptbConfAllowMultPos' => 'APTBCONFALLOWMULTPOS',
+        'Aptbconfeibyclerk' => 'APTBCONFEIBYCLERK',
+        'ConfigAp.Aptbconfeibyclerk' => 'APTBCONFEIBYCLERK',
+        'aptbconfeibyclerk' => 'APTBCONFEIBYCLERK',
+        'configAp.aptbconfeibyclerk' => 'APTBCONFEIBYCLERK',
+        'ConfigApTableMap::COL_APTBCONFEIBYCLERK' => 'APTBCONFEIBYCLERK',
+        'COL_APTBCONFEIBYCLERK' => 'APTBCONFEIBYCLERK',
+        'AptbConfEiByClerk' => 'APTBCONFEIBYCLERK',
+        'ap_config.AptbConfEiByClerk' => 'APTBCONFEIBYCLERK',
+        'Aptbconfeibatchproc' => 'APTBCONFEIBATCHPROC',
+        'ConfigAp.Aptbconfeibatchproc' => 'APTBCONFEIBATCHPROC',
+        'aptbconfeibatchproc' => 'APTBCONFEIBATCHPROC',
+        'configAp.aptbconfeibatchproc' => 'APTBCONFEIBATCHPROC',
+        'ConfigApTableMap::COL_APTBCONFEIBATCHPROC' => 'APTBCONFEIBATCHPROC',
+        'COL_APTBCONFEIBATCHPROC' => 'APTBCONFEIBATCHPROC',
+        'AptbConfEiBatchProc' => 'APTBCONFEIBATCHPROC',
+        'ap_config.AptbConfEiBatchProc' => 'APTBCONFEIBATCHPROC',
+        'Aptbconfeidispstancost' => 'APTBCONFEIDISPSTANCOST',
+        'ConfigAp.Aptbconfeidispstancost' => 'APTBCONFEIDISPSTANCOST',
+        'aptbconfeidispstancost' => 'APTBCONFEIDISPSTANCOST',
+        'configAp.aptbconfeidispstancost' => 'APTBCONFEIDISPSTANCOST',
+        'ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST' => 'APTBCONFEIDISPSTANCOST',
+        'COL_APTBCONFEIDISPSTANCOST' => 'APTBCONFEIDISPSTANCOST',
+        'AptbConfEiDispStanCost' => 'APTBCONFEIDISPSTANCOST',
+        'ap_config.AptbConfEiDispStanCost' => 'APTBCONFEIDISPSTANCOST',
+        'Aptbconfeiassetacctchg' => 'APTBCONFEIASSETACCTCHG',
+        'ConfigAp.Aptbconfeiassetacctchg' => 'APTBCONFEIASSETACCTCHG',
+        'aptbconfeiassetacctchg' => 'APTBCONFEIASSETACCTCHG',
+        'configAp.aptbconfeiassetacctchg' => 'APTBCONFEIASSETACCTCHG',
+        'ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG' => 'APTBCONFEIASSETACCTCHG',
+        'COL_APTBCONFEIASSETACCTCHG' => 'APTBCONFEIASSETACCTCHG',
+        'AptbConfEiAssetAcctChg' => 'APTBCONFEIASSETACCTCHG',
+        'ap_config.AptbConfEiAssetAcctChg' => 'APTBCONFEIASSETACCTCHG',
+        'Aptbconfallowdupinvc' => 'APTBCONFALLOWDUPINVC',
+        'ConfigAp.Aptbconfallowdupinvc' => 'APTBCONFALLOWDUPINVC',
+        'aptbconfallowdupinvc' => 'APTBCONFALLOWDUPINVC',
+        'configAp.aptbconfallowdupinvc' => 'APTBCONFALLOWDUPINVC',
+        'ConfigApTableMap::COL_APTBCONFALLOWDUPINVC' => 'APTBCONFALLOWDUPINVC',
+        'COL_APTBCONFALLOWDUPINVC' => 'APTBCONFALLOWDUPINVC',
+        'AptbConfAllowDupInvc' => 'APTBCONFALLOWDUPINVC',
+        'ap_config.AptbConfAllowDupInvc' => 'APTBCONFALLOWDUPINVC',
+        'Aptbconfprtsorept' => 'APTBCONFPRTSOREPT',
+        'ConfigAp.Aptbconfprtsorept' => 'APTBCONFPRTSOREPT',
+        'aptbconfprtsorept' => 'APTBCONFPRTSOREPT',
+        'configAp.aptbconfprtsorept' => 'APTBCONFPRTSOREPT',
+        'ConfigApTableMap::COL_APTBCONFPRTSOREPT' => 'APTBCONFPRTSOREPT',
+        'COL_APTBCONFPRTSOREPT' => 'APTBCONFPRTSOREPT',
+        'AptbConfPrtSoRept' => 'APTBCONFPRTSOREPT',
+        'ap_config.AptbConfPrtSoRept' => 'APTBCONFPRTSOREPT',
+        'Aptbconfeicheckhist' => 'APTBCONFEICHECKHIST',
+        'ConfigAp.Aptbconfeicheckhist' => 'APTBCONFEICHECKHIST',
+        'aptbconfeicheckhist' => 'APTBCONFEICHECKHIST',
+        'configAp.aptbconfeicheckhist' => 'APTBCONFEICHECKHIST',
+        'ConfigApTableMap::COL_APTBCONFEICHECKHIST' => 'APTBCONFEICHECKHIST',
+        'COL_APTBCONFEICHECKHIST' => 'APTBCONFEICHECKHIST',
+        'AptbConfEiCheckHist' => 'APTBCONFEICHECKHIST',
+        'ap_config.AptbConfEiCheckHist' => 'APTBCONFEICHECKHIST',
+        'Aptbconfsummgl' => 'APTBCONFSUMMGL',
+        'ConfigAp.Aptbconfsummgl' => 'APTBCONFSUMMGL',
+        'aptbconfsummgl' => 'APTBCONFSUMMGL',
+        'configAp.aptbconfsummgl' => 'APTBCONFSUMMGL',
+        'ConfigApTableMap::COL_APTBCONFSUMMGL' => 'APTBCONFSUMMGL',
+        'COL_APTBCONFSUMMGL' => 'APTBCONFSUMMGL',
+        'AptbConfSummGl' => 'APTBCONFSUMMGL',
+        'ap_config.AptbConfSummGl' => 'APTBCONFSUMMGL',
+        'Aptbconfvxmuserlabel' => 'APTBCONFVXMUSERLABEL',
+        'ConfigAp.Aptbconfvxmuserlabel' => 'APTBCONFVXMUSERLABEL',
+        'aptbconfvxmuserlabel' => 'APTBCONFVXMUSERLABEL',
+        'configAp.aptbconfvxmuserlabel' => 'APTBCONFVXMUSERLABEL',
+        'ConfigApTableMap::COL_APTBCONFVXMUSERLABEL' => 'APTBCONFVXMUSERLABEL',
+        'COL_APTBCONFVXMUSERLABEL' => 'APTBCONFVXMUSERLABEL',
+        'AptbConfVxmUserLabel' => 'APTBCONFVXMUSERLABEL',
+        'ap_config.AptbConfVxmUserLabel' => 'APTBCONFVXMUSERLABEL',
+        'Aptbconfvendcostbreaks' => 'APTBCONFVENDCOSTBREAKS',
+        'ConfigAp.Aptbconfvendcostbreaks' => 'APTBCONFVENDCOSTBREAKS',
+        'aptbconfvendcostbreaks' => 'APTBCONFVENDCOSTBREAKS',
+        'configAp.aptbconfvendcostbreaks' => 'APTBCONFVENDCOSTBREAKS',
+        'ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS' => 'APTBCONFVENDCOSTBREAKS',
+        'COL_APTBCONFVENDCOSTBREAKS' => 'APTBCONFVENDCOSTBREAKS',
+        'AptbConfVendCostBreaks' => 'APTBCONFVENDCOSTBREAKS',
+        'ap_config.AptbConfVendCostBreaks' => 'APTBCONFVENDCOSTBREAKS',
+        'Aptbconfmyeclrclospo' => 'APTBCONFMYECLRCLOSPO',
+        'ConfigAp.Aptbconfmyeclrclospo' => 'APTBCONFMYECLRCLOSPO',
+        'aptbconfmyeclrclospo' => 'APTBCONFMYECLRCLOSPO',
+        'configAp.aptbconfmyeclrclospo' => 'APTBCONFMYECLRCLOSPO',
+        'ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO' => 'APTBCONFMYECLRCLOSPO',
+        'COL_APTBCONFMYECLRCLOSPO' => 'APTBCONFMYECLRCLOSPO',
+        'AptbConfMyeClrClosPo' => 'APTBCONFMYECLRCLOSPO',
+        'ap_config.AptbConfMyeClrClosPo' => 'APTBCONFMYECLRCLOSPO',
+        'Aptbconfmyeclrclosdate' => 'APTBCONFMYECLRCLOSDATE',
+        'ConfigAp.Aptbconfmyeclrclosdate' => 'APTBCONFMYECLRCLOSDATE',
+        'aptbconfmyeclrclosdate' => 'APTBCONFMYECLRCLOSDATE',
+        'configAp.aptbconfmyeclrclosdate' => 'APTBCONFMYECLRCLOSDATE',
+        'ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE' => 'APTBCONFMYECLRCLOSDATE',
+        'COL_APTBCONFMYECLRCLOSDATE' => 'APTBCONFMYECLRCLOSDATE',
+        'AptbConfMyeClrClosDate' => 'APTBCONFMYECLRCLOSDATE',
+        'ap_config.AptbConfMyeClrClosDate' => 'APTBCONFMYECLRCLOSDATE',
+        'Aptbconfmyeclrpohist' => 'APTBCONFMYECLRPOHIST',
+        'ConfigAp.Aptbconfmyeclrpohist' => 'APTBCONFMYECLRPOHIST',
+        'aptbconfmyeclrpohist' => 'APTBCONFMYECLRPOHIST',
+        'configAp.aptbconfmyeclrpohist' => 'APTBCONFMYECLRPOHIST',
+        'ConfigApTableMap::COL_APTBCONFMYECLRPOHIST' => 'APTBCONFMYECLRPOHIST',
+        'COL_APTBCONFMYECLRPOHIST' => 'APTBCONFMYECLRPOHIST',
+        'AptbConfMyeClrPoHist' => 'APTBCONFMYECLRPOHIST',
+        'ap_config.AptbConfMyeClrPoHist' => 'APTBCONFMYECLRPOHIST',
+        'Aptbconfmyeclrpodate' => 'APTBCONFMYECLRPODATE',
+        'ConfigAp.Aptbconfmyeclrpodate' => 'APTBCONFMYECLRPODATE',
+        'aptbconfmyeclrpodate' => 'APTBCONFMYECLRPODATE',
+        'configAp.aptbconfmyeclrpodate' => 'APTBCONFMYECLRPODATE',
+        'ConfigApTableMap::COL_APTBCONFMYECLRPODATE' => 'APTBCONFMYECLRPODATE',
+        'COL_APTBCONFMYECLRPODATE' => 'APTBCONFMYECLRPODATE',
+        'AptbConfMyeClrPoDate' => 'APTBCONFMYECLRPODATE',
+        'ap_config.AptbConfMyeClrPoDate' => 'APTBCONFMYECLRPODATE',
+        'Aptbconfmyeclrckhist' => 'APTBCONFMYECLRCKHIST',
+        'ConfigAp.Aptbconfmyeclrckhist' => 'APTBCONFMYECLRCKHIST',
+        'aptbconfmyeclrckhist' => 'APTBCONFMYECLRCKHIST',
+        'configAp.aptbconfmyeclrckhist' => 'APTBCONFMYECLRCKHIST',
+        'ConfigApTableMap::COL_APTBCONFMYECLRCKHIST' => 'APTBCONFMYECLRCKHIST',
+        'COL_APTBCONFMYECLRCKHIST' => 'APTBCONFMYECLRCKHIST',
+        'AptbConfMyeClrCkHist' => 'APTBCONFMYECLRCKHIST',
+        'ap_config.AptbConfMyeClrCkHist' => 'APTBCONFMYECLRCKHIST',
+        'Aptbconfmyeclrckdate' => 'APTBCONFMYECLRCKDATE',
+        'ConfigAp.Aptbconfmyeclrckdate' => 'APTBCONFMYECLRCKDATE',
+        'aptbconfmyeclrckdate' => 'APTBCONFMYECLRCKDATE',
+        'configAp.aptbconfmyeclrckdate' => 'APTBCONFMYECLRCKDATE',
+        'ConfigApTableMap::COL_APTBCONFMYECLRCKDATE' => 'APTBCONFMYECLRCKDATE',
+        'COL_APTBCONFMYECLRCKDATE' => 'APTBCONFMYECLRCKDATE',
+        'AptbConfMyeClrCkDate' => 'APTBCONFMYECLRCKDATE',
+        'ap_config.AptbConfMyeClrCkDate' => 'APTBCONFMYECLRCKDATE',
+        'Aptbconfmyeclropenck' => 'APTBCONFMYECLROPENCK',
+        'ConfigAp.Aptbconfmyeclropenck' => 'APTBCONFMYECLROPENCK',
+        'aptbconfmyeclropenck' => 'APTBCONFMYECLROPENCK',
+        'configAp.aptbconfmyeclropenck' => 'APTBCONFMYECLROPENCK',
+        'ConfigApTableMap::COL_APTBCONFMYECLROPENCK' => 'APTBCONFMYECLROPENCK',
+        'COL_APTBCONFMYECLROPENCK' => 'APTBCONFMYECLROPENCK',
+        'AptbConfMyeClrOpenCk' => 'APTBCONFMYECLROPENCK',
+        'ap_config.AptbConfMyeClrOpenCk' => 'APTBCONFMYECLROPENCK',
+        'Aptbconflead' => 'APTBCONFLEAD',
+        'ConfigAp.Aptbconflead' => 'APTBCONFLEAD',
+        'aptbconflead' => 'APTBCONFLEAD',
+        'configAp.aptbconflead' => 'APTBCONFLEAD',
+        'ConfigApTableMap::COL_APTBCONFLEAD' => 'APTBCONFLEAD',
+        'COL_APTBCONFLEAD' => 'APTBCONFLEAD',
+        'AptbConfLead' => 'APTBCONFLEAD',
+        'ap_config.AptbConfLead' => 'APTBCONFLEAD',
+        'Aptbconfvrreworkitem' => 'APTBCONFVRREWORKITEM',
+        'ConfigAp.Aptbconfvrreworkitem' => 'APTBCONFVRREWORKITEM',
+        'aptbconfvrreworkitem' => 'APTBCONFVRREWORKITEM',
+        'configAp.aptbconfvrreworkitem' => 'APTBCONFVRREWORKITEM',
+        'ConfigApTableMap::COL_APTBCONFVRREWORKITEM' => 'APTBCONFVRREWORKITEM',
+        'COL_APTBCONFVRREWORKITEM' => 'APTBCONFVRREWORKITEM',
+        'AptbConfVrReworkItem' => 'APTBCONFVRREWORKITEM',
+        'ap_config.AptbConfVrReworkItem' => 'APTBCONFVRREWORKITEM',
+        'Aptbconfvrqcwhse' => 'APTBCONFVRQCWHSE',
+        'ConfigAp.Aptbconfvrqcwhse' => 'APTBCONFVRQCWHSE',
+        'aptbconfvrqcwhse' => 'APTBCONFVRQCWHSE',
+        'configAp.aptbconfvrqcwhse' => 'APTBCONFVRQCWHSE',
+        'ConfigApTableMap::COL_APTBCONFVRQCWHSE' => 'APTBCONFVRQCWHSE',
+        'COL_APTBCONFVRQCWHSE' => 'APTBCONFVRQCWHSE',
+        'AptbConfVrqcWhse' => 'APTBCONFVRQCWHSE',
+        'ap_config.AptbConfVrqcWhse' => 'APTBCONFVRQCWHSE',
+        'Aptbconfvrglacct' => 'APTBCONFVRGLACCT',
+        'ConfigAp.Aptbconfvrglacct' => 'APTBCONFVRGLACCT',
+        'aptbconfvrglacct' => 'APTBCONFVRGLACCT',
+        'configAp.aptbconfvrglacct' => 'APTBCONFVRGLACCT',
+        'ConfigApTableMap::COL_APTBCONFVRGLACCT' => 'APTBCONFVRGLACCT',
+        'COL_APTBCONFVRGLACCT' => 'APTBCONFVRGLACCT',
+        'AptbConfVrGlAcct' => 'APTBCONFVRGLACCT',
+        'ap_config.AptbConfVrGlAcct' => 'APTBCONFVRGLACCT',
+        'Aptbconfvxmlistpc' => 'APTBCONFVXMLISTPC',
+        'ConfigAp.Aptbconfvxmlistpc' => 'APTBCONFVXMLISTPC',
+        'aptbconfvxmlistpc' => 'APTBCONFVXMLISTPC',
+        'configAp.aptbconfvxmlistpc' => 'APTBCONFVXMLISTPC',
+        'ConfigApTableMap::COL_APTBCONFVXMLISTPC' => 'APTBCONFVXMLISTPC',
+        'COL_APTBCONFVXMLISTPC' => 'APTBCONFVXMLISTPC',
+        'AptbConfVxmListPc' => 'APTBCONFVXMLISTPC',
+        'ap_config.AptbConfVxmListPc' => 'APTBCONFVXMLISTPC',
+        'Aptbconfvxmlistitemupd' => 'APTBCONFVXMLISTITEMUPD',
+        'ConfigAp.Aptbconfvxmlistitemupd' => 'APTBCONFVXMLISTITEMUPD',
+        'aptbconfvxmlistitemupd' => 'APTBCONFVXMLISTITEMUPD',
+        'configAp.aptbconfvxmlistitemupd' => 'APTBCONFVXMLISTITEMUPD',
+        'ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD' => 'APTBCONFVXMLISTITEMUPD',
+        'COL_APTBCONFVXMLISTITEMUPD' => 'APTBCONFVXMLISTITEMUPD',
+        'AptbConfVxmListItemUpd' => 'APTBCONFVXMLISTITEMUPD',
+        'ap_config.AptbConfVxmListItemUpd' => 'APTBCONFVXMLISTITEMUPD',
+        'Aptbconfvxmgrosslc' => 'APTBCONFVXMGROSSLC',
+        'ConfigAp.Aptbconfvxmgrosslc' => 'APTBCONFVXMGROSSLC',
+        'aptbconfvxmgrosslc' => 'APTBCONFVXMGROSSLC',
+        'configAp.aptbconfvxmgrosslc' => 'APTBCONFVXMGROSSLC',
+        'ConfigApTableMap::COL_APTBCONFVXMGROSSLC' => 'APTBCONFVXMGROSSLC',
+        'COL_APTBCONFVXMGROSSLC' => 'APTBCONFVXMGROSSLC',
+        'AptbConfVxmGrossLc' => 'APTBCONFVXMGROSSLC',
+        'ap_config.AptbConfVxmGrossLc' => 'APTBCONFVXMGROSSLC',
+        'Aptbconfvxmcostlp' => 'APTBCONFVXMCOSTLP',
+        'ConfigAp.Aptbconfvxmcostlp' => 'APTBCONFVXMCOSTLP',
+        'aptbconfvxmcostlp' => 'APTBCONFVXMCOSTLP',
+        'configAp.aptbconfvxmcostlp' => 'APTBCONFVXMCOSTLP',
+        'ConfigApTableMap::COL_APTBCONFVXMCOSTLP' => 'APTBCONFVXMCOSTLP',
+        'COL_APTBCONFVXMCOSTLP' => 'APTBCONFVXMCOSTLP',
+        'AptbConfVxmCostLp' => 'APTBCONFVXMCOSTLP',
+        'ap_config.AptbConfVxmCostLp' => 'APTBCONFVXMCOSTLP',
+        'Aptbconfvxmcostitemupd' => 'APTBCONFVXMCOSTITEMUPD',
+        'ConfigAp.Aptbconfvxmcostitemupd' => 'APTBCONFVXMCOSTITEMUPD',
+        'aptbconfvxmcostitemupd' => 'APTBCONFVXMCOSTITEMUPD',
+        'configAp.aptbconfvxmcostitemupd' => 'APTBCONFVXMCOSTITEMUPD',
+        'ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD' => 'APTBCONFVXMCOSTITEMUPD',
+        'COL_APTBCONFVXMCOSTITEMUPD' => 'APTBCONFVXMCOSTITEMUPD',
+        'AptbConfVxmCostItemUpd' => 'APTBCONFVXMCOSTITEMUPD',
+        'ap_config.AptbConfVxmCostItemUpd' => 'APTBCONFVXMCOSTITEMUPD',
+        'Aptbconfvxmcostrmesg' => 'APTBCONFVXMCOSTRMESG',
+        'ConfigAp.Aptbconfvxmcostrmesg' => 'APTBCONFVXMCOSTRMESG',
+        'aptbconfvxmcostrmesg' => 'APTBCONFVXMCOSTRMESG',
+        'configAp.aptbconfvxmcostrmesg' => 'APTBCONFVXMCOSTRMESG',
+        'ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG' => 'APTBCONFVXMCOSTRMESG',
+        'COL_APTBCONFVXMCOSTRMESG' => 'APTBCONFVXMCOSTRMESG',
+        'AptbConfVxmCostRMesg' => 'APTBCONFVXMCOSTRMESG',
+        'ap_config.AptbConfVxmCostRMesg' => 'APTBCONFVXMCOSTRMESG',
+        'Aptbconfvxmcostitemupdm' => 'APTBCONFVXMCOSTITEMUPDM',
+        'ConfigAp.Aptbconfvxmcostitemupdm' => 'APTBCONFVXMCOSTITEMUPDM',
+        'aptbconfvxmcostitemupdm' => 'APTBCONFVXMCOSTITEMUPDM',
+        'configAp.aptbconfvxmcostitemupdm' => 'APTBCONFVXMCOSTITEMUPDM',
+        'ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM' => 'APTBCONFVXMCOSTITEMUPDM',
+        'COL_APTBCONFVXMCOSTITEMUPDM' => 'APTBCONFVXMCOSTITEMUPDM',
+        'AptbConfVxmCostItemUpdM' => 'APTBCONFVXMCOSTITEMUPDM',
+        'ap_config.AptbConfVxmCostItemUpdM' => 'APTBCONFVXMCOSTITEMUPDM',
+        'Aptbconfvxmcostmmesg' => 'APTBCONFVXMCOSTMMESG',
+        'ConfigAp.Aptbconfvxmcostmmesg' => 'APTBCONFVXMCOSTMMESG',
+        'aptbconfvxmcostmmesg' => 'APTBCONFVXMCOSTMMESG',
+        'configAp.aptbconfvxmcostmmesg' => 'APTBCONFVXMCOSTMMESG',
+        'ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG' => 'APTBCONFVXMCOSTMMESG',
+        'COL_APTBCONFVXMCOSTMMESG' => 'APTBCONFVXMCOSTMMESG',
+        'AptbConfVxmCostMMesg' => 'APTBCONFVXMCOSTMMESG',
+        'ap_config.AptbConfVxmCostMMesg' => 'APTBCONFVXMCOSTMMESG',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ConfigAp.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'configAp.dateupdtd' => 'DATEUPDTD',
+        'ConfigApTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'ap_config.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ConfigAp.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'configAp.timeupdtd' => 'TIMEUPDTD',
+        'ConfigApTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'ap_config.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ConfigAp.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'configAp.dummy' => 'DUMMY',
+        'ConfigApTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'ap_config.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('ap_config');
@@ -607,14 +1269,16 @@ class ConfigApTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -622,14 +1286,14 @@ class ConfigApTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Aptbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -644,14 +1308,14 @@ class ConfigApTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -668,10 +1332,10 @@ class ConfigApTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ConfigApTableMap::CLASS_DEFAULT : ConfigApTableMap::OM_CLASS;
     }
@@ -679,17 +1343,17 @@ class ConfigApTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ConfigAp object, last column rank)
+     * @return array (ConfigAp object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ConfigApTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ConfigApTableMap::getInstanceFromPool($key))) {
@@ -705,7 +1369,7 @@ class ConfigApTableMap extends TableMap
             ConfigApTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -713,13 +1377,13 @@ class ConfigApTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -749,12 +1413,13 @@ class ConfigApTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ConfigApTableMap::COL_APTBCONFKEY);
@@ -924,40 +1589,210 @@ class ConfigApTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFKEY);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFGLIFAC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFINIFAC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFSOIFAC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFPOIFAC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFFRTACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFMISCACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFAPACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFCASHACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFDISCACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFTAXACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFPURACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVARACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVENDDISC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFAPINVVARACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFUSEROYAL);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFDEFBUYRCODE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFDEFTERMCODE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFDEFSVIACODE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFDEFTYPECODE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVENDLINE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVENDCOLS);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFPOLINE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFPOCOLS);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVENDGETOPT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFHOLDSTAT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFDISCRET);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFSTOPVENDCHG);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFREQDATE2);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFREQDATE3);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFREQDATE4);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONF1099NAME);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONF1099ADR1);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONF1099ADR2);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONF1099ADR3);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONF1099CITY);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONF1099STAT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONF1099ZIPCODE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONF1099ID);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFSTUBSORT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFUSEACH);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFOVER1);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFOVER2);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFPRTCHK);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFEIUNRECQTY);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFEIRECQTYASK);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFEIRECQTYDEF);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFALLOWMULTPOS);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFEIBYCLERK);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFEIBATCHPROC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFALLOWDUPINVC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFPRTSOREPT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFEICHECKHIST);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFSUMMGL);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMUSERLABEL);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFMYECLRPOHIST);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFMYECLRPODATE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFMYECLRCKHIST);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFMYECLRCKDATE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFMYECLROPENCK);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFLEAD);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVRREWORKITEM);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVRQCWHSE);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVRGLACCT);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMLISTPC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMGROSSLC);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMCOSTLP);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ConfigApTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.AptbConfKey');
+            $criteria->removeSelectColumn($alias . '.AptbConfGlIfac');
+            $criteria->removeSelectColumn($alias . '.AptbConfInIfac');
+            $criteria->removeSelectColumn($alias . '.AptbConfSoIfac');
+            $criteria->removeSelectColumn($alias . '.AptbConfPoIfac');
+            $criteria->removeSelectColumn($alias . '.AptbConfFrtAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfMiscAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfApAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfCashAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfDiscAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfTaxAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfPurAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfVarAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfVendDisc');
+            $criteria->removeSelectColumn($alias . '.AptbConfApInvVarAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfUseRoyal');
+            $criteria->removeSelectColumn($alias . '.AptbConfDefBuyrCode');
+            $criteria->removeSelectColumn($alias . '.AptbConfDefTermCode');
+            $criteria->removeSelectColumn($alias . '.AptbConfDefSviaCode');
+            $criteria->removeSelectColumn($alias . '.AptbConfDefTypeCode');
+            $criteria->removeSelectColumn($alias . '.AptbConfVendLine');
+            $criteria->removeSelectColumn($alias . '.AptbConfVendCols');
+            $criteria->removeSelectColumn($alias . '.AptbConfPoLine');
+            $criteria->removeSelectColumn($alias . '.AptbConfPoCols');
+            $criteria->removeSelectColumn($alias . '.AptbConfVendGetOpt');
+            $criteria->removeSelectColumn($alias . '.AptbConfPaytoShipfr');
+            $criteria->removeSelectColumn($alias . '.AptbConfHoldStat');
+            $criteria->removeSelectColumn($alias . '.AptbConfDiscRet');
+            $criteria->removeSelectColumn($alias . '.AptbConfStopVendChg');
+            $criteria->removeSelectColumn($alias . '.AptbConfReqDate2');
+            $criteria->removeSelectColumn($alias . '.AptbConfReqDate3');
+            $criteria->removeSelectColumn($alias . '.AptbConfReqDate4');
+            $criteria->removeSelectColumn($alias . '.AptbConf1099Name');
+            $criteria->removeSelectColumn($alias . '.AptbConf1099Adr1');
+            $criteria->removeSelectColumn($alias . '.AptbConf1099Adr2');
+            $criteria->removeSelectColumn($alias . '.AptbConf1099Adr3');
+            $criteria->removeSelectColumn($alias . '.AptbConf1099City');
+            $criteria->removeSelectColumn($alias . '.AptbConf1099Stat');
+            $criteria->removeSelectColumn($alias . '.AptbConf1099ZipCode');
+            $criteria->removeSelectColumn($alias . '.AptbConf1099Id');
+            $criteria->removeSelectColumn($alias . '.AptbConfStubSort');
+            $criteria->removeSelectColumn($alias . '.AptbConfUseAch');
+            $criteria->removeSelectColumn($alias . '.AptbConfOver1');
+            $criteria->removeSelectColumn($alias . '.AptbConfOver2');
+            $criteria->removeSelectColumn($alias . '.AptbConfPrtChk');
+            $criteria->removeSelectColumn($alias . '.AptbConfEiUnrecQty');
+            $criteria->removeSelectColumn($alias . '.AptbConfEiRecQtyAsk');
+            $criteria->removeSelectColumn($alias . '.AptbConfEiRecQtyDef');
+            $criteria->removeSelectColumn($alias . '.AptbConfAllowMultPos');
+            $criteria->removeSelectColumn($alias . '.AptbConfEiByClerk');
+            $criteria->removeSelectColumn($alias . '.AptbConfEiBatchProc');
+            $criteria->removeSelectColumn($alias . '.AptbConfEiDispStanCost');
+            $criteria->removeSelectColumn($alias . '.AptbConfEiAssetAcctChg');
+            $criteria->removeSelectColumn($alias . '.AptbConfAllowDupInvc');
+            $criteria->removeSelectColumn($alias . '.AptbConfPrtSoRept');
+            $criteria->removeSelectColumn($alias . '.AptbConfEiCheckHist');
+            $criteria->removeSelectColumn($alias . '.AptbConfSummGl');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmUserLabel');
+            $criteria->removeSelectColumn($alias . '.AptbConfVendCostBreaks');
+            $criteria->removeSelectColumn($alias . '.AptbConfMyeClrClosPo');
+            $criteria->removeSelectColumn($alias . '.AptbConfMyeClrClosDate');
+            $criteria->removeSelectColumn($alias . '.AptbConfMyeClrPoHist');
+            $criteria->removeSelectColumn($alias . '.AptbConfMyeClrPoDate');
+            $criteria->removeSelectColumn($alias . '.AptbConfMyeClrCkHist');
+            $criteria->removeSelectColumn($alias . '.AptbConfMyeClrCkDate');
+            $criteria->removeSelectColumn($alias . '.AptbConfMyeClrOpenCk');
+            $criteria->removeSelectColumn($alias . '.AptbConfLead');
+            $criteria->removeSelectColumn($alias . '.AptbConfVrReworkItem');
+            $criteria->removeSelectColumn($alias . '.AptbConfVrqcWhse');
+            $criteria->removeSelectColumn($alias . '.AptbConfVrGlAcct');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmListPc');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmListItemUpd');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmGrossLc');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmCostLp');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmCostItemUpd');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmCostRMesg');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmCostItemUpdM');
+            $criteria->removeSelectColumn($alias . '.AptbConfVxmCostMMesg');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ConfigApTableMap::DATABASE_NAME)->getTable(ConfigApTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ConfigApTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ConfigApTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ConfigApTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ConfigAp or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ConfigAp object or primary key or array of primary keys
+     * @param mixed $values Criteria or ConfigAp object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
@@ -993,7 +1828,7 @@ class ConfigApTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ConfigApQuery::create()->doDeleteAll($con);
     }
@@ -1001,13 +1836,13 @@ class ConfigApTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ConfigAp or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ConfigAp object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ConfigAp object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
@@ -1030,7 +1865,4 @@ class ConfigApTableMap extends TableMap
         });
     }
 
-} // ConfigApTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ConfigApTableMap::buildTableMap();
+}
