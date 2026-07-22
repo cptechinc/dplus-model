@@ -10,14 +10,12 @@ use Map\ArCreditCardCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cust_crcd' table.
- *
- *
+ * Base class that represents a query for the `ar_cust_crcd` table.
  *
  * @method     ChildArCreditCardCodeQuery orderByArtbcrcdcode($order = Criteria::ASC) Order by the ArtbCrcdCode column
  * @method     ChildArCreditCardCodeQuery orderByArtbcrcdname($order = Criteria::ASC) Order by the ArtbCrcdName column
@@ -53,24 +51,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCreditCardCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildArCreditCardCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildArCreditCardCode findOne(ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query
- * @method     ChildArCreditCardCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query, or a new ChildArCreditCardCode object populated from the query conditions when no match is found
+ * @method     ChildArCreditCardCode|null findOne(?ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query
+ * @method     ChildArCreditCardCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query, or a new ChildArCreditCardCode object populated from the query conditions when no match is found
  *
- * @method     ChildArCreditCardCode findOneByArtbcrcdcode(string $ArtbCrcdCode) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCode column
- * @method     ChildArCreditCardCode findOneByArtbcrcdname(string $ArtbCrcdName) Return the first ChildArCreditCardCode filtered by the ArtbCrcdName column
- * @method     ChildArCreditCardCode findOneByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdGlAcct column
- * @method     ChildArCreditCardCode findOneByArtbcrcdcustid(string $ArtbCrcdCustId) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCustId column
- * @method     ChildArCreditCardCode findOneByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgGlAcct column
- * @method     ChildArCreditCardCode findOneByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgRate column
- * @method     ChildArCreditCardCode findOneByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgTranCost column
- * @method     ChildArCreditCardCode findOneByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCcSurchgPct column
- * @method     ChildArCreditCardCode findOneByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdLmCcSurchgPct column
- * @method     ChildArCreditCardCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCreditCardCode filtered by the DateUpdtd column
- * @method     ChildArCreditCardCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCreditCardCode filtered by the TimeUpdtd column
- * @method     ChildArCreditCardCode findOneByDummy(string $dummy) Return the first ChildArCreditCardCode filtered by the dummy column *
-
- * @method     ChildArCreditCardCode requirePk($key, ConnectionInterface $con = null) Return the ChildArCreditCardCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArCreditCardCode requireOne(ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdcode(string $ArtbCrcdCode) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCode column
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdname(string $ArtbCrcdName) Return the first ChildArCreditCardCode filtered by the ArtbCrcdName column
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdGlAcct column
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdcustid(string $ArtbCrcdCustId) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCustId column
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgGlAcct column
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgRate column
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgTranCost column
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCcSurchgPct column
+ * @method     ChildArCreditCardCode|null findOneByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdLmCcSurchgPct column
+ * @method     ChildArCreditCardCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCreditCardCode filtered by the DateUpdtd column
+ * @method     ChildArCreditCardCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCreditCardCode filtered by the TimeUpdtd column
+ * @method     ChildArCreditCardCode|null findOneByDummy(string $dummy) Return the first ChildArCreditCardCode filtered by the dummy column
+ *
+ * @method     ChildArCreditCardCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildArCreditCardCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOne(?ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArCreditCardCode requireOneByArtbcrcdcode(string $ArtbCrcdCode) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCreditCardCode requireOneByArtbcrcdname(string $ArtbCrcdName) Return the first ChildArCreditCardCode filtered by the ArtbCrcdName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,21 +83,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCreditCardCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCreditCardCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCreditCardCode requireOneByDummy(string $dummy) Return the first ChildArCreditCardCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArCreditCardCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArCreditCardCode objects based on current ModelCriteria
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdcode(string $ArtbCrcdCode) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCode column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdname(string $ArtbCrcdName) Return ChildArCreditCardCode objects filtered by the ArtbCrcdName column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdGlAcct column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdcustid(string $ArtbCrcdCustId) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCustId column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgGlAcct column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgRate column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgTranCost column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCcSurchgPct column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdLmCcSurchgPct column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCreditCardCode objects filtered by the DateUpdtd column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCreditCardCode objects filtered by the TimeUpdtd column
- * @method     ChildArCreditCardCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArCreditCardCode objects filtered by the dummy column
- * @method     ChildArCreditCardCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArCreditCardCode[]|Collection find(?ConnectionInterface $con = null) Return ChildArCreditCardCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> find(?ConnectionInterface $con = null) Return ChildArCreditCardCode objects based on current ModelCriteria
  *
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdcode(string|array<string> $ArtbCrcdCode) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCode column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdcode(string|array<string> $ArtbCrcdCode) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCode column
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdname(string|array<string> $ArtbCrcdName) Return ChildArCreditCardCode objects filtered by the ArtbCrcdName column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdname(string|array<string> $ArtbCrcdName) Return ChildArCreditCardCode objects filtered by the ArtbCrcdName column
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdglacct(string|array<string> $ArtbCrcdGlAcct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdGlAcct column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdglacct(string|array<string> $ArtbCrcdGlAcct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdGlAcct column
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdcustid(string|array<string> $ArtbCrcdCustId) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCustId column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdcustid(string|array<string> $ArtbCrcdCustId) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCustId column
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdchrgglacct(string|array<string> $ArtbCrcdChrgGlAcct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgGlAcct column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdchrgglacct(string|array<string> $ArtbCrcdChrgGlAcct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgGlAcct column
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdchrgrate(string|array<string> $ArtbCrcdChrgRate) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgRate column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdchrgrate(string|array<string> $ArtbCrcdChrgRate) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgRate column
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdchrgtrancost(string|array<string> $ArtbCrcdChrgTranCost) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgTranCost column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdchrgtrancost(string|array<string> $ArtbCrcdChrgTranCost) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgTranCost column
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdccsurchgpct(string|array<string> $ArtbCrcdCcSurchgPct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCcSurchgPct column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdccsurchgpct(string|array<string> $ArtbCrcdCcSurchgPct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCcSurchgPct column
+ * @method     ChildArCreditCardCode[]|Collection findByArtbcrcdlmccsurchgpct(string|array<string> $ArtbCrcdLmCcSurchgPct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdLmCcSurchgPct column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByArtbcrcdlmccsurchgpct(string|array<string> $ArtbCrcdLmCcSurchgPct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdLmCcSurchgPct column
+ * @method     ChildArCreditCardCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArCreditCardCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArCreditCardCode objects filtered by the DateUpdtd column
+ * @method     ChildArCreditCardCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArCreditCardCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArCreditCardCode objects filtered by the TimeUpdtd column
+ * @method     ChildArCreditCardCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildArCreditCardCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArCreditCardCode> findByDummy(string|array<string> $dummy) Return ChildArCreditCardCode objects filtered by the dummy column
+ *
+ * @method     ChildArCreditCardCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArCreditCardCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArCreditCardCodeQuery extends ModelCriteria
 {
@@ -108,9 +121,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArCreditCardCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArCreditCardCode', $modelAlias = null)
     {
@@ -120,12 +133,12 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildArCreditCardCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArCreditCardCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArCreditCardCodeQuery) {
             return $criteria;
@@ -155,7 +168,7 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      *
      * @return ChildArCreditCardCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -187,8 +200,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -220,8 +233,8 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArCreditCardCode|array|mixed the result, formatted by the current formatter
      */
@@ -241,12 +254,12 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -263,27 +276,31 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -293,14 +310,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbcrcdcode('fooValue');   // WHERE ArtbCrcdCode = 'fooValue'
      * $query->filterByArtbcrcdcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCrcdCode LIKE '%fooValue%'
+     * $query->filterByArtbcrcdcode(['foo', 'bar']); // WHERE ArtbCrcdCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbcrcdcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbcrcdcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdcode($artbcrcdcode = null, $comparison = null)
+    public function filterByArtbcrcdcode($artbcrcdcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbcrcdcode)) {
@@ -308,7 +326,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $artbcrcdcode, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $artbcrcdcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -318,14 +338,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbcrcdname('fooValue');   // WHERE ArtbCrcdName = 'fooValue'
      * $query->filterByArtbcrcdname('%fooValue%', Criteria::LIKE); // WHERE ArtbCrcdName LIKE '%fooValue%'
+     * $query->filterByArtbcrcdname(['foo', 'bar']); // WHERE ArtbCrcdName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbcrcdname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbcrcdname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdname($artbcrcdname = null, $comparison = null)
+    public function filterByArtbcrcdname($artbcrcdname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbcrcdname)) {
@@ -333,7 +354,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDNAME, $artbcrcdname, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDNAME, $artbcrcdname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -343,14 +366,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbcrcdglacct('fooValue');   // WHERE ArtbCrcdGlAcct = 'fooValue'
      * $query->filterByArtbcrcdglacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCrcdGlAcct LIKE '%fooValue%'
+     * $query->filterByArtbcrcdglacct(['foo', 'bar']); // WHERE ArtbCrcdGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbcrcdglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbcrcdglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdglacct($artbcrcdglacct = null, $comparison = null)
+    public function filterByArtbcrcdglacct($artbcrcdglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbcrcdglacct)) {
@@ -358,7 +382,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT, $artbcrcdglacct, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT, $artbcrcdglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -368,14 +394,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbcrcdcustid('fooValue');   // WHERE ArtbCrcdCustId = 'fooValue'
      * $query->filterByArtbcrcdcustid('%fooValue%', Criteria::LIKE); // WHERE ArtbCrcdCustId LIKE '%fooValue%'
+     * $query->filterByArtbcrcdcustid(['foo', 'bar']); // WHERE ArtbCrcdCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbcrcdcustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbcrcdcustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdcustid($artbcrcdcustid = null, $comparison = null)
+    public function filterByArtbcrcdcustid($artbcrcdcustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbcrcdcustid)) {
@@ -383,7 +410,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID, $artbcrcdcustid, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID, $artbcrcdcustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -393,14 +422,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbcrcdchrgglacct('fooValue');   // WHERE ArtbCrcdChrgGlAcct = 'fooValue'
      * $query->filterByArtbcrcdchrgglacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCrcdChrgGlAcct LIKE '%fooValue%'
+     * $query->filterByArtbcrcdchrgglacct(['foo', 'bar']); // WHERE ArtbCrcdChrgGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbcrcdchrgglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbcrcdchrgglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdchrgglacct($artbcrcdchrgglacct = null, $comparison = null)
+    public function filterByArtbcrcdchrgglacct($artbcrcdchrgglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbcrcdchrgglacct)) {
@@ -408,7 +438,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT, $artbcrcdchrgglacct, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT, $artbcrcdchrgglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -421,15 +453,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * $query->filterByArtbcrcdchrgrate(array('min' => 12)); // WHERE ArtbCrcdChrgRate > 12
      * </code>
      *
-     * @param     mixed $artbcrcdchrgrate The value to use as filter.
+     * @param mixed $artbcrcdchrgrate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdchrgrate($artbcrcdchrgrate = null, $comparison = null)
+    public function filterByArtbcrcdchrgrate($artbcrcdchrgrate = null, ?string $comparison = null)
     {
         if (is_array($artbcrcdchrgrate)) {
             $useMinMax = false;
@@ -449,7 +481,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE, $artbcrcdchrgrate, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE, $artbcrcdchrgrate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -462,15 +496,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * $query->filterByArtbcrcdchrgtrancost(array('min' => 12)); // WHERE ArtbCrcdChrgTranCost > 12
      * </code>
      *
-     * @param     mixed $artbcrcdchrgtrancost The value to use as filter.
+     * @param mixed $artbcrcdchrgtrancost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdchrgtrancost($artbcrcdchrgtrancost = null, $comparison = null)
+    public function filterByArtbcrcdchrgtrancost($artbcrcdchrgtrancost = null, ?string $comparison = null)
     {
         if (is_array($artbcrcdchrgtrancost)) {
             $useMinMax = false;
@@ -490,7 +524,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST, $artbcrcdchrgtrancost, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST, $artbcrcdchrgtrancost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -503,15 +539,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * $query->filterByArtbcrcdccsurchgpct(array('min' => 12)); // WHERE ArtbCrcdCcSurchgPct > 12
      * </code>
      *
-     * @param     mixed $artbcrcdccsurchgpct The value to use as filter.
+     * @param mixed $artbcrcdccsurchgpct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdccsurchgpct($artbcrcdccsurchgpct = null, $comparison = null)
+    public function filterByArtbcrcdccsurchgpct($artbcrcdccsurchgpct = null, ?string $comparison = null)
     {
         if (is_array($artbcrcdccsurchgpct)) {
             $useMinMax = false;
@@ -531,7 +567,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT, $artbcrcdccsurchgpct, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT, $artbcrcdccsurchgpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -544,15 +582,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * $query->filterByArtbcrcdlmccsurchgpct(array('min' => 12)); // WHERE ArtbCrcdLmCcSurchgPct > 12
      * </code>
      *
-     * @param     mixed $artbcrcdlmccsurchgpct The value to use as filter.
+     * @param mixed $artbcrcdlmccsurchgpct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbcrcdlmccsurchgpct($artbcrcdlmccsurchgpct = null, $comparison = null)
+    public function filterByArtbcrcdlmccsurchgpct($artbcrcdlmccsurchgpct = null, ?string $comparison = null)
     {
         if (is_array($artbcrcdlmccsurchgpct)) {
             $useMinMax = false;
@@ -572,7 +610,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $artbcrcdlmccsurchgpct, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $artbcrcdlmccsurchgpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -582,14 +622,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -597,7 +638,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -607,14 +650,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -622,7 +666,9 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -632,14 +678,15 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -647,20 +694,22 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArCreditCardCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildArCreditCardCode $creditCardDigitGet Object to remove from the list of results
+     * @param ChildArCreditCardCode $arCreditCardCode Object to remove from the list of results
      *
-     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function prune($creditCardDigitGet = null)
+    public function prune($arCreditCardCode = null)
     {
-        if ($creditCardDigitGet) {
-            $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $creditCardDigitGet->getArtbcrcdcode(), Criteria::NOT_EQUAL);
+        if ($arCreditCardCode) {
+            $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $arCreditCardCode->getArtbcrcdcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -672,7 +721,7 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
@@ -697,12 +746,12 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
@@ -727,4 +776,4 @@ abstract class ArCreditCardCodeQuery extends ModelCriteria
         });
     }
 
-} // ArCreditCardCodeQuery
+}

@@ -10,14 +10,12 @@ use Map\MsdsCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_msds_code' table.
- *
- *
+ * Base class that represents a query for the `inv_msds_code` table.
  *
  * @method     ChildMsdsCodeQuery orderByIntbmsdscode($order = Criteria::ASC) Order by the IntbMsdsCode column
  * @method     ChildMsdsCodeQuery orderByIntbmsdsdesc($order = Criteria::ASC) Order by the IntbMsdsDesc column
@@ -41,18 +39,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildMsdsCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildMsdsCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildMsdsCode findOne(ConnectionInterface $con = null) Return the first ChildMsdsCode matching the query
- * @method     ChildMsdsCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildMsdsCode matching the query, or a new ChildMsdsCode object populated from the query conditions when no match is found
+ * @method     ChildMsdsCode|null findOne(?ConnectionInterface $con = null) Return the first ChildMsdsCode matching the query
+ * @method     ChildMsdsCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildMsdsCode matching the query, or a new ChildMsdsCode object populated from the query conditions when no match is found
  *
- * @method     ChildMsdsCode findOneByIntbmsdscode(string $IntbMsdsCode) Return the first ChildMsdsCode filtered by the IntbMsdsCode column
- * @method     ChildMsdsCode findOneByIntbmsdsdesc(string $IntbMsdsDesc) Return the first ChildMsdsCode filtered by the IntbMsdsDesc column
- * @method     ChildMsdsCode findOneByIntbmsdsefftdate(string $IntbMsdsEfftDate) Return the first ChildMsdsCode filtered by the IntbMsdsEfftDate column
- * @method     ChildMsdsCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildMsdsCode filtered by the DateUpdtd column
- * @method     ChildMsdsCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMsdsCode filtered by the TimeUpdtd column
- * @method     ChildMsdsCode findOneByDummy(string $dummy) Return the first ChildMsdsCode filtered by the dummy column *
-
- * @method     ChildMsdsCode requirePk($key, ConnectionInterface $con = null) Return the ChildMsdsCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildMsdsCode requireOne(ConnectionInterface $con = null) Return the first ChildMsdsCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildMsdsCode|null findOneByIntbmsdscode(string $IntbMsdsCode) Return the first ChildMsdsCode filtered by the IntbMsdsCode column
+ * @method     ChildMsdsCode|null findOneByIntbmsdsdesc(string $IntbMsdsDesc) Return the first ChildMsdsCode filtered by the IntbMsdsDesc column
+ * @method     ChildMsdsCode|null findOneByIntbmsdsefftdate(string $IntbMsdsEfftDate) Return the first ChildMsdsCode filtered by the IntbMsdsEfftDate column
+ * @method     ChildMsdsCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildMsdsCode filtered by the DateUpdtd column
+ * @method     ChildMsdsCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMsdsCode filtered by the TimeUpdtd column
+ * @method     ChildMsdsCode|null findOneByDummy(string $dummy) Return the first ChildMsdsCode filtered by the dummy column
+ *
+ * @method     ChildMsdsCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildMsdsCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildMsdsCode requireOne(?ConnectionInterface $con = null) Return the first ChildMsdsCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildMsdsCode requireOneByIntbmsdscode(string $IntbMsdsCode) Return the first ChildMsdsCode filtered by the IntbMsdsCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildMsdsCode requireOneByIntbmsdsdesc(string $IntbMsdsDesc) Return the first ChildMsdsCode filtered by the IntbMsdsDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -61,15 +59,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildMsdsCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMsdsCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildMsdsCode requireOneByDummy(string $dummy) Return the first ChildMsdsCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildMsdsCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildMsdsCode objects based on current ModelCriteria
- * @method     ChildMsdsCode[]|ObjectCollection findByIntbmsdscode(string $IntbMsdsCode) Return ChildMsdsCode objects filtered by the IntbMsdsCode column
- * @method     ChildMsdsCode[]|ObjectCollection findByIntbmsdsdesc(string $IntbMsdsDesc) Return ChildMsdsCode objects filtered by the IntbMsdsDesc column
- * @method     ChildMsdsCode[]|ObjectCollection findByIntbmsdsefftdate(string $IntbMsdsEfftDate) Return ChildMsdsCode objects filtered by the IntbMsdsEfftDate column
- * @method     ChildMsdsCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildMsdsCode objects filtered by the DateUpdtd column
- * @method     ChildMsdsCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildMsdsCode objects filtered by the TimeUpdtd column
- * @method     ChildMsdsCode[]|ObjectCollection findByDummy(string $dummy) Return ChildMsdsCode objects filtered by the dummy column
- * @method     ChildMsdsCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildMsdsCode[]|Collection find(?ConnectionInterface $con = null) Return ChildMsdsCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildMsdsCode> find(?ConnectionInterface $con = null) Return ChildMsdsCode objects based on current ModelCriteria
  *
+ * @method     ChildMsdsCode[]|Collection findByIntbmsdscode(string|array<string> $IntbMsdsCode) Return ChildMsdsCode objects filtered by the IntbMsdsCode column
+ * @psalm-method Collection&\Traversable<ChildMsdsCode> findByIntbmsdscode(string|array<string> $IntbMsdsCode) Return ChildMsdsCode objects filtered by the IntbMsdsCode column
+ * @method     ChildMsdsCode[]|Collection findByIntbmsdsdesc(string|array<string> $IntbMsdsDesc) Return ChildMsdsCode objects filtered by the IntbMsdsDesc column
+ * @psalm-method Collection&\Traversable<ChildMsdsCode> findByIntbmsdsdesc(string|array<string> $IntbMsdsDesc) Return ChildMsdsCode objects filtered by the IntbMsdsDesc column
+ * @method     ChildMsdsCode[]|Collection findByIntbmsdsefftdate(string|array<string> $IntbMsdsEfftDate) Return ChildMsdsCode objects filtered by the IntbMsdsEfftDate column
+ * @psalm-method Collection&\Traversable<ChildMsdsCode> findByIntbmsdsefftdate(string|array<string> $IntbMsdsEfftDate) Return ChildMsdsCode objects filtered by the IntbMsdsEfftDate column
+ * @method     ChildMsdsCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildMsdsCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildMsdsCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildMsdsCode objects filtered by the DateUpdtd column
+ * @method     ChildMsdsCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildMsdsCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildMsdsCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildMsdsCode objects filtered by the TimeUpdtd column
+ * @method     ChildMsdsCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildMsdsCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildMsdsCode> findByDummy(string|array<string> $dummy) Return ChildMsdsCode objects filtered by the dummy column
+ *
+ * @method     ChildMsdsCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildMsdsCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class MsdsCodeQuery extends ModelCriteria
 {
@@ -78,9 +85,9 @@ abstract class MsdsCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\MsdsCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\MsdsCode', $modelAlias = null)
     {
@@ -90,12 +97,12 @@ abstract class MsdsCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildMsdsCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildMsdsCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildMsdsCodeQuery) {
             return $criteria;
@@ -125,7 +132,7 @@ abstract class MsdsCodeQuery extends ModelCriteria
      *
      * @return ChildMsdsCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -157,8 +164,8 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -190,8 +197,8 @@ abstract class MsdsCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildMsdsCode|array|mixed the result, formatted by the current formatter
      */
@@ -211,12 +218,12 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -233,27 +240,31 @@ abstract class MsdsCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -263,14 +274,15 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbmsdscode('fooValue');   // WHERE IntbMsdsCode = 'fooValue'
      * $query->filterByIntbmsdscode('%fooValue%', Criteria::LIKE); // WHERE IntbMsdsCode LIKE '%fooValue%'
+     * $query->filterByIntbmsdscode(['foo', 'bar']); // WHERE IntbMsdsCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbmsdscode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbmsdscode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbmsdscode($intbmsdscode = null, $comparison = null)
+    public function filterByIntbmsdscode($intbmsdscode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbmsdscode)) {
@@ -278,7 +290,9 @@ abstract class MsdsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSCODE, $intbmsdscode, $comparison);
+        $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSCODE, $intbmsdscode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -288,14 +302,15 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbmsdsdesc('fooValue');   // WHERE IntbMsdsDesc = 'fooValue'
      * $query->filterByIntbmsdsdesc('%fooValue%', Criteria::LIKE); // WHERE IntbMsdsDesc LIKE '%fooValue%'
+     * $query->filterByIntbmsdsdesc(['foo', 'bar']); // WHERE IntbMsdsDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbmsdsdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbmsdsdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbmsdsdesc($intbmsdsdesc = null, $comparison = null)
+    public function filterByIntbmsdsdesc($intbmsdsdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbmsdsdesc)) {
@@ -303,7 +318,9 @@ abstract class MsdsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSDESC, $intbmsdsdesc, $comparison);
+        $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSDESC, $intbmsdsdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -313,14 +330,15 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbmsdsefftdate('fooValue');   // WHERE IntbMsdsEfftDate = 'fooValue'
      * $query->filterByIntbmsdsefftdate('%fooValue%', Criteria::LIKE); // WHERE IntbMsdsEfftDate LIKE '%fooValue%'
+     * $query->filterByIntbmsdsefftdate(['foo', 'bar']); // WHERE IntbMsdsEfftDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbmsdsefftdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbmsdsefftdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbmsdsefftdate($intbmsdsefftdate = null, $comparison = null)
+    public function filterByIntbmsdsefftdate($intbmsdsefftdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbmsdsefftdate)) {
@@ -328,7 +346,9 @@ abstract class MsdsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSEFFTDATE, $intbmsdsefftdate, $comparison);
+        $this->addUsingAlias(MsdsCodeTableMap::COL_INTBMSDSEFFTDATE, $intbmsdsefftdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -338,14 +358,15 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -353,7 +374,9 @@ abstract class MsdsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsdsCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(MsdsCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +386,15 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -378,7 +402,9 @@ abstract class MsdsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsdsCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(MsdsCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -388,14 +414,15 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -403,15 +430,17 @@ abstract class MsdsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsdsCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(MsdsCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildMsdsCode $msdsCode Object to remove from the list of results
+     * @param ChildMsdsCode $msdsCode Object to remove from the list of results
      *
-     * @return $this|ChildMsdsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($msdsCode = null)
     {
@@ -428,7 +457,7 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsdsCodeTableMap::DATABASE_NAME);
@@ -453,12 +482,12 @@ abstract class MsdsCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsdsCodeTableMap::DATABASE_NAME);
@@ -483,4 +512,4 @@ abstract class MsdsCodeQuery extends ModelCriteria
         });
     }
 
-} // MsdsCodeQuery
+}

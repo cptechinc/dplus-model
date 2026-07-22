@@ -10,14 +10,12 @@ use Map\PhoneBookTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'phoneadr' table.
- *
- *
+ * Base class that represents a query for the `phoneadr` table.
  *
  * @method     ChildPhoneBookQuery orderByPhadtype($order = Criteria::ASC) Order by the PhadType column
  * @method     ChildPhoneBookQuery orderByPhadid($order = Criteria::ASC) Order by the PhadId column
@@ -75,35 +73,35 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPhoneBookQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildPhoneBookQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildPhoneBook findOne(ConnectionInterface $con = null) Return the first ChildPhoneBook matching the query
- * @method     ChildPhoneBook findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPhoneBook matching the query, or a new ChildPhoneBook object populated from the query conditions when no match is found
+ * @method     ChildPhoneBook|null findOne(?ConnectionInterface $con = null) Return the first ChildPhoneBook matching the query
+ * @method     ChildPhoneBook findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildPhoneBook matching the query, or a new ChildPhoneBook object populated from the query conditions when no match is found
  *
- * @method     ChildPhoneBook findOneByPhadtype(string $PhadType) Return the first ChildPhoneBook filtered by the PhadType column
- * @method     ChildPhoneBook findOneByPhadid(string $PhadId) Return the first ChildPhoneBook filtered by the PhadId column
- * @method     ChildPhoneBook findOneByPhadsubid(string $PhadSubId) Return the first ChildPhoneBook filtered by the PhadSubId column
- * @method     ChildPhoneBook findOneByPhadsubidseq(int $PhadSubIdSeq) Return the first ChildPhoneBook filtered by the PhadSubIdSeq column
- * @method     ChildPhoneBook findOneByPhadcont(string $PhadCont) Return the first ChildPhoneBook filtered by the PhadCont column
- * @method     ChildPhoneBook findOneByPhadintl(string $PhadIntl) Return the first ChildPhoneBook filtered by the PhadIntl column
- * @method     ChildPhoneBook findOneByPhadtelenbr(string $PhadTeleNbr) Return the first ChildPhoneBook filtered by the PhadTeleNbr column
- * @method     ChildPhoneBook findOneByPhadteleext(string $PhadTeleExt) Return the first ChildPhoneBook filtered by the PhadTeleExt column
- * @method     ChildPhoneBook findOneByPhadintlnbr(string $PhadIntlNbr) Return the first ChildPhoneBook filtered by the PhadIntlNbr column
- * @method     ChildPhoneBook findOneByPhadintlext(string $PhadIntlExt) Return the first ChildPhoneBook filtered by the PhadIntlExt column
- * @method     ChildPhoneBook findOneByPhadfaxnbr(string $PhadFaxNbr) Return the first ChildPhoneBook filtered by the PhadFaxNbr column
- * @method     ChildPhoneBook findOneByPhadifaxnbr(string $PhadIfaxNbr) Return the first ChildPhoneBook filtered by the PhadIfaxNbr column
- * @method     ChildPhoneBook findOneByPhadcellnbr(string $PhadCellNbr) Return the first ChildPhoneBook filtered by the PhadCellNbr column
- * @method     ChildPhoneBook findOneByPhadicellnbr(string $PhadIcellNbr) Return the first ChildPhoneBook filtered by the PhadIcellNbr column
- * @method     ChildPhoneBook findOneByPhadhomenbr(string $PhadHomeNbr) Return the first ChildPhoneBook filtered by the PhadHomeNbr column
- * @method     ChildPhoneBook findOneByPhadihomenbr(string $PhadIhomeNbr) Return the first ChildPhoneBook filtered by the PhadIhomeNbr column
- * @method     ChildPhoneBook findOneByPhadwebaddr(string $PhadWebAddr) Return the first ChildPhoneBook filtered by the PhadWebAddr column
- * @method     ChildPhoneBook findOneByPhademailaddr(string $PhadEmailAddr) Return the first ChildPhoneBook filtered by the PhadEmailAddr column
- * @method     ChildPhoneBook findOneByPhadname(string $PhadName) Return the first ChildPhoneBook filtered by the PhadName column
- * @method     ChildPhoneBook findOneByPhadcontname(string $PhadContName) Return the first ChildPhoneBook filtered by the PhadContName column
- * @method     ChildPhoneBook findOneByDateupdtd(string $DateUpdtd) Return the first ChildPhoneBook filtered by the DateUpdtd column
- * @method     ChildPhoneBook findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPhoneBook filtered by the TimeUpdtd column
- * @method     ChildPhoneBook findOneByDummy(string $dummy) Return the first ChildPhoneBook filtered by the dummy column *
-
- * @method     ChildPhoneBook requirePk($key, ConnectionInterface $con = null) Return the ChildPhoneBook by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPhoneBook requireOne(ConnectionInterface $con = null) Return the first ChildPhoneBook matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPhoneBook|null findOneByPhadtype(string $PhadType) Return the first ChildPhoneBook filtered by the PhadType column
+ * @method     ChildPhoneBook|null findOneByPhadid(string $PhadId) Return the first ChildPhoneBook filtered by the PhadId column
+ * @method     ChildPhoneBook|null findOneByPhadsubid(string $PhadSubId) Return the first ChildPhoneBook filtered by the PhadSubId column
+ * @method     ChildPhoneBook|null findOneByPhadsubidseq(int $PhadSubIdSeq) Return the first ChildPhoneBook filtered by the PhadSubIdSeq column
+ * @method     ChildPhoneBook|null findOneByPhadcont(string $PhadCont) Return the first ChildPhoneBook filtered by the PhadCont column
+ * @method     ChildPhoneBook|null findOneByPhadintl(string $PhadIntl) Return the first ChildPhoneBook filtered by the PhadIntl column
+ * @method     ChildPhoneBook|null findOneByPhadtelenbr(string $PhadTeleNbr) Return the first ChildPhoneBook filtered by the PhadTeleNbr column
+ * @method     ChildPhoneBook|null findOneByPhadteleext(string $PhadTeleExt) Return the first ChildPhoneBook filtered by the PhadTeleExt column
+ * @method     ChildPhoneBook|null findOneByPhadintlnbr(string $PhadIntlNbr) Return the first ChildPhoneBook filtered by the PhadIntlNbr column
+ * @method     ChildPhoneBook|null findOneByPhadintlext(string $PhadIntlExt) Return the first ChildPhoneBook filtered by the PhadIntlExt column
+ * @method     ChildPhoneBook|null findOneByPhadfaxnbr(string $PhadFaxNbr) Return the first ChildPhoneBook filtered by the PhadFaxNbr column
+ * @method     ChildPhoneBook|null findOneByPhadifaxnbr(string $PhadIfaxNbr) Return the first ChildPhoneBook filtered by the PhadIfaxNbr column
+ * @method     ChildPhoneBook|null findOneByPhadcellnbr(string $PhadCellNbr) Return the first ChildPhoneBook filtered by the PhadCellNbr column
+ * @method     ChildPhoneBook|null findOneByPhadicellnbr(string $PhadIcellNbr) Return the first ChildPhoneBook filtered by the PhadIcellNbr column
+ * @method     ChildPhoneBook|null findOneByPhadhomenbr(string $PhadHomeNbr) Return the first ChildPhoneBook filtered by the PhadHomeNbr column
+ * @method     ChildPhoneBook|null findOneByPhadihomenbr(string $PhadIhomeNbr) Return the first ChildPhoneBook filtered by the PhadIhomeNbr column
+ * @method     ChildPhoneBook|null findOneByPhadwebaddr(string $PhadWebAddr) Return the first ChildPhoneBook filtered by the PhadWebAddr column
+ * @method     ChildPhoneBook|null findOneByPhademailaddr(string $PhadEmailAddr) Return the first ChildPhoneBook filtered by the PhadEmailAddr column
+ * @method     ChildPhoneBook|null findOneByPhadname(string $PhadName) Return the first ChildPhoneBook filtered by the PhadName column
+ * @method     ChildPhoneBook|null findOneByPhadcontname(string $PhadContName) Return the first ChildPhoneBook filtered by the PhadContName column
+ * @method     ChildPhoneBook|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildPhoneBook filtered by the DateUpdtd column
+ * @method     ChildPhoneBook|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPhoneBook filtered by the TimeUpdtd column
+ * @method     ChildPhoneBook|null findOneByDummy(string $dummy) Return the first ChildPhoneBook filtered by the dummy column
+ *
+ * @method     ChildPhoneBook requirePk($key, ?ConnectionInterface $con = null) Return the ChildPhoneBook by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPhoneBook requireOne(?ConnectionInterface $con = null) Return the first ChildPhoneBook matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPhoneBook requireOneByPhadtype(string $PhadType) Return the first ChildPhoneBook filtered by the PhadType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPhoneBook requireOneByPhadid(string $PhadId) Return the first ChildPhoneBook filtered by the PhadId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -129,32 +127,58 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPhoneBook requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPhoneBook filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPhoneBook requireOneByDummy(string $dummy) Return the first ChildPhoneBook filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildPhoneBook[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPhoneBook objects based on current ModelCriteria
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadtype(string $PhadType) Return ChildPhoneBook objects filtered by the PhadType column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadid(string $PhadId) Return ChildPhoneBook objects filtered by the PhadId column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadsubid(string $PhadSubId) Return ChildPhoneBook objects filtered by the PhadSubId column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadsubidseq(int $PhadSubIdSeq) Return ChildPhoneBook objects filtered by the PhadSubIdSeq column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadcont(string $PhadCont) Return ChildPhoneBook objects filtered by the PhadCont column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadintl(string $PhadIntl) Return ChildPhoneBook objects filtered by the PhadIntl column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadtelenbr(string $PhadTeleNbr) Return ChildPhoneBook objects filtered by the PhadTeleNbr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadteleext(string $PhadTeleExt) Return ChildPhoneBook objects filtered by the PhadTeleExt column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadintlnbr(string $PhadIntlNbr) Return ChildPhoneBook objects filtered by the PhadIntlNbr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadintlext(string $PhadIntlExt) Return ChildPhoneBook objects filtered by the PhadIntlExt column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadfaxnbr(string $PhadFaxNbr) Return ChildPhoneBook objects filtered by the PhadFaxNbr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadifaxnbr(string $PhadIfaxNbr) Return ChildPhoneBook objects filtered by the PhadIfaxNbr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadcellnbr(string $PhadCellNbr) Return ChildPhoneBook objects filtered by the PhadCellNbr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadicellnbr(string $PhadIcellNbr) Return ChildPhoneBook objects filtered by the PhadIcellNbr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadhomenbr(string $PhadHomeNbr) Return ChildPhoneBook objects filtered by the PhadHomeNbr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadihomenbr(string $PhadIhomeNbr) Return ChildPhoneBook objects filtered by the PhadIhomeNbr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadwebaddr(string $PhadWebAddr) Return ChildPhoneBook objects filtered by the PhadWebAddr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhademailaddr(string $PhadEmailAddr) Return ChildPhoneBook objects filtered by the PhadEmailAddr column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadname(string $PhadName) Return ChildPhoneBook objects filtered by the PhadName column
- * @method     ChildPhoneBook[]|ObjectCollection findByPhadcontname(string $PhadContName) Return ChildPhoneBook objects filtered by the PhadContName column
- * @method     ChildPhoneBook[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildPhoneBook objects filtered by the DateUpdtd column
- * @method     ChildPhoneBook[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildPhoneBook objects filtered by the TimeUpdtd column
- * @method     ChildPhoneBook[]|ObjectCollection findByDummy(string $dummy) Return ChildPhoneBook objects filtered by the dummy column
- * @method     ChildPhoneBook[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildPhoneBook[]|Collection find(?ConnectionInterface $con = null) Return ChildPhoneBook objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> find(?ConnectionInterface $con = null) Return ChildPhoneBook objects based on current ModelCriteria
  *
+ * @method     ChildPhoneBook[]|Collection findByPhadtype(string|array<string> $PhadType) Return ChildPhoneBook objects filtered by the PhadType column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadtype(string|array<string> $PhadType) Return ChildPhoneBook objects filtered by the PhadType column
+ * @method     ChildPhoneBook[]|Collection findByPhadid(string|array<string> $PhadId) Return ChildPhoneBook objects filtered by the PhadId column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadid(string|array<string> $PhadId) Return ChildPhoneBook objects filtered by the PhadId column
+ * @method     ChildPhoneBook[]|Collection findByPhadsubid(string|array<string> $PhadSubId) Return ChildPhoneBook objects filtered by the PhadSubId column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadsubid(string|array<string> $PhadSubId) Return ChildPhoneBook objects filtered by the PhadSubId column
+ * @method     ChildPhoneBook[]|Collection findByPhadsubidseq(int|array<int> $PhadSubIdSeq) Return ChildPhoneBook objects filtered by the PhadSubIdSeq column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadsubidseq(int|array<int> $PhadSubIdSeq) Return ChildPhoneBook objects filtered by the PhadSubIdSeq column
+ * @method     ChildPhoneBook[]|Collection findByPhadcont(string|array<string> $PhadCont) Return ChildPhoneBook objects filtered by the PhadCont column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadcont(string|array<string> $PhadCont) Return ChildPhoneBook objects filtered by the PhadCont column
+ * @method     ChildPhoneBook[]|Collection findByPhadintl(string|array<string> $PhadIntl) Return ChildPhoneBook objects filtered by the PhadIntl column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadintl(string|array<string> $PhadIntl) Return ChildPhoneBook objects filtered by the PhadIntl column
+ * @method     ChildPhoneBook[]|Collection findByPhadtelenbr(string|array<string> $PhadTeleNbr) Return ChildPhoneBook objects filtered by the PhadTeleNbr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadtelenbr(string|array<string> $PhadTeleNbr) Return ChildPhoneBook objects filtered by the PhadTeleNbr column
+ * @method     ChildPhoneBook[]|Collection findByPhadteleext(string|array<string> $PhadTeleExt) Return ChildPhoneBook objects filtered by the PhadTeleExt column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadteleext(string|array<string> $PhadTeleExt) Return ChildPhoneBook objects filtered by the PhadTeleExt column
+ * @method     ChildPhoneBook[]|Collection findByPhadintlnbr(string|array<string> $PhadIntlNbr) Return ChildPhoneBook objects filtered by the PhadIntlNbr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadintlnbr(string|array<string> $PhadIntlNbr) Return ChildPhoneBook objects filtered by the PhadIntlNbr column
+ * @method     ChildPhoneBook[]|Collection findByPhadintlext(string|array<string> $PhadIntlExt) Return ChildPhoneBook objects filtered by the PhadIntlExt column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadintlext(string|array<string> $PhadIntlExt) Return ChildPhoneBook objects filtered by the PhadIntlExt column
+ * @method     ChildPhoneBook[]|Collection findByPhadfaxnbr(string|array<string> $PhadFaxNbr) Return ChildPhoneBook objects filtered by the PhadFaxNbr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadfaxnbr(string|array<string> $PhadFaxNbr) Return ChildPhoneBook objects filtered by the PhadFaxNbr column
+ * @method     ChildPhoneBook[]|Collection findByPhadifaxnbr(string|array<string> $PhadIfaxNbr) Return ChildPhoneBook objects filtered by the PhadIfaxNbr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadifaxnbr(string|array<string> $PhadIfaxNbr) Return ChildPhoneBook objects filtered by the PhadIfaxNbr column
+ * @method     ChildPhoneBook[]|Collection findByPhadcellnbr(string|array<string> $PhadCellNbr) Return ChildPhoneBook objects filtered by the PhadCellNbr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadcellnbr(string|array<string> $PhadCellNbr) Return ChildPhoneBook objects filtered by the PhadCellNbr column
+ * @method     ChildPhoneBook[]|Collection findByPhadicellnbr(string|array<string> $PhadIcellNbr) Return ChildPhoneBook objects filtered by the PhadIcellNbr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadicellnbr(string|array<string> $PhadIcellNbr) Return ChildPhoneBook objects filtered by the PhadIcellNbr column
+ * @method     ChildPhoneBook[]|Collection findByPhadhomenbr(string|array<string> $PhadHomeNbr) Return ChildPhoneBook objects filtered by the PhadHomeNbr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadhomenbr(string|array<string> $PhadHomeNbr) Return ChildPhoneBook objects filtered by the PhadHomeNbr column
+ * @method     ChildPhoneBook[]|Collection findByPhadihomenbr(string|array<string> $PhadIhomeNbr) Return ChildPhoneBook objects filtered by the PhadIhomeNbr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadihomenbr(string|array<string> $PhadIhomeNbr) Return ChildPhoneBook objects filtered by the PhadIhomeNbr column
+ * @method     ChildPhoneBook[]|Collection findByPhadwebaddr(string|array<string> $PhadWebAddr) Return ChildPhoneBook objects filtered by the PhadWebAddr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadwebaddr(string|array<string> $PhadWebAddr) Return ChildPhoneBook objects filtered by the PhadWebAddr column
+ * @method     ChildPhoneBook[]|Collection findByPhademailaddr(string|array<string> $PhadEmailAddr) Return ChildPhoneBook objects filtered by the PhadEmailAddr column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhademailaddr(string|array<string> $PhadEmailAddr) Return ChildPhoneBook objects filtered by the PhadEmailAddr column
+ * @method     ChildPhoneBook[]|Collection findByPhadname(string|array<string> $PhadName) Return ChildPhoneBook objects filtered by the PhadName column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadname(string|array<string> $PhadName) Return ChildPhoneBook objects filtered by the PhadName column
+ * @method     ChildPhoneBook[]|Collection findByPhadcontname(string|array<string> $PhadContName) Return ChildPhoneBook objects filtered by the PhadContName column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByPhadcontname(string|array<string> $PhadContName) Return ChildPhoneBook objects filtered by the PhadContName column
+ * @method     ChildPhoneBook[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildPhoneBook objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildPhoneBook objects filtered by the DateUpdtd column
+ * @method     ChildPhoneBook[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildPhoneBook objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildPhoneBook objects filtered by the TimeUpdtd column
+ * @method     ChildPhoneBook[]|Collection findByDummy(string|array<string> $dummy) Return ChildPhoneBook objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildPhoneBook> findByDummy(string|array<string> $dummy) Return ChildPhoneBook objects filtered by the dummy column
+ *
+ * @method     ChildPhoneBook[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildPhoneBook> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class PhoneBookQuery extends ModelCriteria
 {
@@ -163,9 +187,9 @@ abstract class PhoneBookQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\PhoneBookQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\PhoneBook', $modelAlias = null)
     {
@@ -175,12 +199,12 @@ abstract class PhoneBookQuery extends ModelCriteria
     /**
      * Returns a new ChildPhoneBookQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildPhoneBookQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildPhoneBookQuery) {
             return $criteria;
@@ -210,7 +234,7 @@ abstract class PhoneBookQuery extends ModelCriteria
      *
      * @return ChildPhoneBook|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -242,8 +266,8 @@ abstract class PhoneBookQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -279,8 +303,8 @@ abstract class PhoneBookQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildPhoneBook|array|mixed the result, formatted by the current formatter
      */
@@ -300,12 +324,12 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -322,9 +346,9 @@ abstract class PhoneBookQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -340,14 +364,16 @@ abstract class PhoneBookQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(PhoneBookTableMap::COL_PHADTYPE, $key[0], Criteria::EQUAL);
@@ -372,14 +398,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadtype('fooValue');   // WHERE PhadType = 'fooValue'
      * $query->filterByPhadtype('%fooValue%', Criteria::LIKE); // WHERE PhadType LIKE '%fooValue%'
+     * $query->filterByPhadtype(['foo', 'bar']); // WHERE PhadType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadtype($phadtype = null, $comparison = null)
+    public function filterByPhadtype($phadtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadtype)) {
@@ -387,7 +414,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADTYPE, $phadtype, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADTYPE, $phadtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -397,14 +426,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadid('fooValue');   // WHERE PhadId = 'fooValue'
      * $query->filterByPhadid('%fooValue%', Criteria::LIKE); // WHERE PhadId LIKE '%fooValue%'
+     * $query->filterByPhadid(['foo', 'bar']); // WHERE PhadId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadid($phadid = null, $comparison = null)
+    public function filterByPhadid($phadid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadid)) {
@@ -412,7 +442,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADID, $phadid, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADID, $phadid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -422,14 +454,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadsubid('fooValue');   // WHERE PhadSubId = 'fooValue'
      * $query->filterByPhadsubid('%fooValue%', Criteria::LIKE); // WHERE PhadSubId LIKE '%fooValue%'
+     * $query->filterByPhadsubid(['foo', 'bar']); // WHERE PhadSubId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadsubid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadsubid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadsubid($phadsubid = null, $comparison = null)
+    public function filterByPhadsubid($phadsubid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadsubid)) {
@@ -437,7 +470,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADSUBID, $phadsubid, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADSUBID, $phadsubid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -450,15 +485,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * $query->filterByPhadsubidseq(array('min' => 12)); // WHERE PhadSubIdSeq > 12
      * </code>
      *
-     * @param     mixed $phadsubidseq The value to use as filter.
+     * @param mixed $phadsubidseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadsubidseq($phadsubidseq = null, $comparison = null)
+    public function filterByPhadsubidseq($phadsubidseq = null, ?string $comparison = null)
     {
         if (is_array($phadsubidseq)) {
             $useMinMax = false;
@@ -478,7 +513,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADSUBIDSEQ, $phadsubidseq, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADSUBIDSEQ, $phadsubidseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -488,14 +525,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadcont('fooValue');   // WHERE PhadCont = 'fooValue'
      * $query->filterByPhadcont('%fooValue%', Criteria::LIKE); // WHERE PhadCont LIKE '%fooValue%'
+     * $query->filterByPhadcont(['foo', 'bar']); // WHERE PhadCont IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadcont The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadcont The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadcont($phadcont = null, $comparison = null)
+    public function filterByPhadcont($phadcont = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadcont)) {
@@ -503,7 +541,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADCONT, $phadcont, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADCONT, $phadcont, $comparison);
+
+        return $this;
     }
 
     /**
@@ -513,14 +553,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadintl('fooValue');   // WHERE PhadIntl = 'fooValue'
      * $query->filterByPhadintl('%fooValue%', Criteria::LIKE); // WHERE PhadIntl LIKE '%fooValue%'
+     * $query->filterByPhadintl(['foo', 'bar']); // WHERE PhadIntl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadintl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadintl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadintl($phadintl = null, $comparison = null)
+    public function filterByPhadintl($phadintl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadintl)) {
@@ -528,7 +569,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTL, $phadintl, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTL, $phadintl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -538,14 +581,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadtelenbr('fooValue');   // WHERE PhadTeleNbr = 'fooValue'
      * $query->filterByPhadtelenbr('%fooValue%', Criteria::LIKE); // WHERE PhadTeleNbr LIKE '%fooValue%'
+     * $query->filterByPhadtelenbr(['foo', 'bar']); // WHERE PhadTeleNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadtelenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadtelenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadtelenbr($phadtelenbr = null, $comparison = null)
+    public function filterByPhadtelenbr($phadtelenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadtelenbr)) {
@@ -553,7 +597,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADTELENBR, $phadtelenbr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADTELENBR, $phadtelenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -563,14 +609,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadteleext('fooValue');   // WHERE PhadTeleExt = 'fooValue'
      * $query->filterByPhadteleext('%fooValue%', Criteria::LIKE); // WHERE PhadTeleExt LIKE '%fooValue%'
+     * $query->filterByPhadteleext(['foo', 'bar']); // WHERE PhadTeleExt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadteleext The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadteleext The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadteleext($phadteleext = null, $comparison = null)
+    public function filterByPhadteleext($phadteleext = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadteleext)) {
@@ -578,7 +625,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADTELEEXT, $phadteleext, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADTELEEXT, $phadteleext, $comparison);
+
+        return $this;
     }
 
     /**
@@ -588,14 +637,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadintlnbr('fooValue');   // WHERE PhadIntlNbr = 'fooValue'
      * $query->filterByPhadintlnbr('%fooValue%', Criteria::LIKE); // WHERE PhadIntlNbr LIKE '%fooValue%'
+     * $query->filterByPhadintlnbr(['foo', 'bar']); // WHERE PhadIntlNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadintlnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadintlnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadintlnbr($phadintlnbr = null, $comparison = null)
+    public function filterByPhadintlnbr($phadintlnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadintlnbr)) {
@@ -603,7 +653,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTLNBR, $phadintlnbr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTLNBR, $phadintlnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -613,14 +665,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadintlext('fooValue');   // WHERE PhadIntlExt = 'fooValue'
      * $query->filterByPhadintlext('%fooValue%', Criteria::LIKE); // WHERE PhadIntlExt LIKE '%fooValue%'
+     * $query->filterByPhadintlext(['foo', 'bar']); // WHERE PhadIntlExt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadintlext The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadintlext The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadintlext($phadintlext = null, $comparison = null)
+    public function filterByPhadintlext($phadintlext = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadintlext)) {
@@ -628,7 +681,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTLEXT, $phadintlext, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADINTLEXT, $phadintlext, $comparison);
+
+        return $this;
     }
 
     /**
@@ -638,14 +693,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadfaxnbr('fooValue');   // WHERE PhadFaxNbr = 'fooValue'
      * $query->filterByPhadfaxnbr('%fooValue%', Criteria::LIKE); // WHERE PhadFaxNbr LIKE '%fooValue%'
+     * $query->filterByPhadfaxnbr(['foo', 'bar']); // WHERE PhadFaxNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadfaxnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadfaxnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadfaxnbr($phadfaxnbr = null, $comparison = null)
+    public function filterByPhadfaxnbr($phadfaxnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadfaxnbr)) {
@@ -653,7 +709,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADFAXNBR, $phadfaxnbr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADFAXNBR, $phadfaxnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -663,14 +721,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadifaxnbr('fooValue');   // WHERE PhadIfaxNbr = 'fooValue'
      * $query->filterByPhadifaxnbr('%fooValue%', Criteria::LIKE); // WHERE PhadIfaxNbr LIKE '%fooValue%'
+     * $query->filterByPhadifaxnbr(['foo', 'bar']); // WHERE PhadIfaxNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadifaxnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadifaxnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadifaxnbr($phadifaxnbr = null, $comparison = null)
+    public function filterByPhadifaxnbr($phadifaxnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadifaxnbr)) {
@@ -678,7 +737,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADIFAXNBR, $phadifaxnbr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADIFAXNBR, $phadifaxnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -688,14 +749,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadcellnbr('fooValue');   // WHERE PhadCellNbr = 'fooValue'
      * $query->filterByPhadcellnbr('%fooValue%', Criteria::LIKE); // WHERE PhadCellNbr LIKE '%fooValue%'
+     * $query->filterByPhadcellnbr(['foo', 'bar']); // WHERE PhadCellNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadcellnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadcellnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadcellnbr($phadcellnbr = null, $comparison = null)
+    public function filterByPhadcellnbr($phadcellnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadcellnbr)) {
@@ -703,7 +765,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADCELLNBR, $phadcellnbr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADCELLNBR, $phadcellnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -713,14 +777,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadicellnbr('fooValue');   // WHERE PhadIcellNbr = 'fooValue'
      * $query->filterByPhadicellnbr('%fooValue%', Criteria::LIKE); // WHERE PhadIcellNbr LIKE '%fooValue%'
+     * $query->filterByPhadicellnbr(['foo', 'bar']); // WHERE PhadIcellNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadicellnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadicellnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadicellnbr($phadicellnbr = null, $comparison = null)
+    public function filterByPhadicellnbr($phadicellnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadicellnbr)) {
@@ -728,7 +793,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADICELLNBR, $phadicellnbr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADICELLNBR, $phadicellnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -738,14 +805,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadhomenbr('fooValue');   // WHERE PhadHomeNbr = 'fooValue'
      * $query->filterByPhadhomenbr('%fooValue%', Criteria::LIKE); // WHERE PhadHomeNbr LIKE '%fooValue%'
+     * $query->filterByPhadhomenbr(['foo', 'bar']); // WHERE PhadHomeNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadhomenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadhomenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadhomenbr($phadhomenbr = null, $comparison = null)
+    public function filterByPhadhomenbr($phadhomenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadhomenbr)) {
@@ -753,7 +821,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADHOMENBR, $phadhomenbr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADHOMENBR, $phadhomenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -763,14 +833,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadihomenbr('fooValue');   // WHERE PhadIhomeNbr = 'fooValue'
      * $query->filterByPhadihomenbr('%fooValue%', Criteria::LIKE); // WHERE PhadIhomeNbr LIKE '%fooValue%'
+     * $query->filterByPhadihomenbr(['foo', 'bar']); // WHERE PhadIhomeNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadihomenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadihomenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadihomenbr($phadihomenbr = null, $comparison = null)
+    public function filterByPhadihomenbr($phadihomenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadihomenbr)) {
@@ -778,7 +849,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADIHOMENBR, $phadihomenbr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADIHOMENBR, $phadihomenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -788,14 +861,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadwebaddr('fooValue');   // WHERE PhadWebAddr = 'fooValue'
      * $query->filterByPhadwebaddr('%fooValue%', Criteria::LIKE); // WHERE PhadWebAddr LIKE '%fooValue%'
+     * $query->filterByPhadwebaddr(['foo', 'bar']); // WHERE PhadWebAddr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadwebaddr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadwebaddr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadwebaddr($phadwebaddr = null, $comparison = null)
+    public function filterByPhadwebaddr($phadwebaddr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadwebaddr)) {
@@ -803,7 +877,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADWEBADDR, $phadwebaddr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADWEBADDR, $phadwebaddr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -813,14 +889,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhademailaddr('fooValue');   // WHERE PhadEmailAddr = 'fooValue'
      * $query->filterByPhademailaddr('%fooValue%', Criteria::LIKE); // WHERE PhadEmailAddr LIKE '%fooValue%'
+     * $query->filterByPhademailaddr(['foo', 'bar']); // WHERE PhadEmailAddr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phademailaddr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phademailaddr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhademailaddr($phademailaddr = null, $comparison = null)
+    public function filterByPhademailaddr($phademailaddr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phademailaddr)) {
@@ -828,7 +905,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADEMAILADDR, $phademailaddr, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADEMAILADDR, $phademailaddr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -838,14 +917,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadname('fooValue');   // WHERE PhadName = 'fooValue'
      * $query->filterByPhadname('%fooValue%', Criteria::LIKE); // WHERE PhadName LIKE '%fooValue%'
+     * $query->filterByPhadname(['foo', 'bar']); // WHERE PhadName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadname($phadname = null, $comparison = null)
+    public function filterByPhadname($phadname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadname)) {
@@ -853,7 +933,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADNAME, $phadname, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADNAME, $phadname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -863,14 +945,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByPhadcontname('fooValue');   // WHERE PhadContName = 'fooValue'
      * $query->filterByPhadcontname('%fooValue%', Criteria::LIKE); // WHERE PhadContName LIKE '%fooValue%'
+     * $query->filterByPhadcontname(['foo', 'bar']); // WHERE PhadContName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phadcontname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phadcontname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhadcontname($phadcontname = null, $comparison = null)
+    public function filterByPhadcontname($phadcontname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phadcontname)) {
@@ -878,7 +961,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_PHADCONTNAME, $phadcontname, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_PHADCONTNAME, $phadcontname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -888,14 +973,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -903,7 +989,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -913,14 +1001,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -928,7 +1017,9 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -938,14 +1029,15 @@ abstract class PhoneBookQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -953,15 +1045,17 @@ abstract class PhoneBookQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PhoneBookTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(PhoneBookTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildPhoneBook $phoneBook Object to remove from the list of results
+     * @param ChildPhoneBook $phoneBook Object to remove from the list of results
      *
-     * @return $this|ChildPhoneBookQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($phoneBook = null)
     {
@@ -983,7 +1077,7 @@ abstract class PhoneBookQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PhoneBookTableMap::DATABASE_NAME);
@@ -1008,12 +1102,12 @@ abstract class PhoneBookQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PhoneBookTableMap::DATABASE_NAME);
@@ -1038,4 +1132,4 @@ abstract class PhoneBookQuery extends ModelCriteria
         });
     }
 
-} // PhoneBookQuery
+}

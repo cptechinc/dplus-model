@@ -10,14 +10,12 @@ use Map\ItemOrderNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_item_order' table.
- *
- *
+ * Base class that represents a query for the `notes_item_order` table.
  *
  * @method     ChildItemOrderNoteQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
  * @method     ChildItemOrderNoteQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
@@ -65,30 +63,30 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemOrderNoteQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildItemOrderNoteQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildItemOrderNote findOne(ConnectionInterface $con = null) Return the first ChildItemOrderNote matching the query
- * @method     ChildItemOrderNote findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemOrderNote matching the query, or a new ChildItemOrderNote object populated from the query conditions when no match is found
+ * @method     ChildItemOrderNote|null findOne(?ConnectionInterface $con = null) Return the first ChildItemOrderNote matching the query
+ * @method     ChildItemOrderNote findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItemOrderNote matching the query, or a new ChildItemOrderNote object populated from the query conditions when no match is found
  *
- * @method     ChildItemOrderNote findOneByQntype(string $QnType) Return the first ChildItemOrderNote filtered by the QnType column
- * @method     ChildItemOrderNote findOneByQntypedesc(string $QnTypeDesc) Return the first ChildItemOrderNote filtered by the QnTypeDesc column
- * @method     ChildItemOrderNote findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemOrderNote filtered by the InitItemNbr column
- * @method     ChildItemOrderNote findOneByQnordrpickticket(string $QnOrdrPickTicket) Return the first ChildItemOrderNote filtered by the QnOrdrPickTicket column
- * @method     ChildItemOrderNote findOneByQnordrpackticket(string $QnOrdrPackTicket) Return the first ChildItemOrderNote filtered by the QnOrdrPackTicket column
- * @method     ChildItemOrderNote findOneByQnordrinvoice(string $QnOrdrInvoice) Return the first ChildItemOrderNote filtered by the QnOrdrInvoice column
- * @method     ChildItemOrderNote findOneByQnordracknow(string $QnOrdrAcknow) Return the first ChildItemOrderNote filtered by the QnOrdrAcknow column
- * @method     ChildItemOrderNote findOneByQnordrquote(string $QnOrdrQuote) Return the first ChildItemOrderNote filtered by the QnOrdrQuote column
- * @method     ChildItemOrderNote findOneByQnordrpurchordr(string $QnOrdrPurchOrdr) Return the first ChildItemOrderNote filtered by the QnOrdrPurchOrdr column
- * @method     ChildItemOrderNote findOneByQnordrtransfer(string $QnOrdrTransfer) Return the first ChildItemOrderNote filtered by the QnOrdrTransfer column
- * @method     ChildItemOrderNote findOneByQnordrfabpo(string $QnOrdrFabPo) Return the first ChildItemOrderNote filtered by the QnOrdrFabPo column
- * @method     ChildItemOrderNote findOneByQnseq(int $QnSeq) Return the first ChildItemOrderNote filtered by the QnSeq column
- * @method     ChildItemOrderNote findOneByQnnote(string $QnNote) Return the first ChildItemOrderNote filtered by the QnNote column
- * @method     ChildItemOrderNote findOneByQnkey2(string $QnKey2) Return the first ChildItemOrderNote filtered by the QnKey2 column
- * @method     ChildItemOrderNote findOneByQnform(string $QnForm) Return the first ChildItemOrderNote filtered by the QnForm column
- * @method     ChildItemOrderNote findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemOrderNote filtered by the DateUpdtd column
- * @method     ChildItemOrderNote findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemOrderNote filtered by the TimeUpdtd column
- * @method     ChildItemOrderNote findOneByDummy(string $dummy) Return the first ChildItemOrderNote filtered by the dummy column *
-
- * @method     ChildItemOrderNote requirePk($key, ConnectionInterface $con = null) Return the ChildItemOrderNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOrderNote requireOne(ConnectionInterface $con = null) Return the first ChildItemOrderNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemOrderNote|null findOneByQntype(string $QnType) Return the first ChildItemOrderNote filtered by the QnType column
+ * @method     ChildItemOrderNote|null findOneByQntypedesc(string $QnTypeDesc) Return the first ChildItemOrderNote filtered by the QnTypeDesc column
+ * @method     ChildItemOrderNote|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemOrderNote filtered by the InitItemNbr column
+ * @method     ChildItemOrderNote|null findOneByQnordrpickticket(string $QnOrdrPickTicket) Return the first ChildItemOrderNote filtered by the QnOrdrPickTicket column
+ * @method     ChildItemOrderNote|null findOneByQnordrpackticket(string $QnOrdrPackTicket) Return the first ChildItemOrderNote filtered by the QnOrdrPackTicket column
+ * @method     ChildItemOrderNote|null findOneByQnordrinvoice(string $QnOrdrInvoice) Return the first ChildItemOrderNote filtered by the QnOrdrInvoice column
+ * @method     ChildItemOrderNote|null findOneByQnordracknow(string $QnOrdrAcknow) Return the first ChildItemOrderNote filtered by the QnOrdrAcknow column
+ * @method     ChildItemOrderNote|null findOneByQnordrquote(string $QnOrdrQuote) Return the first ChildItemOrderNote filtered by the QnOrdrQuote column
+ * @method     ChildItemOrderNote|null findOneByQnordrpurchordr(string $QnOrdrPurchOrdr) Return the first ChildItemOrderNote filtered by the QnOrdrPurchOrdr column
+ * @method     ChildItemOrderNote|null findOneByQnordrtransfer(string $QnOrdrTransfer) Return the first ChildItemOrderNote filtered by the QnOrdrTransfer column
+ * @method     ChildItemOrderNote|null findOneByQnordrfabpo(string $QnOrdrFabPo) Return the first ChildItemOrderNote filtered by the QnOrdrFabPo column
+ * @method     ChildItemOrderNote|null findOneByQnseq(int $QnSeq) Return the first ChildItemOrderNote filtered by the QnSeq column
+ * @method     ChildItemOrderNote|null findOneByQnnote(string $QnNote) Return the first ChildItemOrderNote filtered by the QnNote column
+ * @method     ChildItemOrderNote|null findOneByQnkey2(string $QnKey2) Return the first ChildItemOrderNote filtered by the QnKey2 column
+ * @method     ChildItemOrderNote|null findOneByQnform(string $QnForm) Return the first ChildItemOrderNote filtered by the QnForm column
+ * @method     ChildItemOrderNote|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemOrderNote filtered by the DateUpdtd column
+ * @method     ChildItemOrderNote|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemOrderNote filtered by the TimeUpdtd column
+ * @method     ChildItemOrderNote|null findOneByDummy(string $dummy) Return the first ChildItemOrderNote filtered by the dummy column
+ *
+ * @method     ChildItemOrderNote requirePk($key, ?ConnectionInterface $con = null) Return the ChildItemOrderNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemOrderNote requireOne(?ConnectionInterface $con = null) Return the first ChildItemOrderNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemOrderNote requireOneByQntype(string $QnType) Return the first ChildItemOrderNote filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemOrderNote requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildItemOrderNote filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -109,27 +107,48 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemOrderNote requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemOrderNote filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemOrderNote requireOneByDummy(string $dummy) Return the first ChildItemOrderNote filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemOrderNote[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemOrderNote objects based on current ModelCriteria
- * @method     ChildItemOrderNote[]|ObjectCollection findByQntype(string $QnType) Return ChildItemOrderNote objects filtered by the QnType column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildItemOrderNote objects filtered by the QnTypeDesc column
- * @method     ChildItemOrderNote[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildItemOrderNote objects filtered by the InitItemNbr column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnordrpickticket(string $QnOrdrPickTicket) Return ChildItemOrderNote objects filtered by the QnOrdrPickTicket column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnordrpackticket(string $QnOrdrPackTicket) Return ChildItemOrderNote objects filtered by the QnOrdrPackTicket column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnordrinvoice(string $QnOrdrInvoice) Return ChildItemOrderNote objects filtered by the QnOrdrInvoice column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnordracknow(string $QnOrdrAcknow) Return ChildItemOrderNote objects filtered by the QnOrdrAcknow column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnordrquote(string $QnOrdrQuote) Return ChildItemOrderNote objects filtered by the QnOrdrQuote column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnordrpurchordr(string $QnOrdrPurchOrdr) Return ChildItemOrderNote objects filtered by the QnOrdrPurchOrdr column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnordrtransfer(string $QnOrdrTransfer) Return ChildItemOrderNote objects filtered by the QnOrdrTransfer column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnordrfabpo(string $QnOrdrFabPo) Return ChildItemOrderNote objects filtered by the QnOrdrFabPo column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildItemOrderNote objects filtered by the QnSeq column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnnote(string $QnNote) Return ChildItemOrderNote objects filtered by the QnNote column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildItemOrderNote objects filtered by the QnKey2 column
- * @method     ChildItemOrderNote[]|ObjectCollection findByQnform(string $QnForm) Return ChildItemOrderNote objects filtered by the QnForm column
- * @method     ChildItemOrderNote[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemOrderNote objects filtered by the DateUpdtd column
- * @method     ChildItemOrderNote[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemOrderNote objects filtered by the TimeUpdtd column
- * @method     ChildItemOrderNote[]|ObjectCollection findByDummy(string $dummy) Return ChildItemOrderNote objects filtered by the dummy column
- * @method     ChildItemOrderNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItemOrderNote[]|Collection find(?ConnectionInterface $con = null) Return ChildItemOrderNote objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> find(?ConnectionInterface $con = null) Return ChildItemOrderNote objects based on current ModelCriteria
  *
+ * @method     ChildItemOrderNote[]|Collection findByQntype(string|array<string> $QnType) Return ChildItemOrderNote objects filtered by the QnType column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQntype(string|array<string> $QnType) Return ChildItemOrderNote objects filtered by the QnType column
+ * @method     ChildItemOrderNote[]|Collection findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildItemOrderNote objects filtered by the QnTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildItemOrderNote objects filtered by the QnTypeDesc column
+ * @method     ChildItemOrderNote[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemOrderNote objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemOrderNote objects filtered by the InitItemNbr column
+ * @method     ChildItemOrderNote[]|Collection findByQnordrpickticket(string|array<string> $QnOrdrPickTicket) Return ChildItemOrderNote objects filtered by the QnOrdrPickTicket column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnordrpickticket(string|array<string> $QnOrdrPickTicket) Return ChildItemOrderNote objects filtered by the QnOrdrPickTicket column
+ * @method     ChildItemOrderNote[]|Collection findByQnordrpackticket(string|array<string> $QnOrdrPackTicket) Return ChildItemOrderNote objects filtered by the QnOrdrPackTicket column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnordrpackticket(string|array<string> $QnOrdrPackTicket) Return ChildItemOrderNote objects filtered by the QnOrdrPackTicket column
+ * @method     ChildItemOrderNote[]|Collection findByQnordrinvoice(string|array<string> $QnOrdrInvoice) Return ChildItemOrderNote objects filtered by the QnOrdrInvoice column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnordrinvoice(string|array<string> $QnOrdrInvoice) Return ChildItemOrderNote objects filtered by the QnOrdrInvoice column
+ * @method     ChildItemOrderNote[]|Collection findByQnordracknow(string|array<string> $QnOrdrAcknow) Return ChildItemOrderNote objects filtered by the QnOrdrAcknow column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnordracknow(string|array<string> $QnOrdrAcknow) Return ChildItemOrderNote objects filtered by the QnOrdrAcknow column
+ * @method     ChildItemOrderNote[]|Collection findByQnordrquote(string|array<string> $QnOrdrQuote) Return ChildItemOrderNote objects filtered by the QnOrdrQuote column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnordrquote(string|array<string> $QnOrdrQuote) Return ChildItemOrderNote objects filtered by the QnOrdrQuote column
+ * @method     ChildItemOrderNote[]|Collection findByQnordrpurchordr(string|array<string> $QnOrdrPurchOrdr) Return ChildItemOrderNote objects filtered by the QnOrdrPurchOrdr column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnordrpurchordr(string|array<string> $QnOrdrPurchOrdr) Return ChildItemOrderNote objects filtered by the QnOrdrPurchOrdr column
+ * @method     ChildItemOrderNote[]|Collection findByQnordrtransfer(string|array<string> $QnOrdrTransfer) Return ChildItemOrderNote objects filtered by the QnOrdrTransfer column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnordrtransfer(string|array<string> $QnOrdrTransfer) Return ChildItemOrderNote objects filtered by the QnOrdrTransfer column
+ * @method     ChildItemOrderNote[]|Collection findByQnordrfabpo(string|array<string> $QnOrdrFabPo) Return ChildItemOrderNote objects filtered by the QnOrdrFabPo column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnordrfabpo(string|array<string> $QnOrdrFabPo) Return ChildItemOrderNote objects filtered by the QnOrdrFabPo column
+ * @method     ChildItemOrderNote[]|Collection findByQnseq(int|array<int> $QnSeq) Return ChildItemOrderNote objects filtered by the QnSeq column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnseq(int|array<int> $QnSeq) Return ChildItemOrderNote objects filtered by the QnSeq column
+ * @method     ChildItemOrderNote[]|Collection findByQnnote(string|array<string> $QnNote) Return ChildItemOrderNote objects filtered by the QnNote column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnnote(string|array<string> $QnNote) Return ChildItemOrderNote objects filtered by the QnNote column
+ * @method     ChildItemOrderNote[]|Collection findByQnkey2(string|array<string> $QnKey2) Return ChildItemOrderNote objects filtered by the QnKey2 column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnkey2(string|array<string> $QnKey2) Return ChildItemOrderNote objects filtered by the QnKey2 column
+ * @method     ChildItemOrderNote[]|Collection findByQnform(string|array<string> $QnForm) Return ChildItemOrderNote objects filtered by the QnForm column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByQnform(string|array<string> $QnForm) Return ChildItemOrderNote objects filtered by the QnForm column
+ * @method     ChildItemOrderNote[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemOrderNote objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemOrderNote objects filtered by the DateUpdtd column
+ * @method     ChildItemOrderNote[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemOrderNote objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemOrderNote objects filtered by the TimeUpdtd column
+ * @method     ChildItemOrderNote[]|Collection findByDummy(string|array<string> $dummy) Return ChildItemOrderNote objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItemOrderNote> findByDummy(string|array<string> $dummy) Return ChildItemOrderNote objects filtered by the dummy column
+ *
+ * @method     ChildItemOrderNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItemOrderNote> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItemOrderNoteQuery extends ModelCriteria
 {
@@ -138,9 +157,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItemOrderNoteQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ItemOrderNote', $modelAlias = null)
     {
@@ -150,12 +169,12 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
     /**
      * Returns a new ChildItemOrderNoteQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItemOrderNoteQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItemOrderNoteQuery) {
             return $criteria;
@@ -185,7 +204,7 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      *
      * @return ChildItemOrderNote|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -217,8 +236,8 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -253,8 +272,8 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItemOrderNote|array|mixed the result, formatted by the current formatter
      */
@@ -274,12 +293,12 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -296,9 +315,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -313,14 +332,16 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ItemOrderNoteTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
@@ -343,14 +364,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQntype('fooValue');   // WHERE QnType = 'fooValue'
      * $query->filterByQntype('%fooValue%', Criteria::LIKE); // WHERE QnType LIKE '%fooValue%'
+     * $query->filterByQntype(['foo', 'bar']); // WHERE QnType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntype($qntype = null, $comparison = null)
+    public function filterByQntype($qntype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntype)) {
@@ -358,7 +380,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNTYPE, $qntype, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNTYPE, $qntype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -368,14 +392,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQntypedesc('fooValue');   // WHERE QnTypeDesc = 'fooValue'
      * $query->filterByQntypedesc('%fooValue%', Criteria::LIKE); // WHERE QnTypeDesc LIKE '%fooValue%'
+     * $query->filterByQntypedesc(['foo', 'bar']); // WHERE QnTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntypedesc($qntypedesc = null, $comparison = null)
+    public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntypedesc)) {
@@ -383,7 +408,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -393,14 +420,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -408,7 +436,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -418,14 +448,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnordrpickticket('fooValue');   // WHERE QnOrdrPickTicket = 'fooValue'
      * $query->filterByQnordrpickticket('%fooValue%', Criteria::LIKE); // WHERE QnOrdrPickTicket LIKE '%fooValue%'
+     * $query->filterByQnordrpickticket(['foo', 'bar']); // WHERE QnOrdrPickTicket IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnordrpickticket The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnordrpickticket The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnordrpickticket($qnordrpickticket = null, $comparison = null)
+    public function filterByQnordrpickticket($qnordrpickticket = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnordrpickticket)) {
@@ -433,7 +464,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRPICKTICKET, $qnordrpickticket, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRPICKTICKET, $qnordrpickticket, $comparison);
+
+        return $this;
     }
 
     /**
@@ -443,14 +476,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnordrpackticket('fooValue');   // WHERE QnOrdrPackTicket = 'fooValue'
      * $query->filterByQnordrpackticket('%fooValue%', Criteria::LIKE); // WHERE QnOrdrPackTicket LIKE '%fooValue%'
+     * $query->filterByQnordrpackticket(['foo', 'bar']); // WHERE QnOrdrPackTicket IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnordrpackticket The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnordrpackticket The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnordrpackticket($qnordrpackticket = null, $comparison = null)
+    public function filterByQnordrpackticket($qnordrpackticket = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnordrpackticket)) {
@@ -458,7 +492,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRPACKTICKET, $qnordrpackticket, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRPACKTICKET, $qnordrpackticket, $comparison);
+
+        return $this;
     }
 
     /**
@@ -468,14 +504,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnordrinvoice('fooValue');   // WHERE QnOrdrInvoice = 'fooValue'
      * $query->filterByQnordrinvoice('%fooValue%', Criteria::LIKE); // WHERE QnOrdrInvoice LIKE '%fooValue%'
+     * $query->filterByQnordrinvoice(['foo', 'bar']); // WHERE QnOrdrInvoice IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnordrinvoice The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnordrinvoice The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnordrinvoice($qnordrinvoice = null, $comparison = null)
+    public function filterByQnordrinvoice($qnordrinvoice = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnordrinvoice)) {
@@ -483,7 +520,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRINVOICE, $qnordrinvoice, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRINVOICE, $qnordrinvoice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -493,14 +532,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnordracknow('fooValue');   // WHERE QnOrdrAcknow = 'fooValue'
      * $query->filterByQnordracknow('%fooValue%', Criteria::LIKE); // WHERE QnOrdrAcknow LIKE '%fooValue%'
+     * $query->filterByQnordracknow(['foo', 'bar']); // WHERE QnOrdrAcknow IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnordracknow The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnordracknow The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnordracknow($qnordracknow = null, $comparison = null)
+    public function filterByQnordracknow($qnordracknow = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnordracknow)) {
@@ -508,7 +548,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRACKNOW, $qnordracknow, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRACKNOW, $qnordracknow, $comparison);
+
+        return $this;
     }
 
     /**
@@ -518,14 +560,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnordrquote('fooValue');   // WHERE QnOrdrQuote = 'fooValue'
      * $query->filterByQnordrquote('%fooValue%', Criteria::LIKE); // WHERE QnOrdrQuote LIKE '%fooValue%'
+     * $query->filterByQnordrquote(['foo', 'bar']); // WHERE QnOrdrQuote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnordrquote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnordrquote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnordrquote($qnordrquote = null, $comparison = null)
+    public function filterByQnordrquote($qnordrquote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnordrquote)) {
@@ -533,7 +576,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRQUOTE, $qnordrquote, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRQUOTE, $qnordrquote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -543,14 +588,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnordrpurchordr('fooValue');   // WHERE QnOrdrPurchOrdr = 'fooValue'
      * $query->filterByQnordrpurchordr('%fooValue%', Criteria::LIKE); // WHERE QnOrdrPurchOrdr LIKE '%fooValue%'
+     * $query->filterByQnordrpurchordr(['foo', 'bar']); // WHERE QnOrdrPurchOrdr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnordrpurchordr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnordrpurchordr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnordrpurchordr($qnordrpurchordr = null, $comparison = null)
+    public function filterByQnordrpurchordr($qnordrpurchordr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnordrpurchordr)) {
@@ -558,7 +604,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRPURCHORDR, $qnordrpurchordr, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRPURCHORDR, $qnordrpurchordr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -568,14 +616,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnordrtransfer('fooValue');   // WHERE QnOrdrTransfer = 'fooValue'
      * $query->filterByQnordrtransfer('%fooValue%', Criteria::LIKE); // WHERE QnOrdrTransfer LIKE '%fooValue%'
+     * $query->filterByQnordrtransfer(['foo', 'bar']); // WHERE QnOrdrTransfer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnordrtransfer The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnordrtransfer The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnordrtransfer($qnordrtransfer = null, $comparison = null)
+    public function filterByQnordrtransfer($qnordrtransfer = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnordrtransfer)) {
@@ -583,7 +632,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRTRANSFER, $qnordrtransfer, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRTRANSFER, $qnordrtransfer, $comparison);
+
+        return $this;
     }
 
     /**
@@ -593,14 +644,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnordrfabpo('fooValue');   // WHERE QnOrdrFabPo = 'fooValue'
      * $query->filterByQnordrfabpo('%fooValue%', Criteria::LIKE); // WHERE QnOrdrFabPo LIKE '%fooValue%'
+     * $query->filterByQnordrfabpo(['foo', 'bar']); // WHERE QnOrdrFabPo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnordrfabpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnordrfabpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnordrfabpo($qnordrfabpo = null, $comparison = null)
+    public function filterByQnordrfabpo($qnordrfabpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnordrfabpo)) {
@@ -608,7 +660,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRFABPO, $qnordrfabpo, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNORDRFABPO, $qnordrfabpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -621,15 +675,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * $query->filterByQnseq(array('min' => 12)); // WHERE QnSeq > 12
      * </code>
      *
-     * @param     mixed $qnseq The value to use as filter.
+     * @param mixed $qnseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnseq($qnseq = null, $comparison = null)
+    public function filterByQnseq($qnseq = null, ?string $comparison = null)
     {
         if (is_array($qnseq)) {
             $useMinMax = false;
@@ -649,7 +703,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -659,14 +715,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnnote('fooValue');   // WHERE QnNote = 'fooValue'
      * $query->filterByQnnote('%fooValue%', Criteria::LIKE); // WHERE QnNote LIKE '%fooValue%'
+     * $query->filterByQnnote(['foo', 'bar']); // WHERE QnNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnnote($qnnote = null, $comparison = null)
+    public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnnote)) {
@@ -674,7 +731,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -684,14 +743,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnkey2('fooValue');   // WHERE QnKey2 = 'fooValue'
      * $query->filterByQnkey2('%fooValue%', Criteria::LIKE); // WHERE QnKey2 LIKE '%fooValue%'
+     * $query->filterByQnkey2(['foo', 'bar']); // WHERE QnKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnkey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnkey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnkey2($qnkey2 = null, $comparison = null)
+    public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnkey2)) {
@@ -699,7 +759,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -709,14 +771,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnform('fooValue');   // WHERE QnForm = 'fooValue'
      * $query->filterByQnform('%fooValue%', Criteria::LIKE); // WHERE QnForm LIKE '%fooValue%'
+     * $query->filterByQnform(['foo', 'bar']); // WHERE QnForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnform($qnform = null, $comparison = null)
+    public function filterByQnform($qnform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnform)) {
@@ -724,7 +787,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNFORM, $qnform, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_QNFORM, $qnform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -734,14 +799,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -749,7 +815,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -759,14 +827,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -774,7 +843,9 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -784,14 +855,15 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -799,15 +871,17 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOrderNoteTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItemOrderNoteTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildItemOrderNote $itemOrderNote Object to remove from the list of results
+     * @param ChildItemOrderNote $itemOrderNote Object to remove from the list of results
      *
-     * @return $this|ChildItemOrderNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itemOrderNote = null)
     {
@@ -828,7 +902,7 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemOrderNoteTableMap::DATABASE_NAME);
@@ -853,12 +927,12 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemOrderNoteTableMap::DATABASE_NAME);
@@ -883,4 +957,4 @@ abstract class ItemOrderNoteQuery extends ModelCriteria
         });
     }
 
-} // ItemOrderNoteQuery
+}

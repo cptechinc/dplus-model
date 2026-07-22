@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'po_tran_lot_det' table.
- *
- *
+ * Base class that represents a query for the `po_tran_lot_det` table.
  *
  * @method     ChildPurchaseOrderDetailLotReceivingQuery orderByPothnbr($order = Criteria::ASC) Order by the PothNbr column
  * @method     ChildPurchaseOrderDetailLotReceivingQuery orderByPotdline($order = Criteria::ASC) Order by the PotdLine column
@@ -118,35 +117,35 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \PurchaseOrderQuery|\PoReceivingHeadQuery|\PurchaseOrderDetailQuery|\ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildPurchaseOrderDetailLotReceiving findOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailLotReceiving matching the query
- * @method     ChildPurchaseOrderDetailLotReceiving findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailLotReceiving matching the query, or a new ChildPurchaseOrderDetailLotReceiving object populated from the query conditions when no match is found
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOne(?ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailLotReceiving matching the query
+ * @method     ChildPurchaseOrderDetailLotReceiving findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailLotReceiving matching the query, or a new ChildPurchaseOrderDetailLotReceiving object populated from the query conditions when no match is found
  *
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPothnbr(string $PothNbr) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PothNbr column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotdline(int $PotdLine) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotdLine column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotdseq(int $PotdSeq) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotdSeq column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByInititemnbr(string $InitItemNbr) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the InitItemNbr column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotslotser(string $PotsLotSer) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsLotSer column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotsbin(string $PotsBin) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsBin column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotsqtyrec(string $PotsQtyRec) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsQtyRec column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotsqtyallo(string $PotsQtyAllo) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsQtyAllo column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotscases(int $PotsCases) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsCases column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotstag(int $PotsTag) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsTag column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotsinspctlvl(string $PotsInspctLvl) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsInspctLvl column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotslotref(string $PotsLotRef) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsLotRef column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotsputtake(string $PotsPutTake) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsPutTake column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotslandunitcost(string $PotsLandUnitCost) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsLandUnitCost column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotsfabcostvari(string $PotsFabCostVari) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsFabCostVari column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotserbatch(string $PotsErBatch) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsErBatch column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotserbatchtime(string $PotsErBatchTime) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsErBatchTime column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotsexpiredatecd(string $PotsExpireDateCd) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsExpireDateCd column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotsexpiredate(string $PotsExpireDate) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsExpireDate column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByPotstariffcost(string $PotsTariffCost) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsTariffCost column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByDateupdtd(string $DateUpdtd) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the DateUpdtd column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the TimeUpdtd column
- * @method     ChildPurchaseOrderDetailLotReceiving findOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the dummy column *
-
- * @method     ChildPurchaseOrderDetailLotReceiving requirePk($key, ConnectionInterface $con = null) Return the ChildPurchaseOrderDetailLotReceiving by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPurchaseOrderDetailLotReceiving requireOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailLotReceiving matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPothnbr(string $PothNbr) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PothNbr column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotdline(int $PotdLine) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotdLine column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotdseq(int $PotdSeq) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotdSeq column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the InitItemNbr column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotslotser(string $PotsLotSer) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsLotSer column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotsbin(string $PotsBin) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsBin column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotsqtyrec(string $PotsQtyRec) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsQtyRec column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotsqtyallo(string $PotsQtyAllo) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsQtyAllo column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotscases(int $PotsCases) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsCases column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotstag(int $PotsTag) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsTag column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotsinspctlvl(string $PotsInspctLvl) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsInspctLvl column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotslotref(string $PotsLotRef) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsLotRef column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotsputtake(string $PotsPutTake) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsPutTake column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotslandunitcost(string $PotsLandUnitCost) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsLandUnitCost column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotsfabcostvari(string $PotsFabCostVari) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsFabCostVari column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotserbatch(string $PotsErBatch) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsErBatch column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotserbatchtime(string $PotsErBatchTime) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsErBatchTime column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotsexpiredatecd(string $PotsExpireDateCd) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsExpireDateCd column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotsexpiredate(string $PotsExpireDate) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsExpireDate column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByPotstariffcost(string $PotsTariffCost) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotsTariffCost column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the DateUpdtd column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the TimeUpdtd column
+ * @method     ChildPurchaseOrderDetailLotReceiving|null findOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the dummy column
+ *
+ * @method     ChildPurchaseOrderDetailLotReceiving requirePk($key, ?ConnectionInterface $con = null) Return the ChildPurchaseOrderDetailLotReceiving by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailLotReceiving requireOne(?ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailLotReceiving matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPurchaseOrderDetailLotReceiving requireOneByPothnbr(string $PothNbr) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PothNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailLotReceiving requireOneByPotdline(int $PotdLine) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the PotdLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -172,32 +171,58 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailLotReceiving requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailLotReceiving requireOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetailLotReceiving filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPurchaseOrderDetailLotReceiving objects based on current ModelCriteria
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPothnbr(string $PothNbr) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PothNbr column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotdline(int $PotdLine) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotdLine column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotdseq(int $PotdSeq) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotdSeq column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the InitItemNbr column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotslotser(string $PotsLotSer) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLotSer column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotsbin(string $PotsBin) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsBin column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotsqtyrec(string $PotsQtyRec) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsQtyRec column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotsqtyallo(string $PotsQtyAllo) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsQtyAllo column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotscases(int $PotsCases) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsCases column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotstag(int $PotsTag) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsTag column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotsinspctlvl(string $PotsInspctLvl) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsInspctLvl column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotslotref(string $PotsLotRef) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLotRef column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotsputtake(string $PotsPutTake) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsPutTake column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotslandunitcost(string $PotsLandUnitCost) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLandUnitCost column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotsfabcostvari(string $PotsFabCostVari) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsFabCostVari column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotserbatch(string $PotsErBatch) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsErBatch column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotserbatchtime(string $PotsErBatchTime) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsErBatchTime column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotsexpiredatecd(string $PotsExpireDateCd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsExpireDateCd column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotsexpiredate(string $PotsExpireDate) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsExpireDate column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByPotstariffcost(string $PotsTariffCost) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsTariffCost column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the DateUpdtd column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the TimeUpdtd column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|ObjectCollection findByDummy(string $dummy) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the dummy column
- * @method     ChildPurchaseOrderDetailLotReceiving[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection find(?ConnectionInterface $con = null) Return ChildPurchaseOrderDetailLotReceiving objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> find(?ConnectionInterface $con = null) Return ChildPurchaseOrderDetailLotReceiving objects based on current ModelCriteria
  *
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPothnbr(string|array<string> $PothNbr) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PothNbr column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPothnbr(string|array<string> $PothNbr) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PothNbr column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotdline(int|array<int> $PotdLine) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotdLine column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotdline(int|array<int> $PotdLine) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotdLine column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotdseq(int|array<int> $PotdSeq) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotdSeq column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotdseq(int|array<int> $PotdSeq) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotdSeq column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the InitItemNbr column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotslotser(string|array<string> $PotsLotSer) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLotSer column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotslotser(string|array<string> $PotsLotSer) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLotSer column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotsbin(string|array<string> $PotsBin) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsBin column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotsbin(string|array<string> $PotsBin) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsBin column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotsqtyrec(string|array<string> $PotsQtyRec) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsQtyRec column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotsqtyrec(string|array<string> $PotsQtyRec) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsQtyRec column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotsqtyallo(string|array<string> $PotsQtyAllo) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsQtyAllo column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotsqtyallo(string|array<string> $PotsQtyAllo) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsQtyAllo column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotscases(int|array<int> $PotsCases) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsCases column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotscases(int|array<int> $PotsCases) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsCases column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotstag(int|array<int> $PotsTag) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsTag column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotstag(int|array<int> $PotsTag) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsTag column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotsinspctlvl(string|array<string> $PotsInspctLvl) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsInspctLvl column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotsinspctlvl(string|array<string> $PotsInspctLvl) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsInspctLvl column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotslotref(string|array<string> $PotsLotRef) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLotRef column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotslotref(string|array<string> $PotsLotRef) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLotRef column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotsputtake(string|array<string> $PotsPutTake) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsPutTake column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotsputtake(string|array<string> $PotsPutTake) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsPutTake column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotslandunitcost(string|array<string> $PotsLandUnitCost) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLandUnitCost column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotslandunitcost(string|array<string> $PotsLandUnitCost) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsLandUnitCost column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotsfabcostvari(string|array<string> $PotsFabCostVari) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsFabCostVari column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotsfabcostvari(string|array<string> $PotsFabCostVari) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsFabCostVari column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotserbatch(string|array<string> $PotsErBatch) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsErBatch column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotserbatch(string|array<string> $PotsErBatch) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsErBatch column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotserbatchtime(string|array<string> $PotsErBatchTime) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsErBatchTime column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotserbatchtime(string|array<string> $PotsErBatchTime) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsErBatchTime column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotsexpiredatecd(string|array<string> $PotsExpireDateCd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsExpireDateCd column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotsexpiredatecd(string|array<string> $PotsExpireDateCd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsExpireDateCd column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotsexpiredate(string|array<string> $PotsExpireDate) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsExpireDate column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotsexpiredate(string|array<string> $PotsExpireDate) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsExpireDate column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByPotstariffcost(string|array<string> $PotsTariffCost) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsTariffCost column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByPotstariffcost(string|array<string> $PotsTariffCost) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the PotsTariffCost column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the DateUpdtd column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the TimeUpdtd column
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|Collection findByDummy(string|array<string> $dummy) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildPurchaseOrderDetailLotReceiving> findByDummy(string|array<string> $dummy) Return ChildPurchaseOrderDetailLotReceiving objects filtered by the dummy column
+ *
+ * @method     ChildPurchaseOrderDetailLotReceiving[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildPurchaseOrderDetailLotReceiving> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
 {
@@ -206,9 +231,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\PurchaseOrderDetailLotReceivingQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\PurchaseOrderDetailLotReceiving', $modelAlias = null)
     {
@@ -218,12 +243,12 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Returns a new ChildPurchaseOrderDetailLotReceivingQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildPurchaseOrderDetailLotReceivingQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildPurchaseOrderDetailLotReceivingQuery) {
             return $criteria;
@@ -253,7 +278,7 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      *
      * @return ChildPurchaseOrderDetailLotReceiving|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -285,8 +310,8 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -323,8 +348,8 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildPurchaseOrderDetailLotReceiving|array|mixed the result, formatted by the current formatter
      */
@@ -344,12 +369,12 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -366,9 +391,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -385,14 +410,16 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR, $key[0], Criteria::EQUAL);
@@ -419,14 +446,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPothnbr('fooValue');   // WHERE PothNbr = 'fooValue'
      * $query->filterByPothnbr('%fooValue%', Criteria::LIKE); // WHERE PothNbr LIKE '%fooValue%'
+     * $query->filterByPothnbr(['foo', 'bar']); // WHERE PothNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pothnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pothnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPothnbr($pothnbr = null, $comparison = null)
+    public function filterByPothnbr($pothnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pothnbr)) {
@@ -434,7 +462,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR, $pothnbr, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR, $pothnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -449,15 +479,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      *
      * @see       filterByPurchaseOrderDetail()
      *
-     * @param     mixed $potdline The value to use as filter.
+     * @param mixed $potdline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotdline($potdline = null, $comparison = null)
+    public function filterByPotdline($potdline = null, ?string $comparison = null)
     {
         if (is_array($potdline)) {
             $useMinMax = false;
@@ -477,7 +507,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTDLINE, $potdline, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTDLINE, $potdline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -490,15 +522,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * $query->filterByPotdseq(array('min' => 12)); // WHERE PotdSeq > 12
      * </code>
      *
-     * @param     mixed $potdseq The value to use as filter.
+     * @param mixed $potdseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotdseq($potdseq = null, $comparison = null)
+    public function filterByPotdseq($potdseq = null, ?string $comparison = null)
     {
         if (is_array($potdseq)) {
             $useMinMax = false;
@@ -518,7 +550,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTDSEQ, $potdseq, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTDSEQ, $potdseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -528,14 +562,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -543,7 +578,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -553,14 +590,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotslotser('fooValue');   // WHERE PotsLotSer = 'fooValue'
      * $query->filterByPotslotser('%fooValue%', Criteria::LIKE); // WHERE PotsLotSer LIKE '%fooValue%'
+     * $query->filterByPotslotser(['foo', 'bar']); // WHERE PotsLotSer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potslotser The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potslotser The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotslotser($potslotser = null, $comparison = null)
+    public function filterByPotslotser($potslotser = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potslotser)) {
@@ -568,7 +606,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTSER, $potslotser, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTSER, $potslotser, $comparison);
+
+        return $this;
     }
 
     /**
@@ -578,14 +618,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotsbin('fooValue');   // WHERE PotsBin = 'fooValue'
      * $query->filterByPotsbin('%fooValue%', Criteria::LIKE); // WHERE PotsBin LIKE '%fooValue%'
+     * $query->filterByPotsbin(['foo', 'bar']); // WHERE PotsBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potsbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potsbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotsbin($potsbin = null, $comparison = null)
+    public function filterByPotsbin($potsbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potsbin)) {
@@ -593,7 +634,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSBIN, $potsbin, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSBIN, $potsbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -606,15 +649,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * $query->filterByPotsqtyrec(array('min' => 12)); // WHERE PotsQtyRec > 12
      * </code>
      *
-     * @param     mixed $potsqtyrec The value to use as filter.
+     * @param mixed $potsqtyrec The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotsqtyrec($potsqtyrec = null, $comparison = null)
+    public function filterByPotsqtyrec($potsqtyrec = null, ?string $comparison = null)
     {
         if (is_array($potsqtyrec)) {
             $useMinMax = false;
@@ -634,7 +677,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYREC, $potsqtyrec, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYREC, $potsqtyrec, $comparison);
+
+        return $this;
     }
 
     /**
@@ -647,15 +692,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * $query->filterByPotsqtyallo(array('min' => 12)); // WHERE PotsQtyAllo > 12
      * </code>
      *
-     * @param     mixed $potsqtyallo The value to use as filter.
+     * @param mixed $potsqtyallo The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotsqtyallo($potsqtyallo = null, $comparison = null)
+    public function filterByPotsqtyallo($potsqtyallo = null, ?string $comparison = null)
     {
         if (is_array($potsqtyallo)) {
             $useMinMax = false;
@@ -675,7 +720,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYALLO, $potsqtyallo, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSQTYALLO, $potsqtyallo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -688,15 +735,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * $query->filterByPotscases(array('min' => 12)); // WHERE PotsCases > 12
      * </code>
      *
-     * @param     mixed $potscases The value to use as filter.
+     * @param mixed $potscases The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotscases($potscases = null, $comparison = null)
+    public function filterByPotscases($potscases = null, ?string $comparison = null)
     {
         if (is_array($potscases)) {
             $useMinMax = false;
@@ -716,7 +763,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSCASES, $potscases, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSCASES, $potscases, $comparison);
+
+        return $this;
     }
 
     /**
@@ -729,15 +778,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * $query->filterByPotstag(array('min' => 12)); // WHERE PotsTag > 12
      * </code>
      *
-     * @param     mixed $potstag The value to use as filter.
+     * @param mixed $potstag The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotstag($potstag = null, $comparison = null)
+    public function filterByPotstag($potstag = null, ?string $comparison = null)
     {
         if (is_array($potstag)) {
             $useMinMax = false;
@@ -757,7 +806,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSTAG, $potstag, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSTAG, $potstag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -767,14 +818,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotsinspctlvl('fooValue');   // WHERE PotsInspctLvl = 'fooValue'
      * $query->filterByPotsinspctlvl('%fooValue%', Criteria::LIKE); // WHERE PotsInspctLvl LIKE '%fooValue%'
+     * $query->filterByPotsinspctlvl(['foo', 'bar']); // WHERE PotsInspctLvl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potsinspctlvl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potsinspctlvl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotsinspctlvl($potsinspctlvl = null, $comparison = null)
+    public function filterByPotsinspctlvl($potsinspctlvl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potsinspctlvl)) {
@@ -782,7 +834,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSINSPCTLVL, $potsinspctlvl, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSINSPCTLVL, $potsinspctlvl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -792,14 +846,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotslotref('fooValue');   // WHERE PotsLotRef = 'fooValue'
      * $query->filterByPotslotref('%fooValue%', Criteria::LIKE); // WHERE PotsLotRef LIKE '%fooValue%'
+     * $query->filterByPotslotref(['foo', 'bar']); // WHERE PotsLotRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potslotref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potslotref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotslotref($potslotref = null, $comparison = null)
+    public function filterByPotslotref($potslotref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potslotref)) {
@@ -807,7 +862,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTREF, $potslotref, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLOTREF, $potslotref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -817,14 +874,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotsputtake('fooValue');   // WHERE PotsPutTake = 'fooValue'
      * $query->filterByPotsputtake('%fooValue%', Criteria::LIKE); // WHERE PotsPutTake LIKE '%fooValue%'
+     * $query->filterByPotsputtake(['foo', 'bar']); // WHERE PotsPutTake IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potsputtake The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potsputtake The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotsputtake($potsputtake = null, $comparison = null)
+    public function filterByPotsputtake($potsputtake = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potsputtake)) {
@@ -832,7 +890,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSPUTTAKE, $potsputtake, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSPUTTAKE, $potsputtake, $comparison);
+
+        return $this;
     }
 
     /**
@@ -845,15 +905,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * $query->filterByPotslandunitcost(array('min' => 12)); // WHERE PotsLandUnitCost > 12
      * </code>
      *
-     * @param     mixed $potslandunitcost The value to use as filter.
+     * @param mixed $potslandunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotslandunitcost($potslandunitcost = null, $comparison = null)
+    public function filterByPotslandunitcost($potslandunitcost = null, ?string $comparison = null)
     {
         if (is_array($potslandunitcost)) {
             $useMinMax = false;
@@ -873,7 +933,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLANDUNITCOST, $potslandunitcost, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSLANDUNITCOST, $potslandunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -886,15 +948,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * $query->filterByPotsfabcostvari(array('min' => 12)); // WHERE PotsFabCostVari > 12
      * </code>
      *
-     * @param     mixed $potsfabcostvari The value to use as filter.
+     * @param mixed $potsfabcostvari The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotsfabcostvari($potsfabcostvari = null, $comparison = null)
+    public function filterByPotsfabcostvari($potsfabcostvari = null, ?string $comparison = null)
     {
         if (is_array($potsfabcostvari)) {
             $useMinMax = false;
@@ -914,7 +976,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSFABCOSTVARI, $potsfabcostvari, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSFABCOSTVARI, $potsfabcostvari, $comparison);
+
+        return $this;
     }
 
     /**
@@ -924,14 +988,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotserbatch('fooValue');   // WHERE PotsErBatch = 'fooValue'
      * $query->filterByPotserbatch('%fooValue%', Criteria::LIKE); // WHERE PotsErBatch LIKE '%fooValue%'
+     * $query->filterByPotserbatch(['foo', 'bar']); // WHERE PotsErBatch IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potserbatch The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potserbatch The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotserbatch($potserbatch = null, $comparison = null)
+    public function filterByPotserbatch($potserbatch = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potserbatch)) {
@@ -939,7 +1004,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCH, $potserbatch, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCH, $potserbatch, $comparison);
+
+        return $this;
     }
 
     /**
@@ -949,14 +1016,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotserbatchtime('fooValue');   // WHERE PotsErBatchTime = 'fooValue'
      * $query->filterByPotserbatchtime('%fooValue%', Criteria::LIKE); // WHERE PotsErBatchTime LIKE '%fooValue%'
+     * $query->filterByPotserbatchtime(['foo', 'bar']); // WHERE PotsErBatchTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potserbatchtime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potserbatchtime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotserbatchtime($potserbatchtime = null, $comparison = null)
+    public function filterByPotserbatchtime($potserbatchtime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potserbatchtime)) {
@@ -964,7 +1032,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCHTIME, $potserbatchtime, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSERBATCHTIME, $potserbatchtime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -974,14 +1044,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotsexpiredatecd('fooValue');   // WHERE PotsExpireDateCd = 'fooValue'
      * $query->filterByPotsexpiredatecd('%fooValue%', Criteria::LIKE); // WHERE PotsExpireDateCd LIKE '%fooValue%'
+     * $query->filterByPotsexpiredatecd(['foo', 'bar']); // WHERE PotsExpireDateCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potsexpiredatecd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potsexpiredatecd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotsexpiredatecd($potsexpiredatecd = null, $comparison = null)
+    public function filterByPotsexpiredatecd($potsexpiredatecd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potsexpiredatecd)) {
@@ -989,7 +1060,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATECD, $potsexpiredatecd, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATECD, $potsexpiredatecd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -999,14 +1072,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByPotsexpiredate('fooValue');   // WHERE PotsExpireDate = 'fooValue'
      * $query->filterByPotsexpiredate('%fooValue%', Criteria::LIKE); // WHERE PotsExpireDate LIKE '%fooValue%'
+     * $query->filterByPotsexpiredate(['foo', 'bar']); // WHERE PotsExpireDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potsexpiredate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potsexpiredate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotsexpiredate($potsexpiredate = null, $comparison = null)
+    public function filterByPotsexpiredate($potsexpiredate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potsexpiredate)) {
@@ -1014,7 +1088,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATE, $potsexpiredate, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSEXPIREDATE, $potsexpiredate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1027,15 +1103,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * $query->filterByPotstariffcost(array('min' => 12)); // WHERE PotsTariffCost > 12
      * </code>
      *
-     * @param     mixed $potstariffcost The value to use as filter.
+     * @param mixed $potstariffcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotstariffcost($potstariffcost = null, $comparison = null)
+    public function filterByPotstariffcost($potstariffcost = null, ?string $comparison = null)
     {
         if (is_array($potstariffcost)) {
             $useMinMax = false;
@@ -1055,7 +1131,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSTARIFFCOST, $potstariffcost, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTSTARIFFCOST, $potstariffcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1065,14 +1143,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1080,7 +1159,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1090,14 +1171,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1105,7 +1187,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1115,14 +1199,15 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1130,20 +1215,22 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \PurchaseOrder object
      *
      * @param \PurchaseOrder|ObjectCollection $purchaseOrder The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrder($purchaseOrder, $comparison = null)
+    public function filterByPurchaseOrder($purchaseOrder, ?string $comparison = null)
     {
         if ($purchaseOrder instanceof \PurchaseOrder) {
             return $this
@@ -1153,8 +1240,10 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR, $purchaseOrder->toKeyValue('PrimaryKey', 'Pohdnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByPurchaseOrder() only accepts arguments of type \PurchaseOrder or Collection');
         }
@@ -1163,12 +1252,12 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinPurchaseOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrder');
@@ -1197,9 +1286,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderQuery A secondary query class using the current class as primary query
      */
@@ -1211,16 +1300,112 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrder relation PurchaseOrder object
+     *
+     * @param callable(\PurchaseOrderQuery):\PurchaseOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useExistsQuery('PurchaseOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useExistsQuery('PurchaseOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useInQuery('PurchaseOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for a NOT IN query.
+     *
+     * @see usePurchaseOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useInQuery('PurchaseOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PoReceivingHead object
      *
      * @param \PoReceivingHead|ObjectCollection $poReceivingHead The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPoReceivingHead($poReceivingHead, $comparison = null)
+    public function filterByPoReceivingHead($poReceivingHead, ?string $comparison = null)
     {
         if ($poReceivingHead instanceof \PoReceivingHead) {
             return $this
@@ -1230,8 +1415,10 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_POTHNBR, $poReceivingHead->toKeyValue('PrimaryKey', 'Pothnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByPoReceivingHead() only accepts arguments of type \PoReceivingHead or Collection');
         }
@@ -1240,12 +1427,12 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PoReceivingHead relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPoReceivingHead($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinPoReceivingHead(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PoReceivingHead');
@@ -1274,9 +1461,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PoReceivingHeadQuery A secondary query class using the current class as primary query
      */
@@ -1288,16 +1475,112 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     }
 
     /**
+     * Use the PoReceivingHead relation PoReceivingHead object
+     *
+     * @param callable(\PoReceivingHeadQuery):\PoReceivingHeadQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPoReceivingHeadQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePoReceivingHeadQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PoReceivingHead table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PoReceivingHeadQuery The inner query object of the EXISTS statement
+     */
+    public function usePoReceivingHeadExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PoReceivingHeadQuery */
+        $q = $this->useExistsQuery('PoReceivingHead', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PoReceivingHead table for a NOT EXISTS query.
+     *
+     * @see usePoReceivingHeadExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PoReceivingHeadQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePoReceivingHeadNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PoReceivingHeadQuery */
+        $q = $this->useExistsQuery('PoReceivingHead', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PoReceivingHead table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PoReceivingHeadQuery The inner query object of the IN statement
+     */
+    public function useInPoReceivingHeadQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PoReceivingHeadQuery */
+        $q = $this->useInQuery('PoReceivingHead', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PoReceivingHead table for a NOT IN query.
+     *
+     * @see usePoReceivingHeadInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PoReceivingHeadQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPoReceivingHeadQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PoReceivingHeadQuery */
+        $q = $this->useInQuery('PoReceivingHead', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PurchaseOrderDetail object
      *
      * @param \PurchaseOrderDetail $purchaseOrderDetail The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrderDetail($purchaseOrderDetail, $comparison = null)
+    public function filterByPurchaseOrderDetail($purchaseOrderDetail, ?string $comparison = null)
     {
         if ($purchaseOrderDetail instanceof \PurchaseOrderDetail) {
             return $this
@@ -1311,12 +1594,12 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrderDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinPurchaseOrderDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrderDetail');
@@ -1345,9 +1628,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderDetailQuery A secondary query class using the current class as primary query
      */
@@ -1359,16 +1642,112 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrderDetail relation PurchaseOrderDetail object
+     *
+     * @param callable(\PurchaseOrderDetailQuery):\PurchaseOrderDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderDetailQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderDetailQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetail table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderDetailQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderDetailQuery */
+        $q = $this->useInQuery('PurchaseOrderDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetail table for a NOT IN query.
+     *
+     * @see usePurchaseOrderDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailQuery */
+        $q = $this->useInQuery('PurchaseOrderDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1378,8 +1757,10 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(PurchaseOrderDetailLotReceivingTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1388,12 +1769,12 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1422,9 +1803,9 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1436,11 +1817,107 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving Object to remove from the list of results
+     * @param ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving Object to remove from the list of results
      *
-     * @return $this|ChildPurchaseOrderDetailLotReceivingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($purchaseOrderDetailLotReceiving = null)
     {
@@ -1463,7 +1940,7 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailLotReceivingTableMap::DATABASE_NAME);
@@ -1488,12 +1965,12 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailLotReceivingTableMap::DATABASE_NAME);
@@ -1518,4 +1995,4 @@ abstract class PurchaseOrderDetailLotReceivingQuery extends ModelCriteria
         });
     }
 
-} // PurchaseOrderDetailLotReceivingQuery
+}

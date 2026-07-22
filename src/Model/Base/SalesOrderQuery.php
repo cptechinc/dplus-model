@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_header' table.
- *
- *
+ * Base class that represents a query for the `so_header` table.
  *
  * @method     ChildSalesOrderQuery orderByOehdnbr($order = Criteria::ASC) Order by the OehdNbr column
  * @method     ChildSalesOrderQuery orderByOehdstat($order = Criteria::ASC) Order by the OehdStat column
@@ -480,201 +479,201 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesOrderDetailQuery|\SalesOrderShipmentQuery|\SalesOrderLotserialQuery|\SoAllocatedLotserialQuery|\SoPickedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildSalesOrder findOne(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query
- * @method     ChildSalesOrder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query, or a new ChildSalesOrder object populated from the query conditions when no match is found
+ * @method     ChildSalesOrder|null findOne(?ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query
+ * @method     ChildSalesOrder findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query, or a new ChildSalesOrder object populated from the query conditions when no match is found
  *
- * @method     ChildSalesOrder findOneByOehdnbr(int $OehdNbr) Return the first ChildSalesOrder filtered by the OehdNbr column
- * @method     ChildSalesOrder findOneByOehdstat(string $OehdStat) Return the first ChildSalesOrder filtered by the OehdStat column
- * @method     ChildSalesOrder findOneByOehdhold(string $OehdHold) Return the first ChildSalesOrder filtered by the OehdHold column
- * @method     ChildSalesOrder findOneByArcucustid(string $ArcuCustId) Return the first ChildSalesOrder filtered by the ArcuCustId column
- * @method     ChildSalesOrder findOneByArstshipid(string $ArstShipId) Return the first ChildSalesOrder filtered by the ArstShipId column
- * @method     ChildSalesOrder findOneByOehdstname(string $OehdStName) Return the first ChildSalesOrder filtered by the OehdStName column
- * @method     ChildSalesOrder findOneByOehdstlastname(string $OehdStLastName) Return the first ChildSalesOrder filtered by the OehdStLastName column
- * @method     ChildSalesOrder findOneByOehdstfirstname(string $OehdStFirstName) Return the first ChildSalesOrder filtered by the OehdStFirstName column
- * @method     ChildSalesOrder findOneByOehdstadr1(string $OehdStAdr1) Return the first ChildSalesOrder filtered by the OehdStAdr1 column
- * @method     ChildSalesOrder findOneByOehdstadr2(string $OehdStAdr2) Return the first ChildSalesOrder filtered by the OehdStAdr2 column
- * @method     ChildSalesOrder findOneByOehdstadr3(string $OehdStAdr3) Return the first ChildSalesOrder filtered by the OehdStAdr3 column
- * @method     ChildSalesOrder findOneByOehdstctry(string $OehdStCtry) Return the first ChildSalesOrder filtered by the OehdStCtry column
- * @method     ChildSalesOrder findOneByOehdstcity(string $OehdStCity) Return the first ChildSalesOrder filtered by the OehdStCity column
- * @method     ChildSalesOrder findOneByOehdststat(string $OehdStStat) Return the first ChildSalesOrder filtered by the OehdStStat column
- * @method     ChildSalesOrder findOneByOehdstzipcode(string $OehdStZipCode) Return the first ChildSalesOrder filtered by the OehdStZipCode column
- * @method     ChildSalesOrder findOneByOehdcustpo(string $OehdCustPo) Return the first ChildSalesOrder filtered by the OehdCustPo column
- * @method     ChildSalesOrder findOneByOehdordrdate(string $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column
- * @method     ChildSalesOrder findOneByArtmtermcd(string $ArtmTermCd) Return the first ChildSalesOrder filtered by the ArtmTermCd column
- * @method     ChildSalesOrder findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildSalesOrder filtered by the ArtbShipVia column
- * @method     ChildSalesOrder findOneByArininvnbr(string $ArinInvNbr) Return the first ChildSalesOrder filtered by the ArinInvNbr column
- * @method     ChildSalesOrder findOneByOehdinvdate(string $OehdInvDate) Return the first ChildSalesOrder filtered by the OehdInvDate column
- * @method     ChildSalesOrder findOneByOehdglpd(int $OehdGLPd) Return the first ChildSalesOrder filtered by the OehdGLPd column
- * @method     ChildSalesOrder findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildSalesOrder filtered by the ArspSalePer1 column
- * @method     ChildSalesOrder findOneByOehdsp1pct(string $OehdSp1Pct) Return the first ChildSalesOrder filtered by the OehdSp1Pct column
- * @method     ChildSalesOrder findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildSalesOrder filtered by the ArspSalePer2 column
- * @method     ChildSalesOrder findOneByOehdsp2pct(string $OehdSp2Pct) Return the first ChildSalesOrder filtered by the OehdSp2Pct column
- * @method     ChildSalesOrder findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildSalesOrder filtered by the ArspSalePer3 column
- * @method     ChildSalesOrder findOneByOehdsp3pct(string $OehdSp3Pct) Return the first ChildSalesOrder filtered by the OehdSp3Pct column
- * @method     ChildSalesOrder findOneByOehdcntrnbr(int $OehdCntrNbr) Return the first ChildSalesOrder filtered by the OehdCntrNbr column
- * @method     ChildSalesOrder findOneByOehdwibatch(int $OehdWiBatch) Return the first ChildSalesOrder filtered by the OehdWiBatch column
- * @method     ChildSalesOrder findOneByOehddroprelhold(string $OehdDropRelHold) Return the first ChildSalesOrder filtered by the OehdDropRelHold column
- * @method     ChildSalesOrder findOneByOehdtaxsub(string $OehdTaxSub) Return the first ChildSalesOrder filtered by the OehdTaxSub column
- * @method     ChildSalesOrder findOneByOehdnontaxsub(string $OehdNonTaxSub) Return the first ChildSalesOrder filtered by the OehdNonTaxSub column
- * @method     ChildSalesOrder findOneByOehdtaxtot(string $OehdTaxTot) Return the first ChildSalesOrder filtered by the OehdTaxTot column
- * @method     ChildSalesOrder findOneByOehdfrttot(string $OehdFrtTot) Return the first ChildSalesOrder filtered by the OehdFrtTot column
- * @method     ChildSalesOrder findOneByOehdmisctot(string $OehdMiscTot) Return the first ChildSalesOrder filtered by the OehdMiscTot column
- * @method     ChildSalesOrder findOneByOehdordrtot(string $OehdOrdrTot) Return the first ChildSalesOrder filtered by the OehdOrdrTot column
- * @method     ChildSalesOrder findOneByOehdcosttot(string $OehdCostTot) Return the first ChildSalesOrder filtered by the OehdCostTot column
- * @method     ChildSalesOrder findOneByOehdspcommlock(string $OehdSpCommLock) Return the first ChildSalesOrder filtered by the OehdSpCommLock column
- * @method     ChildSalesOrder findOneByOehdtakendate(string $OehdTakenDate) Return the first ChildSalesOrder filtered by the OehdTakenDate column
- * @method     ChildSalesOrder findOneByOehdtakentime(string $OehdTakenTime) Return the first ChildSalesOrder filtered by the OehdTakenTime column
- * @method     ChildSalesOrder findOneByOehdpickdate(string $OehdPickDate) Return the first ChildSalesOrder filtered by the OehdPickDate column
- * @method     ChildSalesOrder findOneByOehdpicktime(string $OehdPickTime) Return the first ChildSalesOrder filtered by the OehdPickTime column
- * @method     ChildSalesOrder findOneByOehdpackdate(string $OehdPackDate) Return the first ChildSalesOrder filtered by the OehdPackDate column
- * @method     ChildSalesOrder findOneByOehdpacktime(string $OehdPackTime) Return the first ChildSalesOrder filtered by the OehdPackTime column
- * @method     ChildSalesOrder findOneByOehdverifydate(string $OehdVerifyDate) Return the first ChildSalesOrder filtered by the OehdVerifyDate column
- * @method     ChildSalesOrder findOneByOehdverifytime(string $OehdVerifyTime) Return the first ChildSalesOrder filtered by the OehdVerifyTime column
- * @method     ChildSalesOrder findOneByOehdcreditmemo(string $OehdCreditMemo) Return the first ChildSalesOrder filtered by the OehdCreditMemo column
- * @method     ChildSalesOrder findOneByOehdbookedyn(string $OehdBookedYn) Return the first ChildSalesOrder filtered by the OehdBookedYn column
- * @method     ChildSalesOrder findOneByIntbwhseorig(string $IntbWhseOrig) Return the first ChildSalesOrder filtered by the IntbWhseOrig column
- * @method     ChildSalesOrder findOneByOehdbtstat(string $OehdBtStat) Return the first ChildSalesOrder filtered by the OehdBtStat column
- * @method     ChildSalesOrder findOneByOehdshipcomp(string $OehdShipComp) Return the first ChildSalesOrder filtered by the OehdShipComp column
- * @method     ChildSalesOrder findOneByOehdcwoflag(string $OehdCwoFlag) Return the first ChildSalesOrder filtered by the OehdCwoFlag column
- * @method     ChildSalesOrder findOneByOehddivision(string $OehdDivision) Return the first ChildSalesOrder filtered by the OehdDivision column
- * @method     ChildSalesOrder findOneByOehdtakencode(string $OehdTakenCode) Return the first ChildSalesOrder filtered by the OehdTakenCode column
- * @method     ChildSalesOrder findOneByOehdpickcode(string $OehdPickCode) Return the first ChildSalesOrder filtered by the OehdPickCode column
- * @method     ChildSalesOrder findOneByOehdpackcode(string $OehdPackCode) Return the first ChildSalesOrder filtered by the OehdPackCode column
- * @method     ChildSalesOrder findOneByOehdverifycode(string $OehdVerifyCode) Return the first ChildSalesOrder filtered by the OehdVerifyCode column
- * @method     ChildSalesOrder findOneByOehdtotdisc(string $OehdTotDisc) Return the first ChildSalesOrder filtered by the OehdTotDisc column
- * @method     ChildSalesOrder findOneByOehdedirefnbrqual(string $OehdEdiRefNbrQual) Return the first ChildSalesOrder filtered by the OehdEdiRefNbrQual column
- * @method     ChildSalesOrder findOneByOehdusercode1(string $OehdUserCode1) Return the first ChildSalesOrder filtered by the OehdUserCode1 column
- * @method     ChildSalesOrder findOneByOehdusercode2(string $OehdUserCode2) Return the first ChildSalesOrder filtered by the OehdUserCode2 column
- * @method     ChildSalesOrder findOneByOehdusercode3(string $OehdUserCode3) Return the first ChildSalesOrder filtered by the OehdUserCode3 column
- * @method     ChildSalesOrder findOneByOehdusercode4(string $OehdUserCode4) Return the first ChildSalesOrder filtered by the OehdUserCode4 column
- * @method     ChildSalesOrder findOneByOehdexchctry(string $OehdExchCtry) Return the first ChildSalesOrder filtered by the OehdExchCtry column
- * @method     ChildSalesOrder findOneByOehdexchrate(string $OehdExchRate) Return the first ChildSalesOrder filtered by the OehdExchRate column
- * @method     ChildSalesOrder findOneByOehdwghttot(string $OehdWghtTot) Return the first ChildSalesOrder filtered by the OehdWghtTot column
- * @method     ChildSalesOrder findOneByOehdwghtoride(string $OehdWghtOride) Return the first ChildSalesOrder filtered by the OehdWghtOride column
- * @method     ChildSalesOrder findOneByOehdccinfo(string $OehdCcInfo) Return the first ChildSalesOrder filtered by the OehdCcInfo column
- * @method     ChildSalesOrder findOneByOehdboxcount(int $OehdBoxCount) Return the first ChildSalesOrder filtered by the OehdBoxCount column
- * @method     ChildSalesOrder findOneByOehdrqstdate(string $OehdRqstDate) Return the first ChildSalesOrder filtered by the OehdRqstDate column
- * @method     ChildSalesOrder findOneByOehdcancdate(string $OehdCancDate) Return the first ChildSalesOrder filtered by the OehdCancDate column
- * @method     ChildSalesOrder findOneByOehdcrntuser(string $OehdCrntUser) Return the first ChildSalesOrder filtered by the OehdCrntUser column
- * @method     ChildSalesOrder findOneByOehdreleasenbr(string $OehdReleaseNbr) Return the first ChildSalesOrder filtered by the OehdReleaseNbr column
- * @method     ChildSalesOrder findOneByIntbwhse(string $IntbWhse) Return the first ChildSalesOrder filtered by the IntbWhse column
- * @method     ChildSalesOrder findOneByOehdbordbuilddate(string $OehdBordBuildDate) Return the first ChildSalesOrder filtered by the OehdBordBuildDate column
- * @method     ChildSalesOrder findOneByOehddeptcode(string $OehdDeptCode) Return the first ChildSalesOrder filtered by the OehdDeptCode column
- * @method     ChildSalesOrder findOneByOehdfrtinentered(string $OehdFrtInEntered) Return the first ChildSalesOrder filtered by the OehdFrtInEntered column
- * @method     ChildSalesOrder findOneByOehddropshipentered(string $OehdDropShipEntered) Return the first ChildSalesOrder filtered by the OehdDropShipEntered column
- * @method     ChildSalesOrder findOneByOehderflag(string $OehdErFlag) Return the first ChildSalesOrder filtered by the OehdErFlag column
- * @method     ChildSalesOrder findOneByOehdfrtin(string $OehdFrtIn) Return the first ChildSalesOrder filtered by the OehdFrtIn column
- * @method     ChildSalesOrder findOneByOehddropship(string $OehdDropShip) Return the first ChildSalesOrder filtered by the OehdDropShip column
- * @method     ChildSalesOrder findOneByOehdminorder(string $OehdMinOrder) Return the first ChildSalesOrder filtered by the OehdMinOrder column
- * @method     ChildSalesOrder findOneByOehdcontractterms(string $OehdContractTerms) Return the first ChildSalesOrder filtered by the OehdContractTerms column
- * @method     ChildSalesOrder findOneByOehddropshipbilled(string $OehdDropShipBilled) Return the first ChildSalesOrder filtered by the OehdDropShipBilled column
- * @method     ChildSalesOrder findOneByOehdordtyp(string $OehdOrdTyp) Return the first ChildSalesOrder filtered by the OehdOrdTyp column
- * @method     ChildSalesOrder findOneByOehdtracknbr(string $OehdTrackNbr) Return the first ChildSalesOrder filtered by the OehdTrackNbr column
- * @method     ChildSalesOrder findOneByOehdsource(string $OehdSource) Return the first ChildSalesOrder filtered by the OehdSource column
- * @method     ChildSalesOrder findOneByOehdccaprv(string $OehdCcAprv) Return the first ChildSalesOrder filtered by the OehdCcAprv column
- * @method     ChildSalesOrder findOneByOehdpickfmattype(string $OehdPickFmatType) Return the first ChildSalesOrder filtered by the OehdPickFmatType column
- * @method     ChildSalesOrder findOneByOehdinvcfmattype(string $OehdInvcFmatType) Return the first ChildSalesOrder filtered by the OehdInvcFmatType column
- * @method     ChildSalesOrder findOneByOehdcashamt(string $OehdCashAmt) Return the first ChildSalesOrder filtered by the OehdCashAmt column
- * @method     ChildSalesOrder findOneByOehdcheckamt(string $OehdCheckAmt) Return the first ChildSalesOrder filtered by the OehdCheckAmt column
- * @method     ChildSalesOrder findOneByOehdchecknbr(string $OehdCheckNbr) Return the first ChildSalesOrder filtered by the OehdCheckNbr column
- * @method     ChildSalesOrder findOneByOehddepositamt(string $OehdDepositAmt) Return the first ChildSalesOrder filtered by the OehdDepositAmt column
- * @method     ChildSalesOrder findOneByOehddepositnbr(string $OehdDepositNbr) Return the first ChildSalesOrder filtered by the OehdDepositNbr column
- * @method     ChildSalesOrder findOneByOehdccamt(string $OehdCcAmt) Return the first ChildSalesOrder filtered by the OehdCcAmt column
- * @method     ChildSalesOrder findOneByOehdotaxsub(string $OehdOTaxSub) Return the first ChildSalesOrder filtered by the OehdOTaxSub column
- * @method     ChildSalesOrder findOneByOehdonontaxsub(string $OehdONonTaxSub) Return the first ChildSalesOrder filtered by the OehdONonTaxSub column
- * @method     ChildSalesOrder findOneByOehdotaxtot(string $OehdOTaxTot) Return the first ChildSalesOrder filtered by the OehdOTaxTot column
- * @method     ChildSalesOrder findOneByOehdoordrtot(string $OehdOOrdrTot) Return the first ChildSalesOrder filtered by the OehdOOrdrTot column
- * @method     ChildSalesOrder findOneByOehdpickprintdate(string $OehdPickPrintDate) Return the first ChildSalesOrder filtered by the OehdPickPrintDate column
- * @method     ChildSalesOrder findOneByOehdpickprinttime(string $OehdPickPrintTime) Return the first ChildSalesOrder filtered by the OehdPickPrintTime column
- * @method     ChildSalesOrder findOneByOehdcont(string $OehdCont) Return the first ChildSalesOrder filtered by the OehdCont column
- * @method     ChildSalesOrder findOneByOehdcontteleintl(string $OehdContTeleIntl) Return the first ChildSalesOrder filtered by the OehdContTeleIntl column
- * @method     ChildSalesOrder findOneByOehdconttelenbr(string $OehdContTeleNbr) Return the first ChildSalesOrder filtered by the OehdContTeleNbr column
- * @method     ChildSalesOrder findOneByOehdcontteleext(string $OehdContTeleExt) Return the first ChildSalesOrder filtered by the OehdContTeleExt column
- * @method     ChildSalesOrder findOneByOehdcontfaxintl(string $OehdContFaxIntl) Return the first ChildSalesOrder filtered by the OehdContFaxIntl column
- * @method     ChildSalesOrder findOneByOehdcontfaxnbr(string $OehdContFaxNbr) Return the first ChildSalesOrder filtered by the OehdContFaxNbr column
- * @method     ChildSalesOrder findOneByOehdshipacct(string $OehdShipAcct) Return the first ChildSalesOrder filtered by the OehdShipAcct column
- * @method     ChildSalesOrder findOneByOehdchgdue(string $OehdChgDue) Return the first ChildSalesOrder filtered by the OehdChgDue column
- * @method     ChildSalesOrder findOneByOehdaddlpricdisc(string $OehdAddlPricDisc) Return the first ChildSalesOrder filtered by the OehdAddlPricDisc column
- * @method     ChildSalesOrder findOneByOehdallship(string $OehdAllShip) Return the first ChildSalesOrder filtered by the OehdAllShip column
- * @method     ChildSalesOrder findOneByOehdqtyorderamt(string $OehdQtyOrderAmt) Return the first ChildSalesOrder filtered by the OehdQtyOrderAmt column
- * @method     ChildSalesOrder findOneByOehdcreditapplied(string $OehdCreditApplied) Return the first ChildSalesOrder filtered by the OehdCreditApplied column
- * @method     ChildSalesOrder findOneByOehdinvcprintdate(string $OehdInvcPrintDate) Return the first ChildSalesOrder filtered by the OehdInvcPrintDate column
- * @method     ChildSalesOrder findOneByOehdinvcprinttime(string $OehdInvcPrintTime) Return the first ChildSalesOrder filtered by the OehdInvcPrintTime column
- * @method     ChildSalesOrder findOneByOehddiscfrt(string $OehdDiscFrt) Return the first ChildSalesOrder filtered by the OehdDiscFrt column
- * @method     ChildSalesOrder findOneByOehdorideshipcomp(string $OehdOrideShipComp) Return the first ChildSalesOrder filtered by the OehdOrideShipComp column
- * @method     ChildSalesOrder findOneByOehdcontemail(string $OehdContEmail) Return the first ChildSalesOrder filtered by the OehdContEmail column
- * @method     ChildSalesOrder findOneByOehdmanualfrt(string $OehdManualFrt) Return the first ChildSalesOrder filtered by the OehdManualFrt column
- * @method     ChildSalesOrder findOneByOehdinternalfrt(string $OehdInternalFrt) Return the first ChildSalesOrder filtered by the OehdInternalFrt column
- * @method     ChildSalesOrder findOneByOehdfrtcost(string $OehdFrtCost) Return the first ChildSalesOrder filtered by the OehdFrtCost column
- * @method     ChildSalesOrder findOneByOehdroute(string $OehdRoute) Return the first ChildSalesOrder filtered by the OehdRoute column
- * @method     ChildSalesOrder findOneByOehdrouteseq(int $OehdRouteSeq) Return the first ChildSalesOrder filtered by the OehdRouteSeq column
- * @method     ChildSalesOrder findOneByOehdfrttaxcode1(string $OehdFrtTaxCode1) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode1 column
- * @method     ChildSalesOrder findOneByOehdfrttaxamt1(string $OehdFrtTaxAmt1) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt1 column
- * @method     ChildSalesOrder findOneByOehdfrttaxcode2(string $OehdFrtTaxCode2) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode2 column
- * @method     ChildSalesOrder findOneByOehdfrttaxamt2(string $OehdFrtTaxAmt2) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt2 column
- * @method     ChildSalesOrder findOneByOehdfrttaxcode3(string $OehdFrtTaxCode3) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode3 column
- * @method     ChildSalesOrder findOneByOehdfrttaxamt3(string $OehdFrtTaxAmt3) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt3 column
- * @method     ChildSalesOrder findOneByOehdfrttaxcode4(string $OehdFrtTaxCode4) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode4 column
- * @method     ChildSalesOrder findOneByOehdfrttaxamt4(string $OehdFrtTaxAmt4) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt4 column
- * @method     ChildSalesOrder findOneByOehdfrttaxcode5(string $OehdFrtTaxCode5) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode5 column
- * @method     ChildSalesOrder findOneByOehdfrttaxamt5(string $OehdFrtTaxAmt5) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt5 column
- * @method     ChildSalesOrder findOneByOehdedi855sent(string $OehdEdi855Sent) Return the first ChildSalesOrder filtered by the OehdEdi855Sent column
- * @method     ChildSalesOrder findOneByOehdfrt3rdparty(string $OehdFrt3rdParty) Return the first ChildSalesOrder filtered by the OehdFrt3rdParty column
- * @method     ChildSalesOrder findOneByOehdfob(string $OehdFob) Return the first ChildSalesOrder filtered by the OehdFob column
- * @method     ChildSalesOrder findOneByOehdconfirmimagyn(string $OehdConfirmImagYn) Return the first ChildSalesOrder filtered by the OehdConfirmImagYn column
- * @method     ChildSalesOrder findOneByOehdindustconform(string $OehdIndustConform) Return the first ChildSalesOrder filtered by the OehdIndustConform column
- * @method     ChildSalesOrder findOneByOehdcstkconsign(string $OehdCstkConsign) Return the first ChildSalesOrder filtered by the OehdCstkConsign column
- * @method     ChildSalesOrder findOneByOehdlmdelaycapsent(string $OehdLmDelayCapSent) Return the first ChildSalesOrder filtered by the OehdLmDelayCapSent column
- * @method     ChildSalesOrder findOneByOehdmfgid(string $OehdMfgId) Return the first ChildSalesOrder filtered by the OehdMfgId column
- * @method     ChildSalesOrder findOneByOehdstoreid(string $OehdStoreId) Return the first ChildSalesOrder filtered by the OehdStoreId column
- * @method     ChildSalesOrder findOneByOehdpickqueue(string $OehdPickQueue) Return the first ChildSalesOrder filtered by the OehdPickQueue column
- * @method     ChildSalesOrder findOneByOehdarrvdate(string $OehdArrvDate) Return the first ChildSalesOrder filtered by the OehdArrvDate column
- * @method     ChildSalesOrder findOneByOehdsurchgstat(string $OehdSurchgStat) Return the first ChildSalesOrder filtered by the OehdSurchgStat column
- * @method     ChildSalesOrder findOneByOehdfrtgrup(string $OehdFrtGrup) Return the first ChildSalesOrder filtered by the OehdFrtGrup column
- * @method     ChildSalesOrder findOneByOehdcommoride(string $OehdCommOride) Return the first ChildSalesOrder filtered by the OehdCommOride column
- * @method     ChildSalesOrder findOneByOehdchrgsplt(string $OehdChrgSplt) Return the first ChildSalesOrder filtered by the OehdChrgSplt column
- * @method     ChildSalesOrder findOneByOehdacccaprv(string $OehdAcCcAprv) Return the first ChildSalesOrder filtered by the OehdAcCcAprv column
- * @method     ChildSalesOrder findOneByOehdorigordrnbr(string $OehdOrigOrdrNbr) Return the first ChildSalesOrder filtered by the OehdOrigOrdrNbr column
- * @method     ChildSalesOrder findOneByOehdpostdate(string $OehdPostDate) Return the first ChildSalesOrder filtered by the OehdPostDate column
- * @method     ChildSalesOrder findOneByOehddiscdate1(string $OehdDiscDate1) Return the first ChildSalesOrder filtered by the OehdDiscDate1 column
- * @method     ChildSalesOrder findOneByOehddiscpct1(string $OehdDiscPct1) Return the first ChildSalesOrder filtered by the OehdDiscPct1 column
- * @method     ChildSalesOrder findOneByOehdduedate1(string $OehdDueDate1) Return the first ChildSalesOrder filtered by the OehdDueDate1 column
- * @method     ChildSalesOrder findOneByOehddueamt1(string $OehdDueAmt1) Return the first ChildSalesOrder filtered by the OehdDueAmt1 column
- * @method     ChildSalesOrder findOneByOehdduepct1(string $OehdDuePct1) Return the first ChildSalesOrder filtered by the OehdDuePct1 column
- * @method     ChildSalesOrder findOneByOehddiscdate2(string $OehdDiscDate2) Return the first ChildSalesOrder filtered by the OehdDiscDate2 column
- * @method     ChildSalesOrder findOneByOehddiscpct2(string $OehdDiscPct2) Return the first ChildSalesOrder filtered by the OehdDiscPct2 column
- * @method     ChildSalesOrder findOneByOehdduedate2(string $OehdDueDate2) Return the first ChildSalesOrder filtered by the OehdDueDate2 column
- * @method     ChildSalesOrder findOneByOehddueamt2(string $OehdDueAmt2) Return the first ChildSalesOrder filtered by the OehdDueAmt2 column
- * @method     ChildSalesOrder findOneByOehdduepct2(string $OehdDuePct2) Return the first ChildSalesOrder filtered by the OehdDuePct2 column
- * @method     ChildSalesOrder findOneByOehddiscdate3(string $OehdDiscDate3) Return the first ChildSalesOrder filtered by the OehdDiscDate3 column
- * @method     ChildSalesOrder findOneByOehddiscpct3(string $OehdDiscPct3) Return the first ChildSalesOrder filtered by the OehdDiscPct3 column
- * @method     ChildSalesOrder findOneByOehdduedate3(string $OehdDueDate3) Return the first ChildSalesOrder filtered by the OehdDueDate3 column
- * @method     ChildSalesOrder findOneByOehddueamt3(string $OehdDueAmt3) Return the first ChildSalesOrder filtered by the OehdDueAmt3 column
- * @method     ChildSalesOrder findOneByOehdduepct3(string $OehdDuePct3) Return the first ChildSalesOrder filtered by the OehdDuePct3 column
- * @method     ChildSalesOrder findOneByOehddiscdate4(string $OehdDiscDate4) Return the first ChildSalesOrder filtered by the OehdDiscDate4 column
- * @method     ChildSalesOrder findOneByOehddiscpct4(string $OehdDiscPct4) Return the first ChildSalesOrder filtered by the OehdDiscPct4 column
- * @method     ChildSalesOrder findOneByOehdduedate4(string $OehdDueDate4) Return the first ChildSalesOrder filtered by the OehdDueDate4 column
- * @method     ChildSalesOrder findOneByOehddueamt4(string $OehdDueAmt4) Return the first ChildSalesOrder filtered by the OehdDueAmt4 column
- * @method     ChildSalesOrder findOneByOehdduepct4(string $OehdDuePct4) Return the first ChildSalesOrder filtered by the OehdDuePct4 column
- * @method     ChildSalesOrder findOneByOehddiscdate5(string $OehdDiscDate5) Return the first ChildSalesOrder filtered by the OehdDiscDate5 column
- * @method     ChildSalesOrder findOneByOehddiscpct5(string $OehdDiscPct5) Return the first ChildSalesOrder filtered by the OehdDiscPct5 column
- * @method     ChildSalesOrder findOneByOehdduedate5(string $OehdDueDate5) Return the first ChildSalesOrder filtered by the OehdDueDate5 column
- * @method     ChildSalesOrder findOneByOehddueamt5(string $OehdDueAmt5) Return the first ChildSalesOrder filtered by the OehdDueAmt5 column
- * @method     ChildSalesOrder findOneByOehdduepct5(string $OehdDuePct5) Return the first ChildSalesOrder filtered by the OehdDuePct5 column
- * @method     ChildSalesOrder findOneByOehddiscdate6(string $OehdDiscDate6) Return the first ChildSalesOrder filtered by the OehdDiscDate6 column
- * @method     ChildSalesOrder findOneByOehddiscpct6(string $OehdDiscPct6) Return the first ChildSalesOrder filtered by the OehdDiscPct6 column
- * @method     ChildSalesOrder findOneByOehdduedate6(string $OehdDueDate6) Return the first ChildSalesOrder filtered by the OehdDueDate6 column
- * @method     ChildSalesOrder findOneByOehddueamt6(string $OehdDueAmt6) Return the first ChildSalesOrder filtered by the OehdDueAmt6 column
- * @method     ChildSalesOrder findOneByOehdduepct6(string $OehdDuePct6) Return the first ChildSalesOrder filtered by the OehdDuePct6 column
- * @method     ChildSalesOrder findOneByOehdrefnbr(string $OehdRefNbr) Return the first ChildSalesOrder filtered by the OehdRefNbr column
- * @method     ChildSalesOrder findOneByOehdacprognbr(string $OehdAcProgNbr) Return the first ChildSalesOrder filtered by the OehdAcProgNbr column
- * @method     ChildSalesOrder findOneByOehdacprogexpdate(string $OehdAcProgExpDate) Return the first ChildSalesOrder filtered by the OehdAcProgExpDate column
- * @method     ChildSalesOrder findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesOrder filtered by the DateUpdtd column
- * @method     ChildSalesOrder findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesOrder filtered by the TimeUpdtd column
- * @method     ChildSalesOrder findOneByDummy(string $dummy) Return the first ChildSalesOrder filtered by the dummy column *
-
- * @method     ChildSalesOrder requirePk($key, ConnectionInterface $con = null) Return the ChildSalesOrder by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrder requireOne(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrder|null findOneByOehdnbr(int $OehdNbr) Return the first ChildSalesOrder filtered by the OehdNbr column
+ * @method     ChildSalesOrder|null findOneByOehdstat(string $OehdStat) Return the first ChildSalesOrder filtered by the OehdStat column
+ * @method     ChildSalesOrder|null findOneByOehdhold(string $OehdHold) Return the first ChildSalesOrder filtered by the OehdHold column
+ * @method     ChildSalesOrder|null findOneByArcucustid(string $ArcuCustId) Return the first ChildSalesOrder filtered by the ArcuCustId column
+ * @method     ChildSalesOrder|null findOneByArstshipid(string $ArstShipId) Return the first ChildSalesOrder filtered by the ArstShipId column
+ * @method     ChildSalesOrder|null findOneByOehdstname(string $OehdStName) Return the first ChildSalesOrder filtered by the OehdStName column
+ * @method     ChildSalesOrder|null findOneByOehdstlastname(string $OehdStLastName) Return the first ChildSalesOrder filtered by the OehdStLastName column
+ * @method     ChildSalesOrder|null findOneByOehdstfirstname(string $OehdStFirstName) Return the first ChildSalesOrder filtered by the OehdStFirstName column
+ * @method     ChildSalesOrder|null findOneByOehdstadr1(string $OehdStAdr1) Return the first ChildSalesOrder filtered by the OehdStAdr1 column
+ * @method     ChildSalesOrder|null findOneByOehdstadr2(string $OehdStAdr2) Return the first ChildSalesOrder filtered by the OehdStAdr2 column
+ * @method     ChildSalesOrder|null findOneByOehdstadr3(string $OehdStAdr3) Return the first ChildSalesOrder filtered by the OehdStAdr3 column
+ * @method     ChildSalesOrder|null findOneByOehdstctry(string $OehdStCtry) Return the first ChildSalesOrder filtered by the OehdStCtry column
+ * @method     ChildSalesOrder|null findOneByOehdstcity(string $OehdStCity) Return the first ChildSalesOrder filtered by the OehdStCity column
+ * @method     ChildSalesOrder|null findOneByOehdststat(string $OehdStStat) Return the first ChildSalesOrder filtered by the OehdStStat column
+ * @method     ChildSalesOrder|null findOneByOehdstzipcode(string $OehdStZipCode) Return the first ChildSalesOrder filtered by the OehdStZipCode column
+ * @method     ChildSalesOrder|null findOneByOehdcustpo(string $OehdCustPo) Return the first ChildSalesOrder filtered by the OehdCustPo column
+ * @method     ChildSalesOrder|null findOneByOehdordrdate(string $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column
+ * @method     ChildSalesOrder|null findOneByArtmtermcd(string $ArtmTermCd) Return the first ChildSalesOrder filtered by the ArtmTermCd column
+ * @method     ChildSalesOrder|null findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildSalesOrder filtered by the ArtbShipVia column
+ * @method     ChildSalesOrder|null findOneByArininvnbr(string $ArinInvNbr) Return the first ChildSalesOrder filtered by the ArinInvNbr column
+ * @method     ChildSalesOrder|null findOneByOehdinvdate(string $OehdInvDate) Return the first ChildSalesOrder filtered by the OehdInvDate column
+ * @method     ChildSalesOrder|null findOneByOehdglpd(int $OehdGLPd) Return the first ChildSalesOrder filtered by the OehdGLPd column
+ * @method     ChildSalesOrder|null findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildSalesOrder filtered by the ArspSalePer1 column
+ * @method     ChildSalesOrder|null findOneByOehdsp1pct(string $OehdSp1Pct) Return the first ChildSalesOrder filtered by the OehdSp1Pct column
+ * @method     ChildSalesOrder|null findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildSalesOrder filtered by the ArspSalePer2 column
+ * @method     ChildSalesOrder|null findOneByOehdsp2pct(string $OehdSp2Pct) Return the first ChildSalesOrder filtered by the OehdSp2Pct column
+ * @method     ChildSalesOrder|null findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildSalesOrder filtered by the ArspSalePer3 column
+ * @method     ChildSalesOrder|null findOneByOehdsp3pct(string $OehdSp3Pct) Return the first ChildSalesOrder filtered by the OehdSp3Pct column
+ * @method     ChildSalesOrder|null findOneByOehdcntrnbr(int $OehdCntrNbr) Return the first ChildSalesOrder filtered by the OehdCntrNbr column
+ * @method     ChildSalesOrder|null findOneByOehdwibatch(int $OehdWiBatch) Return the first ChildSalesOrder filtered by the OehdWiBatch column
+ * @method     ChildSalesOrder|null findOneByOehddroprelhold(string $OehdDropRelHold) Return the first ChildSalesOrder filtered by the OehdDropRelHold column
+ * @method     ChildSalesOrder|null findOneByOehdtaxsub(string $OehdTaxSub) Return the first ChildSalesOrder filtered by the OehdTaxSub column
+ * @method     ChildSalesOrder|null findOneByOehdnontaxsub(string $OehdNonTaxSub) Return the first ChildSalesOrder filtered by the OehdNonTaxSub column
+ * @method     ChildSalesOrder|null findOneByOehdtaxtot(string $OehdTaxTot) Return the first ChildSalesOrder filtered by the OehdTaxTot column
+ * @method     ChildSalesOrder|null findOneByOehdfrttot(string $OehdFrtTot) Return the first ChildSalesOrder filtered by the OehdFrtTot column
+ * @method     ChildSalesOrder|null findOneByOehdmisctot(string $OehdMiscTot) Return the first ChildSalesOrder filtered by the OehdMiscTot column
+ * @method     ChildSalesOrder|null findOneByOehdordrtot(string $OehdOrdrTot) Return the first ChildSalesOrder filtered by the OehdOrdrTot column
+ * @method     ChildSalesOrder|null findOneByOehdcosttot(string $OehdCostTot) Return the first ChildSalesOrder filtered by the OehdCostTot column
+ * @method     ChildSalesOrder|null findOneByOehdspcommlock(string $OehdSpCommLock) Return the first ChildSalesOrder filtered by the OehdSpCommLock column
+ * @method     ChildSalesOrder|null findOneByOehdtakendate(string $OehdTakenDate) Return the first ChildSalesOrder filtered by the OehdTakenDate column
+ * @method     ChildSalesOrder|null findOneByOehdtakentime(string $OehdTakenTime) Return the first ChildSalesOrder filtered by the OehdTakenTime column
+ * @method     ChildSalesOrder|null findOneByOehdpickdate(string $OehdPickDate) Return the first ChildSalesOrder filtered by the OehdPickDate column
+ * @method     ChildSalesOrder|null findOneByOehdpicktime(string $OehdPickTime) Return the first ChildSalesOrder filtered by the OehdPickTime column
+ * @method     ChildSalesOrder|null findOneByOehdpackdate(string $OehdPackDate) Return the first ChildSalesOrder filtered by the OehdPackDate column
+ * @method     ChildSalesOrder|null findOneByOehdpacktime(string $OehdPackTime) Return the first ChildSalesOrder filtered by the OehdPackTime column
+ * @method     ChildSalesOrder|null findOneByOehdverifydate(string $OehdVerifyDate) Return the first ChildSalesOrder filtered by the OehdVerifyDate column
+ * @method     ChildSalesOrder|null findOneByOehdverifytime(string $OehdVerifyTime) Return the first ChildSalesOrder filtered by the OehdVerifyTime column
+ * @method     ChildSalesOrder|null findOneByOehdcreditmemo(string $OehdCreditMemo) Return the first ChildSalesOrder filtered by the OehdCreditMemo column
+ * @method     ChildSalesOrder|null findOneByOehdbookedyn(string $OehdBookedYn) Return the first ChildSalesOrder filtered by the OehdBookedYn column
+ * @method     ChildSalesOrder|null findOneByIntbwhseorig(string $IntbWhseOrig) Return the first ChildSalesOrder filtered by the IntbWhseOrig column
+ * @method     ChildSalesOrder|null findOneByOehdbtstat(string $OehdBtStat) Return the first ChildSalesOrder filtered by the OehdBtStat column
+ * @method     ChildSalesOrder|null findOneByOehdshipcomp(string $OehdShipComp) Return the first ChildSalesOrder filtered by the OehdShipComp column
+ * @method     ChildSalesOrder|null findOneByOehdcwoflag(string $OehdCwoFlag) Return the first ChildSalesOrder filtered by the OehdCwoFlag column
+ * @method     ChildSalesOrder|null findOneByOehddivision(string $OehdDivision) Return the first ChildSalesOrder filtered by the OehdDivision column
+ * @method     ChildSalesOrder|null findOneByOehdtakencode(string $OehdTakenCode) Return the first ChildSalesOrder filtered by the OehdTakenCode column
+ * @method     ChildSalesOrder|null findOneByOehdpickcode(string $OehdPickCode) Return the first ChildSalesOrder filtered by the OehdPickCode column
+ * @method     ChildSalesOrder|null findOneByOehdpackcode(string $OehdPackCode) Return the first ChildSalesOrder filtered by the OehdPackCode column
+ * @method     ChildSalesOrder|null findOneByOehdverifycode(string $OehdVerifyCode) Return the first ChildSalesOrder filtered by the OehdVerifyCode column
+ * @method     ChildSalesOrder|null findOneByOehdtotdisc(string $OehdTotDisc) Return the first ChildSalesOrder filtered by the OehdTotDisc column
+ * @method     ChildSalesOrder|null findOneByOehdedirefnbrqual(string $OehdEdiRefNbrQual) Return the first ChildSalesOrder filtered by the OehdEdiRefNbrQual column
+ * @method     ChildSalesOrder|null findOneByOehdusercode1(string $OehdUserCode1) Return the first ChildSalesOrder filtered by the OehdUserCode1 column
+ * @method     ChildSalesOrder|null findOneByOehdusercode2(string $OehdUserCode2) Return the first ChildSalesOrder filtered by the OehdUserCode2 column
+ * @method     ChildSalesOrder|null findOneByOehdusercode3(string $OehdUserCode3) Return the first ChildSalesOrder filtered by the OehdUserCode3 column
+ * @method     ChildSalesOrder|null findOneByOehdusercode4(string $OehdUserCode4) Return the first ChildSalesOrder filtered by the OehdUserCode4 column
+ * @method     ChildSalesOrder|null findOneByOehdexchctry(string $OehdExchCtry) Return the first ChildSalesOrder filtered by the OehdExchCtry column
+ * @method     ChildSalesOrder|null findOneByOehdexchrate(string $OehdExchRate) Return the first ChildSalesOrder filtered by the OehdExchRate column
+ * @method     ChildSalesOrder|null findOneByOehdwghttot(string $OehdWghtTot) Return the first ChildSalesOrder filtered by the OehdWghtTot column
+ * @method     ChildSalesOrder|null findOneByOehdwghtoride(string $OehdWghtOride) Return the first ChildSalesOrder filtered by the OehdWghtOride column
+ * @method     ChildSalesOrder|null findOneByOehdccinfo(string $OehdCcInfo) Return the first ChildSalesOrder filtered by the OehdCcInfo column
+ * @method     ChildSalesOrder|null findOneByOehdboxcount(int $OehdBoxCount) Return the first ChildSalesOrder filtered by the OehdBoxCount column
+ * @method     ChildSalesOrder|null findOneByOehdrqstdate(string $OehdRqstDate) Return the first ChildSalesOrder filtered by the OehdRqstDate column
+ * @method     ChildSalesOrder|null findOneByOehdcancdate(string $OehdCancDate) Return the first ChildSalesOrder filtered by the OehdCancDate column
+ * @method     ChildSalesOrder|null findOneByOehdcrntuser(string $OehdCrntUser) Return the first ChildSalesOrder filtered by the OehdCrntUser column
+ * @method     ChildSalesOrder|null findOneByOehdreleasenbr(string $OehdReleaseNbr) Return the first ChildSalesOrder filtered by the OehdReleaseNbr column
+ * @method     ChildSalesOrder|null findOneByIntbwhse(string $IntbWhse) Return the first ChildSalesOrder filtered by the IntbWhse column
+ * @method     ChildSalesOrder|null findOneByOehdbordbuilddate(string $OehdBordBuildDate) Return the first ChildSalesOrder filtered by the OehdBordBuildDate column
+ * @method     ChildSalesOrder|null findOneByOehddeptcode(string $OehdDeptCode) Return the first ChildSalesOrder filtered by the OehdDeptCode column
+ * @method     ChildSalesOrder|null findOneByOehdfrtinentered(string $OehdFrtInEntered) Return the first ChildSalesOrder filtered by the OehdFrtInEntered column
+ * @method     ChildSalesOrder|null findOneByOehddropshipentered(string $OehdDropShipEntered) Return the first ChildSalesOrder filtered by the OehdDropShipEntered column
+ * @method     ChildSalesOrder|null findOneByOehderflag(string $OehdErFlag) Return the first ChildSalesOrder filtered by the OehdErFlag column
+ * @method     ChildSalesOrder|null findOneByOehdfrtin(string $OehdFrtIn) Return the first ChildSalesOrder filtered by the OehdFrtIn column
+ * @method     ChildSalesOrder|null findOneByOehddropship(string $OehdDropShip) Return the first ChildSalesOrder filtered by the OehdDropShip column
+ * @method     ChildSalesOrder|null findOneByOehdminorder(string $OehdMinOrder) Return the first ChildSalesOrder filtered by the OehdMinOrder column
+ * @method     ChildSalesOrder|null findOneByOehdcontractterms(string $OehdContractTerms) Return the first ChildSalesOrder filtered by the OehdContractTerms column
+ * @method     ChildSalesOrder|null findOneByOehddropshipbilled(string $OehdDropShipBilled) Return the first ChildSalesOrder filtered by the OehdDropShipBilled column
+ * @method     ChildSalesOrder|null findOneByOehdordtyp(string $OehdOrdTyp) Return the first ChildSalesOrder filtered by the OehdOrdTyp column
+ * @method     ChildSalesOrder|null findOneByOehdtracknbr(string $OehdTrackNbr) Return the first ChildSalesOrder filtered by the OehdTrackNbr column
+ * @method     ChildSalesOrder|null findOneByOehdsource(string $OehdSource) Return the first ChildSalesOrder filtered by the OehdSource column
+ * @method     ChildSalesOrder|null findOneByOehdccaprv(string $OehdCcAprv) Return the first ChildSalesOrder filtered by the OehdCcAprv column
+ * @method     ChildSalesOrder|null findOneByOehdpickfmattype(string $OehdPickFmatType) Return the first ChildSalesOrder filtered by the OehdPickFmatType column
+ * @method     ChildSalesOrder|null findOneByOehdinvcfmattype(string $OehdInvcFmatType) Return the first ChildSalesOrder filtered by the OehdInvcFmatType column
+ * @method     ChildSalesOrder|null findOneByOehdcashamt(string $OehdCashAmt) Return the first ChildSalesOrder filtered by the OehdCashAmt column
+ * @method     ChildSalesOrder|null findOneByOehdcheckamt(string $OehdCheckAmt) Return the first ChildSalesOrder filtered by the OehdCheckAmt column
+ * @method     ChildSalesOrder|null findOneByOehdchecknbr(string $OehdCheckNbr) Return the first ChildSalesOrder filtered by the OehdCheckNbr column
+ * @method     ChildSalesOrder|null findOneByOehddepositamt(string $OehdDepositAmt) Return the first ChildSalesOrder filtered by the OehdDepositAmt column
+ * @method     ChildSalesOrder|null findOneByOehddepositnbr(string $OehdDepositNbr) Return the first ChildSalesOrder filtered by the OehdDepositNbr column
+ * @method     ChildSalesOrder|null findOneByOehdccamt(string $OehdCcAmt) Return the first ChildSalesOrder filtered by the OehdCcAmt column
+ * @method     ChildSalesOrder|null findOneByOehdotaxsub(string $OehdOTaxSub) Return the first ChildSalesOrder filtered by the OehdOTaxSub column
+ * @method     ChildSalesOrder|null findOneByOehdonontaxsub(string $OehdONonTaxSub) Return the first ChildSalesOrder filtered by the OehdONonTaxSub column
+ * @method     ChildSalesOrder|null findOneByOehdotaxtot(string $OehdOTaxTot) Return the first ChildSalesOrder filtered by the OehdOTaxTot column
+ * @method     ChildSalesOrder|null findOneByOehdoordrtot(string $OehdOOrdrTot) Return the first ChildSalesOrder filtered by the OehdOOrdrTot column
+ * @method     ChildSalesOrder|null findOneByOehdpickprintdate(string $OehdPickPrintDate) Return the first ChildSalesOrder filtered by the OehdPickPrintDate column
+ * @method     ChildSalesOrder|null findOneByOehdpickprinttime(string $OehdPickPrintTime) Return the first ChildSalesOrder filtered by the OehdPickPrintTime column
+ * @method     ChildSalesOrder|null findOneByOehdcont(string $OehdCont) Return the first ChildSalesOrder filtered by the OehdCont column
+ * @method     ChildSalesOrder|null findOneByOehdcontteleintl(string $OehdContTeleIntl) Return the first ChildSalesOrder filtered by the OehdContTeleIntl column
+ * @method     ChildSalesOrder|null findOneByOehdconttelenbr(string $OehdContTeleNbr) Return the first ChildSalesOrder filtered by the OehdContTeleNbr column
+ * @method     ChildSalesOrder|null findOneByOehdcontteleext(string $OehdContTeleExt) Return the first ChildSalesOrder filtered by the OehdContTeleExt column
+ * @method     ChildSalesOrder|null findOneByOehdcontfaxintl(string $OehdContFaxIntl) Return the first ChildSalesOrder filtered by the OehdContFaxIntl column
+ * @method     ChildSalesOrder|null findOneByOehdcontfaxnbr(string $OehdContFaxNbr) Return the first ChildSalesOrder filtered by the OehdContFaxNbr column
+ * @method     ChildSalesOrder|null findOneByOehdshipacct(string $OehdShipAcct) Return the first ChildSalesOrder filtered by the OehdShipAcct column
+ * @method     ChildSalesOrder|null findOneByOehdchgdue(string $OehdChgDue) Return the first ChildSalesOrder filtered by the OehdChgDue column
+ * @method     ChildSalesOrder|null findOneByOehdaddlpricdisc(string $OehdAddlPricDisc) Return the first ChildSalesOrder filtered by the OehdAddlPricDisc column
+ * @method     ChildSalesOrder|null findOneByOehdallship(string $OehdAllShip) Return the first ChildSalesOrder filtered by the OehdAllShip column
+ * @method     ChildSalesOrder|null findOneByOehdqtyorderamt(string $OehdQtyOrderAmt) Return the first ChildSalesOrder filtered by the OehdQtyOrderAmt column
+ * @method     ChildSalesOrder|null findOneByOehdcreditapplied(string $OehdCreditApplied) Return the first ChildSalesOrder filtered by the OehdCreditApplied column
+ * @method     ChildSalesOrder|null findOneByOehdinvcprintdate(string $OehdInvcPrintDate) Return the first ChildSalesOrder filtered by the OehdInvcPrintDate column
+ * @method     ChildSalesOrder|null findOneByOehdinvcprinttime(string $OehdInvcPrintTime) Return the first ChildSalesOrder filtered by the OehdInvcPrintTime column
+ * @method     ChildSalesOrder|null findOneByOehddiscfrt(string $OehdDiscFrt) Return the first ChildSalesOrder filtered by the OehdDiscFrt column
+ * @method     ChildSalesOrder|null findOneByOehdorideshipcomp(string $OehdOrideShipComp) Return the first ChildSalesOrder filtered by the OehdOrideShipComp column
+ * @method     ChildSalesOrder|null findOneByOehdcontemail(string $OehdContEmail) Return the first ChildSalesOrder filtered by the OehdContEmail column
+ * @method     ChildSalesOrder|null findOneByOehdmanualfrt(string $OehdManualFrt) Return the first ChildSalesOrder filtered by the OehdManualFrt column
+ * @method     ChildSalesOrder|null findOneByOehdinternalfrt(string $OehdInternalFrt) Return the first ChildSalesOrder filtered by the OehdInternalFrt column
+ * @method     ChildSalesOrder|null findOneByOehdfrtcost(string $OehdFrtCost) Return the first ChildSalesOrder filtered by the OehdFrtCost column
+ * @method     ChildSalesOrder|null findOneByOehdroute(string $OehdRoute) Return the first ChildSalesOrder filtered by the OehdRoute column
+ * @method     ChildSalesOrder|null findOneByOehdrouteseq(int $OehdRouteSeq) Return the first ChildSalesOrder filtered by the OehdRouteSeq column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxcode1(string $OehdFrtTaxCode1) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode1 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxamt1(string $OehdFrtTaxAmt1) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt1 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxcode2(string $OehdFrtTaxCode2) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode2 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxamt2(string $OehdFrtTaxAmt2) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt2 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxcode3(string $OehdFrtTaxCode3) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode3 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxamt3(string $OehdFrtTaxAmt3) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt3 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxcode4(string $OehdFrtTaxCode4) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode4 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxamt4(string $OehdFrtTaxAmt4) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt4 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxcode5(string $OehdFrtTaxCode5) Return the first ChildSalesOrder filtered by the OehdFrtTaxCode5 column
+ * @method     ChildSalesOrder|null findOneByOehdfrttaxamt5(string $OehdFrtTaxAmt5) Return the first ChildSalesOrder filtered by the OehdFrtTaxAmt5 column
+ * @method     ChildSalesOrder|null findOneByOehdedi855sent(string $OehdEdi855Sent) Return the first ChildSalesOrder filtered by the OehdEdi855Sent column
+ * @method     ChildSalesOrder|null findOneByOehdfrt3rdparty(string $OehdFrt3rdParty) Return the first ChildSalesOrder filtered by the OehdFrt3rdParty column
+ * @method     ChildSalesOrder|null findOneByOehdfob(string $OehdFob) Return the first ChildSalesOrder filtered by the OehdFob column
+ * @method     ChildSalesOrder|null findOneByOehdconfirmimagyn(string $OehdConfirmImagYn) Return the first ChildSalesOrder filtered by the OehdConfirmImagYn column
+ * @method     ChildSalesOrder|null findOneByOehdindustconform(string $OehdIndustConform) Return the first ChildSalesOrder filtered by the OehdIndustConform column
+ * @method     ChildSalesOrder|null findOneByOehdcstkconsign(string $OehdCstkConsign) Return the first ChildSalesOrder filtered by the OehdCstkConsign column
+ * @method     ChildSalesOrder|null findOneByOehdlmdelaycapsent(string $OehdLmDelayCapSent) Return the first ChildSalesOrder filtered by the OehdLmDelayCapSent column
+ * @method     ChildSalesOrder|null findOneByOehdmfgid(string $OehdMfgId) Return the first ChildSalesOrder filtered by the OehdMfgId column
+ * @method     ChildSalesOrder|null findOneByOehdstoreid(string $OehdStoreId) Return the first ChildSalesOrder filtered by the OehdStoreId column
+ * @method     ChildSalesOrder|null findOneByOehdpickqueue(string $OehdPickQueue) Return the first ChildSalesOrder filtered by the OehdPickQueue column
+ * @method     ChildSalesOrder|null findOneByOehdarrvdate(string $OehdArrvDate) Return the first ChildSalesOrder filtered by the OehdArrvDate column
+ * @method     ChildSalesOrder|null findOneByOehdsurchgstat(string $OehdSurchgStat) Return the first ChildSalesOrder filtered by the OehdSurchgStat column
+ * @method     ChildSalesOrder|null findOneByOehdfrtgrup(string $OehdFrtGrup) Return the first ChildSalesOrder filtered by the OehdFrtGrup column
+ * @method     ChildSalesOrder|null findOneByOehdcommoride(string $OehdCommOride) Return the first ChildSalesOrder filtered by the OehdCommOride column
+ * @method     ChildSalesOrder|null findOneByOehdchrgsplt(string $OehdChrgSplt) Return the first ChildSalesOrder filtered by the OehdChrgSplt column
+ * @method     ChildSalesOrder|null findOneByOehdacccaprv(string $OehdAcCcAprv) Return the first ChildSalesOrder filtered by the OehdAcCcAprv column
+ * @method     ChildSalesOrder|null findOneByOehdorigordrnbr(string $OehdOrigOrdrNbr) Return the first ChildSalesOrder filtered by the OehdOrigOrdrNbr column
+ * @method     ChildSalesOrder|null findOneByOehdpostdate(string $OehdPostDate) Return the first ChildSalesOrder filtered by the OehdPostDate column
+ * @method     ChildSalesOrder|null findOneByOehddiscdate1(string $OehdDiscDate1) Return the first ChildSalesOrder filtered by the OehdDiscDate1 column
+ * @method     ChildSalesOrder|null findOneByOehddiscpct1(string $OehdDiscPct1) Return the first ChildSalesOrder filtered by the OehdDiscPct1 column
+ * @method     ChildSalesOrder|null findOneByOehdduedate1(string $OehdDueDate1) Return the first ChildSalesOrder filtered by the OehdDueDate1 column
+ * @method     ChildSalesOrder|null findOneByOehddueamt1(string $OehdDueAmt1) Return the first ChildSalesOrder filtered by the OehdDueAmt1 column
+ * @method     ChildSalesOrder|null findOneByOehdduepct1(string $OehdDuePct1) Return the first ChildSalesOrder filtered by the OehdDuePct1 column
+ * @method     ChildSalesOrder|null findOneByOehddiscdate2(string $OehdDiscDate2) Return the first ChildSalesOrder filtered by the OehdDiscDate2 column
+ * @method     ChildSalesOrder|null findOneByOehddiscpct2(string $OehdDiscPct2) Return the first ChildSalesOrder filtered by the OehdDiscPct2 column
+ * @method     ChildSalesOrder|null findOneByOehdduedate2(string $OehdDueDate2) Return the first ChildSalesOrder filtered by the OehdDueDate2 column
+ * @method     ChildSalesOrder|null findOneByOehddueamt2(string $OehdDueAmt2) Return the first ChildSalesOrder filtered by the OehdDueAmt2 column
+ * @method     ChildSalesOrder|null findOneByOehdduepct2(string $OehdDuePct2) Return the first ChildSalesOrder filtered by the OehdDuePct2 column
+ * @method     ChildSalesOrder|null findOneByOehddiscdate3(string $OehdDiscDate3) Return the first ChildSalesOrder filtered by the OehdDiscDate3 column
+ * @method     ChildSalesOrder|null findOneByOehddiscpct3(string $OehdDiscPct3) Return the first ChildSalesOrder filtered by the OehdDiscPct3 column
+ * @method     ChildSalesOrder|null findOneByOehdduedate3(string $OehdDueDate3) Return the first ChildSalesOrder filtered by the OehdDueDate3 column
+ * @method     ChildSalesOrder|null findOneByOehddueamt3(string $OehdDueAmt3) Return the first ChildSalesOrder filtered by the OehdDueAmt3 column
+ * @method     ChildSalesOrder|null findOneByOehdduepct3(string $OehdDuePct3) Return the first ChildSalesOrder filtered by the OehdDuePct3 column
+ * @method     ChildSalesOrder|null findOneByOehddiscdate4(string $OehdDiscDate4) Return the first ChildSalesOrder filtered by the OehdDiscDate4 column
+ * @method     ChildSalesOrder|null findOneByOehddiscpct4(string $OehdDiscPct4) Return the first ChildSalesOrder filtered by the OehdDiscPct4 column
+ * @method     ChildSalesOrder|null findOneByOehdduedate4(string $OehdDueDate4) Return the first ChildSalesOrder filtered by the OehdDueDate4 column
+ * @method     ChildSalesOrder|null findOneByOehddueamt4(string $OehdDueAmt4) Return the first ChildSalesOrder filtered by the OehdDueAmt4 column
+ * @method     ChildSalesOrder|null findOneByOehdduepct4(string $OehdDuePct4) Return the first ChildSalesOrder filtered by the OehdDuePct4 column
+ * @method     ChildSalesOrder|null findOneByOehddiscdate5(string $OehdDiscDate5) Return the first ChildSalesOrder filtered by the OehdDiscDate5 column
+ * @method     ChildSalesOrder|null findOneByOehddiscpct5(string $OehdDiscPct5) Return the first ChildSalesOrder filtered by the OehdDiscPct5 column
+ * @method     ChildSalesOrder|null findOneByOehdduedate5(string $OehdDueDate5) Return the first ChildSalesOrder filtered by the OehdDueDate5 column
+ * @method     ChildSalesOrder|null findOneByOehddueamt5(string $OehdDueAmt5) Return the first ChildSalesOrder filtered by the OehdDueAmt5 column
+ * @method     ChildSalesOrder|null findOneByOehdduepct5(string $OehdDuePct5) Return the first ChildSalesOrder filtered by the OehdDuePct5 column
+ * @method     ChildSalesOrder|null findOneByOehddiscdate6(string $OehdDiscDate6) Return the first ChildSalesOrder filtered by the OehdDiscDate6 column
+ * @method     ChildSalesOrder|null findOneByOehddiscpct6(string $OehdDiscPct6) Return the first ChildSalesOrder filtered by the OehdDiscPct6 column
+ * @method     ChildSalesOrder|null findOneByOehdduedate6(string $OehdDueDate6) Return the first ChildSalesOrder filtered by the OehdDueDate6 column
+ * @method     ChildSalesOrder|null findOneByOehddueamt6(string $OehdDueAmt6) Return the first ChildSalesOrder filtered by the OehdDueAmt6 column
+ * @method     ChildSalesOrder|null findOneByOehdduepct6(string $OehdDuePct6) Return the first ChildSalesOrder filtered by the OehdDuePct6 column
+ * @method     ChildSalesOrder|null findOneByOehdrefnbr(string $OehdRefNbr) Return the first ChildSalesOrder filtered by the OehdRefNbr column
+ * @method     ChildSalesOrder|null findOneByOehdacprognbr(string $OehdAcProgNbr) Return the first ChildSalesOrder filtered by the OehdAcProgNbr column
+ * @method     ChildSalesOrder|null findOneByOehdacprogexpdate(string $OehdAcProgExpDate) Return the first ChildSalesOrder filtered by the OehdAcProgExpDate column
+ * @method     ChildSalesOrder|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesOrder filtered by the DateUpdtd column
+ * @method     ChildSalesOrder|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesOrder filtered by the TimeUpdtd column
+ * @method     ChildSalesOrder|null findOneByDummy(string $dummy) Return the first ChildSalesOrder filtered by the dummy column
+ *
+ * @method     ChildSalesOrder requirePk($key, ?ConnectionInterface $con = null) Return the ChildSalesOrder by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrder requireOne(?ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSalesOrder requireOneByOehdnbr(int $OehdNbr) Return the first ChildSalesOrder filtered by the OehdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehdstat(string $OehdStat) Return the first ChildSalesOrder filtered by the OehdStat column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -866,198 +865,390 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesOrder filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByDummy(string $dummy) Return the first ChildSalesOrder filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSalesOrder[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSalesOrder objects based on current ModelCriteria
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdnbr(int $OehdNbr) Return ChildSalesOrder objects filtered by the OehdNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstat(string $OehdStat) Return ChildSalesOrder objects filtered by the OehdStat column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdhold(string $OehdHold) Return ChildSalesOrder objects filtered by the OehdHold column
- * @method     ChildSalesOrder[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildSalesOrder objects filtered by the ArcuCustId column
- * @method     ChildSalesOrder[]|ObjectCollection findByArstshipid(string $ArstShipId) Return ChildSalesOrder objects filtered by the ArstShipId column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstname(string $OehdStName) Return ChildSalesOrder objects filtered by the OehdStName column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstlastname(string $OehdStLastName) Return ChildSalesOrder objects filtered by the OehdStLastName column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstfirstname(string $OehdStFirstName) Return ChildSalesOrder objects filtered by the OehdStFirstName column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstadr1(string $OehdStAdr1) Return ChildSalesOrder objects filtered by the OehdStAdr1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstadr2(string $OehdStAdr2) Return ChildSalesOrder objects filtered by the OehdStAdr2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstadr3(string $OehdStAdr3) Return ChildSalesOrder objects filtered by the OehdStAdr3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstctry(string $OehdStCtry) Return ChildSalesOrder objects filtered by the OehdStCtry column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstcity(string $OehdStCity) Return ChildSalesOrder objects filtered by the OehdStCity column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdststat(string $OehdStStat) Return ChildSalesOrder objects filtered by the OehdStStat column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstzipcode(string $OehdStZipCode) Return ChildSalesOrder objects filtered by the OehdStZipCode column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcustpo(string $OehdCustPo) Return ChildSalesOrder objects filtered by the OehdCustPo column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdordrdate(string $OehdOrdrDate) Return ChildSalesOrder objects filtered by the OehdOrdrDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByArtmtermcd(string $ArtmTermCd) Return ChildSalesOrder objects filtered by the ArtmTermCd column
- * @method     ChildSalesOrder[]|ObjectCollection findByArtbshipvia(string $ArtbShipVia) Return ChildSalesOrder objects filtered by the ArtbShipVia column
- * @method     ChildSalesOrder[]|ObjectCollection findByArininvnbr(string $ArinInvNbr) Return ChildSalesOrder objects filtered by the ArinInvNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdinvdate(string $OehdInvDate) Return ChildSalesOrder objects filtered by the OehdInvDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdglpd(int $OehdGLPd) Return ChildSalesOrder objects filtered by the OehdGLPd column
- * @method     ChildSalesOrder[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildSalesOrder objects filtered by the ArspSalePer1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdsp1pct(string $OehdSp1Pct) Return ChildSalesOrder objects filtered by the OehdSp1Pct column
- * @method     ChildSalesOrder[]|ObjectCollection findByArspsaleper2(string $ArspSalePer2) Return ChildSalesOrder objects filtered by the ArspSalePer2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdsp2pct(string $OehdSp2Pct) Return ChildSalesOrder objects filtered by the OehdSp2Pct column
- * @method     ChildSalesOrder[]|ObjectCollection findByArspsaleper3(string $ArspSalePer3) Return ChildSalesOrder objects filtered by the ArspSalePer3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdsp3pct(string $OehdSp3Pct) Return ChildSalesOrder objects filtered by the OehdSp3Pct column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcntrnbr(int $OehdCntrNbr) Return ChildSalesOrder objects filtered by the OehdCntrNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdwibatch(int $OehdWiBatch) Return ChildSalesOrder objects filtered by the OehdWiBatch column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddroprelhold(string $OehdDropRelHold) Return ChildSalesOrder objects filtered by the OehdDropRelHold column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdtaxsub(string $OehdTaxSub) Return ChildSalesOrder objects filtered by the OehdTaxSub column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdnontaxsub(string $OehdNonTaxSub) Return ChildSalesOrder objects filtered by the OehdNonTaxSub column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdtaxtot(string $OehdTaxTot) Return ChildSalesOrder objects filtered by the OehdTaxTot column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttot(string $OehdFrtTot) Return ChildSalesOrder objects filtered by the OehdFrtTot column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdmisctot(string $OehdMiscTot) Return ChildSalesOrder objects filtered by the OehdMiscTot column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdordrtot(string $OehdOrdrTot) Return ChildSalesOrder objects filtered by the OehdOrdrTot column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcosttot(string $OehdCostTot) Return ChildSalesOrder objects filtered by the OehdCostTot column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdspcommlock(string $OehdSpCommLock) Return ChildSalesOrder objects filtered by the OehdSpCommLock column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdtakendate(string $OehdTakenDate) Return ChildSalesOrder objects filtered by the OehdTakenDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdtakentime(string $OehdTakenTime) Return ChildSalesOrder objects filtered by the OehdTakenTime column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpickdate(string $OehdPickDate) Return ChildSalesOrder objects filtered by the OehdPickDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpicktime(string $OehdPickTime) Return ChildSalesOrder objects filtered by the OehdPickTime column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpackdate(string $OehdPackDate) Return ChildSalesOrder objects filtered by the OehdPackDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpacktime(string $OehdPackTime) Return ChildSalesOrder objects filtered by the OehdPackTime column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdverifydate(string $OehdVerifyDate) Return ChildSalesOrder objects filtered by the OehdVerifyDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdverifytime(string $OehdVerifyTime) Return ChildSalesOrder objects filtered by the OehdVerifyTime column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcreditmemo(string $OehdCreditMemo) Return ChildSalesOrder objects filtered by the OehdCreditMemo column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdbookedyn(string $OehdBookedYn) Return ChildSalesOrder objects filtered by the OehdBookedYn column
- * @method     ChildSalesOrder[]|ObjectCollection findByIntbwhseorig(string $IntbWhseOrig) Return ChildSalesOrder objects filtered by the IntbWhseOrig column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdbtstat(string $OehdBtStat) Return ChildSalesOrder objects filtered by the OehdBtStat column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdshipcomp(string $OehdShipComp) Return ChildSalesOrder objects filtered by the OehdShipComp column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcwoflag(string $OehdCwoFlag) Return ChildSalesOrder objects filtered by the OehdCwoFlag column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddivision(string $OehdDivision) Return ChildSalesOrder objects filtered by the OehdDivision column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdtakencode(string $OehdTakenCode) Return ChildSalesOrder objects filtered by the OehdTakenCode column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpickcode(string $OehdPickCode) Return ChildSalesOrder objects filtered by the OehdPickCode column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpackcode(string $OehdPackCode) Return ChildSalesOrder objects filtered by the OehdPackCode column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdverifycode(string $OehdVerifyCode) Return ChildSalesOrder objects filtered by the OehdVerifyCode column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdtotdisc(string $OehdTotDisc) Return ChildSalesOrder objects filtered by the OehdTotDisc column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdedirefnbrqual(string $OehdEdiRefNbrQual) Return ChildSalesOrder objects filtered by the OehdEdiRefNbrQual column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdusercode1(string $OehdUserCode1) Return ChildSalesOrder objects filtered by the OehdUserCode1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdusercode2(string $OehdUserCode2) Return ChildSalesOrder objects filtered by the OehdUserCode2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdusercode3(string $OehdUserCode3) Return ChildSalesOrder objects filtered by the OehdUserCode3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdusercode4(string $OehdUserCode4) Return ChildSalesOrder objects filtered by the OehdUserCode4 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdexchctry(string $OehdExchCtry) Return ChildSalesOrder objects filtered by the OehdExchCtry column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdexchrate(string $OehdExchRate) Return ChildSalesOrder objects filtered by the OehdExchRate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdwghttot(string $OehdWghtTot) Return ChildSalesOrder objects filtered by the OehdWghtTot column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdwghtoride(string $OehdWghtOride) Return ChildSalesOrder objects filtered by the OehdWghtOride column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdccinfo(string $OehdCcInfo) Return ChildSalesOrder objects filtered by the OehdCcInfo column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdboxcount(int $OehdBoxCount) Return ChildSalesOrder objects filtered by the OehdBoxCount column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdrqstdate(string $OehdRqstDate) Return ChildSalesOrder objects filtered by the OehdRqstDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcancdate(string $OehdCancDate) Return ChildSalesOrder objects filtered by the OehdCancDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcrntuser(string $OehdCrntUser) Return ChildSalesOrder objects filtered by the OehdCrntUser column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdreleasenbr(string $OehdReleaseNbr) Return ChildSalesOrder objects filtered by the OehdReleaseNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildSalesOrder objects filtered by the IntbWhse column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdbordbuilddate(string $OehdBordBuildDate) Return ChildSalesOrder objects filtered by the OehdBordBuildDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddeptcode(string $OehdDeptCode) Return ChildSalesOrder objects filtered by the OehdDeptCode column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrtinentered(string $OehdFrtInEntered) Return ChildSalesOrder objects filtered by the OehdFrtInEntered column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddropshipentered(string $OehdDropShipEntered) Return ChildSalesOrder objects filtered by the OehdDropShipEntered column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehderflag(string $OehdErFlag) Return ChildSalesOrder objects filtered by the OehdErFlag column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrtin(string $OehdFrtIn) Return ChildSalesOrder objects filtered by the OehdFrtIn column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddropship(string $OehdDropShip) Return ChildSalesOrder objects filtered by the OehdDropShip column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdminorder(string $OehdMinOrder) Return ChildSalesOrder objects filtered by the OehdMinOrder column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcontractterms(string $OehdContractTerms) Return ChildSalesOrder objects filtered by the OehdContractTerms column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddropshipbilled(string $OehdDropShipBilled) Return ChildSalesOrder objects filtered by the OehdDropShipBilled column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdordtyp(string $OehdOrdTyp) Return ChildSalesOrder objects filtered by the OehdOrdTyp column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdtracknbr(string $OehdTrackNbr) Return ChildSalesOrder objects filtered by the OehdTrackNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdsource(string $OehdSource) Return ChildSalesOrder objects filtered by the OehdSource column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdccaprv(string $OehdCcAprv) Return ChildSalesOrder objects filtered by the OehdCcAprv column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpickfmattype(string $OehdPickFmatType) Return ChildSalesOrder objects filtered by the OehdPickFmatType column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdinvcfmattype(string $OehdInvcFmatType) Return ChildSalesOrder objects filtered by the OehdInvcFmatType column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcashamt(string $OehdCashAmt) Return ChildSalesOrder objects filtered by the OehdCashAmt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcheckamt(string $OehdCheckAmt) Return ChildSalesOrder objects filtered by the OehdCheckAmt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdchecknbr(string $OehdCheckNbr) Return ChildSalesOrder objects filtered by the OehdCheckNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddepositamt(string $OehdDepositAmt) Return ChildSalesOrder objects filtered by the OehdDepositAmt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddepositnbr(string $OehdDepositNbr) Return ChildSalesOrder objects filtered by the OehdDepositNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdccamt(string $OehdCcAmt) Return ChildSalesOrder objects filtered by the OehdCcAmt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdotaxsub(string $OehdOTaxSub) Return ChildSalesOrder objects filtered by the OehdOTaxSub column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdonontaxsub(string $OehdONonTaxSub) Return ChildSalesOrder objects filtered by the OehdONonTaxSub column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdotaxtot(string $OehdOTaxTot) Return ChildSalesOrder objects filtered by the OehdOTaxTot column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdoordrtot(string $OehdOOrdrTot) Return ChildSalesOrder objects filtered by the OehdOOrdrTot column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpickprintdate(string $OehdPickPrintDate) Return ChildSalesOrder objects filtered by the OehdPickPrintDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpickprinttime(string $OehdPickPrintTime) Return ChildSalesOrder objects filtered by the OehdPickPrintTime column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcont(string $OehdCont) Return ChildSalesOrder objects filtered by the OehdCont column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcontteleintl(string $OehdContTeleIntl) Return ChildSalesOrder objects filtered by the OehdContTeleIntl column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdconttelenbr(string $OehdContTeleNbr) Return ChildSalesOrder objects filtered by the OehdContTeleNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcontteleext(string $OehdContTeleExt) Return ChildSalesOrder objects filtered by the OehdContTeleExt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcontfaxintl(string $OehdContFaxIntl) Return ChildSalesOrder objects filtered by the OehdContFaxIntl column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcontfaxnbr(string $OehdContFaxNbr) Return ChildSalesOrder objects filtered by the OehdContFaxNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdshipacct(string $OehdShipAcct) Return ChildSalesOrder objects filtered by the OehdShipAcct column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdchgdue(string $OehdChgDue) Return ChildSalesOrder objects filtered by the OehdChgDue column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdaddlpricdisc(string $OehdAddlPricDisc) Return ChildSalesOrder objects filtered by the OehdAddlPricDisc column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdallship(string $OehdAllShip) Return ChildSalesOrder objects filtered by the OehdAllShip column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdqtyorderamt(string $OehdQtyOrderAmt) Return ChildSalesOrder objects filtered by the OehdQtyOrderAmt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcreditapplied(string $OehdCreditApplied) Return ChildSalesOrder objects filtered by the OehdCreditApplied column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdinvcprintdate(string $OehdInvcPrintDate) Return ChildSalesOrder objects filtered by the OehdInvcPrintDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdinvcprinttime(string $OehdInvcPrintTime) Return ChildSalesOrder objects filtered by the OehdInvcPrintTime column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscfrt(string $OehdDiscFrt) Return ChildSalesOrder objects filtered by the OehdDiscFrt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdorideshipcomp(string $OehdOrideShipComp) Return ChildSalesOrder objects filtered by the OehdOrideShipComp column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcontemail(string $OehdContEmail) Return ChildSalesOrder objects filtered by the OehdContEmail column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdmanualfrt(string $OehdManualFrt) Return ChildSalesOrder objects filtered by the OehdManualFrt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdinternalfrt(string $OehdInternalFrt) Return ChildSalesOrder objects filtered by the OehdInternalFrt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrtcost(string $OehdFrtCost) Return ChildSalesOrder objects filtered by the OehdFrtCost column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdroute(string $OehdRoute) Return ChildSalesOrder objects filtered by the OehdRoute column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdrouteseq(int $OehdRouteSeq) Return ChildSalesOrder objects filtered by the OehdRouteSeq column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxcode1(string $OehdFrtTaxCode1) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxamt1(string $OehdFrtTaxAmt1) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxcode2(string $OehdFrtTaxCode2) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxamt2(string $OehdFrtTaxAmt2) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxcode3(string $OehdFrtTaxCode3) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxamt3(string $OehdFrtTaxAmt3) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxcode4(string $OehdFrtTaxCode4) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode4 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxamt4(string $OehdFrtTaxAmt4) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt4 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxcode5(string $OehdFrtTaxCode5) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode5 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrttaxamt5(string $OehdFrtTaxAmt5) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt5 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdedi855sent(string $OehdEdi855Sent) Return ChildSalesOrder objects filtered by the OehdEdi855Sent column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrt3rdparty(string $OehdFrt3rdParty) Return ChildSalesOrder objects filtered by the OehdFrt3rdParty column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfob(string $OehdFob) Return ChildSalesOrder objects filtered by the OehdFob column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdconfirmimagyn(string $OehdConfirmImagYn) Return ChildSalesOrder objects filtered by the OehdConfirmImagYn column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdindustconform(string $OehdIndustConform) Return ChildSalesOrder objects filtered by the OehdIndustConform column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcstkconsign(string $OehdCstkConsign) Return ChildSalesOrder objects filtered by the OehdCstkConsign column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdlmdelaycapsent(string $OehdLmDelayCapSent) Return ChildSalesOrder objects filtered by the OehdLmDelayCapSent column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdmfgid(string $OehdMfgId) Return ChildSalesOrder objects filtered by the OehdMfgId column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdstoreid(string $OehdStoreId) Return ChildSalesOrder objects filtered by the OehdStoreId column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpickqueue(string $OehdPickQueue) Return ChildSalesOrder objects filtered by the OehdPickQueue column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdarrvdate(string $OehdArrvDate) Return ChildSalesOrder objects filtered by the OehdArrvDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdsurchgstat(string $OehdSurchgStat) Return ChildSalesOrder objects filtered by the OehdSurchgStat column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdfrtgrup(string $OehdFrtGrup) Return ChildSalesOrder objects filtered by the OehdFrtGrup column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdcommoride(string $OehdCommOride) Return ChildSalesOrder objects filtered by the OehdCommOride column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdchrgsplt(string $OehdChrgSplt) Return ChildSalesOrder objects filtered by the OehdChrgSplt column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdacccaprv(string $OehdAcCcAprv) Return ChildSalesOrder objects filtered by the OehdAcCcAprv column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdorigordrnbr(string $OehdOrigOrdrNbr) Return ChildSalesOrder objects filtered by the OehdOrigOrdrNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdpostdate(string $OehdPostDate) Return ChildSalesOrder objects filtered by the OehdPostDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscdate1(string $OehdDiscDate1) Return ChildSalesOrder objects filtered by the OehdDiscDate1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscpct1(string $OehdDiscPct1) Return ChildSalesOrder objects filtered by the OehdDiscPct1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduedate1(string $OehdDueDate1) Return ChildSalesOrder objects filtered by the OehdDueDate1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddueamt1(string $OehdDueAmt1) Return ChildSalesOrder objects filtered by the OehdDueAmt1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduepct1(string $OehdDuePct1) Return ChildSalesOrder objects filtered by the OehdDuePct1 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscdate2(string $OehdDiscDate2) Return ChildSalesOrder objects filtered by the OehdDiscDate2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscpct2(string $OehdDiscPct2) Return ChildSalesOrder objects filtered by the OehdDiscPct2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduedate2(string $OehdDueDate2) Return ChildSalesOrder objects filtered by the OehdDueDate2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddueamt2(string $OehdDueAmt2) Return ChildSalesOrder objects filtered by the OehdDueAmt2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduepct2(string $OehdDuePct2) Return ChildSalesOrder objects filtered by the OehdDuePct2 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscdate3(string $OehdDiscDate3) Return ChildSalesOrder objects filtered by the OehdDiscDate3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscpct3(string $OehdDiscPct3) Return ChildSalesOrder objects filtered by the OehdDiscPct3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduedate3(string $OehdDueDate3) Return ChildSalesOrder objects filtered by the OehdDueDate3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddueamt3(string $OehdDueAmt3) Return ChildSalesOrder objects filtered by the OehdDueAmt3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduepct3(string $OehdDuePct3) Return ChildSalesOrder objects filtered by the OehdDuePct3 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscdate4(string $OehdDiscDate4) Return ChildSalesOrder objects filtered by the OehdDiscDate4 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscpct4(string $OehdDiscPct4) Return ChildSalesOrder objects filtered by the OehdDiscPct4 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduedate4(string $OehdDueDate4) Return ChildSalesOrder objects filtered by the OehdDueDate4 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddueamt4(string $OehdDueAmt4) Return ChildSalesOrder objects filtered by the OehdDueAmt4 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduepct4(string $OehdDuePct4) Return ChildSalesOrder objects filtered by the OehdDuePct4 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscdate5(string $OehdDiscDate5) Return ChildSalesOrder objects filtered by the OehdDiscDate5 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscpct5(string $OehdDiscPct5) Return ChildSalesOrder objects filtered by the OehdDiscPct5 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduedate5(string $OehdDueDate5) Return ChildSalesOrder objects filtered by the OehdDueDate5 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddueamt5(string $OehdDueAmt5) Return ChildSalesOrder objects filtered by the OehdDueAmt5 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduepct5(string $OehdDuePct5) Return ChildSalesOrder objects filtered by the OehdDuePct5 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscdate6(string $OehdDiscDate6) Return ChildSalesOrder objects filtered by the OehdDiscDate6 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddiscpct6(string $OehdDiscPct6) Return ChildSalesOrder objects filtered by the OehdDiscPct6 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduedate6(string $OehdDueDate6) Return ChildSalesOrder objects filtered by the OehdDueDate6 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehddueamt6(string $OehdDueAmt6) Return ChildSalesOrder objects filtered by the OehdDueAmt6 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdduepct6(string $OehdDuePct6) Return ChildSalesOrder objects filtered by the OehdDuePct6 column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdrefnbr(string $OehdRefNbr) Return ChildSalesOrder objects filtered by the OehdRefNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdacprognbr(string $OehdAcProgNbr) Return ChildSalesOrder objects filtered by the OehdAcProgNbr column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdacprogexpdate(string $OehdAcProgExpDate) Return ChildSalesOrder objects filtered by the OehdAcProgExpDate column
- * @method     ChildSalesOrder[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalesOrder objects filtered by the DateUpdtd column
- * @method     ChildSalesOrder[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSalesOrder objects filtered by the TimeUpdtd column
- * @method     ChildSalesOrder[]|ObjectCollection findByDummy(string $dummy) Return ChildSalesOrder objects filtered by the dummy column
- * @method     ChildSalesOrder[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSalesOrder[]|Collection find(?ConnectionInterface $con = null) Return ChildSalesOrder objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> find(?ConnectionInterface $con = null) Return ChildSalesOrder objects based on current ModelCriteria
  *
+ * @method     ChildSalesOrder[]|Collection findByOehdnbr(int|array<int> $OehdNbr) Return ChildSalesOrder objects filtered by the OehdNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdnbr(int|array<int> $OehdNbr) Return ChildSalesOrder objects filtered by the OehdNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdstat(string|array<string> $OehdStat) Return ChildSalesOrder objects filtered by the OehdStat column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstat(string|array<string> $OehdStat) Return ChildSalesOrder objects filtered by the OehdStat column
+ * @method     ChildSalesOrder[]|Collection findByOehdhold(string|array<string> $OehdHold) Return ChildSalesOrder objects filtered by the OehdHold column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdhold(string|array<string> $OehdHold) Return ChildSalesOrder objects filtered by the OehdHold column
+ * @method     ChildSalesOrder[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildSalesOrder objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByArcucustid(string|array<string> $ArcuCustId) Return ChildSalesOrder objects filtered by the ArcuCustId column
+ * @method     ChildSalesOrder[]|Collection findByArstshipid(string|array<string> $ArstShipId) Return ChildSalesOrder objects filtered by the ArstShipId column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByArstshipid(string|array<string> $ArstShipId) Return ChildSalesOrder objects filtered by the ArstShipId column
+ * @method     ChildSalesOrder[]|Collection findByOehdstname(string|array<string> $OehdStName) Return ChildSalesOrder objects filtered by the OehdStName column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstname(string|array<string> $OehdStName) Return ChildSalesOrder objects filtered by the OehdStName column
+ * @method     ChildSalesOrder[]|Collection findByOehdstlastname(string|array<string> $OehdStLastName) Return ChildSalesOrder objects filtered by the OehdStLastName column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstlastname(string|array<string> $OehdStLastName) Return ChildSalesOrder objects filtered by the OehdStLastName column
+ * @method     ChildSalesOrder[]|Collection findByOehdstfirstname(string|array<string> $OehdStFirstName) Return ChildSalesOrder objects filtered by the OehdStFirstName column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstfirstname(string|array<string> $OehdStFirstName) Return ChildSalesOrder objects filtered by the OehdStFirstName column
+ * @method     ChildSalesOrder[]|Collection findByOehdstadr1(string|array<string> $OehdStAdr1) Return ChildSalesOrder objects filtered by the OehdStAdr1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstadr1(string|array<string> $OehdStAdr1) Return ChildSalesOrder objects filtered by the OehdStAdr1 column
+ * @method     ChildSalesOrder[]|Collection findByOehdstadr2(string|array<string> $OehdStAdr2) Return ChildSalesOrder objects filtered by the OehdStAdr2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstadr2(string|array<string> $OehdStAdr2) Return ChildSalesOrder objects filtered by the OehdStAdr2 column
+ * @method     ChildSalesOrder[]|Collection findByOehdstadr3(string|array<string> $OehdStAdr3) Return ChildSalesOrder objects filtered by the OehdStAdr3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstadr3(string|array<string> $OehdStAdr3) Return ChildSalesOrder objects filtered by the OehdStAdr3 column
+ * @method     ChildSalesOrder[]|Collection findByOehdstctry(string|array<string> $OehdStCtry) Return ChildSalesOrder objects filtered by the OehdStCtry column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstctry(string|array<string> $OehdStCtry) Return ChildSalesOrder objects filtered by the OehdStCtry column
+ * @method     ChildSalesOrder[]|Collection findByOehdstcity(string|array<string> $OehdStCity) Return ChildSalesOrder objects filtered by the OehdStCity column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstcity(string|array<string> $OehdStCity) Return ChildSalesOrder objects filtered by the OehdStCity column
+ * @method     ChildSalesOrder[]|Collection findByOehdststat(string|array<string> $OehdStStat) Return ChildSalesOrder objects filtered by the OehdStStat column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdststat(string|array<string> $OehdStStat) Return ChildSalesOrder objects filtered by the OehdStStat column
+ * @method     ChildSalesOrder[]|Collection findByOehdstzipcode(string|array<string> $OehdStZipCode) Return ChildSalesOrder objects filtered by the OehdStZipCode column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstzipcode(string|array<string> $OehdStZipCode) Return ChildSalesOrder objects filtered by the OehdStZipCode column
+ * @method     ChildSalesOrder[]|Collection findByOehdcustpo(string|array<string> $OehdCustPo) Return ChildSalesOrder objects filtered by the OehdCustPo column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcustpo(string|array<string> $OehdCustPo) Return ChildSalesOrder objects filtered by the OehdCustPo column
+ * @method     ChildSalesOrder[]|Collection findByOehdordrdate(string|array<string> $OehdOrdrDate) Return ChildSalesOrder objects filtered by the OehdOrdrDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdordrdate(string|array<string> $OehdOrdrDate) Return ChildSalesOrder objects filtered by the OehdOrdrDate column
+ * @method     ChildSalesOrder[]|Collection findByArtmtermcd(string|array<string> $ArtmTermCd) Return ChildSalesOrder objects filtered by the ArtmTermCd column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByArtmtermcd(string|array<string> $ArtmTermCd) Return ChildSalesOrder objects filtered by the ArtmTermCd column
+ * @method     ChildSalesOrder[]|Collection findByArtbshipvia(string|array<string> $ArtbShipVia) Return ChildSalesOrder objects filtered by the ArtbShipVia column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByArtbshipvia(string|array<string> $ArtbShipVia) Return ChildSalesOrder objects filtered by the ArtbShipVia column
+ * @method     ChildSalesOrder[]|Collection findByArininvnbr(string|array<string> $ArinInvNbr) Return ChildSalesOrder objects filtered by the ArinInvNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByArininvnbr(string|array<string> $ArinInvNbr) Return ChildSalesOrder objects filtered by the ArinInvNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdinvdate(string|array<string> $OehdInvDate) Return ChildSalesOrder objects filtered by the OehdInvDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdinvdate(string|array<string> $OehdInvDate) Return ChildSalesOrder objects filtered by the OehdInvDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdglpd(int|array<int> $OehdGLPd) Return ChildSalesOrder objects filtered by the OehdGLPd column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdglpd(int|array<int> $OehdGLPd) Return ChildSalesOrder objects filtered by the OehdGLPd column
+ * @method     ChildSalesOrder[]|Collection findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildSalesOrder objects filtered by the ArspSalePer1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildSalesOrder objects filtered by the ArspSalePer1 column
+ * @method     ChildSalesOrder[]|Collection findByOehdsp1pct(string|array<string> $OehdSp1Pct) Return ChildSalesOrder objects filtered by the OehdSp1Pct column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdsp1pct(string|array<string> $OehdSp1Pct) Return ChildSalesOrder objects filtered by the OehdSp1Pct column
+ * @method     ChildSalesOrder[]|Collection findByArspsaleper2(string|array<string> $ArspSalePer2) Return ChildSalesOrder objects filtered by the ArspSalePer2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByArspsaleper2(string|array<string> $ArspSalePer2) Return ChildSalesOrder objects filtered by the ArspSalePer2 column
+ * @method     ChildSalesOrder[]|Collection findByOehdsp2pct(string|array<string> $OehdSp2Pct) Return ChildSalesOrder objects filtered by the OehdSp2Pct column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdsp2pct(string|array<string> $OehdSp2Pct) Return ChildSalesOrder objects filtered by the OehdSp2Pct column
+ * @method     ChildSalesOrder[]|Collection findByArspsaleper3(string|array<string> $ArspSalePer3) Return ChildSalesOrder objects filtered by the ArspSalePer3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByArspsaleper3(string|array<string> $ArspSalePer3) Return ChildSalesOrder objects filtered by the ArspSalePer3 column
+ * @method     ChildSalesOrder[]|Collection findByOehdsp3pct(string|array<string> $OehdSp3Pct) Return ChildSalesOrder objects filtered by the OehdSp3Pct column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdsp3pct(string|array<string> $OehdSp3Pct) Return ChildSalesOrder objects filtered by the OehdSp3Pct column
+ * @method     ChildSalesOrder[]|Collection findByOehdcntrnbr(int|array<int> $OehdCntrNbr) Return ChildSalesOrder objects filtered by the OehdCntrNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcntrnbr(int|array<int> $OehdCntrNbr) Return ChildSalesOrder objects filtered by the OehdCntrNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdwibatch(int|array<int> $OehdWiBatch) Return ChildSalesOrder objects filtered by the OehdWiBatch column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdwibatch(int|array<int> $OehdWiBatch) Return ChildSalesOrder objects filtered by the OehdWiBatch column
+ * @method     ChildSalesOrder[]|Collection findByOehddroprelhold(string|array<string> $OehdDropRelHold) Return ChildSalesOrder objects filtered by the OehdDropRelHold column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddroprelhold(string|array<string> $OehdDropRelHold) Return ChildSalesOrder objects filtered by the OehdDropRelHold column
+ * @method     ChildSalesOrder[]|Collection findByOehdtaxsub(string|array<string> $OehdTaxSub) Return ChildSalesOrder objects filtered by the OehdTaxSub column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdtaxsub(string|array<string> $OehdTaxSub) Return ChildSalesOrder objects filtered by the OehdTaxSub column
+ * @method     ChildSalesOrder[]|Collection findByOehdnontaxsub(string|array<string> $OehdNonTaxSub) Return ChildSalesOrder objects filtered by the OehdNonTaxSub column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdnontaxsub(string|array<string> $OehdNonTaxSub) Return ChildSalesOrder objects filtered by the OehdNonTaxSub column
+ * @method     ChildSalesOrder[]|Collection findByOehdtaxtot(string|array<string> $OehdTaxTot) Return ChildSalesOrder objects filtered by the OehdTaxTot column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdtaxtot(string|array<string> $OehdTaxTot) Return ChildSalesOrder objects filtered by the OehdTaxTot column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttot(string|array<string> $OehdFrtTot) Return ChildSalesOrder objects filtered by the OehdFrtTot column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttot(string|array<string> $OehdFrtTot) Return ChildSalesOrder objects filtered by the OehdFrtTot column
+ * @method     ChildSalesOrder[]|Collection findByOehdmisctot(string|array<string> $OehdMiscTot) Return ChildSalesOrder objects filtered by the OehdMiscTot column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdmisctot(string|array<string> $OehdMiscTot) Return ChildSalesOrder objects filtered by the OehdMiscTot column
+ * @method     ChildSalesOrder[]|Collection findByOehdordrtot(string|array<string> $OehdOrdrTot) Return ChildSalesOrder objects filtered by the OehdOrdrTot column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdordrtot(string|array<string> $OehdOrdrTot) Return ChildSalesOrder objects filtered by the OehdOrdrTot column
+ * @method     ChildSalesOrder[]|Collection findByOehdcosttot(string|array<string> $OehdCostTot) Return ChildSalesOrder objects filtered by the OehdCostTot column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcosttot(string|array<string> $OehdCostTot) Return ChildSalesOrder objects filtered by the OehdCostTot column
+ * @method     ChildSalesOrder[]|Collection findByOehdspcommlock(string|array<string> $OehdSpCommLock) Return ChildSalesOrder objects filtered by the OehdSpCommLock column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdspcommlock(string|array<string> $OehdSpCommLock) Return ChildSalesOrder objects filtered by the OehdSpCommLock column
+ * @method     ChildSalesOrder[]|Collection findByOehdtakendate(string|array<string> $OehdTakenDate) Return ChildSalesOrder objects filtered by the OehdTakenDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdtakendate(string|array<string> $OehdTakenDate) Return ChildSalesOrder objects filtered by the OehdTakenDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdtakentime(string|array<string> $OehdTakenTime) Return ChildSalesOrder objects filtered by the OehdTakenTime column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdtakentime(string|array<string> $OehdTakenTime) Return ChildSalesOrder objects filtered by the OehdTakenTime column
+ * @method     ChildSalesOrder[]|Collection findByOehdpickdate(string|array<string> $OehdPickDate) Return ChildSalesOrder objects filtered by the OehdPickDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpickdate(string|array<string> $OehdPickDate) Return ChildSalesOrder objects filtered by the OehdPickDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdpicktime(string|array<string> $OehdPickTime) Return ChildSalesOrder objects filtered by the OehdPickTime column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpicktime(string|array<string> $OehdPickTime) Return ChildSalesOrder objects filtered by the OehdPickTime column
+ * @method     ChildSalesOrder[]|Collection findByOehdpackdate(string|array<string> $OehdPackDate) Return ChildSalesOrder objects filtered by the OehdPackDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpackdate(string|array<string> $OehdPackDate) Return ChildSalesOrder objects filtered by the OehdPackDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdpacktime(string|array<string> $OehdPackTime) Return ChildSalesOrder objects filtered by the OehdPackTime column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpacktime(string|array<string> $OehdPackTime) Return ChildSalesOrder objects filtered by the OehdPackTime column
+ * @method     ChildSalesOrder[]|Collection findByOehdverifydate(string|array<string> $OehdVerifyDate) Return ChildSalesOrder objects filtered by the OehdVerifyDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdverifydate(string|array<string> $OehdVerifyDate) Return ChildSalesOrder objects filtered by the OehdVerifyDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdverifytime(string|array<string> $OehdVerifyTime) Return ChildSalesOrder objects filtered by the OehdVerifyTime column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdverifytime(string|array<string> $OehdVerifyTime) Return ChildSalesOrder objects filtered by the OehdVerifyTime column
+ * @method     ChildSalesOrder[]|Collection findByOehdcreditmemo(string|array<string> $OehdCreditMemo) Return ChildSalesOrder objects filtered by the OehdCreditMemo column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcreditmemo(string|array<string> $OehdCreditMemo) Return ChildSalesOrder objects filtered by the OehdCreditMemo column
+ * @method     ChildSalesOrder[]|Collection findByOehdbookedyn(string|array<string> $OehdBookedYn) Return ChildSalesOrder objects filtered by the OehdBookedYn column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdbookedyn(string|array<string> $OehdBookedYn) Return ChildSalesOrder objects filtered by the OehdBookedYn column
+ * @method     ChildSalesOrder[]|Collection findByIntbwhseorig(string|array<string> $IntbWhseOrig) Return ChildSalesOrder objects filtered by the IntbWhseOrig column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByIntbwhseorig(string|array<string> $IntbWhseOrig) Return ChildSalesOrder objects filtered by the IntbWhseOrig column
+ * @method     ChildSalesOrder[]|Collection findByOehdbtstat(string|array<string> $OehdBtStat) Return ChildSalesOrder objects filtered by the OehdBtStat column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdbtstat(string|array<string> $OehdBtStat) Return ChildSalesOrder objects filtered by the OehdBtStat column
+ * @method     ChildSalesOrder[]|Collection findByOehdshipcomp(string|array<string> $OehdShipComp) Return ChildSalesOrder objects filtered by the OehdShipComp column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdshipcomp(string|array<string> $OehdShipComp) Return ChildSalesOrder objects filtered by the OehdShipComp column
+ * @method     ChildSalesOrder[]|Collection findByOehdcwoflag(string|array<string> $OehdCwoFlag) Return ChildSalesOrder objects filtered by the OehdCwoFlag column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcwoflag(string|array<string> $OehdCwoFlag) Return ChildSalesOrder objects filtered by the OehdCwoFlag column
+ * @method     ChildSalesOrder[]|Collection findByOehddivision(string|array<string> $OehdDivision) Return ChildSalesOrder objects filtered by the OehdDivision column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddivision(string|array<string> $OehdDivision) Return ChildSalesOrder objects filtered by the OehdDivision column
+ * @method     ChildSalesOrder[]|Collection findByOehdtakencode(string|array<string> $OehdTakenCode) Return ChildSalesOrder objects filtered by the OehdTakenCode column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdtakencode(string|array<string> $OehdTakenCode) Return ChildSalesOrder objects filtered by the OehdTakenCode column
+ * @method     ChildSalesOrder[]|Collection findByOehdpickcode(string|array<string> $OehdPickCode) Return ChildSalesOrder objects filtered by the OehdPickCode column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpickcode(string|array<string> $OehdPickCode) Return ChildSalesOrder objects filtered by the OehdPickCode column
+ * @method     ChildSalesOrder[]|Collection findByOehdpackcode(string|array<string> $OehdPackCode) Return ChildSalesOrder objects filtered by the OehdPackCode column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpackcode(string|array<string> $OehdPackCode) Return ChildSalesOrder objects filtered by the OehdPackCode column
+ * @method     ChildSalesOrder[]|Collection findByOehdverifycode(string|array<string> $OehdVerifyCode) Return ChildSalesOrder objects filtered by the OehdVerifyCode column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdverifycode(string|array<string> $OehdVerifyCode) Return ChildSalesOrder objects filtered by the OehdVerifyCode column
+ * @method     ChildSalesOrder[]|Collection findByOehdtotdisc(string|array<string> $OehdTotDisc) Return ChildSalesOrder objects filtered by the OehdTotDisc column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdtotdisc(string|array<string> $OehdTotDisc) Return ChildSalesOrder objects filtered by the OehdTotDisc column
+ * @method     ChildSalesOrder[]|Collection findByOehdedirefnbrqual(string|array<string> $OehdEdiRefNbrQual) Return ChildSalesOrder objects filtered by the OehdEdiRefNbrQual column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdedirefnbrqual(string|array<string> $OehdEdiRefNbrQual) Return ChildSalesOrder objects filtered by the OehdEdiRefNbrQual column
+ * @method     ChildSalesOrder[]|Collection findByOehdusercode1(string|array<string> $OehdUserCode1) Return ChildSalesOrder objects filtered by the OehdUserCode1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdusercode1(string|array<string> $OehdUserCode1) Return ChildSalesOrder objects filtered by the OehdUserCode1 column
+ * @method     ChildSalesOrder[]|Collection findByOehdusercode2(string|array<string> $OehdUserCode2) Return ChildSalesOrder objects filtered by the OehdUserCode2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdusercode2(string|array<string> $OehdUserCode2) Return ChildSalesOrder objects filtered by the OehdUserCode2 column
+ * @method     ChildSalesOrder[]|Collection findByOehdusercode3(string|array<string> $OehdUserCode3) Return ChildSalesOrder objects filtered by the OehdUserCode3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdusercode3(string|array<string> $OehdUserCode3) Return ChildSalesOrder objects filtered by the OehdUserCode3 column
+ * @method     ChildSalesOrder[]|Collection findByOehdusercode4(string|array<string> $OehdUserCode4) Return ChildSalesOrder objects filtered by the OehdUserCode4 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdusercode4(string|array<string> $OehdUserCode4) Return ChildSalesOrder objects filtered by the OehdUserCode4 column
+ * @method     ChildSalesOrder[]|Collection findByOehdexchctry(string|array<string> $OehdExchCtry) Return ChildSalesOrder objects filtered by the OehdExchCtry column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdexchctry(string|array<string> $OehdExchCtry) Return ChildSalesOrder objects filtered by the OehdExchCtry column
+ * @method     ChildSalesOrder[]|Collection findByOehdexchrate(string|array<string> $OehdExchRate) Return ChildSalesOrder objects filtered by the OehdExchRate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdexchrate(string|array<string> $OehdExchRate) Return ChildSalesOrder objects filtered by the OehdExchRate column
+ * @method     ChildSalesOrder[]|Collection findByOehdwghttot(string|array<string> $OehdWghtTot) Return ChildSalesOrder objects filtered by the OehdWghtTot column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdwghttot(string|array<string> $OehdWghtTot) Return ChildSalesOrder objects filtered by the OehdWghtTot column
+ * @method     ChildSalesOrder[]|Collection findByOehdwghtoride(string|array<string> $OehdWghtOride) Return ChildSalesOrder objects filtered by the OehdWghtOride column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdwghtoride(string|array<string> $OehdWghtOride) Return ChildSalesOrder objects filtered by the OehdWghtOride column
+ * @method     ChildSalesOrder[]|Collection findByOehdccinfo(string|array<string> $OehdCcInfo) Return ChildSalesOrder objects filtered by the OehdCcInfo column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdccinfo(string|array<string> $OehdCcInfo) Return ChildSalesOrder objects filtered by the OehdCcInfo column
+ * @method     ChildSalesOrder[]|Collection findByOehdboxcount(int|array<int> $OehdBoxCount) Return ChildSalesOrder objects filtered by the OehdBoxCount column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdboxcount(int|array<int> $OehdBoxCount) Return ChildSalesOrder objects filtered by the OehdBoxCount column
+ * @method     ChildSalesOrder[]|Collection findByOehdrqstdate(string|array<string> $OehdRqstDate) Return ChildSalesOrder objects filtered by the OehdRqstDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdrqstdate(string|array<string> $OehdRqstDate) Return ChildSalesOrder objects filtered by the OehdRqstDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdcancdate(string|array<string> $OehdCancDate) Return ChildSalesOrder objects filtered by the OehdCancDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcancdate(string|array<string> $OehdCancDate) Return ChildSalesOrder objects filtered by the OehdCancDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdcrntuser(string|array<string> $OehdCrntUser) Return ChildSalesOrder objects filtered by the OehdCrntUser column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcrntuser(string|array<string> $OehdCrntUser) Return ChildSalesOrder objects filtered by the OehdCrntUser column
+ * @method     ChildSalesOrder[]|Collection findByOehdreleasenbr(string|array<string> $OehdReleaseNbr) Return ChildSalesOrder objects filtered by the OehdReleaseNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdreleasenbr(string|array<string> $OehdReleaseNbr) Return ChildSalesOrder objects filtered by the OehdReleaseNbr column
+ * @method     ChildSalesOrder[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildSalesOrder objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByIntbwhse(string|array<string> $IntbWhse) Return ChildSalesOrder objects filtered by the IntbWhse column
+ * @method     ChildSalesOrder[]|Collection findByOehdbordbuilddate(string|array<string> $OehdBordBuildDate) Return ChildSalesOrder objects filtered by the OehdBordBuildDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdbordbuilddate(string|array<string> $OehdBordBuildDate) Return ChildSalesOrder objects filtered by the OehdBordBuildDate column
+ * @method     ChildSalesOrder[]|Collection findByOehddeptcode(string|array<string> $OehdDeptCode) Return ChildSalesOrder objects filtered by the OehdDeptCode column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddeptcode(string|array<string> $OehdDeptCode) Return ChildSalesOrder objects filtered by the OehdDeptCode column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrtinentered(string|array<string> $OehdFrtInEntered) Return ChildSalesOrder objects filtered by the OehdFrtInEntered column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrtinentered(string|array<string> $OehdFrtInEntered) Return ChildSalesOrder objects filtered by the OehdFrtInEntered column
+ * @method     ChildSalesOrder[]|Collection findByOehddropshipentered(string|array<string> $OehdDropShipEntered) Return ChildSalesOrder objects filtered by the OehdDropShipEntered column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddropshipentered(string|array<string> $OehdDropShipEntered) Return ChildSalesOrder objects filtered by the OehdDropShipEntered column
+ * @method     ChildSalesOrder[]|Collection findByOehderflag(string|array<string> $OehdErFlag) Return ChildSalesOrder objects filtered by the OehdErFlag column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehderflag(string|array<string> $OehdErFlag) Return ChildSalesOrder objects filtered by the OehdErFlag column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrtin(string|array<string> $OehdFrtIn) Return ChildSalesOrder objects filtered by the OehdFrtIn column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrtin(string|array<string> $OehdFrtIn) Return ChildSalesOrder objects filtered by the OehdFrtIn column
+ * @method     ChildSalesOrder[]|Collection findByOehddropship(string|array<string> $OehdDropShip) Return ChildSalesOrder objects filtered by the OehdDropShip column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddropship(string|array<string> $OehdDropShip) Return ChildSalesOrder objects filtered by the OehdDropShip column
+ * @method     ChildSalesOrder[]|Collection findByOehdminorder(string|array<string> $OehdMinOrder) Return ChildSalesOrder objects filtered by the OehdMinOrder column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdminorder(string|array<string> $OehdMinOrder) Return ChildSalesOrder objects filtered by the OehdMinOrder column
+ * @method     ChildSalesOrder[]|Collection findByOehdcontractterms(string|array<string> $OehdContractTerms) Return ChildSalesOrder objects filtered by the OehdContractTerms column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcontractterms(string|array<string> $OehdContractTerms) Return ChildSalesOrder objects filtered by the OehdContractTerms column
+ * @method     ChildSalesOrder[]|Collection findByOehddropshipbilled(string|array<string> $OehdDropShipBilled) Return ChildSalesOrder objects filtered by the OehdDropShipBilled column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddropshipbilled(string|array<string> $OehdDropShipBilled) Return ChildSalesOrder objects filtered by the OehdDropShipBilled column
+ * @method     ChildSalesOrder[]|Collection findByOehdordtyp(string|array<string> $OehdOrdTyp) Return ChildSalesOrder objects filtered by the OehdOrdTyp column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdordtyp(string|array<string> $OehdOrdTyp) Return ChildSalesOrder objects filtered by the OehdOrdTyp column
+ * @method     ChildSalesOrder[]|Collection findByOehdtracknbr(string|array<string> $OehdTrackNbr) Return ChildSalesOrder objects filtered by the OehdTrackNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdtracknbr(string|array<string> $OehdTrackNbr) Return ChildSalesOrder objects filtered by the OehdTrackNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdsource(string|array<string> $OehdSource) Return ChildSalesOrder objects filtered by the OehdSource column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdsource(string|array<string> $OehdSource) Return ChildSalesOrder objects filtered by the OehdSource column
+ * @method     ChildSalesOrder[]|Collection findByOehdccaprv(string|array<string> $OehdCcAprv) Return ChildSalesOrder objects filtered by the OehdCcAprv column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdccaprv(string|array<string> $OehdCcAprv) Return ChildSalesOrder objects filtered by the OehdCcAprv column
+ * @method     ChildSalesOrder[]|Collection findByOehdpickfmattype(string|array<string> $OehdPickFmatType) Return ChildSalesOrder objects filtered by the OehdPickFmatType column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpickfmattype(string|array<string> $OehdPickFmatType) Return ChildSalesOrder objects filtered by the OehdPickFmatType column
+ * @method     ChildSalesOrder[]|Collection findByOehdinvcfmattype(string|array<string> $OehdInvcFmatType) Return ChildSalesOrder objects filtered by the OehdInvcFmatType column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdinvcfmattype(string|array<string> $OehdInvcFmatType) Return ChildSalesOrder objects filtered by the OehdInvcFmatType column
+ * @method     ChildSalesOrder[]|Collection findByOehdcashamt(string|array<string> $OehdCashAmt) Return ChildSalesOrder objects filtered by the OehdCashAmt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcashamt(string|array<string> $OehdCashAmt) Return ChildSalesOrder objects filtered by the OehdCashAmt column
+ * @method     ChildSalesOrder[]|Collection findByOehdcheckamt(string|array<string> $OehdCheckAmt) Return ChildSalesOrder objects filtered by the OehdCheckAmt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcheckamt(string|array<string> $OehdCheckAmt) Return ChildSalesOrder objects filtered by the OehdCheckAmt column
+ * @method     ChildSalesOrder[]|Collection findByOehdchecknbr(string|array<string> $OehdCheckNbr) Return ChildSalesOrder objects filtered by the OehdCheckNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdchecknbr(string|array<string> $OehdCheckNbr) Return ChildSalesOrder objects filtered by the OehdCheckNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehddepositamt(string|array<string> $OehdDepositAmt) Return ChildSalesOrder objects filtered by the OehdDepositAmt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddepositamt(string|array<string> $OehdDepositAmt) Return ChildSalesOrder objects filtered by the OehdDepositAmt column
+ * @method     ChildSalesOrder[]|Collection findByOehddepositnbr(string|array<string> $OehdDepositNbr) Return ChildSalesOrder objects filtered by the OehdDepositNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddepositnbr(string|array<string> $OehdDepositNbr) Return ChildSalesOrder objects filtered by the OehdDepositNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdccamt(string|array<string> $OehdCcAmt) Return ChildSalesOrder objects filtered by the OehdCcAmt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdccamt(string|array<string> $OehdCcAmt) Return ChildSalesOrder objects filtered by the OehdCcAmt column
+ * @method     ChildSalesOrder[]|Collection findByOehdotaxsub(string|array<string> $OehdOTaxSub) Return ChildSalesOrder objects filtered by the OehdOTaxSub column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdotaxsub(string|array<string> $OehdOTaxSub) Return ChildSalesOrder objects filtered by the OehdOTaxSub column
+ * @method     ChildSalesOrder[]|Collection findByOehdonontaxsub(string|array<string> $OehdONonTaxSub) Return ChildSalesOrder objects filtered by the OehdONonTaxSub column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdonontaxsub(string|array<string> $OehdONonTaxSub) Return ChildSalesOrder objects filtered by the OehdONonTaxSub column
+ * @method     ChildSalesOrder[]|Collection findByOehdotaxtot(string|array<string> $OehdOTaxTot) Return ChildSalesOrder objects filtered by the OehdOTaxTot column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdotaxtot(string|array<string> $OehdOTaxTot) Return ChildSalesOrder objects filtered by the OehdOTaxTot column
+ * @method     ChildSalesOrder[]|Collection findByOehdoordrtot(string|array<string> $OehdOOrdrTot) Return ChildSalesOrder objects filtered by the OehdOOrdrTot column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdoordrtot(string|array<string> $OehdOOrdrTot) Return ChildSalesOrder objects filtered by the OehdOOrdrTot column
+ * @method     ChildSalesOrder[]|Collection findByOehdpickprintdate(string|array<string> $OehdPickPrintDate) Return ChildSalesOrder objects filtered by the OehdPickPrintDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpickprintdate(string|array<string> $OehdPickPrintDate) Return ChildSalesOrder objects filtered by the OehdPickPrintDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdpickprinttime(string|array<string> $OehdPickPrintTime) Return ChildSalesOrder objects filtered by the OehdPickPrintTime column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpickprinttime(string|array<string> $OehdPickPrintTime) Return ChildSalesOrder objects filtered by the OehdPickPrintTime column
+ * @method     ChildSalesOrder[]|Collection findByOehdcont(string|array<string> $OehdCont) Return ChildSalesOrder objects filtered by the OehdCont column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcont(string|array<string> $OehdCont) Return ChildSalesOrder objects filtered by the OehdCont column
+ * @method     ChildSalesOrder[]|Collection findByOehdcontteleintl(string|array<string> $OehdContTeleIntl) Return ChildSalesOrder objects filtered by the OehdContTeleIntl column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcontteleintl(string|array<string> $OehdContTeleIntl) Return ChildSalesOrder objects filtered by the OehdContTeleIntl column
+ * @method     ChildSalesOrder[]|Collection findByOehdconttelenbr(string|array<string> $OehdContTeleNbr) Return ChildSalesOrder objects filtered by the OehdContTeleNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdconttelenbr(string|array<string> $OehdContTeleNbr) Return ChildSalesOrder objects filtered by the OehdContTeleNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdcontteleext(string|array<string> $OehdContTeleExt) Return ChildSalesOrder objects filtered by the OehdContTeleExt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcontteleext(string|array<string> $OehdContTeleExt) Return ChildSalesOrder objects filtered by the OehdContTeleExt column
+ * @method     ChildSalesOrder[]|Collection findByOehdcontfaxintl(string|array<string> $OehdContFaxIntl) Return ChildSalesOrder objects filtered by the OehdContFaxIntl column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcontfaxintl(string|array<string> $OehdContFaxIntl) Return ChildSalesOrder objects filtered by the OehdContFaxIntl column
+ * @method     ChildSalesOrder[]|Collection findByOehdcontfaxnbr(string|array<string> $OehdContFaxNbr) Return ChildSalesOrder objects filtered by the OehdContFaxNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcontfaxnbr(string|array<string> $OehdContFaxNbr) Return ChildSalesOrder objects filtered by the OehdContFaxNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdshipacct(string|array<string> $OehdShipAcct) Return ChildSalesOrder objects filtered by the OehdShipAcct column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdshipacct(string|array<string> $OehdShipAcct) Return ChildSalesOrder objects filtered by the OehdShipAcct column
+ * @method     ChildSalesOrder[]|Collection findByOehdchgdue(string|array<string> $OehdChgDue) Return ChildSalesOrder objects filtered by the OehdChgDue column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdchgdue(string|array<string> $OehdChgDue) Return ChildSalesOrder objects filtered by the OehdChgDue column
+ * @method     ChildSalesOrder[]|Collection findByOehdaddlpricdisc(string|array<string> $OehdAddlPricDisc) Return ChildSalesOrder objects filtered by the OehdAddlPricDisc column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdaddlpricdisc(string|array<string> $OehdAddlPricDisc) Return ChildSalesOrder objects filtered by the OehdAddlPricDisc column
+ * @method     ChildSalesOrder[]|Collection findByOehdallship(string|array<string> $OehdAllShip) Return ChildSalesOrder objects filtered by the OehdAllShip column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdallship(string|array<string> $OehdAllShip) Return ChildSalesOrder objects filtered by the OehdAllShip column
+ * @method     ChildSalesOrder[]|Collection findByOehdqtyorderamt(string|array<string> $OehdQtyOrderAmt) Return ChildSalesOrder objects filtered by the OehdQtyOrderAmt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdqtyorderamt(string|array<string> $OehdQtyOrderAmt) Return ChildSalesOrder objects filtered by the OehdQtyOrderAmt column
+ * @method     ChildSalesOrder[]|Collection findByOehdcreditapplied(string|array<string> $OehdCreditApplied) Return ChildSalesOrder objects filtered by the OehdCreditApplied column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcreditapplied(string|array<string> $OehdCreditApplied) Return ChildSalesOrder objects filtered by the OehdCreditApplied column
+ * @method     ChildSalesOrder[]|Collection findByOehdinvcprintdate(string|array<string> $OehdInvcPrintDate) Return ChildSalesOrder objects filtered by the OehdInvcPrintDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdinvcprintdate(string|array<string> $OehdInvcPrintDate) Return ChildSalesOrder objects filtered by the OehdInvcPrintDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdinvcprinttime(string|array<string> $OehdInvcPrintTime) Return ChildSalesOrder objects filtered by the OehdInvcPrintTime column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdinvcprinttime(string|array<string> $OehdInvcPrintTime) Return ChildSalesOrder objects filtered by the OehdInvcPrintTime column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscfrt(string|array<string> $OehdDiscFrt) Return ChildSalesOrder objects filtered by the OehdDiscFrt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscfrt(string|array<string> $OehdDiscFrt) Return ChildSalesOrder objects filtered by the OehdDiscFrt column
+ * @method     ChildSalesOrder[]|Collection findByOehdorideshipcomp(string|array<string> $OehdOrideShipComp) Return ChildSalesOrder objects filtered by the OehdOrideShipComp column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdorideshipcomp(string|array<string> $OehdOrideShipComp) Return ChildSalesOrder objects filtered by the OehdOrideShipComp column
+ * @method     ChildSalesOrder[]|Collection findByOehdcontemail(string|array<string> $OehdContEmail) Return ChildSalesOrder objects filtered by the OehdContEmail column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcontemail(string|array<string> $OehdContEmail) Return ChildSalesOrder objects filtered by the OehdContEmail column
+ * @method     ChildSalesOrder[]|Collection findByOehdmanualfrt(string|array<string> $OehdManualFrt) Return ChildSalesOrder objects filtered by the OehdManualFrt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdmanualfrt(string|array<string> $OehdManualFrt) Return ChildSalesOrder objects filtered by the OehdManualFrt column
+ * @method     ChildSalesOrder[]|Collection findByOehdinternalfrt(string|array<string> $OehdInternalFrt) Return ChildSalesOrder objects filtered by the OehdInternalFrt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdinternalfrt(string|array<string> $OehdInternalFrt) Return ChildSalesOrder objects filtered by the OehdInternalFrt column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrtcost(string|array<string> $OehdFrtCost) Return ChildSalesOrder objects filtered by the OehdFrtCost column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrtcost(string|array<string> $OehdFrtCost) Return ChildSalesOrder objects filtered by the OehdFrtCost column
+ * @method     ChildSalesOrder[]|Collection findByOehdroute(string|array<string> $OehdRoute) Return ChildSalesOrder objects filtered by the OehdRoute column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdroute(string|array<string> $OehdRoute) Return ChildSalesOrder objects filtered by the OehdRoute column
+ * @method     ChildSalesOrder[]|Collection findByOehdrouteseq(int|array<int> $OehdRouteSeq) Return ChildSalesOrder objects filtered by the OehdRouteSeq column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdrouteseq(int|array<int> $OehdRouteSeq) Return ChildSalesOrder objects filtered by the OehdRouteSeq column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxcode1(string|array<string> $OehdFrtTaxCode1) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxcode1(string|array<string> $OehdFrtTaxCode1) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode1 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxamt1(string|array<string> $OehdFrtTaxAmt1) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxamt1(string|array<string> $OehdFrtTaxAmt1) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt1 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxcode2(string|array<string> $OehdFrtTaxCode2) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxcode2(string|array<string> $OehdFrtTaxCode2) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode2 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxamt2(string|array<string> $OehdFrtTaxAmt2) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxamt2(string|array<string> $OehdFrtTaxAmt2) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt2 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxcode3(string|array<string> $OehdFrtTaxCode3) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxcode3(string|array<string> $OehdFrtTaxCode3) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode3 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxamt3(string|array<string> $OehdFrtTaxAmt3) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxamt3(string|array<string> $OehdFrtTaxAmt3) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt3 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxcode4(string|array<string> $OehdFrtTaxCode4) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode4 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxcode4(string|array<string> $OehdFrtTaxCode4) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode4 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxamt4(string|array<string> $OehdFrtTaxAmt4) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt4 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxamt4(string|array<string> $OehdFrtTaxAmt4) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt4 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxcode5(string|array<string> $OehdFrtTaxCode5) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode5 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxcode5(string|array<string> $OehdFrtTaxCode5) Return ChildSalesOrder objects filtered by the OehdFrtTaxCode5 column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrttaxamt5(string|array<string> $OehdFrtTaxAmt5) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt5 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrttaxamt5(string|array<string> $OehdFrtTaxAmt5) Return ChildSalesOrder objects filtered by the OehdFrtTaxAmt5 column
+ * @method     ChildSalesOrder[]|Collection findByOehdedi855sent(string|array<string> $OehdEdi855Sent) Return ChildSalesOrder objects filtered by the OehdEdi855Sent column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdedi855sent(string|array<string> $OehdEdi855Sent) Return ChildSalesOrder objects filtered by the OehdEdi855Sent column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrt3rdparty(string|array<string> $OehdFrt3rdParty) Return ChildSalesOrder objects filtered by the OehdFrt3rdParty column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrt3rdparty(string|array<string> $OehdFrt3rdParty) Return ChildSalesOrder objects filtered by the OehdFrt3rdParty column
+ * @method     ChildSalesOrder[]|Collection findByOehdfob(string|array<string> $OehdFob) Return ChildSalesOrder objects filtered by the OehdFob column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfob(string|array<string> $OehdFob) Return ChildSalesOrder objects filtered by the OehdFob column
+ * @method     ChildSalesOrder[]|Collection findByOehdconfirmimagyn(string|array<string> $OehdConfirmImagYn) Return ChildSalesOrder objects filtered by the OehdConfirmImagYn column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdconfirmimagyn(string|array<string> $OehdConfirmImagYn) Return ChildSalesOrder objects filtered by the OehdConfirmImagYn column
+ * @method     ChildSalesOrder[]|Collection findByOehdindustconform(string|array<string> $OehdIndustConform) Return ChildSalesOrder objects filtered by the OehdIndustConform column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdindustconform(string|array<string> $OehdIndustConform) Return ChildSalesOrder objects filtered by the OehdIndustConform column
+ * @method     ChildSalesOrder[]|Collection findByOehdcstkconsign(string|array<string> $OehdCstkConsign) Return ChildSalesOrder objects filtered by the OehdCstkConsign column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcstkconsign(string|array<string> $OehdCstkConsign) Return ChildSalesOrder objects filtered by the OehdCstkConsign column
+ * @method     ChildSalesOrder[]|Collection findByOehdlmdelaycapsent(string|array<string> $OehdLmDelayCapSent) Return ChildSalesOrder objects filtered by the OehdLmDelayCapSent column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdlmdelaycapsent(string|array<string> $OehdLmDelayCapSent) Return ChildSalesOrder objects filtered by the OehdLmDelayCapSent column
+ * @method     ChildSalesOrder[]|Collection findByOehdmfgid(string|array<string> $OehdMfgId) Return ChildSalesOrder objects filtered by the OehdMfgId column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdmfgid(string|array<string> $OehdMfgId) Return ChildSalesOrder objects filtered by the OehdMfgId column
+ * @method     ChildSalesOrder[]|Collection findByOehdstoreid(string|array<string> $OehdStoreId) Return ChildSalesOrder objects filtered by the OehdStoreId column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdstoreid(string|array<string> $OehdStoreId) Return ChildSalesOrder objects filtered by the OehdStoreId column
+ * @method     ChildSalesOrder[]|Collection findByOehdpickqueue(string|array<string> $OehdPickQueue) Return ChildSalesOrder objects filtered by the OehdPickQueue column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpickqueue(string|array<string> $OehdPickQueue) Return ChildSalesOrder objects filtered by the OehdPickQueue column
+ * @method     ChildSalesOrder[]|Collection findByOehdarrvdate(string|array<string> $OehdArrvDate) Return ChildSalesOrder objects filtered by the OehdArrvDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdarrvdate(string|array<string> $OehdArrvDate) Return ChildSalesOrder objects filtered by the OehdArrvDate column
+ * @method     ChildSalesOrder[]|Collection findByOehdsurchgstat(string|array<string> $OehdSurchgStat) Return ChildSalesOrder objects filtered by the OehdSurchgStat column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdsurchgstat(string|array<string> $OehdSurchgStat) Return ChildSalesOrder objects filtered by the OehdSurchgStat column
+ * @method     ChildSalesOrder[]|Collection findByOehdfrtgrup(string|array<string> $OehdFrtGrup) Return ChildSalesOrder objects filtered by the OehdFrtGrup column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdfrtgrup(string|array<string> $OehdFrtGrup) Return ChildSalesOrder objects filtered by the OehdFrtGrup column
+ * @method     ChildSalesOrder[]|Collection findByOehdcommoride(string|array<string> $OehdCommOride) Return ChildSalesOrder objects filtered by the OehdCommOride column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdcommoride(string|array<string> $OehdCommOride) Return ChildSalesOrder objects filtered by the OehdCommOride column
+ * @method     ChildSalesOrder[]|Collection findByOehdchrgsplt(string|array<string> $OehdChrgSplt) Return ChildSalesOrder objects filtered by the OehdChrgSplt column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdchrgsplt(string|array<string> $OehdChrgSplt) Return ChildSalesOrder objects filtered by the OehdChrgSplt column
+ * @method     ChildSalesOrder[]|Collection findByOehdacccaprv(string|array<string> $OehdAcCcAprv) Return ChildSalesOrder objects filtered by the OehdAcCcAprv column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdacccaprv(string|array<string> $OehdAcCcAprv) Return ChildSalesOrder objects filtered by the OehdAcCcAprv column
+ * @method     ChildSalesOrder[]|Collection findByOehdorigordrnbr(string|array<string> $OehdOrigOrdrNbr) Return ChildSalesOrder objects filtered by the OehdOrigOrdrNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdorigordrnbr(string|array<string> $OehdOrigOrdrNbr) Return ChildSalesOrder objects filtered by the OehdOrigOrdrNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdpostdate(string|array<string> $OehdPostDate) Return ChildSalesOrder objects filtered by the OehdPostDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdpostdate(string|array<string> $OehdPostDate) Return ChildSalesOrder objects filtered by the OehdPostDate column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscdate1(string|array<string> $OehdDiscDate1) Return ChildSalesOrder objects filtered by the OehdDiscDate1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscdate1(string|array<string> $OehdDiscDate1) Return ChildSalesOrder objects filtered by the OehdDiscDate1 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscpct1(string|array<string> $OehdDiscPct1) Return ChildSalesOrder objects filtered by the OehdDiscPct1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscpct1(string|array<string> $OehdDiscPct1) Return ChildSalesOrder objects filtered by the OehdDiscPct1 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduedate1(string|array<string> $OehdDueDate1) Return ChildSalesOrder objects filtered by the OehdDueDate1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduedate1(string|array<string> $OehdDueDate1) Return ChildSalesOrder objects filtered by the OehdDueDate1 column
+ * @method     ChildSalesOrder[]|Collection findByOehddueamt1(string|array<string> $OehdDueAmt1) Return ChildSalesOrder objects filtered by the OehdDueAmt1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddueamt1(string|array<string> $OehdDueAmt1) Return ChildSalesOrder objects filtered by the OehdDueAmt1 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduepct1(string|array<string> $OehdDuePct1) Return ChildSalesOrder objects filtered by the OehdDuePct1 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduepct1(string|array<string> $OehdDuePct1) Return ChildSalesOrder objects filtered by the OehdDuePct1 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscdate2(string|array<string> $OehdDiscDate2) Return ChildSalesOrder objects filtered by the OehdDiscDate2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscdate2(string|array<string> $OehdDiscDate2) Return ChildSalesOrder objects filtered by the OehdDiscDate2 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscpct2(string|array<string> $OehdDiscPct2) Return ChildSalesOrder objects filtered by the OehdDiscPct2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscpct2(string|array<string> $OehdDiscPct2) Return ChildSalesOrder objects filtered by the OehdDiscPct2 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduedate2(string|array<string> $OehdDueDate2) Return ChildSalesOrder objects filtered by the OehdDueDate2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduedate2(string|array<string> $OehdDueDate2) Return ChildSalesOrder objects filtered by the OehdDueDate2 column
+ * @method     ChildSalesOrder[]|Collection findByOehddueamt2(string|array<string> $OehdDueAmt2) Return ChildSalesOrder objects filtered by the OehdDueAmt2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddueamt2(string|array<string> $OehdDueAmt2) Return ChildSalesOrder objects filtered by the OehdDueAmt2 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduepct2(string|array<string> $OehdDuePct2) Return ChildSalesOrder objects filtered by the OehdDuePct2 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduepct2(string|array<string> $OehdDuePct2) Return ChildSalesOrder objects filtered by the OehdDuePct2 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscdate3(string|array<string> $OehdDiscDate3) Return ChildSalesOrder objects filtered by the OehdDiscDate3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscdate3(string|array<string> $OehdDiscDate3) Return ChildSalesOrder objects filtered by the OehdDiscDate3 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscpct3(string|array<string> $OehdDiscPct3) Return ChildSalesOrder objects filtered by the OehdDiscPct3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscpct3(string|array<string> $OehdDiscPct3) Return ChildSalesOrder objects filtered by the OehdDiscPct3 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduedate3(string|array<string> $OehdDueDate3) Return ChildSalesOrder objects filtered by the OehdDueDate3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduedate3(string|array<string> $OehdDueDate3) Return ChildSalesOrder objects filtered by the OehdDueDate3 column
+ * @method     ChildSalesOrder[]|Collection findByOehddueamt3(string|array<string> $OehdDueAmt3) Return ChildSalesOrder objects filtered by the OehdDueAmt3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddueamt3(string|array<string> $OehdDueAmt3) Return ChildSalesOrder objects filtered by the OehdDueAmt3 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduepct3(string|array<string> $OehdDuePct3) Return ChildSalesOrder objects filtered by the OehdDuePct3 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduepct3(string|array<string> $OehdDuePct3) Return ChildSalesOrder objects filtered by the OehdDuePct3 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscdate4(string|array<string> $OehdDiscDate4) Return ChildSalesOrder objects filtered by the OehdDiscDate4 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscdate4(string|array<string> $OehdDiscDate4) Return ChildSalesOrder objects filtered by the OehdDiscDate4 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscpct4(string|array<string> $OehdDiscPct4) Return ChildSalesOrder objects filtered by the OehdDiscPct4 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscpct4(string|array<string> $OehdDiscPct4) Return ChildSalesOrder objects filtered by the OehdDiscPct4 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduedate4(string|array<string> $OehdDueDate4) Return ChildSalesOrder objects filtered by the OehdDueDate4 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduedate4(string|array<string> $OehdDueDate4) Return ChildSalesOrder objects filtered by the OehdDueDate4 column
+ * @method     ChildSalesOrder[]|Collection findByOehddueamt4(string|array<string> $OehdDueAmt4) Return ChildSalesOrder objects filtered by the OehdDueAmt4 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddueamt4(string|array<string> $OehdDueAmt4) Return ChildSalesOrder objects filtered by the OehdDueAmt4 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduepct4(string|array<string> $OehdDuePct4) Return ChildSalesOrder objects filtered by the OehdDuePct4 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduepct4(string|array<string> $OehdDuePct4) Return ChildSalesOrder objects filtered by the OehdDuePct4 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscdate5(string|array<string> $OehdDiscDate5) Return ChildSalesOrder objects filtered by the OehdDiscDate5 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscdate5(string|array<string> $OehdDiscDate5) Return ChildSalesOrder objects filtered by the OehdDiscDate5 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscpct5(string|array<string> $OehdDiscPct5) Return ChildSalesOrder objects filtered by the OehdDiscPct5 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscpct5(string|array<string> $OehdDiscPct5) Return ChildSalesOrder objects filtered by the OehdDiscPct5 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduedate5(string|array<string> $OehdDueDate5) Return ChildSalesOrder objects filtered by the OehdDueDate5 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduedate5(string|array<string> $OehdDueDate5) Return ChildSalesOrder objects filtered by the OehdDueDate5 column
+ * @method     ChildSalesOrder[]|Collection findByOehddueamt5(string|array<string> $OehdDueAmt5) Return ChildSalesOrder objects filtered by the OehdDueAmt5 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddueamt5(string|array<string> $OehdDueAmt5) Return ChildSalesOrder objects filtered by the OehdDueAmt5 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduepct5(string|array<string> $OehdDuePct5) Return ChildSalesOrder objects filtered by the OehdDuePct5 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduepct5(string|array<string> $OehdDuePct5) Return ChildSalesOrder objects filtered by the OehdDuePct5 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscdate6(string|array<string> $OehdDiscDate6) Return ChildSalesOrder objects filtered by the OehdDiscDate6 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscdate6(string|array<string> $OehdDiscDate6) Return ChildSalesOrder objects filtered by the OehdDiscDate6 column
+ * @method     ChildSalesOrder[]|Collection findByOehddiscpct6(string|array<string> $OehdDiscPct6) Return ChildSalesOrder objects filtered by the OehdDiscPct6 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddiscpct6(string|array<string> $OehdDiscPct6) Return ChildSalesOrder objects filtered by the OehdDiscPct6 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduedate6(string|array<string> $OehdDueDate6) Return ChildSalesOrder objects filtered by the OehdDueDate6 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduedate6(string|array<string> $OehdDueDate6) Return ChildSalesOrder objects filtered by the OehdDueDate6 column
+ * @method     ChildSalesOrder[]|Collection findByOehddueamt6(string|array<string> $OehdDueAmt6) Return ChildSalesOrder objects filtered by the OehdDueAmt6 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehddueamt6(string|array<string> $OehdDueAmt6) Return ChildSalesOrder objects filtered by the OehdDueAmt6 column
+ * @method     ChildSalesOrder[]|Collection findByOehdduepct6(string|array<string> $OehdDuePct6) Return ChildSalesOrder objects filtered by the OehdDuePct6 column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdduepct6(string|array<string> $OehdDuePct6) Return ChildSalesOrder objects filtered by the OehdDuePct6 column
+ * @method     ChildSalesOrder[]|Collection findByOehdrefnbr(string|array<string> $OehdRefNbr) Return ChildSalesOrder objects filtered by the OehdRefNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdrefnbr(string|array<string> $OehdRefNbr) Return ChildSalesOrder objects filtered by the OehdRefNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdacprognbr(string|array<string> $OehdAcProgNbr) Return ChildSalesOrder objects filtered by the OehdAcProgNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdacprognbr(string|array<string> $OehdAcProgNbr) Return ChildSalesOrder objects filtered by the OehdAcProgNbr column
+ * @method     ChildSalesOrder[]|Collection findByOehdacprogexpdate(string|array<string> $OehdAcProgExpDate) Return ChildSalesOrder objects filtered by the OehdAcProgExpDate column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByOehdacprogexpdate(string|array<string> $OehdAcProgExpDate) Return ChildSalesOrder objects filtered by the OehdAcProgExpDate column
+ * @method     ChildSalesOrder[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSalesOrder objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSalesOrder objects filtered by the DateUpdtd column
+ * @method     ChildSalesOrder[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSalesOrder objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSalesOrder objects filtered by the TimeUpdtd column
+ * @method     ChildSalesOrder[]|Collection findByDummy(string|array<string> $dummy) Return ChildSalesOrder objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSalesOrder> findByDummy(string|array<string> $dummy) Return ChildSalesOrder objects filtered by the dummy column
+ *
+ * @method     ChildSalesOrder[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSalesOrder> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SalesOrderQuery extends ModelCriteria
 {
@@ -1066,9 +1257,9 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SalesOrderQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SalesOrder', $modelAlias = null)
     {
@@ -1078,12 +1269,12 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Returns a new ChildSalesOrderQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSalesOrderQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSalesOrderQuery) {
             return $criteria;
@@ -1113,7 +1304,7 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @return ChildSalesOrder|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -1145,8 +1336,8 @@ abstract class SalesOrderQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -1178,8 +1369,8 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSalesOrder|array|mixed the result, formatted by the current formatter
      */
@@ -1199,12 +1390,12 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -1221,27 +1412,31 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $key, Criteria::EQUAL);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $keys, Criteria::IN);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -1254,15 +1449,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdnbr(array('min' => 12)); // WHERE OehdNbr > 12
      * </code>
      *
-     * @param     mixed $oehdnbr The value to use as filter.
+     * @param mixed $oehdnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdnbr($oehdnbr = null, $comparison = null)
+    public function filterByOehdnbr($oehdnbr = null, ?string $comparison = null)
     {
         if (is_array($oehdnbr)) {
             $useMinMax = false;
@@ -1282,7 +1477,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $oehdnbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $oehdnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1292,14 +1489,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstat('fooValue');   // WHERE OehdStat = 'fooValue'
      * $query->filterByOehdstat('%fooValue%', Criteria::LIKE); // WHERE OehdStat LIKE '%fooValue%'
+     * $query->filterByOehdstat(['foo', 'bar']); // WHERE OehdStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstat($oehdstat = null, $comparison = null)
+    public function filterByOehdstat($oehdstat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstat)) {
@@ -1307,7 +1505,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTAT, $oehdstat, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTAT, $oehdstat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1317,14 +1517,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdhold('fooValue');   // WHERE OehdHold = 'fooValue'
      * $query->filterByOehdhold('%fooValue%', Criteria::LIKE); // WHERE OehdHold LIKE '%fooValue%'
+     * $query->filterByOehdhold(['foo', 'bar']); // WHERE OehdHold IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdhold The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdhold The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdhold($oehdhold = null, $comparison = null)
+    public function filterByOehdhold($oehdhold = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdhold)) {
@@ -1332,7 +1533,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDHOLD, $oehdhold, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDHOLD, $oehdhold, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1342,14 +1545,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -1357,7 +1561,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1367,14 +1573,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByArstshipid('fooValue');   // WHERE ArstShipId = 'fooValue'
      * $query->filterByArstshipid('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
+     * $query->filterByArstshipid(['foo', 'bar']); // WHERE ArstShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstshipid($arstshipid = null, $comparison = null)
+    public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstshipid)) {
@@ -1382,7 +1589,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1392,14 +1601,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstname('fooValue');   // WHERE OehdStName = 'fooValue'
      * $query->filterByOehdstname('%fooValue%', Criteria::LIKE); // WHERE OehdStName LIKE '%fooValue%'
+     * $query->filterByOehdstname(['foo', 'bar']); // WHERE OehdStName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstname($oehdstname = null, $comparison = null)
+    public function filterByOehdstname($oehdstname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstname)) {
@@ -1407,7 +1617,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTNAME, $oehdstname, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTNAME, $oehdstname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1417,14 +1629,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstlastname('fooValue');   // WHERE OehdStLastName = 'fooValue'
      * $query->filterByOehdstlastname('%fooValue%', Criteria::LIKE); // WHERE OehdStLastName LIKE '%fooValue%'
+     * $query->filterByOehdstlastname(['foo', 'bar']); // WHERE OehdStLastName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstlastname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstlastname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstlastname($oehdstlastname = null, $comparison = null)
+    public function filterByOehdstlastname($oehdstlastname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstlastname)) {
@@ -1432,7 +1645,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTLASTNAME, $oehdstlastname, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTLASTNAME, $oehdstlastname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1442,14 +1657,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstfirstname('fooValue');   // WHERE OehdStFirstName = 'fooValue'
      * $query->filterByOehdstfirstname('%fooValue%', Criteria::LIKE); // WHERE OehdStFirstName LIKE '%fooValue%'
+     * $query->filterByOehdstfirstname(['foo', 'bar']); // WHERE OehdStFirstName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstfirstname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstfirstname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstfirstname($oehdstfirstname = null, $comparison = null)
+    public function filterByOehdstfirstname($oehdstfirstname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstfirstname)) {
@@ -1457,7 +1673,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTFIRSTNAME, $oehdstfirstname, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTFIRSTNAME, $oehdstfirstname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1467,14 +1685,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstadr1('fooValue');   // WHERE OehdStAdr1 = 'fooValue'
      * $query->filterByOehdstadr1('%fooValue%', Criteria::LIKE); // WHERE OehdStAdr1 LIKE '%fooValue%'
+     * $query->filterByOehdstadr1(['foo', 'bar']); // WHERE OehdStAdr1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstadr1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstadr1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstadr1($oehdstadr1 = null, $comparison = null)
+    public function filterByOehdstadr1($oehdstadr1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstadr1)) {
@@ -1482,7 +1701,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTADR1, $oehdstadr1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTADR1, $oehdstadr1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1492,14 +1713,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstadr2('fooValue');   // WHERE OehdStAdr2 = 'fooValue'
      * $query->filterByOehdstadr2('%fooValue%', Criteria::LIKE); // WHERE OehdStAdr2 LIKE '%fooValue%'
+     * $query->filterByOehdstadr2(['foo', 'bar']); // WHERE OehdStAdr2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstadr2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstadr2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstadr2($oehdstadr2 = null, $comparison = null)
+    public function filterByOehdstadr2($oehdstadr2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstadr2)) {
@@ -1507,7 +1729,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTADR2, $oehdstadr2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTADR2, $oehdstadr2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1517,14 +1741,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstadr3('fooValue');   // WHERE OehdStAdr3 = 'fooValue'
      * $query->filterByOehdstadr3('%fooValue%', Criteria::LIKE); // WHERE OehdStAdr3 LIKE '%fooValue%'
+     * $query->filterByOehdstadr3(['foo', 'bar']); // WHERE OehdStAdr3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstadr3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstadr3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstadr3($oehdstadr3 = null, $comparison = null)
+    public function filterByOehdstadr3($oehdstadr3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstadr3)) {
@@ -1532,7 +1757,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTADR3, $oehdstadr3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTADR3, $oehdstadr3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1542,14 +1769,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstctry('fooValue');   // WHERE OehdStCtry = 'fooValue'
      * $query->filterByOehdstctry('%fooValue%', Criteria::LIKE); // WHERE OehdStCtry LIKE '%fooValue%'
+     * $query->filterByOehdstctry(['foo', 'bar']); // WHERE OehdStCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstctry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstctry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstctry($oehdstctry = null, $comparison = null)
+    public function filterByOehdstctry($oehdstctry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstctry)) {
@@ -1557,7 +1785,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTCTRY, $oehdstctry, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTCTRY, $oehdstctry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1567,14 +1797,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstcity('fooValue');   // WHERE OehdStCity = 'fooValue'
      * $query->filterByOehdstcity('%fooValue%', Criteria::LIKE); // WHERE OehdStCity LIKE '%fooValue%'
+     * $query->filterByOehdstcity(['foo', 'bar']); // WHERE OehdStCity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstcity($oehdstcity = null, $comparison = null)
+    public function filterByOehdstcity($oehdstcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstcity)) {
@@ -1582,7 +1813,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTCITY, $oehdstcity, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTCITY, $oehdstcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1592,14 +1825,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdststat('fooValue');   // WHERE OehdStStat = 'fooValue'
      * $query->filterByOehdststat('%fooValue%', Criteria::LIKE); // WHERE OehdStStat LIKE '%fooValue%'
+     * $query->filterByOehdststat(['foo', 'bar']); // WHERE OehdStStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdststat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdststat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdststat($oehdststat = null, $comparison = null)
+    public function filterByOehdststat($oehdststat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdststat)) {
@@ -1607,7 +1841,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTSTAT, $oehdststat, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTSTAT, $oehdststat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1617,14 +1853,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstzipcode('fooValue');   // WHERE OehdStZipCode = 'fooValue'
      * $query->filterByOehdstzipcode('%fooValue%', Criteria::LIKE); // WHERE OehdStZipCode LIKE '%fooValue%'
+     * $query->filterByOehdstzipcode(['foo', 'bar']); // WHERE OehdStZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstzipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstzipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstzipcode($oehdstzipcode = null, $comparison = null)
+    public function filterByOehdstzipcode($oehdstzipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstzipcode)) {
@@ -1632,7 +1869,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTZIPCODE, $oehdstzipcode, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTZIPCODE, $oehdstzipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1642,14 +1881,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcustpo('fooValue');   // WHERE OehdCustPo = 'fooValue'
      * $query->filterByOehdcustpo('%fooValue%', Criteria::LIKE); // WHERE OehdCustPo LIKE '%fooValue%'
+     * $query->filterByOehdcustpo(['foo', 'bar']); // WHERE OehdCustPo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcustpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcustpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcustpo($oehdcustpo = null, $comparison = null)
+    public function filterByOehdcustpo($oehdcustpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcustpo)) {
@@ -1657,7 +1897,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCUSTPO, $oehdcustpo, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCUSTPO, $oehdcustpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1667,14 +1909,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdordrdate('fooValue');   // WHERE OehdOrdrDate = 'fooValue'
      * $query->filterByOehdordrdate('%fooValue%', Criteria::LIKE); // WHERE OehdOrdrDate LIKE '%fooValue%'
+     * $query->filterByOehdordrdate(['foo', 'bar']); // WHERE OehdOrdrDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdordrdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdordrdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdordrdate($oehdordrdate = null, $comparison = null)
+    public function filterByOehdordrdate($oehdordrdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdordrdate)) {
@@ -1682,7 +1925,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDRDATE, $oehdordrdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDRDATE, $oehdordrdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1692,14 +1937,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByArtmtermcd('fooValue');   // WHERE ArtmTermCd = 'fooValue'
      * $query->filterByArtmtermcd('%fooValue%', Criteria::LIKE); // WHERE ArtmTermCd LIKE '%fooValue%'
+     * $query->filterByArtmtermcd(['foo', 'bar']); // WHERE ArtmTermCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artmtermcd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artmtermcd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtmtermcd($artmtermcd = null, $comparison = null)
+    public function filterByArtmtermcd($artmtermcd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artmtermcd)) {
@@ -1707,7 +1953,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_ARTMTERMCD, $artmtermcd, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_ARTMTERMCD, $artmtermcd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1717,14 +1965,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbshipvia('fooValue');   // WHERE ArtbShipVia = 'fooValue'
      * $query->filterByArtbshipvia('%fooValue%', Criteria::LIKE); // WHERE ArtbShipVia LIKE '%fooValue%'
+     * $query->filterByArtbshipvia(['foo', 'bar']); // WHERE ArtbShipVia IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbshipvia The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbshipvia The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbshipvia($artbshipvia = null, $comparison = null)
+    public function filterByArtbshipvia($artbshipvia = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbshipvia)) {
@@ -1732,7 +1981,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1742,14 +1993,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByArininvnbr('fooValue');   // WHERE ArinInvNbr = 'fooValue'
      * $query->filterByArininvnbr('%fooValue%', Criteria::LIKE); // WHERE ArinInvNbr LIKE '%fooValue%'
+     * $query->filterByArininvnbr(['foo', 'bar']); // WHERE ArinInvNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arininvnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arininvnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArininvnbr($arininvnbr = null, $comparison = null)
+    public function filterByArininvnbr($arininvnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arininvnbr)) {
@@ -1757,7 +2009,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_ARININVNBR, $arininvnbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_ARININVNBR, $arininvnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1767,14 +2021,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdinvdate('fooValue');   // WHERE OehdInvDate = 'fooValue'
      * $query->filterByOehdinvdate('%fooValue%', Criteria::LIKE); // WHERE OehdInvDate LIKE '%fooValue%'
+     * $query->filterByOehdinvdate(['foo', 'bar']); // WHERE OehdInvDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdinvdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdinvdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdinvdate($oehdinvdate = null, $comparison = null)
+    public function filterByOehdinvdate($oehdinvdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdinvdate)) {
@@ -1782,7 +2037,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINVDATE, $oehdinvdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINVDATE, $oehdinvdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1795,15 +2052,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdglpd(array('min' => 12)); // WHERE OehdGLPd > 12
      * </code>
      *
-     * @param     mixed $oehdglpd The value to use as filter.
+     * @param mixed $oehdglpd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdglpd($oehdglpd = null, $comparison = null)
+    public function filterByOehdglpd($oehdglpd = null, ?string $comparison = null)
     {
         if (is_array($oehdglpd)) {
             $useMinMax = false;
@@ -1823,7 +2080,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDGLPD, $oehdglpd, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDGLPD, $oehdglpd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1833,14 +2092,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper1('fooValue');   // WHERE ArspSalePer1 = 'fooValue'
      * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
+     * $query->filterByArspsaleper1(['foo', 'bar']); // WHERE ArspSalePer1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper1($arspsaleper1 = null, $comparison = null)
+    public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper1)) {
@@ -1848,7 +2108,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1861,15 +2123,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdsp1pct(array('min' => 12)); // WHERE OehdSp1Pct > 12
      * </code>
      *
-     * @param     mixed $oehdsp1pct The value to use as filter.
+     * @param mixed $oehdsp1pct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdsp1pct($oehdsp1pct = null, $comparison = null)
+    public function filterByOehdsp1pct($oehdsp1pct = null, ?string $comparison = null)
     {
         if (is_array($oehdsp1pct)) {
             $useMinMax = false;
@@ -1889,7 +2151,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSP1PCT, $oehdsp1pct, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSP1PCT, $oehdsp1pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1899,14 +2163,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper2('fooValue');   // WHERE ArspSalePer2 = 'fooValue'
      * $query->filterByArspsaleper2('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer2 LIKE '%fooValue%'
+     * $query->filterByArspsaleper2(['foo', 'bar']); // WHERE ArspSalePer2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper2($arspsaleper2 = null, $comparison = null)
+    public function filterByArspsaleper2($arspsaleper2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper2)) {
@@ -1914,7 +2179,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_ARSPSALEPER2, $arspsaleper2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_ARSPSALEPER2, $arspsaleper2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1927,15 +2194,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdsp2pct(array('min' => 12)); // WHERE OehdSp2Pct > 12
      * </code>
      *
-     * @param     mixed $oehdsp2pct The value to use as filter.
+     * @param mixed $oehdsp2pct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdsp2pct($oehdsp2pct = null, $comparison = null)
+    public function filterByOehdsp2pct($oehdsp2pct = null, ?string $comparison = null)
     {
         if (is_array($oehdsp2pct)) {
             $useMinMax = false;
@@ -1955,7 +2222,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSP2PCT, $oehdsp2pct, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSP2PCT, $oehdsp2pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1965,14 +2234,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper3('fooValue');   // WHERE ArspSalePer3 = 'fooValue'
      * $query->filterByArspsaleper3('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer3 LIKE '%fooValue%'
+     * $query->filterByArspsaleper3(['foo', 'bar']); // WHERE ArspSalePer3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper3($arspsaleper3 = null, $comparison = null)
+    public function filterByArspsaleper3($arspsaleper3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper3)) {
@@ -1980,7 +2250,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_ARSPSALEPER3, $arspsaleper3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_ARSPSALEPER3, $arspsaleper3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1993,15 +2265,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdsp3pct(array('min' => 12)); // WHERE OehdSp3Pct > 12
      * </code>
      *
-     * @param     mixed $oehdsp3pct The value to use as filter.
+     * @param mixed $oehdsp3pct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdsp3pct($oehdsp3pct = null, $comparison = null)
+    public function filterByOehdsp3pct($oehdsp3pct = null, ?string $comparison = null)
     {
         if (is_array($oehdsp3pct)) {
             $useMinMax = false;
@@ -2021,7 +2293,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSP3PCT, $oehdsp3pct, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSP3PCT, $oehdsp3pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2034,15 +2308,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdcntrnbr(array('min' => 12)); // WHERE OehdCntrNbr > 12
      * </code>
      *
-     * @param     mixed $oehdcntrnbr The value to use as filter.
+     * @param mixed $oehdcntrnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcntrnbr($oehdcntrnbr = null, $comparison = null)
+    public function filterByOehdcntrnbr($oehdcntrnbr = null, ?string $comparison = null)
     {
         if (is_array($oehdcntrnbr)) {
             $useMinMax = false;
@@ -2062,7 +2336,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCNTRNBR, $oehdcntrnbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCNTRNBR, $oehdcntrnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2075,15 +2351,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdwibatch(array('min' => 12)); // WHERE OehdWiBatch > 12
      * </code>
      *
-     * @param     mixed $oehdwibatch The value to use as filter.
+     * @param mixed $oehdwibatch The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdwibatch($oehdwibatch = null, $comparison = null)
+    public function filterByOehdwibatch($oehdwibatch = null, ?string $comparison = null)
     {
         if (is_array($oehdwibatch)) {
             $useMinMax = false;
@@ -2103,7 +2379,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDWIBATCH, $oehdwibatch, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDWIBATCH, $oehdwibatch, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2113,14 +2391,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddroprelhold('fooValue');   // WHERE OehdDropRelHold = 'fooValue'
      * $query->filterByOehddroprelhold('%fooValue%', Criteria::LIKE); // WHERE OehdDropRelHold LIKE '%fooValue%'
+     * $query->filterByOehddroprelhold(['foo', 'bar']); // WHERE OehdDropRelHold IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddroprelhold The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddroprelhold The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddroprelhold($oehddroprelhold = null, $comparison = null)
+    public function filterByOehddroprelhold($oehddroprelhold = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddroprelhold)) {
@@ -2128,7 +2407,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDROPRELHOLD, $oehddroprelhold, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDROPRELHOLD, $oehddroprelhold, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2141,15 +2422,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdtaxsub(array('min' => 12)); // WHERE OehdTaxSub > 12
      * </code>
      *
-     * @param     mixed $oehdtaxsub The value to use as filter.
+     * @param mixed $oehdtaxsub The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdtaxsub($oehdtaxsub = null, $comparison = null)
+    public function filterByOehdtaxsub($oehdtaxsub = null, ?string $comparison = null)
     {
         if (is_array($oehdtaxsub)) {
             $useMinMax = false;
@@ -2169,7 +2450,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAXSUB, $oehdtaxsub, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAXSUB, $oehdtaxsub, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2182,15 +2465,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdnontaxsub(array('min' => 12)); // WHERE OehdNonTaxSub > 12
      * </code>
      *
-     * @param     mixed $oehdnontaxsub The value to use as filter.
+     * @param mixed $oehdnontaxsub The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdnontaxsub($oehdnontaxsub = null, $comparison = null)
+    public function filterByOehdnontaxsub($oehdnontaxsub = null, ?string $comparison = null)
     {
         if (is_array($oehdnontaxsub)) {
             $useMinMax = false;
@@ -2210,7 +2493,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNONTAXSUB, $oehdnontaxsub, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNONTAXSUB, $oehdnontaxsub, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2223,15 +2508,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdtaxtot(array('min' => 12)); // WHERE OehdTaxTot > 12
      * </code>
      *
-     * @param     mixed $oehdtaxtot The value to use as filter.
+     * @param mixed $oehdtaxtot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdtaxtot($oehdtaxtot = null, $comparison = null)
+    public function filterByOehdtaxtot($oehdtaxtot = null, ?string $comparison = null)
     {
         if (is_array($oehdtaxtot)) {
             $useMinMax = false;
@@ -2251,7 +2536,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAXTOT, $oehdtaxtot, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAXTOT, $oehdtaxtot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2264,15 +2551,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrttot(array('min' => 12)); // WHERE OehdFrtTot > 12
      * </code>
      *
-     * @param     mixed $oehdfrttot The value to use as filter.
+     * @param mixed $oehdfrttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttot($oehdfrttot = null, $comparison = null)
+    public function filterByOehdfrttot($oehdfrttot = null, ?string $comparison = null)
     {
         if (is_array($oehdfrttot)) {
             $useMinMax = false;
@@ -2292,7 +2579,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTOT, $oehdfrttot, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTOT, $oehdfrttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2305,15 +2594,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdmisctot(array('min' => 12)); // WHERE OehdMiscTot > 12
      * </code>
      *
-     * @param     mixed $oehdmisctot The value to use as filter.
+     * @param mixed $oehdmisctot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdmisctot($oehdmisctot = null, $comparison = null)
+    public function filterByOehdmisctot($oehdmisctot = null, ?string $comparison = null)
     {
         if (is_array($oehdmisctot)) {
             $useMinMax = false;
@@ -2333,7 +2622,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDMISCTOT, $oehdmisctot, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDMISCTOT, $oehdmisctot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2346,15 +2637,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdordrtot(array('min' => 12)); // WHERE OehdOrdrTot > 12
      * </code>
      *
-     * @param     mixed $oehdordrtot The value to use as filter.
+     * @param mixed $oehdordrtot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdordrtot($oehdordrtot = null, $comparison = null)
+    public function filterByOehdordrtot($oehdordrtot = null, ?string $comparison = null)
     {
         if (is_array($oehdordrtot)) {
             $useMinMax = false;
@@ -2374,7 +2665,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDRTOT, $oehdordrtot, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDRTOT, $oehdordrtot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2387,15 +2680,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdcosttot(array('min' => 12)); // WHERE OehdCostTot > 12
      * </code>
      *
-     * @param     mixed $oehdcosttot The value to use as filter.
+     * @param mixed $oehdcosttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcosttot($oehdcosttot = null, $comparison = null)
+    public function filterByOehdcosttot($oehdcosttot = null, ?string $comparison = null)
     {
         if (is_array($oehdcosttot)) {
             $useMinMax = false;
@@ -2415,7 +2708,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCOSTTOT, $oehdcosttot, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCOSTTOT, $oehdcosttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2425,14 +2720,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdspcommlock('fooValue');   // WHERE OehdSpCommLock = 'fooValue'
      * $query->filterByOehdspcommlock('%fooValue%', Criteria::LIKE); // WHERE OehdSpCommLock LIKE '%fooValue%'
+     * $query->filterByOehdspcommlock(['foo', 'bar']); // WHERE OehdSpCommLock IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdspcommlock The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdspcommlock The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdspcommlock($oehdspcommlock = null, $comparison = null)
+    public function filterByOehdspcommlock($oehdspcommlock = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdspcommlock)) {
@@ -2440,7 +2736,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSPCOMMLOCK, $oehdspcommlock, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSPCOMMLOCK, $oehdspcommlock, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2450,14 +2748,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdtakendate('fooValue');   // WHERE OehdTakenDate = 'fooValue'
      * $query->filterByOehdtakendate('%fooValue%', Criteria::LIKE); // WHERE OehdTakenDate LIKE '%fooValue%'
+     * $query->filterByOehdtakendate(['foo', 'bar']); // WHERE OehdTakenDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdtakendate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdtakendate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdtakendate($oehdtakendate = null, $comparison = null)
+    public function filterByOehdtakendate($oehdtakendate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdtakendate)) {
@@ -2465,7 +2764,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAKENDATE, $oehdtakendate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAKENDATE, $oehdtakendate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2475,14 +2776,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdtakentime('fooValue');   // WHERE OehdTakenTime = 'fooValue'
      * $query->filterByOehdtakentime('%fooValue%', Criteria::LIKE); // WHERE OehdTakenTime LIKE '%fooValue%'
+     * $query->filterByOehdtakentime(['foo', 'bar']); // WHERE OehdTakenTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdtakentime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdtakentime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdtakentime($oehdtakentime = null, $comparison = null)
+    public function filterByOehdtakentime($oehdtakentime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdtakentime)) {
@@ -2490,7 +2792,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAKENTIME, $oehdtakentime, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAKENTIME, $oehdtakentime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2500,14 +2804,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpickdate('fooValue');   // WHERE OehdPickDate = 'fooValue'
      * $query->filterByOehdpickdate('%fooValue%', Criteria::LIKE); // WHERE OehdPickDate LIKE '%fooValue%'
+     * $query->filterByOehdpickdate(['foo', 'bar']); // WHERE OehdPickDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpickdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpickdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpickdate($oehdpickdate = null, $comparison = null)
+    public function filterByOehdpickdate($oehdpickdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpickdate)) {
@@ -2515,7 +2820,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKDATE, $oehdpickdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKDATE, $oehdpickdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2525,14 +2832,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpicktime('fooValue');   // WHERE OehdPickTime = 'fooValue'
      * $query->filterByOehdpicktime('%fooValue%', Criteria::LIKE); // WHERE OehdPickTime LIKE '%fooValue%'
+     * $query->filterByOehdpicktime(['foo', 'bar']); // WHERE OehdPickTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpicktime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpicktime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpicktime($oehdpicktime = null, $comparison = null)
+    public function filterByOehdpicktime($oehdpicktime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpicktime)) {
@@ -2540,7 +2848,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKTIME, $oehdpicktime, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKTIME, $oehdpicktime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2550,14 +2860,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpackdate('fooValue');   // WHERE OehdPackDate = 'fooValue'
      * $query->filterByOehdpackdate('%fooValue%', Criteria::LIKE); // WHERE OehdPackDate LIKE '%fooValue%'
+     * $query->filterByOehdpackdate(['foo', 'bar']); // WHERE OehdPackDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpackdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpackdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpackdate($oehdpackdate = null, $comparison = null)
+    public function filterByOehdpackdate($oehdpackdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpackdate)) {
@@ -2565,7 +2876,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPACKDATE, $oehdpackdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPACKDATE, $oehdpackdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2575,14 +2888,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpacktime('fooValue');   // WHERE OehdPackTime = 'fooValue'
      * $query->filterByOehdpacktime('%fooValue%', Criteria::LIKE); // WHERE OehdPackTime LIKE '%fooValue%'
+     * $query->filterByOehdpacktime(['foo', 'bar']); // WHERE OehdPackTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpacktime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpacktime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpacktime($oehdpacktime = null, $comparison = null)
+    public function filterByOehdpacktime($oehdpacktime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpacktime)) {
@@ -2590,7 +2904,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPACKTIME, $oehdpacktime, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPACKTIME, $oehdpacktime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2600,14 +2916,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdverifydate('fooValue');   // WHERE OehdVerifyDate = 'fooValue'
      * $query->filterByOehdverifydate('%fooValue%', Criteria::LIKE); // WHERE OehdVerifyDate LIKE '%fooValue%'
+     * $query->filterByOehdverifydate(['foo', 'bar']); // WHERE OehdVerifyDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdverifydate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdverifydate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdverifydate($oehdverifydate = null, $comparison = null)
+    public function filterByOehdverifydate($oehdverifydate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdverifydate)) {
@@ -2615,7 +2932,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDVERIFYDATE, $oehdverifydate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDVERIFYDATE, $oehdverifydate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2625,14 +2944,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdverifytime('fooValue');   // WHERE OehdVerifyTime = 'fooValue'
      * $query->filterByOehdverifytime('%fooValue%', Criteria::LIKE); // WHERE OehdVerifyTime LIKE '%fooValue%'
+     * $query->filterByOehdverifytime(['foo', 'bar']); // WHERE OehdVerifyTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdverifytime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdverifytime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdverifytime($oehdverifytime = null, $comparison = null)
+    public function filterByOehdverifytime($oehdverifytime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdverifytime)) {
@@ -2640,7 +2960,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDVERIFYTIME, $oehdverifytime, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDVERIFYTIME, $oehdverifytime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2650,14 +2972,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcreditmemo('fooValue');   // WHERE OehdCreditMemo = 'fooValue'
      * $query->filterByOehdcreditmemo('%fooValue%', Criteria::LIKE); // WHERE OehdCreditMemo LIKE '%fooValue%'
+     * $query->filterByOehdcreditmemo(['foo', 'bar']); // WHERE OehdCreditMemo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcreditmemo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcreditmemo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcreditmemo($oehdcreditmemo = null, $comparison = null)
+    public function filterByOehdcreditmemo($oehdcreditmemo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcreditmemo)) {
@@ -2665,7 +2988,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCREDITMEMO, $oehdcreditmemo, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCREDITMEMO, $oehdcreditmemo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2675,14 +3000,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdbookedyn('fooValue');   // WHERE OehdBookedYn = 'fooValue'
      * $query->filterByOehdbookedyn('%fooValue%', Criteria::LIKE); // WHERE OehdBookedYn LIKE '%fooValue%'
+     * $query->filterByOehdbookedyn(['foo', 'bar']); // WHERE OehdBookedYn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdbookedyn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdbookedyn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdbookedyn($oehdbookedyn = null, $comparison = null)
+    public function filterByOehdbookedyn($oehdbookedyn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdbookedyn)) {
@@ -2690,7 +3016,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDBOOKEDYN, $oehdbookedyn, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDBOOKEDYN, $oehdbookedyn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2700,14 +3028,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseorig('fooValue');   // WHERE IntbWhseOrig = 'fooValue'
      * $query->filterByIntbwhseorig('%fooValue%', Criteria::LIKE); // WHERE IntbWhseOrig LIKE '%fooValue%'
+     * $query->filterByIntbwhseorig(['foo', 'bar']); // WHERE IntbWhseOrig IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseorig The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseorig The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseorig($intbwhseorig = null, $comparison = null)
+    public function filterByIntbwhseorig($intbwhseorig = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseorig)) {
@@ -2715,7 +3044,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_INTBWHSEORIG, $intbwhseorig, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_INTBWHSEORIG, $intbwhseorig, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2725,14 +3056,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdbtstat('fooValue');   // WHERE OehdBtStat = 'fooValue'
      * $query->filterByOehdbtstat('%fooValue%', Criteria::LIKE); // WHERE OehdBtStat LIKE '%fooValue%'
+     * $query->filterByOehdbtstat(['foo', 'bar']); // WHERE OehdBtStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdbtstat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdbtstat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdbtstat($oehdbtstat = null, $comparison = null)
+    public function filterByOehdbtstat($oehdbtstat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdbtstat)) {
@@ -2740,7 +3072,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDBTSTAT, $oehdbtstat, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDBTSTAT, $oehdbtstat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2750,14 +3084,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdshipcomp('fooValue');   // WHERE OehdShipComp = 'fooValue'
      * $query->filterByOehdshipcomp('%fooValue%', Criteria::LIKE); // WHERE OehdShipComp LIKE '%fooValue%'
+     * $query->filterByOehdshipcomp(['foo', 'bar']); // WHERE OehdShipComp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdshipcomp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdshipcomp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdshipcomp($oehdshipcomp = null, $comparison = null)
+    public function filterByOehdshipcomp($oehdshipcomp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdshipcomp)) {
@@ -2765,7 +3100,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSHIPCOMP, $oehdshipcomp, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSHIPCOMP, $oehdshipcomp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2775,14 +3112,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcwoflag('fooValue');   // WHERE OehdCwoFlag = 'fooValue'
      * $query->filterByOehdcwoflag('%fooValue%', Criteria::LIKE); // WHERE OehdCwoFlag LIKE '%fooValue%'
+     * $query->filterByOehdcwoflag(['foo', 'bar']); // WHERE OehdCwoFlag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcwoflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcwoflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcwoflag($oehdcwoflag = null, $comparison = null)
+    public function filterByOehdcwoflag($oehdcwoflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcwoflag)) {
@@ -2790,7 +3128,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCWOFLAG, $oehdcwoflag, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCWOFLAG, $oehdcwoflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2800,14 +3140,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddivision('fooValue');   // WHERE OehdDivision = 'fooValue'
      * $query->filterByOehddivision('%fooValue%', Criteria::LIKE); // WHERE OehdDivision LIKE '%fooValue%'
+     * $query->filterByOehddivision(['foo', 'bar']); // WHERE OehdDivision IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddivision The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddivision The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddivision($oehddivision = null, $comparison = null)
+    public function filterByOehddivision($oehddivision = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddivision)) {
@@ -2815,7 +3156,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDIVISION, $oehddivision, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDIVISION, $oehddivision, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2825,14 +3168,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdtakencode('fooValue');   // WHERE OehdTakenCode = 'fooValue'
      * $query->filterByOehdtakencode('%fooValue%', Criteria::LIKE); // WHERE OehdTakenCode LIKE '%fooValue%'
+     * $query->filterByOehdtakencode(['foo', 'bar']); // WHERE OehdTakenCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdtakencode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdtakencode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdtakencode($oehdtakencode = null, $comparison = null)
+    public function filterByOehdtakencode($oehdtakencode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdtakencode)) {
@@ -2840,7 +3184,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAKENCODE, $oehdtakencode, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTAKENCODE, $oehdtakencode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2850,14 +3196,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpickcode('fooValue');   // WHERE OehdPickCode = 'fooValue'
      * $query->filterByOehdpickcode('%fooValue%', Criteria::LIKE); // WHERE OehdPickCode LIKE '%fooValue%'
+     * $query->filterByOehdpickcode(['foo', 'bar']); // WHERE OehdPickCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpickcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpickcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpickcode($oehdpickcode = null, $comparison = null)
+    public function filterByOehdpickcode($oehdpickcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpickcode)) {
@@ -2865,7 +3212,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKCODE, $oehdpickcode, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKCODE, $oehdpickcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2875,14 +3224,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpackcode('fooValue');   // WHERE OehdPackCode = 'fooValue'
      * $query->filterByOehdpackcode('%fooValue%', Criteria::LIKE); // WHERE OehdPackCode LIKE '%fooValue%'
+     * $query->filterByOehdpackcode(['foo', 'bar']); // WHERE OehdPackCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpackcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpackcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpackcode($oehdpackcode = null, $comparison = null)
+    public function filterByOehdpackcode($oehdpackcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpackcode)) {
@@ -2890,7 +3240,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPACKCODE, $oehdpackcode, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPACKCODE, $oehdpackcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2900,14 +3252,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdverifycode('fooValue');   // WHERE OehdVerifyCode = 'fooValue'
      * $query->filterByOehdverifycode('%fooValue%', Criteria::LIKE); // WHERE OehdVerifyCode LIKE '%fooValue%'
+     * $query->filterByOehdverifycode(['foo', 'bar']); // WHERE OehdVerifyCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdverifycode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdverifycode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdverifycode($oehdverifycode = null, $comparison = null)
+    public function filterByOehdverifycode($oehdverifycode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdverifycode)) {
@@ -2915,7 +3268,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDVERIFYCODE, $oehdverifycode, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDVERIFYCODE, $oehdverifycode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2928,15 +3283,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdtotdisc(array('min' => 12)); // WHERE OehdTotDisc > 12
      * </code>
      *
-     * @param     mixed $oehdtotdisc The value to use as filter.
+     * @param mixed $oehdtotdisc The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdtotdisc($oehdtotdisc = null, $comparison = null)
+    public function filterByOehdtotdisc($oehdtotdisc = null, ?string $comparison = null)
     {
         if (is_array($oehdtotdisc)) {
             $useMinMax = false;
@@ -2956,7 +3311,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTOTDISC, $oehdtotdisc, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTOTDISC, $oehdtotdisc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2966,14 +3323,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdedirefnbrqual('fooValue');   // WHERE OehdEdiRefNbrQual = 'fooValue'
      * $query->filterByOehdedirefnbrqual('%fooValue%', Criteria::LIKE); // WHERE OehdEdiRefNbrQual LIKE '%fooValue%'
+     * $query->filterByOehdedirefnbrqual(['foo', 'bar']); // WHERE OehdEdiRefNbrQual IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdedirefnbrqual The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdedirefnbrqual The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdedirefnbrqual($oehdedirefnbrqual = null, $comparison = null)
+    public function filterByOehdedirefnbrqual($oehdedirefnbrqual = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdedirefnbrqual)) {
@@ -2981,7 +3339,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDEDIREFNBRQUAL, $oehdedirefnbrqual, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDEDIREFNBRQUAL, $oehdedirefnbrqual, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2991,14 +3351,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdusercode1('fooValue');   // WHERE OehdUserCode1 = 'fooValue'
      * $query->filterByOehdusercode1('%fooValue%', Criteria::LIKE); // WHERE OehdUserCode1 LIKE '%fooValue%'
+     * $query->filterByOehdusercode1(['foo', 'bar']); // WHERE OehdUserCode1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdusercode1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdusercode1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdusercode1($oehdusercode1 = null, $comparison = null)
+    public function filterByOehdusercode1($oehdusercode1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdusercode1)) {
@@ -3006,7 +3367,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDUSERCODE1, $oehdusercode1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDUSERCODE1, $oehdusercode1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3016,14 +3379,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdusercode2('fooValue');   // WHERE OehdUserCode2 = 'fooValue'
      * $query->filterByOehdusercode2('%fooValue%', Criteria::LIKE); // WHERE OehdUserCode2 LIKE '%fooValue%'
+     * $query->filterByOehdusercode2(['foo', 'bar']); // WHERE OehdUserCode2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdusercode2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdusercode2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdusercode2($oehdusercode2 = null, $comparison = null)
+    public function filterByOehdusercode2($oehdusercode2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdusercode2)) {
@@ -3031,7 +3395,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDUSERCODE2, $oehdusercode2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDUSERCODE2, $oehdusercode2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3041,14 +3407,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdusercode3('fooValue');   // WHERE OehdUserCode3 = 'fooValue'
      * $query->filterByOehdusercode3('%fooValue%', Criteria::LIKE); // WHERE OehdUserCode3 LIKE '%fooValue%'
+     * $query->filterByOehdusercode3(['foo', 'bar']); // WHERE OehdUserCode3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdusercode3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdusercode3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdusercode3($oehdusercode3 = null, $comparison = null)
+    public function filterByOehdusercode3($oehdusercode3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdusercode3)) {
@@ -3056,7 +3423,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDUSERCODE3, $oehdusercode3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDUSERCODE3, $oehdusercode3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3066,14 +3435,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdusercode4('fooValue');   // WHERE OehdUserCode4 = 'fooValue'
      * $query->filterByOehdusercode4('%fooValue%', Criteria::LIKE); // WHERE OehdUserCode4 LIKE '%fooValue%'
+     * $query->filterByOehdusercode4(['foo', 'bar']); // WHERE OehdUserCode4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdusercode4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdusercode4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdusercode4($oehdusercode4 = null, $comparison = null)
+    public function filterByOehdusercode4($oehdusercode4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdusercode4)) {
@@ -3081,7 +3451,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDUSERCODE4, $oehdusercode4, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDUSERCODE4, $oehdusercode4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3091,14 +3463,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdexchctry('fooValue');   // WHERE OehdExchCtry = 'fooValue'
      * $query->filterByOehdexchctry('%fooValue%', Criteria::LIKE); // WHERE OehdExchCtry LIKE '%fooValue%'
+     * $query->filterByOehdexchctry(['foo', 'bar']); // WHERE OehdExchCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdexchctry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdexchctry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdexchctry($oehdexchctry = null, $comparison = null)
+    public function filterByOehdexchctry($oehdexchctry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdexchctry)) {
@@ -3106,7 +3479,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDEXCHCTRY, $oehdexchctry, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDEXCHCTRY, $oehdexchctry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3119,15 +3494,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdexchrate(array('min' => 12)); // WHERE OehdExchRate > 12
      * </code>
      *
-     * @param     mixed $oehdexchrate The value to use as filter.
+     * @param mixed $oehdexchrate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdexchrate($oehdexchrate = null, $comparison = null)
+    public function filterByOehdexchrate($oehdexchrate = null, ?string $comparison = null)
     {
         if (is_array($oehdexchrate)) {
             $useMinMax = false;
@@ -3147,7 +3522,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDEXCHRATE, $oehdexchrate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDEXCHRATE, $oehdexchrate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3160,15 +3537,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdwghttot(array('min' => 12)); // WHERE OehdWghtTot > 12
      * </code>
      *
-     * @param     mixed $oehdwghttot The value to use as filter.
+     * @param mixed $oehdwghttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdwghttot($oehdwghttot = null, $comparison = null)
+    public function filterByOehdwghttot($oehdwghttot = null, ?string $comparison = null)
     {
         if (is_array($oehdwghttot)) {
             $useMinMax = false;
@@ -3188,7 +3565,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDWGHTTOT, $oehdwghttot, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDWGHTTOT, $oehdwghttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3198,14 +3577,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdwghtoride('fooValue');   // WHERE OehdWghtOride = 'fooValue'
      * $query->filterByOehdwghtoride('%fooValue%', Criteria::LIKE); // WHERE OehdWghtOride LIKE '%fooValue%'
+     * $query->filterByOehdwghtoride(['foo', 'bar']); // WHERE OehdWghtOride IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdwghtoride The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdwghtoride The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdwghtoride($oehdwghtoride = null, $comparison = null)
+    public function filterByOehdwghtoride($oehdwghtoride = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdwghtoride)) {
@@ -3213,7 +3593,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDWGHTORIDE, $oehdwghtoride, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDWGHTORIDE, $oehdwghtoride, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3223,14 +3605,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdccinfo('fooValue');   // WHERE OehdCcInfo = 'fooValue'
      * $query->filterByOehdccinfo('%fooValue%', Criteria::LIKE); // WHERE OehdCcInfo LIKE '%fooValue%'
+     * $query->filterByOehdccinfo(['foo', 'bar']); // WHERE OehdCcInfo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdccinfo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdccinfo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdccinfo($oehdccinfo = null, $comparison = null)
+    public function filterByOehdccinfo($oehdccinfo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdccinfo)) {
@@ -3238,7 +3621,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCCINFO, $oehdccinfo, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCCINFO, $oehdccinfo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3251,15 +3636,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdboxcount(array('min' => 12)); // WHERE OehdBoxCount > 12
      * </code>
      *
-     * @param     mixed $oehdboxcount The value to use as filter.
+     * @param mixed $oehdboxcount The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdboxcount($oehdboxcount = null, $comparison = null)
+    public function filterByOehdboxcount($oehdboxcount = null, ?string $comparison = null)
     {
         if (is_array($oehdboxcount)) {
             $useMinMax = false;
@@ -3279,7 +3664,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDBOXCOUNT, $oehdboxcount, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDBOXCOUNT, $oehdboxcount, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3289,14 +3676,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdrqstdate('fooValue');   // WHERE OehdRqstDate = 'fooValue'
      * $query->filterByOehdrqstdate('%fooValue%', Criteria::LIKE); // WHERE OehdRqstDate LIKE '%fooValue%'
+     * $query->filterByOehdrqstdate(['foo', 'bar']); // WHERE OehdRqstDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdrqstdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdrqstdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdrqstdate($oehdrqstdate = null, $comparison = null)
+    public function filterByOehdrqstdate($oehdrqstdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdrqstdate)) {
@@ -3304,7 +3692,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDRQSTDATE, $oehdrqstdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDRQSTDATE, $oehdrqstdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3314,14 +3704,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcancdate('fooValue');   // WHERE OehdCancDate = 'fooValue'
      * $query->filterByOehdcancdate('%fooValue%', Criteria::LIKE); // WHERE OehdCancDate LIKE '%fooValue%'
+     * $query->filterByOehdcancdate(['foo', 'bar']); // WHERE OehdCancDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcancdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcancdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcancdate($oehdcancdate = null, $comparison = null)
+    public function filterByOehdcancdate($oehdcancdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcancdate)) {
@@ -3329,7 +3720,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCANCDATE, $oehdcancdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCANCDATE, $oehdcancdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3339,14 +3732,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcrntuser('fooValue');   // WHERE OehdCrntUser = 'fooValue'
      * $query->filterByOehdcrntuser('%fooValue%', Criteria::LIKE); // WHERE OehdCrntUser LIKE '%fooValue%'
+     * $query->filterByOehdcrntuser(['foo', 'bar']); // WHERE OehdCrntUser IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcrntuser The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcrntuser The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcrntuser($oehdcrntuser = null, $comparison = null)
+    public function filterByOehdcrntuser($oehdcrntuser = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcrntuser)) {
@@ -3354,7 +3748,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCRNTUSER, $oehdcrntuser, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCRNTUSER, $oehdcrntuser, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3364,14 +3760,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdreleasenbr('fooValue');   // WHERE OehdReleaseNbr = 'fooValue'
      * $query->filterByOehdreleasenbr('%fooValue%', Criteria::LIKE); // WHERE OehdReleaseNbr LIKE '%fooValue%'
+     * $query->filterByOehdreleasenbr(['foo', 'bar']); // WHERE OehdReleaseNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdreleasenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdreleasenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdreleasenbr($oehdreleasenbr = null, $comparison = null)
+    public function filterByOehdreleasenbr($oehdreleasenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdreleasenbr)) {
@@ -3379,7 +3776,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDRELEASENBR, $oehdreleasenbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDRELEASENBR, $oehdreleasenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3389,14 +3788,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -3404,7 +3804,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3414,14 +3816,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdbordbuilddate('fooValue');   // WHERE OehdBordBuildDate = 'fooValue'
      * $query->filterByOehdbordbuilddate('%fooValue%', Criteria::LIKE); // WHERE OehdBordBuildDate LIKE '%fooValue%'
+     * $query->filterByOehdbordbuilddate(['foo', 'bar']); // WHERE OehdBordBuildDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdbordbuilddate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdbordbuilddate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdbordbuilddate($oehdbordbuilddate = null, $comparison = null)
+    public function filterByOehdbordbuilddate($oehdbordbuilddate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdbordbuilddate)) {
@@ -3429,7 +3832,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDBORDBUILDDATE, $oehdbordbuilddate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDBORDBUILDDATE, $oehdbordbuilddate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3439,14 +3844,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddeptcode('fooValue');   // WHERE OehdDeptCode = 'fooValue'
      * $query->filterByOehddeptcode('%fooValue%', Criteria::LIKE); // WHERE OehdDeptCode LIKE '%fooValue%'
+     * $query->filterByOehddeptcode(['foo', 'bar']); // WHERE OehdDeptCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddeptcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddeptcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddeptcode($oehddeptcode = null, $comparison = null)
+    public function filterByOehddeptcode($oehddeptcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddeptcode)) {
@@ -3454,7 +3860,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDEPTCODE, $oehddeptcode, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDEPTCODE, $oehddeptcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3464,14 +3872,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdfrtinentered('fooValue');   // WHERE OehdFrtInEntered = 'fooValue'
      * $query->filterByOehdfrtinentered('%fooValue%', Criteria::LIKE); // WHERE OehdFrtInEntered LIKE '%fooValue%'
+     * $query->filterByOehdfrtinentered(['foo', 'bar']); // WHERE OehdFrtInEntered IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdfrtinentered The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdfrtinentered The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrtinentered($oehdfrtinentered = null, $comparison = null)
+    public function filterByOehdfrtinentered($oehdfrtinentered = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdfrtinentered)) {
@@ -3479,7 +3888,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTINENTERED, $oehdfrtinentered, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTINENTERED, $oehdfrtinentered, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3489,14 +3900,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddropshipentered('fooValue');   // WHERE OehdDropShipEntered = 'fooValue'
      * $query->filterByOehddropshipentered('%fooValue%', Criteria::LIKE); // WHERE OehdDropShipEntered LIKE '%fooValue%'
+     * $query->filterByOehddropshipentered(['foo', 'bar']); // WHERE OehdDropShipEntered IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddropshipentered The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddropshipentered The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddropshipentered($oehddropshipentered = null, $comparison = null)
+    public function filterByOehddropshipentered($oehddropshipentered = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddropshipentered)) {
@@ -3504,7 +3916,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDROPSHIPENTERED, $oehddropshipentered, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDROPSHIPENTERED, $oehddropshipentered, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3514,14 +3928,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehderflag('fooValue');   // WHERE OehdErFlag = 'fooValue'
      * $query->filterByOehderflag('%fooValue%', Criteria::LIKE); // WHERE OehdErFlag LIKE '%fooValue%'
+     * $query->filterByOehderflag(['foo', 'bar']); // WHERE OehdErFlag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehderflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehderflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehderflag($oehderflag = null, $comparison = null)
+    public function filterByOehderflag($oehderflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehderflag)) {
@@ -3529,7 +3944,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDERFLAG, $oehderflag, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDERFLAG, $oehderflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3542,15 +3959,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrtin(array('min' => 12)); // WHERE OehdFrtIn > 12
      * </code>
      *
-     * @param     mixed $oehdfrtin The value to use as filter.
+     * @param mixed $oehdfrtin The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrtin($oehdfrtin = null, $comparison = null)
+    public function filterByOehdfrtin($oehdfrtin = null, ?string $comparison = null)
     {
         if (is_array($oehdfrtin)) {
             $useMinMax = false;
@@ -3570,7 +3987,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTIN, $oehdfrtin, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTIN, $oehdfrtin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3583,15 +4002,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddropship(array('min' => 12)); // WHERE OehdDropShip > 12
      * </code>
      *
-     * @param     mixed $oehddropship The value to use as filter.
+     * @param mixed $oehddropship The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddropship($oehddropship = null, $comparison = null)
+    public function filterByOehddropship($oehddropship = null, ?string $comparison = null)
     {
         if (is_array($oehddropship)) {
             $useMinMax = false;
@@ -3611,7 +4030,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDROPSHIP, $oehddropship, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDROPSHIP, $oehddropship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3624,15 +4045,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdminorder(array('min' => 12)); // WHERE OehdMinOrder > 12
      * </code>
      *
-     * @param     mixed $oehdminorder The value to use as filter.
+     * @param mixed $oehdminorder The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdminorder($oehdminorder = null, $comparison = null)
+    public function filterByOehdminorder($oehdminorder = null, ?string $comparison = null)
     {
         if (is_array($oehdminorder)) {
             $useMinMax = false;
@@ -3652,7 +4073,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDMINORDER, $oehdminorder, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDMINORDER, $oehdminorder, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3662,14 +4085,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcontractterms('fooValue');   // WHERE OehdContractTerms = 'fooValue'
      * $query->filterByOehdcontractterms('%fooValue%', Criteria::LIKE); // WHERE OehdContractTerms LIKE '%fooValue%'
+     * $query->filterByOehdcontractterms(['foo', 'bar']); // WHERE OehdContractTerms IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcontractterms The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcontractterms The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcontractterms($oehdcontractterms = null, $comparison = null)
+    public function filterByOehdcontractterms($oehdcontractterms = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcontractterms)) {
@@ -3677,7 +4101,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTRACTTERMS, $oehdcontractterms, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTRACTTERMS, $oehdcontractterms, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3687,14 +4113,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddropshipbilled('fooValue');   // WHERE OehdDropShipBilled = 'fooValue'
      * $query->filterByOehddropshipbilled('%fooValue%', Criteria::LIKE); // WHERE OehdDropShipBilled LIKE '%fooValue%'
+     * $query->filterByOehddropshipbilled(['foo', 'bar']); // WHERE OehdDropShipBilled IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddropshipbilled The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddropshipbilled The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddropshipbilled($oehddropshipbilled = null, $comparison = null)
+    public function filterByOehddropshipbilled($oehddropshipbilled = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddropshipbilled)) {
@@ -3702,7 +4129,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDROPSHIPBILLED, $oehddropshipbilled, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDROPSHIPBILLED, $oehddropshipbilled, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3712,14 +4141,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdordtyp('fooValue');   // WHERE OehdOrdTyp = 'fooValue'
      * $query->filterByOehdordtyp('%fooValue%', Criteria::LIKE); // WHERE OehdOrdTyp LIKE '%fooValue%'
+     * $query->filterByOehdordtyp(['foo', 'bar']); // WHERE OehdOrdTyp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdordtyp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdordtyp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdordtyp($oehdordtyp = null, $comparison = null)
+    public function filterByOehdordtyp($oehdordtyp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdordtyp)) {
@@ -3727,7 +4157,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDTYP, $oehdordtyp, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDTYP, $oehdordtyp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3737,14 +4169,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdtracknbr('fooValue');   // WHERE OehdTrackNbr = 'fooValue'
      * $query->filterByOehdtracknbr('%fooValue%', Criteria::LIKE); // WHERE OehdTrackNbr LIKE '%fooValue%'
+     * $query->filterByOehdtracknbr(['foo', 'bar']); // WHERE OehdTrackNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdtracknbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdtracknbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdtracknbr($oehdtracknbr = null, $comparison = null)
+    public function filterByOehdtracknbr($oehdtracknbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdtracknbr)) {
@@ -3752,7 +4185,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTRACKNBR, $oehdtracknbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDTRACKNBR, $oehdtracknbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3762,14 +4197,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdsource('fooValue');   // WHERE OehdSource = 'fooValue'
      * $query->filterByOehdsource('%fooValue%', Criteria::LIKE); // WHERE OehdSource LIKE '%fooValue%'
+     * $query->filterByOehdsource(['foo', 'bar']); // WHERE OehdSource IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdsource The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdsource The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdsource($oehdsource = null, $comparison = null)
+    public function filterByOehdsource($oehdsource = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdsource)) {
@@ -3777,7 +4213,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSOURCE, $oehdsource, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSOURCE, $oehdsource, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3787,14 +4225,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdccaprv('fooValue');   // WHERE OehdCcAprv = 'fooValue'
      * $query->filterByOehdccaprv('%fooValue%', Criteria::LIKE); // WHERE OehdCcAprv LIKE '%fooValue%'
+     * $query->filterByOehdccaprv(['foo', 'bar']); // WHERE OehdCcAprv IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdccaprv The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdccaprv The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdccaprv($oehdccaprv = null, $comparison = null)
+    public function filterByOehdccaprv($oehdccaprv = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdccaprv)) {
@@ -3802,7 +4241,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCCAPRV, $oehdccaprv, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCCAPRV, $oehdccaprv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3812,14 +4253,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpickfmattype('fooValue');   // WHERE OehdPickFmatType = 'fooValue'
      * $query->filterByOehdpickfmattype('%fooValue%', Criteria::LIKE); // WHERE OehdPickFmatType LIKE '%fooValue%'
+     * $query->filterByOehdpickfmattype(['foo', 'bar']); // WHERE OehdPickFmatType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpickfmattype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpickfmattype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpickfmattype($oehdpickfmattype = null, $comparison = null)
+    public function filterByOehdpickfmattype($oehdpickfmattype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpickfmattype)) {
@@ -3827,7 +4269,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKFMATTYPE, $oehdpickfmattype, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKFMATTYPE, $oehdpickfmattype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3837,14 +4281,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdinvcfmattype('fooValue');   // WHERE OehdInvcFmatType = 'fooValue'
      * $query->filterByOehdinvcfmattype('%fooValue%', Criteria::LIKE); // WHERE OehdInvcFmatType LIKE '%fooValue%'
+     * $query->filterByOehdinvcfmattype(['foo', 'bar']); // WHERE OehdInvcFmatType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdinvcfmattype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdinvcfmattype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdinvcfmattype($oehdinvcfmattype = null, $comparison = null)
+    public function filterByOehdinvcfmattype($oehdinvcfmattype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdinvcfmattype)) {
@@ -3852,7 +4297,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINVCFMATTYPE, $oehdinvcfmattype, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINVCFMATTYPE, $oehdinvcfmattype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3865,15 +4312,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdcashamt(array('min' => 12)); // WHERE OehdCashAmt > 12
      * </code>
      *
-     * @param     mixed $oehdcashamt The value to use as filter.
+     * @param mixed $oehdcashamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcashamt($oehdcashamt = null, $comparison = null)
+    public function filterByOehdcashamt($oehdcashamt = null, ?string $comparison = null)
     {
         if (is_array($oehdcashamt)) {
             $useMinMax = false;
@@ -3893,7 +4340,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCASHAMT, $oehdcashamt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCASHAMT, $oehdcashamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3906,15 +4355,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdcheckamt(array('min' => 12)); // WHERE OehdCheckAmt > 12
      * </code>
      *
-     * @param     mixed $oehdcheckamt The value to use as filter.
+     * @param mixed $oehdcheckamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcheckamt($oehdcheckamt = null, $comparison = null)
+    public function filterByOehdcheckamt($oehdcheckamt = null, ?string $comparison = null)
     {
         if (is_array($oehdcheckamt)) {
             $useMinMax = false;
@@ -3934,7 +4383,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCHECKAMT, $oehdcheckamt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCHECKAMT, $oehdcheckamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3944,14 +4395,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdchecknbr('fooValue');   // WHERE OehdCheckNbr = 'fooValue'
      * $query->filterByOehdchecknbr('%fooValue%', Criteria::LIKE); // WHERE OehdCheckNbr LIKE '%fooValue%'
+     * $query->filterByOehdchecknbr(['foo', 'bar']); // WHERE OehdCheckNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdchecknbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdchecknbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdchecknbr($oehdchecknbr = null, $comparison = null)
+    public function filterByOehdchecknbr($oehdchecknbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdchecknbr)) {
@@ -3959,7 +4411,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCHECKNBR, $oehdchecknbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCHECKNBR, $oehdchecknbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3972,15 +4426,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddepositamt(array('min' => 12)); // WHERE OehdDepositAmt > 12
      * </code>
      *
-     * @param     mixed $oehddepositamt The value to use as filter.
+     * @param mixed $oehddepositamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddepositamt($oehddepositamt = null, $comparison = null)
+    public function filterByOehddepositamt($oehddepositamt = null, ?string $comparison = null)
     {
         if (is_array($oehddepositamt)) {
             $useMinMax = false;
@@ -4000,7 +4454,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDEPOSITAMT, $oehddepositamt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDEPOSITAMT, $oehddepositamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4010,14 +4466,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddepositnbr('fooValue');   // WHERE OehdDepositNbr = 'fooValue'
      * $query->filterByOehddepositnbr('%fooValue%', Criteria::LIKE); // WHERE OehdDepositNbr LIKE '%fooValue%'
+     * $query->filterByOehddepositnbr(['foo', 'bar']); // WHERE OehdDepositNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddepositnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddepositnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddepositnbr($oehddepositnbr = null, $comparison = null)
+    public function filterByOehddepositnbr($oehddepositnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddepositnbr)) {
@@ -4025,7 +4482,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDEPOSITNBR, $oehddepositnbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDEPOSITNBR, $oehddepositnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4038,15 +4497,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdccamt(array('min' => 12)); // WHERE OehdCcAmt > 12
      * </code>
      *
-     * @param     mixed $oehdccamt The value to use as filter.
+     * @param mixed $oehdccamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdccamt($oehdccamt = null, $comparison = null)
+    public function filterByOehdccamt($oehdccamt = null, ?string $comparison = null)
     {
         if (is_array($oehdccamt)) {
             $useMinMax = false;
@@ -4066,7 +4525,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCCAMT, $oehdccamt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCCAMT, $oehdccamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4079,15 +4540,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdotaxsub(array('min' => 12)); // WHERE OehdOTaxSub > 12
      * </code>
      *
-     * @param     mixed $oehdotaxsub The value to use as filter.
+     * @param mixed $oehdotaxsub The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdotaxsub($oehdotaxsub = null, $comparison = null)
+    public function filterByOehdotaxsub($oehdotaxsub = null, ?string $comparison = null)
     {
         if (is_array($oehdotaxsub)) {
             $useMinMax = false;
@@ -4107,7 +4568,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDOTAXSUB, $oehdotaxsub, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDOTAXSUB, $oehdotaxsub, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4120,15 +4583,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdonontaxsub(array('min' => 12)); // WHERE OehdONonTaxSub > 12
      * </code>
      *
-     * @param     mixed $oehdonontaxsub The value to use as filter.
+     * @param mixed $oehdonontaxsub The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdonontaxsub($oehdonontaxsub = null, $comparison = null)
+    public function filterByOehdonontaxsub($oehdonontaxsub = null, ?string $comparison = null)
     {
         if (is_array($oehdonontaxsub)) {
             $useMinMax = false;
@@ -4148,7 +4611,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDONONTAXSUB, $oehdonontaxsub, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDONONTAXSUB, $oehdonontaxsub, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4161,15 +4626,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdotaxtot(array('min' => 12)); // WHERE OehdOTaxTot > 12
      * </code>
      *
-     * @param     mixed $oehdotaxtot The value to use as filter.
+     * @param mixed $oehdotaxtot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdotaxtot($oehdotaxtot = null, $comparison = null)
+    public function filterByOehdotaxtot($oehdotaxtot = null, ?string $comparison = null)
     {
         if (is_array($oehdotaxtot)) {
             $useMinMax = false;
@@ -4189,7 +4654,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDOTAXTOT, $oehdotaxtot, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDOTAXTOT, $oehdotaxtot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4202,15 +4669,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdoordrtot(array('min' => 12)); // WHERE OehdOOrdrTot > 12
      * </code>
      *
-     * @param     mixed $oehdoordrtot The value to use as filter.
+     * @param mixed $oehdoordrtot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdoordrtot($oehdoordrtot = null, $comparison = null)
+    public function filterByOehdoordrtot($oehdoordrtot = null, ?string $comparison = null)
     {
         if (is_array($oehdoordrtot)) {
             $useMinMax = false;
@@ -4230,7 +4697,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDOORDRTOT, $oehdoordrtot, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDOORDRTOT, $oehdoordrtot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4240,14 +4709,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpickprintdate('fooValue');   // WHERE OehdPickPrintDate = 'fooValue'
      * $query->filterByOehdpickprintdate('%fooValue%', Criteria::LIKE); // WHERE OehdPickPrintDate LIKE '%fooValue%'
+     * $query->filterByOehdpickprintdate(['foo', 'bar']); // WHERE OehdPickPrintDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpickprintdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpickprintdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpickprintdate($oehdpickprintdate = null, $comparison = null)
+    public function filterByOehdpickprintdate($oehdpickprintdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpickprintdate)) {
@@ -4255,7 +4725,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKPRINTDATE, $oehdpickprintdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKPRINTDATE, $oehdpickprintdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4265,14 +4737,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpickprinttime('fooValue');   // WHERE OehdPickPrintTime = 'fooValue'
      * $query->filterByOehdpickprinttime('%fooValue%', Criteria::LIKE); // WHERE OehdPickPrintTime LIKE '%fooValue%'
+     * $query->filterByOehdpickprinttime(['foo', 'bar']); // WHERE OehdPickPrintTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpickprinttime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpickprinttime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpickprinttime($oehdpickprinttime = null, $comparison = null)
+    public function filterByOehdpickprinttime($oehdpickprinttime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpickprinttime)) {
@@ -4280,7 +4753,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKPRINTTIME, $oehdpickprinttime, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKPRINTTIME, $oehdpickprinttime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4290,14 +4765,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcont('fooValue');   // WHERE OehdCont = 'fooValue'
      * $query->filterByOehdcont('%fooValue%', Criteria::LIKE); // WHERE OehdCont LIKE '%fooValue%'
+     * $query->filterByOehdcont(['foo', 'bar']); // WHERE OehdCont IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcont The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcont The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcont($oehdcont = null, $comparison = null)
+    public function filterByOehdcont($oehdcont = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcont)) {
@@ -4305,7 +4781,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONT, $oehdcont, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONT, $oehdcont, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4315,14 +4793,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcontteleintl('fooValue');   // WHERE OehdContTeleIntl = 'fooValue'
      * $query->filterByOehdcontteleintl('%fooValue%', Criteria::LIKE); // WHERE OehdContTeleIntl LIKE '%fooValue%'
+     * $query->filterByOehdcontteleintl(['foo', 'bar']); // WHERE OehdContTeleIntl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcontteleintl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcontteleintl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcontteleintl($oehdcontteleintl = null, $comparison = null)
+    public function filterByOehdcontteleintl($oehdcontteleintl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcontteleintl)) {
@@ -4330,7 +4809,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTTELEINTL, $oehdcontteleintl, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTTELEINTL, $oehdcontteleintl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4340,14 +4821,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdconttelenbr('fooValue');   // WHERE OehdContTeleNbr = 'fooValue'
      * $query->filterByOehdconttelenbr('%fooValue%', Criteria::LIKE); // WHERE OehdContTeleNbr LIKE '%fooValue%'
+     * $query->filterByOehdconttelenbr(['foo', 'bar']); // WHERE OehdContTeleNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdconttelenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdconttelenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdconttelenbr($oehdconttelenbr = null, $comparison = null)
+    public function filterByOehdconttelenbr($oehdconttelenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdconttelenbr)) {
@@ -4355,7 +4837,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTTELENBR, $oehdconttelenbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTTELENBR, $oehdconttelenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4365,14 +4849,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcontteleext('fooValue');   // WHERE OehdContTeleExt = 'fooValue'
      * $query->filterByOehdcontteleext('%fooValue%', Criteria::LIKE); // WHERE OehdContTeleExt LIKE '%fooValue%'
+     * $query->filterByOehdcontteleext(['foo', 'bar']); // WHERE OehdContTeleExt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcontteleext The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcontteleext The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcontteleext($oehdcontteleext = null, $comparison = null)
+    public function filterByOehdcontteleext($oehdcontteleext = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcontteleext)) {
@@ -4380,7 +4865,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTTELEEXT, $oehdcontteleext, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTTELEEXT, $oehdcontteleext, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4390,14 +4877,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcontfaxintl('fooValue');   // WHERE OehdContFaxIntl = 'fooValue'
      * $query->filterByOehdcontfaxintl('%fooValue%', Criteria::LIKE); // WHERE OehdContFaxIntl LIKE '%fooValue%'
+     * $query->filterByOehdcontfaxintl(['foo', 'bar']); // WHERE OehdContFaxIntl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcontfaxintl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcontfaxintl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcontfaxintl($oehdcontfaxintl = null, $comparison = null)
+    public function filterByOehdcontfaxintl($oehdcontfaxintl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcontfaxintl)) {
@@ -4405,7 +4893,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTFAXINTL, $oehdcontfaxintl, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTFAXINTL, $oehdcontfaxintl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4415,14 +4905,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcontfaxnbr('fooValue');   // WHERE OehdContFaxNbr = 'fooValue'
      * $query->filterByOehdcontfaxnbr('%fooValue%', Criteria::LIKE); // WHERE OehdContFaxNbr LIKE '%fooValue%'
+     * $query->filterByOehdcontfaxnbr(['foo', 'bar']); // WHERE OehdContFaxNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcontfaxnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcontfaxnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcontfaxnbr($oehdcontfaxnbr = null, $comparison = null)
+    public function filterByOehdcontfaxnbr($oehdcontfaxnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcontfaxnbr)) {
@@ -4430,7 +4921,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTFAXNBR, $oehdcontfaxnbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTFAXNBR, $oehdcontfaxnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4440,14 +4933,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdshipacct('fooValue');   // WHERE OehdShipAcct = 'fooValue'
      * $query->filterByOehdshipacct('%fooValue%', Criteria::LIKE); // WHERE OehdShipAcct LIKE '%fooValue%'
+     * $query->filterByOehdshipacct(['foo', 'bar']); // WHERE OehdShipAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdshipacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdshipacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdshipacct($oehdshipacct = null, $comparison = null)
+    public function filterByOehdshipacct($oehdshipacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdshipacct)) {
@@ -4455,7 +4949,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSHIPACCT, $oehdshipacct, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSHIPACCT, $oehdshipacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4468,15 +4964,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdchgdue(array('min' => 12)); // WHERE OehdChgDue > 12
      * </code>
      *
-     * @param     mixed $oehdchgdue The value to use as filter.
+     * @param mixed $oehdchgdue The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdchgdue($oehdchgdue = null, $comparison = null)
+    public function filterByOehdchgdue($oehdchgdue = null, ?string $comparison = null)
     {
         if (is_array($oehdchgdue)) {
             $useMinMax = false;
@@ -4496,7 +4992,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCHGDUE, $oehdchgdue, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCHGDUE, $oehdchgdue, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4509,15 +5007,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdaddlpricdisc(array('min' => 12)); // WHERE OehdAddlPricDisc > 12
      * </code>
      *
-     * @param     mixed $oehdaddlpricdisc The value to use as filter.
+     * @param mixed $oehdaddlpricdisc The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdaddlpricdisc($oehdaddlpricdisc = null, $comparison = null)
+    public function filterByOehdaddlpricdisc($oehdaddlpricdisc = null, ?string $comparison = null)
     {
         if (is_array($oehdaddlpricdisc)) {
             $useMinMax = false;
@@ -4537,7 +5035,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDADDLPRICDISC, $oehdaddlpricdisc, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDADDLPRICDISC, $oehdaddlpricdisc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4547,14 +5047,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdallship('fooValue');   // WHERE OehdAllShip = 'fooValue'
      * $query->filterByOehdallship('%fooValue%', Criteria::LIKE); // WHERE OehdAllShip LIKE '%fooValue%'
+     * $query->filterByOehdallship(['foo', 'bar']); // WHERE OehdAllShip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdallship The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdallship The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdallship($oehdallship = null, $comparison = null)
+    public function filterByOehdallship($oehdallship = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdallship)) {
@@ -4562,7 +5063,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDALLSHIP, $oehdallship, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDALLSHIP, $oehdallship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4575,15 +5078,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdqtyorderamt(array('min' => 12)); // WHERE OehdQtyOrderAmt > 12
      * </code>
      *
-     * @param     mixed $oehdqtyorderamt The value to use as filter.
+     * @param mixed $oehdqtyorderamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdqtyorderamt($oehdqtyorderamt = null, $comparison = null)
+    public function filterByOehdqtyorderamt($oehdqtyorderamt = null, ?string $comparison = null)
     {
         if (is_array($oehdqtyorderamt)) {
             $useMinMax = false;
@@ -4603,7 +5106,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDQTYORDERAMT, $oehdqtyorderamt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDQTYORDERAMT, $oehdqtyorderamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4616,15 +5121,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdcreditapplied(array('min' => 12)); // WHERE OehdCreditApplied > 12
      * </code>
      *
-     * @param     mixed $oehdcreditapplied The value to use as filter.
+     * @param mixed $oehdcreditapplied The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcreditapplied($oehdcreditapplied = null, $comparison = null)
+    public function filterByOehdcreditapplied($oehdcreditapplied = null, ?string $comparison = null)
     {
         if (is_array($oehdcreditapplied)) {
             $useMinMax = false;
@@ -4644,7 +5149,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCREDITAPPLIED, $oehdcreditapplied, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCREDITAPPLIED, $oehdcreditapplied, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4654,14 +5161,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdinvcprintdate('fooValue');   // WHERE OehdInvcPrintDate = 'fooValue'
      * $query->filterByOehdinvcprintdate('%fooValue%', Criteria::LIKE); // WHERE OehdInvcPrintDate LIKE '%fooValue%'
+     * $query->filterByOehdinvcprintdate(['foo', 'bar']); // WHERE OehdInvcPrintDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdinvcprintdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdinvcprintdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdinvcprintdate($oehdinvcprintdate = null, $comparison = null)
+    public function filterByOehdinvcprintdate($oehdinvcprintdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdinvcprintdate)) {
@@ -4669,7 +5177,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINVCPRINTDATE, $oehdinvcprintdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINVCPRINTDATE, $oehdinvcprintdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4679,14 +5189,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdinvcprinttime('fooValue');   // WHERE OehdInvcPrintTime = 'fooValue'
      * $query->filterByOehdinvcprinttime('%fooValue%', Criteria::LIKE); // WHERE OehdInvcPrintTime LIKE '%fooValue%'
+     * $query->filterByOehdinvcprinttime(['foo', 'bar']); // WHERE OehdInvcPrintTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdinvcprinttime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdinvcprinttime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdinvcprinttime($oehdinvcprinttime = null, $comparison = null)
+    public function filterByOehdinvcprinttime($oehdinvcprinttime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdinvcprinttime)) {
@@ -4694,7 +5205,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINVCPRINTTIME, $oehdinvcprinttime, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINVCPRINTTIME, $oehdinvcprinttime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4707,15 +5220,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddiscfrt(array('min' => 12)); // WHERE OehdDiscFrt > 12
      * </code>
      *
-     * @param     mixed $oehddiscfrt The value to use as filter.
+     * @param mixed $oehddiscfrt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscfrt($oehddiscfrt = null, $comparison = null)
+    public function filterByOehddiscfrt($oehddiscfrt = null, ?string $comparison = null)
     {
         if (is_array($oehddiscfrt)) {
             $useMinMax = false;
@@ -4735,7 +5248,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCFRT, $oehddiscfrt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCFRT, $oehddiscfrt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4745,14 +5260,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdorideshipcomp('fooValue');   // WHERE OehdOrideShipComp = 'fooValue'
      * $query->filterByOehdorideshipcomp('%fooValue%', Criteria::LIKE); // WHERE OehdOrideShipComp LIKE '%fooValue%'
+     * $query->filterByOehdorideshipcomp(['foo', 'bar']); // WHERE OehdOrideShipComp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdorideshipcomp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdorideshipcomp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdorideshipcomp($oehdorideshipcomp = null, $comparison = null)
+    public function filterByOehdorideshipcomp($oehdorideshipcomp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdorideshipcomp)) {
@@ -4760,7 +5276,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORIDESHIPCOMP, $oehdorideshipcomp, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORIDESHIPCOMP, $oehdorideshipcomp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4770,14 +5288,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcontemail('fooValue');   // WHERE OehdContEmail = 'fooValue'
      * $query->filterByOehdcontemail('%fooValue%', Criteria::LIKE); // WHERE OehdContEmail LIKE '%fooValue%'
+     * $query->filterByOehdcontemail(['foo', 'bar']); // WHERE OehdContEmail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcontemail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcontemail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcontemail($oehdcontemail = null, $comparison = null)
+    public function filterByOehdcontemail($oehdcontemail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcontemail)) {
@@ -4785,7 +5304,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTEMAIL, $oehdcontemail, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONTEMAIL, $oehdcontemail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4795,14 +5316,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdmanualfrt('fooValue');   // WHERE OehdManualFrt = 'fooValue'
      * $query->filterByOehdmanualfrt('%fooValue%', Criteria::LIKE); // WHERE OehdManualFrt LIKE '%fooValue%'
+     * $query->filterByOehdmanualfrt(['foo', 'bar']); // WHERE OehdManualFrt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdmanualfrt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdmanualfrt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdmanualfrt($oehdmanualfrt = null, $comparison = null)
+    public function filterByOehdmanualfrt($oehdmanualfrt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdmanualfrt)) {
@@ -4810,7 +5332,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDMANUALFRT, $oehdmanualfrt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDMANUALFRT, $oehdmanualfrt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4820,14 +5344,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdinternalfrt('fooValue');   // WHERE OehdInternalFrt = 'fooValue'
      * $query->filterByOehdinternalfrt('%fooValue%', Criteria::LIKE); // WHERE OehdInternalFrt LIKE '%fooValue%'
+     * $query->filterByOehdinternalfrt(['foo', 'bar']); // WHERE OehdInternalFrt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdinternalfrt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdinternalfrt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdinternalfrt($oehdinternalfrt = null, $comparison = null)
+    public function filterByOehdinternalfrt($oehdinternalfrt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdinternalfrt)) {
@@ -4835,7 +5360,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINTERNALFRT, $oehdinternalfrt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINTERNALFRT, $oehdinternalfrt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4848,15 +5375,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrtcost(array('min' => 12)); // WHERE OehdFrtCost > 12
      * </code>
      *
-     * @param     mixed $oehdfrtcost The value to use as filter.
+     * @param mixed $oehdfrtcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrtcost($oehdfrtcost = null, $comparison = null)
+    public function filterByOehdfrtcost($oehdfrtcost = null, ?string $comparison = null)
     {
         if (is_array($oehdfrtcost)) {
             $useMinMax = false;
@@ -4876,7 +5403,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTCOST, $oehdfrtcost, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTCOST, $oehdfrtcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4886,14 +5415,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdroute('fooValue');   // WHERE OehdRoute = 'fooValue'
      * $query->filterByOehdroute('%fooValue%', Criteria::LIKE); // WHERE OehdRoute LIKE '%fooValue%'
+     * $query->filterByOehdroute(['foo', 'bar']); // WHERE OehdRoute IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdroute The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdroute The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdroute($oehdroute = null, $comparison = null)
+    public function filterByOehdroute($oehdroute = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdroute)) {
@@ -4901,7 +5431,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDROUTE, $oehdroute, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDROUTE, $oehdroute, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4914,15 +5446,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdrouteseq(array('min' => 12)); // WHERE OehdRouteSeq > 12
      * </code>
      *
-     * @param     mixed $oehdrouteseq The value to use as filter.
+     * @param mixed $oehdrouteseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdrouteseq($oehdrouteseq = null, $comparison = null)
+    public function filterByOehdrouteseq($oehdrouteseq = null, ?string $comparison = null)
     {
         if (is_array($oehdrouteseq)) {
             $useMinMax = false;
@@ -4942,7 +5474,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDROUTESEQ, $oehdrouteseq, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDROUTESEQ, $oehdrouteseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4952,14 +5486,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdfrttaxcode1('fooValue');   // WHERE OehdFrtTaxCode1 = 'fooValue'
      * $query->filterByOehdfrttaxcode1('%fooValue%', Criteria::LIKE); // WHERE OehdFrtTaxCode1 LIKE '%fooValue%'
+     * $query->filterByOehdfrttaxcode1(['foo', 'bar']); // WHERE OehdFrtTaxCode1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdfrttaxcode1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdfrttaxcode1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxcode1($oehdfrttaxcode1 = null, $comparison = null)
+    public function filterByOehdfrttaxcode1($oehdfrttaxcode1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdfrttaxcode1)) {
@@ -4967,7 +5502,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE1, $oehdfrttaxcode1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE1, $oehdfrttaxcode1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4980,15 +5517,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrttaxamt1(array('min' => 12)); // WHERE OehdFrtTaxAmt1 > 12
      * </code>
      *
-     * @param     mixed $oehdfrttaxamt1 The value to use as filter.
+     * @param mixed $oehdfrttaxamt1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxamt1($oehdfrttaxamt1 = null, $comparison = null)
+    public function filterByOehdfrttaxamt1($oehdfrttaxamt1 = null, ?string $comparison = null)
     {
         if (is_array($oehdfrttaxamt1)) {
             $useMinMax = false;
@@ -5008,7 +5545,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT1, $oehdfrttaxamt1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT1, $oehdfrttaxamt1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5018,14 +5557,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdfrttaxcode2('fooValue');   // WHERE OehdFrtTaxCode2 = 'fooValue'
      * $query->filterByOehdfrttaxcode2('%fooValue%', Criteria::LIKE); // WHERE OehdFrtTaxCode2 LIKE '%fooValue%'
+     * $query->filterByOehdfrttaxcode2(['foo', 'bar']); // WHERE OehdFrtTaxCode2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdfrttaxcode2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdfrttaxcode2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxcode2($oehdfrttaxcode2 = null, $comparison = null)
+    public function filterByOehdfrttaxcode2($oehdfrttaxcode2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdfrttaxcode2)) {
@@ -5033,7 +5573,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE2, $oehdfrttaxcode2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE2, $oehdfrttaxcode2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5046,15 +5588,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrttaxamt2(array('min' => 12)); // WHERE OehdFrtTaxAmt2 > 12
      * </code>
      *
-     * @param     mixed $oehdfrttaxamt2 The value to use as filter.
+     * @param mixed $oehdfrttaxamt2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxamt2($oehdfrttaxamt2 = null, $comparison = null)
+    public function filterByOehdfrttaxamt2($oehdfrttaxamt2 = null, ?string $comparison = null)
     {
         if (is_array($oehdfrttaxamt2)) {
             $useMinMax = false;
@@ -5074,7 +5616,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT2, $oehdfrttaxamt2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT2, $oehdfrttaxamt2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5084,14 +5628,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdfrttaxcode3('fooValue');   // WHERE OehdFrtTaxCode3 = 'fooValue'
      * $query->filterByOehdfrttaxcode3('%fooValue%', Criteria::LIKE); // WHERE OehdFrtTaxCode3 LIKE '%fooValue%'
+     * $query->filterByOehdfrttaxcode3(['foo', 'bar']); // WHERE OehdFrtTaxCode3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdfrttaxcode3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdfrttaxcode3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxcode3($oehdfrttaxcode3 = null, $comparison = null)
+    public function filterByOehdfrttaxcode3($oehdfrttaxcode3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdfrttaxcode3)) {
@@ -5099,7 +5644,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE3, $oehdfrttaxcode3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE3, $oehdfrttaxcode3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5112,15 +5659,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrttaxamt3(array('min' => 12)); // WHERE OehdFrtTaxAmt3 > 12
      * </code>
      *
-     * @param     mixed $oehdfrttaxamt3 The value to use as filter.
+     * @param mixed $oehdfrttaxamt3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxamt3($oehdfrttaxamt3 = null, $comparison = null)
+    public function filterByOehdfrttaxamt3($oehdfrttaxamt3 = null, ?string $comparison = null)
     {
         if (is_array($oehdfrttaxamt3)) {
             $useMinMax = false;
@@ -5140,7 +5687,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT3, $oehdfrttaxamt3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT3, $oehdfrttaxamt3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5150,14 +5699,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdfrttaxcode4('fooValue');   // WHERE OehdFrtTaxCode4 = 'fooValue'
      * $query->filterByOehdfrttaxcode4('%fooValue%', Criteria::LIKE); // WHERE OehdFrtTaxCode4 LIKE '%fooValue%'
+     * $query->filterByOehdfrttaxcode4(['foo', 'bar']); // WHERE OehdFrtTaxCode4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdfrttaxcode4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdfrttaxcode4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxcode4($oehdfrttaxcode4 = null, $comparison = null)
+    public function filterByOehdfrttaxcode4($oehdfrttaxcode4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdfrttaxcode4)) {
@@ -5165,7 +5715,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE4, $oehdfrttaxcode4, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE4, $oehdfrttaxcode4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5178,15 +5730,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrttaxamt4(array('min' => 12)); // WHERE OehdFrtTaxAmt4 > 12
      * </code>
      *
-     * @param     mixed $oehdfrttaxamt4 The value to use as filter.
+     * @param mixed $oehdfrttaxamt4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxamt4($oehdfrttaxamt4 = null, $comparison = null)
+    public function filterByOehdfrttaxamt4($oehdfrttaxamt4 = null, ?string $comparison = null)
     {
         if (is_array($oehdfrttaxamt4)) {
             $useMinMax = false;
@@ -5206,7 +5758,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT4, $oehdfrttaxamt4, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT4, $oehdfrttaxamt4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5216,14 +5770,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdfrttaxcode5('fooValue');   // WHERE OehdFrtTaxCode5 = 'fooValue'
      * $query->filterByOehdfrttaxcode5('%fooValue%', Criteria::LIKE); // WHERE OehdFrtTaxCode5 LIKE '%fooValue%'
+     * $query->filterByOehdfrttaxcode5(['foo', 'bar']); // WHERE OehdFrtTaxCode5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdfrttaxcode5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdfrttaxcode5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxcode5($oehdfrttaxcode5 = null, $comparison = null)
+    public function filterByOehdfrttaxcode5($oehdfrttaxcode5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdfrttaxcode5)) {
@@ -5231,7 +5786,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE5, $oehdfrttaxcode5, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXCODE5, $oehdfrttaxcode5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5244,15 +5801,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrttaxamt5(array('min' => 12)); // WHERE OehdFrtTaxAmt5 > 12
      * </code>
      *
-     * @param     mixed $oehdfrttaxamt5 The value to use as filter.
+     * @param mixed $oehdfrttaxamt5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrttaxamt5($oehdfrttaxamt5 = null, $comparison = null)
+    public function filterByOehdfrttaxamt5($oehdfrttaxamt5 = null, ?string $comparison = null)
     {
         if (is_array($oehdfrttaxamt5)) {
             $useMinMax = false;
@@ -5272,7 +5829,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT5, $oehdfrttaxamt5, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTTAXAMT5, $oehdfrttaxamt5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5282,14 +5841,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdedi855sent('fooValue');   // WHERE OehdEdi855Sent = 'fooValue'
      * $query->filterByOehdedi855sent('%fooValue%', Criteria::LIKE); // WHERE OehdEdi855Sent LIKE '%fooValue%'
+     * $query->filterByOehdedi855sent(['foo', 'bar']); // WHERE OehdEdi855Sent IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdedi855sent The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdedi855sent The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdedi855sent($oehdedi855sent = null, $comparison = null)
+    public function filterByOehdedi855sent($oehdedi855sent = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdedi855sent)) {
@@ -5297,7 +5857,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDEDI855SENT, $oehdedi855sent, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDEDI855SENT, $oehdedi855sent, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5310,15 +5872,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdfrt3rdparty(array('min' => 12)); // WHERE OehdFrt3rdParty > 12
      * </code>
      *
-     * @param     mixed $oehdfrt3rdparty The value to use as filter.
+     * @param mixed $oehdfrt3rdparty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrt3rdparty($oehdfrt3rdparty = null, $comparison = null)
+    public function filterByOehdfrt3rdparty($oehdfrt3rdparty = null, ?string $comparison = null)
     {
         if (is_array($oehdfrt3rdparty)) {
             $useMinMax = false;
@@ -5338,7 +5900,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRT3RDPARTY, $oehdfrt3rdparty, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRT3RDPARTY, $oehdfrt3rdparty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5348,14 +5912,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdfob('fooValue');   // WHERE OehdFob = 'fooValue'
      * $query->filterByOehdfob('%fooValue%', Criteria::LIKE); // WHERE OehdFob LIKE '%fooValue%'
+     * $query->filterByOehdfob(['foo', 'bar']); // WHERE OehdFob IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdfob The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdfob The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfob($oehdfob = null, $comparison = null)
+    public function filterByOehdfob($oehdfob = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdfob)) {
@@ -5363,7 +5928,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFOB, $oehdfob, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFOB, $oehdfob, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5373,14 +5940,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdconfirmimagyn('fooValue');   // WHERE OehdConfirmImagYn = 'fooValue'
      * $query->filterByOehdconfirmimagyn('%fooValue%', Criteria::LIKE); // WHERE OehdConfirmImagYn LIKE '%fooValue%'
+     * $query->filterByOehdconfirmimagyn(['foo', 'bar']); // WHERE OehdConfirmImagYn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdconfirmimagyn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdconfirmimagyn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdconfirmimagyn($oehdconfirmimagyn = null, $comparison = null)
+    public function filterByOehdconfirmimagyn($oehdconfirmimagyn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdconfirmimagyn)) {
@@ -5388,7 +5956,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONFIRMIMAGYN, $oehdconfirmimagyn, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCONFIRMIMAGYN, $oehdconfirmimagyn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5398,14 +5968,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdindustconform('fooValue');   // WHERE OehdIndustConform = 'fooValue'
      * $query->filterByOehdindustconform('%fooValue%', Criteria::LIKE); // WHERE OehdIndustConform LIKE '%fooValue%'
+     * $query->filterByOehdindustconform(['foo', 'bar']); // WHERE OehdIndustConform IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdindustconform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdindustconform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdindustconform($oehdindustconform = null, $comparison = null)
+    public function filterByOehdindustconform($oehdindustconform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdindustconform)) {
@@ -5413,7 +5984,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINDUSTCONFORM, $oehdindustconform, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDINDUSTCONFORM, $oehdindustconform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5423,14 +5996,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcstkconsign('fooValue');   // WHERE OehdCstkConsign = 'fooValue'
      * $query->filterByOehdcstkconsign('%fooValue%', Criteria::LIKE); // WHERE OehdCstkConsign LIKE '%fooValue%'
+     * $query->filterByOehdcstkconsign(['foo', 'bar']); // WHERE OehdCstkConsign IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcstkconsign The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcstkconsign The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcstkconsign($oehdcstkconsign = null, $comparison = null)
+    public function filterByOehdcstkconsign($oehdcstkconsign = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcstkconsign)) {
@@ -5438,7 +6012,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCSTKCONSIGN, $oehdcstkconsign, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCSTKCONSIGN, $oehdcstkconsign, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5448,14 +6024,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdlmdelaycapsent('fooValue');   // WHERE OehdLmDelayCapSent = 'fooValue'
      * $query->filterByOehdlmdelaycapsent('%fooValue%', Criteria::LIKE); // WHERE OehdLmDelayCapSent LIKE '%fooValue%'
+     * $query->filterByOehdlmdelaycapsent(['foo', 'bar']); // WHERE OehdLmDelayCapSent IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdlmdelaycapsent The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdlmdelaycapsent The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdlmdelaycapsent($oehdlmdelaycapsent = null, $comparison = null)
+    public function filterByOehdlmdelaycapsent($oehdlmdelaycapsent = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdlmdelaycapsent)) {
@@ -5463,7 +6040,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDLMDELAYCAPSENT, $oehdlmdelaycapsent, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDLMDELAYCAPSENT, $oehdlmdelaycapsent, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5473,14 +6052,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdmfgid('fooValue');   // WHERE OehdMfgId = 'fooValue'
      * $query->filterByOehdmfgid('%fooValue%', Criteria::LIKE); // WHERE OehdMfgId LIKE '%fooValue%'
+     * $query->filterByOehdmfgid(['foo', 'bar']); // WHERE OehdMfgId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdmfgid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdmfgid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdmfgid($oehdmfgid = null, $comparison = null)
+    public function filterByOehdmfgid($oehdmfgid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdmfgid)) {
@@ -5488,7 +6068,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDMFGID, $oehdmfgid, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDMFGID, $oehdmfgid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5498,14 +6080,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdstoreid('fooValue');   // WHERE OehdStoreId = 'fooValue'
      * $query->filterByOehdstoreid('%fooValue%', Criteria::LIKE); // WHERE OehdStoreId LIKE '%fooValue%'
+     * $query->filterByOehdstoreid(['foo', 'bar']); // WHERE OehdStoreId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdstoreid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdstoreid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdstoreid($oehdstoreid = null, $comparison = null)
+    public function filterByOehdstoreid($oehdstoreid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdstoreid)) {
@@ -5513,7 +6096,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTOREID, $oehdstoreid, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSTOREID, $oehdstoreid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5523,14 +6108,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpickqueue('fooValue');   // WHERE OehdPickQueue = 'fooValue'
      * $query->filterByOehdpickqueue('%fooValue%', Criteria::LIKE); // WHERE OehdPickQueue LIKE '%fooValue%'
+     * $query->filterByOehdpickqueue(['foo', 'bar']); // WHERE OehdPickQueue IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpickqueue The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpickqueue The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpickqueue($oehdpickqueue = null, $comparison = null)
+    public function filterByOehdpickqueue($oehdpickqueue = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpickqueue)) {
@@ -5538,7 +6124,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKQUEUE, $oehdpickqueue, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPICKQUEUE, $oehdpickqueue, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5548,14 +6136,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdarrvdate('fooValue');   // WHERE OehdArrvDate = 'fooValue'
      * $query->filterByOehdarrvdate('%fooValue%', Criteria::LIKE); // WHERE OehdArrvDate LIKE '%fooValue%'
+     * $query->filterByOehdarrvdate(['foo', 'bar']); // WHERE OehdArrvDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdarrvdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdarrvdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdarrvdate($oehdarrvdate = null, $comparison = null)
+    public function filterByOehdarrvdate($oehdarrvdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdarrvdate)) {
@@ -5563,7 +6152,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDARRVDATE, $oehdarrvdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDARRVDATE, $oehdarrvdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5573,14 +6164,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdsurchgstat('fooValue');   // WHERE OehdSurchgStat = 'fooValue'
      * $query->filterByOehdsurchgstat('%fooValue%', Criteria::LIKE); // WHERE OehdSurchgStat LIKE '%fooValue%'
+     * $query->filterByOehdsurchgstat(['foo', 'bar']); // WHERE OehdSurchgStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdsurchgstat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdsurchgstat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdsurchgstat($oehdsurchgstat = null, $comparison = null)
+    public function filterByOehdsurchgstat($oehdsurchgstat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdsurchgstat)) {
@@ -5588,7 +6180,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSURCHGSTAT, $oehdsurchgstat, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDSURCHGSTAT, $oehdsurchgstat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5598,14 +6192,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdfrtgrup('fooValue');   // WHERE OehdFrtGrup = 'fooValue'
      * $query->filterByOehdfrtgrup('%fooValue%', Criteria::LIKE); // WHERE OehdFrtGrup LIKE '%fooValue%'
+     * $query->filterByOehdfrtgrup(['foo', 'bar']); // WHERE OehdFrtGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdfrtgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdfrtgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdfrtgrup($oehdfrtgrup = null, $comparison = null)
+    public function filterByOehdfrtgrup($oehdfrtgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdfrtgrup)) {
@@ -5613,7 +6208,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTGRUP, $oehdfrtgrup, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDFRTGRUP, $oehdfrtgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5623,14 +6220,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdcommoride('fooValue');   // WHERE OehdCommOride = 'fooValue'
      * $query->filterByOehdcommoride('%fooValue%', Criteria::LIKE); // WHERE OehdCommOride LIKE '%fooValue%'
+     * $query->filterByOehdcommoride(['foo', 'bar']); // WHERE OehdCommOride IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdcommoride The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdcommoride The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdcommoride($oehdcommoride = null, $comparison = null)
+    public function filterByOehdcommoride($oehdcommoride = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdcommoride)) {
@@ -5638,7 +6236,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCOMMORIDE, $oehdcommoride, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCOMMORIDE, $oehdcommoride, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5648,14 +6248,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdchrgsplt('fooValue');   // WHERE OehdChrgSplt = 'fooValue'
      * $query->filterByOehdchrgsplt('%fooValue%', Criteria::LIKE); // WHERE OehdChrgSplt LIKE '%fooValue%'
+     * $query->filterByOehdchrgsplt(['foo', 'bar']); // WHERE OehdChrgSplt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdchrgsplt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdchrgsplt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdchrgsplt($oehdchrgsplt = null, $comparison = null)
+    public function filterByOehdchrgsplt($oehdchrgsplt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdchrgsplt)) {
@@ -5663,7 +6264,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCHRGSPLT, $oehdchrgsplt, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDCHRGSPLT, $oehdchrgsplt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5673,14 +6276,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdacccaprv('fooValue');   // WHERE OehdAcCcAprv = 'fooValue'
      * $query->filterByOehdacccaprv('%fooValue%', Criteria::LIKE); // WHERE OehdAcCcAprv LIKE '%fooValue%'
+     * $query->filterByOehdacccaprv(['foo', 'bar']); // WHERE OehdAcCcAprv IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdacccaprv The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdacccaprv The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdacccaprv($oehdacccaprv = null, $comparison = null)
+    public function filterByOehdacccaprv($oehdacccaprv = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdacccaprv)) {
@@ -5688,7 +6292,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDACCCAPRV, $oehdacccaprv, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDACCCAPRV, $oehdacccaprv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5698,14 +6304,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdorigordrnbr('fooValue');   // WHERE OehdOrigOrdrNbr = 'fooValue'
      * $query->filterByOehdorigordrnbr('%fooValue%', Criteria::LIKE); // WHERE OehdOrigOrdrNbr LIKE '%fooValue%'
+     * $query->filterByOehdorigordrnbr(['foo', 'bar']); // WHERE OehdOrigOrdrNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdorigordrnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdorigordrnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdorigordrnbr($oehdorigordrnbr = null, $comparison = null)
+    public function filterByOehdorigordrnbr($oehdorigordrnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdorigordrnbr)) {
@@ -5713,7 +6320,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORIGORDRNBR, $oehdorigordrnbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORIGORDRNBR, $oehdorigordrnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5723,14 +6332,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdpostdate('fooValue');   // WHERE OehdPostDate = 'fooValue'
      * $query->filterByOehdpostdate('%fooValue%', Criteria::LIKE); // WHERE OehdPostDate LIKE '%fooValue%'
+     * $query->filterByOehdpostdate(['foo', 'bar']); // WHERE OehdPostDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdpostdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdpostdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdpostdate($oehdpostdate = null, $comparison = null)
+    public function filterByOehdpostdate($oehdpostdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdpostdate)) {
@@ -5738,7 +6348,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPOSTDATE, $oehdpostdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDPOSTDATE, $oehdpostdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5748,14 +6360,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddiscdate1('fooValue');   // WHERE OehdDiscDate1 = 'fooValue'
      * $query->filterByOehddiscdate1('%fooValue%', Criteria::LIKE); // WHERE OehdDiscDate1 LIKE '%fooValue%'
+     * $query->filterByOehddiscdate1(['foo', 'bar']); // WHERE OehdDiscDate1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddiscdate1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddiscdate1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscdate1($oehddiscdate1 = null, $comparison = null)
+    public function filterByOehddiscdate1($oehddiscdate1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddiscdate1)) {
@@ -5763,7 +6376,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE1, $oehddiscdate1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE1, $oehddiscdate1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5776,15 +6391,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddiscpct1(array('min' => 12)); // WHERE OehdDiscPct1 > 12
      * </code>
      *
-     * @param     mixed $oehddiscpct1 The value to use as filter.
+     * @param mixed $oehddiscpct1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscpct1($oehddiscpct1 = null, $comparison = null)
+    public function filterByOehddiscpct1($oehddiscpct1 = null, ?string $comparison = null)
     {
         if (is_array($oehddiscpct1)) {
             $useMinMax = false;
@@ -5804,7 +6419,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT1, $oehddiscpct1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT1, $oehddiscpct1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5814,14 +6431,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdduedate1('fooValue');   // WHERE OehdDueDate1 = 'fooValue'
      * $query->filterByOehdduedate1('%fooValue%', Criteria::LIKE); // WHERE OehdDueDate1 LIKE '%fooValue%'
+     * $query->filterByOehdduedate1(['foo', 'bar']); // WHERE OehdDueDate1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdduedate1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdduedate1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduedate1($oehdduedate1 = null, $comparison = null)
+    public function filterByOehdduedate1($oehdduedate1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdduedate1)) {
@@ -5829,7 +6447,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE1, $oehdduedate1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE1, $oehdduedate1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5842,15 +6462,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddueamt1(array('min' => 12)); // WHERE OehdDueAmt1 > 12
      * </code>
      *
-     * @param     mixed $oehddueamt1 The value to use as filter.
+     * @param mixed $oehddueamt1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddueamt1($oehddueamt1 = null, $comparison = null)
+    public function filterByOehddueamt1($oehddueamt1 = null, ?string $comparison = null)
     {
         if (is_array($oehddueamt1)) {
             $useMinMax = false;
@@ -5870,7 +6490,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT1, $oehddueamt1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT1, $oehddueamt1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5883,15 +6505,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdduepct1(array('min' => 12)); // WHERE OehdDuePct1 > 12
      * </code>
      *
-     * @param     mixed $oehdduepct1 The value to use as filter.
+     * @param mixed $oehdduepct1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduepct1($oehdduepct1 = null, $comparison = null)
+    public function filterByOehdduepct1($oehdduepct1 = null, ?string $comparison = null)
     {
         if (is_array($oehdduepct1)) {
             $useMinMax = false;
@@ -5911,7 +6533,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT1, $oehdduepct1, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT1, $oehdduepct1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5921,14 +6545,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddiscdate2('fooValue');   // WHERE OehdDiscDate2 = 'fooValue'
      * $query->filterByOehddiscdate2('%fooValue%', Criteria::LIKE); // WHERE OehdDiscDate2 LIKE '%fooValue%'
+     * $query->filterByOehddiscdate2(['foo', 'bar']); // WHERE OehdDiscDate2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddiscdate2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddiscdate2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscdate2($oehddiscdate2 = null, $comparison = null)
+    public function filterByOehddiscdate2($oehddiscdate2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddiscdate2)) {
@@ -5936,7 +6561,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE2, $oehddiscdate2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE2, $oehddiscdate2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5949,15 +6576,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddiscpct2(array('min' => 12)); // WHERE OehdDiscPct2 > 12
      * </code>
      *
-     * @param     mixed $oehddiscpct2 The value to use as filter.
+     * @param mixed $oehddiscpct2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscpct2($oehddiscpct2 = null, $comparison = null)
+    public function filterByOehddiscpct2($oehddiscpct2 = null, ?string $comparison = null)
     {
         if (is_array($oehddiscpct2)) {
             $useMinMax = false;
@@ -5977,7 +6604,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT2, $oehddiscpct2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT2, $oehddiscpct2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5987,14 +6616,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdduedate2('fooValue');   // WHERE OehdDueDate2 = 'fooValue'
      * $query->filterByOehdduedate2('%fooValue%', Criteria::LIKE); // WHERE OehdDueDate2 LIKE '%fooValue%'
+     * $query->filterByOehdduedate2(['foo', 'bar']); // WHERE OehdDueDate2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdduedate2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdduedate2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduedate2($oehdduedate2 = null, $comparison = null)
+    public function filterByOehdduedate2($oehdduedate2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdduedate2)) {
@@ -6002,7 +6632,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE2, $oehdduedate2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE2, $oehdduedate2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6015,15 +6647,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddueamt2(array('min' => 12)); // WHERE OehdDueAmt2 > 12
      * </code>
      *
-     * @param     mixed $oehddueamt2 The value to use as filter.
+     * @param mixed $oehddueamt2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddueamt2($oehddueamt2 = null, $comparison = null)
+    public function filterByOehddueamt2($oehddueamt2 = null, ?string $comparison = null)
     {
         if (is_array($oehddueamt2)) {
             $useMinMax = false;
@@ -6043,7 +6675,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT2, $oehddueamt2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT2, $oehddueamt2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6056,15 +6690,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdduepct2(array('min' => 12)); // WHERE OehdDuePct2 > 12
      * </code>
      *
-     * @param     mixed $oehdduepct2 The value to use as filter.
+     * @param mixed $oehdduepct2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduepct2($oehdduepct2 = null, $comparison = null)
+    public function filterByOehdduepct2($oehdduepct2 = null, ?string $comparison = null)
     {
         if (is_array($oehdduepct2)) {
             $useMinMax = false;
@@ -6084,7 +6718,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT2, $oehdduepct2, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT2, $oehdduepct2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6094,14 +6730,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddiscdate3('fooValue');   // WHERE OehdDiscDate3 = 'fooValue'
      * $query->filterByOehddiscdate3('%fooValue%', Criteria::LIKE); // WHERE OehdDiscDate3 LIKE '%fooValue%'
+     * $query->filterByOehddiscdate3(['foo', 'bar']); // WHERE OehdDiscDate3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddiscdate3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddiscdate3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscdate3($oehddiscdate3 = null, $comparison = null)
+    public function filterByOehddiscdate3($oehddiscdate3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddiscdate3)) {
@@ -6109,7 +6746,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE3, $oehddiscdate3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE3, $oehddiscdate3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6122,15 +6761,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddiscpct3(array('min' => 12)); // WHERE OehdDiscPct3 > 12
      * </code>
      *
-     * @param     mixed $oehddiscpct3 The value to use as filter.
+     * @param mixed $oehddiscpct3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscpct3($oehddiscpct3 = null, $comparison = null)
+    public function filterByOehddiscpct3($oehddiscpct3 = null, ?string $comparison = null)
     {
         if (is_array($oehddiscpct3)) {
             $useMinMax = false;
@@ -6150,7 +6789,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT3, $oehddiscpct3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT3, $oehddiscpct3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6160,14 +6801,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdduedate3('fooValue');   // WHERE OehdDueDate3 = 'fooValue'
      * $query->filterByOehdduedate3('%fooValue%', Criteria::LIKE); // WHERE OehdDueDate3 LIKE '%fooValue%'
+     * $query->filterByOehdduedate3(['foo', 'bar']); // WHERE OehdDueDate3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdduedate3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdduedate3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduedate3($oehdduedate3 = null, $comparison = null)
+    public function filterByOehdduedate3($oehdduedate3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdduedate3)) {
@@ -6175,7 +6817,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE3, $oehdduedate3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE3, $oehdduedate3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6188,15 +6832,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddueamt3(array('min' => 12)); // WHERE OehdDueAmt3 > 12
      * </code>
      *
-     * @param     mixed $oehddueamt3 The value to use as filter.
+     * @param mixed $oehddueamt3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddueamt3($oehddueamt3 = null, $comparison = null)
+    public function filterByOehddueamt3($oehddueamt3 = null, ?string $comparison = null)
     {
         if (is_array($oehddueamt3)) {
             $useMinMax = false;
@@ -6216,7 +6860,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT3, $oehddueamt3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT3, $oehddueamt3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6229,15 +6875,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdduepct3(array('min' => 12)); // WHERE OehdDuePct3 > 12
      * </code>
      *
-     * @param     mixed $oehdduepct3 The value to use as filter.
+     * @param mixed $oehdduepct3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduepct3($oehdduepct3 = null, $comparison = null)
+    public function filterByOehdduepct3($oehdduepct3 = null, ?string $comparison = null)
     {
         if (is_array($oehdduepct3)) {
             $useMinMax = false;
@@ -6257,7 +6903,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT3, $oehdduepct3, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT3, $oehdduepct3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6267,14 +6915,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddiscdate4('fooValue');   // WHERE OehdDiscDate4 = 'fooValue'
      * $query->filterByOehddiscdate4('%fooValue%', Criteria::LIKE); // WHERE OehdDiscDate4 LIKE '%fooValue%'
+     * $query->filterByOehddiscdate4(['foo', 'bar']); // WHERE OehdDiscDate4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddiscdate4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddiscdate4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscdate4($oehddiscdate4 = null, $comparison = null)
+    public function filterByOehddiscdate4($oehddiscdate4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddiscdate4)) {
@@ -6282,7 +6931,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE4, $oehddiscdate4, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE4, $oehddiscdate4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6295,15 +6946,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddiscpct4(array('min' => 12)); // WHERE OehdDiscPct4 > 12
      * </code>
      *
-     * @param     mixed $oehddiscpct4 The value to use as filter.
+     * @param mixed $oehddiscpct4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscpct4($oehddiscpct4 = null, $comparison = null)
+    public function filterByOehddiscpct4($oehddiscpct4 = null, ?string $comparison = null)
     {
         if (is_array($oehddiscpct4)) {
             $useMinMax = false;
@@ -6323,7 +6974,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT4, $oehddiscpct4, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT4, $oehddiscpct4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6333,14 +6986,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdduedate4('fooValue');   // WHERE OehdDueDate4 = 'fooValue'
      * $query->filterByOehdduedate4('%fooValue%', Criteria::LIKE); // WHERE OehdDueDate4 LIKE '%fooValue%'
+     * $query->filterByOehdduedate4(['foo', 'bar']); // WHERE OehdDueDate4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdduedate4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdduedate4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduedate4($oehdduedate4 = null, $comparison = null)
+    public function filterByOehdduedate4($oehdduedate4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdduedate4)) {
@@ -6348,7 +7002,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE4, $oehdduedate4, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE4, $oehdduedate4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6361,15 +7017,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddueamt4(array('min' => 12)); // WHERE OehdDueAmt4 > 12
      * </code>
      *
-     * @param     mixed $oehddueamt4 The value to use as filter.
+     * @param mixed $oehddueamt4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddueamt4($oehddueamt4 = null, $comparison = null)
+    public function filterByOehddueamt4($oehddueamt4 = null, ?string $comparison = null)
     {
         if (is_array($oehddueamt4)) {
             $useMinMax = false;
@@ -6389,7 +7045,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT4, $oehddueamt4, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT4, $oehddueamt4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6402,15 +7060,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdduepct4(array('min' => 12)); // WHERE OehdDuePct4 > 12
      * </code>
      *
-     * @param     mixed $oehdduepct4 The value to use as filter.
+     * @param mixed $oehdduepct4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduepct4($oehdduepct4 = null, $comparison = null)
+    public function filterByOehdduepct4($oehdduepct4 = null, ?string $comparison = null)
     {
         if (is_array($oehdduepct4)) {
             $useMinMax = false;
@@ -6430,7 +7088,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT4, $oehdduepct4, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT4, $oehdduepct4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6440,14 +7100,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddiscdate5('fooValue');   // WHERE OehdDiscDate5 = 'fooValue'
      * $query->filterByOehddiscdate5('%fooValue%', Criteria::LIKE); // WHERE OehdDiscDate5 LIKE '%fooValue%'
+     * $query->filterByOehddiscdate5(['foo', 'bar']); // WHERE OehdDiscDate5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddiscdate5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddiscdate5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscdate5($oehddiscdate5 = null, $comparison = null)
+    public function filterByOehddiscdate5($oehddiscdate5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddiscdate5)) {
@@ -6455,7 +7116,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE5, $oehddiscdate5, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE5, $oehddiscdate5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6468,15 +7131,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddiscpct5(array('min' => 12)); // WHERE OehdDiscPct5 > 12
      * </code>
      *
-     * @param     mixed $oehddiscpct5 The value to use as filter.
+     * @param mixed $oehddiscpct5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscpct5($oehddiscpct5 = null, $comparison = null)
+    public function filterByOehddiscpct5($oehddiscpct5 = null, ?string $comparison = null)
     {
         if (is_array($oehddiscpct5)) {
             $useMinMax = false;
@@ -6496,7 +7159,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT5, $oehddiscpct5, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT5, $oehddiscpct5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6506,14 +7171,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdduedate5('fooValue');   // WHERE OehdDueDate5 = 'fooValue'
      * $query->filterByOehdduedate5('%fooValue%', Criteria::LIKE); // WHERE OehdDueDate5 LIKE '%fooValue%'
+     * $query->filterByOehdduedate5(['foo', 'bar']); // WHERE OehdDueDate5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdduedate5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdduedate5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduedate5($oehdduedate5 = null, $comparison = null)
+    public function filterByOehdduedate5($oehdduedate5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdduedate5)) {
@@ -6521,7 +7187,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE5, $oehdduedate5, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE5, $oehdduedate5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6534,15 +7202,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddueamt5(array('min' => 12)); // WHERE OehdDueAmt5 > 12
      * </code>
      *
-     * @param     mixed $oehddueamt5 The value to use as filter.
+     * @param mixed $oehddueamt5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddueamt5($oehddueamt5 = null, $comparison = null)
+    public function filterByOehddueamt5($oehddueamt5 = null, ?string $comparison = null)
     {
         if (is_array($oehddueamt5)) {
             $useMinMax = false;
@@ -6562,7 +7230,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT5, $oehddueamt5, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT5, $oehddueamt5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6575,15 +7245,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdduepct5(array('min' => 12)); // WHERE OehdDuePct5 > 12
      * </code>
      *
-     * @param     mixed $oehdduepct5 The value to use as filter.
+     * @param mixed $oehdduepct5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduepct5($oehdduepct5 = null, $comparison = null)
+    public function filterByOehdduepct5($oehdduepct5 = null, ?string $comparison = null)
     {
         if (is_array($oehdduepct5)) {
             $useMinMax = false;
@@ -6603,7 +7273,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT5, $oehdduepct5, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT5, $oehdduepct5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6613,14 +7285,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehddiscdate6('fooValue');   // WHERE OehdDiscDate6 = 'fooValue'
      * $query->filterByOehddiscdate6('%fooValue%', Criteria::LIKE); // WHERE OehdDiscDate6 LIKE '%fooValue%'
+     * $query->filterByOehddiscdate6(['foo', 'bar']); // WHERE OehdDiscDate6 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehddiscdate6 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehddiscdate6 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscdate6($oehddiscdate6 = null, $comparison = null)
+    public function filterByOehddiscdate6($oehddiscdate6 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehddiscdate6)) {
@@ -6628,7 +7301,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE6, $oehddiscdate6, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCDATE6, $oehddiscdate6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6641,15 +7316,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddiscpct6(array('min' => 12)); // WHERE OehdDiscPct6 > 12
      * </code>
      *
-     * @param     mixed $oehddiscpct6 The value to use as filter.
+     * @param mixed $oehddiscpct6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddiscpct6($oehddiscpct6 = null, $comparison = null)
+    public function filterByOehddiscpct6($oehddiscpct6 = null, ?string $comparison = null)
     {
         if (is_array($oehddiscpct6)) {
             $useMinMax = false;
@@ -6669,7 +7344,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT6, $oehddiscpct6, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDISCPCT6, $oehddiscpct6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6679,14 +7356,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdduedate6('fooValue');   // WHERE OehdDueDate6 = 'fooValue'
      * $query->filterByOehdduedate6('%fooValue%', Criteria::LIKE); // WHERE OehdDueDate6 LIKE '%fooValue%'
+     * $query->filterByOehdduedate6(['foo', 'bar']); // WHERE OehdDueDate6 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdduedate6 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdduedate6 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduedate6($oehdduedate6 = null, $comparison = null)
+    public function filterByOehdduedate6($oehdduedate6 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdduedate6)) {
@@ -6694,7 +7372,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE6, $oehdduedate6, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEDATE6, $oehdduedate6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6707,15 +7387,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehddueamt6(array('min' => 12)); // WHERE OehdDueAmt6 > 12
      * </code>
      *
-     * @param     mixed $oehddueamt6 The value to use as filter.
+     * @param mixed $oehddueamt6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehddueamt6($oehddueamt6 = null, $comparison = null)
+    public function filterByOehddueamt6($oehddueamt6 = null, ?string $comparison = null)
     {
         if (is_array($oehddueamt6)) {
             $useMinMax = false;
@@ -6735,7 +7415,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT6, $oehddueamt6, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEAMT6, $oehddueamt6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6748,15 +7430,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * $query->filterByOehdduepct6(array('min' => 12)); // WHERE OehdDuePct6 > 12
      * </code>
      *
-     * @param     mixed $oehdduepct6 The value to use as filter.
+     * @param mixed $oehdduepct6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdduepct6($oehdduepct6 = null, $comparison = null)
+    public function filterByOehdduepct6($oehdduepct6 = null, ?string $comparison = null)
     {
         if (is_array($oehdduepct6)) {
             $useMinMax = false;
@@ -6776,7 +7458,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT6, $oehdduepct6, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDDUEPCT6, $oehdduepct6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6786,14 +7470,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdrefnbr('fooValue');   // WHERE OehdRefNbr = 'fooValue'
      * $query->filterByOehdrefnbr('%fooValue%', Criteria::LIKE); // WHERE OehdRefNbr LIKE '%fooValue%'
+     * $query->filterByOehdrefnbr(['foo', 'bar']); // WHERE OehdRefNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdrefnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdrefnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdrefnbr($oehdrefnbr = null, $comparison = null)
+    public function filterByOehdrefnbr($oehdrefnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdrefnbr)) {
@@ -6801,7 +7486,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDREFNBR, $oehdrefnbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDREFNBR, $oehdrefnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6811,14 +7498,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdacprognbr('fooValue');   // WHERE OehdAcProgNbr = 'fooValue'
      * $query->filterByOehdacprognbr('%fooValue%', Criteria::LIKE); // WHERE OehdAcProgNbr LIKE '%fooValue%'
+     * $query->filterByOehdacprognbr(['foo', 'bar']); // WHERE OehdAcProgNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdacprognbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdacprognbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdacprognbr($oehdacprognbr = null, $comparison = null)
+    public function filterByOehdacprognbr($oehdacprognbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdacprognbr)) {
@@ -6826,7 +7514,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDACPROGNBR, $oehdacprognbr, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDACPROGNBR, $oehdacprognbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6836,14 +7526,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByOehdacprogexpdate('fooValue');   // WHERE OehdAcProgExpDate = 'fooValue'
      * $query->filterByOehdacprogexpdate('%fooValue%', Criteria::LIKE); // WHERE OehdAcProgExpDate LIKE '%fooValue%'
+     * $query->filterByOehdacprogexpdate(['foo', 'bar']); // WHERE OehdAcProgExpDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehdacprogexpdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehdacprogexpdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdacprogexpdate($oehdacprogexpdate = null, $comparison = null)
+    public function filterByOehdacprogexpdate($oehdacprogexpdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehdacprogexpdate)) {
@@ -6851,7 +7542,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDACPROGEXPDATE, $oehdacprogexpdate, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_OEHDACPROGEXPDATE, $oehdacprogexpdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6861,14 +7554,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -6876,7 +7570,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6886,14 +7582,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -6901,7 +7598,9 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6911,14 +7610,15 @@ abstract class SalesOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -6926,20 +7626,22 @@ abstract class SalesOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SalesOrderTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -6949,8 +7651,10 @@ abstract class SalesOrderQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(SalesOrderTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -6959,12 +7663,12 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -6993,9 +7697,9 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -7007,16 +7711,112 @@ abstract class SalesOrderQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \CustomerShipto object
      *
      * @param \CustomerShipto $customerShipto The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomerShipto($customerShipto, $comparison = null)
+    public function filterByCustomerShipto($customerShipto, ?string $comparison = null)
     {
         if ($customerShipto instanceof \CustomerShipto) {
             return $this
@@ -7030,12 +7830,12 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the CustomerShipto relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomerShipto($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomerShipto(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('CustomerShipto');
@@ -7064,9 +7864,9 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerShiptoQuery A secondary query class using the current class as primary query
      */
@@ -7078,23 +7878,123 @@ abstract class SalesOrderQuery extends ModelCriteria
     }
 
     /**
+     * Use the CustomerShipto relation CustomerShipto object
+     *
+     * @param callable(\CustomerShiptoQuery):\CustomerShiptoQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerShiptoQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerShiptoQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerShiptoQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerShiptoExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useExistsQuery('CustomerShipto', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for a NOT EXISTS query.
+     *
+     * @see useCustomerShiptoExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerShiptoQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerShiptoNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useExistsQuery('CustomerShipto', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerShiptoQuery The inner query object of the IN statement
+     */
+    public function useInCustomerShiptoQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useInQuery('CustomerShipto', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for a NOT IN query.
+     *
+     * @see useCustomerShiptoInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerShiptoQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerShiptoQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useInQuery('CustomerShipto', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesOrderDetail object
      *
      * @param \SalesOrderDetail|ObjectCollection $salesOrderDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesOrderDetail($salesOrderDetail, $comparison = null)
+    public function filterBySalesOrderDetail($salesOrderDetail, ?string $comparison = null)
     {
         if ($salesOrderDetail instanceof \SalesOrderDetail) {
-            return $this
+            $this
                 ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $salesOrderDetail->getOehdnbr(), $comparison);
+
+            return $this;
         } elseif ($salesOrderDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSalesOrderDetailQuery()
                 ->filterByPrimaryKeys($salesOrderDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesOrderDetail() only accepts arguments of type \SalesOrderDetail or Collection');
         }
@@ -7103,12 +8003,12 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesOrderDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesOrderDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrderDetail');
@@ -7137,9 +8037,9 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesOrderDetailQuery A secondary query class using the current class as primary query
      */
@@ -7151,23 +8051,123 @@ abstract class SalesOrderQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesOrderDetail relation SalesOrderDetail object
+     *
+     * @param callable(\SalesOrderDetailQuery):\SalesOrderDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesOrderDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesOrderDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesOrderDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useExistsQuery('SalesOrderDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for a NOT EXISTS query.
+     *
+     * @see useSalesOrderDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesOrderDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useExistsQuery('SalesOrderDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the IN statement
+     */
+    public function useInSalesOrderDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useInQuery('SalesOrderDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for a NOT IN query.
+     *
+     * @see useSalesOrderDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesOrderDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useInQuery('SalesOrderDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesOrderShipment object
      *
      * @param \SalesOrderShipment|ObjectCollection $salesOrderShipment the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesOrderShipment($salesOrderShipment, $comparison = null)
+    public function filterBySalesOrderShipment($salesOrderShipment, ?string $comparison = null)
     {
         if ($salesOrderShipment instanceof \SalesOrderShipment) {
-            return $this
+            $this
                 ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $salesOrderShipment->getOehshnbr(), $comparison);
+
+            return $this;
         } elseif ($salesOrderShipment instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSalesOrderShipmentQuery()
                 ->filterByPrimaryKeys($salesOrderShipment->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesOrderShipment() only accepts arguments of type \SalesOrderShipment or Collection');
         }
@@ -7176,12 +8176,12 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesOrderShipment relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesOrderShipment($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesOrderShipment(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrderShipment');
@@ -7210,9 +8210,9 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesOrderShipmentQuery A secondary query class using the current class as primary query
      */
@@ -7224,23 +8224,123 @@ abstract class SalesOrderQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesOrderShipment relation SalesOrderShipment object
+     *
+     * @param callable(\SalesOrderShipmentQuery):\SalesOrderShipmentQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesOrderShipmentQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesOrderShipmentQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesOrderShipment table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesOrderShipmentQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesOrderShipmentExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesOrderShipmentQuery */
+        $q = $this->useExistsQuery('SalesOrderShipment', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderShipment table for a NOT EXISTS query.
+     *
+     * @see useSalesOrderShipmentExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderShipmentQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesOrderShipmentNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderShipmentQuery */
+        $q = $this->useExistsQuery('SalesOrderShipment', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderShipment table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesOrderShipmentQuery The inner query object of the IN statement
+     */
+    public function useInSalesOrderShipmentQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesOrderShipmentQuery */
+        $q = $this->useInQuery('SalesOrderShipment', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderShipment table for a NOT IN query.
+     *
+     * @see useSalesOrderShipmentInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderShipmentQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesOrderShipmentQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderShipmentQuery */
+        $q = $this->useInQuery('SalesOrderShipment', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesOrderLotserial object
      *
      * @param \SalesOrderLotserial|ObjectCollection $salesOrderLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesOrderLotserial($salesOrderLotserial, $comparison = null)
+    public function filterBySalesOrderLotserial($salesOrderLotserial, ?string $comparison = null)
     {
         if ($salesOrderLotserial instanceof \SalesOrderLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $salesOrderLotserial->getOehdnbr(), $comparison);
+
+            return $this;
         } elseif ($salesOrderLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSalesOrderLotserialQuery()
                 ->filterByPrimaryKeys($salesOrderLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesOrderLotserial() only accepts arguments of type \SalesOrderLotserial or Collection');
         }
@@ -7249,12 +8349,12 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesOrderLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesOrderLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesOrderLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrderLotserial');
@@ -7283,9 +8383,9 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesOrderLotserialQuery A secondary query class using the current class as primary query
      */
@@ -7297,23 +8397,123 @@ abstract class SalesOrderQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesOrderLotserial relation SalesOrderLotserial object
+     *
+     * @param callable(\SalesOrderLotserialQuery):\SalesOrderLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesOrderLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesOrderLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesOrderLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesOrderLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesOrderLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesOrderLotserialQuery */
+        $q = $this->useExistsQuery('SalesOrderLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderLotserial table for a NOT EXISTS query.
+     *
+     * @see useSalesOrderLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesOrderLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderLotserialQuery */
+        $q = $this->useExistsQuery('SalesOrderLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesOrderLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSalesOrderLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesOrderLotserialQuery */
+        $q = $this->useInQuery('SalesOrderLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderLotserial table for a NOT IN query.
+     *
+     * @see useSalesOrderLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesOrderLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderLotserialQuery */
+        $q = $this->useInQuery('SalesOrderLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoAllocatedLotserial object
      *
      * @param \SoAllocatedLotserial|ObjectCollection $soAllocatedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoAllocatedLotserial($soAllocatedLotserial, $comparison = null)
+    public function filterBySoAllocatedLotserial($soAllocatedLotserial, ?string $comparison = null)
     {
         if ($soAllocatedLotserial instanceof \SoAllocatedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $soAllocatedLotserial->getOehdnbr(), $comparison);
+
+            return $this;
         } elseif ($soAllocatedLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSoAllocatedLotserialQuery()
                 ->filterByPrimaryKeys($soAllocatedLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySoAllocatedLotserial() only accepts arguments of type \SoAllocatedLotserial or Collection');
         }
@@ -7322,12 +8522,12 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoAllocatedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoAllocatedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoAllocatedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoAllocatedLotserial');
@@ -7356,9 +8556,9 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoAllocatedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -7370,23 +8570,123 @@ abstract class SalesOrderQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoAllocatedLotserial relation SoAllocatedLotserial object
+     *
+     * @param callable(\SoAllocatedLotserialQuery):\SoAllocatedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoAllocatedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoAllocatedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSoAllocatedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('SoAllocatedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for a NOT EXISTS query.
+     *
+     * @see useSoAllocatedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoAllocatedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('SoAllocatedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSoAllocatedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useInQuery('SoAllocatedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for a NOT IN query.
+     *
+     * @see useSoAllocatedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoAllocatedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useInQuery('SoAllocatedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoPickedLotserial object
      *
      * @param \SoPickedLotserial|ObjectCollection $soPickedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoPickedLotserial($soPickedLotserial, $comparison = null)
+    public function filterBySoPickedLotserial($soPickedLotserial, ?string $comparison = null)
     {
         if ($soPickedLotserial instanceof \SoPickedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $soPickedLotserial->getOehdnbr(), $comparison);
+
+            return $this;
         } elseif ($soPickedLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSoPickedLotserialQuery()
                 ->filterByPrimaryKeys($soPickedLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySoPickedLotserial() only accepts arguments of type \SoPickedLotserial or Collection');
         }
@@ -7395,12 +8695,12 @@ abstract class SalesOrderQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoPickedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoPickedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoPickedLotserial');
@@ -7429,9 +8729,9 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoPickedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -7443,11 +8743,107 @@ abstract class SalesOrderQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoPickedLotserial relation SoPickedLotserial object
+     *
+     * @param callable(\SoPickedLotserialQuery):\SoPickedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoPickedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoPickedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSoPickedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useExistsQuery('SoPickedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for a NOT EXISTS query.
+     *
+     * @see useSoPickedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoPickedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useExistsQuery('SoPickedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSoPickedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useInQuery('SoPickedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for a NOT IN query.
+     *
+     * @see useSoPickedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoPickedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useInQuery('SoPickedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildSalesOrder $salesOrder Object to remove from the list of results
+     * @param ChildSalesOrder $salesOrder Object to remove from the list of results
      *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($salesOrder = null)
     {
@@ -7464,7 +8860,7 @@ abstract class SalesOrderQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderTableMap::DATABASE_NAME);
@@ -7489,12 +8885,12 @@ abstract class SalesOrderQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderTableMap::DATABASE_NAME);
@@ -7519,4 +8915,4 @@ abstract class SalesOrderQuery extends ModelCriteria
         });
     }
 
-} // SalesOrderQuery
+}

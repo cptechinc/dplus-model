@@ -10,14 +10,12 @@ use Map\ConfigSysTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'sys_config' table.
- *
- *
+ * Base class that represents a query for the `sys_config` table.
  *
  * @method     ChildConfigSysQuery orderByScfgkey($order = Criteria::ASC) Order by the ScfgKey column
  * @method     ChildConfigSysQuery orderByScfgcustid($order = Criteria::ASC) Order by the ScfgCustId column
@@ -45,20 +43,20 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSysQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigSysQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigSys findOne(ConnectionInterface $con = null) Return the first ChildConfigSys matching the query
- * @method     ChildConfigSys findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigSys matching the query, or a new ChildConfigSys object populated from the query conditions when no match is found
+ * @method     ChildConfigSys|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigSys matching the query
+ * @method     ChildConfigSys findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigSys matching the query, or a new ChildConfigSys object populated from the query conditions when no match is found
  *
- * @method     ChildConfigSys findOneByScfgkey(int $ScfgKey) Return the first ChildConfigSys filtered by the ScfgKey column
- * @method     ChildConfigSys findOneByScfgcustid(string $ScfgCustId) Return the first ChildConfigSys filtered by the ScfgCustId column
- * @method     ChildConfigSys findOneByScfgedipostinv(string $ScfgEdiPostInv) Return the first ChildConfigSys filtered by the ScfgEdiPostInv column
- * @method     ChildConfigSys findOneByScfgedishipasn(string $ScfgEdiShipAsn) Return the first ChildConfigSys filtered by the ScfgEdiShipAsn column
- * @method     ChildConfigSys findOneByScfgbellbopicseq(string $ScfgBellboPicSeq) Return the first ChildConfigSys filtered by the ScfgBellboPicSeq column
- * @method     ChildConfigSys findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigSys filtered by the DateUpdtd column
- * @method     ChildConfigSys findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigSys filtered by the TimeUpdtd column
- * @method     ChildConfigSys findOneByDummy(string $dummy) Return the first ChildConfigSys filtered by the dummy column *
-
- * @method     ChildConfigSys requirePk($key, ConnectionInterface $con = null) Return the ChildConfigSys by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigSys requireOne(ConnectionInterface $con = null) Return the first ChildConfigSys matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigSys|null findOneByScfgkey(int $ScfgKey) Return the first ChildConfigSys filtered by the ScfgKey column
+ * @method     ChildConfigSys|null findOneByScfgcustid(string $ScfgCustId) Return the first ChildConfigSys filtered by the ScfgCustId column
+ * @method     ChildConfigSys|null findOneByScfgedipostinv(string $ScfgEdiPostInv) Return the first ChildConfigSys filtered by the ScfgEdiPostInv column
+ * @method     ChildConfigSys|null findOneByScfgedishipasn(string $ScfgEdiShipAsn) Return the first ChildConfigSys filtered by the ScfgEdiShipAsn column
+ * @method     ChildConfigSys|null findOneByScfgbellbopicseq(string $ScfgBellboPicSeq) Return the first ChildConfigSys filtered by the ScfgBellboPicSeq column
+ * @method     ChildConfigSys|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigSys filtered by the DateUpdtd column
+ * @method     ChildConfigSys|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigSys filtered by the TimeUpdtd column
+ * @method     ChildConfigSys|null findOneByDummy(string $dummy) Return the first ChildConfigSys filtered by the dummy column
+ *
+ * @method     ChildConfigSys requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigSys by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigSys requireOne(?ConnectionInterface $con = null) Return the first ChildConfigSys matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigSys requireOneByScfgkey(int $ScfgKey) Return the first ChildConfigSys filtered by the ScfgKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSys requireOneByScfgcustid(string $ScfgCustId) Return the first ChildConfigSys filtered by the ScfgCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -69,17 +67,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSys requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigSys filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSys requireOneByDummy(string $dummy) Return the first ChildConfigSys filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigSys[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigSys objects based on current ModelCriteria
- * @method     ChildConfigSys[]|ObjectCollection findByScfgkey(int $ScfgKey) Return ChildConfigSys objects filtered by the ScfgKey column
- * @method     ChildConfigSys[]|ObjectCollection findByScfgcustid(string $ScfgCustId) Return ChildConfigSys objects filtered by the ScfgCustId column
- * @method     ChildConfigSys[]|ObjectCollection findByScfgedipostinv(string $ScfgEdiPostInv) Return ChildConfigSys objects filtered by the ScfgEdiPostInv column
- * @method     ChildConfigSys[]|ObjectCollection findByScfgedishipasn(string $ScfgEdiShipAsn) Return ChildConfigSys objects filtered by the ScfgEdiShipAsn column
- * @method     ChildConfigSys[]|ObjectCollection findByScfgbellbopicseq(string $ScfgBellboPicSeq) Return ChildConfigSys objects filtered by the ScfgBellboPicSeq column
- * @method     ChildConfigSys[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigSys objects filtered by the DateUpdtd column
- * @method     ChildConfigSys[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigSys objects filtered by the TimeUpdtd column
- * @method     ChildConfigSys[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigSys objects filtered by the dummy column
- * @method     ChildConfigSys[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigSys[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigSys objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigSys> find(?ConnectionInterface $con = null) Return ChildConfigSys objects based on current ModelCriteria
  *
+ * @method     ChildConfigSys[]|Collection findByScfgkey(int|array<int> $ScfgKey) Return ChildConfigSys objects filtered by the ScfgKey column
+ * @psalm-method Collection&\Traversable<ChildConfigSys> findByScfgkey(int|array<int> $ScfgKey) Return ChildConfigSys objects filtered by the ScfgKey column
+ * @method     ChildConfigSys[]|Collection findByScfgcustid(string|array<string> $ScfgCustId) Return ChildConfigSys objects filtered by the ScfgCustId column
+ * @psalm-method Collection&\Traversable<ChildConfigSys> findByScfgcustid(string|array<string> $ScfgCustId) Return ChildConfigSys objects filtered by the ScfgCustId column
+ * @method     ChildConfigSys[]|Collection findByScfgedipostinv(string|array<string> $ScfgEdiPostInv) Return ChildConfigSys objects filtered by the ScfgEdiPostInv column
+ * @psalm-method Collection&\Traversable<ChildConfigSys> findByScfgedipostinv(string|array<string> $ScfgEdiPostInv) Return ChildConfigSys objects filtered by the ScfgEdiPostInv column
+ * @method     ChildConfigSys[]|Collection findByScfgedishipasn(string|array<string> $ScfgEdiShipAsn) Return ChildConfigSys objects filtered by the ScfgEdiShipAsn column
+ * @psalm-method Collection&\Traversable<ChildConfigSys> findByScfgedishipasn(string|array<string> $ScfgEdiShipAsn) Return ChildConfigSys objects filtered by the ScfgEdiShipAsn column
+ * @method     ChildConfigSys[]|Collection findByScfgbellbopicseq(string|array<string> $ScfgBellboPicSeq) Return ChildConfigSys objects filtered by the ScfgBellboPicSeq column
+ * @psalm-method Collection&\Traversable<ChildConfigSys> findByScfgbellbopicseq(string|array<string> $ScfgBellboPicSeq) Return ChildConfigSys objects filtered by the ScfgBellboPicSeq column
+ * @method     ChildConfigSys[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigSys objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigSys> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigSys objects filtered by the DateUpdtd column
+ * @method     ChildConfigSys[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigSys objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigSys> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigSys objects filtered by the TimeUpdtd column
+ * @method     ChildConfigSys[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigSys objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigSys> findByDummy(string|array<string> $dummy) Return ChildConfigSys objects filtered by the dummy column
+ *
+ * @method     ChildConfigSys[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigSys> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigSysQuery extends ModelCriteria
 {
@@ -88,9 +97,9 @@ abstract class ConfigSysQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigSysQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigSys', $modelAlias = null)
     {
@@ -100,12 +109,12 @@ abstract class ConfigSysQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigSysQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigSysQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigSysQuery) {
             return $criteria;
@@ -135,7 +144,7 @@ abstract class ConfigSysQuery extends ModelCriteria
      *
      * @return ChildConfigSys|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -167,8 +176,8 @@ abstract class ConfigSysQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -200,8 +209,8 @@ abstract class ConfigSysQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigSys|array|mixed the result, formatted by the current formatter
      */
@@ -221,12 +230,12 @@ abstract class ConfigSysQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -243,27 +252,31 @@ abstract class ConfigSysQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_SCFGKEY, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigSysTableMap::COL_SCFGKEY, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_SCFGKEY, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigSysTableMap::COL_SCFGKEY, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -276,15 +289,15 @@ abstract class ConfigSysQuery extends ModelCriteria
      * $query->filterByScfgkey(array('min' => 12)); // WHERE ScfgKey > 12
      * </code>
      *
-     * @param     mixed $scfgkey The value to use as filter.
+     * @param mixed $scfgkey The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByScfgkey($scfgkey = null, $comparison = null)
+    public function filterByScfgkey($scfgkey = null, ?string $comparison = null)
     {
         if (is_array($scfgkey)) {
             $useMinMax = false;
@@ -304,7 +317,9 @@ abstract class ConfigSysQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_SCFGKEY, $scfgkey, $comparison);
+        $this->addUsingAlias(ConfigSysTableMap::COL_SCFGKEY, $scfgkey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -314,14 +329,15 @@ abstract class ConfigSysQuery extends ModelCriteria
      * <code>
      * $query->filterByScfgcustid('fooValue');   // WHERE ScfgCustId = 'fooValue'
      * $query->filterByScfgcustid('%fooValue%', Criteria::LIKE); // WHERE ScfgCustId LIKE '%fooValue%'
+     * $query->filterByScfgcustid(['foo', 'bar']); // WHERE ScfgCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $scfgcustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $scfgcustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByScfgcustid($scfgcustid = null, $comparison = null)
+    public function filterByScfgcustid($scfgcustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($scfgcustid)) {
@@ -329,7 +345,9 @@ abstract class ConfigSysQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_SCFGCUSTID, $scfgcustid, $comparison);
+        $this->addUsingAlias(ConfigSysTableMap::COL_SCFGCUSTID, $scfgcustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -339,14 +357,15 @@ abstract class ConfigSysQuery extends ModelCriteria
      * <code>
      * $query->filterByScfgedipostinv('fooValue');   // WHERE ScfgEdiPostInv = 'fooValue'
      * $query->filterByScfgedipostinv('%fooValue%', Criteria::LIKE); // WHERE ScfgEdiPostInv LIKE '%fooValue%'
+     * $query->filterByScfgedipostinv(['foo', 'bar']); // WHERE ScfgEdiPostInv IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $scfgedipostinv The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $scfgedipostinv The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByScfgedipostinv($scfgedipostinv = null, $comparison = null)
+    public function filterByScfgedipostinv($scfgedipostinv = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($scfgedipostinv)) {
@@ -354,7 +373,9 @@ abstract class ConfigSysQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_SCFGEDIPOSTINV, $scfgedipostinv, $comparison);
+        $this->addUsingAlias(ConfigSysTableMap::COL_SCFGEDIPOSTINV, $scfgedipostinv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -364,14 +385,15 @@ abstract class ConfigSysQuery extends ModelCriteria
      * <code>
      * $query->filterByScfgedishipasn('fooValue');   // WHERE ScfgEdiShipAsn = 'fooValue'
      * $query->filterByScfgedishipasn('%fooValue%', Criteria::LIKE); // WHERE ScfgEdiShipAsn LIKE '%fooValue%'
+     * $query->filterByScfgedishipasn(['foo', 'bar']); // WHERE ScfgEdiShipAsn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $scfgedishipasn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $scfgedishipasn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByScfgedishipasn($scfgedishipasn = null, $comparison = null)
+    public function filterByScfgedishipasn($scfgedishipasn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($scfgedishipasn)) {
@@ -379,7 +401,9 @@ abstract class ConfigSysQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_SCFGEDISHIPASN, $scfgedishipasn, $comparison);
+        $this->addUsingAlias(ConfigSysTableMap::COL_SCFGEDISHIPASN, $scfgedishipasn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -389,14 +413,15 @@ abstract class ConfigSysQuery extends ModelCriteria
      * <code>
      * $query->filterByScfgbellbopicseq('fooValue');   // WHERE ScfgBellboPicSeq = 'fooValue'
      * $query->filterByScfgbellbopicseq('%fooValue%', Criteria::LIKE); // WHERE ScfgBellboPicSeq LIKE '%fooValue%'
+     * $query->filterByScfgbellbopicseq(['foo', 'bar']); // WHERE ScfgBellboPicSeq IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $scfgbellbopicseq The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $scfgbellbopicseq The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByScfgbellbopicseq($scfgbellbopicseq = null, $comparison = null)
+    public function filterByScfgbellbopicseq($scfgbellbopicseq = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($scfgbellbopicseq)) {
@@ -404,7 +429,9 @@ abstract class ConfigSysQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_SCFGBELLBOPICSEQ, $scfgbellbopicseq, $comparison);
+        $this->addUsingAlias(ConfigSysTableMap::COL_SCFGBELLBOPICSEQ, $scfgbellbopicseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -414,14 +441,15 @@ abstract class ConfigSysQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -429,7 +457,9 @@ abstract class ConfigSysQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigSysTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -439,14 +469,15 @@ abstract class ConfigSysQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -454,7 +485,9 @@ abstract class ConfigSysQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigSysTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -464,14 +497,15 @@ abstract class ConfigSysQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -479,15 +513,17 @@ abstract class ConfigSysQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigSysTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigSys $configSys Object to remove from the list of results
+     * @param ChildConfigSys $configSys Object to remove from the list of results
      *
-     * @return $this|ChildConfigSysQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configSys = null)
     {
@@ -504,7 +540,7 @@ abstract class ConfigSysQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysTableMap::DATABASE_NAME);
@@ -529,12 +565,12 @@ abstract class ConfigSysQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysTableMap::DATABASE_NAME);
@@ -559,4 +595,4 @@ abstract class ConfigSysQuery extends ModelCriteria
         });
     }
 
-} // ConfigSysQuery
+}

@@ -31,19 +31,21 @@ abstract class BookingDetail implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\BookingDetailTableMap';
+    public const TABLE_MAP = '\\Map\\BookingDetailTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -52,14 +54,14 @@ abstract class BookingDetail implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the bklhordrbase field.
@@ -88,154 +90,154 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * The value for the bkldordrnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldordrnbr;
 
     /**
      * The value for the bkldtrandate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldtrandate;
 
     /**
      * The value for the bkldtrantime field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldtrantime;
 
     /**
      * The value for the bkldlogin field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldlogin;
 
     /**
      * The value for the inititemnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $inititemnbr;
 
     /**
      * The value for the intbwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbwhse;
 
     /**
      * The value for the bkldqty field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldqty;
 
     /**
      * The value for the bkldunitpric field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldunitpric;
 
     /**
      * The value for the bkldpgmref field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldpgmref;
 
     /**
      * The value for the bkldreascd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldreascd;
 
     /**
      * The value for the bkldbookdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldbookdate;
 
     /**
      * The value for the bkldnsitemdesc1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldnsitemdesc1;
 
     /**
      * The value for the bkldnsitemgrup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldnsitemgrup;
 
     /**
      * The value for the bkldnsuom field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldnsuom;
 
     /**
      * The value for the bkldnsvendid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldnsvendid;
 
     /**
      * The value for the bkldqtytoship field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldqtytoship;
 
     /**
      * The value for the bkldtaxcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldtaxcode;
 
     /**
      * The value for the bkldunitcost field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldunitcost;
 
     /**
      * The value for the bkldacsuplywhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $bkldacsuplywhse;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -248,7 +250,7 @@ abstract class BookingDetail implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -258,7 +260,7 @@ abstract class BookingDetail implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->bklhordrbase = '';
         $this->bkldorigline = 0;
@@ -277,9 +279,9 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -287,10 +289,10 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -299,7 +301,7 @@ abstract class BookingDetail implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -309,9 +311,9 @@ abstract class BookingDetail implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -320,45 +322,43 @@ abstract class BookingDetail implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -367,10 +367,10 @@ abstract class BookingDetail implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>BookingDetail</code>, delegates to
      * <code>equals(BookingDetail)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -392,7 +392,7 @@ abstract class BookingDetail implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -400,10 +400,10 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -411,15 +411,15 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -428,12 +428,12 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|BookingDetail The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -443,13 +443,13 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -460,24 +460,27 @@ abstract class BookingDetail implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -525,7 +528,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldordrnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldordrnbr()
     {
@@ -535,7 +538,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldtrandate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldtrandate()
     {
@@ -545,7 +548,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldtrantime] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldtrantime()
     {
@@ -555,7 +558,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldlogin] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldlogin()
     {
@@ -565,7 +568,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [inititemnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInititemnbr()
     {
@@ -575,7 +578,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [intbwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbwhse()
     {
@@ -585,7 +588,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldqty] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldqty()
     {
@@ -595,7 +598,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldunitpric] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldunitpric()
     {
@@ -605,7 +608,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldpgmref] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldpgmref()
     {
@@ -615,7 +618,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldreascd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldreascd()
     {
@@ -625,7 +628,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldbookdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldbookdate()
     {
@@ -635,7 +638,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldnsitemdesc1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldnsitemdesc1()
     {
@@ -645,7 +648,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldnsitemgrup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldnsitemgrup()
     {
@@ -655,7 +658,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldnsuom] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldnsuom()
     {
@@ -665,7 +668,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldnsvendid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldnsvendid()
     {
@@ -675,7 +678,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldqtytoship] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldqtytoship()
     {
@@ -685,7 +688,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldtaxcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldtaxcode()
     {
@@ -695,7 +698,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldunitcost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldunitcost()
     {
@@ -705,7 +708,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [bkldacsuplywhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBkldacsuplywhse()
     {
@@ -715,7 +718,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -725,7 +728,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -735,7 +738,7 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -745,8 +748,8 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Set the value of [bklhordrbase] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBklhordrbase($v)
     {
@@ -760,13 +763,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBklhordrbase()
+    }
 
     /**
      * Set the value of [bkldorigline] column.
      *
-     * @param int $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldorigline($v)
     {
@@ -780,13 +783,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldorigline()
+    }
 
     /**
      * Set the value of [bkldseq] column.
      *
-     * @param int $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldseq($v)
     {
@@ -800,13 +803,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldseq()
+    }
 
     /**
      * Set the value of [bkldordrnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldordrnbr($v)
     {
@@ -820,13 +823,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldordrnbr()
+    }
 
     /**
      * Set the value of [bkldtrandate] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldtrandate($v)
     {
@@ -840,13 +843,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldtrandate()
+    }
 
     /**
      * Set the value of [bkldtrantime] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldtrantime($v)
     {
@@ -860,13 +863,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldtrantime()
+    }
 
     /**
      * Set the value of [bkldlogin] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldlogin($v)
     {
@@ -880,13 +883,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldlogin()
+    }
 
     /**
      * Set the value of [inititemnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -904,13 +907,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInititemnbr()
+    }
 
     /**
      * Set the value of [intbwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -924,13 +927,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhse()
+    }
 
     /**
      * Set the value of [bkldqty] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldqty($v)
     {
@@ -944,13 +947,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldqty()
+    }
 
     /**
      * Set the value of [bkldunitpric] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldunitpric($v)
     {
@@ -964,13 +967,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldunitpric()
+    }
 
     /**
      * Set the value of [bkldpgmref] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldpgmref($v)
     {
@@ -984,13 +987,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldpgmref()
+    }
 
     /**
      * Set the value of [bkldreascd] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldreascd($v)
     {
@@ -1004,13 +1007,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldreascd()
+    }
 
     /**
      * Set the value of [bkldbookdate] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldbookdate($v)
     {
@@ -1024,13 +1027,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldbookdate()
+    }
 
     /**
      * Set the value of [bkldnsitemdesc1] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldnsitemdesc1($v)
     {
@@ -1044,13 +1047,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldnsitemdesc1()
+    }
 
     /**
      * Set the value of [bkldnsitemgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldnsitemgrup($v)
     {
@@ -1064,13 +1067,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldnsitemgrup()
+    }
 
     /**
      * Set the value of [bkldnsuom] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldnsuom($v)
     {
@@ -1084,13 +1087,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldnsuom()
+    }
 
     /**
      * Set the value of [bkldnsvendid] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldnsvendid($v)
     {
@@ -1104,13 +1107,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldnsvendid()
+    }
 
     /**
      * Set the value of [bkldqtytoship] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldqtytoship($v)
     {
@@ -1124,13 +1127,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldqtytoship()
+    }
 
     /**
      * Set the value of [bkldtaxcode] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldtaxcode($v)
     {
@@ -1144,13 +1147,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldtaxcode()
+    }
 
     /**
      * Set the value of [bkldunitcost] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldunitcost($v)
     {
@@ -1164,13 +1167,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldunitcost()
+    }
 
     /**
      * Set the value of [bkldacsuplywhse] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBkldacsuplywhse($v)
     {
@@ -1184,13 +1187,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBkldacsuplywhse()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1204,13 +1207,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1224,13 +1227,13 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\BookingDetail The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1244,7 +1247,7 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -1252,9 +1255,9 @@ abstract class BookingDetail implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->bklhordrbase !== '') {
                 return false;
@@ -1270,7 +1273,7 @@ abstract class BookingDetail implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -1280,17 +1283,17 @@ abstract class BookingDetail implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -1368,8 +1371,8 @@ abstract class BookingDetail implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : BookingDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -1394,26 +1397,27 @@ abstract class BookingDetail implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -1447,13 +1451,13 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see BookingDetail::setDeleted()
      * @see BookingDetail::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -1483,12 +1487,12 @@ abstract class BookingDetail implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -1533,12 +1537,12 @@ abstract class BookingDetail implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -1572,19 +1576,19 @@ abstract class BookingDetail implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -1677,78 +1681,103 @@ abstract class BookingDetail implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'BklhOrdrBase':
                         $stmt->bindValue($identifier, $this->bklhordrbase, PDO::PARAM_STR);
+
                         break;
                     case 'BkldOrigLine':
                         $stmt->bindValue($identifier, $this->bkldorigline, PDO::PARAM_INT);
+
                         break;
                     case 'BkldSeq':
                         $stmt->bindValue($identifier, $this->bkldseq, PDO::PARAM_INT);
+
                         break;
                     case 'BkldOrdrNbr':
                         $stmt->bindValue($identifier, $this->bkldordrnbr, PDO::PARAM_STR);
+
                         break;
                     case 'BkldTranDate':
                         $stmt->bindValue($identifier, $this->bkldtrandate, PDO::PARAM_STR);
+
                         break;
                     case 'BkldTranTime':
                         $stmt->bindValue($identifier, $this->bkldtrantime, PDO::PARAM_STR);
+
                         break;
                     case 'BkldLogIn':
                         $stmt->bindValue($identifier, $this->bkldlogin, PDO::PARAM_STR);
+
                         break;
                     case 'InitItemNbr':
                         $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhse':
                         $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+
                         break;
                     case 'BkldQty':
                         $stmt->bindValue($identifier, $this->bkldqty, PDO::PARAM_STR);
+
                         break;
                     case 'BkldUnitPric':
                         $stmt->bindValue($identifier, $this->bkldunitpric, PDO::PARAM_STR);
+
                         break;
                     case 'BkldPgmRef':
                         $stmt->bindValue($identifier, $this->bkldpgmref, PDO::PARAM_STR);
+
                         break;
                     case 'BkldReasCd':
                         $stmt->bindValue($identifier, $this->bkldreascd, PDO::PARAM_STR);
+
                         break;
                     case 'BkldBookDate':
                         $stmt->bindValue($identifier, $this->bkldbookdate, PDO::PARAM_STR);
+
                         break;
                     case 'BkldNsItemDesc1':
                         $stmt->bindValue($identifier, $this->bkldnsitemdesc1, PDO::PARAM_STR);
+
                         break;
                     case 'BkldNsItemGrup':
                         $stmt->bindValue($identifier, $this->bkldnsitemgrup, PDO::PARAM_STR);
+
                         break;
                     case 'BkldNsUom':
                         $stmt->bindValue($identifier, $this->bkldnsuom, PDO::PARAM_STR);
+
                         break;
                     case 'BkldNsVendId':
                         $stmt->bindValue($identifier, $this->bkldnsvendid, PDO::PARAM_STR);
+
                         break;
                     case 'BkldQtyToShip':
                         $stmt->bindValue($identifier, $this->bkldqtytoship, PDO::PARAM_STR);
+
                         break;
                     case 'BkldTaxCode':
                         $stmt->bindValue($identifier, $this->bkldtaxcode, PDO::PARAM_STR);
+
                         break;
                     case 'BkldUnitCost':
                         $stmt->bindValue($identifier, $this->bkldunitcost, PDO::PARAM_STR);
+
                         break;
                     case 'BkldAcSuplyWhse':
                         $stmt->bindValue($identifier, $this->bkldacsuplywhse, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -1764,12 +1793,12 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -1780,14 +1809,14 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = BookingDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -1799,90 +1828,89 @@ abstract class BookingDetail implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getBklhordrbase();
-                break;
+
             case 1:
                 return $this->getBkldorigline();
-                break;
+
             case 2:
                 return $this->getBkldseq();
-                break;
+
             case 3:
                 return $this->getBkldordrnbr();
-                break;
+
             case 4:
                 return $this->getBkldtrandate();
-                break;
+
             case 5:
                 return $this->getBkldtrantime();
-                break;
+
             case 6:
                 return $this->getBkldlogin();
-                break;
+
             case 7:
                 return $this->getInititemnbr();
-                break;
+
             case 8:
                 return $this->getIntbwhse();
-                break;
+
             case 9:
                 return $this->getBkldqty();
-                break;
+
             case 10:
                 return $this->getBkldunitpric();
-                break;
+
             case 11:
                 return $this->getBkldpgmref();
-                break;
+
             case 12:
                 return $this->getBkldreascd();
-                break;
+
             case 13:
                 return $this->getBkldbookdate();
-                break;
+
             case 14:
                 return $this->getBkldnsitemdesc1();
-                break;
+
             case 15:
                 return $this->getBkldnsitemgrup();
-                break;
+
             case 16:
                 return $this->getBkldnsuom();
-                break;
+
             case 17:
                 return $this->getBkldnsvendid();
-                break;
+
             case 18:
                 return $this->getBkldqtytoship();
-                break;
+
             case 19:
                 return $this->getBkldtaxcode();
-                break;
+
             case 20:
                 return $this->getBkldunitcost();
-                break;
+
             case 21:
                 return $this->getBkldacsuplywhse();
-                break;
+
             case 22:
                 return $this->getDateupdtd();
-                break;
+
             case 23:
                 return $this->getTimeupdtd();
-                break;
+
             case 24:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -1892,24 +1920,23 @@ abstract class BookingDetail implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['BookingDetail'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['BookingDetail'][$this->hashCode()] = true;
         $keys = BookingDetailTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getBklhordrbase(),
             $keys[1] => $this->getBkldorigline(),
             $keys[2] => $this->getBkldseq(),
@@ -1935,7 +1962,7 @@ abstract class BookingDetail implements ActiveRecordInterface
             $keys[22] => $this->getDateupdtd(),
             $keys[23] => $this->getTimeupdtd(),
             $keys[24] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -1965,30 +1992,32 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\BookingDetail
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = BookingDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\BookingDetail
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -2084,11 +2113,11 @@ abstract class BookingDetail implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = BookingDetailTableMap::getFieldNames($keyType);
 
@@ -2167,6 +2196,8 @@ abstract class BookingDetail implements ActiveRecordInterface
         if (array_key_exists($keys[24], $arr)) {
             $this->setDummy($arr[$keys[24]]);
         }
+
+        return $this;
     }
 
      /**
@@ -2186,9 +2217,9 @@ abstract class BookingDetail implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\BookingDetail The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -2202,9 +2233,9 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(BookingDetailTableMap::DATABASE_NAME);
 
@@ -2291,13 +2322,13 @@ abstract class BookingDetail implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildBookingDetailQuery::create();
         $criteria->add(BookingDetailTableMap::COL_BKLHORDRBASE, $this->bklhordrbase);
@@ -2311,7 +2342,7 @@ abstract class BookingDetail implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -2338,7 +2369,7 @@ abstract class BookingDetail implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
+        $pks = [];
         $pks[0] = $this->getBklhordrbase();
         $pks[1] = $this->getBkldorigline();
         $pks[2] = $this->getBkldseq();
@@ -2349,10 +2380,10 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Set the [composite] primary key.
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey(array $keys): void
     {
         $this->setBklhordrbase($keys[0]);
         $this->setBkldorigline($keys[1]);
@@ -2361,9 +2392,10 @@ abstract class BookingDetail implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return (null === $this->getBklhordrbase()) && (null === $this->getBkldorigline()) && (null === $this->getBkldseq());
     }
@@ -2374,12 +2406,13 @@ abstract class BookingDetail implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \BookingDetail (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \BookingDetail (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setBklhordrbase($this->getBklhordrbase());
         $copyObj->setBkldorigline($this->getBkldorigline());
@@ -2419,11 +2452,11 @@ abstract class BookingDetail implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \BookingDetail Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -2436,9 +2469,9 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param  ChildItemMasterItem $v
-     * @return $this|\BookingDetail The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildItemMasterItem|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
@@ -2464,11 +2497,11 @@ abstract class BookingDetail implements ActiveRecordInterface
     /**
      * Get the associated ChildItemMasterItem object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem|null The associated ChildItemMasterItem object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemMasterItem(ConnectionInterface $con = null)
+    public function getItemMasterItem(?ConnectionInterface $con = null)
     {
         if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
             $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
@@ -2488,6 +2521,8 @@ abstract class BookingDetail implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -2525,6 +2560,8 @@ abstract class BookingDetail implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -2533,14 +2570,16 @@ abstract class BookingDetail implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
         $this->aItemMasterItem = null;
+        return $this;
     }
 
     /**
@@ -2555,99 +2594,79 @@ abstract class BookingDetail implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -2657,7 +2676,7 @@ abstract class BookingDetail implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -2677,15 +2696,18 @@ abstract class BookingDetail implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'user_printer' table.
- *
- *
+ * Base class that represents a query for the `user_printer` table.
  *
  * @method     ChildUserLastPrintJobQuery orderByUsprfunction($order = Criteria::ASC) Order by the UsprFunction column
  * @method     ChildUserLastPrintJobQuery orderByUsrcid($order = Criteria::ASC) Order by the UsrcId column
@@ -64,23 +63,23 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \DplusUserQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildUserLastPrintJob findOne(ConnectionInterface $con = null) Return the first ChildUserLastPrintJob matching the query
- * @method     ChildUserLastPrintJob findOneOrCreate(ConnectionInterface $con = null) Return the first ChildUserLastPrintJob matching the query, or a new ChildUserLastPrintJob object populated from the query conditions when no match is found
+ * @method     ChildUserLastPrintJob|null findOne(?ConnectionInterface $con = null) Return the first ChildUserLastPrintJob matching the query
+ * @method     ChildUserLastPrintJob findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildUserLastPrintJob matching the query, or a new ChildUserLastPrintJob object populated from the query conditions when no match is found
  *
- * @method     ChildUserLastPrintJob findOneByUsprfunction(string $UsprFunction) Return the first ChildUserLastPrintJob filtered by the UsprFunction column
- * @method     ChildUserLastPrintJob findOneByUsrcid(string $UsrcId) Return the first ChildUserLastPrintJob filtered by the UsrcId column
- * @method     ChildUserLastPrintJob findOneByIntbwhse(string $IntbWhse) Return the first ChildUserLastPrintJob filtered by the IntbWhse column
- * @method     ChildUserLastPrintJob findOneByUsprprinter(string $UsprPrinter) Return the first ChildUserLastPrintJob filtered by the UsprPrinter column
- * @method     ChildUserLastPrintJob findOneByUsprlabel(string $UsprLabel) Return the first ChildUserLastPrintJob filtered by the UsprLabel column
- * @method     ChildUserLastPrintJob findOneByUsprlabel2(string $UsprLabel2) Return the first ChildUserLastPrintJob filtered by the UsprLabel2 column
- * @method     ChildUserLastPrintJob findOneByUsprlabelqty(int $UsprLabelQty) Return the first ChildUserLastPrintJob filtered by the UsprLabelQty column
- * @method     ChildUserLastPrintJob findOneByUsprordrnbr(int $UsprOrdrNbr) Return the first ChildUserLastPrintJob filtered by the UsprOrdrNbr column
- * @method     ChildUserLastPrintJob findOneByDateupdtd(string $DateUpdtd) Return the first ChildUserLastPrintJob filtered by the DateUpdtd column
- * @method     ChildUserLastPrintJob findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUserLastPrintJob filtered by the TimeUpdtd column
- * @method     ChildUserLastPrintJob findOneByDummy(string $dummy) Return the first ChildUserLastPrintJob filtered by the dummy column *
-
- * @method     ChildUserLastPrintJob requirePk($key, ConnectionInterface $con = null) Return the ChildUserLastPrintJob by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildUserLastPrintJob requireOne(ConnectionInterface $con = null) Return the first ChildUserLastPrintJob matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUserLastPrintJob|null findOneByUsprfunction(string $UsprFunction) Return the first ChildUserLastPrintJob filtered by the UsprFunction column
+ * @method     ChildUserLastPrintJob|null findOneByUsrcid(string $UsrcId) Return the first ChildUserLastPrintJob filtered by the UsrcId column
+ * @method     ChildUserLastPrintJob|null findOneByIntbwhse(string $IntbWhse) Return the first ChildUserLastPrintJob filtered by the IntbWhse column
+ * @method     ChildUserLastPrintJob|null findOneByUsprprinter(string $UsprPrinter) Return the first ChildUserLastPrintJob filtered by the UsprPrinter column
+ * @method     ChildUserLastPrintJob|null findOneByUsprlabel(string $UsprLabel) Return the first ChildUserLastPrintJob filtered by the UsprLabel column
+ * @method     ChildUserLastPrintJob|null findOneByUsprlabel2(string $UsprLabel2) Return the first ChildUserLastPrintJob filtered by the UsprLabel2 column
+ * @method     ChildUserLastPrintJob|null findOneByUsprlabelqty(int $UsprLabelQty) Return the first ChildUserLastPrintJob filtered by the UsprLabelQty column
+ * @method     ChildUserLastPrintJob|null findOneByUsprordrnbr(int $UsprOrdrNbr) Return the first ChildUserLastPrintJob filtered by the UsprOrdrNbr column
+ * @method     ChildUserLastPrintJob|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildUserLastPrintJob filtered by the DateUpdtd column
+ * @method     ChildUserLastPrintJob|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUserLastPrintJob filtered by the TimeUpdtd column
+ * @method     ChildUserLastPrintJob|null findOneByDummy(string $dummy) Return the first ChildUserLastPrintJob filtered by the dummy column
+ *
+ * @method     ChildUserLastPrintJob requirePk($key, ?ConnectionInterface $con = null) Return the ChildUserLastPrintJob by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUserLastPrintJob requireOne(?ConnectionInterface $con = null) Return the first ChildUserLastPrintJob matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildUserLastPrintJob requireOneByUsprfunction(string $UsprFunction) Return the first ChildUserLastPrintJob filtered by the UsprFunction column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUserLastPrintJob requireOneByUsrcid(string $UsrcId) Return the first ChildUserLastPrintJob filtered by the UsrcId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -94,20 +93,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUserLastPrintJob requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUserLastPrintJob filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUserLastPrintJob requireOneByDummy(string $dummy) Return the first ChildUserLastPrintJob filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildUserLastPrintJob[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildUserLastPrintJob objects based on current ModelCriteria
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByUsprfunction(string $UsprFunction) Return ChildUserLastPrintJob objects filtered by the UsprFunction column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByUsrcid(string $UsrcId) Return ChildUserLastPrintJob objects filtered by the UsrcId column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildUserLastPrintJob objects filtered by the IntbWhse column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByUsprprinter(string $UsprPrinter) Return ChildUserLastPrintJob objects filtered by the UsprPrinter column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByUsprlabel(string $UsprLabel) Return ChildUserLastPrintJob objects filtered by the UsprLabel column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByUsprlabel2(string $UsprLabel2) Return ChildUserLastPrintJob objects filtered by the UsprLabel2 column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByUsprlabelqty(int $UsprLabelQty) Return ChildUserLastPrintJob objects filtered by the UsprLabelQty column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByUsprordrnbr(int $UsprOrdrNbr) Return ChildUserLastPrintJob objects filtered by the UsprOrdrNbr column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildUserLastPrintJob objects filtered by the DateUpdtd column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildUserLastPrintJob objects filtered by the TimeUpdtd column
- * @method     ChildUserLastPrintJob[]|ObjectCollection findByDummy(string $dummy) Return ChildUserLastPrintJob objects filtered by the dummy column
- * @method     ChildUserLastPrintJob[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildUserLastPrintJob[]|Collection find(?ConnectionInterface $con = null) Return ChildUserLastPrintJob objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> find(?ConnectionInterface $con = null) Return ChildUserLastPrintJob objects based on current ModelCriteria
  *
+ * @method     ChildUserLastPrintJob[]|Collection findByUsprfunction(string|array<string> $UsprFunction) Return ChildUserLastPrintJob objects filtered by the UsprFunction column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByUsprfunction(string|array<string> $UsprFunction) Return ChildUserLastPrintJob objects filtered by the UsprFunction column
+ * @method     ChildUserLastPrintJob[]|Collection findByUsrcid(string|array<string> $UsrcId) Return ChildUserLastPrintJob objects filtered by the UsrcId column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByUsrcid(string|array<string> $UsrcId) Return ChildUserLastPrintJob objects filtered by the UsrcId column
+ * @method     ChildUserLastPrintJob[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildUserLastPrintJob objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByIntbwhse(string|array<string> $IntbWhse) Return ChildUserLastPrintJob objects filtered by the IntbWhse column
+ * @method     ChildUserLastPrintJob[]|Collection findByUsprprinter(string|array<string> $UsprPrinter) Return ChildUserLastPrintJob objects filtered by the UsprPrinter column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByUsprprinter(string|array<string> $UsprPrinter) Return ChildUserLastPrintJob objects filtered by the UsprPrinter column
+ * @method     ChildUserLastPrintJob[]|Collection findByUsprlabel(string|array<string> $UsprLabel) Return ChildUserLastPrintJob objects filtered by the UsprLabel column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByUsprlabel(string|array<string> $UsprLabel) Return ChildUserLastPrintJob objects filtered by the UsprLabel column
+ * @method     ChildUserLastPrintJob[]|Collection findByUsprlabel2(string|array<string> $UsprLabel2) Return ChildUserLastPrintJob objects filtered by the UsprLabel2 column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByUsprlabel2(string|array<string> $UsprLabel2) Return ChildUserLastPrintJob objects filtered by the UsprLabel2 column
+ * @method     ChildUserLastPrintJob[]|Collection findByUsprlabelqty(int|array<int> $UsprLabelQty) Return ChildUserLastPrintJob objects filtered by the UsprLabelQty column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByUsprlabelqty(int|array<int> $UsprLabelQty) Return ChildUserLastPrintJob objects filtered by the UsprLabelQty column
+ * @method     ChildUserLastPrintJob[]|Collection findByUsprordrnbr(int|array<int> $UsprOrdrNbr) Return ChildUserLastPrintJob objects filtered by the UsprOrdrNbr column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByUsprordrnbr(int|array<int> $UsprOrdrNbr) Return ChildUserLastPrintJob objects filtered by the UsprOrdrNbr column
+ * @method     ChildUserLastPrintJob[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildUserLastPrintJob objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildUserLastPrintJob objects filtered by the DateUpdtd column
+ * @method     ChildUserLastPrintJob[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildUserLastPrintJob objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildUserLastPrintJob objects filtered by the TimeUpdtd column
+ * @method     ChildUserLastPrintJob[]|Collection findByDummy(string|array<string> $dummy) Return ChildUserLastPrintJob objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildUserLastPrintJob> findByDummy(string|array<string> $dummy) Return ChildUserLastPrintJob objects filtered by the dummy column
+ *
+ * @method     ChildUserLastPrintJob[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildUserLastPrintJob> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class UserLastPrintJobQuery extends ModelCriteria
 {
@@ -116,9 +129,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\UserLastPrintJobQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\UserLastPrintJob', $modelAlias = null)
     {
@@ -128,12 +141,12 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
     /**
      * Returns a new ChildUserLastPrintJobQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildUserLastPrintJobQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildUserLastPrintJobQuery) {
             return $criteria;
@@ -163,7 +176,7 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      *
      * @return ChildUserLastPrintJob|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -195,8 +208,8 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -229,8 +242,8 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildUserLastPrintJob|array|mixed the result, formatted by the current formatter
      */
@@ -250,12 +263,12 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -272,9 +285,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -287,14 +300,16 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(UserLastPrintJobTableMap::COL_USPRFUNCTION, $key[0], Criteria::EQUAL);
@@ -313,14 +328,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByUsprfunction('fooValue');   // WHERE UsprFunction = 'fooValue'
      * $query->filterByUsprfunction('%fooValue%', Criteria::LIKE); // WHERE UsprFunction LIKE '%fooValue%'
+     * $query->filterByUsprfunction(['foo', 'bar']); // WHERE UsprFunction IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usprfunction The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usprfunction The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsprfunction($usprfunction = null, $comparison = null)
+    public function filterByUsprfunction($usprfunction = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usprfunction)) {
@@ -328,7 +344,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRFUNCTION, $usprfunction, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRFUNCTION, $usprfunction, $comparison);
+
+        return $this;
     }
 
     /**
@@ -338,14 +356,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcid('fooValue');   // WHERE UsrcId = 'fooValue'
      * $query->filterByUsrcid('%fooValue%', Criteria::LIKE); // WHERE UsrcId LIKE '%fooValue%'
+     * $query->filterByUsrcid(['foo', 'bar']); // WHERE UsrcId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcid($usrcid = null, $comparison = null)
+    public function filterByUsrcid($usrcid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcid)) {
@@ -353,7 +372,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_USRCID, $usrcid, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_USRCID, $usrcid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +384,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -378,7 +400,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -388,14 +412,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByUsprprinter('fooValue');   // WHERE UsprPrinter = 'fooValue'
      * $query->filterByUsprprinter('%fooValue%', Criteria::LIKE); // WHERE UsprPrinter LIKE '%fooValue%'
+     * $query->filterByUsprprinter(['foo', 'bar']); // WHERE UsprPrinter IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usprprinter The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usprprinter The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsprprinter($usprprinter = null, $comparison = null)
+    public function filterByUsprprinter($usprprinter = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usprprinter)) {
@@ -403,7 +428,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRPRINTER, $usprprinter, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRPRINTER, $usprprinter, $comparison);
+
+        return $this;
     }
 
     /**
@@ -413,14 +440,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByUsprlabel('fooValue');   // WHERE UsprLabel = 'fooValue'
      * $query->filterByUsprlabel('%fooValue%', Criteria::LIKE); // WHERE UsprLabel LIKE '%fooValue%'
+     * $query->filterByUsprlabel(['foo', 'bar']); // WHERE UsprLabel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usprlabel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usprlabel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsprlabel($usprlabel = null, $comparison = null)
+    public function filterByUsprlabel($usprlabel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usprlabel)) {
@@ -428,7 +456,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRLABEL, $usprlabel, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRLABEL, $usprlabel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -438,14 +468,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByUsprlabel2('fooValue');   // WHERE UsprLabel2 = 'fooValue'
      * $query->filterByUsprlabel2('%fooValue%', Criteria::LIKE); // WHERE UsprLabel2 LIKE '%fooValue%'
+     * $query->filterByUsprlabel2(['foo', 'bar']); // WHERE UsprLabel2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usprlabel2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usprlabel2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsprlabel2($usprlabel2 = null, $comparison = null)
+    public function filterByUsprlabel2($usprlabel2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usprlabel2)) {
@@ -453,7 +484,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRLABEL2, $usprlabel2, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRLABEL2, $usprlabel2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -466,15 +499,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * $query->filterByUsprlabelqty(array('min' => 12)); // WHERE UsprLabelQty > 12
      * </code>
      *
-     * @param     mixed $usprlabelqty The value to use as filter.
+     * @param mixed $usprlabelqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsprlabelqty($usprlabelqty = null, $comparison = null)
+    public function filterByUsprlabelqty($usprlabelqty = null, ?string $comparison = null)
     {
         if (is_array($usprlabelqty)) {
             $useMinMax = false;
@@ -494,7 +527,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRLABELQTY, $usprlabelqty, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRLABELQTY, $usprlabelqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -507,15 +542,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * $query->filterByUsprordrnbr(array('min' => 12)); // WHERE UsprOrdrNbr > 12
      * </code>
      *
-     * @param     mixed $usprordrnbr The value to use as filter.
+     * @param mixed $usprordrnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsprordrnbr($usprordrnbr = null, $comparison = null)
+    public function filterByUsprordrnbr($usprordrnbr = null, ?string $comparison = null)
     {
         if (is_array($usprordrnbr)) {
             $useMinMax = false;
@@ -535,7 +570,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRORDRNBR, $usprordrnbr, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_USPRORDRNBR, $usprordrnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -545,14 +582,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -560,7 +598,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -570,14 +610,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -585,7 +626,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -595,14 +638,15 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -610,20 +654,22 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserLastPrintJobTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(UserLastPrintJobTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \DplusUser object
      *
      * @param \DplusUser|ObjectCollection $dplusUser The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDplusUser($dplusUser, $comparison = null)
+    public function filterByDplusUser($dplusUser, ?string $comparison = null)
     {
         if ($dplusUser instanceof \DplusUser) {
             return $this
@@ -633,8 +679,10 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(UserLastPrintJobTableMap::COL_USRCID, $dplusUser->toKeyValue('PrimaryKey', 'Usrcid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByDplusUser() only accepts arguments of type \DplusUser or Collection');
         }
@@ -643,12 +691,12 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the DplusUser relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinDplusUser($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinDplusUser(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('DplusUser');
@@ -677,9 +725,9 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \DplusUserQuery A secondary query class using the current class as primary query
      */
@@ -691,11 +739,107 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
     }
 
     /**
+     * Use the DplusUser relation DplusUser object
+     *
+     * @param callable(\DplusUserQuery):\DplusUserQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withDplusUserQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useDplusUserQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to DplusUser table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \DplusUserQuery The inner query object of the EXISTS statement
+     */
+    public function useDplusUserExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useExistsQuery('DplusUser', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for a NOT EXISTS query.
+     *
+     * @see useDplusUserExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \DplusUserQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useDplusUserNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useExistsQuery('DplusUser', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \DplusUserQuery The inner query object of the IN statement
+     */
+    public function useInDplusUserQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useInQuery('DplusUser', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for a NOT IN query.
+     *
+     * @see useDplusUserInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \DplusUserQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInDplusUserQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useInQuery('DplusUser', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildUserLastPrintJob $userLastPrintJob Object to remove from the list of results
+     * @param ChildUserLastPrintJob $userLastPrintJob Object to remove from the list of results
      *
-     * @return $this|ChildUserLastPrintJobQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($userLastPrintJob = null)
     {
@@ -714,7 +858,7 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UserLastPrintJobTableMap::DATABASE_NAME);
@@ -739,12 +883,12 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UserLastPrintJobTableMap::DATABASE_NAME);
@@ -769,4 +913,4 @@ abstract class UserLastPrintJobQuery extends ModelCriteria
         });
     }
 
-} // UserLastPrintJobQuery
+}

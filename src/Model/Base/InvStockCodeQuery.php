@@ -10,14 +10,14 @@ use Map\InvStockCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_stck_code' table.
- *
- *
+ * Base class that represents a query for the `inv_stck_code` table.
  *
  * @method     ChildInvStockCodeQuery orderByIntbstckcode($order = Criteria::ASC) Order by the IntbStckCode column
  * @method     ChildInvStockCodeQuery orderByIntbstckdesc($order = Criteria::ASC) Order by the IntbStckDesc column
@@ -39,17 +39,29 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvStockCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildInvStockCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildInvStockCode findOne(ConnectionInterface $con = null) Return the first ChildInvStockCode matching the query
- * @method     ChildInvStockCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvStockCode matching the query, or a new ChildInvStockCode object populated from the query conditions when no match is found
+ * @method     ChildInvStockCodeQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvStockCodeQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvStockCodeQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
  *
- * @method     ChildInvStockCode findOneByIntbstckcode(string $IntbStckCode) Return the first ChildInvStockCode filtered by the IntbStckCode column
- * @method     ChildInvStockCode findOneByIntbstckdesc(string $IntbStckDesc) Return the first ChildInvStockCode filtered by the IntbStckDesc column
- * @method     ChildInvStockCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvStockCode filtered by the DateUpdtd column
- * @method     ChildInvStockCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvStockCode filtered by the TimeUpdtd column
- * @method     ChildInvStockCode findOneByDummy(string $dummy) Return the first ChildInvStockCode filtered by the dummy column *
-
- * @method     ChildInvStockCode requirePk($key, ConnectionInterface $con = null) Return the ChildInvStockCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvStockCode requireOne(ConnectionInterface $con = null) Return the first ChildInvStockCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvStockCodeQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
+ *
+ * @method     ChildInvStockCodeQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvStockCodeQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvStockCodeQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
+ *
+ * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ *
+ * @method     ChildInvStockCode|null findOne(?ConnectionInterface $con = null) Return the first ChildInvStockCode matching the query
+ * @method     ChildInvStockCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvStockCode matching the query, or a new ChildInvStockCode object populated from the query conditions when no match is found
+ *
+ * @method     ChildInvStockCode|null findOneByIntbstckcode(string $IntbStckCode) Return the first ChildInvStockCode filtered by the IntbStckCode column
+ * @method     ChildInvStockCode|null findOneByIntbstckdesc(string $IntbStckDesc) Return the first ChildInvStockCode filtered by the IntbStckDesc column
+ * @method     ChildInvStockCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvStockCode filtered by the DateUpdtd column
+ * @method     ChildInvStockCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvStockCode filtered by the TimeUpdtd column
+ * @method     ChildInvStockCode|null findOneByDummy(string $dummy) Return the first ChildInvStockCode filtered by the dummy column
+ *
+ * @method     ChildInvStockCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvStockCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvStockCode requireOne(?ConnectionInterface $con = null) Return the first ChildInvStockCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvStockCode requireOneByIntbstckcode(string $IntbStckCode) Return the first ChildInvStockCode filtered by the IntbStckCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvStockCode requireOneByIntbstckdesc(string $IntbStckDesc) Return the first ChildInvStockCode filtered by the IntbStckDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -57,14 +69,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvStockCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvStockCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvStockCode requireOneByDummy(string $dummy) Return the first ChildInvStockCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvStockCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvStockCode objects based on current ModelCriteria
- * @method     ChildInvStockCode[]|ObjectCollection findByIntbstckcode(string $IntbStckCode) Return ChildInvStockCode objects filtered by the IntbStckCode column
- * @method     ChildInvStockCode[]|ObjectCollection findByIntbstckdesc(string $IntbStckDesc) Return ChildInvStockCode objects filtered by the IntbStckDesc column
- * @method     ChildInvStockCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvStockCode objects filtered by the DateUpdtd column
- * @method     ChildInvStockCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvStockCode objects filtered by the TimeUpdtd column
- * @method     ChildInvStockCode[]|ObjectCollection findByDummy(string $dummy) Return ChildInvStockCode objects filtered by the dummy column
- * @method     ChildInvStockCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvStockCode[]|Collection find(?ConnectionInterface $con = null) Return ChildInvStockCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvStockCode> find(?ConnectionInterface $con = null) Return ChildInvStockCode objects based on current ModelCriteria
  *
+ * @method     ChildInvStockCode[]|Collection findByIntbstckcode(string|array<string> $IntbStckCode) Return ChildInvStockCode objects filtered by the IntbStckCode column
+ * @psalm-method Collection&\Traversable<ChildInvStockCode> findByIntbstckcode(string|array<string> $IntbStckCode) Return ChildInvStockCode objects filtered by the IntbStckCode column
+ * @method     ChildInvStockCode[]|Collection findByIntbstckdesc(string|array<string> $IntbStckDesc) Return ChildInvStockCode objects filtered by the IntbStckDesc column
+ * @psalm-method Collection&\Traversable<ChildInvStockCode> findByIntbstckdesc(string|array<string> $IntbStckDesc) Return ChildInvStockCode objects filtered by the IntbStckDesc column
+ * @method     ChildInvStockCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvStockCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvStockCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvStockCode objects filtered by the DateUpdtd column
+ * @method     ChildInvStockCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvStockCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvStockCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvStockCode objects filtered by the TimeUpdtd column
+ * @method     ChildInvStockCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvStockCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvStockCode> findByDummy(string|array<string> $dummy) Return ChildInvStockCode objects filtered by the dummy column
+ *
+ * @method     ChildInvStockCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvStockCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvStockCodeQuery extends ModelCriteria
 {
@@ -73,9 +93,9 @@ abstract class InvStockCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvStockCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvStockCode', $modelAlias = null)
     {
@@ -85,12 +105,12 @@ abstract class InvStockCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildInvStockCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvStockCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvStockCodeQuery) {
             return $criteria;
@@ -120,7 +140,7 @@ abstract class InvStockCodeQuery extends ModelCriteria
      *
      * @return ChildInvStockCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -152,8 +172,8 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -185,8 +205,8 @@ abstract class InvStockCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvStockCode|array|mixed the result, formatted by the current formatter
      */
@@ -206,12 +226,12 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -228,27 +248,31 @@ abstract class InvStockCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvStockCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvStockCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -258,14 +282,15 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbstckcode('fooValue');   // WHERE IntbStckCode = 'fooValue'
      * $query->filterByIntbstckcode('%fooValue%', Criteria::LIKE); // WHERE IntbStckCode LIKE '%fooValue%'
+     * $query->filterByIntbstckcode(['foo', 'bar']); // WHERE IntbStckCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbstckcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbstckcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvStockCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbstckcode($intbstckcode = null, $comparison = null)
+    public function filterByIntbstckcode($intbstckcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbstckcode)) {
@@ -273,7 +298,9 @@ abstract class InvStockCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKCODE, $intbstckcode, $comparison);
+        $this->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKCODE, $intbstckcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -283,14 +310,15 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbstckdesc('fooValue');   // WHERE IntbStckDesc = 'fooValue'
      * $query->filterByIntbstckdesc('%fooValue%', Criteria::LIKE); // WHERE IntbStckDesc LIKE '%fooValue%'
+     * $query->filterByIntbstckdesc(['foo', 'bar']); // WHERE IntbStckDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbstckdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbstckdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvStockCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbstckdesc($intbstckdesc = null, $comparison = null)
+    public function filterByIntbstckdesc($intbstckdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbstckdesc)) {
@@ -298,7 +326,9 @@ abstract class InvStockCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKDESC, $intbstckdesc, $comparison);
+        $this->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKDESC, $intbstckdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -308,14 +338,15 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvStockCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -323,7 +354,9 @@ abstract class InvStockCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvStockCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvStockCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +366,15 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvStockCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -348,7 +382,9 @@ abstract class InvStockCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvStockCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvStockCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +394,15 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvStockCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -373,15 +410,190 @@ abstract class InvStockCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvStockCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvStockCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
+    }
+
+    /**
+     * Filter the query by a related \ItemMasterItem object
+     *
+     * @param \ItemMasterItem|ObjectCollection $itemMasterItem the related object to use as filter
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this The current query, for fluid interface
+     */
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
+    {
+        if ($itemMasterItem instanceof \ItemMasterItem) {
+            $this
+                ->addUsingAlias(InvStockCodeTableMap::COL_INTBSTCKCODE, $itemMasterItem->getInitstockcode(), $comparison);
+
+            return $this;
+        } elseif ($itemMasterItem instanceof ObjectCollection) {
+            $this
+                ->useItemMasterItemQuery()
+                ->filterByPrimaryKeys($itemMasterItem->getPrimaryKeys())
+                ->endUse();
+
+            return $this;
+        } else {
+            throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemMasterItem relation
+     *
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this The current query, for fluid interface
+     */
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemMasterItem');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemMasterItem');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @see useQuery()
+     *
+     * @param string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
+     */
+    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinItemMasterItem($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+    }
+
+    /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildInvStockCode $invStockCode Object to remove from the list of results
+     * @param ChildInvStockCode $invStockCode Object to remove from the list of results
      *
-     * @return $this|ChildInvStockCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invStockCode = null)
     {
@@ -398,7 +610,7 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvStockCodeTableMap::DATABASE_NAME);
@@ -423,12 +635,12 @@ abstract class InvStockCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvStockCodeTableMap::DATABASE_NAME);
@@ -453,4 +665,4 @@ abstract class InvStockCodeQuery extends ModelCriteria
         });
     }
 
-} // InvStockCodeQuery
+}

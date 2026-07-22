@@ -10,14 +10,12 @@ use Map\LostSalesCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_lssl_code' table.
- *
- *
+ * Base class that represents a query for the `so_lssl_code` table.
  *
  * @method     ChildLostSalesCodeQuery orderByOetblsslcode($order = Criteria::ASC) Order by the OetbLsslCode column
  * @method     ChildLostSalesCodeQuery orderByOetblsslreasondesc($order = Criteria::ASC) Order by the OetbLsslReasonDesc column
@@ -41,18 +39,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLostSalesCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildLostSalesCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildLostSalesCode findOne(ConnectionInterface $con = null) Return the first ChildLostSalesCode matching the query
- * @method     ChildLostSalesCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildLostSalesCode matching the query, or a new ChildLostSalesCode object populated from the query conditions when no match is found
+ * @method     ChildLostSalesCode|null findOne(?ConnectionInterface $con = null) Return the first ChildLostSalesCode matching the query
+ * @method     ChildLostSalesCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildLostSalesCode matching the query, or a new ChildLostSalesCode object populated from the query conditions when no match is found
  *
- * @method     ChildLostSalesCode findOneByOetblsslcode(string $OetbLsslCode) Return the first ChildLostSalesCode filtered by the OetbLsslCode column
- * @method     ChildLostSalesCode findOneByOetblsslreasondesc(string $OetbLsslReasonDesc) Return the first ChildLostSalesCode filtered by the OetbLsslReasonDesc column
- * @method     ChildLostSalesCode findOneByOetblssliwupdate(string $OetbLsslIwUpdate) Return the first ChildLostSalesCode filtered by the OetbLsslIwUpdate column
- * @method     ChildLostSalesCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildLostSalesCode filtered by the DateUpdtd column
- * @method     ChildLostSalesCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildLostSalesCode filtered by the TimeUpdtd column
- * @method     ChildLostSalesCode findOneByDummy(string $dummy) Return the first ChildLostSalesCode filtered by the dummy column *
-
- * @method     ChildLostSalesCode requirePk($key, ConnectionInterface $con = null) Return the ChildLostSalesCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildLostSalesCode requireOne(ConnectionInterface $con = null) Return the first ChildLostSalesCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLostSalesCode|null findOneByOetblsslcode(string $OetbLsslCode) Return the first ChildLostSalesCode filtered by the OetbLsslCode column
+ * @method     ChildLostSalesCode|null findOneByOetblsslreasondesc(string $OetbLsslReasonDesc) Return the first ChildLostSalesCode filtered by the OetbLsslReasonDesc column
+ * @method     ChildLostSalesCode|null findOneByOetblssliwupdate(string $OetbLsslIwUpdate) Return the first ChildLostSalesCode filtered by the OetbLsslIwUpdate column
+ * @method     ChildLostSalesCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildLostSalesCode filtered by the DateUpdtd column
+ * @method     ChildLostSalesCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildLostSalesCode filtered by the TimeUpdtd column
+ * @method     ChildLostSalesCode|null findOneByDummy(string $dummy) Return the first ChildLostSalesCode filtered by the dummy column
+ *
+ * @method     ChildLostSalesCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildLostSalesCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLostSalesCode requireOne(?ConnectionInterface $con = null) Return the first ChildLostSalesCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildLostSalesCode requireOneByOetblsslcode(string $OetbLsslCode) Return the first ChildLostSalesCode filtered by the OetbLsslCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLostSalesCode requireOneByOetblsslreasondesc(string $OetbLsslReasonDesc) Return the first ChildLostSalesCode filtered by the OetbLsslReasonDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -61,15 +59,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLostSalesCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildLostSalesCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLostSalesCode requireOneByDummy(string $dummy) Return the first ChildLostSalesCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildLostSalesCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildLostSalesCode objects based on current ModelCriteria
- * @method     ChildLostSalesCode[]|ObjectCollection findByOetblsslcode(string $OetbLsslCode) Return ChildLostSalesCode objects filtered by the OetbLsslCode column
- * @method     ChildLostSalesCode[]|ObjectCollection findByOetblsslreasondesc(string $OetbLsslReasonDesc) Return ChildLostSalesCode objects filtered by the OetbLsslReasonDesc column
- * @method     ChildLostSalesCode[]|ObjectCollection findByOetblssliwupdate(string $OetbLsslIwUpdate) Return ChildLostSalesCode objects filtered by the OetbLsslIwUpdate column
- * @method     ChildLostSalesCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildLostSalesCode objects filtered by the DateUpdtd column
- * @method     ChildLostSalesCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildLostSalesCode objects filtered by the TimeUpdtd column
- * @method     ChildLostSalesCode[]|ObjectCollection findByDummy(string $dummy) Return ChildLostSalesCode objects filtered by the dummy column
- * @method     ChildLostSalesCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildLostSalesCode[]|Collection find(?ConnectionInterface $con = null) Return ChildLostSalesCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildLostSalesCode> find(?ConnectionInterface $con = null) Return ChildLostSalesCode objects based on current ModelCriteria
  *
+ * @method     ChildLostSalesCode[]|Collection findByOetblsslcode(string|array<string> $OetbLsslCode) Return ChildLostSalesCode objects filtered by the OetbLsslCode column
+ * @psalm-method Collection&\Traversable<ChildLostSalesCode> findByOetblsslcode(string|array<string> $OetbLsslCode) Return ChildLostSalesCode objects filtered by the OetbLsslCode column
+ * @method     ChildLostSalesCode[]|Collection findByOetblsslreasondesc(string|array<string> $OetbLsslReasonDesc) Return ChildLostSalesCode objects filtered by the OetbLsslReasonDesc column
+ * @psalm-method Collection&\Traversable<ChildLostSalesCode> findByOetblsslreasondesc(string|array<string> $OetbLsslReasonDesc) Return ChildLostSalesCode objects filtered by the OetbLsslReasonDesc column
+ * @method     ChildLostSalesCode[]|Collection findByOetblssliwupdate(string|array<string> $OetbLsslIwUpdate) Return ChildLostSalesCode objects filtered by the OetbLsslIwUpdate column
+ * @psalm-method Collection&\Traversable<ChildLostSalesCode> findByOetblssliwupdate(string|array<string> $OetbLsslIwUpdate) Return ChildLostSalesCode objects filtered by the OetbLsslIwUpdate column
+ * @method     ChildLostSalesCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildLostSalesCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildLostSalesCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildLostSalesCode objects filtered by the DateUpdtd column
+ * @method     ChildLostSalesCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildLostSalesCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildLostSalesCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildLostSalesCode objects filtered by the TimeUpdtd column
+ * @method     ChildLostSalesCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildLostSalesCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildLostSalesCode> findByDummy(string|array<string> $dummy) Return ChildLostSalesCode objects filtered by the dummy column
+ *
+ * @method     ChildLostSalesCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildLostSalesCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class LostSalesCodeQuery extends ModelCriteria
 {
@@ -78,9 +85,9 @@ abstract class LostSalesCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\LostSalesCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\LostSalesCode', $modelAlias = null)
     {
@@ -90,12 +97,12 @@ abstract class LostSalesCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildLostSalesCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildLostSalesCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildLostSalesCodeQuery) {
             return $criteria;
@@ -125,7 +132,7 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      *
      * @return ChildLostSalesCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -157,8 +164,8 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -190,8 +197,8 @@ abstract class LostSalesCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildLostSalesCode|array|mixed the result, formatted by the current formatter
      */
@@ -211,12 +218,12 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -233,27 +240,31 @@ abstract class LostSalesCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -263,14 +274,15 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOetblsslcode('fooValue');   // WHERE OetbLsslCode = 'fooValue'
      * $query->filterByOetblsslcode('%fooValue%', Criteria::LIKE); // WHERE OetbLsslCode LIKE '%fooValue%'
+     * $query->filterByOetblsslcode(['foo', 'bar']); // WHERE OetbLsslCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetblsslcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetblsslcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetblsslcode($oetblsslcode = null, $comparison = null)
+    public function filterByOetblsslcode($oetblsslcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetblsslcode)) {
@@ -278,7 +290,9 @@ abstract class LostSalesCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLCODE, $oetblsslcode, $comparison);
+        $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLCODE, $oetblsslcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -288,14 +302,15 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOetblsslreasondesc('fooValue');   // WHERE OetbLsslReasonDesc = 'fooValue'
      * $query->filterByOetblsslreasondesc('%fooValue%', Criteria::LIKE); // WHERE OetbLsslReasonDesc LIKE '%fooValue%'
+     * $query->filterByOetblsslreasondesc(['foo', 'bar']); // WHERE OetbLsslReasonDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetblsslreasondesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetblsslreasondesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetblsslreasondesc($oetblsslreasondesc = null, $comparison = null)
+    public function filterByOetblsslreasondesc($oetblsslreasondesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetblsslreasondesc)) {
@@ -303,7 +318,9 @@ abstract class LostSalesCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLREASONDESC, $oetblsslreasondesc, $comparison);
+        $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLREASONDESC, $oetblsslreasondesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -313,14 +330,15 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOetblssliwupdate('fooValue');   // WHERE OetbLsslIwUpdate = 'fooValue'
      * $query->filterByOetblssliwupdate('%fooValue%', Criteria::LIKE); // WHERE OetbLsslIwUpdate LIKE '%fooValue%'
+     * $query->filterByOetblssliwupdate(['foo', 'bar']); // WHERE OetbLsslIwUpdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetblssliwupdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetblssliwupdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetblssliwupdate($oetblssliwupdate = null, $comparison = null)
+    public function filterByOetblssliwupdate($oetblssliwupdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetblssliwupdate)) {
@@ -328,7 +346,9 @@ abstract class LostSalesCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLIWUPDATE, $oetblssliwupdate, $comparison);
+        $this->addUsingAlias(LostSalesCodeTableMap::COL_OETBLSSLIWUPDATE, $oetblssliwupdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -338,14 +358,15 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -353,7 +374,9 @@ abstract class LostSalesCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LostSalesCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(LostSalesCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +386,15 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -378,7 +402,9 @@ abstract class LostSalesCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LostSalesCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(LostSalesCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -388,14 +414,15 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -403,15 +430,17 @@ abstract class LostSalesCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LostSalesCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(LostSalesCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildLostSalesCode $lostSalesCode Object to remove from the list of results
+     * @param ChildLostSalesCode $lostSalesCode Object to remove from the list of results
      *
-     * @return $this|ChildLostSalesCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($lostSalesCode = null)
     {
@@ -428,7 +457,7 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LostSalesCodeTableMap::DATABASE_NAME);
@@ -453,12 +482,12 @@ abstract class LostSalesCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LostSalesCodeTableMap::DATABASE_NAME);
@@ -483,4 +512,4 @@ abstract class LostSalesCodeQuery extends ModelCriteria
         });
     }
 
-} // LostSalesCodeQuery
+}

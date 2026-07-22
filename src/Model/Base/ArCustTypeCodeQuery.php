@@ -10,14 +10,12 @@ use Map\ArCustTypeCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cust_type' table.
- *
- *
+ * Base class that represents a query for the `ar_cust_type` table.
  *
  * @method     ChildArCustTypeCodeQuery orderByArtbtypecode($order = Criteria::ASC) Order by the ArtbTypeCode column
  * @method     ChildArCustTypeCodeQuery orderByArtbctypdesc($order = Criteria::ASC) Order by the ArtbCtypDesc column
@@ -61,28 +59,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCustTypeCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildArCustTypeCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildArCustTypeCode findOne(ConnectionInterface $con = null) Return the first ChildArCustTypeCode matching the query
- * @method     ChildArCustTypeCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArCustTypeCode matching the query, or a new ChildArCustTypeCode object populated from the query conditions when no match is found
+ * @method     ChildArCustTypeCode|null findOne(?ConnectionInterface $con = null) Return the first ChildArCustTypeCode matching the query
+ * @method     ChildArCustTypeCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArCustTypeCode matching the query, or a new ChildArCustTypeCode object populated from the query conditions when no match is found
  *
- * @method     ChildArCustTypeCode findOneByArtbtypecode(string $ArtbTypeCode) Return the first ChildArCustTypeCode filtered by the ArtbTypeCode column
- * @method     ChildArCustTypeCode findOneByArtbctypdesc(string $ArtbCtypDesc) Return the first ChildArCustTypeCode filtered by the ArtbCtypDesc column
- * @method     ChildArCustTypeCode findOneByArtbctyparacct(string $ArtbCtypArAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypArAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypfrtacct(string $ArtbCtypFrtAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypFrtAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypmiscacct(string $ArtbCtypMiscAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypMiscAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypcashacct(string $ArtbCtypCashAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypCashAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypfincacct(string $ArtbCtypFincAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypFincAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypdiscacct(string $ArtbCtypDiscAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypDiscAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypsaleacct(string $ArtbCtypSaleAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypSaleAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypcogsacct(string $ArtbCtypCogsAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypCogsAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypcredacct(string $ArtbCtypCredAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypCredAcct column
- * @method     ChildArCustTypeCode findOneByArtbctypmail(string $ArtbCtypMail) Return the first ChildArCustTypeCode filtered by the ArtbCtypMail column
- * @method     ChildArCustTypeCode findOneByArtbctypaprvneedemail(string $ArtbCtypAprvNeedEmail) Return the first ChildArCustTypeCode filtered by the ArtbCtypAprvNeedEmail column
- * @method     ChildArCustTypeCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCustTypeCode filtered by the DateUpdtd column
- * @method     ChildArCustTypeCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustTypeCode filtered by the TimeUpdtd column
- * @method     ChildArCustTypeCode findOneByDummy(string $dummy) Return the first ChildArCustTypeCode filtered by the dummy column *
-
- * @method     ChildArCustTypeCode requirePk($key, ConnectionInterface $con = null) Return the ChildArCustTypeCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArCustTypeCode requireOne(ConnectionInterface $con = null) Return the first ChildArCustTypeCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTypeCode|null findOneByArtbtypecode(string $ArtbTypeCode) Return the first ChildArCustTypeCode filtered by the ArtbTypeCode column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypdesc(string $ArtbCtypDesc) Return the first ChildArCustTypeCode filtered by the ArtbCtypDesc column
+ * @method     ChildArCustTypeCode|null findOneByArtbctyparacct(string $ArtbCtypArAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypArAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypfrtacct(string $ArtbCtypFrtAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypFrtAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypmiscacct(string $ArtbCtypMiscAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypMiscAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypcashacct(string $ArtbCtypCashAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypCashAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypfincacct(string $ArtbCtypFincAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypFincAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypdiscacct(string $ArtbCtypDiscAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypDiscAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypsaleacct(string $ArtbCtypSaleAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypSaleAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypcogsacct(string $ArtbCtypCogsAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypCogsAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypcredacct(string $ArtbCtypCredAcct) Return the first ChildArCustTypeCode filtered by the ArtbCtypCredAcct column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypmail(string $ArtbCtypMail) Return the first ChildArCustTypeCode filtered by the ArtbCtypMail column
+ * @method     ChildArCustTypeCode|null findOneByArtbctypaprvneedemail(string $ArtbCtypAprvNeedEmail) Return the first ChildArCustTypeCode filtered by the ArtbCtypAprvNeedEmail column
+ * @method     ChildArCustTypeCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCustTypeCode filtered by the DateUpdtd column
+ * @method     ChildArCustTypeCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustTypeCode filtered by the TimeUpdtd column
+ * @method     ChildArCustTypeCode|null findOneByDummy(string $dummy) Return the first ChildArCustTypeCode filtered by the dummy column
+ *
+ * @method     ChildArCustTypeCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildArCustTypeCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTypeCode requireOne(?ConnectionInterface $con = null) Return the first ChildArCustTypeCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArCustTypeCode requireOneByArtbtypecode(string $ArtbTypeCode) Return the first ChildArCustTypeCode filtered by the ArtbTypeCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCustTypeCode requireOneByArtbctypdesc(string $ArtbCtypDesc) Return the first ChildArCustTypeCode filtered by the ArtbCtypDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -101,25 +99,44 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCustTypeCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustTypeCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCustTypeCode requireOneByDummy(string $dummy) Return the first ChildArCustTypeCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArCustTypeCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArCustTypeCode objects based on current ModelCriteria
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbtypecode(string $ArtbTypeCode) Return ChildArCustTypeCode objects filtered by the ArtbTypeCode column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypdesc(string $ArtbCtypDesc) Return ChildArCustTypeCode objects filtered by the ArtbCtypDesc column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctyparacct(string $ArtbCtypArAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypArAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypfrtacct(string $ArtbCtypFrtAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypFrtAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypmiscacct(string $ArtbCtypMiscAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypMiscAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypcashacct(string $ArtbCtypCashAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCashAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypfincacct(string $ArtbCtypFincAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypFincAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypdiscacct(string $ArtbCtypDiscAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypDiscAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypsaleacct(string $ArtbCtypSaleAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypSaleAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypcogsacct(string $ArtbCtypCogsAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCogsAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypcredacct(string $ArtbCtypCredAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCredAcct column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypmail(string $ArtbCtypMail) Return ChildArCustTypeCode objects filtered by the ArtbCtypMail column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByArtbctypaprvneedemail(string $ArtbCtypAprvNeedEmail) Return ChildArCustTypeCode objects filtered by the ArtbCtypAprvNeedEmail column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCustTypeCode objects filtered by the DateUpdtd column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCustTypeCode objects filtered by the TimeUpdtd column
- * @method     ChildArCustTypeCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArCustTypeCode objects filtered by the dummy column
- * @method     ChildArCustTypeCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArCustTypeCode[]|Collection find(?ConnectionInterface $con = null) Return ChildArCustTypeCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> find(?ConnectionInterface $con = null) Return ChildArCustTypeCode objects based on current ModelCriteria
  *
+ * @method     ChildArCustTypeCode[]|Collection findByArtbtypecode(string|array<string> $ArtbTypeCode) Return ChildArCustTypeCode objects filtered by the ArtbTypeCode column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbtypecode(string|array<string> $ArtbTypeCode) Return ChildArCustTypeCode objects filtered by the ArtbTypeCode column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypdesc(string|array<string> $ArtbCtypDesc) Return ChildArCustTypeCode objects filtered by the ArtbCtypDesc column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypdesc(string|array<string> $ArtbCtypDesc) Return ChildArCustTypeCode objects filtered by the ArtbCtypDesc column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctyparacct(string|array<string> $ArtbCtypArAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypArAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctyparacct(string|array<string> $ArtbCtypArAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypArAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypfrtacct(string|array<string> $ArtbCtypFrtAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypFrtAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypfrtacct(string|array<string> $ArtbCtypFrtAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypFrtAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypmiscacct(string|array<string> $ArtbCtypMiscAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypMiscAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypmiscacct(string|array<string> $ArtbCtypMiscAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypMiscAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypcashacct(string|array<string> $ArtbCtypCashAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCashAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypcashacct(string|array<string> $ArtbCtypCashAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCashAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypfincacct(string|array<string> $ArtbCtypFincAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypFincAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypfincacct(string|array<string> $ArtbCtypFincAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypFincAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypdiscacct(string|array<string> $ArtbCtypDiscAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypDiscAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypdiscacct(string|array<string> $ArtbCtypDiscAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypDiscAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypsaleacct(string|array<string> $ArtbCtypSaleAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypSaleAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypsaleacct(string|array<string> $ArtbCtypSaleAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypSaleAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypcogsacct(string|array<string> $ArtbCtypCogsAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCogsAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypcogsacct(string|array<string> $ArtbCtypCogsAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCogsAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypcredacct(string|array<string> $ArtbCtypCredAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCredAcct column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypcredacct(string|array<string> $ArtbCtypCredAcct) Return ChildArCustTypeCode objects filtered by the ArtbCtypCredAcct column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypmail(string|array<string> $ArtbCtypMail) Return ChildArCustTypeCode objects filtered by the ArtbCtypMail column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypmail(string|array<string> $ArtbCtypMail) Return ChildArCustTypeCode objects filtered by the ArtbCtypMail column
+ * @method     ChildArCustTypeCode[]|Collection findByArtbctypaprvneedemail(string|array<string> $ArtbCtypAprvNeedEmail) Return ChildArCustTypeCode objects filtered by the ArtbCtypAprvNeedEmail column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByArtbctypaprvneedemail(string|array<string> $ArtbCtypAprvNeedEmail) Return ChildArCustTypeCode objects filtered by the ArtbCtypAprvNeedEmail column
+ * @method     ChildArCustTypeCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArCustTypeCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArCustTypeCode objects filtered by the DateUpdtd column
+ * @method     ChildArCustTypeCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArCustTypeCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArCustTypeCode objects filtered by the TimeUpdtd column
+ * @method     ChildArCustTypeCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildArCustTypeCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArCustTypeCode> findByDummy(string|array<string> $dummy) Return ChildArCustTypeCode objects filtered by the dummy column
+ *
+ * @method     ChildArCustTypeCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArCustTypeCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArCustTypeCodeQuery extends ModelCriteria
 {
@@ -128,9 +145,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArCustTypeCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArCustTypeCode', $modelAlias = null)
     {
@@ -140,12 +157,12 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildArCustTypeCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArCustTypeCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArCustTypeCodeQuery) {
             return $criteria;
@@ -175,7 +192,7 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      *
      * @return ChildArCustTypeCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -207,8 +224,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -240,8 +257,8 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArCustTypeCode|array|mixed the result, formatted by the current formatter
      */
@@ -261,12 +278,12 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -283,27 +300,31 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $keys, Criteria::IN);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -313,14 +334,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbtypecode('fooValue');   // WHERE ArtbTypeCode = 'fooValue'
      * $query->filterByArtbtypecode('%fooValue%', Criteria::LIKE); // WHERE ArtbTypeCode LIKE '%fooValue%'
+     * $query->filterByArtbtypecode(['foo', 'bar']); // WHERE ArtbTypeCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbtypecode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbtypecode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbtypecode($artbtypecode = null, $comparison = null)
+    public function filterByArtbtypecode($artbtypecode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbtypecode)) {
@@ -328,7 +350,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $artbtypecode, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $artbtypecode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -338,14 +362,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypdesc('fooValue');   // WHERE ArtbCtypDesc = 'fooValue'
      * $query->filterByArtbctypdesc('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypDesc LIKE '%fooValue%'
+     * $query->filterByArtbctypdesc(['foo', 'bar']); // WHERE ArtbCtypDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypdesc($artbctypdesc = null, $comparison = null)
+    public function filterByArtbctypdesc($artbctypdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypdesc)) {
@@ -353,7 +378,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPDESC, $artbctypdesc, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPDESC, $artbctypdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +390,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctyparacct('fooValue');   // WHERE ArtbCtypArAcct = 'fooValue'
      * $query->filterByArtbctyparacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypArAcct LIKE '%fooValue%'
+     * $query->filterByArtbctyparacct(['foo', 'bar']); // WHERE ArtbCtypArAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctyparacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctyparacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctyparacct($artbctyparacct = null, $comparison = null)
+    public function filterByArtbctyparacct($artbctyparacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctyparacct)) {
@@ -378,7 +406,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT, $artbctyparacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT, $artbctyparacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -388,14 +418,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypfrtacct('fooValue');   // WHERE ArtbCtypFrtAcct = 'fooValue'
      * $query->filterByArtbctypfrtacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypFrtAcct LIKE '%fooValue%'
+     * $query->filterByArtbctypfrtacct(['foo', 'bar']); // WHERE ArtbCtypFrtAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypfrtacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypfrtacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypfrtacct($artbctypfrtacct = null, $comparison = null)
+    public function filterByArtbctypfrtacct($artbctypfrtacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypfrtacct)) {
@@ -403,7 +434,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT, $artbctypfrtacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT, $artbctypfrtacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -413,14 +446,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypmiscacct('fooValue');   // WHERE ArtbCtypMiscAcct = 'fooValue'
      * $query->filterByArtbctypmiscacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypMiscAcct LIKE '%fooValue%'
+     * $query->filterByArtbctypmiscacct(['foo', 'bar']); // WHERE ArtbCtypMiscAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypmiscacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypmiscacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypmiscacct($artbctypmiscacct = null, $comparison = null)
+    public function filterByArtbctypmiscacct($artbctypmiscacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypmiscacct)) {
@@ -428,7 +462,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT, $artbctypmiscacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT, $artbctypmiscacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -438,14 +474,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypcashacct('fooValue');   // WHERE ArtbCtypCashAcct = 'fooValue'
      * $query->filterByArtbctypcashacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypCashAcct LIKE '%fooValue%'
+     * $query->filterByArtbctypcashacct(['foo', 'bar']); // WHERE ArtbCtypCashAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypcashacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypcashacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypcashacct($artbctypcashacct = null, $comparison = null)
+    public function filterByArtbctypcashacct($artbctypcashacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypcashacct)) {
@@ -453,7 +490,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT, $artbctypcashacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT, $artbctypcashacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -463,14 +502,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypfincacct('fooValue');   // WHERE ArtbCtypFincAcct = 'fooValue'
      * $query->filterByArtbctypfincacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypFincAcct LIKE '%fooValue%'
+     * $query->filterByArtbctypfincacct(['foo', 'bar']); // WHERE ArtbCtypFincAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypfincacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypfincacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypfincacct($artbctypfincacct = null, $comparison = null)
+    public function filterByArtbctypfincacct($artbctypfincacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypfincacct)) {
@@ -478,7 +518,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT, $artbctypfincacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT, $artbctypfincacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -488,14 +530,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypdiscacct('fooValue');   // WHERE ArtbCtypDiscAcct = 'fooValue'
      * $query->filterByArtbctypdiscacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypDiscAcct LIKE '%fooValue%'
+     * $query->filterByArtbctypdiscacct(['foo', 'bar']); // WHERE ArtbCtypDiscAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypdiscacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypdiscacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypdiscacct($artbctypdiscacct = null, $comparison = null)
+    public function filterByArtbctypdiscacct($artbctypdiscacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypdiscacct)) {
@@ -503,7 +546,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT, $artbctypdiscacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT, $artbctypdiscacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -513,14 +558,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypsaleacct('fooValue');   // WHERE ArtbCtypSaleAcct = 'fooValue'
      * $query->filterByArtbctypsaleacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypSaleAcct LIKE '%fooValue%'
+     * $query->filterByArtbctypsaleacct(['foo', 'bar']); // WHERE ArtbCtypSaleAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypsaleacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypsaleacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypsaleacct($artbctypsaleacct = null, $comparison = null)
+    public function filterByArtbctypsaleacct($artbctypsaleacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypsaleacct)) {
@@ -528,7 +574,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT, $artbctypsaleacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT, $artbctypsaleacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -538,14 +586,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypcogsacct('fooValue');   // WHERE ArtbCtypCogsAcct = 'fooValue'
      * $query->filterByArtbctypcogsacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypCogsAcct LIKE '%fooValue%'
+     * $query->filterByArtbctypcogsacct(['foo', 'bar']); // WHERE ArtbCtypCogsAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypcogsacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypcogsacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypcogsacct($artbctypcogsacct = null, $comparison = null)
+    public function filterByArtbctypcogsacct($artbctypcogsacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypcogsacct)) {
@@ -553,7 +602,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT, $artbctypcogsacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT, $artbctypcogsacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -563,14 +614,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypcredacct('fooValue');   // WHERE ArtbCtypCredAcct = 'fooValue'
      * $query->filterByArtbctypcredacct('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypCredAcct LIKE '%fooValue%'
+     * $query->filterByArtbctypcredacct(['foo', 'bar']); // WHERE ArtbCtypCredAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypcredacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypcredacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypcredacct($artbctypcredacct = null, $comparison = null)
+    public function filterByArtbctypcredacct($artbctypcredacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypcredacct)) {
@@ -578,7 +630,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT, $artbctypcredacct, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT, $artbctypcredacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -588,14 +642,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypmail('fooValue');   // WHERE ArtbCtypMail = 'fooValue'
      * $query->filterByArtbctypmail('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypMail LIKE '%fooValue%'
+     * $query->filterByArtbctypmail(['foo', 'bar']); // WHERE ArtbCtypMail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypmail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypmail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypmail($artbctypmail = null, $comparison = null)
+    public function filterByArtbctypmail($artbctypmail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypmail)) {
@@ -603,7 +658,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL, $artbctypmail, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL, $artbctypmail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -613,14 +670,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctypaprvneedemail('fooValue');   // WHERE ArtbCtypAprvNeedEmail = 'fooValue'
      * $query->filterByArtbctypaprvneedemail('%fooValue%', Criteria::LIKE); // WHERE ArtbCtypAprvNeedEmail LIKE '%fooValue%'
+     * $query->filterByArtbctypaprvneedemail(['foo', 'bar']); // WHERE ArtbCtypAprvNeedEmail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctypaprvneedemail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctypaprvneedemail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctypaprvneedemail($artbctypaprvneedemail = null, $comparison = null)
+    public function filterByArtbctypaprvneedemail($artbctypaprvneedemail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctypaprvneedemail)) {
@@ -628,7 +686,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL, $artbctypaprvneedemail, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL, $artbctypaprvneedemail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -638,14 +698,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -653,7 +714,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -663,14 +726,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -678,7 +742,9 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -688,14 +754,15 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -703,20 +770,22 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCustTypeCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArCustTypeCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildArCustTypeCode $customerTypeCode Object to remove from the list of results
+     * @param ChildArCustTypeCode $arCustTypeCode Object to remove from the list of results
      *
-     * @return $this|ChildArCustTypeCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function prune($customerTypeCode = null)
+    public function prune($arCustTypeCode = null)
     {
-        if ($customerTypeCode) {
-            $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $customerTypeCode->getArtbtypecode(), Criteria::NOT_EQUAL);
+        if ($arCustTypeCode) {
+            $this->addUsingAlias(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $arCustTypeCode->getArtbtypecode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -728,7 +797,7 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
@@ -753,12 +822,12 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
@@ -783,4 +852,4 @@ abstract class ArCustTypeCodeQuery extends ModelCriteria
         });
     }
 
-} // ArCustTypeCodeQuery
+}

@@ -10,14 +10,12 @@ use Map\SalesHistoryNotesTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_sh_head_det' table.
- *
- *
+ * Base class that represents a query for the `notes_sh_head_det` table.
  *
  * @method     ChildSalesHistoryNotesQuery orderByShnttype($order = Criteria::ASC) Order by the ShntType column
  * @method     ChildSalesHistoryNotesQuery orderByShnttypedesc($order = Criteria::ASC) Order by the ShntTypeDesc column
@@ -63,29 +61,29 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryNotesQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSalesHistoryNotesQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildSalesHistoryNotes findOne(ConnectionInterface $con = null) Return the first ChildSalesHistoryNotes matching the query
- * @method     ChildSalesHistoryNotes findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesHistoryNotes matching the query, or a new ChildSalesHistoryNotes object populated from the query conditions when no match is found
+ * @method     ChildSalesHistoryNotes|null findOne(?ConnectionInterface $con = null) Return the first ChildSalesHistoryNotes matching the query
+ * @method     ChildSalesHistoryNotes findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSalesHistoryNotes matching the query, or a new ChildSalesHistoryNotes object populated from the query conditions when no match is found
  *
- * @method     ChildSalesHistoryNotes findOneByShnttype(string $ShntType) Return the first ChildSalesHistoryNotes filtered by the ShntType column
- * @method     ChildSalesHistoryNotes findOneByShnttypedesc(string $ShntTypeDesc) Return the first ChildSalesHistoryNotes filtered by the ShntTypeDesc column
- * @method     ChildSalesHistoryNotes findOneByOehhnbr(string $OehhNbr) Return the first ChildSalesHistoryNotes filtered by the OehhNbr column
- * @method     ChildSalesHistoryNotes findOneByShntyear(string $ShntYear) Return the first ChildSalesHistoryNotes filtered by the ShntYear column
- * @method     ChildSalesHistoryNotes findOneByOedhline(int $OedhLine) Return the first ChildSalesHistoryNotes filtered by the OedhLine column
- * @method     ChildSalesHistoryNotes findOneByShntlotser(string $ShntLotSer) Return the first ChildSalesHistoryNotes filtered by the ShntLotSer column
- * @method     ChildSalesHistoryNotes findOneByShntpickticket(string $ShntPickTicket) Return the first ChildSalesHistoryNotes filtered by the ShntPickTicket column
- * @method     ChildSalesHistoryNotes findOneByShntpackticket(string $ShntPackTicket) Return the first ChildSalesHistoryNotes filtered by the ShntPackTicket column
- * @method     ChildSalesHistoryNotes findOneByShntinvoice(string $ShntInvoice) Return the first ChildSalesHistoryNotes filtered by the ShntInvoice column
- * @method     ChildSalesHistoryNotes findOneByShntacknow(string $ShntAcknow) Return the first ChildSalesHistoryNotes filtered by the ShntAcknow column
- * @method     ChildSalesHistoryNotes findOneByShntseq(int $ShntSeq) Return the first ChildSalesHistoryNotes filtered by the ShntSeq column
- * @method     ChildSalesHistoryNotes findOneByShntnote(string $ShntNote) Return the first ChildSalesHistoryNotes filtered by the ShntNote column
- * @method     ChildSalesHistoryNotes findOneByShntkey2(string $ShntKey2) Return the first ChildSalesHistoryNotes filtered by the ShntKey2 column
- * @method     ChildSalesHistoryNotes findOneByShntform(string $ShntForm) Return the first ChildSalesHistoryNotes filtered by the ShntForm column
- * @method     ChildSalesHistoryNotes findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesHistoryNotes filtered by the DateUpdtd column
- * @method     ChildSalesHistoryNotes findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesHistoryNotes filtered by the TimeUpdtd column
- * @method     ChildSalesHistoryNotes findOneByDummy(string $dummy) Return the first ChildSalesHistoryNotes filtered by the dummy column *
-
- * @method     ChildSalesHistoryNotes requirePk($key, ConnectionInterface $con = null) Return the ChildSalesHistoryNotes by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistoryNotes requireOne(ConnectionInterface $con = null) Return the first ChildSalesHistoryNotes matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryNotes|null findOneByShnttype(string $ShntType) Return the first ChildSalesHistoryNotes filtered by the ShntType column
+ * @method     ChildSalesHistoryNotes|null findOneByShnttypedesc(string $ShntTypeDesc) Return the first ChildSalesHistoryNotes filtered by the ShntTypeDesc column
+ * @method     ChildSalesHistoryNotes|null findOneByOehhnbr(string $OehhNbr) Return the first ChildSalesHistoryNotes filtered by the OehhNbr column
+ * @method     ChildSalesHistoryNotes|null findOneByShntyear(string $ShntYear) Return the first ChildSalesHistoryNotes filtered by the ShntYear column
+ * @method     ChildSalesHistoryNotes|null findOneByOedhline(int $OedhLine) Return the first ChildSalesHistoryNotes filtered by the OedhLine column
+ * @method     ChildSalesHistoryNotes|null findOneByShntlotser(string $ShntLotSer) Return the first ChildSalesHistoryNotes filtered by the ShntLotSer column
+ * @method     ChildSalesHistoryNotes|null findOneByShntpickticket(string $ShntPickTicket) Return the first ChildSalesHistoryNotes filtered by the ShntPickTicket column
+ * @method     ChildSalesHistoryNotes|null findOneByShntpackticket(string $ShntPackTicket) Return the first ChildSalesHistoryNotes filtered by the ShntPackTicket column
+ * @method     ChildSalesHistoryNotes|null findOneByShntinvoice(string $ShntInvoice) Return the first ChildSalesHistoryNotes filtered by the ShntInvoice column
+ * @method     ChildSalesHistoryNotes|null findOneByShntacknow(string $ShntAcknow) Return the first ChildSalesHistoryNotes filtered by the ShntAcknow column
+ * @method     ChildSalesHistoryNotes|null findOneByShntseq(int $ShntSeq) Return the first ChildSalesHistoryNotes filtered by the ShntSeq column
+ * @method     ChildSalesHistoryNotes|null findOneByShntnote(string $ShntNote) Return the first ChildSalesHistoryNotes filtered by the ShntNote column
+ * @method     ChildSalesHistoryNotes|null findOneByShntkey2(string $ShntKey2) Return the first ChildSalesHistoryNotes filtered by the ShntKey2 column
+ * @method     ChildSalesHistoryNotes|null findOneByShntform(string $ShntForm) Return the first ChildSalesHistoryNotes filtered by the ShntForm column
+ * @method     ChildSalesHistoryNotes|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesHistoryNotes filtered by the DateUpdtd column
+ * @method     ChildSalesHistoryNotes|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesHistoryNotes filtered by the TimeUpdtd column
+ * @method     ChildSalesHistoryNotes|null findOneByDummy(string $dummy) Return the first ChildSalesHistoryNotes filtered by the dummy column
+ *
+ * @method     ChildSalesHistoryNotes requirePk($key, ?ConnectionInterface $con = null) Return the ChildSalesHistoryNotes by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryNotes requireOne(?ConnectionInterface $con = null) Return the first ChildSalesHistoryNotes matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSalesHistoryNotes requireOneByShnttype(string $ShntType) Return the first ChildSalesHistoryNotes filtered by the ShntType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryNotes requireOneByShnttypedesc(string $ShntTypeDesc) Return the first ChildSalesHistoryNotes filtered by the ShntTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -105,26 +103,46 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryNotes requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesHistoryNotes filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryNotes requireOneByDummy(string $dummy) Return the first ChildSalesHistoryNotes filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSalesHistoryNotes[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSalesHistoryNotes objects based on current ModelCriteria
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShnttype(string $ShntType) Return ChildSalesHistoryNotes objects filtered by the ShntType column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShnttypedesc(string $ShntTypeDesc) Return ChildSalesHistoryNotes objects filtered by the ShntTypeDesc column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByOehhnbr(string $OehhNbr) Return ChildSalesHistoryNotes objects filtered by the OehhNbr column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntyear(string $ShntYear) Return ChildSalesHistoryNotes objects filtered by the ShntYear column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByOedhline(int $OedhLine) Return ChildSalesHistoryNotes objects filtered by the OedhLine column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntlotser(string $ShntLotSer) Return ChildSalesHistoryNotes objects filtered by the ShntLotSer column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntpickticket(string $ShntPickTicket) Return ChildSalesHistoryNotes objects filtered by the ShntPickTicket column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntpackticket(string $ShntPackTicket) Return ChildSalesHistoryNotes objects filtered by the ShntPackTicket column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntinvoice(string $ShntInvoice) Return ChildSalesHistoryNotes objects filtered by the ShntInvoice column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntacknow(string $ShntAcknow) Return ChildSalesHistoryNotes objects filtered by the ShntAcknow column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntseq(int $ShntSeq) Return ChildSalesHistoryNotes objects filtered by the ShntSeq column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntnote(string $ShntNote) Return ChildSalesHistoryNotes objects filtered by the ShntNote column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntkey2(string $ShntKey2) Return ChildSalesHistoryNotes objects filtered by the ShntKey2 column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByShntform(string $ShntForm) Return ChildSalesHistoryNotes objects filtered by the ShntForm column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalesHistoryNotes objects filtered by the DateUpdtd column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSalesHistoryNotes objects filtered by the TimeUpdtd column
- * @method     ChildSalesHistoryNotes[]|ObjectCollection findByDummy(string $dummy) Return ChildSalesHistoryNotes objects filtered by the dummy column
- * @method     ChildSalesHistoryNotes[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSalesHistoryNotes[]|Collection find(?ConnectionInterface $con = null) Return ChildSalesHistoryNotes objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> find(?ConnectionInterface $con = null) Return ChildSalesHistoryNotes objects based on current ModelCriteria
  *
+ * @method     ChildSalesHistoryNotes[]|Collection findByShnttype(string|array<string> $ShntType) Return ChildSalesHistoryNotes objects filtered by the ShntType column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShnttype(string|array<string> $ShntType) Return ChildSalesHistoryNotes objects filtered by the ShntType column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShnttypedesc(string|array<string> $ShntTypeDesc) Return ChildSalesHistoryNotes objects filtered by the ShntTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShnttypedesc(string|array<string> $ShntTypeDesc) Return ChildSalesHistoryNotes objects filtered by the ShntTypeDesc column
+ * @method     ChildSalesHistoryNotes[]|Collection findByOehhnbr(string|array<string> $OehhNbr) Return ChildSalesHistoryNotes objects filtered by the OehhNbr column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByOehhnbr(string|array<string> $OehhNbr) Return ChildSalesHistoryNotes objects filtered by the OehhNbr column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntyear(string|array<string> $ShntYear) Return ChildSalesHistoryNotes objects filtered by the ShntYear column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntyear(string|array<string> $ShntYear) Return ChildSalesHistoryNotes objects filtered by the ShntYear column
+ * @method     ChildSalesHistoryNotes[]|Collection findByOedhline(int|array<int> $OedhLine) Return ChildSalesHistoryNotes objects filtered by the OedhLine column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByOedhline(int|array<int> $OedhLine) Return ChildSalesHistoryNotes objects filtered by the OedhLine column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntlotser(string|array<string> $ShntLotSer) Return ChildSalesHistoryNotes objects filtered by the ShntLotSer column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntlotser(string|array<string> $ShntLotSer) Return ChildSalesHistoryNotes objects filtered by the ShntLotSer column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntpickticket(string|array<string> $ShntPickTicket) Return ChildSalesHistoryNotes objects filtered by the ShntPickTicket column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntpickticket(string|array<string> $ShntPickTicket) Return ChildSalesHistoryNotes objects filtered by the ShntPickTicket column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntpackticket(string|array<string> $ShntPackTicket) Return ChildSalesHistoryNotes objects filtered by the ShntPackTicket column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntpackticket(string|array<string> $ShntPackTicket) Return ChildSalesHistoryNotes objects filtered by the ShntPackTicket column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntinvoice(string|array<string> $ShntInvoice) Return ChildSalesHistoryNotes objects filtered by the ShntInvoice column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntinvoice(string|array<string> $ShntInvoice) Return ChildSalesHistoryNotes objects filtered by the ShntInvoice column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntacknow(string|array<string> $ShntAcknow) Return ChildSalesHistoryNotes objects filtered by the ShntAcknow column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntacknow(string|array<string> $ShntAcknow) Return ChildSalesHistoryNotes objects filtered by the ShntAcknow column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntseq(int|array<int> $ShntSeq) Return ChildSalesHistoryNotes objects filtered by the ShntSeq column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntseq(int|array<int> $ShntSeq) Return ChildSalesHistoryNotes objects filtered by the ShntSeq column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntnote(string|array<string> $ShntNote) Return ChildSalesHistoryNotes objects filtered by the ShntNote column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntnote(string|array<string> $ShntNote) Return ChildSalesHistoryNotes objects filtered by the ShntNote column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntkey2(string|array<string> $ShntKey2) Return ChildSalesHistoryNotes objects filtered by the ShntKey2 column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntkey2(string|array<string> $ShntKey2) Return ChildSalesHistoryNotes objects filtered by the ShntKey2 column
+ * @method     ChildSalesHistoryNotes[]|Collection findByShntform(string|array<string> $ShntForm) Return ChildSalesHistoryNotes objects filtered by the ShntForm column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByShntform(string|array<string> $ShntForm) Return ChildSalesHistoryNotes objects filtered by the ShntForm column
+ * @method     ChildSalesHistoryNotes[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSalesHistoryNotes objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSalesHistoryNotes objects filtered by the DateUpdtd column
+ * @method     ChildSalesHistoryNotes[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSalesHistoryNotes objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSalesHistoryNotes objects filtered by the TimeUpdtd column
+ * @method     ChildSalesHistoryNotes[]|Collection findByDummy(string|array<string> $dummy) Return ChildSalesHistoryNotes objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSalesHistoryNotes> findByDummy(string|array<string> $dummy) Return ChildSalesHistoryNotes objects filtered by the dummy column
+ *
+ * @method     ChildSalesHistoryNotes[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSalesHistoryNotes> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SalesHistoryNotesQuery extends ModelCriteria
 {
@@ -133,9 +151,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SalesHistoryNotesQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SalesHistoryNotes', $modelAlias = null)
     {
@@ -145,12 +163,12 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
     /**
      * Returns a new ChildSalesHistoryNotesQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSalesHistoryNotesQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSalesHistoryNotesQuery) {
             return $criteria;
@@ -180,7 +198,7 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      *
      * @return ChildSalesHistoryNotes|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -212,8 +230,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -248,8 +266,8 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSalesHistoryNotes|array|mixed the result, formatted by the current formatter
      */
@@ -269,12 +287,12 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -291,9 +309,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -308,14 +326,16 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(SalesHistoryNotesTableMap::COL_SHNTTYPE, $key[0], Criteria::EQUAL);
@@ -338,14 +358,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShnttype('fooValue');   // WHERE ShntType = 'fooValue'
      * $query->filterByShnttype('%fooValue%', Criteria::LIKE); // WHERE ShntType LIKE '%fooValue%'
+     * $query->filterByShnttype(['foo', 'bar']); // WHERE ShntType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shnttype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shnttype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShnttype($shnttype = null, $comparison = null)
+    public function filterByShnttype($shnttype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shnttype)) {
@@ -353,7 +374,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTTYPE, $shnttype, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTTYPE, $shnttype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +386,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShnttypedesc('fooValue');   // WHERE ShntTypeDesc = 'fooValue'
      * $query->filterByShnttypedesc('%fooValue%', Criteria::LIKE); // WHERE ShntTypeDesc LIKE '%fooValue%'
+     * $query->filterByShnttypedesc(['foo', 'bar']); // WHERE ShntTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shnttypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shnttypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShnttypedesc($shnttypedesc = null, $comparison = null)
+    public function filterByShnttypedesc($shnttypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shnttypedesc)) {
@@ -378,7 +402,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTTYPEDESC, $shnttypedesc, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTTYPEDESC, $shnttypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -388,14 +414,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByOehhnbr('fooValue');   // WHERE OehhNbr = 'fooValue'
      * $query->filterByOehhnbr('%fooValue%', Criteria::LIKE); // WHERE OehhNbr LIKE '%fooValue%'
+     * $query->filterByOehhnbr(['foo', 'bar']); // WHERE OehhNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oehhnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oehhnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehhnbr($oehhnbr = null, $comparison = null)
+    public function filterByOehhnbr($oehhnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oehhnbr)) {
@@ -403,7 +430,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_OEHHNBR, $oehhnbr, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_OEHHNBR, $oehhnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -413,14 +442,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntyear('fooValue');   // WHERE ShntYear = 'fooValue'
      * $query->filterByShntyear('%fooValue%', Criteria::LIKE); // WHERE ShntYear LIKE '%fooValue%'
+     * $query->filterByShntyear(['foo', 'bar']); // WHERE ShntYear IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntyear The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntyear The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntyear($shntyear = null, $comparison = null)
+    public function filterByShntyear($shntyear = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntyear)) {
@@ -428,7 +458,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTYEAR, $shntyear, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTYEAR, $shntyear, $comparison);
+
+        return $this;
     }
 
     /**
@@ -441,15 +473,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * $query->filterByOedhline(array('min' => 12)); // WHERE OedhLine > 12
      * </code>
      *
-     * @param     mixed $oedhline The value to use as filter.
+     * @param mixed $oedhline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOedhline($oedhline = null, $comparison = null)
+    public function filterByOedhline($oedhline = null, ?string $comparison = null)
     {
         if (is_array($oedhline)) {
             $useMinMax = false;
@@ -469,7 +501,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_OEDHLINE, $oedhline, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_OEDHLINE, $oedhline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -479,14 +513,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntlotser('fooValue');   // WHERE ShntLotSer = 'fooValue'
      * $query->filterByShntlotser('%fooValue%', Criteria::LIKE); // WHERE ShntLotSer LIKE '%fooValue%'
+     * $query->filterByShntlotser(['foo', 'bar']); // WHERE ShntLotSer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntlotser The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntlotser The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntlotser($shntlotser = null, $comparison = null)
+    public function filterByShntlotser($shntlotser = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntlotser)) {
@@ -494,7 +529,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTLOTSER, $shntlotser, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTLOTSER, $shntlotser, $comparison);
+
+        return $this;
     }
 
     /**
@@ -504,14 +541,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntpickticket('fooValue');   // WHERE ShntPickTicket = 'fooValue'
      * $query->filterByShntpickticket('%fooValue%', Criteria::LIKE); // WHERE ShntPickTicket LIKE '%fooValue%'
+     * $query->filterByShntpickticket(['foo', 'bar']); // WHERE ShntPickTicket IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntpickticket The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntpickticket The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntpickticket($shntpickticket = null, $comparison = null)
+    public function filterByShntpickticket($shntpickticket = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntpickticket)) {
@@ -519,7 +557,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTPICKTICKET, $shntpickticket, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTPICKTICKET, $shntpickticket, $comparison);
+
+        return $this;
     }
 
     /**
@@ -529,14 +569,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntpackticket('fooValue');   // WHERE ShntPackTicket = 'fooValue'
      * $query->filterByShntpackticket('%fooValue%', Criteria::LIKE); // WHERE ShntPackTicket LIKE '%fooValue%'
+     * $query->filterByShntpackticket(['foo', 'bar']); // WHERE ShntPackTicket IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntpackticket The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntpackticket The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntpackticket($shntpackticket = null, $comparison = null)
+    public function filterByShntpackticket($shntpackticket = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntpackticket)) {
@@ -544,7 +585,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTPACKTICKET, $shntpackticket, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTPACKTICKET, $shntpackticket, $comparison);
+
+        return $this;
     }
 
     /**
@@ -554,14 +597,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntinvoice('fooValue');   // WHERE ShntInvoice = 'fooValue'
      * $query->filterByShntinvoice('%fooValue%', Criteria::LIKE); // WHERE ShntInvoice LIKE '%fooValue%'
+     * $query->filterByShntinvoice(['foo', 'bar']); // WHERE ShntInvoice IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntinvoice The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntinvoice The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntinvoice($shntinvoice = null, $comparison = null)
+    public function filterByShntinvoice($shntinvoice = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntinvoice)) {
@@ -569,7 +613,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTINVOICE, $shntinvoice, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTINVOICE, $shntinvoice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -579,14 +625,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntacknow('fooValue');   // WHERE ShntAcknow = 'fooValue'
      * $query->filterByShntacknow('%fooValue%', Criteria::LIKE); // WHERE ShntAcknow LIKE '%fooValue%'
+     * $query->filterByShntacknow(['foo', 'bar']); // WHERE ShntAcknow IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntacknow The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntacknow The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntacknow($shntacknow = null, $comparison = null)
+    public function filterByShntacknow($shntacknow = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntacknow)) {
@@ -594,7 +641,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTACKNOW, $shntacknow, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTACKNOW, $shntacknow, $comparison);
+
+        return $this;
     }
 
     /**
@@ -607,15 +656,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * $query->filterByShntseq(array('min' => 12)); // WHERE ShntSeq > 12
      * </code>
      *
-     * @param     mixed $shntseq The value to use as filter.
+     * @param mixed $shntseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntseq($shntseq = null, $comparison = null)
+    public function filterByShntseq($shntseq = null, ?string $comparison = null)
     {
         if (is_array($shntseq)) {
             $useMinMax = false;
@@ -635,7 +684,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTSEQ, $shntseq, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTSEQ, $shntseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -645,14 +696,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntnote('fooValue');   // WHERE ShntNote = 'fooValue'
      * $query->filterByShntnote('%fooValue%', Criteria::LIKE); // WHERE ShntNote LIKE '%fooValue%'
+     * $query->filterByShntnote(['foo', 'bar']); // WHERE ShntNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntnote($shntnote = null, $comparison = null)
+    public function filterByShntnote($shntnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntnote)) {
@@ -660,7 +712,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTNOTE, $shntnote, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTNOTE, $shntnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -670,14 +724,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntkey2('fooValue');   // WHERE ShntKey2 = 'fooValue'
      * $query->filterByShntkey2('%fooValue%', Criteria::LIKE); // WHERE ShntKey2 LIKE '%fooValue%'
+     * $query->filterByShntkey2(['foo', 'bar']); // WHERE ShntKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntkey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntkey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntkey2($shntkey2 = null, $comparison = null)
+    public function filterByShntkey2($shntkey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntkey2)) {
@@ -685,7 +740,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTKEY2, $shntkey2, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTKEY2, $shntkey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -695,14 +752,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByShntform('fooValue');   // WHERE ShntForm = 'fooValue'
      * $query->filterByShntform('%fooValue%', Criteria::LIKE); // WHERE ShntForm LIKE '%fooValue%'
+     * $query->filterByShntform(['foo', 'bar']); // WHERE ShntForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shntform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shntform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShntform($shntform = null, $comparison = null)
+    public function filterByShntform($shntform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shntform)) {
@@ -710,7 +768,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTFORM, $shntform, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_SHNTFORM, $shntform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -720,14 +780,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -735,7 +796,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -745,14 +808,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -760,7 +824,9 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -770,14 +836,15 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -785,15 +852,17 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryNotesTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SalesHistoryNotesTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildSalesHistoryNotes $salesHistoryNotes Object to remove from the list of results
+     * @param ChildSalesHistoryNotes $salesHistoryNotes Object to remove from the list of results
      *
-     * @return $this|ChildSalesHistoryNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($salesHistoryNotes = null)
     {
@@ -814,7 +883,7 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryNotesTableMap::DATABASE_NAME);
@@ -839,12 +908,12 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryNotesTableMap::DATABASE_NAME);
@@ -869,4 +938,4 @@ abstract class SalesHistoryNotesQuery extends ModelCriteria
         });
     }
 
-} // SalesHistoryNotesQuery
+}

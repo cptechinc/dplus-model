@@ -10,14 +10,12 @@ use Map\ConfigSysdTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'sys_definition' table.
- *
- *
+ * Base class that represents a query for the `sys_definition` table.
  *
  * @method     ChildConfigSysdQuery orderByCscpcompnbr($order = Criteria::ASC) Order by the CscpCompNbr column
  * @method     ChildConfigSysdQuery orderByCscpcompid($order = Criteria::ASC) Order by the CscpCompId column
@@ -93,44 +91,44 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSysdQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigSysdQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigSysd findOne(ConnectionInterface $con = null) Return the first ChildConfigSysd matching the query
- * @method     ChildConfigSysd findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigSysd matching the query, or a new ChildConfigSysd object populated from the query conditions when no match is found
+ * @method     ChildConfigSysd|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigSysd matching the query
+ * @method     ChildConfigSysd findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigSysd matching the query, or a new ChildConfigSysd object populated from the query conditions when no match is found
  *
- * @method     ChildConfigSysd findOneByCscpcompnbr(int $CscpCompNbr) Return the first ChildConfigSysd filtered by the CscpCompNbr column
- * @method     ChildConfigSysd findOneByCscpcompid(string $CscpCompId) Return the first ChildConfigSysd filtered by the CscpCompId column
- * @method     ChildConfigSysd findOneByCscpcompname(string $CscpCompName) Return the first ChildConfigSysd filtered by the CscpCompName column
- * @method     ChildConfigSysd findOneByCscpdspermission(string $CscpDsPermission) Return the first ChildConfigSysd filtered by the CscpDsPermission column
- * @method     ChildConfigSysd findOneByCscprapermission(string $CscpRaPermission) Return the first ChildConfigSysd filtered by the CscpRaPermission column
- * @method     ChildConfigSysd findOneByCscpsrppermission(string $CscpSrpPermission) Return the first ChildConfigSysd filtered by the CscpSrpPermission column
- * @method     ChildConfigSysd findOneByCscpemailtype(string $CscpEmailType) Return the first ChildConfigSysd filtered by the CscpEmailType column
- * @method     ChildConfigSysd findOneByCscpfaxdir(string $CscpFaxDir) Return the first ChildConfigSysd filtered by the CscpFaxDir column
- * @method     ChildConfigSysd findOneByCscpprgdir(string $CscpPrgDir) Return the first ChildConfigSysd filtered by the CscpPrgDir column
- * @method     ChildConfigSysd findOneByCscpfile1dir(string $CscpFile1Dir) Return the first ChildConfigSysd filtered by the CscpFile1Dir column
- * @method     ChildConfigSysd findOneByCscpfile2dir(string $CscpFile2Dir) Return the first ChildConfigSysd filtered by the CscpFile2Dir column
- * @method     ChildConfigSysd findOneByCscpfile3dir(string $CscpFile3Dir) Return the first ChildConfigSysd filtered by the CscpFile3Dir column
- * @method     ChildConfigSysd findOneByCscptempdir(string $CscpTempDir) Return the first ChildConfigSysd filtered by the CscpTempDir column
- * @method     ChildConfigSysd findOneByCscpworkdir(string $CscpWorkDir) Return the first ChildConfigSysd filtered by the CscpWorkDir column
- * @method     ChildConfigSysd findOneByCscpreptarchdir(string $CscpReptArchDir) Return the first ChildConfigSysd filtered by the CscpReptArchDir column
- * @method     ChildConfigSysd findOneByCscpdocinboxdir(string $CscpDocInboxDir) Return the first ChildConfigSysd filtered by the CscpDocInboxDir column
- * @method     ChildConfigSysd findOneByCscpdocautodir(string $CscpDocAutoDir) Return the first ChildConfigSysd filtered by the CscpDocAutoDir column
- * @method     ChildConfigSysd findOneByCscpcertsdir(string $CscpCertsDir) Return the first ChildConfigSysd filtered by the CscpCertsDir column
- * @method     ChildConfigSysd findOneByCscpimgproduct(string $CscpImgProduct) Return the first ChildConfigSysd filtered by the CscpImgProduct column
- * @method     ChildConfigSysd findOneByCscpimgdrawings(string $CscpImgDrawings) Return the first ChildConfigSysd filtered by the CscpImgDrawings column
- * @method     ChildConfigSysd findOneByCscpimgschematic(string $CscpImgSchematic) Return the first ChildConfigSysd filtered by the CscpImgSchematic column
- * @method     ChildConfigSysd findOneByCscpimgconfirm(string $CscpImgConfirm) Return the first ChildConfigSysd filtered by the CscpImgConfirm column
- * @method     ChildConfigSysd findOneByCscppcchargedir(string $CscpPcchargeDir) Return the first ChildConfigSysd filtered by the CscpPcchargeDir column
- * @method     ChildConfigSysd findOneByCscpdevicedir(string $CscpDeviceDir) Return the first ChildConfigSysd filtered by the CscpDeviceDir column
- * @method     ChildConfigSysd findOneByCscpecommdir(string $CscpEcommDir) Return the first ChildConfigSysd filtered by the CscpEcommDir column
- * @method     ChildConfigSysd findOneByCscpbrwzbaseip(string $CscpBrwzBaseIp) Return the first ChildConfigSysd filtered by the CscpBrwzBaseIp column
- * @method     ChildConfigSysd findOneByCscpdatabasename(string $CscpDataBaseName) Return the first ChildConfigSysd filtered by the CscpDataBaseName column
- * @method     ChildConfigSysd findOneByCscpcompdatabasename(string $CscpCompDataBaseName) Return the first ChildConfigSysd filtered by the CscpCompDataBaseName column
- * @method     ChildConfigSysd findOneByCscpfgrndcolor(int $CscpFgrndColor) Return the first ChildConfigSysd filtered by the CscpFgrndColor column
- * @method     ChildConfigSysd findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigSysd filtered by the DateUpdtd column
- * @method     ChildConfigSysd findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigSysd filtered by the TimeUpdtd column
- * @method     ChildConfigSysd findOneByDummy(string $dummy) Return the first ChildConfigSysd filtered by the dummy column *
-
- * @method     ChildConfigSysd requirePk($key, ConnectionInterface $con = null) Return the ChildConfigSysd by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigSysd requireOne(ConnectionInterface $con = null) Return the first ChildConfigSysd matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigSysd|null findOneByCscpcompnbr(int $CscpCompNbr) Return the first ChildConfigSysd filtered by the CscpCompNbr column
+ * @method     ChildConfigSysd|null findOneByCscpcompid(string $CscpCompId) Return the first ChildConfigSysd filtered by the CscpCompId column
+ * @method     ChildConfigSysd|null findOneByCscpcompname(string $CscpCompName) Return the first ChildConfigSysd filtered by the CscpCompName column
+ * @method     ChildConfigSysd|null findOneByCscpdspermission(string $CscpDsPermission) Return the first ChildConfigSysd filtered by the CscpDsPermission column
+ * @method     ChildConfigSysd|null findOneByCscprapermission(string $CscpRaPermission) Return the first ChildConfigSysd filtered by the CscpRaPermission column
+ * @method     ChildConfigSysd|null findOneByCscpsrppermission(string $CscpSrpPermission) Return the first ChildConfigSysd filtered by the CscpSrpPermission column
+ * @method     ChildConfigSysd|null findOneByCscpemailtype(string $CscpEmailType) Return the first ChildConfigSysd filtered by the CscpEmailType column
+ * @method     ChildConfigSysd|null findOneByCscpfaxdir(string $CscpFaxDir) Return the first ChildConfigSysd filtered by the CscpFaxDir column
+ * @method     ChildConfigSysd|null findOneByCscpprgdir(string $CscpPrgDir) Return the first ChildConfigSysd filtered by the CscpPrgDir column
+ * @method     ChildConfigSysd|null findOneByCscpfile1dir(string $CscpFile1Dir) Return the first ChildConfigSysd filtered by the CscpFile1Dir column
+ * @method     ChildConfigSysd|null findOneByCscpfile2dir(string $CscpFile2Dir) Return the first ChildConfigSysd filtered by the CscpFile2Dir column
+ * @method     ChildConfigSysd|null findOneByCscpfile3dir(string $CscpFile3Dir) Return the first ChildConfigSysd filtered by the CscpFile3Dir column
+ * @method     ChildConfigSysd|null findOneByCscptempdir(string $CscpTempDir) Return the first ChildConfigSysd filtered by the CscpTempDir column
+ * @method     ChildConfigSysd|null findOneByCscpworkdir(string $CscpWorkDir) Return the first ChildConfigSysd filtered by the CscpWorkDir column
+ * @method     ChildConfigSysd|null findOneByCscpreptarchdir(string $CscpReptArchDir) Return the first ChildConfigSysd filtered by the CscpReptArchDir column
+ * @method     ChildConfigSysd|null findOneByCscpdocinboxdir(string $CscpDocInboxDir) Return the first ChildConfigSysd filtered by the CscpDocInboxDir column
+ * @method     ChildConfigSysd|null findOneByCscpdocautodir(string $CscpDocAutoDir) Return the first ChildConfigSysd filtered by the CscpDocAutoDir column
+ * @method     ChildConfigSysd|null findOneByCscpcertsdir(string $CscpCertsDir) Return the first ChildConfigSysd filtered by the CscpCertsDir column
+ * @method     ChildConfigSysd|null findOneByCscpimgproduct(string $CscpImgProduct) Return the first ChildConfigSysd filtered by the CscpImgProduct column
+ * @method     ChildConfigSysd|null findOneByCscpimgdrawings(string $CscpImgDrawings) Return the first ChildConfigSysd filtered by the CscpImgDrawings column
+ * @method     ChildConfigSysd|null findOneByCscpimgschematic(string $CscpImgSchematic) Return the first ChildConfigSysd filtered by the CscpImgSchematic column
+ * @method     ChildConfigSysd|null findOneByCscpimgconfirm(string $CscpImgConfirm) Return the first ChildConfigSysd filtered by the CscpImgConfirm column
+ * @method     ChildConfigSysd|null findOneByCscppcchargedir(string $CscpPcchargeDir) Return the first ChildConfigSysd filtered by the CscpPcchargeDir column
+ * @method     ChildConfigSysd|null findOneByCscpdevicedir(string $CscpDeviceDir) Return the first ChildConfigSysd filtered by the CscpDeviceDir column
+ * @method     ChildConfigSysd|null findOneByCscpecommdir(string $CscpEcommDir) Return the first ChildConfigSysd filtered by the CscpEcommDir column
+ * @method     ChildConfigSysd|null findOneByCscpbrwzbaseip(string $CscpBrwzBaseIp) Return the first ChildConfigSysd filtered by the CscpBrwzBaseIp column
+ * @method     ChildConfigSysd|null findOneByCscpdatabasename(string $CscpDataBaseName) Return the first ChildConfigSysd filtered by the CscpDataBaseName column
+ * @method     ChildConfigSysd|null findOneByCscpcompdatabasename(string $CscpCompDataBaseName) Return the first ChildConfigSysd filtered by the CscpCompDataBaseName column
+ * @method     ChildConfigSysd|null findOneByCscpfgrndcolor(int $CscpFgrndColor) Return the first ChildConfigSysd filtered by the CscpFgrndColor column
+ * @method     ChildConfigSysd|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigSysd filtered by the DateUpdtd column
+ * @method     ChildConfigSysd|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigSysd filtered by the TimeUpdtd column
+ * @method     ChildConfigSysd|null findOneByDummy(string $dummy) Return the first ChildConfigSysd filtered by the dummy column
+ *
+ * @method     ChildConfigSysd requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigSysd by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigSysd requireOne(?ConnectionInterface $con = null) Return the first ChildConfigSysd matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigSysd requireOneByCscpcompnbr(int $CscpCompNbr) Return the first ChildConfigSysd filtered by the CscpCompNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSysd requireOneByCscpcompid(string $CscpCompId) Return the first ChildConfigSysd filtered by the CscpCompId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -165,41 +163,76 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSysd requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigSysd filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSysd requireOneByDummy(string $dummy) Return the first ChildConfigSysd filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigSysd[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigSysd objects based on current ModelCriteria
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpcompnbr(int $CscpCompNbr) Return ChildConfigSysd objects filtered by the CscpCompNbr column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpcompid(string $CscpCompId) Return ChildConfigSysd objects filtered by the CscpCompId column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpcompname(string $CscpCompName) Return ChildConfigSysd objects filtered by the CscpCompName column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpdspermission(string $CscpDsPermission) Return ChildConfigSysd objects filtered by the CscpDsPermission column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscprapermission(string $CscpRaPermission) Return ChildConfigSysd objects filtered by the CscpRaPermission column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpsrppermission(string $CscpSrpPermission) Return ChildConfigSysd objects filtered by the CscpSrpPermission column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpemailtype(string $CscpEmailType) Return ChildConfigSysd objects filtered by the CscpEmailType column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpfaxdir(string $CscpFaxDir) Return ChildConfigSysd objects filtered by the CscpFaxDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpprgdir(string $CscpPrgDir) Return ChildConfigSysd objects filtered by the CscpPrgDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpfile1dir(string $CscpFile1Dir) Return ChildConfigSysd objects filtered by the CscpFile1Dir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpfile2dir(string $CscpFile2Dir) Return ChildConfigSysd objects filtered by the CscpFile2Dir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpfile3dir(string $CscpFile3Dir) Return ChildConfigSysd objects filtered by the CscpFile3Dir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscptempdir(string $CscpTempDir) Return ChildConfigSysd objects filtered by the CscpTempDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpworkdir(string $CscpWorkDir) Return ChildConfigSysd objects filtered by the CscpWorkDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpreptarchdir(string $CscpReptArchDir) Return ChildConfigSysd objects filtered by the CscpReptArchDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpdocinboxdir(string $CscpDocInboxDir) Return ChildConfigSysd objects filtered by the CscpDocInboxDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpdocautodir(string $CscpDocAutoDir) Return ChildConfigSysd objects filtered by the CscpDocAutoDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpcertsdir(string $CscpCertsDir) Return ChildConfigSysd objects filtered by the CscpCertsDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpimgproduct(string $CscpImgProduct) Return ChildConfigSysd objects filtered by the CscpImgProduct column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpimgdrawings(string $CscpImgDrawings) Return ChildConfigSysd objects filtered by the CscpImgDrawings column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpimgschematic(string $CscpImgSchematic) Return ChildConfigSysd objects filtered by the CscpImgSchematic column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpimgconfirm(string $CscpImgConfirm) Return ChildConfigSysd objects filtered by the CscpImgConfirm column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscppcchargedir(string $CscpPcchargeDir) Return ChildConfigSysd objects filtered by the CscpPcchargeDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpdevicedir(string $CscpDeviceDir) Return ChildConfigSysd objects filtered by the CscpDeviceDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpecommdir(string $CscpEcommDir) Return ChildConfigSysd objects filtered by the CscpEcommDir column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpbrwzbaseip(string $CscpBrwzBaseIp) Return ChildConfigSysd objects filtered by the CscpBrwzBaseIp column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpdatabasename(string $CscpDataBaseName) Return ChildConfigSysd objects filtered by the CscpDataBaseName column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpcompdatabasename(string $CscpCompDataBaseName) Return ChildConfigSysd objects filtered by the CscpCompDataBaseName column
- * @method     ChildConfigSysd[]|ObjectCollection findByCscpfgrndcolor(int $CscpFgrndColor) Return ChildConfigSysd objects filtered by the CscpFgrndColor column
- * @method     ChildConfigSysd[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigSysd objects filtered by the DateUpdtd column
- * @method     ChildConfigSysd[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigSysd objects filtered by the TimeUpdtd column
- * @method     ChildConfigSysd[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigSysd objects filtered by the dummy column
- * @method     ChildConfigSysd[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigSysd[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigSysd objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> find(?ConnectionInterface $con = null) Return ChildConfigSysd objects based on current ModelCriteria
  *
+ * @method     ChildConfigSysd[]|Collection findByCscpcompnbr(int|array<int> $CscpCompNbr) Return ChildConfigSysd objects filtered by the CscpCompNbr column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpcompnbr(int|array<int> $CscpCompNbr) Return ChildConfigSysd objects filtered by the CscpCompNbr column
+ * @method     ChildConfigSysd[]|Collection findByCscpcompid(string|array<string> $CscpCompId) Return ChildConfigSysd objects filtered by the CscpCompId column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpcompid(string|array<string> $CscpCompId) Return ChildConfigSysd objects filtered by the CscpCompId column
+ * @method     ChildConfigSysd[]|Collection findByCscpcompname(string|array<string> $CscpCompName) Return ChildConfigSysd objects filtered by the CscpCompName column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpcompname(string|array<string> $CscpCompName) Return ChildConfigSysd objects filtered by the CscpCompName column
+ * @method     ChildConfigSysd[]|Collection findByCscpdspermission(string|array<string> $CscpDsPermission) Return ChildConfigSysd objects filtered by the CscpDsPermission column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpdspermission(string|array<string> $CscpDsPermission) Return ChildConfigSysd objects filtered by the CscpDsPermission column
+ * @method     ChildConfigSysd[]|Collection findByCscprapermission(string|array<string> $CscpRaPermission) Return ChildConfigSysd objects filtered by the CscpRaPermission column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscprapermission(string|array<string> $CscpRaPermission) Return ChildConfigSysd objects filtered by the CscpRaPermission column
+ * @method     ChildConfigSysd[]|Collection findByCscpsrppermission(string|array<string> $CscpSrpPermission) Return ChildConfigSysd objects filtered by the CscpSrpPermission column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpsrppermission(string|array<string> $CscpSrpPermission) Return ChildConfigSysd objects filtered by the CscpSrpPermission column
+ * @method     ChildConfigSysd[]|Collection findByCscpemailtype(string|array<string> $CscpEmailType) Return ChildConfigSysd objects filtered by the CscpEmailType column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpemailtype(string|array<string> $CscpEmailType) Return ChildConfigSysd objects filtered by the CscpEmailType column
+ * @method     ChildConfigSysd[]|Collection findByCscpfaxdir(string|array<string> $CscpFaxDir) Return ChildConfigSysd objects filtered by the CscpFaxDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpfaxdir(string|array<string> $CscpFaxDir) Return ChildConfigSysd objects filtered by the CscpFaxDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpprgdir(string|array<string> $CscpPrgDir) Return ChildConfigSysd objects filtered by the CscpPrgDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpprgdir(string|array<string> $CscpPrgDir) Return ChildConfigSysd objects filtered by the CscpPrgDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpfile1dir(string|array<string> $CscpFile1Dir) Return ChildConfigSysd objects filtered by the CscpFile1Dir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpfile1dir(string|array<string> $CscpFile1Dir) Return ChildConfigSysd objects filtered by the CscpFile1Dir column
+ * @method     ChildConfigSysd[]|Collection findByCscpfile2dir(string|array<string> $CscpFile2Dir) Return ChildConfigSysd objects filtered by the CscpFile2Dir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpfile2dir(string|array<string> $CscpFile2Dir) Return ChildConfigSysd objects filtered by the CscpFile2Dir column
+ * @method     ChildConfigSysd[]|Collection findByCscpfile3dir(string|array<string> $CscpFile3Dir) Return ChildConfigSysd objects filtered by the CscpFile3Dir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpfile3dir(string|array<string> $CscpFile3Dir) Return ChildConfigSysd objects filtered by the CscpFile3Dir column
+ * @method     ChildConfigSysd[]|Collection findByCscptempdir(string|array<string> $CscpTempDir) Return ChildConfigSysd objects filtered by the CscpTempDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscptempdir(string|array<string> $CscpTempDir) Return ChildConfigSysd objects filtered by the CscpTempDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpworkdir(string|array<string> $CscpWorkDir) Return ChildConfigSysd objects filtered by the CscpWorkDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpworkdir(string|array<string> $CscpWorkDir) Return ChildConfigSysd objects filtered by the CscpWorkDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpreptarchdir(string|array<string> $CscpReptArchDir) Return ChildConfigSysd objects filtered by the CscpReptArchDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpreptarchdir(string|array<string> $CscpReptArchDir) Return ChildConfigSysd objects filtered by the CscpReptArchDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpdocinboxdir(string|array<string> $CscpDocInboxDir) Return ChildConfigSysd objects filtered by the CscpDocInboxDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpdocinboxdir(string|array<string> $CscpDocInboxDir) Return ChildConfigSysd objects filtered by the CscpDocInboxDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpdocautodir(string|array<string> $CscpDocAutoDir) Return ChildConfigSysd objects filtered by the CscpDocAutoDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpdocautodir(string|array<string> $CscpDocAutoDir) Return ChildConfigSysd objects filtered by the CscpDocAutoDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpcertsdir(string|array<string> $CscpCertsDir) Return ChildConfigSysd objects filtered by the CscpCertsDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpcertsdir(string|array<string> $CscpCertsDir) Return ChildConfigSysd objects filtered by the CscpCertsDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpimgproduct(string|array<string> $CscpImgProduct) Return ChildConfigSysd objects filtered by the CscpImgProduct column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpimgproduct(string|array<string> $CscpImgProduct) Return ChildConfigSysd objects filtered by the CscpImgProduct column
+ * @method     ChildConfigSysd[]|Collection findByCscpimgdrawings(string|array<string> $CscpImgDrawings) Return ChildConfigSysd objects filtered by the CscpImgDrawings column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpimgdrawings(string|array<string> $CscpImgDrawings) Return ChildConfigSysd objects filtered by the CscpImgDrawings column
+ * @method     ChildConfigSysd[]|Collection findByCscpimgschematic(string|array<string> $CscpImgSchematic) Return ChildConfigSysd objects filtered by the CscpImgSchematic column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpimgschematic(string|array<string> $CscpImgSchematic) Return ChildConfigSysd objects filtered by the CscpImgSchematic column
+ * @method     ChildConfigSysd[]|Collection findByCscpimgconfirm(string|array<string> $CscpImgConfirm) Return ChildConfigSysd objects filtered by the CscpImgConfirm column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpimgconfirm(string|array<string> $CscpImgConfirm) Return ChildConfigSysd objects filtered by the CscpImgConfirm column
+ * @method     ChildConfigSysd[]|Collection findByCscppcchargedir(string|array<string> $CscpPcchargeDir) Return ChildConfigSysd objects filtered by the CscpPcchargeDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscppcchargedir(string|array<string> $CscpPcchargeDir) Return ChildConfigSysd objects filtered by the CscpPcchargeDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpdevicedir(string|array<string> $CscpDeviceDir) Return ChildConfigSysd objects filtered by the CscpDeviceDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpdevicedir(string|array<string> $CscpDeviceDir) Return ChildConfigSysd objects filtered by the CscpDeviceDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpecommdir(string|array<string> $CscpEcommDir) Return ChildConfigSysd objects filtered by the CscpEcommDir column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpecommdir(string|array<string> $CscpEcommDir) Return ChildConfigSysd objects filtered by the CscpEcommDir column
+ * @method     ChildConfigSysd[]|Collection findByCscpbrwzbaseip(string|array<string> $CscpBrwzBaseIp) Return ChildConfigSysd objects filtered by the CscpBrwzBaseIp column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpbrwzbaseip(string|array<string> $CscpBrwzBaseIp) Return ChildConfigSysd objects filtered by the CscpBrwzBaseIp column
+ * @method     ChildConfigSysd[]|Collection findByCscpdatabasename(string|array<string> $CscpDataBaseName) Return ChildConfigSysd objects filtered by the CscpDataBaseName column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpdatabasename(string|array<string> $CscpDataBaseName) Return ChildConfigSysd objects filtered by the CscpDataBaseName column
+ * @method     ChildConfigSysd[]|Collection findByCscpcompdatabasename(string|array<string> $CscpCompDataBaseName) Return ChildConfigSysd objects filtered by the CscpCompDataBaseName column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpcompdatabasename(string|array<string> $CscpCompDataBaseName) Return ChildConfigSysd objects filtered by the CscpCompDataBaseName column
+ * @method     ChildConfigSysd[]|Collection findByCscpfgrndcolor(int|array<int> $CscpFgrndColor) Return ChildConfigSysd objects filtered by the CscpFgrndColor column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByCscpfgrndcolor(int|array<int> $CscpFgrndColor) Return ChildConfigSysd objects filtered by the CscpFgrndColor column
+ * @method     ChildConfigSysd[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigSysd objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigSysd objects filtered by the DateUpdtd column
+ * @method     ChildConfigSysd[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigSysd objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigSysd objects filtered by the TimeUpdtd column
+ * @method     ChildConfigSysd[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigSysd objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigSysd> findByDummy(string|array<string> $dummy) Return ChildConfigSysd objects filtered by the dummy column
+ *
+ * @method     ChildConfigSysd[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigSysd> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigSysdQuery extends ModelCriteria
 {
@@ -208,9 +241,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigSysdQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigSysd', $modelAlias = null)
     {
@@ -220,12 +253,12 @@ abstract class ConfigSysdQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigSysdQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigSysdQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigSysdQuery) {
             return $criteria;
@@ -255,7 +288,7 @@ abstract class ConfigSysdQuery extends ModelCriteria
      *
      * @return ChildConfigSysd|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -287,8 +320,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -320,8 +353,8 @@ abstract class ConfigSysdQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigSysd|array|mixed the result, formatted by the current formatter
      */
@@ -341,12 +374,12 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -363,27 +396,31 @@ abstract class ConfigSysdQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNBR, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNBR, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNBR, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNBR, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -396,15 +433,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * $query->filterByCscpcompnbr(array('min' => 12)); // WHERE CscpCompNbr > 12
      * </code>
      *
-     * @param     mixed $cscpcompnbr The value to use as filter.
+     * @param mixed $cscpcompnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpcompnbr($cscpcompnbr = null, $comparison = null)
+    public function filterByCscpcompnbr($cscpcompnbr = null, ?string $comparison = null)
     {
         if (is_array($cscpcompnbr)) {
             $useMinMax = false;
@@ -424,7 +461,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNBR, $cscpcompnbr, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNBR, $cscpcompnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -434,14 +473,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpcompid('fooValue');   // WHERE CscpCompId = 'fooValue'
      * $query->filterByCscpcompid('%fooValue%', Criteria::LIKE); // WHERE CscpCompId LIKE '%fooValue%'
+     * $query->filterByCscpcompid(['foo', 'bar']); // WHERE CscpCompId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpcompid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpcompid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpcompid($cscpcompid = null, $comparison = null)
+    public function filterByCscpcompid($cscpcompid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpcompid)) {
@@ -449,7 +489,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPID, $cscpcompid, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPID, $cscpcompid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -459,14 +501,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpcompname('fooValue');   // WHERE CscpCompName = 'fooValue'
      * $query->filterByCscpcompname('%fooValue%', Criteria::LIKE); // WHERE CscpCompName LIKE '%fooValue%'
+     * $query->filterByCscpcompname(['foo', 'bar']); // WHERE CscpCompName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpcompname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpcompname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpcompname($cscpcompname = null, $comparison = null)
+    public function filterByCscpcompname($cscpcompname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpcompname)) {
@@ -474,7 +517,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNAME, $cscpcompname, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPNAME, $cscpcompname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -484,14 +529,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpdspermission('fooValue');   // WHERE CscpDsPermission = 'fooValue'
      * $query->filterByCscpdspermission('%fooValue%', Criteria::LIKE); // WHERE CscpDsPermission LIKE '%fooValue%'
+     * $query->filterByCscpdspermission(['foo', 'bar']); // WHERE CscpDsPermission IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpdspermission The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpdspermission The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpdspermission($cscpdspermission = null, $comparison = null)
+    public function filterByCscpdspermission($cscpdspermission = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpdspermission)) {
@@ -499,7 +545,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDSPERMISSION, $cscpdspermission, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDSPERMISSION, $cscpdspermission, $comparison);
+
+        return $this;
     }
 
     /**
@@ -509,14 +557,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscprapermission('fooValue');   // WHERE CscpRaPermission = 'fooValue'
      * $query->filterByCscprapermission('%fooValue%', Criteria::LIKE); // WHERE CscpRaPermission LIKE '%fooValue%'
+     * $query->filterByCscprapermission(['foo', 'bar']); // WHERE CscpRaPermission IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscprapermission The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscprapermission The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscprapermission($cscprapermission = null, $comparison = null)
+    public function filterByCscprapermission($cscprapermission = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscprapermission)) {
@@ -524,7 +573,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPRAPERMISSION, $cscprapermission, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPRAPERMISSION, $cscprapermission, $comparison);
+
+        return $this;
     }
 
     /**
@@ -534,14 +585,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpsrppermission('fooValue');   // WHERE CscpSrpPermission = 'fooValue'
      * $query->filterByCscpsrppermission('%fooValue%', Criteria::LIKE); // WHERE CscpSrpPermission LIKE '%fooValue%'
+     * $query->filterByCscpsrppermission(['foo', 'bar']); // WHERE CscpSrpPermission IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpsrppermission The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpsrppermission The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpsrppermission($cscpsrppermission = null, $comparison = null)
+    public function filterByCscpsrppermission($cscpsrppermission = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpsrppermission)) {
@@ -549,7 +601,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPSRPPERMISSION, $cscpsrppermission, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPSRPPERMISSION, $cscpsrppermission, $comparison);
+
+        return $this;
     }
 
     /**
@@ -559,14 +613,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpemailtype('fooValue');   // WHERE CscpEmailType = 'fooValue'
      * $query->filterByCscpemailtype('%fooValue%', Criteria::LIKE); // WHERE CscpEmailType LIKE '%fooValue%'
+     * $query->filterByCscpemailtype(['foo', 'bar']); // WHERE CscpEmailType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpemailtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpemailtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpemailtype($cscpemailtype = null, $comparison = null)
+    public function filterByCscpemailtype($cscpemailtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpemailtype)) {
@@ -574,7 +629,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPEMAILTYPE, $cscpemailtype, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPEMAILTYPE, $cscpemailtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -584,14 +641,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpfaxdir('fooValue');   // WHERE CscpFaxDir = 'fooValue'
      * $query->filterByCscpfaxdir('%fooValue%', Criteria::LIKE); // WHERE CscpFaxDir LIKE '%fooValue%'
+     * $query->filterByCscpfaxdir(['foo', 'bar']); // WHERE CscpFaxDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpfaxdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpfaxdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpfaxdir($cscpfaxdir = null, $comparison = null)
+    public function filterByCscpfaxdir($cscpfaxdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpfaxdir)) {
@@ -599,7 +657,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFAXDIR, $cscpfaxdir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFAXDIR, $cscpfaxdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -609,14 +669,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpprgdir('fooValue');   // WHERE CscpPrgDir = 'fooValue'
      * $query->filterByCscpprgdir('%fooValue%', Criteria::LIKE); // WHERE CscpPrgDir LIKE '%fooValue%'
+     * $query->filterByCscpprgdir(['foo', 'bar']); // WHERE CscpPrgDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpprgdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpprgdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpprgdir($cscpprgdir = null, $comparison = null)
+    public function filterByCscpprgdir($cscpprgdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpprgdir)) {
@@ -624,7 +685,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPPRGDIR, $cscpprgdir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPPRGDIR, $cscpprgdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -634,14 +697,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpfile1dir('fooValue');   // WHERE CscpFile1Dir = 'fooValue'
      * $query->filterByCscpfile1dir('%fooValue%', Criteria::LIKE); // WHERE CscpFile1Dir LIKE '%fooValue%'
+     * $query->filterByCscpfile1dir(['foo', 'bar']); // WHERE CscpFile1Dir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpfile1dir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpfile1dir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpfile1dir($cscpfile1dir = null, $comparison = null)
+    public function filterByCscpfile1dir($cscpfile1dir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpfile1dir)) {
@@ -649,7 +713,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE1DIR, $cscpfile1dir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE1DIR, $cscpfile1dir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -659,14 +725,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpfile2dir('fooValue');   // WHERE CscpFile2Dir = 'fooValue'
      * $query->filterByCscpfile2dir('%fooValue%', Criteria::LIKE); // WHERE CscpFile2Dir LIKE '%fooValue%'
+     * $query->filterByCscpfile2dir(['foo', 'bar']); // WHERE CscpFile2Dir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpfile2dir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpfile2dir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpfile2dir($cscpfile2dir = null, $comparison = null)
+    public function filterByCscpfile2dir($cscpfile2dir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpfile2dir)) {
@@ -674,7 +741,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE2DIR, $cscpfile2dir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE2DIR, $cscpfile2dir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -684,14 +753,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpfile3dir('fooValue');   // WHERE CscpFile3Dir = 'fooValue'
      * $query->filterByCscpfile3dir('%fooValue%', Criteria::LIKE); // WHERE CscpFile3Dir LIKE '%fooValue%'
+     * $query->filterByCscpfile3dir(['foo', 'bar']); // WHERE CscpFile3Dir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpfile3dir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpfile3dir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpfile3dir($cscpfile3dir = null, $comparison = null)
+    public function filterByCscpfile3dir($cscpfile3dir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpfile3dir)) {
@@ -699,7 +769,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE3DIR, $cscpfile3dir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFILE3DIR, $cscpfile3dir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -709,14 +781,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscptempdir('fooValue');   // WHERE CscpTempDir = 'fooValue'
      * $query->filterByCscptempdir('%fooValue%', Criteria::LIKE); // WHERE CscpTempDir LIKE '%fooValue%'
+     * $query->filterByCscptempdir(['foo', 'bar']); // WHERE CscpTempDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscptempdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscptempdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscptempdir($cscptempdir = null, $comparison = null)
+    public function filterByCscptempdir($cscptempdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscptempdir)) {
@@ -724,7 +797,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPTEMPDIR, $cscptempdir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPTEMPDIR, $cscptempdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -734,14 +809,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpworkdir('fooValue');   // WHERE CscpWorkDir = 'fooValue'
      * $query->filterByCscpworkdir('%fooValue%', Criteria::LIKE); // WHERE CscpWorkDir LIKE '%fooValue%'
+     * $query->filterByCscpworkdir(['foo', 'bar']); // WHERE CscpWorkDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpworkdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpworkdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpworkdir($cscpworkdir = null, $comparison = null)
+    public function filterByCscpworkdir($cscpworkdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpworkdir)) {
@@ -749,7 +825,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPWORKDIR, $cscpworkdir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPWORKDIR, $cscpworkdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -759,14 +837,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpreptarchdir('fooValue');   // WHERE CscpReptArchDir = 'fooValue'
      * $query->filterByCscpreptarchdir('%fooValue%', Criteria::LIKE); // WHERE CscpReptArchDir LIKE '%fooValue%'
+     * $query->filterByCscpreptarchdir(['foo', 'bar']); // WHERE CscpReptArchDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpreptarchdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpreptarchdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpreptarchdir($cscpreptarchdir = null, $comparison = null)
+    public function filterByCscpreptarchdir($cscpreptarchdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpreptarchdir)) {
@@ -774,7 +853,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPREPTARCHDIR, $cscpreptarchdir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPREPTARCHDIR, $cscpreptarchdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -784,14 +865,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpdocinboxdir('fooValue');   // WHERE CscpDocInboxDir = 'fooValue'
      * $query->filterByCscpdocinboxdir('%fooValue%', Criteria::LIKE); // WHERE CscpDocInboxDir LIKE '%fooValue%'
+     * $query->filterByCscpdocinboxdir(['foo', 'bar']); // WHERE CscpDocInboxDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpdocinboxdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpdocinboxdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpdocinboxdir($cscpdocinboxdir = null, $comparison = null)
+    public function filterByCscpdocinboxdir($cscpdocinboxdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpdocinboxdir)) {
@@ -799,7 +881,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDOCINBOXDIR, $cscpdocinboxdir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDOCINBOXDIR, $cscpdocinboxdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -809,14 +893,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpdocautodir('fooValue');   // WHERE CscpDocAutoDir = 'fooValue'
      * $query->filterByCscpdocautodir('%fooValue%', Criteria::LIKE); // WHERE CscpDocAutoDir LIKE '%fooValue%'
+     * $query->filterByCscpdocautodir(['foo', 'bar']); // WHERE CscpDocAutoDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpdocautodir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpdocautodir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpdocautodir($cscpdocautodir = null, $comparison = null)
+    public function filterByCscpdocautodir($cscpdocautodir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpdocautodir)) {
@@ -824,7 +909,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDOCAUTODIR, $cscpdocautodir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDOCAUTODIR, $cscpdocautodir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -834,14 +921,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpcertsdir('fooValue');   // WHERE CscpCertsDir = 'fooValue'
      * $query->filterByCscpcertsdir('%fooValue%', Criteria::LIKE); // WHERE CscpCertsDir LIKE '%fooValue%'
+     * $query->filterByCscpcertsdir(['foo', 'bar']); // WHERE CscpCertsDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpcertsdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpcertsdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpcertsdir($cscpcertsdir = null, $comparison = null)
+    public function filterByCscpcertsdir($cscpcertsdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpcertsdir)) {
@@ -849,7 +937,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCERTSDIR, $cscpcertsdir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCERTSDIR, $cscpcertsdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -859,14 +949,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpimgproduct('fooValue');   // WHERE CscpImgProduct = 'fooValue'
      * $query->filterByCscpimgproduct('%fooValue%', Criteria::LIKE); // WHERE CscpImgProduct LIKE '%fooValue%'
+     * $query->filterByCscpimgproduct(['foo', 'bar']); // WHERE CscpImgProduct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpimgproduct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpimgproduct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpimgproduct($cscpimgproduct = null, $comparison = null)
+    public function filterByCscpimgproduct($cscpimgproduct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpimgproduct)) {
@@ -874,7 +965,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGPRODUCT, $cscpimgproduct, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGPRODUCT, $cscpimgproduct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -884,14 +977,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpimgdrawings('fooValue');   // WHERE CscpImgDrawings = 'fooValue'
      * $query->filterByCscpimgdrawings('%fooValue%', Criteria::LIKE); // WHERE CscpImgDrawings LIKE '%fooValue%'
+     * $query->filterByCscpimgdrawings(['foo', 'bar']); // WHERE CscpImgDrawings IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpimgdrawings The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpimgdrawings The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpimgdrawings($cscpimgdrawings = null, $comparison = null)
+    public function filterByCscpimgdrawings($cscpimgdrawings = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpimgdrawings)) {
@@ -899,7 +993,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGDRAWINGS, $cscpimgdrawings, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGDRAWINGS, $cscpimgdrawings, $comparison);
+
+        return $this;
     }
 
     /**
@@ -909,14 +1005,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpimgschematic('fooValue');   // WHERE CscpImgSchematic = 'fooValue'
      * $query->filterByCscpimgschematic('%fooValue%', Criteria::LIKE); // WHERE CscpImgSchematic LIKE '%fooValue%'
+     * $query->filterByCscpimgschematic(['foo', 'bar']); // WHERE CscpImgSchematic IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpimgschematic The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpimgschematic The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpimgschematic($cscpimgschematic = null, $comparison = null)
+    public function filterByCscpimgschematic($cscpimgschematic = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpimgschematic)) {
@@ -924,7 +1021,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGSCHEMATIC, $cscpimgschematic, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGSCHEMATIC, $cscpimgschematic, $comparison);
+
+        return $this;
     }
 
     /**
@@ -934,14 +1033,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpimgconfirm('fooValue');   // WHERE CscpImgConfirm = 'fooValue'
      * $query->filterByCscpimgconfirm('%fooValue%', Criteria::LIKE); // WHERE CscpImgConfirm LIKE '%fooValue%'
+     * $query->filterByCscpimgconfirm(['foo', 'bar']); // WHERE CscpImgConfirm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpimgconfirm The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpimgconfirm The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpimgconfirm($cscpimgconfirm = null, $comparison = null)
+    public function filterByCscpimgconfirm($cscpimgconfirm = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpimgconfirm)) {
@@ -949,7 +1049,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGCONFIRM, $cscpimgconfirm, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPIMGCONFIRM, $cscpimgconfirm, $comparison);
+
+        return $this;
     }
 
     /**
@@ -959,14 +1061,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscppcchargedir('fooValue');   // WHERE CscpPcchargeDir = 'fooValue'
      * $query->filterByCscppcchargedir('%fooValue%', Criteria::LIKE); // WHERE CscpPcchargeDir LIKE '%fooValue%'
+     * $query->filterByCscppcchargedir(['foo', 'bar']); // WHERE CscpPcchargeDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscppcchargedir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscppcchargedir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscppcchargedir($cscppcchargedir = null, $comparison = null)
+    public function filterByCscppcchargedir($cscppcchargedir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscppcchargedir)) {
@@ -974,7 +1077,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPPCCHARGEDIR, $cscppcchargedir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPPCCHARGEDIR, $cscppcchargedir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -984,14 +1089,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpdevicedir('fooValue');   // WHERE CscpDeviceDir = 'fooValue'
      * $query->filterByCscpdevicedir('%fooValue%', Criteria::LIKE); // WHERE CscpDeviceDir LIKE '%fooValue%'
+     * $query->filterByCscpdevicedir(['foo', 'bar']); // WHERE CscpDeviceDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpdevicedir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpdevicedir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpdevicedir($cscpdevicedir = null, $comparison = null)
+    public function filterByCscpdevicedir($cscpdevicedir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpdevicedir)) {
@@ -999,7 +1105,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDEVICEDIR, $cscpdevicedir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDEVICEDIR, $cscpdevicedir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1009,14 +1117,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpecommdir('fooValue');   // WHERE CscpEcommDir = 'fooValue'
      * $query->filterByCscpecommdir('%fooValue%', Criteria::LIKE); // WHERE CscpEcommDir LIKE '%fooValue%'
+     * $query->filterByCscpecommdir(['foo', 'bar']); // WHERE CscpEcommDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpecommdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpecommdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpecommdir($cscpecommdir = null, $comparison = null)
+    public function filterByCscpecommdir($cscpecommdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpecommdir)) {
@@ -1024,7 +1133,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPECOMMDIR, $cscpecommdir, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPECOMMDIR, $cscpecommdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1034,14 +1145,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpbrwzbaseip('fooValue');   // WHERE CscpBrwzBaseIp = 'fooValue'
      * $query->filterByCscpbrwzbaseip('%fooValue%', Criteria::LIKE); // WHERE CscpBrwzBaseIp LIKE '%fooValue%'
+     * $query->filterByCscpbrwzbaseip(['foo', 'bar']); // WHERE CscpBrwzBaseIp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpbrwzbaseip The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpbrwzbaseip The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpbrwzbaseip($cscpbrwzbaseip = null, $comparison = null)
+    public function filterByCscpbrwzbaseip($cscpbrwzbaseip = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpbrwzbaseip)) {
@@ -1049,7 +1161,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPBRWZBASEIP, $cscpbrwzbaseip, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPBRWZBASEIP, $cscpbrwzbaseip, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1059,14 +1173,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpdatabasename('fooValue');   // WHERE CscpDataBaseName = 'fooValue'
      * $query->filterByCscpdatabasename('%fooValue%', Criteria::LIKE); // WHERE CscpDataBaseName LIKE '%fooValue%'
+     * $query->filterByCscpdatabasename(['foo', 'bar']); // WHERE CscpDataBaseName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpdatabasename The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpdatabasename The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpdatabasename($cscpdatabasename = null, $comparison = null)
+    public function filterByCscpdatabasename($cscpdatabasename = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpdatabasename)) {
@@ -1074,7 +1189,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDATABASENAME, $cscpdatabasename, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPDATABASENAME, $cscpdatabasename, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1084,14 +1201,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByCscpcompdatabasename('fooValue');   // WHERE CscpCompDataBaseName = 'fooValue'
      * $query->filterByCscpcompdatabasename('%fooValue%', Criteria::LIKE); // WHERE CscpCompDataBaseName LIKE '%fooValue%'
+     * $query->filterByCscpcompdatabasename(['foo', 'bar']); // WHERE CscpCompDataBaseName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cscpcompdatabasename The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cscpcompdatabasename The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpcompdatabasename($cscpcompdatabasename = null, $comparison = null)
+    public function filterByCscpcompdatabasename($cscpcompdatabasename = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cscpcompdatabasename)) {
@@ -1099,7 +1217,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPDATABASENAME, $cscpcompdatabasename, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPCOMPDATABASENAME, $cscpcompdatabasename, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1112,15 +1232,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * $query->filterByCscpfgrndcolor(array('min' => 12)); // WHERE CscpFgrndColor > 12
      * </code>
      *
-     * @param     mixed $cscpfgrndcolor The value to use as filter.
+     * @param mixed $cscpfgrndcolor The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCscpfgrndcolor($cscpfgrndcolor = null, $comparison = null)
+    public function filterByCscpfgrndcolor($cscpfgrndcolor = null, ?string $comparison = null)
     {
         if (is_array($cscpfgrndcolor)) {
             $useMinMax = false;
@@ -1140,7 +1260,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFGRNDCOLOR, $cscpfgrndcolor, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_CSCPFGRNDCOLOR, $cscpfgrndcolor, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1150,14 +1272,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1165,7 +1288,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1175,14 +1300,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1190,7 +1316,9 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1200,14 +1328,15 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1215,15 +1344,17 @@ abstract class ConfigSysdQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigSysdTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigSysdTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigSysd $configSysd Object to remove from the list of results
+     * @param ChildConfigSysd $configSysd Object to remove from the list of results
      *
-     * @return $this|ChildConfigSysdQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configSysd = null)
     {
@@ -1240,7 +1371,7 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysdTableMap::DATABASE_NAME);
@@ -1265,12 +1396,12 @@ abstract class ConfigSysdQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysdTableMap::DATABASE_NAME);
@@ -1295,4 +1426,4 @@ abstract class ConfigSysdQuery extends ModelCriteria
         });
     }
 
-} // ConfigSysdQuery
+}

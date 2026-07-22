@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'vend_item_xref' table.
- *
- *
+ * Base class that represents a query for the `vend_item_xref` table.
  *
  * @method     ChildItemXrefVendorQuery orderByApvevendid($order = Criteria::ASC) Order by the ApveVendId column
  * @method     ChildItemXrefVendorQuery orderByVexrvenditemnbr($order = Criteria::ASC) Order by the VexrVendItemNbr column
@@ -136,49 +135,49 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \VendorQuery|\ItemMasterItemQuery|\UnitofMeasurePurchaseQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildItemXrefVendor findOne(ConnectionInterface $con = null) Return the first ChildItemXrefVendor matching the query
- * @method     ChildItemXrefVendor findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemXrefVendor matching the query, or a new ChildItemXrefVendor object populated from the query conditions when no match is found
+ * @method     ChildItemXrefVendor|null findOne(?ConnectionInterface $con = null) Return the first ChildItemXrefVendor matching the query
+ * @method     ChildItemXrefVendor findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItemXrefVendor matching the query, or a new ChildItemXrefVendor object populated from the query conditions when no match is found
  *
- * @method     ChildItemXrefVendor findOneByApvevendid(string $ApveVendId) Return the first ChildItemXrefVendor filtered by the ApveVendId column
- * @method     ChildItemXrefVendor findOneByVexrvenditemnbr(string $VexrVendItemNbr) Return the first ChildItemXrefVendor filtered by the VexrVendItemNbr column
- * @method     ChildItemXrefVendor findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemXrefVendor filtered by the InitItemNbr column
- * @method     ChildItemXrefVendor findOneByVexrpoordercode(string $VexrPoOrderCode) Return the first ChildItemXrefVendor filtered by the VexrPoOrderCode column
- * @method     ChildItemXrefVendor findOneByVexroption1(string $VexrOption1) Return the first ChildItemXrefVendor filtered by the VexrOption1 column
- * @method     ChildItemXrefVendor findOneByIntbuompur(string $IntbUomPur) Return the first ChildItemXrefVendor filtered by the IntbUomPur column
- * @method     ChildItemXrefVendor findOneByVexrcaseqty(string $VexrCaseQty) Return the first ChildItemXrefVendor filtered by the VexrCaseQty column
- * @method     ChildItemXrefVendor findOneByVexrprtkitdet(string $VexrPrtKitDet) Return the first ChildItemXrefVendor filtered by the VexrPrtKitDet column
- * @method     ChildItemXrefVendor findOneByVexrlistprice(string $VexrListPrice) Return the first ChildItemXrefVendor filtered by the VexrListPrice column
- * @method     ChildItemXrefVendor findOneByVexrunitcost(string $VexrUnitCost) Return the first ChildItemXrefVendor filtered by the VexrUnitCost column
- * @method     ChildItemXrefVendor findOneByVexrforeigncost(string $VexrForeignCost) Return the first ChildItemXrefVendor filtered by the VexrForeignCost column
- * @method     ChildItemXrefVendor findOneByVexrcostlastdate(string $VexrCostLastDate) Return the first ChildItemXrefVendor filtered by the VexrCostLastDate column
- * @method     ChildItemXrefVendor findOneByVexrunitunit1(int $VexrUnitUnit1) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit1 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost1(string $VexrUnitCost1) Return the first ChildItemXrefVendor filtered by the VexrUnitCost1 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit2(int $VexrUnitUnit2) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit2 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost2(string $VexrUnitCost2) Return the first ChildItemXrefVendor filtered by the VexrUnitCost2 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit3(int $VexrUnitUnit3) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit3 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost3(string $VexrUnitCost3) Return the first ChildItemXrefVendor filtered by the VexrUnitCost3 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit4(int $VexrUnitUnit4) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit4 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost4(string $VexrUnitCost4) Return the first ChildItemXrefVendor filtered by the VexrUnitCost4 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit5(int $VexrUnitUnit5) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit5 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost5(string $VexrUnitCost5) Return the first ChildItemXrefVendor filtered by the VexrUnitCost5 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit6(int $VexrUnitUnit6) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit6 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost6(string $VexrUnitCost6) Return the first ChildItemXrefVendor filtered by the VexrUnitCost6 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit7(int $VexrUnitUnit7) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit7 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost7(string $VexrUnitCost7) Return the first ChildItemXrefVendor filtered by the VexrUnitCost7 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit8(int $VexrUnitUnit8) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit8 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost8(string $VexrUnitCost8) Return the first ChildItemXrefVendor filtered by the VexrUnitCost8 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit9(int $VexrUnitUnit9) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit9 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost9(string $VexrUnitCost9) Return the first ChildItemXrefVendor filtered by the VexrUnitCost9 column
- * @method     ChildItemXrefVendor findOneByVexrunitunit10(int $VexrUnitUnit10) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit10 column
- * @method     ChildItemXrefVendor findOneByVexrunitcost10(string $VexrUnitCost10) Return the first ChildItemXrefVendor filtered by the VexrUnitCost10 column
- * @method     ChildItemXrefVendor findOneByVexraprvcode(string $VexrAprvCode) Return the first ChildItemXrefVendor filtered by the VexrAprvCode column
- * @method     ChildItemXrefVendor findOneByVexrminbuyqty(int $VexrMinBuyQty) Return the first ChildItemXrefVendor filtered by the VexrMinBuyQty column
- * @method     ChildItemXrefVendor findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefVendor filtered by the DateUpdtd column
- * @method     ChildItemXrefVendor findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefVendor filtered by the TimeUpdtd column
- * @method     ChildItemXrefVendor findOneByDummy(string $dummy) Return the first ChildItemXrefVendor filtered by the dummy column *
-
- * @method     ChildItemXrefVendor requirePk($key, ConnectionInterface $con = null) Return the ChildItemXrefVendor by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemXrefVendor requireOne(ConnectionInterface $con = null) Return the first ChildItemXrefVendor matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemXrefVendor|null findOneByApvevendid(string $ApveVendId) Return the first ChildItemXrefVendor filtered by the ApveVendId column
+ * @method     ChildItemXrefVendor|null findOneByVexrvenditemnbr(string $VexrVendItemNbr) Return the first ChildItemXrefVendor filtered by the VexrVendItemNbr column
+ * @method     ChildItemXrefVendor|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemXrefVendor filtered by the InitItemNbr column
+ * @method     ChildItemXrefVendor|null findOneByVexrpoordercode(string $VexrPoOrderCode) Return the first ChildItemXrefVendor filtered by the VexrPoOrderCode column
+ * @method     ChildItemXrefVendor|null findOneByVexroption1(string $VexrOption1) Return the first ChildItemXrefVendor filtered by the VexrOption1 column
+ * @method     ChildItemXrefVendor|null findOneByIntbuompur(string $IntbUomPur) Return the first ChildItemXrefVendor filtered by the IntbUomPur column
+ * @method     ChildItemXrefVendor|null findOneByVexrcaseqty(string $VexrCaseQty) Return the first ChildItemXrefVendor filtered by the VexrCaseQty column
+ * @method     ChildItemXrefVendor|null findOneByVexrprtkitdet(string $VexrPrtKitDet) Return the first ChildItemXrefVendor filtered by the VexrPrtKitDet column
+ * @method     ChildItemXrefVendor|null findOneByVexrlistprice(string $VexrListPrice) Return the first ChildItemXrefVendor filtered by the VexrListPrice column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost(string $VexrUnitCost) Return the first ChildItemXrefVendor filtered by the VexrUnitCost column
+ * @method     ChildItemXrefVendor|null findOneByVexrforeigncost(string $VexrForeignCost) Return the first ChildItemXrefVendor filtered by the VexrForeignCost column
+ * @method     ChildItemXrefVendor|null findOneByVexrcostlastdate(string $VexrCostLastDate) Return the first ChildItemXrefVendor filtered by the VexrCostLastDate column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit1(int $VexrUnitUnit1) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit1 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost1(string $VexrUnitCost1) Return the first ChildItemXrefVendor filtered by the VexrUnitCost1 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit2(int $VexrUnitUnit2) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit2 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost2(string $VexrUnitCost2) Return the first ChildItemXrefVendor filtered by the VexrUnitCost2 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit3(int $VexrUnitUnit3) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit3 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost3(string $VexrUnitCost3) Return the first ChildItemXrefVendor filtered by the VexrUnitCost3 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit4(int $VexrUnitUnit4) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit4 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost4(string $VexrUnitCost4) Return the first ChildItemXrefVendor filtered by the VexrUnitCost4 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit5(int $VexrUnitUnit5) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit5 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost5(string $VexrUnitCost5) Return the first ChildItemXrefVendor filtered by the VexrUnitCost5 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit6(int $VexrUnitUnit6) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit6 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost6(string $VexrUnitCost6) Return the first ChildItemXrefVendor filtered by the VexrUnitCost6 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit7(int $VexrUnitUnit7) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit7 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost7(string $VexrUnitCost7) Return the first ChildItemXrefVendor filtered by the VexrUnitCost7 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit8(int $VexrUnitUnit8) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit8 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost8(string $VexrUnitCost8) Return the first ChildItemXrefVendor filtered by the VexrUnitCost8 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit9(int $VexrUnitUnit9) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit9 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost9(string $VexrUnitCost9) Return the first ChildItemXrefVendor filtered by the VexrUnitCost9 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitunit10(int $VexrUnitUnit10) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit10 column
+ * @method     ChildItemXrefVendor|null findOneByVexrunitcost10(string $VexrUnitCost10) Return the first ChildItemXrefVendor filtered by the VexrUnitCost10 column
+ * @method     ChildItemXrefVendor|null findOneByVexraprvcode(string $VexrAprvCode) Return the first ChildItemXrefVendor filtered by the VexrAprvCode column
+ * @method     ChildItemXrefVendor|null findOneByVexrminbuyqty(int $VexrMinBuyQty) Return the first ChildItemXrefVendor filtered by the VexrMinBuyQty column
+ * @method     ChildItemXrefVendor|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefVendor filtered by the DateUpdtd column
+ * @method     ChildItemXrefVendor|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefVendor filtered by the TimeUpdtd column
+ * @method     ChildItemXrefVendor|null findOneByDummy(string $dummy) Return the first ChildItemXrefVendor filtered by the dummy column
+ *
+ * @method     ChildItemXrefVendor requirePk($key, ?ConnectionInterface $con = null) Return the ChildItemXrefVendor by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemXrefVendor requireOne(?ConnectionInterface $con = null) Return the first ChildItemXrefVendor matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemXrefVendor requireOneByApvevendid(string $ApveVendId) Return the first ChildItemXrefVendor filtered by the ApveVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendor requireOneByVexrvenditemnbr(string $VexrVendItemNbr) Return the first ChildItemXrefVendor filtered by the VexrVendItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -218,46 +217,86 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendor requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefVendor filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendor requireOneByDummy(string $dummy) Return the first ChildItemXrefVendor filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemXrefVendor[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemXrefVendor objects based on current ModelCriteria
- * @method     ChildItemXrefVendor[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildItemXrefVendor objects filtered by the ApveVendId column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrvenditemnbr(string $VexrVendItemNbr) Return ChildItemXrefVendor objects filtered by the VexrVendItemNbr column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildItemXrefVendor objects filtered by the InitItemNbr column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrpoordercode(string $VexrPoOrderCode) Return ChildItemXrefVendor objects filtered by the VexrPoOrderCode column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexroption1(string $VexrOption1) Return ChildItemXrefVendor objects filtered by the VexrOption1 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByIntbuompur(string $IntbUomPur) Return ChildItemXrefVendor objects filtered by the IntbUomPur column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrcaseqty(string $VexrCaseQty) Return ChildItemXrefVendor objects filtered by the VexrCaseQty column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrprtkitdet(string $VexrPrtKitDet) Return ChildItemXrefVendor objects filtered by the VexrPrtKitDet column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrlistprice(string $VexrListPrice) Return ChildItemXrefVendor objects filtered by the VexrListPrice column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost(string $VexrUnitCost) Return ChildItemXrefVendor objects filtered by the VexrUnitCost column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrforeigncost(string $VexrForeignCost) Return ChildItemXrefVendor objects filtered by the VexrForeignCost column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrcostlastdate(string $VexrCostLastDate) Return ChildItemXrefVendor objects filtered by the VexrCostLastDate column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit1(int $VexrUnitUnit1) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit1 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost1(string $VexrUnitCost1) Return ChildItemXrefVendor objects filtered by the VexrUnitCost1 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit2(int $VexrUnitUnit2) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit2 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost2(string $VexrUnitCost2) Return ChildItemXrefVendor objects filtered by the VexrUnitCost2 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit3(int $VexrUnitUnit3) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit3 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost3(string $VexrUnitCost3) Return ChildItemXrefVendor objects filtered by the VexrUnitCost3 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit4(int $VexrUnitUnit4) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit4 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost4(string $VexrUnitCost4) Return ChildItemXrefVendor objects filtered by the VexrUnitCost4 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit5(int $VexrUnitUnit5) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit5 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost5(string $VexrUnitCost5) Return ChildItemXrefVendor objects filtered by the VexrUnitCost5 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit6(int $VexrUnitUnit6) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit6 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost6(string $VexrUnitCost6) Return ChildItemXrefVendor objects filtered by the VexrUnitCost6 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit7(int $VexrUnitUnit7) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit7 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost7(string $VexrUnitCost7) Return ChildItemXrefVendor objects filtered by the VexrUnitCost7 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit8(int $VexrUnitUnit8) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit8 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost8(string $VexrUnitCost8) Return ChildItemXrefVendor objects filtered by the VexrUnitCost8 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit9(int $VexrUnitUnit9) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit9 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost9(string $VexrUnitCost9) Return ChildItemXrefVendor objects filtered by the VexrUnitCost9 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit10(int $VexrUnitUnit10) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit10 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost10(string $VexrUnitCost10) Return ChildItemXrefVendor objects filtered by the VexrUnitCost10 column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexraprvcode(string $VexrAprvCode) Return ChildItemXrefVendor objects filtered by the VexrAprvCode column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrminbuyqty(int $VexrMinBuyQty) Return ChildItemXrefVendor objects filtered by the VexrMinBuyQty column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemXrefVendor objects filtered by the DateUpdtd column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemXrefVendor objects filtered by the TimeUpdtd column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByDummy(string $dummy) Return ChildItemXrefVendor objects filtered by the dummy column
- * @method     ChildItemXrefVendor[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItemXrefVendor[]|Collection find(?ConnectionInterface $con = null) Return ChildItemXrefVendor objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> find(?ConnectionInterface $con = null) Return ChildItemXrefVendor objects based on current ModelCriteria
  *
+ * @method     ChildItemXrefVendor[]|Collection findByApvevendid(string|array<string> $ApveVendId) Return ChildItemXrefVendor objects filtered by the ApveVendId column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByApvevendid(string|array<string> $ApveVendId) Return ChildItemXrefVendor objects filtered by the ApveVendId column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrvenditemnbr(string|array<string> $VexrVendItemNbr) Return ChildItemXrefVendor objects filtered by the VexrVendItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrvenditemnbr(string|array<string> $VexrVendItemNbr) Return ChildItemXrefVendor objects filtered by the VexrVendItemNbr column
+ * @method     ChildItemXrefVendor[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemXrefVendor objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemXrefVendor objects filtered by the InitItemNbr column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrpoordercode(string|array<string> $VexrPoOrderCode) Return ChildItemXrefVendor objects filtered by the VexrPoOrderCode column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrpoordercode(string|array<string> $VexrPoOrderCode) Return ChildItemXrefVendor objects filtered by the VexrPoOrderCode column
+ * @method     ChildItemXrefVendor[]|Collection findByVexroption1(string|array<string> $VexrOption1) Return ChildItemXrefVendor objects filtered by the VexrOption1 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexroption1(string|array<string> $VexrOption1) Return ChildItemXrefVendor objects filtered by the VexrOption1 column
+ * @method     ChildItemXrefVendor[]|Collection findByIntbuompur(string|array<string> $IntbUomPur) Return ChildItemXrefVendor objects filtered by the IntbUomPur column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByIntbuompur(string|array<string> $IntbUomPur) Return ChildItemXrefVendor objects filtered by the IntbUomPur column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrcaseqty(string|array<string> $VexrCaseQty) Return ChildItemXrefVendor objects filtered by the VexrCaseQty column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrcaseqty(string|array<string> $VexrCaseQty) Return ChildItemXrefVendor objects filtered by the VexrCaseQty column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrprtkitdet(string|array<string> $VexrPrtKitDet) Return ChildItemXrefVendor objects filtered by the VexrPrtKitDet column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrprtkitdet(string|array<string> $VexrPrtKitDet) Return ChildItemXrefVendor objects filtered by the VexrPrtKitDet column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrlistprice(string|array<string> $VexrListPrice) Return ChildItemXrefVendor objects filtered by the VexrListPrice column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrlistprice(string|array<string> $VexrListPrice) Return ChildItemXrefVendor objects filtered by the VexrListPrice column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost(string|array<string> $VexrUnitCost) Return ChildItemXrefVendor objects filtered by the VexrUnitCost column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost(string|array<string> $VexrUnitCost) Return ChildItemXrefVendor objects filtered by the VexrUnitCost column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrforeigncost(string|array<string> $VexrForeignCost) Return ChildItemXrefVendor objects filtered by the VexrForeignCost column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrforeigncost(string|array<string> $VexrForeignCost) Return ChildItemXrefVendor objects filtered by the VexrForeignCost column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrcostlastdate(string|array<string> $VexrCostLastDate) Return ChildItemXrefVendor objects filtered by the VexrCostLastDate column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrcostlastdate(string|array<string> $VexrCostLastDate) Return ChildItemXrefVendor objects filtered by the VexrCostLastDate column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit1(int|array<int> $VexrUnitUnit1) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit1 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit1(int|array<int> $VexrUnitUnit1) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit1 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost1(string|array<string> $VexrUnitCost1) Return ChildItemXrefVendor objects filtered by the VexrUnitCost1 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost1(string|array<string> $VexrUnitCost1) Return ChildItemXrefVendor objects filtered by the VexrUnitCost1 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit2(int|array<int> $VexrUnitUnit2) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit2 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit2(int|array<int> $VexrUnitUnit2) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit2 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost2(string|array<string> $VexrUnitCost2) Return ChildItemXrefVendor objects filtered by the VexrUnitCost2 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost2(string|array<string> $VexrUnitCost2) Return ChildItemXrefVendor objects filtered by the VexrUnitCost2 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit3(int|array<int> $VexrUnitUnit3) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit3 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit3(int|array<int> $VexrUnitUnit3) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit3 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost3(string|array<string> $VexrUnitCost3) Return ChildItemXrefVendor objects filtered by the VexrUnitCost3 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost3(string|array<string> $VexrUnitCost3) Return ChildItemXrefVendor objects filtered by the VexrUnitCost3 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit4(int|array<int> $VexrUnitUnit4) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit4 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit4(int|array<int> $VexrUnitUnit4) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit4 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost4(string|array<string> $VexrUnitCost4) Return ChildItemXrefVendor objects filtered by the VexrUnitCost4 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost4(string|array<string> $VexrUnitCost4) Return ChildItemXrefVendor objects filtered by the VexrUnitCost4 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit5(int|array<int> $VexrUnitUnit5) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit5 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit5(int|array<int> $VexrUnitUnit5) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit5 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost5(string|array<string> $VexrUnitCost5) Return ChildItemXrefVendor objects filtered by the VexrUnitCost5 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost5(string|array<string> $VexrUnitCost5) Return ChildItemXrefVendor objects filtered by the VexrUnitCost5 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit6(int|array<int> $VexrUnitUnit6) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit6 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit6(int|array<int> $VexrUnitUnit6) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit6 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost6(string|array<string> $VexrUnitCost6) Return ChildItemXrefVendor objects filtered by the VexrUnitCost6 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost6(string|array<string> $VexrUnitCost6) Return ChildItemXrefVendor objects filtered by the VexrUnitCost6 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit7(int|array<int> $VexrUnitUnit7) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit7 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit7(int|array<int> $VexrUnitUnit7) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit7 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost7(string|array<string> $VexrUnitCost7) Return ChildItemXrefVendor objects filtered by the VexrUnitCost7 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost7(string|array<string> $VexrUnitCost7) Return ChildItemXrefVendor objects filtered by the VexrUnitCost7 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit8(int|array<int> $VexrUnitUnit8) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit8 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit8(int|array<int> $VexrUnitUnit8) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit8 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost8(string|array<string> $VexrUnitCost8) Return ChildItemXrefVendor objects filtered by the VexrUnitCost8 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost8(string|array<string> $VexrUnitCost8) Return ChildItemXrefVendor objects filtered by the VexrUnitCost8 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit9(int|array<int> $VexrUnitUnit9) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit9 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit9(int|array<int> $VexrUnitUnit9) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit9 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost9(string|array<string> $VexrUnitCost9) Return ChildItemXrefVendor objects filtered by the VexrUnitCost9 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost9(string|array<string> $VexrUnitCost9) Return ChildItemXrefVendor objects filtered by the VexrUnitCost9 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitunit10(int|array<int> $VexrUnitUnit10) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit10 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitunit10(int|array<int> $VexrUnitUnit10) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit10 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrunitcost10(string|array<string> $VexrUnitCost10) Return ChildItemXrefVendor objects filtered by the VexrUnitCost10 column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrunitcost10(string|array<string> $VexrUnitCost10) Return ChildItemXrefVendor objects filtered by the VexrUnitCost10 column
+ * @method     ChildItemXrefVendor[]|Collection findByVexraprvcode(string|array<string> $VexrAprvCode) Return ChildItemXrefVendor objects filtered by the VexrAprvCode column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexraprvcode(string|array<string> $VexrAprvCode) Return ChildItemXrefVendor objects filtered by the VexrAprvCode column
+ * @method     ChildItemXrefVendor[]|Collection findByVexrminbuyqty(int|array<int> $VexrMinBuyQty) Return ChildItemXrefVendor objects filtered by the VexrMinBuyQty column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByVexrminbuyqty(int|array<int> $VexrMinBuyQty) Return ChildItemXrefVendor objects filtered by the VexrMinBuyQty column
+ * @method     ChildItemXrefVendor[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemXrefVendor objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemXrefVendor objects filtered by the DateUpdtd column
+ * @method     ChildItemXrefVendor[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemXrefVendor objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemXrefVendor objects filtered by the TimeUpdtd column
+ * @method     ChildItemXrefVendor[]|Collection findByDummy(string|array<string> $dummy) Return ChildItemXrefVendor objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItemXrefVendor> findByDummy(string|array<string> $dummy) Return ChildItemXrefVendor objects filtered by the dummy column
+ *
+ * @method     ChildItemXrefVendor[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItemXrefVendor> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItemXrefVendorQuery extends ModelCriteria
 {
@@ -266,9 +305,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItemXrefVendorQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ItemXrefVendor', $modelAlias = null)
     {
@@ -278,12 +317,12 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     /**
      * Returns a new ChildItemXrefVendorQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItemXrefVendorQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItemXrefVendorQuery) {
             return $criteria;
@@ -313,7 +352,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      *
      * @return ChildItemXrefVendor|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -345,8 +384,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -380,8 +419,8 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItemXrefVendor|array|mixed the result, formatted by the current formatter
      */
@@ -401,12 +440,12 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -423,9 +462,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -439,14 +478,16 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ItemXrefVendorTableMap::COL_APVEVENDID, $key[0], Criteria::EQUAL);
@@ -467,14 +508,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvevendid('fooValue');   // WHERE ApveVendId = 'fooValue'
      * $query->filterByApvevendid('%fooValue%', Criteria::LIKE); // WHERE ApveVendId LIKE '%fooValue%'
+     * $query->filterByApvevendid(['foo', 'bar']); // WHERE ApveVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvevendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvevendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvevendid($apvevendid = null, $comparison = null)
+    public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvevendid)) {
@@ -482,7 +524,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -492,14 +536,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByVexrvenditemnbr('fooValue');   // WHERE VexrVendItemNbr = 'fooValue'
      * $query->filterByVexrvenditemnbr('%fooValue%', Criteria::LIKE); // WHERE VexrVendItemNbr LIKE '%fooValue%'
+     * $query->filterByVexrvenditemnbr(['foo', 'bar']); // WHERE VexrVendItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vexrvenditemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vexrvenditemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrvenditemnbr($vexrvenditemnbr = null, $comparison = null)
+    public function filterByVexrvenditemnbr($vexrvenditemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vexrvenditemnbr)) {
@@ -507,7 +552,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR, $vexrvenditemnbr, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR, $vexrvenditemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -517,14 +564,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -532,7 +580,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -542,14 +592,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByVexrpoordercode('fooValue');   // WHERE VexrPoOrderCode = 'fooValue'
      * $query->filterByVexrpoordercode('%fooValue%', Criteria::LIKE); // WHERE VexrPoOrderCode LIKE '%fooValue%'
+     * $query->filterByVexrpoordercode(['foo', 'bar']); // WHERE VexrPoOrderCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vexrpoordercode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vexrpoordercode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrpoordercode($vexrpoordercode = null, $comparison = null)
+    public function filterByVexrpoordercode($vexrpoordercode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vexrpoordercode)) {
@@ -557,7 +608,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRPOORDERCODE, $vexrpoordercode, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRPOORDERCODE, $vexrpoordercode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -567,14 +620,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByVexroption1('fooValue');   // WHERE VexrOption1 = 'fooValue'
      * $query->filterByVexroption1('%fooValue%', Criteria::LIKE); // WHERE VexrOption1 LIKE '%fooValue%'
+     * $query->filterByVexroption1(['foo', 'bar']); // WHERE VexrOption1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vexroption1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vexroption1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexroption1($vexroption1 = null, $comparison = null)
+    public function filterByVexroption1($vexroption1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vexroption1)) {
@@ -582,7 +636,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXROPTION1, $vexroption1, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXROPTION1, $vexroption1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -592,14 +648,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuompur('fooValue');   // WHERE IntbUomPur = 'fooValue'
      * $query->filterByIntbuompur('%fooValue%', Criteria::LIKE); // WHERE IntbUomPur LIKE '%fooValue%'
+     * $query->filterByIntbuompur(['foo', 'bar']); // WHERE IntbUomPur IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuompur The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuompur The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuompur($intbuompur = null, $comparison = null)
+    public function filterByIntbuompur($intbuompur = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuompur)) {
@@ -607,7 +664,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
+
+        return $this;
     }
 
     /**
@@ -620,15 +679,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrcaseqty(array('min' => 12)); // WHERE VexrCaseQty > 12
      * </code>
      *
-     * @param     mixed $vexrcaseqty The value to use as filter.
+     * @param mixed $vexrcaseqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrcaseqty($vexrcaseqty = null, $comparison = null)
+    public function filterByVexrcaseqty($vexrcaseqty = null, ?string $comparison = null)
     {
         if (is_array($vexrcaseqty)) {
             $useMinMax = false;
@@ -648,7 +707,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRCASEQTY, $vexrcaseqty, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRCASEQTY, $vexrcaseqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -658,14 +719,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByVexrprtkitdet('fooValue');   // WHERE VexrPrtKitDet = 'fooValue'
      * $query->filterByVexrprtkitdet('%fooValue%', Criteria::LIKE); // WHERE VexrPrtKitDet LIKE '%fooValue%'
+     * $query->filterByVexrprtkitdet(['foo', 'bar']); // WHERE VexrPrtKitDet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vexrprtkitdet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vexrprtkitdet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrprtkitdet($vexrprtkitdet = null, $comparison = null)
+    public function filterByVexrprtkitdet($vexrprtkitdet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vexrprtkitdet)) {
@@ -673,7 +735,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRPRTKITDET, $vexrprtkitdet, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRPRTKITDET, $vexrprtkitdet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -686,15 +750,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrlistprice(array('min' => 12)); // WHERE VexrListPrice > 12
      * </code>
      *
-     * @param     mixed $vexrlistprice The value to use as filter.
+     * @param mixed $vexrlistprice The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrlistprice($vexrlistprice = null, $comparison = null)
+    public function filterByVexrlistprice($vexrlistprice = null, ?string $comparison = null)
     {
         if (is_array($vexrlistprice)) {
             $useMinMax = false;
@@ -714,7 +778,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRLISTPRICE, $vexrlistprice, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRLISTPRICE, $vexrlistprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -727,15 +793,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost(array('min' => 12)); // WHERE VexrUnitCost > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost The value to use as filter.
+     * @param mixed $vexrunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost($vexrunitcost = null, $comparison = null)
+    public function filterByVexrunitcost($vexrunitcost = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost)) {
             $useMinMax = false;
@@ -755,7 +821,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST, $vexrunitcost, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST, $vexrunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -768,15 +836,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrforeigncost(array('min' => 12)); // WHERE VexrForeignCost > 12
      * </code>
      *
-     * @param     mixed $vexrforeigncost The value to use as filter.
+     * @param mixed $vexrforeigncost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrforeigncost($vexrforeigncost = null, $comparison = null)
+    public function filterByVexrforeigncost($vexrforeigncost = null, ?string $comparison = null)
     {
         if (is_array($vexrforeigncost)) {
             $useMinMax = false;
@@ -796,7 +864,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRFOREIGNCOST, $vexrforeigncost, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRFOREIGNCOST, $vexrforeigncost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -806,14 +876,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByVexrcostlastdate('fooValue');   // WHERE VexrCostLastDate = 'fooValue'
      * $query->filterByVexrcostlastdate('%fooValue%', Criteria::LIKE); // WHERE VexrCostLastDate LIKE '%fooValue%'
+     * $query->filterByVexrcostlastdate(['foo', 'bar']); // WHERE VexrCostLastDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vexrcostlastdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vexrcostlastdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrcostlastdate($vexrcostlastdate = null, $comparison = null)
+    public function filterByVexrcostlastdate($vexrcostlastdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vexrcostlastdate)) {
@@ -821,7 +892,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE, $vexrcostlastdate, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE, $vexrcostlastdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -834,15 +907,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit1(array('min' => 12)); // WHERE VexrUnitUnit1 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit1 The value to use as filter.
+     * @param mixed $vexrunitunit1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit1($vexrunitunit1 = null, $comparison = null)
+    public function filterByVexrunitunit1($vexrunitunit1 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit1)) {
             $useMinMax = false;
@@ -862,7 +935,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT1, $vexrunitunit1, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT1, $vexrunitunit1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -875,15 +950,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost1(array('min' => 12)); // WHERE VexrUnitCost1 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost1 The value to use as filter.
+     * @param mixed $vexrunitcost1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost1($vexrunitcost1 = null, $comparison = null)
+    public function filterByVexrunitcost1($vexrunitcost1 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost1)) {
             $useMinMax = false;
@@ -903,7 +978,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST1, $vexrunitcost1, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST1, $vexrunitcost1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -916,15 +993,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit2(array('min' => 12)); // WHERE VexrUnitUnit2 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit2 The value to use as filter.
+     * @param mixed $vexrunitunit2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit2($vexrunitunit2 = null, $comparison = null)
+    public function filterByVexrunitunit2($vexrunitunit2 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit2)) {
             $useMinMax = false;
@@ -944,7 +1021,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT2, $vexrunitunit2, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT2, $vexrunitunit2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -957,15 +1036,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost2(array('min' => 12)); // WHERE VexrUnitCost2 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost2 The value to use as filter.
+     * @param mixed $vexrunitcost2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost2($vexrunitcost2 = null, $comparison = null)
+    public function filterByVexrunitcost2($vexrunitcost2 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost2)) {
             $useMinMax = false;
@@ -985,7 +1064,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST2, $vexrunitcost2, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST2, $vexrunitcost2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -998,15 +1079,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit3(array('min' => 12)); // WHERE VexrUnitUnit3 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit3 The value to use as filter.
+     * @param mixed $vexrunitunit3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit3($vexrunitunit3 = null, $comparison = null)
+    public function filterByVexrunitunit3($vexrunitunit3 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit3)) {
             $useMinMax = false;
@@ -1026,7 +1107,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT3, $vexrunitunit3, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT3, $vexrunitunit3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1039,15 +1122,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost3(array('min' => 12)); // WHERE VexrUnitCost3 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost3 The value to use as filter.
+     * @param mixed $vexrunitcost3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost3($vexrunitcost3 = null, $comparison = null)
+    public function filterByVexrunitcost3($vexrunitcost3 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost3)) {
             $useMinMax = false;
@@ -1067,7 +1150,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST3, $vexrunitcost3, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST3, $vexrunitcost3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1080,15 +1165,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit4(array('min' => 12)); // WHERE VexrUnitUnit4 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit4 The value to use as filter.
+     * @param mixed $vexrunitunit4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit4($vexrunitunit4 = null, $comparison = null)
+    public function filterByVexrunitunit4($vexrunitunit4 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit4)) {
             $useMinMax = false;
@@ -1108,7 +1193,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT4, $vexrunitunit4, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT4, $vexrunitunit4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1121,15 +1208,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost4(array('min' => 12)); // WHERE VexrUnitCost4 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost4 The value to use as filter.
+     * @param mixed $vexrunitcost4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost4($vexrunitcost4 = null, $comparison = null)
+    public function filterByVexrunitcost4($vexrunitcost4 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost4)) {
             $useMinMax = false;
@@ -1149,7 +1236,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST4, $vexrunitcost4, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST4, $vexrunitcost4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1162,15 +1251,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit5(array('min' => 12)); // WHERE VexrUnitUnit5 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit5 The value to use as filter.
+     * @param mixed $vexrunitunit5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit5($vexrunitunit5 = null, $comparison = null)
+    public function filterByVexrunitunit5($vexrunitunit5 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit5)) {
             $useMinMax = false;
@@ -1190,7 +1279,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT5, $vexrunitunit5, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT5, $vexrunitunit5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1203,15 +1294,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost5(array('min' => 12)); // WHERE VexrUnitCost5 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost5 The value to use as filter.
+     * @param mixed $vexrunitcost5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost5($vexrunitcost5 = null, $comparison = null)
+    public function filterByVexrunitcost5($vexrunitcost5 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost5)) {
             $useMinMax = false;
@@ -1231,7 +1322,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST5, $vexrunitcost5, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST5, $vexrunitcost5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1244,15 +1337,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit6(array('min' => 12)); // WHERE VexrUnitUnit6 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit6 The value to use as filter.
+     * @param mixed $vexrunitunit6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit6($vexrunitunit6 = null, $comparison = null)
+    public function filterByVexrunitunit6($vexrunitunit6 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit6)) {
             $useMinMax = false;
@@ -1272,7 +1365,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT6, $vexrunitunit6, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT6, $vexrunitunit6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1285,15 +1380,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost6(array('min' => 12)); // WHERE VexrUnitCost6 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost6 The value to use as filter.
+     * @param mixed $vexrunitcost6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost6($vexrunitcost6 = null, $comparison = null)
+    public function filterByVexrunitcost6($vexrunitcost6 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost6)) {
             $useMinMax = false;
@@ -1313,7 +1408,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST6, $vexrunitcost6, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST6, $vexrunitcost6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1326,15 +1423,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit7(array('min' => 12)); // WHERE VexrUnitUnit7 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit7 The value to use as filter.
+     * @param mixed $vexrunitunit7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit7($vexrunitunit7 = null, $comparison = null)
+    public function filterByVexrunitunit7($vexrunitunit7 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit7)) {
             $useMinMax = false;
@@ -1354,7 +1451,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT7, $vexrunitunit7, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT7, $vexrunitunit7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1367,15 +1466,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost7(array('min' => 12)); // WHERE VexrUnitCost7 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost7 The value to use as filter.
+     * @param mixed $vexrunitcost7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost7($vexrunitcost7 = null, $comparison = null)
+    public function filterByVexrunitcost7($vexrunitcost7 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost7)) {
             $useMinMax = false;
@@ -1395,7 +1494,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST7, $vexrunitcost7, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST7, $vexrunitcost7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1408,15 +1509,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit8(array('min' => 12)); // WHERE VexrUnitUnit8 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit8 The value to use as filter.
+     * @param mixed $vexrunitunit8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit8($vexrunitunit8 = null, $comparison = null)
+    public function filterByVexrunitunit8($vexrunitunit8 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit8)) {
             $useMinMax = false;
@@ -1436,7 +1537,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT8, $vexrunitunit8, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT8, $vexrunitunit8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1449,15 +1552,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost8(array('min' => 12)); // WHERE VexrUnitCost8 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost8 The value to use as filter.
+     * @param mixed $vexrunitcost8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost8($vexrunitcost8 = null, $comparison = null)
+    public function filterByVexrunitcost8($vexrunitcost8 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost8)) {
             $useMinMax = false;
@@ -1477,7 +1580,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST8, $vexrunitcost8, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST8, $vexrunitcost8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1490,15 +1595,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit9(array('min' => 12)); // WHERE VexrUnitUnit9 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit9 The value to use as filter.
+     * @param mixed $vexrunitunit9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit9($vexrunitunit9 = null, $comparison = null)
+    public function filterByVexrunitunit9($vexrunitunit9 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit9)) {
             $useMinMax = false;
@@ -1518,7 +1623,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT9, $vexrunitunit9, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT9, $vexrunitunit9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1531,15 +1638,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost9(array('min' => 12)); // WHERE VexrUnitCost9 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost9 The value to use as filter.
+     * @param mixed $vexrunitcost9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost9($vexrunitcost9 = null, $comparison = null)
+    public function filterByVexrunitcost9($vexrunitcost9 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost9)) {
             $useMinMax = false;
@@ -1559,7 +1666,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST9, $vexrunitcost9, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST9, $vexrunitcost9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1572,15 +1681,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitunit10(array('min' => 12)); // WHERE VexrUnitUnit10 > 12
      * </code>
      *
-     * @param     mixed $vexrunitunit10 The value to use as filter.
+     * @param mixed $vexrunitunit10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitunit10($vexrunitunit10 = null, $comparison = null)
+    public function filterByVexrunitunit10($vexrunitunit10 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitunit10)) {
             $useMinMax = false;
@@ -1600,7 +1709,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT10, $vexrunitunit10, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITUNIT10, $vexrunitunit10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1613,15 +1724,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrunitcost10(array('min' => 12)); // WHERE VexrUnitCost10 > 12
      * </code>
      *
-     * @param     mixed $vexrunitcost10 The value to use as filter.
+     * @param mixed $vexrunitcost10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrunitcost10($vexrunitcost10 = null, $comparison = null)
+    public function filterByVexrunitcost10($vexrunitcost10 = null, ?string $comparison = null)
     {
         if (is_array($vexrunitcost10)) {
             $useMinMax = false;
@@ -1641,7 +1752,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST10, $vexrunitcost10, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRUNITCOST10, $vexrunitcost10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1651,14 +1764,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByVexraprvcode('fooValue');   // WHERE VexrAprvCode = 'fooValue'
      * $query->filterByVexraprvcode('%fooValue%', Criteria::LIKE); // WHERE VexrAprvCode LIKE '%fooValue%'
+     * $query->filterByVexraprvcode(['foo', 'bar']); // WHERE VexrAprvCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vexraprvcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vexraprvcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexraprvcode($vexraprvcode = null, $comparison = null)
+    public function filterByVexraprvcode($vexraprvcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vexraprvcode)) {
@@ -1666,7 +1780,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRAPRVCODE, $vexraprvcode, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRAPRVCODE, $vexraprvcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1679,15 +1795,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * $query->filterByVexrminbuyqty(array('min' => 12)); // WHERE VexrMinBuyQty > 12
      * </code>
      *
-     * @param     mixed $vexrminbuyqty The value to use as filter.
+     * @param mixed $vexrminbuyqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVexrminbuyqty($vexrminbuyqty = null, $comparison = null)
+    public function filterByVexrminbuyqty($vexrminbuyqty = null, ?string $comparison = null)
     {
         if (is_array($vexrminbuyqty)) {
             $useMinMax = false;
@@ -1707,7 +1823,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRMINBUYQTY, $vexrminbuyqty, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRMINBUYQTY, $vexrminbuyqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1717,14 +1835,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1732,7 +1851,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1742,14 +1863,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1757,7 +1879,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1767,14 +1891,15 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1782,20 +1907,22 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItemXrefVendorTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Vendor object
      *
      * @param \Vendor|ObjectCollection $vendor The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendor($vendor, $comparison = null)
+    public function filterByVendor($vendor, ?string $comparison = null)
     {
         if ($vendor instanceof \Vendor) {
             return $this
@@ -1805,8 +1932,10 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemXrefVendorTableMap::COL_APVEVENDID, $vendor->toKeyValue('PrimaryKey', 'Apvevendid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByVendor() only accepts arguments of type \Vendor or Collection');
         }
@@ -1815,12 +1944,12 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Vendor relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinVendor($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinVendor(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Vendor');
@@ -1849,9 +1978,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \VendorQuery A secondary query class using the current class as primary query
      */
@@ -1863,16 +1992,112 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the Vendor relation Vendor object
+     *
+     * @param callable(\VendorQuery):\VendorQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withVendorQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useVendorQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Vendor table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \VendorQuery The inner query object of the EXISTS statement
+     */
+    public function useVendorExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT EXISTS query.
+     *
+     * @see useVendorExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useVendorNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \VendorQuery The inner query object of the IN statement
+     */
+    public function useInVendorQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT IN query.
+     *
+     * @see useVendorInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInVendorQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1882,8 +2107,10 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemXrefVendorTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1892,12 +2119,12 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1926,9 +2153,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1940,16 +2167,112 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \UnitofMeasurePurchase object
      *
      * @param \UnitofMeasurePurchase|ObjectCollection $unitofMeasurePurchase The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUnitofMeasurePurchase($unitofMeasurePurchase, $comparison = null)
+    public function filterByUnitofMeasurePurchase($unitofMeasurePurchase, ?string $comparison = null)
     {
         if ($unitofMeasurePurchase instanceof \UnitofMeasurePurchase) {
             return $this
@@ -1959,8 +2282,10 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemXrefVendorTableMap::COL_INTBUOMPUR, $unitofMeasurePurchase->toKeyValue('PrimaryKey', 'Intbuompur'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByUnitofMeasurePurchase() only accepts arguments of type \UnitofMeasurePurchase or Collection');
         }
@@ -1969,12 +2294,12 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the UnitofMeasurePurchase relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinUnitofMeasurePurchase($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinUnitofMeasurePurchase(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('UnitofMeasurePurchase');
@@ -2003,9 +2328,9 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \UnitofMeasurePurchaseQuery A secondary query class using the current class as primary query
      */
@@ -2017,11 +2342,107 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the UnitofMeasurePurchase relation UnitofMeasurePurchase object
+     *
+     * @param callable(\UnitofMeasurePurchaseQuery):\UnitofMeasurePurchaseQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withUnitofMeasurePurchaseQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useUnitofMeasurePurchaseQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to UnitofMeasurePurchase table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \UnitofMeasurePurchaseQuery The inner query object of the EXISTS statement
+     */
+    public function useUnitofMeasurePurchaseExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \UnitofMeasurePurchaseQuery */
+        $q = $this->useExistsQuery('UnitofMeasurePurchase', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasurePurchase table for a NOT EXISTS query.
+     *
+     * @see useUnitofMeasurePurchaseExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \UnitofMeasurePurchaseQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useUnitofMeasurePurchaseNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UnitofMeasurePurchaseQuery */
+        $q = $this->useExistsQuery('UnitofMeasurePurchase', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasurePurchase table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \UnitofMeasurePurchaseQuery The inner query object of the IN statement
+     */
+    public function useInUnitofMeasurePurchaseQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \UnitofMeasurePurchaseQuery */
+        $q = $this->useInQuery('UnitofMeasurePurchase', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasurePurchase table for a NOT IN query.
+     *
+     * @see useUnitofMeasurePurchaseInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \UnitofMeasurePurchaseQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInUnitofMeasurePurchaseQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UnitofMeasurePurchaseQuery */
+        $q = $this->useInQuery('UnitofMeasurePurchase', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildItemXrefVendor $itemXrefVendor Object to remove from the list of results
+     * @param ChildItemXrefVendor $itemXrefVendor Object to remove from the list of results
      *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itemXrefVendor = null)
     {
@@ -2041,7 +2462,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorTableMap::DATABASE_NAME);
@@ -2066,12 +2487,12 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorTableMap::DATABASE_NAME);
@@ -2096,4 +2517,4 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
         });
     }
 
-} // ItemXrefVendorQuery
+}

@@ -10,14 +10,12 @@ use Map\MotorFreightCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_mfrt_code' table.
- *
- *
+ * Base class that represents a query for the `so_mfrt_code` table.
  *
  * @method     ChildMotorFreightCodeQuery orderByOe2tbmfrtcode($order = Criteria::ASC) Order by the Oe2tbMfrtCode column
  * @method     ChildMotorFreightCodeQuery orderByOe2tbmfrtclass($order = Criteria::ASC) Order by the Oe2tbMfrtClass column
@@ -47,21 +45,21 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildMotorFreightCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildMotorFreightCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildMotorFreightCode findOne(ConnectionInterface $con = null) Return the first ChildMotorFreightCode matching the query
- * @method     ChildMotorFreightCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildMotorFreightCode matching the query, or a new ChildMotorFreightCode object populated from the query conditions when no match is found
+ * @method     ChildMotorFreightCode|null findOne(?ConnectionInterface $con = null) Return the first ChildMotorFreightCode matching the query
+ * @method     ChildMotorFreightCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildMotorFreightCode matching the query, or a new ChildMotorFreightCode object populated from the query conditions when no match is found
  *
- * @method     ChildMotorFreightCode findOneByOe2tbmfrtcode(string $Oe2tbMfrtCode) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtCode column
- * @method     ChildMotorFreightCode findOneByOe2tbmfrtclass(string $Oe2tbMfrtClass) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtClass column
- * @method     ChildMotorFreightCode findOneByOe2tbmfrtdesc1(string $Oe2tbMfrtDesc1) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtDesc1 column
- * @method     ChildMotorFreightCode findOneByOe2tbmfrtdesc2(string $Oe2tbMfrtDesc2) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtDesc2 column
- * @method     ChildMotorFreightCode findOneByOe2tbmfrtdesc3(string $Oe2tbMfrtDesc3) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtDesc3 column
- * @method     ChildMotorFreightCode findOneByOe2tbmfrtdesc4(string $Oe2tbMfrtDesc4) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtDesc4 column
- * @method     ChildMotorFreightCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildMotorFreightCode filtered by the DateUpdtd column
- * @method     ChildMotorFreightCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMotorFreightCode filtered by the TimeUpdtd column
- * @method     ChildMotorFreightCode findOneByDummy(string $dummy) Return the first ChildMotorFreightCode filtered by the dummy column *
-
- * @method     ChildMotorFreightCode requirePk($key, ConnectionInterface $con = null) Return the ChildMotorFreightCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildMotorFreightCode requireOne(ConnectionInterface $con = null) Return the first ChildMotorFreightCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildMotorFreightCode|null findOneByOe2tbmfrtcode(string $Oe2tbMfrtCode) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtCode column
+ * @method     ChildMotorFreightCode|null findOneByOe2tbmfrtclass(string $Oe2tbMfrtClass) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtClass column
+ * @method     ChildMotorFreightCode|null findOneByOe2tbmfrtdesc1(string $Oe2tbMfrtDesc1) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtDesc1 column
+ * @method     ChildMotorFreightCode|null findOneByOe2tbmfrtdesc2(string $Oe2tbMfrtDesc2) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtDesc2 column
+ * @method     ChildMotorFreightCode|null findOneByOe2tbmfrtdesc3(string $Oe2tbMfrtDesc3) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtDesc3 column
+ * @method     ChildMotorFreightCode|null findOneByOe2tbmfrtdesc4(string $Oe2tbMfrtDesc4) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtDesc4 column
+ * @method     ChildMotorFreightCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildMotorFreightCode filtered by the DateUpdtd column
+ * @method     ChildMotorFreightCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMotorFreightCode filtered by the TimeUpdtd column
+ * @method     ChildMotorFreightCode|null findOneByDummy(string $dummy) Return the first ChildMotorFreightCode filtered by the dummy column
+ *
+ * @method     ChildMotorFreightCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildMotorFreightCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildMotorFreightCode requireOne(?ConnectionInterface $con = null) Return the first ChildMotorFreightCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildMotorFreightCode requireOneByOe2tbmfrtcode(string $Oe2tbMfrtCode) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildMotorFreightCode requireOneByOe2tbmfrtclass(string $Oe2tbMfrtClass) Return the first ChildMotorFreightCode filtered by the Oe2tbMfrtClass column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -73,18 +71,30 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildMotorFreightCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMotorFreightCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildMotorFreightCode requireOneByDummy(string $dummy) Return the first ChildMotorFreightCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildMotorFreightCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildMotorFreightCode objects based on current ModelCriteria
- * @method     ChildMotorFreightCode[]|ObjectCollection findByOe2tbmfrtcode(string $Oe2tbMfrtCode) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtCode column
- * @method     ChildMotorFreightCode[]|ObjectCollection findByOe2tbmfrtclass(string $Oe2tbMfrtClass) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtClass column
- * @method     ChildMotorFreightCode[]|ObjectCollection findByOe2tbmfrtdesc1(string $Oe2tbMfrtDesc1) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc1 column
- * @method     ChildMotorFreightCode[]|ObjectCollection findByOe2tbmfrtdesc2(string $Oe2tbMfrtDesc2) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc2 column
- * @method     ChildMotorFreightCode[]|ObjectCollection findByOe2tbmfrtdesc3(string $Oe2tbMfrtDesc3) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc3 column
- * @method     ChildMotorFreightCode[]|ObjectCollection findByOe2tbmfrtdesc4(string $Oe2tbMfrtDesc4) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc4 column
- * @method     ChildMotorFreightCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildMotorFreightCode objects filtered by the DateUpdtd column
- * @method     ChildMotorFreightCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildMotorFreightCode objects filtered by the TimeUpdtd column
- * @method     ChildMotorFreightCode[]|ObjectCollection findByDummy(string $dummy) Return ChildMotorFreightCode objects filtered by the dummy column
- * @method     ChildMotorFreightCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildMotorFreightCode[]|Collection find(?ConnectionInterface $con = null) Return ChildMotorFreightCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> find(?ConnectionInterface $con = null) Return ChildMotorFreightCode objects based on current ModelCriteria
  *
+ * @method     ChildMotorFreightCode[]|Collection findByOe2tbmfrtcode(string|array<string> $Oe2tbMfrtCode) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtCode column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByOe2tbmfrtcode(string|array<string> $Oe2tbMfrtCode) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtCode column
+ * @method     ChildMotorFreightCode[]|Collection findByOe2tbmfrtclass(string|array<string> $Oe2tbMfrtClass) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtClass column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByOe2tbmfrtclass(string|array<string> $Oe2tbMfrtClass) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtClass column
+ * @method     ChildMotorFreightCode[]|Collection findByOe2tbmfrtdesc1(string|array<string> $Oe2tbMfrtDesc1) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc1 column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByOe2tbmfrtdesc1(string|array<string> $Oe2tbMfrtDesc1) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc1 column
+ * @method     ChildMotorFreightCode[]|Collection findByOe2tbmfrtdesc2(string|array<string> $Oe2tbMfrtDesc2) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc2 column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByOe2tbmfrtdesc2(string|array<string> $Oe2tbMfrtDesc2) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc2 column
+ * @method     ChildMotorFreightCode[]|Collection findByOe2tbmfrtdesc3(string|array<string> $Oe2tbMfrtDesc3) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc3 column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByOe2tbmfrtdesc3(string|array<string> $Oe2tbMfrtDesc3) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc3 column
+ * @method     ChildMotorFreightCode[]|Collection findByOe2tbmfrtdesc4(string|array<string> $Oe2tbMfrtDesc4) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc4 column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByOe2tbmfrtdesc4(string|array<string> $Oe2tbMfrtDesc4) Return ChildMotorFreightCode objects filtered by the Oe2tbMfrtDesc4 column
+ * @method     ChildMotorFreightCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildMotorFreightCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildMotorFreightCode objects filtered by the DateUpdtd column
+ * @method     ChildMotorFreightCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildMotorFreightCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildMotorFreightCode objects filtered by the TimeUpdtd column
+ * @method     ChildMotorFreightCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildMotorFreightCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildMotorFreightCode> findByDummy(string|array<string> $dummy) Return ChildMotorFreightCode objects filtered by the dummy column
+ *
+ * @method     ChildMotorFreightCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildMotorFreightCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class MotorFreightCodeQuery extends ModelCriteria
 {
@@ -93,9 +103,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\MotorFreightCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\MotorFreightCode', $modelAlias = null)
     {
@@ -105,12 +115,12 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildMotorFreightCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildMotorFreightCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildMotorFreightCodeQuery) {
             return $criteria;
@@ -140,7 +150,7 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      *
      * @return ChildMotorFreightCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -172,8 +182,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -205,8 +215,8 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildMotorFreightCode|array|mixed the result, formatted by the current formatter
      */
@@ -226,12 +236,12 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -248,27 +258,31 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -278,14 +292,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOe2tbmfrtcode('fooValue');   // WHERE Oe2tbMfrtCode = 'fooValue'
      * $query->filterByOe2tbmfrtcode('%fooValue%', Criteria::LIKE); // WHERE Oe2tbMfrtCode LIKE '%fooValue%'
+     * $query->filterByOe2tbmfrtcode(['foo', 'bar']); // WHERE Oe2tbMfrtCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oe2tbmfrtcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oe2tbmfrtcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOe2tbmfrtcode($oe2tbmfrtcode = null, $comparison = null)
+    public function filterByOe2tbmfrtcode($oe2tbmfrtcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oe2tbmfrtcode)) {
@@ -293,7 +308,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCODE, $oe2tbmfrtcode, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCODE, $oe2tbmfrtcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -303,14 +320,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOe2tbmfrtclass('fooValue');   // WHERE Oe2tbMfrtClass = 'fooValue'
      * $query->filterByOe2tbmfrtclass('%fooValue%', Criteria::LIKE); // WHERE Oe2tbMfrtClass LIKE '%fooValue%'
+     * $query->filterByOe2tbmfrtclass(['foo', 'bar']); // WHERE Oe2tbMfrtClass IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oe2tbmfrtclass The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oe2tbmfrtclass The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOe2tbmfrtclass($oe2tbmfrtclass = null, $comparison = null)
+    public function filterByOe2tbmfrtclass($oe2tbmfrtclass = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oe2tbmfrtclass)) {
@@ -318,7 +336,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCLASS, $oe2tbmfrtclass, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTCLASS, $oe2tbmfrtclass, $comparison);
+
+        return $this;
     }
 
     /**
@@ -328,14 +348,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOe2tbmfrtdesc1('fooValue');   // WHERE Oe2tbMfrtDesc1 = 'fooValue'
      * $query->filterByOe2tbmfrtdesc1('%fooValue%', Criteria::LIKE); // WHERE Oe2tbMfrtDesc1 LIKE '%fooValue%'
+     * $query->filterByOe2tbmfrtdesc1(['foo', 'bar']); // WHERE Oe2tbMfrtDesc1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oe2tbmfrtdesc1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oe2tbmfrtdesc1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOe2tbmfrtdesc1($oe2tbmfrtdesc1 = null, $comparison = null)
+    public function filterByOe2tbmfrtdesc1($oe2tbmfrtdesc1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oe2tbmfrtdesc1)) {
@@ -343,7 +364,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC1, $oe2tbmfrtdesc1, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC1, $oe2tbmfrtdesc1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -353,14 +376,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOe2tbmfrtdesc2('fooValue');   // WHERE Oe2tbMfrtDesc2 = 'fooValue'
      * $query->filterByOe2tbmfrtdesc2('%fooValue%', Criteria::LIKE); // WHERE Oe2tbMfrtDesc2 LIKE '%fooValue%'
+     * $query->filterByOe2tbmfrtdesc2(['foo', 'bar']); // WHERE Oe2tbMfrtDesc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oe2tbmfrtdesc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oe2tbmfrtdesc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOe2tbmfrtdesc2($oe2tbmfrtdesc2 = null, $comparison = null)
+    public function filterByOe2tbmfrtdesc2($oe2tbmfrtdesc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oe2tbmfrtdesc2)) {
@@ -368,7 +392,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC2, $oe2tbmfrtdesc2, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC2, $oe2tbmfrtdesc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -378,14 +404,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOe2tbmfrtdesc3('fooValue');   // WHERE Oe2tbMfrtDesc3 = 'fooValue'
      * $query->filterByOe2tbmfrtdesc3('%fooValue%', Criteria::LIKE); // WHERE Oe2tbMfrtDesc3 LIKE '%fooValue%'
+     * $query->filterByOe2tbmfrtdesc3(['foo', 'bar']); // WHERE Oe2tbMfrtDesc3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oe2tbmfrtdesc3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oe2tbmfrtdesc3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOe2tbmfrtdesc3($oe2tbmfrtdesc3 = null, $comparison = null)
+    public function filterByOe2tbmfrtdesc3($oe2tbmfrtdesc3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oe2tbmfrtdesc3)) {
@@ -393,7 +420,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC3, $oe2tbmfrtdesc3, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC3, $oe2tbmfrtdesc3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -403,14 +432,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOe2tbmfrtdesc4('fooValue');   // WHERE Oe2tbMfrtDesc4 = 'fooValue'
      * $query->filterByOe2tbmfrtdesc4('%fooValue%', Criteria::LIKE); // WHERE Oe2tbMfrtDesc4 LIKE '%fooValue%'
+     * $query->filterByOe2tbmfrtdesc4(['foo', 'bar']); // WHERE Oe2tbMfrtDesc4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oe2tbmfrtdesc4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oe2tbmfrtdesc4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOe2tbmfrtdesc4($oe2tbmfrtdesc4 = null, $comparison = null)
+    public function filterByOe2tbmfrtdesc4($oe2tbmfrtdesc4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oe2tbmfrtdesc4)) {
@@ -418,7 +448,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC4, $oe2tbmfrtdesc4, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_OE2TBMFRTDESC4, $oe2tbmfrtdesc4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -428,14 +460,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -443,7 +476,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -453,14 +488,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -468,7 +504,9 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -478,14 +516,15 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -493,15 +532,17 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MotorFreightCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(MotorFreightCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildMotorFreightCode $motorFreightCode Object to remove from the list of results
+     * @param ChildMotorFreightCode $motorFreightCode Object to remove from the list of results
      *
-     * @return $this|ChildMotorFreightCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($motorFreightCode = null)
     {
@@ -518,7 +559,7 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(MotorFreightCodeTableMap::DATABASE_NAME);
@@ -543,12 +584,12 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(MotorFreightCodeTableMap::DATABASE_NAME);
@@ -573,4 +614,4 @@ abstract class MotorFreightCodeQuery extends ModelCriteria
         });
     }
 
-} // MotorFreightCodeQuery
+}

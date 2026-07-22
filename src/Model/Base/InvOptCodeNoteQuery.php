@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_opt_code_in' table.
- *
- *
+ * Base class that represents a query for the `notes_opt_code_in` table.
  *
  * @method     ChildInvOptCodeNoteQuery orderByQnoptsys($order = Criteria::ASC) Order by the QnOptSys column
  * @method     ChildInvOptCodeNoteQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
@@ -64,23 +63,23 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvOptCodeNote findOne(ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query
- * @method     ChildInvOptCodeNote findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query, or a new ChildInvOptCodeNote object populated from the query conditions when no match is found
+ * @method     ChildInvOptCodeNote|null findOne(?ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query
+ * @method     ChildInvOptCodeNote findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query, or a new ChildInvOptCodeNote object populated from the query conditions when no match is found
  *
- * @method     ChildInvOptCodeNote findOneByQnoptsys(string $QnOptSys) Return the first ChildInvOptCodeNote filtered by the QnOptSys column
- * @method     ChildInvOptCodeNote findOneByQntype(string $QnType) Return the first ChildInvOptCodeNote filtered by the QnType column
- * @method     ChildInvOptCodeNote findOneByQntypedesc(string $QnTypeDesc) Return the first ChildInvOptCodeNote filtered by the QnTypeDesc column
- * @method     ChildInvOptCodeNote findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCodeNote filtered by the InitItemNbr column
- * @method     ChildInvOptCodeNote findOneByQnseq(int $QnSeq) Return the first ChildInvOptCodeNote filtered by the QnSeq column
- * @method     ChildInvOptCodeNote findOneByQnnote(string $QnNote) Return the first ChildInvOptCodeNote filtered by the QnNote column
- * @method     ChildInvOptCodeNote findOneByQnkey2(string $QnKey2) Return the first ChildInvOptCodeNote filtered by the QnKey2 column
- * @method     ChildInvOptCodeNote findOneByQnform(string $QnForm) Return the first ChildInvOptCodeNote filtered by the QnForm column
- * @method     ChildInvOptCodeNote findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvOptCodeNote filtered by the DateUpdtd column
- * @method     ChildInvOptCodeNote findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvOptCodeNote filtered by the TimeUpdtd column
- * @method     ChildInvOptCodeNote findOneByDummy(string $dummy) Return the first ChildInvOptCodeNote filtered by the dummy column *
-
- * @method     ChildInvOptCodeNote requirePk($key, ConnectionInterface $con = null) Return the ChildInvOptCodeNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvOptCodeNote requireOne(ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote|null findOneByQnoptsys(string $QnOptSys) Return the first ChildInvOptCodeNote filtered by the QnOptSys column
+ * @method     ChildInvOptCodeNote|null findOneByQntype(string $QnType) Return the first ChildInvOptCodeNote filtered by the QnType column
+ * @method     ChildInvOptCodeNote|null findOneByQntypedesc(string $QnTypeDesc) Return the first ChildInvOptCodeNote filtered by the QnTypeDesc column
+ * @method     ChildInvOptCodeNote|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCodeNote filtered by the InitItemNbr column
+ * @method     ChildInvOptCodeNote|null findOneByQnseq(int $QnSeq) Return the first ChildInvOptCodeNote filtered by the QnSeq column
+ * @method     ChildInvOptCodeNote|null findOneByQnnote(string $QnNote) Return the first ChildInvOptCodeNote filtered by the QnNote column
+ * @method     ChildInvOptCodeNote|null findOneByQnkey2(string $QnKey2) Return the first ChildInvOptCodeNote filtered by the QnKey2 column
+ * @method     ChildInvOptCodeNote|null findOneByQnform(string $QnForm) Return the first ChildInvOptCodeNote filtered by the QnForm column
+ * @method     ChildInvOptCodeNote|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvOptCodeNote filtered by the DateUpdtd column
+ * @method     ChildInvOptCodeNote|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvOptCodeNote filtered by the TimeUpdtd column
+ * @method     ChildInvOptCodeNote|null findOneByDummy(string $dummy) Return the first ChildInvOptCodeNote filtered by the dummy column
+ *
+ * @method     ChildInvOptCodeNote requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvOptCodeNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOne(?ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvOptCodeNote requireOneByQnoptsys(string $QnOptSys) Return the first ChildInvOptCodeNote filtered by the QnOptSys column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvOptCodeNote requireOneByQntype(string $QnType) Return the first ChildInvOptCodeNote filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -94,20 +93,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvOptCodeNote requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvOptCodeNote filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvOptCodeNote requireOneByDummy(string $dummy) Return the first ChildInvOptCodeNote filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvOptCodeNote[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvOptCodeNote objects based on current ModelCriteria
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnoptsys(string $QnOptSys) Return ChildInvOptCodeNote objects filtered by the QnOptSys column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByQntype(string $QnType) Return ChildInvOptCodeNote objects filtered by the QnType column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildInvOptCodeNote objects filtered by the QnTypeDesc column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvOptCodeNote objects filtered by the InitItemNbr column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildInvOptCodeNote objects filtered by the QnSeq column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnnote(string $QnNote) Return ChildInvOptCodeNote objects filtered by the QnNote column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildInvOptCodeNote objects filtered by the QnKey2 column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnform(string $QnForm) Return ChildInvOptCodeNote objects filtered by the QnForm column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvOptCodeNote objects filtered by the DateUpdtd column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvOptCodeNote objects filtered by the TimeUpdtd column
- * @method     ChildInvOptCodeNote[]|ObjectCollection findByDummy(string $dummy) Return ChildInvOptCodeNote objects filtered by the dummy column
- * @method     ChildInvOptCodeNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvOptCodeNote[]|Collection find(?ConnectionInterface $con = null) Return ChildInvOptCodeNote objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> find(?ConnectionInterface $con = null) Return ChildInvOptCodeNote objects based on current ModelCriteria
  *
+ * @method     ChildInvOptCodeNote[]|Collection findByQnoptsys(string|array<string> $QnOptSys) Return ChildInvOptCodeNote objects filtered by the QnOptSys column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByQnoptsys(string|array<string> $QnOptSys) Return ChildInvOptCodeNote objects filtered by the QnOptSys column
+ * @method     ChildInvOptCodeNote[]|Collection findByQntype(string|array<string> $QnType) Return ChildInvOptCodeNote objects filtered by the QnType column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByQntype(string|array<string> $QnType) Return ChildInvOptCodeNote objects filtered by the QnType column
+ * @method     ChildInvOptCodeNote[]|Collection findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildInvOptCodeNote objects filtered by the QnTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildInvOptCodeNote objects filtered by the QnTypeDesc column
+ * @method     ChildInvOptCodeNote[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvOptCodeNote objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvOptCodeNote objects filtered by the InitItemNbr column
+ * @method     ChildInvOptCodeNote[]|Collection findByQnseq(int|array<int> $QnSeq) Return ChildInvOptCodeNote objects filtered by the QnSeq column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByQnseq(int|array<int> $QnSeq) Return ChildInvOptCodeNote objects filtered by the QnSeq column
+ * @method     ChildInvOptCodeNote[]|Collection findByQnnote(string|array<string> $QnNote) Return ChildInvOptCodeNote objects filtered by the QnNote column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByQnnote(string|array<string> $QnNote) Return ChildInvOptCodeNote objects filtered by the QnNote column
+ * @method     ChildInvOptCodeNote[]|Collection findByQnkey2(string|array<string> $QnKey2) Return ChildInvOptCodeNote objects filtered by the QnKey2 column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByQnkey2(string|array<string> $QnKey2) Return ChildInvOptCodeNote objects filtered by the QnKey2 column
+ * @method     ChildInvOptCodeNote[]|Collection findByQnform(string|array<string> $QnForm) Return ChildInvOptCodeNote objects filtered by the QnForm column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByQnform(string|array<string> $QnForm) Return ChildInvOptCodeNote objects filtered by the QnForm column
+ * @method     ChildInvOptCodeNote[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvOptCodeNote objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvOptCodeNote objects filtered by the DateUpdtd column
+ * @method     ChildInvOptCodeNote[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvOptCodeNote objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvOptCodeNote objects filtered by the TimeUpdtd column
+ * @method     ChildInvOptCodeNote[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvOptCodeNote objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvOptCodeNote> findByDummy(string|array<string> $dummy) Return ChildInvOptCodeNote objects filtered by the dummy column
+ *
+ * @method     ChildInvOptCodeNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvOptCodeNote> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvOptCodeNoteQuery extends ModelCriteria
 {
@@ -116,9 +129,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvOptCodeNoteQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvOptCodeNote', $modelAlias = null)
     {
@@ -128,12 +141,12 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
     /**
      * Returns a new ChildInvOptCodeNoteQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvOptCodeNoteQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvOptCodeNoteQuery) {
             return $criteria;
@@ -163,7 +176,7 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      *
      * @return ChildInvOptCodeNote|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -195,8 +208,8 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -232,8 +245,8 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvOptCodeNote|array|mixed the result, formatted by the current formatter
      */
@@ -253,12 +266,12 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -275,9 +288,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -293,14 +306,16 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvOptCodeNoteTableMap::COL_QNOPTSYS, $key[0], Criteria::EQUAL);
@@ -325,14 +340,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnoptsys('fooValue');   // WHERE QnOptSys = 'fooValue'
      * $query->filterByQnoptsys('%fooValue%', Criteria::LIKE); // WHERE QnOptSys LIKE '%fooValue%'
+     * $query->filterByQnoptsys(['foo', 'bar']); // WHERE QnOptSys IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnoptsys The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnoptsys The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnoptsys($qnoptsys = null, $comparison = null)
+    public function filterByQnoptsys($qnoptsys = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnoptsys)) {
@@ -340,7 +356,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNOPTSYS, $qnoptsys, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNOPTSYS, $qnoptsys, $comparison);
+
+        return $this;
     }
 
     /**
@@ -350,14 +368,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQntype('fooValue');   // WHERE QnType = 'fooValue'
      * $query->filterByQntype('%fooValue%', Criteria::LIKE); // WHERE QnType LIKE '%fooValue%'
+     * $query->filterByQntype(['foo', 'bar']); // WHERE QnType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntype($qntype = null, $comparison = null)
+    public function filterByQntype($qntype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntype)) {
@@ -365,7 +384,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNTYPE, $qntype, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNTYPE, $qntype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -375,14 +396,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQntypedesc('fooValue');   // WHERE QnTypeDesc = 'fooValue'
      * $query->filterByQntypedesc('%fooValue%', Criteria::LIKE); // WHERE QnTypeDesc LIKE '%fooValue%'
+     * $query->filterByQntypedesc(['foo', 'bar']); // WHERE QnTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntypedesc($qntypedesc = null, $comparison = null)
+    public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntypedesc)) {
@@ -390,7 +412,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -400,14 +424,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -415,7 +440,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -428,15 +455,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * $query->filterByQnseq(array('min' => 12)); // WHERE QnSeq > 12
      * </code>
      *
-     * @param     mixed $qnseq The value to use as filter.
+     * @param mixed $qnseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnseq($qnseq = null, $comparison = null)
+    public function filterByQnseq($qnseq = null, ?string $comparison = null)
     {
         if (is_array($qnseq)) {
             $useMinMax = false;
@@ -456,7 +483,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -466,14 +495,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnnote('fooValue');   // WHERE QnNote = 'fooValue'
      * $query->filterByQnnote('%fooValue%', Criteria::LIKE); // WHERE QnNote LIKE '%fooValue%'
+     * $query->filterByQnnote(['foo', 'bar']); // WHERE QnNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnnote($qnnote = null, $comparison = null)
+    public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnnote)) {
@@ -481,7 +511,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -491,14 +523,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnkey2('fooValue');   // WHERE QnKey2 = 'fooValue'
      * $query->filterByQnkey2('%fooValue%', Criteria::LIKE); // WHERE QnKey2 LIKE '%fooValue%'
+     * $query->filterByQnkey2(['foo', 'bar']); // WHERE QnKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnkey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnkey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnkey2($qnkey2 = null, $comparison = null)
+    public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnkey2)) {
@@ -506,7 +539,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -516,14 +551,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnform('fooValue');   // WHERE QnForm = 'fooValue'
      * $query->filterByQnform('%fooValue%', Criteria::LIKE); // WHERE QnForm LIKE '%fooValue%'
+     * $query->filterByQnform(['foo', 'bar']); // WHERE QnForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnform($qnform = null, $comparison = null)
+    public function filterByQnform($qnform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnform)) {
@@ -531,7 +567,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNFORM, $qnform, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNFORM, $qnform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -541,14 +579,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -556,7 +595,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -566,14 +607,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -581,7 +623,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -591,14 +635,15 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -606,20 +651,22 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -629,8 +676,10 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvOptCodeNoteTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -639,12 +688,12 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -673,9 +722,9 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -687,11 +736,107 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvOptCodeNote $invOptCodeNote Object to remove from the list of results
+     * @param ChildInvOptCodeNote $invOptCodeNote Object to remove from the list of results
      *
-     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invOptCodeNote = null)
     {
@@ -713,7 +858,7 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
@@ -738,12 +883,12 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
@@ -768,4 +913,4 @@ abstract class InvOptCodeNoteQuery extends ModelCriteria
         });
     }
 
-} // InvOptCodeNoteQuery
+}

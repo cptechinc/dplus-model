@@ -10,14 +10,12 @@ use Map\ItemInspectNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_item_inspect' table.
- *
- *
+ * Base class that represents a query for the `notes_item_inspect` table.
  *
  * @method     ChildItemInspectNoteQuery orderByQcnotype($order = Criteria::ASC) Order by the QcnoType column
  * @method     ChildItemInspectNoteQuery orderByQcnotypedesc($order = Criteria::ASC) Order by the QcnoTypeDesc column
@@ -53,24 +51,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemInspectNoteQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildItemInspectNoteQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildItemInspectNote findOne(ConnectionInterface $con = null) Return the first ChildItemInspectNote matching the query
- * @method     ChildItemInspectNote findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemInspectNote matching the query, or a new ChildItemInspectNote object populated from the query conditions when no match is found
+ * @method     ChildItemInspectNote|null findOne(?ConnectionInterface $con = null) Return the first ChildItemInspectNote matching the query
+ * @method     ChildItemInspectNote findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItemInspectNote matching the query, or a new ChildItemInspectNote object populated from the query conditions when no match is found
  *
- * @method     ChildItemInspectNote findOneByQcnotype(string $QcnoType) Return the first ChildItemInspectNote filtered by the QcnoType column
- * @method     ChildItemInspectNote findOneByQcnotypedesc(string $QcnoTypeDesc) Return the first ChildItemInspectNote filtered by the QcnoTypeDesc column
- * @method     ChildItemInspectNote findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemInspectNote filtered by the InitItemNbr column
- * @method     ChildItemInspectNote findOneByQcnodate(string $QcnoDate) Return the first ChildItemInspectNote filtered by the QcnoDate column
- * @method     ChildItemInspectNote findOneByQcnotime(string $QcnoTime) Return the first ChildItemInspectNote filtered by the QcnoTime column
- * @method     ChildItemInspectNote findOneByQcnouser(string $QcnoUser) Return the first ChildItemInspectNote filtered by the QcnoUser column
- * @method     ChildItemInspectNote findOneByQcnoseq(int $QcnoSeq) Return the first ChildItemInspectNote filtered by the QcnoSeq column
- * @method     ChildItemInspectNote findOneByQcnonote(string $QcnoNote) Return the first ChildItemInspectNote filtered by the QcnoNote column
- * @method     ChildItemInspectNote findOneByQcnokey2(string $QcnoKey2) Return the first ChildItemInspectNote filtered by the QcnoKey2 column
- * @method     ChildItemInspectNote findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemInspectNote filtered by the DateUpdtd column
- * @method     ChildItemInspectNote findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemInspectNote filtered by the TimeUpdtd column
- * @method     ChildItemInspectNote findOneByDummy(string $dummy) Return the first ChildItemInspectNote filtered by the dummy column *
-
- * @method     ChildItemInspectNote requirePk($key, ConnectionInterface $con = null) Return the ChildItemInspectNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemInspectNote requireOne(ConnectionInterface $con = null) Return the first ChildItemInspectNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemInspectNote|null findOneByQcnotype(string $QcnoType) Return the first ChildItemInspectNote filtered by the QcnoType column
+ * @method     ChildItemInspectNote|null findOneByQcnotypedesc(string $QcnoTypeDesc) Return the first ChildItemInspectNote filtered by the QcnoTypeDesc column
+ * @method     ChildItemInspectNote|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemInspectNote filtered by the InitItemNbr column
+ * @method     ChildItemInspectNote|null findOneByQcnodate(string $QcnoDate) Return the first ChildItemInspectNote filtered by the QcnoDate column
+ * @method     ChildItemInspectNote|null findOneByQcnotime(string $QcnoTime) Return the first ChildItemInspectNote filtered by the QcnoTime column
+ * @method     ChildItemInspectNote|null findOneByQcnouser(string $QcnoUser) Return the first ChildItemInspectNote filtered by the QcnoUser column
+ * @method     ChildItemInspectNote|null findOneByQcnoseq(int $QcnoSeq) Return the first ChildItemInspectNote filtered by the QcnoSeq column
+ * @method     ChildItemInspectNote|null findOneByQcnonote(string $QcnoNote) Return the first ChildItemInspectNote filtered by the QcnoNote column
+ * @method     ChildItemInspectNote|null findOneByQcnokey2(string $QcnoKey2) Return the first ChildItemInspectNote filtered by the QcnoKey2 column
+ * @method     ChildItemInspectNote|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemInspectNote filtered by the DateUpdtd column
+ * @method     ChildItemInspectNote|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemInspectNote filtered by the TimeUpdtd column
+ * @method     ChildItemInspectNote|null findOneByDummy(string $dummy) Return the first ChildItemInspectNote filtered by the dummy column
+ *
+ * @method     ChildItemInspectNote requirePk($key, ?ConnectionInterface $con = null) Return the ChildItemInspectNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemInspectNote requireOne(?ConnectionInterface $con = null) Return the first ChildItemInspectNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemInspectNote requireOneByQcnotype(string $QcnoType) Return the first ChildItemInspectNote filtered by the QcnoType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemInspectNote requireOneByQcnotypedesc(string $QcnoTypeDesc) Return the first ChildItemInspectNote filtered by the QcnoTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,21 +83,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemInspectNote requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemInspectNote filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemInspectNote requireOneByDummy(string $dummy) Return the first ChildItemInspectNote filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemInspectNote[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemInspectNote objects based on current ModelCriteria
- * @method     ChildItemInspectNote[]|ObjectCollection findByQcnotype(string $QcnoType) Return ChildItemInspectNote objects filtered by the QcnoType column
- * @method     ChildItemInspectNote[]|ObjectCollection findByQcnotypedesc(string $QcnoTypeDesc) Return ChildItemInspectNote objects filtered by the QcnoTypeDesc column
- * @method     ChildItemInspectNote[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildItemInspectNote objects filtered by the InitItemNbr column
- * @method     ChildItemInspectNote[]|ObjectCollection findByQcnodate(string $QcnoDate) Return ChildItemInspectNote objects filtered by the QcnoDate column
- * @method     ChildItemInspectNote[]|ObjectCollection findByQcnotime(string $QcnoTime) Return ChildItemInspectNote objects filtered by the QcnoTime column
- * @method     ChildItemInspectNote[]|ObjectCollection findByQcnouser(string $QcnoUser) Return ChildItemInspectNote objects filtered by the QcnoUser column
- * @method     ChildItemInspectNote[]|ObjectCollection findByQcnoseq(int $QcnoSeq) Return ChildItemInspectNote objects filtered by the QcnoSeq column
- * @method     ChildItemInspectNote[]|ObjectCollection findByQcnonote(string $QcnoNote) Return ChildItemInspectNote objects filtered by the QcnoNote column
- * @method     ChildItemInspectNote[]|ObjectCollection findByQcnokey2(string $QcnoKey2) Return ChildItemInspectNote objects filtered by the QcnoKey2 column
- * @method     ChildItemInspectNote[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemInspectNote objects filtered by the DateUpdtd column
- * @method     ChildItemInspectNote[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemInspectNote objects filtered by the TimeUpdtd column
- * @method     ChildItemInspectNote[]|ObjectCollection findByDummy(string $dummy) Return ChildItemInspectNote objects filtered by the dummy column
- * @method     ChildItemInspectNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItemInspectNote[]|Collection find(?ConnectionInterface $con = null) Return ChildItemInspectNote objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> find(?ConnectionInterface $con = null) Return ChildItemInspectNote objects based on current ModelCriteria
  *
+ * @method     ChildItemInspectNote[]|Collection findByQcnotype(string|array<string> $QcnoType) Return ChildItemInspectNote objects filtered by the QcnoType column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByQcnotype(string|array<string> $QcnoType) Return ChildItemInspectNote objects filtered by the QcnoType column
+ * @method     ChildItemInspectNote[]|Collection findByQcnotypedesc(string|array<string> $QcnoTypeDesc) Return ChildItemInspectNote objects filtered by the QcnoTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByQcnotypedesc(string|array<string> $QcnoTypeDesc) Return ChildItemInspectNote objects filtered by the QcnoTypeDesc column
+ * @method     ChildItemInspectNote[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemInspectNote objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemInspectNote objects filtered by the InitItemNbr column
+ * @method     ChildItemInspectNote[]|Collection findByQcnodate(string|array<string> $QcnoDate) Return ChildItemInspectNote objects filtered by the QcnoDate column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByQcnodate(string|array<string> $QcnoDate) Return ChildItemInspectNote objects filtered by the QcnoDate column
+ * @method     ChildItemInspectNote[]|Collection findByQcnotime(string|array<string> $QcnoTime) Return ChildItemInspectNote objects filtered by the QcnoTime column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByQcnotime(string|array<string> $QcnoTime) Return ChildItemInspectNote objects filtered by the QcnoTime column
+ * @method     ChildItemInspectNote[]|Collection findByQcnouser(string|array<string> $QcnoUser) Return ChildItemInspectNote objects filtered by the QcnoUser column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByQcnouser(string|array<string> $QcnoUser) Return ChildItemInspectNote objects filtered by the QcnoUser column
+ * @method     ChildItemInspectNote[]|Collection findByQcnoseq(int|array<int> $QcnoSeq) Return ChildItemInspectNote objects filtered by the QcnoSeq column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByQcnoseq(int|array<int> $QcnoSeq) Return ChildItemInspectNote objects filtered by the QcnoSeq column
+ * @method     ChildItemInspectNote[]|Collection findByQcnonote(string|array<string> $QcnoNote) Return ChildItemInspectNote objects filtered by the QcnoNote column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByQcnonote(string|array<string> $QcnoNote) Return ChildItemInspectNote objects filtered by the QcnoNote column
+ * @method     ChildItemInspectNote[]|Collection findByQcnokey2(string|array<string> $QcnoKey2) Return ChildItemInspectNote objects filtered by the QcnoKey2 column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByQcnokey2(string|array<string> $QcnoKey2) Return ChildItemInspectNote objects filtered by the QcnoKey2 column
+ * @method     ChildItemInspectNote[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemInspectNote objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemInspectNote objects filtered by the DateUpdtd column
+ * @method     ChildItemInspectNote[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemInspectNote objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemInspectNote objects filtered by the TimeUpdtd column
+ * @method     ChildItemInspectNote[]|Collection findByDummy(string|array<string> $dummy) Return ChildItemInspectNote objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItemInspectNote> findByDummy(string|array<string> $dummy) Return ChildItemInspectNote objects filtered by the dummy column
+ *
+ * @method     ChildItemInspectNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItemInspectNote> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItemInspectNoteQuery extends ModelCriteria
 {
@@ -108,9 +121,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItemInspectNoteQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ItemInspectNote', $modelAlias = null)
     {
@@ -120,12 +133,12 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
     /**
      * Returns a new ChildItemInspectNoteQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItemInspectNoteQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItemInspectNoteQuery) {
             return $criteria;
@@ -155,7 +168,7 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      *
      * @return ChildItemInspectNote|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -187,8 +200,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -225,8 +238,8 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItemInspectNote|array|mixed the result, formatted by the current formatter
      */
@@ -246,12 +259,12 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -268,9 +281,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -287,14 +300,16 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ItemInspectNoteTableMap::COL_QCNOTYPE, $key[0], Criteria::EQUAL);
@@ -321,14 +336,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQcnotype('fooValue');   // WHERE QcnoType = 'fooValue'
      * $query->filterByQcnotype('%fooValue%', Criteria::LIKE); // WHERE QcnoType LIKE '%fooValue%'
+     * $query->filterByQcnotype(['foo', 'bar']); // WHERE QcnoType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qcnotype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qcnotype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQcnotype($qcnotype = null, $comparison = null)
+    public function filterByQcnotype($qcnotype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qcnotype)) {
@@ -336,7 +352,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTYPE, $qcnotype, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTYPE, $qcnotype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -346,14 +364,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQcnotypedesc('fooValue');   // WHERE QcnoTypeDesc = 'fooValue'
      * $query->filterByQcnotypedesc('%fooValue%', Criteria::LIKE); // WHERE QcnoTypeDesc LIKE '%fooValue%'
+     * $query->filterByQcnotypedesc(['foo', 'bar']); // WHERE QcnoTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qcnotypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qcnotypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQcnotypedesc($qcnotypedesc = null, $comparison = null)
+    public function filterByQcnotypedesc($qcnotypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qcnotypedesc)) {
@@ -361,7 +380,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTYPEDESC, $qcnotypedesc, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTYPEDESC, $qcnotypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -371,14 +392,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -386,7 +408,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -396,14 +420,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQcnodate('fooValue');   // WHERE QcnoDate = 'fooValue'
      * $query->filterByQcnodate('%fooValue%', Criteria::LIKE); // WHERE QcnoDate LIKE '%fooValue%'
+     * $query->filterByQcnodate(['foo', 'bar']); // WHERE QcnoDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qcnodate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qcnodate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQcnodate($qcnodate = null, $comparison = null)
+    public function filterByQcnodate($qcnodate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qcnodate)) {
@@ -411,7 +436,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNODATE, $qcnodate, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNODATE, $qcnodate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -421,14 +448,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQcnotime('fooValue');   // WHERE QcnoTime = 'fooValue'
      * $query->filterByQcnotime('%fooValue%', Criteria::LIKE); // WHERE QcnoTime LIKE '%fooValue%'
+     * $query->filterByQcnotime(['foo', 'bar']); // WHERE QcnoTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qcnotime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qcnotime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQcnotime($qcnotime = null, $comparison = null)
+    public function filterByQcnotime($qcnotime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qcnotime)) {
@@ -436,7 +464,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTIME, $qcnotime, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOTIME, $qcnotime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -446,14 +476,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQcnouser('fooValue');   // WHERE QcnoUser = 'fooValue'
      * $query->filterByQcnouser('%fooValue%', Criteria::LIKE); // WHERE QcnoUser LIKE '%fooValue%'
+     * $query->filterByQcnouser(['foo', 'bar']); // WHERE QcnoUser IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qcnouser The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qcnouser The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQcnouser($qcnouser = null, $comparison = null)
+    public function filterByQcnouser($qcnouser = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qcnouser)) {
@@ -461,7 +492,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOUSER, $qcnouser, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOUSER, $qcnouser, $comparison);
+
+        return $this;
     }
 
     /**
@@ -474,15 +507,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * $query->filterByQcnoseq(array('min' => 12)); // WHERE QcnoSeq > 12
      * </code>
      *
-     * @param     mixed $qcnoseq The value to use as filter.
+     * @param mixed $qcnoseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQcnoseq($qcnoseq = null, $comparison = null)
+    public function filterByQcnoseq($qcnoseq = null, ?string $comparison = null)
     {
         if (is_array($qcnoseq)) {
             $useMinMax = false;
@@ -502,7 +535,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOSEQ, $qcnoseq, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOSEQ, $qcnoseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -512,14 +547,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQcnonote('fooValue');   // WHERE QcnoNote = 'fooValue'
      * $query->filterByQcnonote('%fooValue%', Criteria::LIKE); // WHERE QcnoNote LIKE '%fooValue%'
+     * $query->filterByQcnonote(['foo', 'bar']); // WHERE QcnoNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qcnonote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qcnonote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQcnonote($qcnonote = null, $comparison = null)
+    public function filterByQcnonote($qcnonote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qcnonote)) {
@@ -527,7 +563,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNONOTE, $qcnonote, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNONOTE, $qcnonote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -537,14 +575,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQcnokey2('fooValue');   // WHERE QcnoKey2 = 'fooValue'
      * $query->filterByQcnokey2('%fooValue%', Criteria::LIKE); // WHERE QcnoKey2 LIKE '%fooValue%'
+     * $query->filterByQcnokey2(['foo', 'bar']); // WHERE QcnoKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qcnokey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qcnokey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQcnokey2($qcnokey2 = null, $comparison = null)
+    public function filterByQcnokey2($qcnokey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qcnokey2)) {
@@ -552,7 +591,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOKEY2, $qcnokey2, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_QCNOKEY2, $qcnokey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -562,14 +603,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -577,7 +619,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -587,14 +631,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -602,7 +647,9 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -612,14 +659,15 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -627,15 +675,17 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemInspectNoteTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItemInspectNoteTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildItemInspectNote $itemInspectNote Object to remove from the list of results
+     * @param ChildItemInspectNote $itemInspectNote Object to remove from the list of results
      *
-     * @return $this|ChildItemInspectNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itemInspectNote = null)
     {
@@ -658,7 +708,7 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemInspectNoteTableMap::DATABASE_NAME);
@@ -683,12 +733,12 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemInspectNoteTableMap::DATABASE_NAME);
@@ -713,4 +763,4 @@ abstract class ItemInspectNoteQuery extends ModelCriteria
         });
     }
 
-} // ItemInspectNoteQuery
+}

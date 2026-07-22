@@ -29,19 +29,21 @@ abstract class OptionsIi implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\OptionsIiTableMap';
+    public const TABLE_MAP = '\\Map\\OptionsIiTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the iitboptncode field.
@@ -69,287 +71,287 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * The value for the iitboptnactavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnactavail;
 
     /**
      * The value for the iitboptnactwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnactwhse;
 
     /**
      * The value for the iitboptnactdet field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnactdet;
 
     /**
      * The value for the iitboptnactdaysback field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $iitboptnactdaysback;
 
     /**
      * The value for the iitboptnactstrtdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnactstrtdate;
 
     /**
      * The value for the iitboptncostavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptncostavail;
 
     /**
      * The value for the iitboptncostwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptncostwhse;
 
     /**
      * The value for the iitboptncostdet field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptncostdet;
 
     /**
      * The value for the iitboptngenavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptngenavail;
 
     /**
      * The value for the iitboptnktavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnktavail;
 
     /**
      * The value for the iitboptnpricavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnpricavail;
 
     /**
      * The value for the iitboptnphavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnphavail;
 
     /**
      * The value for the iitboptnphwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnphwhse;
 
     /**
      * The value for the iitboptnphdet field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnphdet;
 
     /**
      * The value for the iitboptnphdaysback field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $iitboptnphdaysback;
 
     /**
      * The value for the iitboptnphstrtdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnphstrtdate;
 
     /**
      * The value for the iitboptnpoavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnpoavail;
 
     /**
      * The value for the iitboptnpowhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnpowhse;
 
     /**
      * The value for the iitboptnreqravail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnreqravail;
 
     /**
      * The value for the iitboptnreqrwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnreqrwhse;
 
     /**
      * The value for the iitboptnreqrview field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnreqrview;
 
     /**
      * The value for the iitboptnshavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnshavail;
 
     /**
      * The value for the iitboptnshwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnshwhse;
 
     /**
      * The value for the iitboptnshdet field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnshdet;
 
     /**
      * The value for the iitboptnshdaysback field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $iitboptnshdaysback;
 
     /**
      * The value for the iitboptnshstrtdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnshstrtdate;
 
     /**
      * The value for the iitboptnsoavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnsoavail;
 
     /**
      * The value for the iitboptnsowhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnsowhse;
 
     /**
      * The value for the iitboptnserlotavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnserlotavail;
 
     /**
      * The value for the iitboptnstckavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnstckavail;
 
     /**
      * The value for the iitboptnstckwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnstckwhse;
 
     /**
      * The value for the iitboptnstckdet field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnstckdet;
 
     /**
      * The value for the iitboptnsubsupavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnsubsupavail;
 
     /**
      * The value for the iitboptnsubsupwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnsubsupwhse;
 
     /**
      * The value for the iitboptnlsavail field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnlsavail;
 
     /**
      * The value for the iitboptnlswhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptnlswhse;
 
     /**
      * The value for the iitboptndesc1or2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptndesc1or2;
 
     /**
      * The value for the iitboptndelcerts field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $iitboptndelcerts;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -357,7 +359,7 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -371,9 +373,9 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -381,10 +383,10 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -393,7 +395,7 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -403,9 +405,9 @@ abstract class OptionsIi implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -414,45 +416,43 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -461,10 +461,10 @@ abstract class OptionsIi implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>OptionsIi</code>, delegates to
      * <code>equals(OptionsIi)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -486,7 +486,7 @@ abstract class OptionsIi implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -494,10 +494,10 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -505,15 +505,15 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -522,12 +522,12 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|OptionsIi The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -537,13 +537,13 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -554,24 +554,27 @@ abstract class OptionsIi implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -599,7 +602,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnactavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnactavail()
     {
@@ -609,7 +612,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnactwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnactwhse()
     {
@@ -619,7 +622,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnactdet] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnactdet()
     {
@@ -629,7 +632,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnactdaysback] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getIitboptnactdaysback()
     {
@@ -639,7 +642,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnactstrtdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnactstrtdate()
     {
@@ -649,7 +652,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptncostavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptncostavail()
     {
@@ -659,7 +662,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptncostwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptncostwhse()
     {
@@ -669,7 +672,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptncostdet] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptncostdet()
     {
@@ -679,7 +682,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptngenavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptngenavail()
     {
@@ -689,7 +692,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnktavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnktavail()
     {
@@ -699,7 +702,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnpricavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnpricavail()
     {
@@ -709,7 +712,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnphavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnphavail()
     {
@@ -719,7 +722,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnphwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnphwhse()
     {
@@ -729,7 +732,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnphdet] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnphdet()
     {
@@ -739,7 +742,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnphdaysback] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getIitboptnphdaysback()
     {
@@ -749,7 +752,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnphstrtdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnphstrtdate()
     {
@@ -759,7 +762,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnpoavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnpoavail()
     {
@@ -769,7 +772,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnpowhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnpowhse()
     {
@@ -779,7 +782,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnreqravail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnreqravail()
     {
@@ -789,7 +792,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnreqrwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnreqrwhse()
     {
@@ -799,7 +802,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnreqrview] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnreqrview()
     {
@@ -809,7 +812,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnshavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnshavail()
     {
@@ -819,7 +822,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnshwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnshwhse()
     {
@@ -829,7 +832,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnshdet] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnshdet()
     {
@@ -839,7 +842,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnshdaysback] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getIitboptnshdaysback()
     {
@@ -849,7 +852,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnshstrtdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnshstrtdate()
     {
@@ -859,7 +862,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnsoavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnsoavail()
     {
@@ -869,7 +872,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnsowhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnsowhse()
     {
@@ -879,7 +882,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnserlotavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnserlotavail()
     {
@@ -889,7 +892,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnstckavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnstckavail()
     {
@@ -899,7 +902,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnstckwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnstckwhse()
     {
@@ -909,7 +912,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnstckdet] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnstckdet()
     {
@@ -919,7 +922,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnsubsupavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnsubsupavail()
     {
@@ -929,7 +932,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnsubsupwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnsubsupwhse()
     {
@@ -939,7 +942,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnlsavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnlsavail()
     {
@@ -949,7 +952,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptnlswhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptnlswhse()
     {
@@ -959,7 +962,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptndesc1or2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptndesc1or2()
     {
@@ -969,7 +972,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [iitboptndelcerts] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIitboptndelcerts()
     {
@@ -979,7 +982,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -989,7 +992,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -999,7 +1002,7 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1009,8 +1012,8 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Set the value of [iitboptncode] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptncode($v)
     {
@@ -1024,13 +1027,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptncode()
+    }
 
     /**
      * Set the value of [iitboptnactavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnactavail($v)
     {
@@ -1044,13 +1047,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnactavail()
+    }
 
     /**
      * Set the value of [iitboptnactwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnactwhse($v)
     {
@@ -1064,13 +1067,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnactwhse()
+    }
 
     /**
      * Set the value of [iitboptnactdet] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnactdet($v)
     {
@@ -1084,13 +1087,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnactdet()
+    }
 
     /**
      * Set the value of [iitboptnactdaysback] column.
      *
-     * @param int $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnactdaysback($v)
     {
@@ -1104,13 +1107,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnactdaysback()
+    }
 
     /**
      * Set the value of [iitboptnactstrtdate] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnactstrtdate($v)
     {
@@ -1124,13 +1127,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnactstrtdate()
+    }
 
     /**
      * Set the value of [iitboptncostavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptncostavail($v)
     {
@@ -1144,13 +1147,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptncostavail()
+    }
 
     /**
      * Set the value of [iitboptncostwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptncostwhse($v)
     {
@@ -1164,13 +1167,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptncostwhse()
+    }
 
     /**
      * Set the value of [iitboptncostdet] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptncostdet($v)
     {
@@ -1184,13 +1187,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptncostdet()
+    }
 
     /**
      * Set the value of [iitboptngenavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptngenavail($v)
     {
@@ -1204,13 +1207,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptngenavail()
+    }
 
     /**
      * Set the value of [iitboptnktavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnktavail($v)
     {
@@ -1224,13 +1227,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnktavail()
+    }
 
     /**
      * Set the value of [iitboptnpricavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnpricavail($v)
     {
@@ -1244,13 +1247,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnpricavail()
+    }
 
     /**
      * Set the value of [iitboptnphavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnphavail($v)
     {
@@ -1264,13 +1267,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnphavail()
+    }
 
     /**
      * Set the value of [iitboptnphwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnphwhse($v)
     {
@@ -1284,13 +1287,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnphwhse()
+    }
 
     /**
      * Set the value of [iitboptnphdet] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnphdet($v)
     {
@@ -1304,13 +1307,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnphdet()
+    }
 
     /**
      * Set the value of [iitboptnphdaysback] column.
      *
-     * @param int $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnphdaysback($v)
     {
@@ -1324,13 +1327,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnphdaysback()
+    }
 
     /**
      * Set the value of [iitboptnphstrtdate] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnphstrtdate($v)
     {
@@ -1344,13 +1347,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnphstrtdate()
+    }
 
     /**
      * Set the value of [iitboptnpoavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnpoavail($v)
     {
@@ -1364,13 +1367,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnpoavail()
+    }
 
     /**
      * Set the value of [iitboptnpowhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnpowhse($v)
     {
@@ -1384,13 +1387,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnpowhse()
+    }
 
     /**
      * Set the value of [iitboptnreqravail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnreqravail($v)
     {
@@ -1404,13 +1407,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnreqravail()
+    }
 
     /**
      * Set the value of [iitboptnreqrwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnreqrwhse($v)
     {
@@ -1424,13 +1427,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnreqrwhse()
+    }
 
     /**
      * Set the value of [iitboptnreqrview] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnreqrview($v)
     {
@@ -1444,13 +1447,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnreqrview()
+    }
 
     /**
      * Set the value of [iitboptnshavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnshavail($v)
     {
@@ -1464,13 +1467,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnshavail()
+    }
 
     /**
      * Set the value of [iitboptnshwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnshwhse($v)
     {
@@ -1484,13 +1487,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnshwhse()
+    }
 
     /**
      * Set the value of [iitboptnshdet] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnshdet($v)
     {
@@ -1504,13 +1507,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnshdet()
+    }
 
     /**
      * Set the value of [iitboptnshdaysback] column.
      *
-     * @param int $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnshdaysback($v)
     {
@@ -1524,13 +1527,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnshdaysback()
+    }
 
     /**
      * Set the value of [iitboptnshstrtdate] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnshstrtdate($v)
     {
@@ -1544,13 +1547,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnshstrtdate()
+    }
 
     /**
      * Set the value of [iitboptnsoavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnsoavail($v)
     {
@@ -1564,13 +1567,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnsoavail()
+    }
 
     /**
      * Set the value of [iitboptnsowhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnsowhse($v)
     {
@@ -1584,13 +1587,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnsowhse()
+    }
 
     /**
      * Set the value of [iitboptnserlotavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnserlotavail($v)
     {
@@ -1604,13 +1607,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnserlotavail()
+    }
 
     /**
      * Set the value of [iitboptnstckavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnstckavail($v)
     {
@@ -1624,13 +1627,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnstckavail()
+    }
 
     /**
      * Set the value of [iitboptnstckwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnstckwhse($v)
     {
@@ -1644,13 +1647,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnstckwhse()
+    }
 
     /**
      * Set the value of [iitboptnstckdet] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnstckdet($v)
     {
@@ -1664,13 +1667,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnstckdet()
+    }
 
     /**
      * Set the value of [iitboptnsubsupavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnsubsupavail($v)
     {
@@ -1684,13 +1687,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnsubsupavail()
+    }
 
     /**
      * Set the value of [iitboptnsubsupwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnsubsupwhse($v)
     {
@@ -1704,13 +1707,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnsubsupwhse()
+    }
 
     /**
      * Set the value of [iitboptnlsavail] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnlsavail($v)
     {
@@ -1724,13 +1727,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnlsavail()
+    }
 
     /**
      * Set the value of [iitboptnlswhse] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptnlswhse($v)
     {
@@ -1744,13 +1747,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptnlswhse()
+    }
 
     /**
      * Set the value of [iitboptndesc1or2] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptndesc1or2($v)
     {
@@ -1764,13 +1767,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptndesc1or2()
+    }
 
     /**
      * Set the value of [iitboptndelcerts] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIitboptndelcerts($v)
     {
@@ -1784,13 +1787,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIitboptndelcerts()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1804,13 +1807,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1824,13 +1827,13 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\OptionsIi The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1844,7 +1847,7 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -1852,13 +1855,13 @@ abstract class OptionsIi implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -1868,17 +1871,17 @@ abstract class OptionsIi implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -2007,8 +2010,8 @@ abstract class OptionsIi implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : OptionsIiTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -2033,23 +2036,24 @@ abstract class OptionsIi implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -2082,13 +2086,13 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see OptionsIi::setDeleted()
      * @see OptionsIi::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -2118,12 +2122,12 @@ abstract class OptionsIi implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -2168,12 +2172,12 @@ abstract class OptionsIi implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -2195,19 +2199,19 @@ abstract class OptionsIi implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -2351,129 +2355,171 @@ abstract class OptionsIi implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'IitbOptnCode':
                         $stmt->bindValue($identifier, $this->iitboptncode, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnActAvail':
                         $stmt->bindValue($identifier, $this->iitboptnactavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnActWhse':
                         $stmt->bindValue($identifier, $this->iitboptnactwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnActDet':
                         $stmt->bindValue($identifier, $this->iitboptnactdet, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnActDaysBack':
                         $stmt->bindValue($identifier, $this->iitboptnactdaysback, PDO::PARAM_INT);
+
                         break;
                     case 'IitbOptnActStrtDate':
                         $stmt->bindValue($identifier, $this->iitboptnactstrtdate, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnCostAvail':
                         $stmt->bindValue($identifier, $this->iitboptncostavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnCostWhse':
                         $stmt->bindValue($identifier, $this->iitboptncostwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnCostDet':
                         $stmt->bindValue($identifier, $this->iitboptncostdet, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnGenAvail':
                         $stmt->bindValue($identifier, $this->iitboptngenavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnKtAvail':
                         $stmt->bindValue($identifier, $this->iitboptnktavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnPricAvail':
                         $stmt->bindValue($identifier, $this->iitboptnpricavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnPhAvail':
                         $stmt->bindValue($identifier, $this->iitboptnphavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnPhWhse':
                         $stmt->bindValue($identifier, $this->iitboptnphwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnPhDet':
                         $stmt->bindValue($identifier, $this->iitboptnphdet, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnPhDaysBack':
                         $stmt->bindValue($identifier, $this->iitboptnphdaysback, PDO::PARAM_INT);
+
                         break;
                     case 'IitbOptnPhStrtDate':
                         $stmt->bindValue($identifier, $this->iitboptnphstrtdate, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnPoAvail':
                         $stmt->bindValue($identifier, $this->iitboptnpoavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnPoWhse':
                         $stmt->bindValue($identifier, $this->iitboptnpowhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnReqrAvail':
                         $stmt->bindValue($identifier, $this->iitboptnreqravail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnReqrWhse':
                         $stmt->bindValue($identifier, $this->iitboptnreqrwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnReqrView':
                         $stmt->bindValue($identifier, $this->iitboptnreqrview, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnShAvail':
                         $stmt->bindValue($identifier, $this->iitboptnshavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnShWhse':
                         $stmt->bindValue($identifier, $this->iitboptnshwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnShDet':
                         $stmt->bindValue($identifier, $this->iitboptnshdet, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnShDaysBack':
                         $stmt->bindValue($identifier, $this->iitboptnshdaysback, PDO::PARAM_INT);
+
                         break;
                     case 'IitbOptnShStrtDate':
                         $stmt->bindValue($identifier, $this->iitboptnshstrtdate, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnSoAvail':
                         $stmt->bindValue($identifier, $this->iitboptnsoavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnSoWhse':
                         $stmt->bindValue($identifier, $this->iitboptnsowhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnSerlotAvail':
                         $stmt->bindValue($identifier, $this->iitboptnserlotavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnStckAvail':
                         $stmt->bindValue($identifier, $this->iitboptnstckavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnStckWhse':
                         $stmt->bindValue($identifier, $this->iitboptnstckwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnStckDet':
                         $stmt->bindValue($identifier, $this->iitboptnstckdet, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnSubsupAvail':
                         $stmt->bindValue($identifier, $this->iitboptnsubsupavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnSubsupWhse':
                         $stmt->bindValue($identifier, $this->iitboptnsubsupwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnLsAvail':
                         $stmt->bindValue($identifier, $this->iitboptnlsavail, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnLsWhse':
                         $stmt->bindValue($identifier, $this->iitboptnlswhse, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnDesc1Or2':
                         $stmt->bindValue($identifier, $this->iitboptndesc1or2, PDO::PARAM_STR);
+
                         break;
                     case 'IitbOptnDelCerts':
                         $stmt->bindValue($identifier, $this->iitboptndelcerts, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -2489,12 +2535,12 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -2505,14 +2551,14 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = OptionsIiTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -2524,141 +2570,140 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getIitboptncode();
-                break;
+
             case 1:
                 return $this->getIitboptnactavail();
-                break;
+
             case 2:
                 return $this->getIitboptnactwhse();
-                break;
+
             case 3:
                 return $this->getIitboptnactdet();
-                break;
+
             case 4:
                 return $this->getIitboptnactdaysback();
-                break;
+
             case 5:
                 return $this->getIitboptnactstrtdate();
-                break;
+
             case 6:
                 return $this->getIitboptncostavail();
-                break;
+
             case 7:
                 return $this->getIitboptncostwhse();
-                break;
+
             case 8:
                 return $this->getIitboptncostdet();
-                break;
+
             case 9:
                 return $this->getIitboptngenavail();
-                break;
+
             case 10:
                 return $this->getIitboptnktavail();
-                break;
+
             case 11:
                 return $this->getIitboptnpricavail();
-                break;
+
             case 12:
                 return $this->getIitboptnphavail();
-                break;
+
             case 13:
                 return $this->getIitboptnphwhse();
-                break;
+
             case 14:
                 return $this->getIitboptnphdet();
-                break;
+
             case 15:
                 return $this->getIitboptnphdaysback();
-                break;
+
             case 16:
                 return $this->getIitboptnphstrtdate();
-                break;
+
             case 17:
                 return $this->getIitboptnpoavail();
-                break;
+
             case 18:
                 return $this->getIitboptnpowhse();
-                break;
+
             case 19:
                 return $this->getIitboptnreqravail();
-                break;
+
             case 20:
                 return $this->getIitboptnreqrwhse();
-                break;
+
             case 21:
                 return $this->getIitboptnreqrview();
-                break;
+
             case 22:
                 return $this->getIitboptnshavail();
-                break;
+
             case 23:
                 return $this->getIitboptnshwhse();
-                break;
+
             case 24:
                 return $this->getIitboptnshdet();
-                break;
+
             case 25:
                 return $this->getIitboptnshdaysback();
-                break;
+
             case 26:
                 return $this->getIitboptnshstrtdate();
-                break;
+
             case 27:
                 return $this->getIitboptnsoavail();
-                break;
+
             case 28:
                 return $this->getIitboptnsowhse();
-                break;
+
             case 29:
                 return $this->getIitboptnserlotavail();
-                break;
+
             case 30:
                 return $this->getIitboptnstckavail();
-                break;
+
             case 31:
                 return $this->getIitboptnstckwhse();
-                break;
+
             case 32:
                 return $this->getIitboptnstckdet();
-                break;
+
             case 33:
                 return $this->getIitboptnsubsupavail();
-                break;
+
             case 34:
                 return $this->getIitboptnsubsupwhse();
-                break;
+
             case 35:
                 return $this->getIitboptnlsavail();
-                break;
+
             case 36:
                 return $this->getIitboptnlswhse();
-                break;
+
             case 37:
                 return $this->getIitboptndesc1or2();
-                break;
+
             case 38:
                 return $this->getIitboptndelcerts();
-                break;
+
             case 39:
                 return $this->getDateupdtd();
-                break;
+
             case 40:
                 return $this->getTimeupdtd();
-                break;
+
             case 41:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -2668,23 +2713,22 @@ abstract class OptionsIi implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['OptionsIi'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['OptionsIi'][$this->hashCode()] = true;
         $keys = OptionsIiTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getIitboptncode(),
             $keys[1] => $this->getIitboptnactavail(),
             $keys[2] => $this->getIitboptnactwhse(),
@@ -2727,7 +2771,7 @@ abstract class OptionsIi implements ActiveRecordInterface
             $keys[39] => $this->getDateupdtd(),
             $keys[40] => $this->getTimeupdtd(),
             $keys[41] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -2740,30 +2784,32 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\OptionsIi
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = OptionsIiTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\OptionsIi
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -2910,11 +2956,11 @@ abstract class OptionsIi implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = OptionsIiTableMap::getFieldNames($keyType);
 
@@ -3044,6 +3090,8 @@ abstract class OptionsIi implements ActiveRecordInterface
         if (array_key_exists($keys[41], $arr)) {
             $this->setDummy($arr[$keys[41]]);
         }
+
+        return $this;
     }
 
      /**
@@ -3063,9 +3111,9 @@ abstract class OptionsIi implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\OptionsIi The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -3079,9 +3127,9 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(OptionsIiTableMap::DATABASE_NAME);
 
@@ -3219,13 +3267,13 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildOptionsIiQuery::create();
         $criteria->add(OptionsIiTableMap::COL_IITBOPTNCODE, $this->iitboptncode);
@@ -3237,7 +3285,7 @@ abstract class OptionsIi implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -3267,19 +3315,20 @@ abstract class OptionsIi implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (iitboptncode column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setIitboptncode($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getIitboptncode();
     }
@@ -3290,12 +3339,13 @@ abstract class OptionsIi implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \OptionsIi (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \OptionsIi (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setIitboptncode($this->getIitboptncode());
         $copyObj->setIitboptnactavail($this->getIitboptnactavail());
@@ -3352,11 +3402,11 @@ abstract class OptionsIi implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \OptionsIi Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -3370,6 +3420,8 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -3420,6 +3472,8 @@ abstract class OptionsIi implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -3428,13 +3482,15 @@ abstract class OptionsIi implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -3449,99 +3505,79 @@ abstract class OptionsIi implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -3551,7 +3587,7 @@ abstract class OptionsIi implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -3571,15 +3607,18 @@ abstract class OptionsIi implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

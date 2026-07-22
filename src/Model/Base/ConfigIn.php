@@ -29,19 +29,21 @@ abstract class ConfigIn implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\ConfigInTableMap';
+    public const TABLE_MAP = '\\Map\\ConfigInTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the intbconfkey field.
@@ -1455,7 +1457,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -1465,7 +1467,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->intbconfkey = 1;
         $this->intbconfglifac = 'Y';
@@ -1655,9 +1657,9 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -1665,10 +1667,10 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -1677,7 +1679,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -1687,9 +1689,9 @@ abstract class ConfigIn implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -1698,45 +1700,43 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -1745,10 +1745,10 @@ abstract class ConfigIn implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>ConfigIn</code>, delegates to
      * <code>equals(ConfigIn)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -1770,7 +1770,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -1778,10 +1778,10 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -1789,15 +1789,15 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -1806,12 +1806,12 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|ConfigIn The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -1821,13 +1821,13 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -1838,24 +1838,27 @@ abstract class ConfigIn implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -3613,8 +3616,8 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Set the value of [intbconfkey] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfkey($v)
     {
@@ -3628,13 +3631,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfkey()
+    }
 
     /**
      * Set the value of [intbconfglifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfglifac($v)
     {
@@ -3648,13 +3651,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfglifac()
+    }
 
     /**
      * Set the value of [intbconfuseiw] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfuseiw($v)
     {
@@ -3668,13 +3671,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfuseiw()
+    }
 
     /**
      * Set the value of [intbconflifofifo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconflifofifo($v)
     {
@@ -3688,13 +3691,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconflifofifo()
+    }
 
     /**
      * Set the value of [intbconfgoneg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfgoneg($v)
     {
@@ -3708,13 +3711,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfgoneg()
+    }
 
     /**
      * Set the value of [intbconfuselots] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfuselots($v)
     {
@@ -3728,13 +3731,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfuselots()
+    }
 
     /**
      * Set the value of [intbconfnbruppr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfnbruppr($v)
     {
@@ -3748,13 +3751,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfnbruppr()
+    }
 
     /**
      * Set the value of [intbconfdescuppr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdescuppr($v)
     {
@@ -3768,13 +3771,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdescuppr()
+    }
 
     /**
      * Set the value of [intbconfusedesc2] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusedesc2($v)
     {
@@ -3788,13 +3791,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusedesc2()
+    }
 
     /**
      * Set the value of [intbconfuseupccode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfuseupccode($v)
     {
@@ -3808,13 +3811,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfuseupccode()
+    }
 
     /**
      * Set the value of [intbconfupceancntrl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfupceancntrl($v)
     {
@@ -3828,13 +3831,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfupceancntrl()
+    }
 
     /**
      * Set the value of [intbconfupcgennbr] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfupcgennbr($v)
     {
@@ -3848,13 +3851,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfupcgennbr()
+    }
 
     /**
      * Set the value of [intbcon2allowdupupc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2allowdupupc($v)
     {
@@ -3868,13 +3871,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2allowdupupc()
+    }
 
     /**
      * Set the value of [intbconfxrefnospace] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfxrefnospace($v)
     {
@@ -3888,13 +3891,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfxrefnospace()
+    }
 
     /**
      * Set the value of [intbconfusepricgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusepricgrup($v)
     {
@@ -3908,13 +3911,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusepricgrup()
+    }
 
     /**
      * Set the value of [intbconfusecommgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusecommgrup($v)
     {
@@ -3928,13 +3931,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusecommgrup()
+    }
 
     /**
      * Set the value of [intbconfusewarrdays] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusewarrdays($v)
     {
@@ -3948,13 +3951,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusewarrdays()
+    }
 
     /**
      * Set the value of [intbconfstanbasedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfstanbasedef($v)
     {
@@ -3968,13 +3971,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfstanbasedef()
+    }
 
     /**
      * Set the value of [intbconfgrupdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfgrupdef($v)
     {
@@ -3988,13 +3991,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfgrupdef()
+    }
 
     /**
      * Set the value of [intbconfpricgrupdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfpricgrupdef($v)
     {
@@ -4008,13 +4011,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfpricgrupdef()
+    }
 
     /**
      * Set the value of [intbconfcommgrupdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcommgrupdef($v)
     {
@@ -4028,13 +4031,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcommgrupdef()
+    }
 
     /**
      * Set the value of [intbconftypedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconftypedef($v)
     {
@@ -4048,13 +4051,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconftypedef()
+    }
 
     /**
      * Set the value of [intbconfmultilotref] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfmultilotref($v)
     {
@@ -4068,13 +4071,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfmultilotref()
+    }
 
     /**
      * Set the value of [intbconfpricuseitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfpricuseitem($v)
     {
@@ -4088,13 +4091,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfpricuseitem()
+    }
 
     /**
      * Set the value of [intbconfcommuseitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcommuseitem($v)
     {
@@ -4108,13 +4111,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcommuseitem()
+    }
 
     /**
      * Set the value of [intbconfuomsaledef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfuomsaledef($v)
     {
@@ -4128,13 +4131,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfuomsaledef()
+    }
 
     /**
      * Set the value of [intbconfuompurdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfuompurdef($v)
     {
@@ -4148,13 +4151,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfuompurdef()
+    }
 
     /**
      * Set the value of [intbconfsviadef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfsviadef($v)
     {
@@ -4168,13 +4171,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfsviadef()
+    }
 
     /**
      * Set the value of [intbconfcustxreforuse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcustxreforuse($v)
     {
@@ -4188,13 +4191,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcustxreforuse()
+    }
 
     /**
      * Set the value of [intbconfheadgetdef] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfheadgetdef($v)
     {
@@ -4208,13 +4211,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfheadgetdef()
+    }
 
     /**
      * Set the value of [intbconfitemgetdef] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfitemgetdef($v)
     {
@@ -4228,13 +4231,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfitemgetdef()
+    }
 
     /**
      * Set the value of [intbconfgetdispohaval] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfgetdispohaval($v)
     {
@@ -4248,13 +4251,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfgetdispohaval()
+    }
 
     /**
      * Set the value of [intbconfusercode1labl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusercode1labl($v)
     {
@@ -4268,13 +4271,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusercode1labl()
+    }
 
     /**
      * Set the value of [intbconfusercode1ver] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusercode1ver($v)
     {
@@ -4288,13 +4291,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusercode1ver()
+    }
 
     /**
      * Set the value of [intbconfusercode2labl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusercode2labl($v)
     {
@@ -4308,13 +4311,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusercode2labl()
+    }
 
     /**
      * Set the value of [intbconfusercode2ver] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusercode2ver($v)
     {
@@ -4328,13 +4331,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusercode2ver()
+    }
 
     /**
      * Set the value of [intbconfitemline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfitemline($v)
     {
@@ -4348,13 +4351,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfitemline()
+    }
 
     /**
      * Set the value of [intbconfitemcols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfitemcols($v)
     {
@@ -4368,13 +4371,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfitemcols()
+    }
 
     /**
      * Set the value of [intbconfheadline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfheadline($v)
     {
@@ -4388,13 +4391,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfheadline()
+    }
 
     /**
      * Set the value of [intbconfheadcols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfheadcols($v)
     {
@@ -4408,13 +4411,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfheadcols()
+    }
 
     /**
      * Set the value of [intbconfdetline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdetline($v)
     {
@@ -4428,13 +4431,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdetline()
+    }
 
     /**
      * Set the value of [intbconfdetcols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdetcols($v)
     {
@@ -4448,13 +4451,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdetcols()
+    }
 
     /**
      * Set the value of [intbconfminmaxzero] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfminmaxzero($v)
     {
@@ -4468,13 +4471,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfminmaxzero()
+    }
 
     /**
      * Set the value of [intbconfminrec] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfminrec($v)
     {
@@ -4488,13 +4491,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfminrec()
+    }
 
     /**
      * Set the value of [intbconfatbelowmin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfatbelowmin($v)
     {
@@ -4508,13 +4511,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfatbelowmin()
+    }
 
     /**
      * Set the value of [intbconfonewhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfonewhse($v)
     {
@@ -4528,13 +4531,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfonewhse()
+    }
 
     /**
      * Set the value of [intbconfytdmth] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfytdmth($v)
     {
@@ -4548,13 +4551,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfytdmth()
+    }
 
     /**
      * Set the value of [intbconfusegramsltr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusegramsltr($v)
     {
@@ -4568,13 +4571,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusegramsltr()
+    }
 
     /**
      * Set the value of [intbconfabcbywhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabcbywhse($v)
     {
@@ -4588,13 +4591,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabcbywhse()
+    }
 
     /**
      * Set the value of [intbconfabcnbrmths] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabcnbrmths($v)
     {
@@ -4608,13 +4611,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabcnbrmths()
+    }
 
     /**
      * Set the value of [intbconfabcbasecode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabcbasecode($v)
     {
@@ -4628,13 +4631,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabcbasecode()
+    }
 
     /**
      * Set the value of [intbconfabclevla] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevla($v)
     {
@@ -4648,13 +4651,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevla()
+    }
 
     /**
      * Set the value of [intbconfabclevlb] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevlb($v)
     {
@@ -4668,13 +4671,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevlb()
+    }
 
     /**
      * Set the value of [intbconfabclevlc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevlc($v)
     {
@@ -4688,13 +4691,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevlc()
+    }
 
     /**
      * Set the value of [intbconfabclevld] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevld($v)
     {
@@ -4708,13 +4711,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevld()
+    }
 
     /**
      * Set the value of [intbconfabclevle] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevle($v)
     {
@@ -4728,13 +4731,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevle()
+    }
 
     /**
      * Set the value of [intbconfabclevlf] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevlf($v)
     {
@@ -4748,13 +4751,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevlf()
+    }
 
     /**
      * Set the value of [intbconfabclevlg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevlg($v)
     {
@@ -4768,13 +4771,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevlg()
+    }
 
     /**
      * Set the value of [intbconfabclevlh] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevlh($v)
     {
@@ -4788,13 +4791,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevlh()
+    }
 
     /**
      * Set the value of [intbconfabclevli] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevli($v)
     {
@@ -4808,13 +4811,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevli()
+    }
 
     /**
      * Set the value of [intbconfabclevlj] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabclevlj($v)
     {
@@ -4828,13 +4831,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabclevlj()
+    }
 
     /**
      * Set the value of [intbconfuseforeignx] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfuseforeignx($v)
     {
@@ -4848,13 +4851,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfuseforeignx()
+    }
 
     /**
      * Set the value of [intbconfusenafta] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusenafta($v)
     {
@@ -4868,13 +4871,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusenafta()
+    }
 
     /**
      * Set the value of [intbconfnaftaprefcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfnaftaprefcode($v)
     {
@@ -4888,13 +4891,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfnaftaprefcode()
+    }
 
     /**
      * Set the value of [intbconfnaftaproducer] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfnaftaproducer($v)
     {
@@ -4908,13 +4911,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfnaftaproducer()
+    }
 
     /**
      * Set the value of [intbconfnaftadoccode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfnaftadoccode($v)
     {
@@ -4928,13 +4931,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfnaftadoccode()
+    }
 
     /**
      * Set the value of [intbconfphyscurrwksh] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfphyscurrwksh($v)
     {
@@ -4948,13 +4951,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfphyscurrwksh()
+    }
 
     /**
      * Set the value of [intbconf20or30] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconf20or30($v)
     {
@@ -4968,13 +4971,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconf20or30()
+    }
 
     /**
      * Set the value of [intbconfdisporigcnt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdisporigcnt($v)
     {
@@ -4988,13 +4991,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdisporigcnt()
+    }
 
     /**
      * Set the value of [intbconfdispgl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdispgl($v)
     {
@@ -5008,13 +5011,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdispgl()
+    }
 
     /**
      * Set the value of [intbconfdispref] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdispref($v)
     {
@@ -5028,13 +5031,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdispref()
+    }
 
     /**
      * Set the value of [intbconfdispcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdispcost($v)
     {
@@ -5048,13 +5051,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdispcost()
+    }
 
     /**
      * Set the value of [intbconfprtval] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfprtval($v)
     {
@@ -5068,13 +5071,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfprtval()
+    }
 
     /**
      * Set the value of [intbconfprtgl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfprtgl($v)
     {
@@ -5088,13 +5091,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfprtgl()
+    }
 
     /**
      * Set the value of [intbconfglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfglacct($v)
     {
@@ -5108,13 +5111,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfglacct()
+    }
 
     /**
      * Set the value of [intbconfref] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfref($v)
     {
@@ -5128,13 +5131,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfref()
+    }
 
     /**
      * Set the value of [intbconfcosttype] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcosttype($v)
     {
@@ -5148,13 +5151,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcosttype()
+    }
 
     /**
      * Set the value of [intbconfnormalonly] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfnormalonly($v)
     {
@@ -5168,13 +5171,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfnormalonly()
+    }
 
     /**
      * Set the value of [intbconfusewhsedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusewhsedef($v)
     {
@@ -5188,13 +5191,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusewhsedef()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse01] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse01($v)
     {
@@ -5208,13 +5211,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse01()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse02] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse02($v)
     {
@@ -5228,13 +5231,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse02()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse03] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse03($v)
     {
@@ -5248,13 +5251,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse03()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse04] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse04($v)
     {
@@ -5268,13 +5271,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse04()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse05] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse05($v)
     {
@@ -5288,13 +5291,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse05()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse06] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse06($v)
     {
@@ -5308,13 +5311,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse06()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse07] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse07($v)
     {
@@ -5328,13 +5331,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse07()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse08] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse08($v)
     {
@@ -5348,13 +5351,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse08()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse09] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse09($v)
     {
@@ -5368,13 +5371,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse09()
+    }
 
     /**
      * Set the value of [intbcon2dfltwhse10] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltwhse10($v)
     {
@@ -5388,13 +5391,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltwhse10()
+    }
 
     /**
      * Set the value of [intbconfbindef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfbindef($v)
     {
@@ -5408,13 +5411,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfbindef()
+    }
 
     /**
      * Set the value of [intbconfcycldef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcycldef($v)
     {
@@ -5428,13 +5431,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcycldef()
+    }
 
     /**
      * Set the value of [intbconfstatdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfstatdef($v)
     {
@@ -5448,13 +5451,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfstatdef()
+    }
 
     /**
      * Set the value of [intbconfabcdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfabcdef($v)
     {
@@ -5468,13 +5471,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfabcdef()
+    }
 
     /**
      * Set the value of [intbconfspecordrdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfspecordrdef($v)
     {
@@ -5488,13 +5491,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfspecordrdef()
+    }
 
     /**
      * Set the value of [intbconfordrpntdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfordrpntdef($v)
     {
@@ -5508,13 +5511,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfordrpntdef()
+    }
 
     /**
      * Set the value of [intbconfmaxdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfmaxdef($v)
     {
@@ -5528,13 +5531,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfmaxdef()
+    }
 
     /**
      * Set the value of [intbconfordrqtydef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfordrqtydef($v)
     {
@@ -5548,13 +5551,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfordrqtydef()
+    }
 
     /**
      * Set the value of [intbconftrcptallowcmpl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconftrcptallowcmpl($v)
     {
@@ -5568,13 +5571,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconftrcptallowcmpl()
+    }
 
     /**
      * Set the value of [intbconftrecmmtstock] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconftrecmmtstock($v)
     {
@@ -5588,13 +5591,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconftrecmmtstock()
+    }
 
     /**
      * Set the value of [intbconfusefrtin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusefrtin($v)
     {
@@ -5608,13 +5611,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusefrtin()
+    }
 
     /**
      * Set the value of [intbconfeachoruom] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfeachoruom($v)
     {
@@ -5628,13 +5631,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfeachoruom()
+    }
 
     /**
      * Set the value of [intbconfneglotcorr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfneglotcorr($v)
     {
@@ -5648,13 +5651,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfneglotcorr()
+    }
 
     /**
      * Set the value of [intbconftrnsglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconftrnsglacct($v)
     {
@@ -5668,13 +5671,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconftrnsglacct()
+    }
 
     /**
      * Set the value of [intbconftrnsprotstock] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconftrnsprotstock($v)
     {
@@ -5688,13 +5691,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconftrnsprotstock()
+    }
 
     /**
      * Set the value of [intbconfnumericitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfnumericitem($v)
     {
@@ -5708,13 +5711,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfnumericitem()
+    }
 
     /**
      * Set the value of [intbconfitemdigits] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfitemdigits($v)
     {
@@ -5728,13 +5731,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfitemdigits()
+    }
 
     /**
      * Set the value of [intbconfsinglewhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfsinglewhse($v)
     {
@@ -5748,13 +5751,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfsinglewhse()
+    }
 
     /**
      * Set the value of [intbconfupdusepct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfupdusepct($v)
     {
@@ -5768,13 +5771,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfupdusepct()
+    }
 
     /**
      * Set the value of [intbconfupdpric] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfupdpric($v)
     {
@@ -5788,13 +5791,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfupdpric()
+    }
 
     /**
      * Set the value of [intbconfupdstdcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfupdstdcost($v)
     {
@@ -5808,13 +5811,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfupdstdcost()
+    }
 
     /**
      * Set the value of [intbconfupdxrefcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfupdxrefcost($v)
     {
@@ -5828,13 +5831,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfupdxrefcost()
+    }
 
     /**
      * Set the value of [intbconfiqpaupddate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfiqpaupddate($v)
     {
@@ -5848,13 +5851,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfiqpaupddate()
+    }
 
     /**
      * Set the value of [intbconfupcxrefoptn] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfupcxrefoptn($v)
     {
@@ -5868,13 +5871,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfupcxrefoptn()
+    }
 
     /**
      * Set the value of [intbconftranviewlib] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconftranviewlib($v)
     {
@@ -5888,13 +5891,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconftranviewlib()
+    }
 
     /**
      * Set the value of [intbconfresvcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfresvcost($v)
     {
@@ -5908,13 +5911,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfresvcost()
+    }
 
     /**
      * Set the value of [intbcon2tranzerorqst] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2tranzerorqst($v)
     {
@@ -5928,13 +5931,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2tranzerorqst()
+    }
 
     /**
      * Set the value of [intbconfmonendadjdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfmonendadjdate($v)
     {
@@ -5948,13 +5951,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfmonendadjdate()
+    }
 
     /**
      * Set the value of [intbconfmonendtrndate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfmonendtrndate($v)
     {
@@ -5968,13 +5971,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfmonendtrndate()
+    }
 
     /**
      * Set the value of [intbconfmonendlogdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfmonendlogdate($v)
     {
@@ -5988,13 +5991,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfmonendlogdate()
+    }
 
     /**
      * Set the value of [intbconfdstatproc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdstatproc($v)
     {
@@ -6008,13 +6011,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdstatproc()
+    }
 
     /**
      * Set the value of [intbconfstancostupd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfstancostupd($v)
     {
@@ -6028,13 +6031,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfstancostupd()
+    }
 
     /**
      * Set the value of [intbconflastcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconflastcost($v)
     {
@@ -6048,13 +6051,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconflastcost()
+    }
 
     /**
      * Set the value of [intbconfusesorgpct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusesorgpct($v)
     {
@@ -6068,13 +6071,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusesorgpct()
+    }
 
     /**
      * Set the value of [intbconfaddonstan] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfaddonstan($v)
     {
@@ -6088,13 +6091,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfaddonstan()
+    }
 
     /**
      * Set the value of [intbconfstdcosterror] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfstdcosterror($v)
     {
@@ -6108,13 +6111,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfstdcosterror()
+    }
 
     /**
      * Set the value of [intbconfavgcurrfive] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfavgcurrfive($v)
     {
@@ -6128,13 +6131,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfavgcurrfive()
+    }
 
     /**
      * Set the value of [intbconfusecntrlbin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusecntrlbin($v)
     {
@@ -6148,13 +6151,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusecntrlbin()
+    }
 
     /**
      * Set the value of [intbconfnbrbinareas] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfnbrbinareas($v)
     {
@@ -6168,13 +6171,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfnbrbinareas()
+    }
 
     /**
      * Set the value of [intbconfusemultbin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusemultbin($v)
     {
@@ -6188,13 +6191,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusemultbin()
+    }
 
     /**
      * Set the value of [intbconfdfltwhsebin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdfltwhsebin($v)
     {
@@ -6208,13 +6211,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdfltwhsebin()
+    }
 
     /**
      * Set the value of [intbconfdfltbin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdfltbin($v)
     {
@@ -6228,13 +6231,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdfltbin()
+    }
 
     /**
      * Set the value of [intbconfctryitemlot] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfctryitemlot($v)
     {
@@ -6248,13 +6251,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfctryitemlot()
+    }
 
     /**
      * Set the value of [intbconfuseshipbin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfuseshipbin($v)
     {
@@ -6268,13 +6271,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfuseshipbin()
+    }
 
     /**
      * Set the value of [intbcon2prtbinrlabel] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2prtbinrlabel($v)
     {
@@ -6288,13 +6291,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2prtbinrlabel()
+    }
 
     /**
      * Set the value of [intbcon2itemlookup] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2itemlookup($v)
     {
@@ -6308,13 +6311,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2itemlookup()
+    }
 
     /**
      * Set the value of [intbconfincldcti] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfincldcti($v)
     {
@@ -6328,13 +6331,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfincldcti()
+    }
 
     /**
      * Set the value of [intbconfcertimage] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcertimage($v)
     {
@@ -6348,13 +6351,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcertimage()
+    }
 
     /**
      * Set the value of [intbconfdrawimage] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdrawimage($v)
     {
@@ -6368,13 +6371,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdrawimage()
+    }
 
     /**
      * Set the value of [intbconfconfirmimage] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfconfirmimage($v)
     {
@@ -6388,13 +6391,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfconfirmimage()
+    }
 
     /**
      * Set the value of [intbcon2productimage] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2productimage($v)
     {
@@ -6408,13 +6411,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2productimage()
+    }
 
     /**
      * Set the value of [intbconfdefpick] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdefpick($v)
     {
@@ -6428,13 +6431,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdefpick()
+    }
 
     /**
      * Set the value of [intbconfdefpack] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdefpack($v)
     {
@@ -6448,13 +6451,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdefpack()
+    }
 
     /**
      * Set the value of [intbconfdefinvc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdefinvc($v)
     {
@@ -6468,13 +6471,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdefinvc()
+    }
 
     /**
      * Set the value of [intbconfdefack] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdefack($v)
     {
@@ -6488,13 +6491,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdefack()
+    }
 
     /**
      * Set the value of [intbconfdefquot] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdefquot($v)
     {
@@ -6508,13 +6511,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdefquot()
+    }
 
     /**
      * Set the value of [intbconfdefpo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdefpo($v)
     {
@@ -6528,13 +6531,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdefpo()
+    }
 
     /**
      * Set the value of [intbconfdeftrans] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdeftrans($v)
     {
@@ -6548,13 +6551,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdeftrans()
+    }
 
     /**
      * Set the value of [intbconfadjglcogs] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfadjglcogs($v)
     {
@@ -6568,13 +6571,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfadjglcogs()
+    }
 
     /**
      * Set the value of [intbcon2dfltadjglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2dfltadjglacct($v)
     {
@@ -6588,13 +6591,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2dfltadjglacct()
+    }
 
     /**
      * Set the value of [intbconfadjcostbase] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfadjcostbase($v)
     {
@@ -6608,13 +6611,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfadjcostbase()
+    }
 
     /**
      * Set the value of [intbconfdfltadjtbin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdfltadjtbin($v)
     {
@@ -6628,13 +6631,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdfltadjtbin()
+    }
 
     /**
      * Set the value of [intbconfadjtbin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfadjtbin($v)
     {
@@ -6648,13 +6651,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfadjtbin()
+    }
 
     /**
      * Set the value of [intbconfcstockseq] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcstockseq($v)
     {
@@ -6668,13 +6671,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcstockseq()
+    }
 
     /**
      * Set the value of [intbconfcstockhistday] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcstockhistday($v)
     {
@@ -6688,13 +6691,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcstockhistday()
+    }
 
     /**
      * Set the value of [intbconfcstockformat] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcstockformat($v)
     {
@@ -6708,13 +6711,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcstockformat()
+    }
 
     /**
      * Set the value of [intbconfcstkexportitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcstkexportitem($v)
     {
@@ -6728,13 +6731,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcstkexportitem()
+    }
 
     /**
      * Set the value of [intbconfcstkpdmcontract] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfcstkpdmcontract($v)
     {
@@ -6748,13 +6751,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfcstkpdmcontract()
+    }
 
     /**
      * Set the value of [intbcon2importseq] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2importseq($v)
     {
@@ -6768,13 +6771,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2importseq()
+    }
 
     /**
      * Set the value of [intbconfstopitemchg] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfstopitemchg($v)
     {
@@ -6788,13 +6791,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfstopitemchg()
+    }
 
     /**
      * Set the value of [intbconfaddtomxrfe] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfaddtomxrfe($v)
     {
@@ -6808,13 +6811,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfaddtomxrfe()
+    }
 
     /**
      * Set the value of [intbconfmxrfevendid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfmxrfevendid($v)
     {
@@ -6828,13 +6831,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfmxrfevendid()
+    }
 
     /**
      * Set the value of [intbcon2newidlabellist] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2newidlabellist($v)
     {
@@ -6848,13 +6851,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2newidlabellist()
+    }
 
     /**
      * Set the value of [intbconfuseformat] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfuseformat($v)
     {
@@ -6868,13 +6871,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfuseformat()
+    }
 
     /**
      * Set the value of [intbconfdefformat] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfdefformat($v)
     {
@@ -6888,13 +6891,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfdefformat()
+    }
 
     /**
      * Set the value of [intbconfseqshortitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfseqshortitem($v)
     {
@@ -6908,13 +6911,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfseqshortitem()
+    }
 
     /**
      * Set the value of [intbconfshortitemlen] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfshortitemlen($v)
     {
@@ -6928,13 +6931,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfshortitemlen()
+    }
 
     /**
      * Set the value of [intbconfusescale] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfusescale($v)
     {
@@ -6948,13 +6951,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfusescale()
+    }
 
     /**
      * Set the value of [intbconfstorewght] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfstorewght($v)
     {
@@ -6968,13 +6971,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfstorewght()
+    }
 
     /**
      * Set the value of [intbconfvalidasstcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfvalidasstcode($v)
     {
@@ -6988,13 +6991,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfvalidasstcode()
+    }
 
     /**
      * Set the value of [intbconfwhitegoods] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbconfwhitegoods($v)
     {
@@ -7008,13 +7011,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbconfwhitegoods()
+    }
 
     /**
      * Set the value of [intbcon2transcustid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcon2transcustid($v)
     {
@@ -7028,13 +7031,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcon2transcustid()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -7048,13 +7051,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -7068,13 +7071,13 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -7088,7 +7091,7 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -7096,9 +7099,9 @@ abstract class ConfigIn implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->intbconfkey !== 1) {
                 return false;
@@ -7798,7 +7801,7 @@ abstract class ConfigIn implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -7808,17 +7811,17 @@ abstract class ConfigIn implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -8343,8 +8346,8 @@ abstract class ConfigIn implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : ConfigInTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -8369,23 +8372,24 @@ abstract class ConfigIn implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -8418,13 +8422,13 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigIn::setDeleted()
      * @see ConfigIn::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -8454,12 +8458,12 @@ abstract class ConfigIn implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -8504,12 +8508,12 @@ abstract class ConfigIn implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -8531,19 +8535,19 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -9083,525 +9087,699 @@ abstract class ConfigIn implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'IntbConfKey':
                         $stmt->bindValue($identifier, $this->intbconfkey, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfGlIfac':
                         $stmt->bindValue($identifier, $this->intbconfglifac, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseIw':
                         $stmt->bindValue($identifier, $this->intbconfuseiw, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfLifoFifo':
                         $stmt->bindValue($identifier, $this->intbconflifofifo, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfGoNeg':
                         $stmt->bindValue($identifier, $this->intbconfgoneg, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseLots':
                         $stmt->bindValue($identifier, $this->intbconfuselots, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfNbrUppr':
                         $stmt->bindValue($identifier, $this->intbconfnbruppr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDescUppr':
                         $stmt->bindValue($identifier, $this->intbconfdescuppr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseDesc2':
                         $stmt->bindValue($identifier, $this->intbconfusedesc2, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseUpcCode':
                         $stmt->bindValue($identifier, $this->intbconfuseupccode, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUpcEanCntrl':
                         $stmt->bindValue($identifier, $this->intbconfupceancntrl, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUpcGenNbr':
                         $stmt->bindValue($identifier, $this->intbconfupcgennbr, PDO::PARAM_INT);
+
                         break;
                     case 'IntbCon2AllowDupUpc':
                         $stmt->bindValue($identifier, $this->intbcon2allowdupupc, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfXrefNoSpace':
                         $stmt->bindValue($identifier, $this->intbconfxrefnospace, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUsePricGrup':
                         $stmt->bindValue($identifier, $this->intbconfusepricgrup, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseCommGrup':
                         $stmt->bindValue($identifier, $this->intbconfusecommgrup, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseWarrDays':
                         $stmt->bindValue($identifier, $this->intbconfusewarrdays, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfStanBaseDef':
                         $stmt->bindValue($identifier, $this->intbconfstanbasedef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfGrupDef':
                         $stmt->bindValue($identifier, $this->intbconfgrupdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfPricGrupDef':
                         $stmt->bindValue($identifier, $this->intbconfpricgrupdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCommGrupDef':
                         $stmt->bindValue($identifier, $this->intbconfcommgrupdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfTypeDef':
                         $stmt->bindValue($identifier, $this->intbconftypedef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfMultiLotRef':
                         $stmt->bindValue($identifier, $this->intbconfmultilotref, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfPricUseItem':
                         $stmt->bindValue($identifier, $this->intbconfpricuseitem, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCommUseItem':
                         $stmt->bindValue($identifier, $this->intbconfcommuseitem, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUomSaleDef':
                         $stmt->bindValue($identifier, $this->intbconfuomsaledef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUomPurDef':
                         $stmt->bindValue($identifier, $this->intbconfuompurdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfSviaDef':
                         $stmt->bindValue($identifier, $this->intbconfsviadef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCustxrefOrUse':
                         $stmt->bindValue($identifier, $this->intbconfcustxreforuse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfHeadGetDef':
                         $stmt->bindValue($identifier, $this->intbconfheadgetdef, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfItemGetDef':
                         $stmt->bindValue($identifier, $this->intbconfitemgetdef, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfGetDispOhAval':
                         $stmt->bindValue($identifier, $this->intbconfgetdispohaval, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUserCode1Labl':
                         $stmt->bindValue($identifier, $this->intbconfusercode1labl, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUserCode1Ver':
                         $stmt->bindValue($identifier, $this->intbconfusercode1ver, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUserCode2Labl':
                         $stmt->bindValue($identifier, $this->intbconfusercode2labl, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUserCode2Ver':
                         $stmt->bindValue($identifier, $this->intbconfusercode2ver, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfItemLine':
                         $stmt->bindValue($identifier, $this->intbconfitemline, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfItemCols':
                         $stmt->bindValue($identifier, $this->intbconfitemcols, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfHeadLine':
                         $stmt->bindValue($identifier, $this->intbconfheadline, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfHeadCols':
                         $stmt->bindValue($identifier, $this->intbconfheadcols, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfDetLine':
                         $stmt->bindValue($identifier, $this->intbconfdetline, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfDetCols':
                         $stmt->bindValue($identifier, $this->intbconfdetcols, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfMinMaxZero':
                         $stmt->bindValue($identifier, $this->intbconfminmaxzero, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfMinRec':
                         $stmt->bindValue($identifier, $this->intbconfminrec, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAtBelowMin':
                         $stmt->bindValue($identifier, $this->intbconfatbelowmin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfOneWhse':
                         $stmt->bindValue($identifier, $this->intbconfonewhse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfYtdMth':
                         $stmt->bindValue($identifier, $this->intbconfytdmth, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfUseGramsLtr':
                         $stmt->bindValue($identifier, $this->intbconfusegramsltr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcByWhse':
                         $stmt->bindValue($identifier, $this->intbconfabcbywhse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcNbrMths':
                         $stmt->bindValue($identifier, $this->intbconfabcnbrmths, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfAbcBaseCode':
                         $stmt->bindValue($identifier, $this->intbconfabcbasecode, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlA':
                         $stmt->bindValue($identifier, $this->intbconfabclevla, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlB':
                         $stmt->bindValue($identifier, $this->intbconfabclevlb, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlC':
                         $stmt->bindValue($identifier, $this->intbconfabclevlc, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlD':
                         $stmt->bindValue($identifier, $this->intbconfabclevld, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlE':
                         $stmt->bindValue($identifier, $this->intbconfabclevle, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlF':
                         $stmt->bindValue($identifier, $this->intbconfabclevlf, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlG':
                         $stmt->bindValue($identifier, $this->intbconfabclevlg, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlH':
                         $stmt->bindValue($identifier, $this->intbconfabclevlh, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlI':
                         $stmt->bindValue($identifier, $this->intbconfabclevli, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcLevlJ':
                         $stmt->bindValue($identifier, $this->intbconfabclevlj, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseForeignX':
                         $stmt->bindValue($identifier, $this->intbconfuseforeignx, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseNafta':
                         $stmt->bindValue($identifier, $this->intbconfusenafta, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfNaftaPrefCode':
                         $stmt->bindValue($identifier, $this->intbconfnaftaprefcode, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfNaftaProducer':
                         $stmt->bindValue($identifier, $this->intbconfnaftaproducer, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfNaftaDocCode':
                         $stmt->bindValue($identifier, $this->intbconfnaftadoccode, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfPhysCurrWksh':
                         $stmt->bindValue($identifier, $this->intbconfphyscurrwksh, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConf20Or30':
                         $stmt->bindValue($identifier, $this->intbconf20or30, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfDispOrigCnt':
                         $stmt->bindValue($identifier, $this->intbconfdisporigcnt, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDispGl':
                         $stmt->bindValue($identifier, $this->intbconfdispgl, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDispRef':
                         $stmt->bindValue($identifier, $this->intbconfdispref, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDispCost':
                         $stmt->bindValue($identifier, $this->intbconfdispcost, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfPrtVal':
                         $stmt->bindValue($identifier, $this->intbconfprtval, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfPrtGl':
                         $stmt->bindValue($identifier, $this->intbconfprtgl, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfGlAcct':
                         $stmt->bindValue($identifier, $this->intbconfglacct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfRef':
                         $stmt->bindValue($identifier, $this->intbconfref, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCostType':
                         $stmt->bindValue($identifier, $this->intbconfcosttype, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfNormalOnly':
                         $stmt->bindValue($identifier, $this->intbconfnormalonly, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseWhseDef':
                         $stmt->bindValue($identifier, $this->intbconfusewhsedef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse01':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse01, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse02':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse02, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse03':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse03, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse04':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse04, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse05':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse05, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse06':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse06, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse07':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse07, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse08':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse08, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse09':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse09, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltWhse10':
                         $stmt->bindValue($identifier, $this->intbcon2dfltwhse10, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfBinDef':
                         $stmt->bindValue($identifier, $this->intbconfbindef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCyclDef':
                         $stmt->bindValue($identifier, $this->intbconfcycldef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfStatDef':
                         $stmt->bindValue($identifier, $this->intbconfstatdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAbcDef':
                         $stmt->bindValue($identifier, $this->intbconfabcdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfSpecOrdrDef':
                         $stmt->bindValue($identifier, $this->intbconfspecordrdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfOrdrPntDef':
                         $stmt->bindValue($identifier, $this->intbconfordrpntdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfMaxDef':
                         $stmt->bindValue($identifier, $this->intbconfmaxdef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfOrdrQtyDef':
                         $stmt->bindValue($identifier, $this->intbconfordrqtydef, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfTrcptAllowCmpl':
                         $stmt->bindValue($identifier, $this->intbconftrcptallowcmpl, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfTreCmmtStock':
                         $stmt->bindValue($identifier, $this->intbconftrecmmtstock, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseFrtIn':
                         $stmt->bindValue($identifier, $this->intbconfusefrtin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfEachOrUom':
                         $stmt->bindValue($identifier, $this->intbconfeachoruom, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfNegLotCorr':
                         $stmt->bindValue($identifier, $this->intbconfneglotcorr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfTrnsGlAcct':
                         $stmt->bindValue($identifier, $this->intbconftrnsglacct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfTrnsProtStock':
                         $stmt->bindValue($identifier, $this->intbconftrnsprotstock, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfNumericItem':
                         $stmt->bindValue($identifier, $this->intbconfnumericitem, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfItemDigits':
                         $stmt->bindValue($identifier, $this->intbconfitemdigits, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfSingleWhse':
                         $stmt->bindValue($identifier, $this->intbconfsinglewhse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUpdUsePct':
                         $stmt->bindValue($identifier, $this->intbconfupdusepct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUpdPric':
                         $stmt->bindValue($identifier, $this->intbconfupdpric, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUpdStdCost':
                         $stmt->bindValue($identifier, $this->intbconfupdstdcost, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUpdXrefCost':
                         $stmt->bindValue($identifier, $this->intbconfupdxrefcost, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfIqpaUpdDate':
                         $stmt->bindValue($identifier, $this->intbconfiqpaupddate, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUpcXrefOptn':
                         $stmt->bindValue($identifier, $this->intbconfupcxrefoptn, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfTranViewLIB':
                         $stmt->bindValue($identifier, $this->intbconftranviewlib, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfResvCost':
                         $stmt->bindValue($identifier, $this->intbconfresvcost, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2TranZeroRqst':
                         $stmt->bindValue($identifier, $this->intbcon2tranzerorqst, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfMonEndAdjDate':
                         $stmt->bindValue($identifier, $this->intbconfmonendadjdate, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfMonEndTrnDate':
                         $stmt->bindValue($identifier, $this->intbconfmonendtrndate, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfMonEndLogDate':
                         $stmt->bindValue($identifier, $this->intbconfmonendlogdate, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDStatProc':
                         $stmt->bindValue($identifier, $this->intbconfdstatproc, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfStanCostUpd':
                         $stmt->bindValue($identifier, $this->intbconfstancostupd, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfLastCost':
                         $stmt->bindValue($identifier, $this->intbconflastcost, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseSOrGPct':
                         $stmt->bindValue($identifier, $this->intbconfusesorgpct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAddOnStan':
                         $stmt->bindValue($identifier, $this->intbconfaddonstan, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfStdCostError':
                         $stmt->bindValue($identifier, $this->intbconfstdcosterror, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAvgCurrFive':
                         $stmt->bindValue($identifier, $this->intbconfavgcurrfive, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseCntrlBin':
                         $stmt->bindValue($identifier, $this->intbconfusecntrlbin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfNbrBinAreas':
                         $stmt->bindValue($identifier, $this->intbconfnbrbinareas, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfUseMultBin':
                         $stmt->bindValue($identifier, $this->intbconfusemultbin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDfltWhseBin':
                         $stmt->bindValue($identifier, $this->intbconfdfltwhsebin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDfltBin':
                         $stmt->bindValue($identifier, $this->intbconfdfltbin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCtryItemLot':
                         $stmt->bindValue($identifier, $this->intbconfctryitemlot, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseShipBin':
                         $stmt->bindValue($identifier, $this->intbconfuseshipbin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2PrtBinrLabel':
                         $stmt->bindValue($identifier, $this->intbcon2prtbinrlabel, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2ItemLookup':
                         $stmt->bindValue($identifier, $this->intbcon2itemlookup, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfIncldCti':
                         $stmt->bindValue($identifier, $this->intbconfincldcti, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCertImage':
                         $stmt->bindValue($identifier, $this->intbconfcertimage, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDrawImage':
                         $stmt->bindValue($identifier, $this->intbconfdrawimage, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfConfirmImage':
                         $stmt->bindValue($identifier, $this->intbconfconfirmimage, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2ProductImage':
                         $stmt->bindValue($identifier, $this->intbcon2productimage, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDefPick':
                         $stmt->bindValue($identifier, $this->intbconfdefpick, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDefPack':
                         $stmt->bindValue($identifier, $this->intbconfdefpack, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDefInvc':
                         $stmt->bindValue($identifier, $this->intbconfdefinvc, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDefAck':
                         $stmt->bindValue($identifier, $this->intbconfdefack, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDefQuot':
                         $stmt->bindValue($identifier, $this->intbconfdefquot, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDefPo':
                         $stmt->bindValue($identifier, $this->intbconfdefpo, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDefTrans':
                         $stmt->bindValue($identifier, $this->intbconfdeftrans, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAdjGlCogs':
                         $stmt->bindValue($identifier, $this->intbconfadjglcogs, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2DfltAdjGlAcct':
                         $stmt->bindValue($identifier, $this->intbcon2dfltadjglacct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAdjCostBase':
                         $stmt->bindValue($identifier, $this->intbconfadjcostbase, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDfltAdjtBin':
                         $stmt->bindValue($identifier, $this->intbconfdfltadjtbin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfAdjtBin':
                         $stmt->bindValue($identifier, $this->intbconfadjtbin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCStockSeq':
                         $stmt->bindValue($identifier, $this->intbconfcstockseq, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCStockHistDay':
                         $stmt->bindValue($identifier, $this->intbconfcstockhistday, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfCStockFormat':
                         $stmt->bindValue($identifier, $this->intbconfcstockformat, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCstkExportItem':
                         $stmt->bindValue($identifier, $this->intbconfcstkexportitem, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfCstkPdmContract':
                         $stmt->bindValue($identifier, $this->intbconfcstkpdmcontract, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2ImportSeq':
                         $stmt->bindValue($identifier, $this->intbcon2importseq, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfStopItemChg':
                         $stmt->bindValue($identifier, $this->intbconfstopitemchg, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfAddToMxrfe':
                         $stmt->bindValue($identifier, $this->intbconfaddtomxrfe, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfMxrfeVendId':
                         $stmt->bindValue($identifier, $this->intbconfmxrfevendid, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2NewIdLabelList':
                         $stmt->bindValue($identifier, $this->intbcon2newidlabellist, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfUseFormat':
                         $stmt->bindValue($identifier, $this->intbconfuseformat, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfDefFormat':
                         $stmt->bindValue($identifier, $this->intbconfdefformat, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfSeqShortItem':
                         $stmt->bindValue($identifier, $this->intbconfseqshortitem, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfShortItemLen':
                         $stmt->bindValue($identifier, $this->intbconfshortitemlen, PDO::PARAM_INT);
+
                         break;
                     case 'IntbConfUseScale':
                         $stmt->bindValue($identifier, $this->intbconfusescale, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfStoreWght':
                         $stmt->bindValue($identifier, $this->intbconfstorewght, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfValidAsstCode':
                         $stmt->bindValue($identifier, $this->intbconfvalidasstcode, PDO::PARAM_STR);
+
                         break;
                     case 'IntbConfWhiteGoods':
                         $stmt->bindValue($identifier, $this->intbconfwhitegoods, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCon2TransCustId':
                         $stmt->bindValue($identifier, $this->intbcon2transcustid, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -9617,12 +9795,12 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -9633,14 +9811,14 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigInTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -9652,537 +9830,536 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getIntbconfkey();
-                break;
+
             case 1:
                 return $this->getIntbconfglifac();
-                break;
+
             case 2:
                 return $this->getIntbconfuseiw();
-                break;
+
             case 3:
                 return $this->getIntbconflifofifo();
-                break;
+
             case 4:
                 return $this->getIntbconfgoneg();
-                break;
+
             case 5:
                 return $this->getIntbconfuselots();
-                break;
+
             case 6:
                 return $this->getIntbconfnbruppr();
-                break;
+
             case 7:
                 return $this->getIntbconfdescuppr();
-                break;
+
             case 8:
                 return $this->getIntbconfusedesc2();
-                break;
+
             case 9:
                 return $this->getIntbconfuseupccode();
-                break;
+
             case 10:
                 return $this->getIntbconfupceancntrl();
-                break;
+
             case 11:
                 return $this->getIntbconfupcgennbr();
-                break;
+
             case 12:
                 return $this->getIntbcon2allowdupupc();
-                break;
+
             case 13:
                 return $this->getIntbconfxrefnospace();
-                break;
+
             case 14:
                 return $this->getIntbconfusepricgrup();
-                break;
+
             case 15:
                 return $this->getIntbconfusecommgrup();
-                break;
+
             case 16:
                 return $this->getIntbconfusewarrdays();
-                break;
+
             case 17:
                 return $this->getIntbconfstanbasedef();
-                break;
+
             case 18:
                 return $this->getIntbconfgrupdef();
-                break;
+
             case 19:
                 return $this->getIntbconfpricgrupdef();
-                break;
+
             case 20:
                 return $this->getIntbconfcommgrupdef();
-                break;
+
             case 21:
                 return $this->getIntbconftypedef();
-                break;
+
             case 22:
                 return $this->getIntbconfmultilotref();
-                break;
+
             case 23:
                 return $this->getIntbconfpricuseitem();
-                break;
+
             case 24:
                 return $this->getIntbconfcommuseitem();
-                break;
+
             case 25:
                 return $this->getIntbconfuomsaledef();
-                break;
+
             case 26:
                 return $this->getIntbconfuompurdef();
-                break;
+
             case 27:
                 return $this->getIntbconfsviadef();
-                break;
+
             case 28:
                 return $this->getIntbconfcustxreforuse();
-                break;
+
             case 29:
                 return $this->getIntbconfheadgetdef();
-                break;
+
             case 30:
                 return $this->getIntbconfitemgetdef();
-                break;
+
             case 31:
                 return $this->getIntbconfgetdispohaval();
-                break;
+
             case 32:
                 return $this->getIntbconfusercode1labl();
-                break;
+
             case 33:
                 return $this->getIntbconfusercode1ver();
-                break;
+
             case 34:
                 return $this->getIntbconfusercode2labl();
-                break;
+
             case 35:
                 return $this->getIntbconfusercode2ver();
-                break;
+
             case 36:
                 return $this->getIntbconfitemline();
-                break;
+
             case 37:
                 return $this->getIntbconfitemcols();
-                break;
+
             case 38:
                 return $this->getIntbconfheadline();
-                break;
+
             case 39:
                 return $this->getIntbconfheadcols();
-                break;
+
             case 40:
                 return $this->getIntbconfdetline();
-                break;
+
             case 41:
                 return $this->getIntbconfdetcols();
-                break;
+
             case 42:
                 return $this->getIntbconfminmaxzero();
-                break;
+
             case 43:
                 return $this->getIntbconfminrec();
-                break;
+
             case 44:
                 return $this->getIntbconfatbelowmin();
-                break;
+
             case 45:
                 return $this->getIntbconfonewhse();
-                break;
+
             case 46:
                 return $this->getIntbconfytdmth();
-                break;
+
             case 47:
                 return $this->getIntbconfusegramsltr();
-                break;
+
             case 48:
                 return $this->getIntbconfabcbywhse();
-                break;
+
             case 49:
                 return $this->getIntbconfabcnbrmths();
-                break;
+
             case 50:
                 return $this->getIntbconfabcbasecode();
-                break;
+
             case 51:
                 return $this->getIntbconfabclevla();
-                break;
+
             case 52:
                 return $this->getIntbconfabclevlb();
-                break;
+
             case 53:
                 return $this->getIntbconfabclevlc();
-                break;
+
             case 54:
                 return $this->getIntbconfabclevld();
-                break;
+
             case 55:
                 return $this->getIntbconfabclevle();
-                break;
+
             case 56:
                 return $this->getIntbconfabclevlf();
-                break;
+
             case 57:
                 return $this->getIntbconfabclevlg();
-                break;
+
             case 58:
                 return $this->getIntbconfabclevlh();
-                break;
+
             case 59:
                 return $this->getIntbconfabclevli();
-                break;
+
             case 60:
                 return $this->getIntbconfabclevlj();
-                break;
+
             case 61:
                 return $this->getIntbconfuseforeignx();
-                break;
+
             case 62:
                 return $this->getIntbconfusenafta();
-                break;
+
             case 63:
                 return $this->getIntbconfnaftaprefcode();
-                break;
+
             case 64:
                 return $this->getIntbconfnaftaproducer();
-                break;
+
             case 65:
                 return $this->getIntbconfnaftadoccode();
-                break;
+
             case 66:
                 return $this->getIntbconfphyscurrwksh();
-                break;
+
             case 67:
                 return $this->getIntbconf20or30();
-                break;
+
             case 68:
                 return $this->getIntbconfdisporigcnt();
-                break;
+
             case 69:
                 return $this->getIntbconfdispgl();
-                break;
+
             case 70:
                 return $this->getIntbconfdispref();
-                break;
+
             case 71:
                 return $this->getIntbconfdispcost();
-                break;
+
             case 72:
                 return $this->getIntbconfprtval();
-                break;
+
             case 73:
                 return $this->getIntbconfprtgl();
-                break;
+
             case 74:
                 return $this->getIntbconfglacct();
-                break;
+
             case 75:
                 return $this->getIntbconfref();
-                break;
+
             case 76:
                 return $this->getIntbconfcosttype();
-                break;
+
             case 77:
                 return $this->getIntbconfnormalonly();
-                break;
+
             case 78:
                 return $this->getIntbconfusewhsedef();
-                break;
+
             case 79:
                 return $this->getIntbcon2dfltwhse01();
-                break;
+
             case 80:
                 return $this->getIntbcon2dfltwhse02();
-                break;
+
             case 81:
                 return $this->getIntbcon2dfltwhse03();
-                break;
+
             case 82:
                 return $this->getIntbcon2dfltwhse04();
-                break;
+
             case 83:
                 return $this->getIntbcon2dfltwhse05();
-                break;
+
             case 84:
                 return $this->getIntbcon2dfltwhse06();
-                break;
+
             case 85:
                 return $this->getIntbcon2dfltwhse07();
-                break;
+
             case 86:
                 return $this->getIntbcon2dfltwhse08();
-                break;
+
             case 87:
                 return $this->getIntbcon2dfltwhse09();
-                break;
+
             case 88:
                 return $this->getIntbcon2dfltwhse10();
-                break;
+
             case 89:
                 return $this->getIntbconfbindef();
-                break;
+
             case 90:
                 return $this->getIntbconfcycldef();
-                break;
+
             case 91:
                 return $this->getIntbconfstatdef();
-                break;
+
             case 92:
                 return $this->getIntbconfabcdef();
-                break;
+
             case 93:
                 return $this->getIntbconfspecordrdef();
-                break;
+
             case 94:
                 return $this->getIntbconfordrpntdef();
-                break;
+
             case 95:
                 return $this->getIntbconfmaxdef();
-                break;
+
             case 96:
                 return $this->getIntbconfordrqtydef();
-                break;
+
             case 97:
                 return $this->getIntbconftrcptallowcmpl();
-                break;
+
             case 98:
                 return $this->getIntbconftrecmmtstock();
-                break;
+
             case 99:
                 return $this->getIntbconfusefrtin();
-                break;
+
             case 100:
                 return $this->getIntbconfeachoruom();
-                break;
+
             case 101:
                 return $this->getIntbconfneglotcorr();
-                break;
+
             case 102:
                 return $this->getIntbconftrnsglacct();
-                break;
+
             case 103:
                 return $this->getIntbconftrnsprotstock();
-                break;
+
             case 104:
                 return $this->getIntbconfnumericitem();
-                break;
+
             case 105:
                 return $this->getIntbconfitemdigits();
-                break;
+
             case 106:
                 return $this->getIntbconfsinglewhse();
-                break;
+
             case 107:
                 return $this->getIntbconfupdusepct();
-                break;
+
             case 108:
                 return $this->getIntbconfupdpric();
-                break;
+
             case 109:
                 return $this->getIntbconfupdstdcost();
-                break;
+
             case 110:
                 return $this->getIntbconfupdxrefcost();
-                break;
+
             case 111:
                 return $this->getIntbconfiqpaupddate();
-                break;
+
             case 112:
                 return $this->getIntbconfupcxrefoptn();
-                break;
+
             case 113:
                 return $this->getIntbconftranviewlib();
-                break;
+
             case 114:
                 return $this->getIntbconfresvcost();
-                break;
+
             case 115:
                 return $this->getIntbcon2tranzerorqst();
-                break;
+
             case 116:
                 return $this->getIntbconfmonendadjdate();
-                break;
+
             case 117:
                 return $this->getIntbconfmonendtrndate();
-                break;
+
             case 118:
                 return $this->getIntbconfmonendlogdate();
-                break;
+
             case 119:
                 return $this->getIntbconfdstatproc();
-                break;
+
             case 120:
                 return $this->getIntbconfstancostupd();
-                break;
+
             case 121:
                 return $this->getIntbconflastcost();
-                break;
+
             case 122:
                 return $this->getIntbconfusesorgpct();
-                break;
+
             case 123:
                 return $this->getIntbconfaddonstan();
-                break;
+
             case 124:
                 return $this->getIntbconfstdcosterror();
-                break;
+
             case 125:
                 return $this->getIntbconfavgcurrfive();
-                break;
+
             case 126:
                 return $this->getIntbconfusecntrlbin();
-                break;
+
             case 127:
                 return $this->getIntbconfnbrbinareas();
-                break;
+
             case 128:
                 return $this->getIntbconfusemultbin();
-                break;
+
             case 129:
                 return $this->getIntbconfdfltwhsebin();
-                break;
+
             case 130:
                 return $this->getIntbconfdfltbin();
-                break;
+
             case 131:
                 return $this->getIntbconfctryitemlot();
-                break;
+
             case 132:
                 return $this->getIntbconfuseshipbin();
-                break;
+
             case 133:
                 return $this->getIntbcon2prtbinrlabel();
-                break;
+
             case 134:
                 return $this->getIntbcon2itemlookup();
-                break;
+
             case 135:
                 return $this->getIntbconfincldcti();
-                break;
+
             case 136:
                 return $this->getIntbconfcertimage();
-                break;
+
             case 137:
                 return $this->getIntbconfdrawimage();
-                break;
+
             case 138:
                 return $this->getIntbconfconfirmimage();
-                break;
+
             case 139:
                 return $this->getIntbcon2productimage();
-                break;
+
             case 140:
                 return $this->getIntbconfdefpick();
-                break;
+
             case 141:
                 return $this->getIntbconfdefpack();
-                break;
+
             case 142:
                 return $this->getIntbconfdefinvc();
-                break;
+
             case 143:
                 return $this->getIntbconfdefack();
-                break;
+
             case 144:
                 return $this->getIntbconfdefquot();
-                break;
+
             case 145:
                 return $this->getIntbconfdefpo();
-                break;
+
             case 146:
                 return $this->getIntbconfdeftrans();
-                break;
+
             case 147:
                 return $this->getIntbconfadjglcogs();
-                break;
+
             case 148:
                 return $this->getIntbcon2dfltadjglacct();
-                break;
+
             case 149:
                 return $this->getIntbconfadjcostbase();
-                break;
+
             case 150:
                 return $this->getIntbconfdfltadjtbin();
-                break;
+
             case 151:
                 return $this->getIntbconfadjtbin();
-                break;
+
             case 152:
                 return $this->getIntbconfcstockseq();
-                break;
+
             case 153:
                 return $this->getIntbconfcstockhistday();
-                break;
+
             case 154:
                 return $this->getIntbconfcstockformat();
-                break;
+
             case 155:
                 return $this->getIntbconfcstkexportitem();
-                break;
+
             case 156:
                 return $this->getIntbconfcstkpdmcontract();
-                break;
+
             case 157:
                 return $this->getIntbcon2importseq();
-                break;
+
             case 158:
                 return $this->getIntbconfstopitemchg();
-                break;
+
             case 159:
                 return $this->getIntbconfaddtomxrfe();
-                break;
+
             case 160:
                 return $this->getIntbconfmxrfevendid();
-                break;
+
             case 161:
                 return $this->getIntbcon2newidlabellist();
-                break;
+
             case 162:
                 return $this->getIntbconfuseformat();
-                break;
+
             case 163:
                 return $this->getIntbconfdefformat();
-                break;
+
             case 164:
                 return $this->getIntbconfseqshortitem();
-                break;
+
             case 165:
                 return $this->getIntbconfshortitemlen();
-                break;
+
             case 166:
                 return $this->getIntbconfusescale();
-                break;
+
             case 167:
                 return $this->getIntbconfstorewght();
-                break;
+
             case 168:
                 return $this->getIntbconfvalidasstcode();
-                break;
+
             case 169:
                 return $this->getIntbconfwhitegoods();
-                break;
+
             case 170:
                 return $this->getIntbcon2transcustid();
-                break;
+
             case 171:
                 return $this->getDateupdtd();
-                break;
+
             case 172:
                 return $this->getTimeupdtd();
-                break;
+
             case 173:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -10192,23 +10369,22 @@ abstract class ConfigIn implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['ConfigIn'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['ConfigIn'][$this->hashCode()] = true;
         $keys = ConfigInTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getIntbconfkey(),
             $keys[1] => $this->getIntbconfglifac(),
             $keys[2] => $this->getIntbconfuseiw(),
@@ -10383,7 +10559,7 @@ abstract class ConfigIn implements ActiveRecordInterface
             $keys[171] => $this->getDateupdtd(),
             $keys[172] => $this->getTimeupdtd(),
             $keys[173] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -10396,30 +10572,32 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ConfigIn
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigInTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\ConfigIn
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -10962,11 +11140,11 @@ abstract class ConfigIn implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = ConfigInTableMap::getFieldNames($keyType);
 
@@ -11492,6 +11670,8 @@ abstract class ConfigIn implements ActiveRecordInterface
         if (array_key_exists($keys[173], $arr)) {
             $this->setDummy($arr[$keys[173]]);
         }
+
+        return $this;
     }
 
      /**
@@ -11511,9 +11691,9 @@ abstract class ConfigIn implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ConfigIn The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -11527,9 +11707,9 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(ConfigInTableMap::DATABASE_NAME);
 
@@ -12063,13 +12243,13 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildConfigInQuery::create();
         $criteria->add(ConfigInTableMap::COL_INTBCONFKEY, $this->intbconfkey);
@@ -12081,7 +12261,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -12111,19 +12291,20 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (intbconfkey column).
      *
-     * @param       int $key Primary key.
+     * @param int|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?int $key = null): void
     {
         $this->setIntbconfkey($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getIntbconfkey();
     }
@@ -12134,12 +12315,13 @@ abstract class ConfigIn implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ConfigIn (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \ConfigIn (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setIntbconfkey($this->getIntbconfkey());
         $copyObj->setIntbconfglifac($this->getIntbconfglifac());
@@ -12328,11 +12510,11 @@ abstract class ConfigIn implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \ConfigIn Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -12346,6 +12528,8 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -12529,6 +12713,8 @@ abstract class ConfigIn implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -12537,13 +12723,15 @@ abstract class ConfigIn implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -12558,99 +12746,79 @@ abstract class ConfigIn implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -12660,7 +12828,7 @@ abstract class ConfigIn implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -12680,15 +12848,18 @@ abstract class ConfigIn implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

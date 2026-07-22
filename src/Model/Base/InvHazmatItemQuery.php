@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_inv_hazmat' table.
- *
- *
+ * Base class that represents a query for the `inv_inv_hazmat` table.
  *
  * @method     ChildInvHazmatItemQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildInvHazmatItemQuery orderByInhzdot1($order = Criteria::ASC) Order by the InhzDot1 column
@@ -64,23 +63,23 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvHazmatItem findOne(ConnectionInterface $con = null) Return the first ChildInvHazmatItem matching the query
- * @method     ChildInvHazmatItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvHazmatItem matching the query, or a new ChildInvHazmatItem object populated from the query conditions when no match is found
+ * @method     ChildInvHazmatItem|null findOne(?ConnectionInterface $con = null) Return the first ChildInvHazmatItem matching the query
+ * @method     ChildInvHazmatItem findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvHazmatItem matching the query, or a new ChildInvHazmatItem object populated from the query conditions when no match is found
  *
- * @method     ChildInvHazmatItem findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvHazmatItem filtered by the InitItemNbr column
- * @method     ChildInvHazmatItem findOneByInhzdot1(string $InhzDot1) Return the first ChildInvHazmatItem filtered by the InhzDot1 column
- * @method     ChildInvHazmatItem findOneByInhzdot2(string $InhzDot2) Return the first ChildInvHazmatItem filtered by the InhzDot2 column
- * @method     ChildInvHazmatItem findOneByInhzclass(string $InhzClass) Return the first ChildInvHazmatItem filtered by the InhzClass column
- * @method     ChildInvHazmatItem findOneByInhzunnbr(string $InhzUnNbr) Return the first ChildInvHazmatItem filtered by the InhzUnNbr column
- * @method     ChildInvHazmatItem findOneByInhzpackgrup(string $InhzPackGrup) Return the first ChildInvHazmatItem filtered by the InhzPackGrup column
- * @method     ChildInvHazmatItem findOneByInhzlabel(string $InhzLabel) Return the first ChildInvHazmatItem filtered by the InhzLabel column
- * @method     ChildInvHazmatItem findOneByInhzairyn(string $InhzAirYn) Return the first ChildInvHazmatItem filtered by the InhzAirYn column
- * @method     ChildInvHazmatItem findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvHazmatItem filtered by the DateUpdtd column
- * @method     ChildInvHazmatItem findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvHazmatItem filtered by the TimeUpdtd column
- * @method     ChildInvHazmatItem findOneByDummy(string $dummy) Return the first ChildInvHazmatItem filtered by the dummy column *
-
- * @method     ChildInvHazmatItem requirePk($key, ConnectionInterface $con = null) Return the ChildInvHazmatItem by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvHazmatItem requireOne(ConnectionInterface $con = null) Return the first ChildInvHazmatItem matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvHazmatItem|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvHazmatItem filtered by the InitItemNbr column
+ * @method     ChildInvHazmatItem|null findOneByInhzdot1(string $InhzDot1) Return the first ChildInvHazmatItem filtered by the InhzDot1 column
+ * @method     ChildInvHazmatItem|null findOneByInhzdot2(string $InhzDot2) Return the first ChildInvHazmatItem filtered by the InhzDot2 column
+ * @method     ChildInvHazmatItem|null findOneByInhzclass(string $InhzClass) Return the first ChildInvHazmatItem filtered by the InhzClass column
+ * @method     ChildInvHazmatItem|null findOneByInhzunnbr(string $InhzUnNbr) Return the first ChildInvHazmatItem filtered by the InhzUnNbr column
+ * @method     ChildInvHazmatItem|null findOneByInhzpackgrup(string $InhzPackGrup) Return the first ChildInvHazmatItem filtered by the InhzPackGrup column
+ * @method     ChildInvHazmatItem|null findOneByInhzlabel(string $InhzLabel) Return the first ChildInvHazmatItem filtered by the InhzLabel column
+ * @method     ChildInvHazmatItem|null findOneByInhzairyn(string $InhzAirYn) Return the first ChildInvHazmatItem filtered by the InhzAirYn column
+ * @method     ChildInvHazmatItem|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvHazmatItem filtered by the DateUpdtd column
+ * @method     ChildInvHazmatItem|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvHazmatItem filtered by the TimeUpdtd column
+ * @method     ChildInvHazmatItem|null findOneByDummy(string $dummy) Return the first ChildInvHazmatItem filtered by the dummy column
+ *
+ * @method     ChildInvHazmatItem requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvHazmatItem by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvHazmatItem requireOne(?ConnectionInterface $con = null) Return the first ChildInvHazmatItem matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvHazmatItem requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvHazmatItem filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvHazmatItem requireOneByInhzdot1(string $InhzDot1) Return the first ChildInvHazmatItem filtered by the InhzDot1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -94,20 +93,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvHazmatItem requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvHazmatItem filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvHazmatItem requireOneByDummy(string $dummy) Return the first ChildInvHazmatItem filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvHazmatItem[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvHazmatItem objects based on current ModelCriteria
- * @method     ChildInvHazmatItem[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvHazmatItem objects filtered by the InitItemNbr column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByInhzdot1(string $InhzDot1) Return ChildInvHazmatItem objects filtered by the InhzDot1 column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByInhzdot2(string $InhzDot2) Return ChildInvHazmatItem objects filtered by the InhzDot2 column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByInhzclass(string $InhzClass) Return ChildInvHazmatItem objects filtered by the InhzClass column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByInhzunnbr(string $InhzUnNbr) Return ChildInvHazmatItem objects filtered by the InhzUnNbr column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByInhzpackgrup(string $InhzPackGrup) Return ChildInvHazmatItem objects filtered by the InhzPackGrup column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByInhzlabel(string $InhzLabel) Return ChildInvHazmatItem objects filtered by the InhzLabel column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByInhzairyn(string $InhzAirYn) Return ChildInvHazmatItem objects filtered by the InhzAirYn column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvHazmatItem objects filtered by the DateUpdtd column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvHazmatItem objects filtered by the TimeUpdtd column
- * @method     ChildInvHazmatItem[]|ObjectCollection findByDummy(string $dummy) Return ChildInvHazmatItem objects filtered by the dummy column
- * @method     ChildInvHazmatItem[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvHazmatItem[]|Collection find(?ConnectionInterface $con = null) Return ChildInvHazmatItem objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> find(?ConnectionInterface $con = null) Return ChildInvHazmatItem objects based on current ModelCriteria
  *
+ * @method     ChildInvHazmatItem[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvHazmatItem objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvHazmatItem objects filtered by the InitItemNbr column
+ * @method     ChildInvHazmatItem[]|Collection findByInhzdot1(string|array<string> $InhzDot1) Return ChildInvHazmatItem objects filtered by the InhzDot1 column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByInhzdot1(string|array<string> $InhzDot1) Return ChildInvHazmatItem objects filtered by the InhzDot1 column
+ * @method     ChildInvHazmatItem[]|Collection findByInhzdot2(string|array<string> $InhzDot2) Return ChildInvHazmatItem objects filtered by the InhzDot2 column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByInhzdot2(string|array<string> $InhzDot2) Return ChildInvHazmatItem objects filtered by the InhzDot2 column
+ * @method     ChildInvHazmatItem[]|Collection findByInhzclass(string|array<string> $InhzClass) Return ChildInvHazmatItem objects filtered by the InhzClass column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByInhzclass(string|array<string> $InhzClass) Return ChildInvHazmatItem objects filtered by the InhzClass column
+ * @method     ChildInvHazmatItem[]|Collection findByInhzunnbr(string|array<string> $InhzUnNbr) Return ChildInvHazmatItem objects filtered by the InhzUnNbr column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByInhzunnbr(string|array<string> $InhzUnNbr) Return ChildInvHazmatItem objects filtered by the InhzUnNbr column
+ * @method     ChildInvHazmatItem[]|Collection findByInhzpackgrup(string|array<string> $InhzPackGrup) Return ChildInvHazmatItem objects filtered by the InhzPackGrup column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByInhzpackgrup(string|array<string> $InhzPackGrup) Return ChildInvHazmatItem objects filtered by the InhzPackGrup column
+ * @method     ChildInvHazmatItem[]|Collection findByInhzlabel(string|array<string> $InhzLabel) Return ChildInvHazmatItem objects filtered by the InhzLabel column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByInhzlabel(string|array<string> $InhzLabel) Return ChildInvHazmatItem objects filtered by the InhzLabel column
+ * @method     ChildInvHazmatItem[]|Collection findByInhzairyn(string|array<string> $InhzAirYn) Return ChildInvHazmatItem objects filtered by the InhzAirYn column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByInhzairyn(string|array<string> $InhzAirYn) Return ChildInvHazmatItem objects filtered by the InhzAirYn column
+ * @method     ChildInvHazmatItem[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvHazmatItem objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvHazmatItem objects filtered by the DateUpdtd column
+ * @method     ChildInvHazmatItem[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvHazmatItem objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvHazmatItem objects filtered by the TimeUpdtd column
+ * @method     ChildInvHazmatItem[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvHazmatItem objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvHazmatItem> findByDummy(string|array<string> $dummy) Return ChildInvHazmatItem objects filtered by the dummy column
+ *
+ * @method     ChildInvHazmatItem[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvHazmatItem> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvHazmatItemQuery extends ModelCriteria
 {
@@ -116,9 +129,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvHazmatItemQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvHazmatItem', $modelAlias = null)
     {
@@ -128,12 +141,12 @@ abstract class InvHazmatItemQuery extends ModelCriteria
     /**
      * Returns a new ChildInvHazmatItemQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvHazmatItemQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvHazmatItemQuery) {
             return $criteria;
@@ -163,7 +176,7 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      *
      * @return ChildInvHazmatItem|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -195,8 +208,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -228,8 +241,8 @@ abstract class InvHazmatItemQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvHazmatItem|array|mixed the result, formatted by the current formatter
      */
@@ -249,12 +262,12 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -271,27 +284,31 @@ abstract class InvHazmatItemQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INITITEMNBR, $key, Criteria::EQUAL);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INITITEMNBR, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INITITEMNBR, $keys, Criteria::IN);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INITITEMNBR, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -301,14 +318,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -316,7 +334,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -326,14 +346,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInhzdot1('fooValue');   // WHERE InhzDot1 = 'fooValue'
      * $query->filterByInhzdot1('%fooValue%', Criteria::LIKE); // WHERE InhzDot1 LIKE '%fooValue%'
+     * $query->filterByInhzdot1(['foo', 'bar']); // WHERE InhzDot1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inhzdot1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inhzdot1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhzdot1($inhzdot1 = null, $comparison = null)
+    public function filterByInhzdot1($inhzdot1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inhzdot1)) {
@@ -341,7 +362,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZDOT1, $inhzdot1, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZDOT1, $inhzdot1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -351,14 +374,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInhzdot2('fooValue');   // WHERE InhzDot2 = 'fooValue'
      * $query->filterByInhzdot2('%fooValue%', Criteria::LIKE); // WHERE InhzDot2 LIKE '%fooValue%'
+     * $query->filterByInhzdot2(['foo', 'bar']); // WHERE InhzDot2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inhzdot2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inhzdot2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhzdot2($inhzdot2 = null, $comparison = null)
+    public function filterByInhzdot2($inhzdot2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inhzdot2)) {
@@ -366,7 +390,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZDOT2, $inhzdot2, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZDOT2, $inhzdot2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -376,14 +402,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInhzclass('fooValue');   // WHERE InhzClass = 'fooValue'
      * $query->filterByInhzclass('%fooValue%', Criteria::LIKE); // WHERE InhzClass LIKE '%fooValue%'
+     * $query->filterByInhzclass(['foo', 'bar']); // WHERE InhzClass IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inhzclass The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inhzclass The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhzclass($inhzclass = null, $comparison = null)
+    public function filterByInhzclass($inhzclass = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inhzclass)) {
@@ -391,7 +418,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZCLASS, $inhzclass, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZCLASS, $inhzclass, $comparison);
+
+        return $this;
     }
 
     /**
@@ -401,14 +430,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInhzunnbr('fooValue');   // WHERE InhzUnNbr = 'fooValue'
      * $query->filterByInhzunnbr('%fooValue%', Criteria::LIKE); // WHERE InhzUnNbr LIKE '%fooValue%'
+     * $query->filterByInhzunnbr(['foo', 'bar']); // WHERE InhzUnNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inhzunnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inhzunnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhzunnbr($inhzunnbr = null, $comparison = null)
+    public function filterByInhzunnbr($inhzunnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inhzunnbr)) {
@@ -416,7 +446,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZUNNBR, $inhzunnbr, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZUNNBR, $inhzunnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -426,14 +458,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInhzpackgrup('fooValue');   // WHERE InhzPackGrup = 'fooValue'
      * $query->filterByInhzpackgrup('%fooValue%', Criteria::LIKE); // WHERE InhzPackGrup LIKE '%fooValue%'
+     * $query->filterByInhzpackgrup(['foo', 'bar']); // WHERE InhzPackGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inhzpackgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inhzpackgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhzpackgrup($inhzpackgrup = null, $comparison = null)
+    public function filterByInhzpackgrup($inhzpackgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inhzpackgrup)) {
@@ -441,7 +474,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZPACKGRUP, $inhzpackgrup, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZPACKGRUP, $inhzpackgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -451,14 +486,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInhzlabel('fooValue');   // WHERE InhzLabel = 'fooValue'
      * $query->filterByInhzlabel('%fooValue%', Criteria::LIKE); // WHERE InhzLabel LIKE '%fooValue%'
+     * $query->filterByInhzlabel(['foo', 'bar']); // WHERE InhzLabel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inhzlabel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inhzlabel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhzlabel($inhzlabel = null, $comparison = null)
+    public function filterByInhzlabel($inhzlabel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inhzlabel)) {
@@ -466,7 +502,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZLABEL, $inhzlabel, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZLABEL, $inhzlabel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -476,14 +514,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInhzairyn('fooValue');   // WHERE InhzAirYn = 'fooValue'
      * $query->filterByInhzairyn('%fooValue%', Criteria::LIKE); // WHERE InhzAirYn LIKE '%fooValue%'
+     * $query->filterByInhzairyn(['foo', 'bar']); // WHERE InhzAirYn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inhzairyn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inhzairyn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhzairyn($inhzairyn = null, $comparison = null)
+    public function filterByInhzairyn($inhzairyn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inhzairyn)) {
@@ -491,7 +530,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZAIRYN, $inhzairyn, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_INHZAIRYN, $inhzairyn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -501,14 +542,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -516,7 +558,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -526,14 +570,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -541,7 +586,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -551,14 +598,15 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -566,20 +614,22 @@ abstract class InvHazmatItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvHazmatItemTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvHazmatItemTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -589,8 +639,10 @@ abstract class InvHazmatItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvHazmatItemTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -599,12 +651,12 @@ abstract class InvHazmatItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -633,9 +685,9 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -647,11 +699,107 @@ abstract class InvHazmatItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvHazmatItem $invHazmatItem Object to remove from the list of results
+     * @param ChildInvHazmatItem $invHazmatItem Object to remove from the list of results
      *
-     * @return $this|ChildInvHazmatItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invHazmatItem = null)
     {
@@ -668,7 +816,7 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvHazmatItemTableMap::DATABASE_NAME);
@@ -693,12 +841,12 @@ abstract class InvHazmatItemQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvHazmatItemTableMap::DATABASE_NAME);
@@ -723,4 +871,4 @@ abstract class InvHazmatItemQuery extends ModelCriteria
         });
     }
 
-} // InvHazmatItemQuery
+}

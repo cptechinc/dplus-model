@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_book_log_head' table.
- *
- *
+ * Base class that represents a query for the `so_book_log_head` table.
  *
  * @method     ChildBookingQuery orderByBklhordrbase($order = Criteria::ASC) Order by the BklhOrdrBase column
  * @method     ChildBookingQuery orderByBklhseq($order = Criteria::ASC) Order by the BklhSeq column
@@ -124,43 +123,43 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesPersonQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildBooking findOne(ConnectionInterface $con = null) Return the first ChildBooking matching the query
- * @method     ChildBooking findOneOrCreate(ConnectionInterface $con = null) Return the first ChildBooking matching the query, or a new ChildBooking object populated from the query conditions when no match is found
+ * @method     ChildBooking|null findOne(?ConnectionInterface $con = null) Return the first ChildBooking matching the query
+ * @method     ChildBooking findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildBooking matching the query, or a new ChildBooking object populated from the query conditions when no match is found
  *
- * @method     ChildBooking findOneByBklhordrbase(string $BklhOrdrBase) Return the first ChildBooking filtered by the BklhOrdrBase column
- * @method     ChildBooking findOneByBklhseq(int $BklhSeq) Return the first ChildBooking filtered by the BklhSeq column
- * @method     ChildBooking findOneByBklhordrnbr(string $BklhOrdrNbr) Return the first ChildBooking filtered by the BklhOrdrNbr column
- * @method     ChildBooking findOneByBklhtrandate(string $BklhTranDate) Return the first ChildBooking filtered by the BklhTranDate column
- * @method     ChildBooking findOneByBklhtrantime(string $BklhTranTime) Return the first ChildBooking filtered by the BklhTranTime column
- * @method     ChildBooking findOneByBklhlogin(string $BklhLogIn) Return the first ChildBooking filtered by the BklhLogIn column
- * @method     ChildBooking findOneByBklhordrdate(string $BklhOrdrDate) Return the first ChildBooking filtered by the BklhOrdrDate column
- * @method     ChildBooking findOneByArcucustid(string $ArcuCustId) Return the first ChildBooking filtered by the ArcuCustId column
- * @method     ChildBooking findOneByArstshipid(string $ArstShipId) Return the first ChildBooking filtered by the ArstShipId column
- * @method     ChildBooking findOneByBklhshiptostat(string $BklhShipToStat) Return the first ChildBooking filtered by the BklhShipToStat column
- * @method     ChildBooking findOneByBklhorigwhse(string $BklhOrigWhse) Return the first ChildBooking filtered by the BklhOrigWhse column
- * @method     ChildBooking findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildBooking filtered by the ArspSalePer1 column
- * @method     ChildBooking findOneByBklhsp1pct(string $BklhSp1Pct) Return the first ChildBooking filtered by the BklhSp1Pct column
- * @method     ChildBooking findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildBooking filtered by the ArspSalePer2 column
- * @method     ChildBooking findOneByBklhsp2pct(string $BklhSp2Pct) Return the first ChildBooking filtered by the BklhSp2Pct column
- * @method     ChildBooking findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildBooking filtered by the ArspSalePer3 column
- * @method     ChildBooking findOneByBklhsp3pct(string $BklhSp3Pct) Return the first ChildBooking filtered by the BklhSp3Pct column
- * @method     ChildBooking findOneByArtmtermcd(string $ArtmTermCd) Return the first ChildBooking filtered by the ArtmTermCd column
- * @method     ChildBooking findOneByBklhusercode1(string $BklhUserCode1) Return the first ChildBooking filtered by the BklhUserCode1 column
- * @method     ChildBooking findOneByBklhusercode2(string $BklhUserCode2) Return the first ChildBooking filtered by the BklhUserCode2 column
- * @method     ChildBooking findOneByBklhusercode3(string $BklhUserCode3) Return the first ChildBooking filtered by the BklhUserCode3 column
- * @method     ChildBooking findOneByBkldusercode4(string $BkldUserCode4) Return the first ChildBooking filtered by the BkldUserCode4 column
- * @method     ChildBooking findOneByBklhpgmref(string $BklhPgmRef) Return the first ChildBooking filtered by the BklhPgmRef column
- * @method     ChildBooking findOneByBklhreascd(string $BklhReasCd) Return the first ChildBooking filtered by the BklhReasCd column
- * @method     ChildBooking findOneByBklhfrttot(string $BklhFrtTot) Return the first ChildBooking filtered by the BklhFrtTot column
- * @method     ChildBooking findOneByBklhmisctot(string $BklhMiscTot) Return the first ChildBooking filtered by the BklhMiscTot column
- * @method     ChildBooking findOneByBklhsviacode(string $BklhSviaCode) Return the first ChildBooking filtered by the BklhSviaCode column
- * @method     ChildBooking findOneByBklhcreditmemo(string $BklhCreditMemo) Return the first ChildBooking filtered by the BklhCreditMemo column
- * @method     ChildBooking findOneByDateupdtd(string $DateUpdtd) Return the first ChildBooking filtered by the DateUpdtd column
- * @method     ChildBooking findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildBooking filtered by the TimeUpdtd column
- * @method     ChildBooking findOneByDummy(string $dummy) Return the first ChildBooking filtered by the dummy column *
-
- * @method     ChildBooking requirePk($key, ConnectionInterface $con = null) Return the ChildBooking by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildBooking requireOne(ConnectionInterface $con = null) Return the first ChildBooking matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBooking|null findOneByBklhordrbase(string $BklhOrdrBase) Return the first ChildBooking filtered by the BklhOrdrBase column
+ * @method     ChildBooking|null findOneByBklhseq(int $BklhSeq) Return the first ChildBooking filtered by the BklhSeq column
+ * @method     ChildBooking|null findOneByBklhordrnbr(string $BklhOrdrNbr) Return the first ChildBooking filtered by the BklhOrdrNbr column
+ * @method     ChildBooking|null findOneByBklhtrandate(string $BklhTranDate) Return the first ChildBooking filtered by the BklhTranDate column
+ * @method     ChildBooking|null findOneByBklhtrantime(string $BklhTranTime) Return the first ChildBooking filtered by the BklhTranTime column
+ * @method     ChildBooking|null findOneByBklhlogin(string $BklhLogIn) Return the first ChildBooking filtered by the BklhLogIn column
+ * @method     ChildBooking|null findOneByBklhordrdate(string $BklhOrdrDate) Return the first ChildBooking filtered by the BklhOrdrDate column
+ * @method     ChildBooking|null findOneByArcucustid(string $ArcuCustId) Return the first ChildBooking filtered by the ArcuCustId column
+ * @method     ChildBooking|null findOneByArstshipid(string $ArstShipId) Return the first ChildBooking filtered by the ArstShipId column
+ * @method     ChildBooking|null findOneByBklhshiptostat(string $BklhShipToStat) Return the first ChildBooking filtered by the BklhShipToStat column
+ * @method     ChildBooking|null findOneByBklhorigwhse(string $BklhOrigWhse) Return the first ChildBooking filtered by the BklhOrigWhse column
+ * @method     ChildBooking|null findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildBooking filtered by the ArspSalePer1 column
+ * @method     ChildBooking|null findOneByBklhsp1pct(string $BklhSp1Pct) Return the first ChildBooking filtered by the BklhSp1Pct column
+ * @method     ChildBooking|null findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildBooking filtered by the ArspSalePer2 column
+ * @method     ChildBooking|null findOneByBklhsp2pct(string $BklhSp2Pct) Return the first ChildBooking filtered by the BklhSp2Pct column
+ * @method     ChildBooking|null findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildBooking filtered by the ArspSalePer3 column
+ * @method     ChildBooking|null findOneByBklhsp3pct(string $BklhSp3Pct) Return the first ChildBooking filtered by the BklhSp3Pct column
+ * @method     ChildBooking|null findOneByArtmtermcd(string $ArtmTermCd) Return the first ChildBooking filtered by the ArtmTermCd column
+ * @method     ChildBooking|null findOneByBklhusercode1(string $BklhUserCode1) Return the first ChildBooking filtered by the BklhUserCode1 column
+ * @method     ChildBooking|null findOneByBklhusercode2(string $BklhUserCode2) Return the first ChildBooking filtered by the BklhUserCode2 column
+ * @method     ChildBooking|null findOneByBklhusercode3(string $BklhUserCode3) Return the first ChildBooking filtered by the BklhUserCode3 column
+ * @method     ChildBooking|null findOneByBkldusercode4(string $BkldUserCode4) Return the first ChildBooking filtered by the BkldUserCode4 column
+ * @method     ChildBooking|null findOneByBklhpgmref(string $BklhPgmRef) Return the first ChildBooking filtered by the BklhPgmRef column
+ * @method     ChildBooking|null findOneByBklhreascd(string $BklhReasCd) Return the first ChildBooking filtered by the BklhReasCd column
+ * @method     ChildBooking|null findOneByBklhfrttot(string $BklhFrtTot) Return the first ChildBooking filtered by the BklhFrtTot column
+ * @method     ChildBooking|null findOneByBklhmisctot(string $BklhMiscTot) Return the first ChildBooking filtered by the BklhMiscTot column
+ * @method     ChildBooking|null findOneByBklhsviacode(string $BklhSviaCode) Return the first ChildBooking filtered by the BklhSviaCode column
+ * @method     ChildBooking|null findOneByBklhcreditmemo(string $BklhCreditMemo) Return the first ChildBooking filtered by the BklhCreditMemo column
+ * @method     ChildBooking|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildBooking filtered by the DateUpdtd column
+ * @method     ChildBooking|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildBooking filtered by the TimeUpdtd column
+ * @method     ChildBooking|null findOneByDummy(string $dummy) Return the first ChildBooking filtered by the dummy column
+ *
+ * @method     ChildBooking requirePk($key, ?ConnectionInterface $con = null) Return the ChildBooking by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBooking requireOne(?ConnectionInterface $con = null) Return the first ChildBooking matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildBooking requireOneByBklhordrbase(string $BklhOrdrBase) Return the first ChildBooking filtered by the BklhOrdrBase column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBooking requireOneByBklhseq(int $BklhSeq) Return the first ChildBooking filtered by the BklhSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -194,40 +193,74 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBooking requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildBooking filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBooking requireOneByDummy(string $dummy) Return the first ChildBooking filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildBooking[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildBooking objects based on current ModelCriteria
- * @method     ChildBooking[]|ObjectCollection findByBklhordrbase(string $BklhOrdrBase) Return ChildBooking objects filtered by the BklhOrdrBase column
- * @method     ChildBooking[]|ObjectCollection findByBklhseq(int $BklhSeq) Return ChildBooking objects filtered by the BklhSeq column
- * @method     ChildBooking[]|ObjectCollection findByBklhordrnbr(string $BklhOrdrNbr) Return ChildBooking objects filtered by the BklhOrdrNbr column
- * @method     ChildBooking[]|ObjectCollection findByBklhtrandate(string $BklhTranDate) Return ChildBooking objects filtered by the BklhTranDate column
- * @method     ChildBooking[]|ObjectCollection findByBklhtrantime(string $BklhTranTime) Return ChildBooking objects filtered by the BklhTranTime column
- * @method     ChildBooking[]|ObjectCollection findByBklhlogin(string $BklhLogIn) Return ChildBooking objects filtered by the BklhLogIn column
- * @method     ChildBooking[]|ObjectCollection findByBklhordrdate(string $BklhOrdrDate) Return ChildBooking objects filtered by the BklhOrdrDate column
- * @method     ChildBooking[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildBooking objects filtered by the ArcuCustId column
- * @method     ChildBooking[]|ObjectCollection findByArstshipid(string $ArstShipId) Return ChildBooking objects filtered by the ArstShipId column
- * @method     ChildBooking[]|ObjectCollection findByBklhshiptostat(string $BklhShipToStat) Return ChildBooking objects filtered by the BklhShipToStat column
- * @method     ChildBooking[]|ObjectCollection findByBklhorigwhse(string $BklhOrigWhse) Return ChildBooking objects filtered by the BklhOrigWhse column
- * @method     ChildBooking[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildBooking objects filtered by the ArspSalePer1 column
- * @method     ChildBooking[]|ObjectCollection findByBklhsp1pct(string $BklhSp1Pct) Return ChildBooking objects filtered by the BklhSp1Pct column
- * @method     ChildBooking[]|ObjectCollection findByArspsaleper2(string $ArspSalePer2) Return ChildBooking objects filtered by the ArspSalePer2 column
- * @method     ChildBooking[]|ObjectCollection findByBklhsp2pct(string $BklhSp2Pct) Return ChildBooking objects filtered by the BklhSp2Pct column
- * @method     ChildBooking[]|ObjectCollection findByArspsaleper3(string $ArspSalePer3) Return ChildBooking objects filtered by the ArspSalePer3 column
- * @method     ChildBooking[]|ObjectCollection findByBklhsp3pct(string $BklhSp3Pct) Return ChildBooking objects filtered by the BklhSp3Pct column
- * @method     ChildBooking[]|ObjectCollection findByArtmtermcd(string $ArtmTermCd) Return ChildBooking objects filtered by the ArtmTermCd column
- * @method     ChildBooking[]|ObjectCollection findByBklhusercode1(string $BklhUserCode1) Return ChildBooking objects filtered by the BklhUserCode1 column
- * @method     ChildBooking[]|ObjectCollection findByBklhusercode2(string $BklhUserCode2) Return ChildBooking objects filtered by the BklhUserCode2 column
- * @method     ChildBooking[]|ObjectCollection findByBklhusercode3(string $BklhUserCode3) Return ChildBooking objects filtered by the BklhUserCode3 column
- * @method     ChildBooking[]|ObjectCollection findByBkldusercode4(string $BkldUserCode4) Return ChildBooking objects filtered by the BkldUserCode4 column
- * @method     ChildBooking[]|ObjectCollection findByBklhpgmref(string $BklhPgmRef) Return ChildBooking objects filtered by the BklhPgmRef column
- * @method     ChildBooking[]|ObjectCollection findByBklhreascd(string $BklhReasCd) Return ChildBooking objects filtered by the BklhReasCd column
- * @method     ChildBooking[]|ObjectCollection findByBklhfrttot(string $BklhFrtTot) Return ChildBooking objects filtered by the BklhFrtTot column
- * @method     ChildBooking[]|ObjectCollection findByBklhmisctot(string $BklhMiscTot) Return ChildBooking objects filtered by the BklhMiscTot column
- * @method     ChildBooking[]|ObjectCollection findByBklhsviacode(string $BklhSviaCode) Return ChildBooking objects filtered by the BklhSviaCode column
- * @method     ChildBooking[]|ObjectCollection findByBklhcreditmemo(string $BklhCreditMemo) Return ChildBooking objects filtered by the BklhCreditMemo column
- * @method     ChildBooking[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildBooking objects filtered by the DateUpdtd column
- * @method     ChildBooking[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildBooking objects filtered by the TimeUpdtd column
- * @method     ChildBooking[]|ObjectCollection findByDummy(string $dummy) Return ChildBooking objects filtered by the dummy column
- * @method     ChildBooking[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildBooking[]|Collection find(?ConnectionInterface $con = null) Return ChildBooking objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildBooking> find(?ConnectionInterface $con = null) Return ChildBooking objects based on current ModelCriteria
  *
+ * @method     ChildBooking[]|Collection findByBklhordrbase(string|array<string> $BklhOrdrBase) Return ChildBooking objects filtered by the BklhOrdrBase column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhordrbase(string|array<string> $BklhOrdrBase) Return ChildBooking objects filtered by the BklhOrdrBase column
+ * @method     ChildBooking[]|Collection findByBklhseq(int|array<int> $BklhSeq) Return ChildBooking objects filtered by the BklhSeq column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhseq(int|array<int> $BklhSeq) Return ChildBooking objects filtered by the BklhSeq column
+ * @method     ChildBooking[]|Collection findByBklhordrnbr(string|array<string> $BklhOrdrNbr) Return ChildBooking objects filtered by the BklhOrdrNbr column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhordrnbr(string|array<string> $BklhOrdrNbr) Return ChildBooking objects filtered by the BklhOrdrNbr column
+ * @method     ChildBooking[]|Collection findByBklhtrandate(string|array<string> $BklhTranDate) Return ChildBooking objects filtered by the BklhTranDate column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhtrandate(string|array<string> $BklhTranDate) Return ChildBooking objects filtered by the BklhTranDate column
+ * @method     ChildBooking[]|Collection findByBklhtrantime(string|array<string> $BklhTranTime) Return ChildBooking objects filtered by the BklhTranTime column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhtrantime(string|array<string> $BklhTranTime) Return ChildBooking objects filtered by the BklhTranTime column
+ * @method     ChildBooking[]|Collection findByBklhlogin(string|array<string> $BklhLogIn) Return ChildBooking objects filtered by the BklhLogIn column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhlogin(string|array<string> $BklhLogIn) Return ChildBooking objects filtered by the BklhLogIn column
+ * @method     ChildBooking[]|Collection findByBklhordrdate(string|array<string> $BklhOrdrDate) Return ChildBooking objects filtered by the BklhOrdrDate column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhordrdate(string|array<string> $BklhOrdrDate) Return ChildBooking objects filtered by the BklhOrdrDate column
+ * @method     ChildBooking[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildBooking objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByArcucustid(string|array<string> $ArcuCustId) Return ChildBooking objects filtered by the ArcuCustId column
+ * @method     ChildBooking[]|Collection findByArstshipid(string|array<string> $ArstShipId) Return ChildBooking objects filtered by the ArstShipId column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByArstshipid(string|array<string> $ArstShipId) Return ChildBooking objects filtered by the ArstShipId column
+ * @method     ChildBooking[]|Collection findByBklhshiptostat(string|array<string> $BklhShipToStat) Return ChildBooking objects filtered by the BklhShipToStat column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhshiptostat(string|array<string> $BklhShipToStat) Return ChildBooking objects filtered by the BklhShipToStat column
+ * @method     ChildBooking[]|Collection findByBklhorigwhse(string|array<string> $BklhOrigWhse) Return ChildBooking objects filtered by the BklhOrigWhse column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhorigwhse(string|array<string> $BklhOrigWhse) Return ChildBooking objects filtered by the BklhOrigWhse column
+ * @method     ChildBooking[]|Collection findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildBooking objects filtered by the ArspSalePer1 column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildBooking objects filtered by the ArspSalePer1 column
+ * @method     ChildBooking[]|Collection findByBklhsp1pct(string|array<string> $BklhSp1Pct) Return ChildBooking objects filtered by the BklhSp1Pct column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhsp1pct(string|array<string> $BklhSp1Pct) Return ChildBooking objects filtered by the BklhSp1Pct column
+ * @method     ChildBooking[]|Collection findByArspsaleper2(string|array<string> $ArspSalePer2) Return ChildBooking objects filtered by the ArspSalePer2 column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByArspsaleper2(string|array<string> $ArspSalePer2) Return ChildBooking objects filtered by the ArspSalePer2 column
+ * @method     ChildBooking[]|Collection findByBklhsp2pct(string|array<string> $BklhSp2Pct) Return ChildBooking objects filtered by the BklhSp2Pct column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhsp2pct(string|array<string> $BklhSp2Pct) Return ChildBooking objects filtered by the BklhSp2Pct column
+ * @method     ChildBooking[]|Collection findByArspsaleper3(string|array<string> $ArspSalePer3) Return ChildBooking objects filtered by the ArspSalePer3 column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByArspsaleper3(string|array<string> $ArspSalePer3) Return ChildBooking objects filtered by the ArspSalePer3 column
+ * @method     ChildBooking[]|Collection findByBklhsp3pct(string|array<string> $BklhSp3Pct) Return ChildBooking objects filtered by the BklhSp3Pct column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhsp3pct(string|array<string> $BklhSp3Pct) Return ChildBooking objects filtered by the BklhSp3Pct column
+ * @method     ChildBooking[]|Collection findByArtmtermcd(string|array<string> $ArtmTermCd) Return ChildBooking objects filtered by the ArtmTermCd column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByArtmtermcd(string|array<string> $ArtmTermCd) Return ChildBooking objects filtered by the ArtmTermCd column
+ * @method     ChildBooking[]|Collection findByBklhusercode1(string|array<string> $BklhUserCode1) Return ChildBooking objects filtered by the BklhUserCode1 column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhusercode1(string|array<string> $BklhUserCode1) Return ChildBooking objects filtered by the BklhUserCode1 column
+ * @method     ChildBooking[]|Collection findByBklhusercode2(string|array<string> $BklhUserCode2) Return ChildBooking objects filtered by the BklhUserCode2 column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhusercode2(string|array<string> $BklhUserCode2) Return ChildBooking objects filtered by the BklhUserCode2 column
+ * @method     ChildBooking[]|Collection findByBklhusercode3(string|array<string> $BklhUserCode3) Return ChildBooking objects filtered by the BklhUserCode3 column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhusercode3(string|array<string> $BklhUserCode3) Return ChildBooking objects filtered by the BklhUserCode3 column
+ * @method     ChildBooking[]|Collection findByBkldusercode4(string|array<string> $BkldUserCode4) Return ChildBooking objects filtered by the BkldUserCode4 column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBkldusercode4(string|array<string> $BkldUserCode4) Return ChildBooking objects filtered by the BkldUserCode4 column
+ * @method     ChildBooking[]|Collection findByBklhpgmref(string|array<string> $BklhPgmRef) Return ChildBooking objects filtered by the BklhPgmRef column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhpgmref(string|array<string> $BklhPgmRef) Return ChildBooking objects filtered by the BklhPgmRef column
+ * @method     ChildBooking[]|Collection findByBklhreascd(string|array<string> $BklhReasCd) Return ChildBooking objects filtered by the BklhReasCd column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhreascd(string|array<string> $BklhReasCd) Return ChildBooking objects filtered by the BklhReasCd column
+ * @method     ChildBooking[]|Collection findByBklhfrttot(string|array<string> $BklhFrtTot) Return ChildBooking objects filtered by the BklhFrtTot column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhfrttot(string|array<string> $BklhFrtTot) Return ChildBooking objects filtered by the BklhFrtTot column
+ * @method     ChildBooking[]|Collection findByBklhmisctot(string|array<string> $BklhMiscTot) Return ChildBooking objects filtered by the BklhMiscTot column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhmisctot(string|array<string> $BklhMiscTot) Return ChildBooking objects filtered by the BklhMiscTot column
+ * @method     ChildBooking[]|Collection findByBklhsviacode(string|array<string> $BklhSviaCode) Return ChildBooking objects filtered by the BklhSviaCode column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhsviacode(string|array<string> $BklhSviaCode) Return ChildBooking objects filtered by the BklhSviaCode column
+ * @method     ChildBooking[]|Collection findByBklhcreditmemo(string|array<string> $BklhCreditMemo) Return ChildBooking objects filtered by the BklhCreditMemo column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByBklhcreditmemo(string|array<string> $BklhCreditMemo) Return ChildBooking objects filtered by the BklhCreditMemo column
+ * @method     ChildBooking[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildBooking objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildBooking objects filtered by the DateUpdtd column
+ * @method     ChildBooking[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildBooking objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildBooking objects filtered by the TimeUpdtd column
+ * @method     ChildBooking[]|Collection findByDummy(string|array<string> $dummy) Return ChildBooking objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildBooking> findByDummy(string|array<string> $dummy) Return ChildBooking objects filtered by the dummy column
+ *
+ * @method     ChildBooking[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildBooking> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class BookingQuery extends ModelCriteria
 {
@@ -236,9 +269,9 @@ abstract class BookingQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\BookingQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\Booking', $modelAlias = null)
     {
@@ -248,12 +281,12 @@ abstract class BookingQuery extends ModelCriteria
     /**
      * Returns a new ChildBookingQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildBookingQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildBookingQuery) {
             return $criteria;
@@ -283,7 +316,7 @@ abstract class BookingQuery extends ModelCriteria
      *
      * @return ChildBooking|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -315,8 +348,8 @@ abstract class BookingQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -349,8 +382,8 @@ abstract class BookingQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildBooking|array|mixed the result, formatted by the current formatter
      */
@@ -370,12 +403,12 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -392,9 +425,9 @@ abstract class BookingQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -407,14 +440,16 @@ abstract class BookingQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(BookingTableMap::COL_BKLHORDRBASE, $key[0], Criteria::EQUAL);
@@ -433,14 +468,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhordrbase('fooValue');   // WHERE BklhOrdrBase = 'fooValue'
      * $query->filterByBklhordrbase('%fooValue%', Criteria::LIKE); // WHERE BklhOrdrBase LIKE '%fooValue%'
+     * $query->filterByBklhordrbase(['foo', 'bar']); // WHERE BklhOrdrBase IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhordrbase The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhordrbase The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhordrbase($bklhordrbase = null, $comparison = null)
+    public function filterByBklhordrbase($bklhordrbase = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhordrbase)) {
@@ -448,7 +484,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHORDRBASE, $bklhordrbase, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHORDRBASE, $bklhordrbase, $comparison);
+
+        return $this;
     }
 
     /**
@@ -461,15 +499,15 @@ abstract class BookingQuery extends ModelCriteria
      * $query->filterByBklhseq(array('min' => 12)); // WHERE BklhSeq > 12
      * </code>
      *
-     * @param     mixed $bklhseq The value to use as filter.
+     * @param mixed $bklhseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhseq($bklhseq = null, $comparison = null)
+    public function filterByBklhseq($bklhseq = null, ?string $comparison = null)
     {
         if (is_array($bklhseq)) {
             $useMinMax = false;
@@ -489,7 +527,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHSEQ, $bklhseq, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHSEQ, $bklhseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -499,14 +539,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhordrnbr('fooValue');   // WHERE BklhOrdrNbr = 'fooValue'
      * $query->filterByBklhordrnbr('%fooValue%', Criteria::LIKE); // WHERE BklhOrdrNbr LIKE '%fooValue%'
+     * $query->filterByBklhordrnbr(['foo', 'bar']); // WHERE BklhOrdrNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhordrnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhordrnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhordrnbr($bklhordrnbr = null, $comparison = null)
+    public function filterByBklhordrnbr($bklhordrnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhordrnbr)) {
@@ -514,7 +555,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHORDRNBR, $bklhordrnbr, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHORDRNBR, $bklhordrnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -524,14 +567,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhtrandate('fooValue');   // WHERE BklhTranDate = 'fooValue'
      * $query->filterByBklhtrandate('%fooValue%', Criteria::LIKE); // WHERE BklhTranDate LIKE '%fooValue%'
+     * $query->filterByBklhtrandate(['foo', 'bar']); // WHERE BklhTranDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhtrandate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhtrandate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhtrandate($bklhtrandate = null, $comparison = null)
+    public function filterByBklhtrandate($bklhtrandate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhtrandate)) {
@@ -539,7 +583,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHTRANDATE, $bklhtrandate, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHTRANDATE, $bklhtrandate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -549,14 +595,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhtrantime('fooValue');   // WHERE BklhTranTime = 'fooValue'
      * $query->filterByBklhtrantime('%fooValue%', Criteria::LIKE); // WHERE BklhTranTime LIKE '%fooValue%'
+     * $query->filterByBklhtrantime(['foo', 'bar']); // WHERE BklhTranTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhtrantime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhtrantime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhtrantime($bklhtrantime = null, $comparison = null)
+    public function filterByBklhtrantime($bklhtrantime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhtrantime)) {
@@ -564,7 +611,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHTRANTIME, $bklhtrantime, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHTRANTIME, $bklhtrantime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -574,14 +623,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhlogin('fooValue');   // WHERE BklhLogIn = 'fooValue'
      * $query->filterByBklhlogin('%fooValue%', Criteria::LIKE); // WHERE BklhLogIn LIKE '%fooValue%'
+     * $query->filterByBklhlogin(['foo', 'bar']); // WHERE BklhLogIn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhlogin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhlogin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhlogin($bklhlogin = null, $comparison = null)
+    public function filterByBklhlogin($bklhlogin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhlogin)) {
@@ -589,7 +639,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHLOGIN, $bklhlogin, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHLOGIN, $bklhlogin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -599,14 +651,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhordrdate('fooValue');   // WHERE BklhOrdrDate = 'fooValue'
      * $query->filterByBklhordrdate('%fooValue%', Criteria::LIKE); // WHERE BklhOrdrDate LIKE '%fooValue%'
+     * $query->filterByBklhordrdate(['foo', 'bar']); // WHERE BklhOrdrDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhordrdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhordrdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhordrdate($bklhordrdate = null, $comparison = null)
+    public function filterByBklhordrdate($bklhordrdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhordrdate)) {
@@ -614,7 +667,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHORDRDATE, $bklhordrdate, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHORDRDATE, $bklhordrdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -624,14 +679,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -639,7 +695,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -649,14 +707,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByArstshipid('fooValue');   // WHERE ArstShipId = 'fooValue'
      * $query->filterByArstshipid('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
+     * $query->filterByArstshipid(['foo', 'bar']); // WHERE ArstShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstshipid($arstshipid = null, $comparison = null)
+    public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstshipid)) {
@@ -664,7 +723,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -674,14 +735,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhshiptostat('fooValue');   // WHERE BklhShipToStat = 'fooValue'
      * $query->filterByBklhshiptostat('%fooValue%', Criteria::LIKE); // WHERE BklhShipToStat LIKE '%fooValue%'
+     * $query->filterByBklhshiptostat(['foo', 'bar']); // WHERE BklhShipToStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhshiptostat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhshiptostat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhshiptostat($bklhshiptostat = null, $comparison = null)
+    public function filterByBklhshiptostat($bklhshiptostat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhshiptostat)) {
@@ -689,7 +751,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHSHIPTOSTAT, $bklhshiptostat, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHSHIPTOSTAT, $bklhshiptostat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -699,14 +763,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhorigwhse('fooValue');   // WHERE BklhOrigWhse = 'fooValue'
      * $query->filterByBklhorigwhse('%fooValue%', Criteria::LIKE); // WHERE BklhOrigWhse LIKE '%fooValue%'
+     * $query->filterByBklhorigwhse(['foo', 'bar']); // WHERE BklhOrigWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhorigwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhorigwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhorigwhse($bklhorigwhse = null, $comparison = null)
+    public function filterByBklhorigwhse($bklhorigwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhorigwhse)) {
@@ -714,7 +779,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHORIGWHSE, $bklhorigwhse, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHORIGWHSE, $bklhorigwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -724,14 +791,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper1('fooValue');   // WHERE ArspSalePer1 = 'fooValue'
      * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
+     * $query->filterByArspsaleper1(['foo', 'bar']); // WHERE ArspSalePer1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper1($arspsaleper1 = null, $comparison = null)
+    public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper1)) {
@@ -739,7 +807,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -752,15 +822,15 @@ abstract class BookingQuery extends ModelCriteria
      * $query->filterByBklhsp1pct(array('min' => 12)); // WHERE BklhSp1Pct > 12
      * </code>
      *
-     * @param     mixed $bklhsp1pct The value to use as filter.
+     * @param mixed $bklhsp1pct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhsp1pct($bklhsp1pct = null, $comparison = null)
+    public function filterByBklhsp1pct($bklhsp1pct = null, ?string $comparison = null)
     {
         if (is_array($bklhsp1pct)) {
             $useMinMax = false;
@@ -780,7 +850,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHSP1PCT, $bklhsp1pct, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHSP1PCT, $bklhsp1pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -790,14 +862,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper2('fooValue');   // WHERE ArspSalePer2 = 'fooValue'
      * $query->filterByArspsaleper2('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer2 LIKE '%fooValue%'
+     * $query->filterByArspsaleper2(['foo', 'bar']); // WHERE ArspSalePer2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper2($arspsaleper2 = null, $comparison = null)
+    public function filterByArspsaleper2($arspsaleper2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper2)) {
@@ -805,7 +878,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_ARSPSALEPER2, $arspsaleper2, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_ARSPSALEPER2, $arspsaleper2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -818,15 +893,15 @@ abstract class BookingQuery extends ModelCriteria
      * $query->filterByBklhsp2pct(array('min' => 12)); // WHERE BklhSp2Pct > 12
      * </code>
      *
-     * @param     mixed $bklhsp2pct The value to use as filter.
+     * @param mixed $bklhsp2pct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhsp2pct($bklhsp2pct = null, $comparison = null)
+    public function filterByBklhsp2pct($bklhsp2pct = null, ?string $comparison = null)
     {
         if (is_array($bklhsp2pct)) {
             $useMinMax = false;
@@ -846,7 +921,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHSP2PCT, $bklhsp2pct, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHSP2PCT, $bklhsp2pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -856,14 +933,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper3('fooValue');   // WHERE ArspSalePer3 = 'fooValue'
      * $query->filterByArspsaleper3('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer3 LIKE '%fooValue%'
+     * $query->filterByArspsaleper3(['foo', 'bar']); // WHERE ArspSalePer3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper3($arspsaleper3 = null, $comparison = null)
+    public function filterByArspsaleper3($arspsaleper3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper3)) {
@@ -871,7 +949,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_ARSPSALEPER3, $arspsaleper3, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_ARSPSALEPER3, $arspsaleper3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -884,15 +964,15 @@ abstract class BookingQuery extends ModelCriteria
      * $query->filterByBklhsp3pct(array('min' => 12)); // WHERE BklhSp3Pct > 12
      * </code>
      *
-     * @param     mixed $bklhsp3pct The value to use as filter.
+     * @param mixed $bklhsp3pct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhsp3pct($bklhsp3pct = null, $comparison = null)
+    public function filterByBklhsp3pct($bklhsp3pct = null, ?string $comparison = null)
     {
         if (is_array($bklhsp3pct)) {
             $useMinMax = false;
@@ -912,7 +992,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHSP3PCT, $bklhsp3pct, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHSP3PCT, $bklhsp3pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -922,14 +1004,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByArtmtermcd('fooValue');   // WHERE ArtmTermCd = 'fooValue'
      * $query->filterByArtmtermcd('%fooValue%', Criteria::LIKE); // WHERE ArtmTermCd LIKE '%fooValue%'
+     * $query->filterByArtmtermcd(['foo', 'bar']); // WHERE ArtmTermCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artmtermcd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artmtermcd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtmtermcd($artmtermcd = null, $comparison = null)
+    public function filterByArtmtermcd($artmtermcd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artmtermcd)) {
@@ -937,7 +1020,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_ARTMTERMCD, $artmtermcd, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_ARTMTERMCD, $artmtermcd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -947,14 +1032,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhusercode1('fooValue');   // WHERE BklhUserCode1 = 'fooValue'
      * $query->filterByBklhusercode1('%fooValue%', Criteria::LIKE); // WHERE BklhUserCode1 LIKE '%fooValue%'
+     * $query->filterByBklhusercode1(['foo', 'bar']); // WHERE BklhUserCode1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhusercode1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhusercode1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhusercode1($bklhusercode1 = null, $comparison = null)
+    public function filterByBklhusercode1($bklhusercode1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhusercode1)) {
@@ -962,7 +1048,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHUSERCODE1, $bklhusercode1, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHUSERCODE1, $bklhusercode1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -972,14 +1060,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhusercode2('fooValue');   // WHERE BklhUserCode2 = 'fooValue'
      * $query->filterByBklhusercode2('%fooValue%', Criteria::LIKE); // WHERE BklhUserCode2 LIKE '%fooValue%'
+     * $query->filterByBklhusercode2(['foo', 'bar']); // WHERE BklhUserCode2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhusercode2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhusercode2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhusercode2($bklhusercode2 = null, $comparison = null)
+    public function filterByBklhusercode2($bklhusercode2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhusercode2)) {
@@ -987,7 +1076,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHUSERCODE2, $bklhusercode2, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHUSERCODE2, $bklhusercode2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -997,14 +1088,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhusercode3('fooValue');   // WHERE BklhUserCode3 = 'fooValue'
      * $query->filterByBklhusercode3('%fooValue%', Criteria::LIKE); // WHERE BklhUserCode3 LIKE '%fooValue%'
+     * $query->filterByBklhusercode3(['foo', 'bar']); // WHERE BklhUserCode3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhusercode3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhusercode3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhusercode3($bklhusercode3 = null, $comparison = null)
+    public function filterByBklhusercode3($bklhusercode3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhusercode3)) {
@@ -1012,7 +1104,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHUSERCODE3, $bklhusercode3, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHUSERCODE3, $bklhusercode3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1022,14 +1116,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBkldusercode4('fooValue');   // WHERE BkldUserCode4 = 'fooValue'
      * $query->filterByBkldusercode4('%fooValue%', Criteria::LIKE); // WHERE BkldUserCode4 LIKE '%fooValue%'
+     * $query->filterByBkldusercode4(['foo', 'bar']); // WHERE BkldUserCode4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bkldusercode4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bkldusercode4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBkldusercode4($bkldusercode4 = null, $comparison = null)
+    public function filterByBkldusercode4($bkldusercode4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bkldusercode4)) {
@@ -1037,7 +1132,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLDUSERCODE4, $bkldusercode4, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLDUSERCODE4, $bkldusercode4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1047,14 +1144,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhpgmref('fooValue');   // WHERE BklhPgmRef = 'fooValue'
      * $query->filterByBklhpgmref('%fooValue%', Criteria::LIKE); // WHERE BklhPgmRef LIKE '%fooValue%'
+     * $query->filterByBklhpgmref(['foo', 'bar']); // WHERE BklhPgmRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhpgmref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhpgmref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhpgmref($bklhpgmref = null, $comparison = null)
+    public function filterByBklhpgmref($bklhpgmref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhpgmref)) {
@@ -1062,7 +1160,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHPGMREF, $bklhpgmref, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHPGMREF, $bklhpgmref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1072,14 +1172,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhreascd('fooValue');   // WHERE BklhReasCd = 'fooValue'
      * $query->filterByBklhreascd('%fooValue%', Criteria::LIKE); // WHERE BklhReasCd LIKE '%fooValue%'
+     * $query->filterByBklhreascd(['foo', 'bar']); // WHERE BklhReasCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhreascd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhreascd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhreascd($bklhreascd = null, $comparison = null)
+    public function filterByBklhreascd($bklhreascd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhreascd)) {
@@ -1087,7 +1188,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHREASCD, $bklhreascd, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHREASCD, $bklhreascd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1100,15 +1203,15 @@ abstract class BookingQuery extends ModelCriteria
      * $query->filterByBklhfrttot(array('min' => 12)); // WHERE BklhFrtTot > 12
      * </code>
      *
-     * @param     mixed $bklhfrttot The value to use as filter.
+     * @param mixed $bklhfrttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhfrttot($bklhfrttot = null, $comparison = null)
+    public function filterByBklhfrttot($bklhfrttot = null, ?string $comparison = null)
     {
         if (is_array($bklhfrttot)) {
             $useMinMax = false;
@@ -1128,7 +1231,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHFRTTOT, $bklhfrttot, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHFRTTOT, $bklhfrttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1141,15 +1246,15 @@ abstract class BookingQuery extends ModelCriteria
      * $query->filterByBklhmisctot(array('min' => 12)); // WHERE BklhMiscTot > 12
      * </code>
      *
-     * @param     mixed $bklhmisctot The value to use as filter.
+     * @param mixed $bklhmisctot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhmisctot($bklhmisctot = null, $comparison = null)
+    public function filterByBklhmisctot($bklhmisctot = null, ?string $comparison = null)
     {
         if (is_array($bklhmisctot)) {
             $useMinMax = false;
@@ -1169,7 +1274,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHMISCTOT, $bklhmisctot, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHMISCTOT, $bklhmisctot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1179,14 +1286,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhsviacode('fooValue');   // WHERE BklhSviaCode = 'fooValue'
      * $query->filterByBklhsviacode('%fooValue%', Criteria::LIKE); // WHERE BklhSviaCode LIKE '%fooValue%'
+     * $query->filterByBklhsviacode(['foo', 'bar']); // WHERE BklhSviaCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhsviacode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhsviacode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhsviacode($bklhsviacode = null, $comparison = null)
+    public function filterByBklhsviacode($bklhsviacode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhsviacode)) {
@@ -1194,7 +1302,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHSVIACODE, $bklhsviacode, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHSVIACODE, $bklhsviacode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1204,14 +1314,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByBklhcreditmemo('fooValue');   // WHERE BklhCreditMemo = 'fooValue'
      * $query->filterByBklhcreditmemo('%fooValue%', Criteria::LIKE); // WHERE BklhCreditMemo LIKE '%fooValue%'
+     * $query->filterByBklhcreditmemo(['foo', 'bar']); // WHERE BklhCreditMemo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bklhcreditmemo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bklhcreditmemo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBklhcreditmemo($bklhcreditmemo = null, $comparison = null)
+    public function filterByBklhcreditmemo($bklhcreditmemo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bklhcreditmemo)) {
@@ -1219,7 +1330,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_BKLHCREDITMEMO, $bklhcreditmemo, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_BKLHCREDITMEMO, $bklhcreditmemo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1229,14 +1342,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1244,7 +1358,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1254,14 +1370,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1269,7 +1386,9 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1279,14 +1398,15 @@ abstract class BookingQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1294,20 +1414,22 @@ abstract class BookingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(BookingTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -1317,8 +1439,10 @@ abstract class BookingQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(BookingTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -1327,12 +1451,12 @@ abstract class BookingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -1361,9 +1485,9 @@ abstract class BookingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -1375,16 +1499,112 @@ abstract class BookingQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \CustomerShipto object
      *
      * @param \CustomerShipto $customerShipto The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomerShipto($customerShipto, $comparison = null)
+    public function filterByCustomerShipto($customerShipto, ?string $comparison = null)
     {
         if ($customerShipto instanceof \CustomerShipto) {
             return $this
@@ -1398,12 +1618,12 @@ abstract class BookingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the CustomerShipto relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomerShipto($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinCustomerShipto(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('CustomerShipto');
@@ -1432,9 +1652,9 @@ abstract class BookingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerShiptoQuery A secondary query class using the current class as primary query
      */
@@ -1446,16 +1666,112 @@ abstract class BookingQuery extends ModelCriteria
     }
 
     /**
+     * Use the CustomerShipto relation CustomerShipto object
+     *
+     * @param callable(\CustomerShiptoQuery):\CustomerShiptoQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerShiptoQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerShiptoQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerShiptoQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerShiptoExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useExistsQuery('CustomerShipto', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for a NOT EXISTS query.
+     *
+     * @see useCustomerShiptoExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerShiptoQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerShiptoNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useExistsQuery('CustomerShipto', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerShiptoQuery The inner query object of the IN statement
+     */
+    public function useInCustomerShiptoQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useInQuery('CustomerShipto', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for a NOT IN query.
+     *
+     * @see useCustomerShiptoInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerShiptoQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerShiptoQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useInQuery('CustomerShipto', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesPerson object
      *
      * @param \SalesPerson|ObjectCollection $salesPerson The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesPerson($salesPerson, $comparison = null)
+    public function filterBySalesPerson($salesPerson, ?string $comparison = null)
     {
         if ($salesPerson instanceof \SalesPerson) {
             return $this
@@ -1465,8 +1781,10 @@ abstract class BookingQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(BookingTableMap::COL_ARSPSALEPER1, $salesPerson->toKeyValue('PrimaryKey', 'Arspsaleper1'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesPerson() only accepts arguments of type \SalesPerson or Collection');
         }
@@ -1475,12 +1793,12 @@ abstract class BookingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesPerson relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesPerson($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSalesPerson(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesPerson');
@@ -1509,9 +1827,9 @@ abstract class BookingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesPersonQuery A secondary query class using the current class as primary query
      */
@@ -1523,11 +1841,107 @@ abstract class BookingQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesPerson relation SalesPerson object
+     *
+     * @param callable(\SalesPersonQuery):\SalesPersonQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesPersonQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useSalesPersonQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesPerson table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesPersonQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesPersonExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesPersonQuery */
+        $q = $this->useExistsQuery('SalesPerson', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesPerson table for a NOT EXISTS query.
+     *
+     * @see useSalesPersonExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesPersonQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesPersonNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesPersonQuery */
+        $q = $this->useExistsQuery('SalesPerson', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesPerson table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesPersonQuery The inner query object of the IN statement
+     */
+    public function useInSalesPersonQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesPersonQuery */
+        $q = $this->useInQuery('SalesPerson', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesPerson table for a NOT IN query.
+     *
+     * @see useSalesPersonInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesPersonQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesPersonQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesPersonQuery */
+        $q = $this->useInQuery('SalesPerson', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildBooking $booking Object to remove from the list of results
+     * @param ChildBooking $booking Object to remove from the list of results
      *
-     * @return $this|ChildBookingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($booking = null)
     {
@@ -1546,7 +1960,7 @@ abstract class BookingQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingTableMap::DATABASE_NAME);
@@ -1571,12 +1985,12 @@ abstract class BookingQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingTableMap::DATABASE_NAME);
@@ -1601,4 +2015,4 @@ abstract class BookingQuery extends ModelCriteria
         });
     }
 
-} // BookingQuery
+}

@@ -10,14 +10,12 @@ use Map\ItemRevisionNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_item_revision' table.
- *
- *
+ * Base class that represents a query for the `notes_item_revision` table.
  *
  * @method     ChildItemRevisionNoteQuery orderByItemnotetype($order = Criteria::ASC) Order by the ItemNoteType column
  * @method     ChildItemRevisionNoteQuery orderByItemnotetypedesc($order = Criteria::ASC) Order by the ItemNoteTypeDesc column
@@ -57,26 +55,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemRevisionNoteQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildItemRevisionNoteQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildItemRevisionNote findOne(ConnectionInterface $con = null) Return the first ChildItemRevisionNote matching the query
- * @method     ChildItemRevisionNote findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemRevisionNote matching the query, or a new ChildItemRevisionNote object populated from the query conditions when no match is found
+ * @method     ChildItemRevisionNote|null findOne(?ConnectionInterface $con = null) Return the first ChildItemRevisionNote matching the query
+ * @method     ChildItemRevisionNote findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItemRevisionNote matching the query, or a new ChildItemRevisionNote object populated from the query conditions when no match is found
  *
- * @method     ChildItemRevisionNote findOneByItemnotetype(string $ItemNoteType) Return the first ChildItemRevisionNote filtered by the ItemNoteType column
- * @method     ChildItemRevisionNote findOneByItemnotetypedesc(string $ItemNoteTypeDesc) Return the first ChildItemRevisionNote filtered by the ItemNoteTypeDesc column
- * @method     ChildItemRevisionNote findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemRevisionNote filtered by the InitItemNbr column
- * @method     ChildItemRevisionNote findOneByItemnotedate(string $ItemNoteDate) Return the first ChildItemRevisionNote filtered by the ItemNoteDate column
- * @method     ChildItemRevisionNote findOneByItemnotetime(string $ItemNoteTime) Return the first ChildItemRevisionNote filtered by the ItemNoteTime column
- * @method     ChildItemRevisionNote findOneByItemnoterevision(string $ItemNoteRevision) Return the first ChildItemRevisionNote filtered by the ItemNoteRevision column
- * @method     ChildItemRevisionNote findOneByItemnoteseq(int $ItemNoteSeq) Return the first ChildItemRevisionNote filtered by the ItemNoteSeq column
- * @method     ChildItemRevisionNote findOneByItemnotenote(string $ItemNoteNote) Return the first ChildItemRevisionNote filtered by the ItemNoteNote column
- * @method     ChildItemRevisionNote findOneByItemnoteuser(string $ItemNoteUser) Return the first ChildItemRevisionNote filtered by the ItemNoteUser column
- * @method     ChildItemRevisionNote findOneByItemnotekey2(string $ItemNoteKey2) Return the first ChildItemRevisionNote filtered by the ItemNoteKey2 column
- * @method     ChildItemRevisionNote findOneByItemnoteform(string $ItemNoteForm) Return the first ChildItemRevisionNote filtered by the ItemNoteForm column
- * @method     ChildItemRevisionNote findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemRevisionNote filtered by the DateUpdtd column
- * @method     ChildItemRevisionNote findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemRevisionNote filtered by the TimeUpdtd column
- * @method     ChildItemRevisionNote findOneByDummy(string $dummy) Return the first ChildItemRevisionNote filtered by the dummy column *
-
- * @method     ChildItemRevisionNote requirePk($key, ConnectionInterface $con = null) Return the ChildItemRevisionNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemRevisionNote requireOne(ConnectionInterface $con = null) Return the first ChildItemRevisionNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemRevisionNote|null findOneByItemnotetype(string $ItemNoteType) Return the first ChildItemRevisionNote filtered by the ItemNoteType column
+ * @method     ChildItemRevisionNote|null findOneByItemnotetypedesc(string $ItemNoteTypeDesc) Return the first ChildItemRevisionNote filtered by the ItemNoteTypeDesc column
+ * @method     ChildItemRevisionNote|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemRevisionNote filtered by the InitItemNbr column
+ * @method     ChildItemRevisionNote|null findOneByItemnotedate(string $ItemNoteDate) Return the first ChildItemRevisionNote filtered by the ItemNoteDate column
+ * @method     ChildItemRevisionNote|null findOneByItemnotetime(string $ItemNoteTime) Return the first ChildItemRevisionNote filtered by the ItemNoteTime column
+ * @method     ChildItemRevisionNote|null findOneByItemnoterevision(string $ItemNoteRevision) Return the first ChildItemRevisionNote filtered by the ItemNoteRevision column
+ * @method     ChildItemRevisionNote|null findOneByItemnoteseq(int $ItemNoteSeq) Return the first ChildItemRevisionNote filtered by the ItemNoteSeq column
+ * @method     ChildItemRevisionNote|null findOneByItemnotenote(string $ItemNoteNote) Return the first ChildItemRevisionNote filtered by the ItemNoteNote column
+ * @method     ChildItemRevisionNote|null findOneByItemnoteuser(string $ItemNoteUser) Return the first ChildItemRevisionNote filtered by the ItemNoteUser column
+ * @method     ChildItemRevisionNote|null findOneByItemnotekey2(string $ItemNoteKey2) Return the first ChildItemRevisionNote filtered by the ItemNoteKey2 column
+ * @method     ChildItemRevisionNote|null findOneByItemnoteform(string $ItemNoteForm) Return the first ChildItemRevisionNote filtered by the ItemNoteForm column
+ * @method     ChildItemRevisionNote|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemRevisionNote filtered by the DateUpdtd column
+ * @method     ChildItemRevisionNote|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemRevisionNote filtered by the TimeUpdtd column
+ * @method     ChildItemRevisionNote|null findOneByDummy(string $dummy) Return the first ChildItemRevisionNote filtered by the dummy column
+ *
+ * @method     ChildItemRevisionNote requirePk($key, ?ConnectionInterface $con = null) Return the ChildItemRevisionNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemRevisionNote requireOne(?ConnectionInterface $con = null) Return the first ChildItemRevisionNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemRevisionNote requireOneByItemnotetype(string $ItemNoteType) Return the first ChildItemRevisionNote filtered by the ItemNoteType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemRevisionNote requireOneByItemnotetypedesc(string $ItemNoteTypeDesc) Return the first ChildItemRevisionNote filtered by the ItemNoteTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -93,23 +91,40 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemRevisionNote requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemRevisionNote filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemRevisionNote requireOneByDummy(string $dummy) Return the first ChildItemRevisionNote filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemRevisionNote[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemRevisionNote objects based on current ModelCriteria
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnotetype(string $ItemNoteType) Return ChildItemRevisionNote objects filtered by the ItemNoteType column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnotetypedesc(string $ItemNoteTypeDesc) Return ChildItemRevisionNote objects filtered by the ItemNoteTypeDesc column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildItemRevisionNote objects filtered by the InitItemNbr column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnotedate(string $ItemNoteDate) Return ChildItemRevisionNote objects filtered by the ItemNoteDate column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnotetime(string $ItemNoteTime) Return ChildItemRevisionNote objects filtered by the ItemNoteTime column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnoterevision(string $ItemNoteRevision) Return ChildItemRevisionNote objects filtered by the ItemNoteRevision column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnoteseq(int $ItemNoteSeq) Return ChildItemRevisionNote objects filtered by the ItemNoteSeq column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnotenote(string $ItemNoteNote) Return ChildItemRevisionNote objects filtered by the ItemNoteNote column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnoteuser(string $ItemNoteUser) Return ChildItemRevisionNote objects filtered by the ItemNoteUser column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnotekey2(string $ItemNoteKey2) Return ChildItemRevisionNote objects filtered by the ItemNoteKey2 column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByItemnoteform(string $ItemNoteForm) Return ChildItemRevisionNote objects filtered by the ItemNoteForm column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemRevisionNote objects filtered by the DateUpdtd column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemRevisionNote objects filtered by the TimeUpdtd column
- * @method     ChildItemRevisionNote[]|ObjectCollection findByDummy(string $dummy) Return ChildItemRevisionNote objects filtered by the dummy column
- * @method     ChildItemRevisionNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItemRevisionNote[]|Collection find(?ConnectionInterface $con = null) Return ChildItemRevisionNote objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> find(?ConnectionInterface $con = null) Return ChildItemRevisionNote objects based on current ModelCriteria
  *
+ * @method     ChildItemRevisionNote[]|Collection findByItemnotetype(string|array<string> $ItemNoteType) Return ChildItemRevisionNote objects filtered by the ItemNoteType column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnotetype(string|array<string> $ItemNoteType) Return ChildItemRevisionNote objects filtered by the ItemNoteType column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnotetypedesc(string|array<string> $ItemNoteTypeDesc) Return ChildItemRevisionNote objects filtered by the ItemNoteTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnotetypedesc(string|array<string> $ItemNoteTypeDesc) Return ChildItemRevisionNote objects filtered by the ItemNoteTypeDesc column
+ * @method     ChildItemRevisionNote[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemRevisionNote objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemRevisionNote objects filtered by the InitItemNbr column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnotedate(string|array<string> $ItemNoteDate) Return ChildItemRevisionNote objects filtered by the ItemNoteDate column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnotedate(string|array<string> $ItemNoteDate) Return ChildItemRevisionNote objects filtered by the ItemNoteDate column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnotetime(string|array<string> $ItemNoteTime) Return ChildItemRevisionNote objects filtered by the ItemNoteTime column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnotetime(string|array<string> $ItemNoteTime) Return ChildItemRevisionNote objects filtered by the ItemNoteTime column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnoterevision(string|array<string> $ItemNoteRevision) Return ChildItemRevisionNote objects filtered by the ItemNoteRevision column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnoterevision(string|array<string> $ItemNoteRevision) Return ChildItemRevisionNote objects filtered by the ItemNoteRevision column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnoteseq(int|array<int> $ItemNoteSeq) Return ChildItemRevisionNote objects filtered by the ItemNoteSeq column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnoteseq(int|array<int> $ItemNoteSeq) Return ChildItemRevisionNote objects filtered by the ItemNoteSeq column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnotenote(string|array<string> $ItemNoteNote) Return ChildItemRevisionNote objects filtered by the ItemNoteNote column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnotenote(string|array<string> $ItemNoteNote) Return ChildItemRevisionNote objects filtered by the ItemNoteNote column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnoteuser(string|array<string> $ItemNoteUser) Return ChildItemRevisionNote objects filtered by the ItemNoteUser column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnoteuser(string|array<string> $ItemNoteUser) Return ChildItemRevisionNote objects filtered by the ItemNoteUser column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnotekey2(string|array<string> $ItemNoteKey2) Return ChildItemRevisionNote objects filtered by the ItemNoteKey2 column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnotekey2(string|array<string> $ItemNoteKey2) Return ChildItemRevisionNote objects filtered by the ItemNoteKey2 column
+ * @method     ChildItemRevisionNote[]|Collection findByItemnoteform(string|array<string> $ItemNoteForm) Return ChildItemRevisionNote objects filtered by the ItemNoteForm column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByItemnoteform(string|array<string> $ItemNoteForm) Return ChildItemRevisionNote objects filtered by the ItemNoteForm column
+ * @method     ChildItemRevisionNote[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemRevisionNote objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemRevisionNote objects filtered by the DateUpdtd column
+ * @method     ChildItemRevisionNote[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemRevisionNote objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemRevisionNote objects filtered by the TimeUpdtd column
+ * @method     ChildItemRevisionNote[]|Collection findByDummy(string|array<string> $dummy) Return ChildItemRevisionNote objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItemRevisionNote> findByDummy(string|array<string> $dummy) Return ChildItemRevisionNote objects filtered by the dummy column
+ *
+ * @method     ChildItemRevisionNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItemRevisionNote> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItemRevisionNoteQuery extends ModelCriteria
 {
@@ -118,9 +133,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItemRevisionNoteQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ItemRevisionNote', $modelAlias = null)
     {
@@ -130,12 +145,12 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
     /**
      * Returns a new ChildItemRevisionNoteQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItemRevisionNoteQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItemRevisionNoteQuery) {
             return $criteria;
@@ -165,7 +180,7 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      *
      * @return ChildItemRevisionNote|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -197,8 +212,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -234,8 +249,8 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItemRevisionNote|array|mixed the result, formatted by the current formatter
      */
@@ -255,12 +270,12 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -277,9 +292,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -295,14 +310,16 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE, $key[0], Criteria::EQUAL);
@@ -327,14 +344,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnotetype('fooValue');   // WHERE ItemNoteType = 'fooValue'
      * $query->filterByItemnotetype('%fooValue%', Criteria::LIKE); // WHERE ItemNoteType LIKE '%fooValue%'
+     * $query->filterByItemnotetype(['foo', 'bar']); // WHERE ItemNoteType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnotetype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnotetype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnotetype($itemnotetype = null, $comparison = null)
+    public function filterByItemnotetype($itemnotetype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnotetype)) {
@@ -342,7 +360,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE, $itemnotetype, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE, $itemnotetype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -352,14 +372,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnotetypedesc('fooValue');   // WHERE ItemNoteTypeDesc = 'fooValue'
      * $query->filterByItemnotetypedesc('%fooValue%', Criteria::LIKE); // WHERE ItemNoteTypeDesc LIKE '%fooValue%'
+     * $query->filterByItemnotetypedesc(['foo', 'bar']); // WHERE ItemNoteTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnotetypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnotetypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnotetypedesc($itemnotetypedesc = null, $comparison = null)
+    public function filterByItemnotetypedesc($itemnotetypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnotetypedesc)) {
@@ -367,7 +388,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC, $itemnotetypedesc, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC, $itemnotetypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -377,14 +400,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -392,7 +416,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -402,14 +428,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnotedate('fooValue');   // WHERE ItemNoteDate = 'fooValue'
      * $query->filterByItemnotedate('%fooValue%', Criteria::LIKE); // WHERE ItemNoteDate LIKE '%fooValue%'
+     * $query->filterByItemnotedate(['foo', 'bar']); // WHERE ItemNoteDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnotedate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnotedate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnotedate($itemnotedate = null, $comparison = null)
+    public function filterByItemnotedate($itemnotedate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnotedate)) {
@@ -417,7 +444,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEDATE, $itemnotedate, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEDATE, $itemnotedate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -427,14 +456,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnotetime('fooValue');   // WHERE ItemNoteTime = 'fooValue'
      * $query->filterByItemnotetime('%fooValue%', Criteria::LIKE); // WHERE ItemNoteTime LIKE '%fooValue%'
+     * $query->filterByItemnotetime(['foo', 'bar']); // WHERE ItemNoteTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnotetime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnotetime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnotetime($itemnotetime = null, $comparison = null)
+    public function filterByItemnotetime($itemnotetime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnotetime)) {
@@ -442,7 +472,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETIME, $itemnotetime, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTETIME, $itemnotetime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -452,14 +484,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnoterevision('fooValue');   // WHERE ItemNoteRevision = 'fooValue'
      * $query->filterByItemnoterevision('%fooValue%', Criteria::LIKE); // WHERE ItemNoteRevision LIKE '%fooValue%'
+     * $query->filterByItemnoterevision(['foo', 'bar']); // WHERE ItemNoteRevision IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnoterevision The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnoterevision The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnoterevision($itemnoterevision = null, $comparison = null)
+    public function filterByItemnoterevision($itemnoterevision = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnoterevision)) {
@@ -467,7 +500,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION, $itemnoterevision, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION, $itemnoterevision, $comparison);
+
+        return $this;
     }
 
     /**
@@ -480,15 +515,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * $query->filterByItemnoteseq(array('min' => 12)); // WHERE ItemNoteSeq > 12
      * </code>
      *
-     * @param     mixed $itemnoteseq The value to use as filter.
+     * @param mixed $itemnoteseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnoteseq($itemnoteseq = null, $comparison = null)
+    public function filterByItemnoteseq($itemnoteseq = null, ?string $comparison = null)
     {
         if (is_array($itemnoteseq)) {
             $useMinMax = false;
@@ -508,7 +543,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTESEQ, $itemnoteseq, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTESEQ, $itemnoteseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -518,14 +555,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnotenote('fooValue');   // WHERE ItemNoteNote = 'fooValue'
      * $query->filterByItemnotenote('%fooValue%', Criteria::LIKE); // WHERE ItemNoteNote LIKE '%fooValue%'
+     * $query->filterByItemnotenote(['foo', 'bar']); // WHERE ItemNoteNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnotenote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnotenote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnotenote($itemnotenote = null, $comparison = null)
+    public function filterByItemnotenote($itemnotenote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnotenote)) {
@@ -533,7 +571,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTENOTE, $itemnotenote, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTENOTE, $itemnotenote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -543,14 +583,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnoteuser('fooValue');   // WHERE ItemNoteUser = 'fooValue'
      * $query->filterByItemnoteuser('%fooValue%', Criteria::LIKE); // WHERE ItemNoteUser LIKE '%fooValue%'
+     * $query->filterByItemnoteuser(['foo', 'bar']); // WHERE ItemNoteUser IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnoteuser The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnoteuser The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnoteuser($itemnoteuser = null, $comparison = null)
+    public function filterByItemnoteuser($itemnoteuser = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnoteuser)) {
@@ -558,7 +599,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEUSER, $itemnoteuser, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEUSER, $itemnoteuser, $comparison);
+
+        return $this;
     }
 
     /**
@@ -568,14 +611,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnotekey2('fooValue');   // WHERE ItemNoteKey2 = 'fooValue'
      * $query->filterByItemnotekey2('%fooValue%', Criteria::LIKE); // WHERE ItemNoteKey2 LIKE '%fooValue%'
+     * $query->filterByItemnotekey2(['foo', 'bar']); // WHERE ItemNoteKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnotekey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnotekey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnotekey2($itemnotekey2 = null, $comparison = null)
+    public function filterByItemnotekey2($itemnotekey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnotekey2)) {
@@ -583,7 +627,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2, $itemnotekey2, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2, $itemnotekey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -593,14 +639,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByItemnoteform('fooValue');   // WHERE ItemNoteForm = 'fooValue'
      * $query->filterByItemnoteform('%fooValue%', Criteria::LIKE); // WHERE ItemNoteForm LIKE '%fooValue%'
+     * $query->filterByItemnoteform(['foo', 'bar']); // WHERE ItemNoteForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemnoteform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemnoteform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemnoteform($itemnoteform = null, $comparison = null)
+    public function filterByItemnoteform($itemnoteform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemnoteform)) {
@@ -608,7 +655,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEFORM, $itemnoteform, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_ITEMNOTEFORM, $itemnoteform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -618,14 +667,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -633,7 +683,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -643,14 +695,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -658,7 +711,9 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -668,14 +723,15 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -683,15 +739,17 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemRevisionNoteTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItemRevisionNoteTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildItemRevisionNote $itemRevisionNote Object to remove from the list of results
+     * @param ChildItemRevisionNote $itemRevisionNote Object to remove from the list of results
      *
-     * @return $this|ChildItemRevisionNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itemRevisionNote = null)
     {
@@ -713,7 +771,7 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemRevisionNoteTableMap::DATABASE_NAME);
@@ -738,12 +796,12 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemRevisionNoteTableMap::DATABASE_NAME);
@@ -768,4 +826,4 @@ abstract class ItemRevisionNoteQuery extends ModelCriteria
         });
     }
 
-} // ItemRevisionNoteQuery
+}

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_nonstock_item' table.
- *
- *
+ * Base class that represents a query for the `inv_nonstock_item` table.
  *
  * @method     ChildInvNonstockItemQuery orderByNsititemnbr($order = Criteria::ASC) Order by the NsitItemNbr column
  * @method     ChildInvNonstockItemQuery orderByNsitmnfrid($order = Criteria::ASC) Order by the NsitMnfrId column
@@ -66,24 +65,24 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \VendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvNonstockItem findOne(ConnectionInterface $con = null) Return the first ChildInvNonstockItem matching the query
- * @method     ChildInvNonstockItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvNonstockItem matching the query, or a new ChildInvNonstockItem object populated from the query conditions when no match is found
+ * @method     ChildInvNonstockItem|null findOne(?ConnectionInterface $con = null) Return the first ChildInvNonstockItem matching the query
+ * @method     ChildInvNonstockItem findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvNonstockItem matching the query, or a new ChildInvNonstockItem object populated from the query conditions when no match is found
  *
- * @method     ChildInvNonstockItem findOneByNsititemnbr(string $NsitItemNbr) Return the first ChildInvNonstockItem filtered by the NsitItemNbr column
- * @method     ChildInvNonstockItem findOneByNsitmnfrid(string $NsitMnfrId) Return the first ChildInvNonstockItem filtered by the NsitMnfrId column
- * @method     ChildInvNonstockItem findOneByNsitdesc1(string $NsitDesc1) Return the first ChildInvNonstockItem filtered by the NsitDesc1 column
- * @method     ChildInvNonstockItem findOneByNsitdesc2(string $NsitDesc2) Return the first ChildInvNonstockItem filtered by the NsitDesc2 column
- * @method     ChildInvNonstockItem findOneByNsitcost(string $NsitCost) Return the first ChildInvNonstockItem filtered by the NsitCost column
- * @method     ChildInvNonstockItem findOneByNsitavail(string $NsitAvail) Return the first ChildInvNonstockItem filtered by the NsitAvail column
- * @method     ChildInvNonstockItem findOneByNsituom(string $NsitUom) Return the first ChildInvNonstockItem filtered by the NsitUom column
- * @method     ChildInvNonstockItem findOneByNsitprice(string $NsitPrice) Return the first ChildInvNonstockItem filtered by the NsitPrice column
- * @method     ChildInvNonstockItem findOneByNsitchgdate(string $NsitChgDate) Return the first ChildInvNonstockItem filtered by the NsitChgDate column
- * @method     ChildInvNonstockItem findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvNonstockItem filtered by the DateUpdtd column
- * @method     ChildInvNonstockItem findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvNonstockItem filtered by the TimeUpdtd column
- * @method     ChildInvNonstockItem findOneByDummy(string $dummy) Return the first ChildInvNonstockItem filtered by the dummy column *
-
- * @method     ChildInvNonstockItem requirePk($key, ConnectionInterface $con = null) Return the ChildInvNonstockItem by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvNonstockItem requireOne(ConnectionInterface $con = null) Return the first ChildInvNonstockItem matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvNonstockItem|null findOneByNsititemnbr(string $NsitItemNbr) Return the first ChildInvNonstockItem filtered by the NsitItemNbr column
+ * @method     ChildInvNonstockItem|null findOneByNsitmnfrid(string $NsitMnfrId) Return the first ChildInvNonstockItem filtered by the NsitMnfrId column
+ * @method     ChildInvNonstockItem|null findOneByNsitdesc1(string $NsitDesc1) Return the first ChildInvNonstockItem filtered by the NsitDesc1 column
+ * @method     ChildInvNonstockItem|null findOneByNsitdesc2(string $NsitDesc2) Return the first ChildInvNonstockItem filtered by the NsitDesc2 column
+ * @method     ChildInvNonstockItem|null findOneByNsitcost(string $NsitCost) Return the first ChildInvNonstockItem filtered by the NsitCost column
+ * @method     ChildInvNonstockItem|null findOneByNsitavail(string $NsitAvail) Return the first ChildInvNonstockItem filtered by the NsitAvail column
+ * @method     ChildInvNonstockItem|null findOneByNsituom(string $NsitUom) Return the first ChildInvNonstockItem filtered by the NsitUom column
+ * @method     ChildInvNonstockItem|null findOneByNsitprice(string $NsitPrice) Return the first ChildInvNonstockItem filtered by the NsitPrice column
+ * @method     ChildInvNonstockItem|null findOneByNsitchgdate(string $NsitChgDate) Return the first ChildInvNonstockItem filtered by the NsitChgDate column
+ * @method     ChildInvNonstockItem|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvNonstockItem filtered by the DateUpdtd column
+ * @method     ChildInvNonstockItem|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvNonstockItem filtered by the TimeUpdtd column
+ * @method     ChildInvNonstockItem|null findOneByDummy(string $dummy) Return the first ChildInvNonstockItem filtered by the dummy column
+ *
+ * @method     ChildInvNonstockItem requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvNonstockItem by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvNonstockItem requireOne(?ConnectionInterface $con = null) Return the first ChildInvNonstockItem matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvNonstockItem requireOneByNsititemnbr(string $NsitItemNbr) Return the first ChildInvNonstockItem filtered by the NsitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvNonstockItem requireOneByNsitmnfrid(string $NsitMnfrId) Return the first ChildInvNonstockItem filtered by the NsitMnfrId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -98,21 +97,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvNonstockItem requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvNonstockItem filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvNonstockItem requireOneByDummy(string $dummy) Return the first ChildInvNonstockItem filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvNonstockItem[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvNonstockItem objects based on current ModelCriteria
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsititemnbr(string $NsitItemNbr) Return ChildInvNonstockItem objects filtered by the NsitItemNbr column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsitmnfrid(string $NsitMnfrId) Return ChildInvNonstockItem objects filtered by the NsitMnfrId column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsitdesc1(string $NsitDesc1) Return ChildInvNonstockItem objects filtered by the NsitDesc1 column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsitdesc2(string $NsitDesc2) Return ChildInvNonstockItem objects filtered by the NsitDesc2 column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsitcost(string $NsitCost) Return ChildInvNonstockItem objects filtered by the NsitCost column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsitavail(string $NsitAvail) Return ChildInvNonstockItem objects filtered by the NsitAvail column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsituom(string $NsitUom) Return ChildInvNonstockItem objects filtered by the NsitUom column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsitprice(string $NsitPrice) Return ChildInvNonstockItem objects filtered by the NsitPrice column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByNsitchgdate(string $NsitChgDate) Return ChildInvNonstockItem objects filtered by the NsitChgDate column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvNonstockItem objects filtered by the DateUpdtd column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvNonstockItem objects filtered by the TimeUpdtd column
- * @method     ChildInvNonstockItem[]|ObjectCollection findByDummy(string $dummy) Return ChildInvNonstockItem objects filtered by the dummy column
- * @method     ChildInvNonstockItem[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvNonstockItem[]|Collection find(?ConnectionInterface $con = null) Return ChildInvNonstockItem objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> find(?ConnectionInterface $con = null) Return ChildInvNonstockItem objects based on current ModelCriteria
  *
+ * @method     ChildInvNonstockItem[]|Collection findByNsititemnbr(string|array<string> $NsitItemNbr) Return ChildInvNonstockItem objects filtered by the NsitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsititemnbr(string|array<string> $NsitItemNbr) Return ChildInvNonstockItem objects filtered by the NsitItemNbr column
+ * @method     ChildInvNonstockItem[]|Collection findByNsitmnfrid(string|array<string> $NsitMnfrId) Return ChildInvNonstockItem objects filtered by the NsitMnfrId column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsitmnfrid(string|array<string> $NsitMnfrId) Return ChildInvNonstockItem objects filtered by the NsitMnfrId column
+ * @method     ChildInvNonstockItem[]|Collection findByNsitdesc1(string|array<string> $NsitDesc1) Return ChildInvNonstockItem objects filtered by the NsitDesc1 column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsitdesc1(string|array<string> $NsitDesc1) Return ChildInvNonstockItem objects filtered by the NsitDesc1 column
+ * @method     ChildInvNonstockItem[]|Collection findByNsitdesc2(string|array<string> $NsitDesc2) Return ChildInvNonstockItem objects filtered by the NsitDesc2 column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsitdesc2(string|array<string> $NsitDesc2) Return ChildInvNonstockItem objects filtered by the NsitDesc2 column
+ * @method     ChildInvNonstockItem[]|Collection findByNsitcost(string|array<string> $NsitCost) Return ChildInvNonstockItem objects filtered by the NsitCost column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsitcost(string|array<string> $NsitCost) Return ChildInvNonstockItem objects filtered by the NsitCost column
+ * @method     ChildInvNonstockItem[]|Collection findByNsitavail(string|array<string> $NsitAvail) Return ChildInvNonstockItem objects filtered by the NsitAvail column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsitavail(string|array<string> $NsitAvail) Return ChildInvNonstockItem objects filtered by the NsitAvail column
+ * @method     ChildInvNonstockItem[]|Collection findByNsituom(string|array<string> $NsitUom) Return ChildInvNonstockItem objects filtered by the NsitUom column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsituom(string|array<string> $NsitUom) Return ChildInvNonstockItem objects filtered by the NsitUom column
+ * @method     ChildInvNonstockItem[]|Collection findByNsitprice(string|array<string> $NsitPrice) Return ChildInvNonstockItem objects filtered by the NsitPrice column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsitprice(string|array<string> $NsitPrice) Return ChildInvNonstockItem objects filtered by the NsitPrice column
+ * @method     ChildInvNonstockItem[]|Collection findByNsitchgdate(string|array<string> $NsitChgDate) Return ChildInvNonstockItem objects filtered by the NsitChgDate column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByNsitchgdate(string|array<string> $NsitChgDate) Return ChildInvNonstockItem objects filtered by the NsitChgDate column
+ * @method     ChildInvNonstockItem[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvNonstockItem objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvNonstockItem objects filtered by the DateUpdtd column
+ * @method     ChildInvNonstockItem[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvNonstockItem objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvNonstockItem objects filtered by the TimeUpdtd column
+ * @method     ChildInvNonstockItem[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvNonstockItem objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvNonstockItem> findByDummy(string|array<string> $dummy) Return ChildInvNonstockItem objects filtered by the dummy column
+ *
+ * @method     ChildInvNonstockItem[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvNonstockItem> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvNonstockItemQuery extends ModelCriteria
 {
@@ -121,9 +135,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvNonstockItemQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvNonstockItem', $modelAlias = null)
     {
@@ -133,12 +147,12 @@ abstract class InvNonstockItemQuery extends ModelCriteria
     /**
      * Returns a new ChildInvNonstockItemQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvNonstockItemQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvNonstockItemQuery) {
             return $criteria;
@@ -168,7 +182,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      *
      * @return ChildInvNonstockItem|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -200,8 +214,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -234,8 +248,8 @@ abstract class InvNonstockItemQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvNonstockItem|array|mixed the result, formatted by the current formatter
      */
@@ -255,12 +269,12 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -277,9 +291,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -292,14 +306,16 @@ abstract class InvNonstockItemQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvNonstockItemTableMap::COL_NSITITEMNBR, $key[0], Criteria::EQUAL);
@@ -318,14 +334,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByNsititemnbr('fooValue');   // WHERE NsitItemNbr = 'fooValue'
      * $query->filterByNsititemnbr('%fooValue%', Criteria::LIKE); // WHERE NsitItemNbr LIKE '%fooValue%'
+     * $query->filterByNsititemnbr(['foo', 'bar']); // WHERE NsitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $nsititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $nsititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsititemnbr($nsititemnbr = null, $comparison = null)
+    public function filterByNsititemnbr($nsititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($nsititemnbr)) {
@@ -333,7 +350,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITITEMNBR, $nsititemnbr, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITITEMNBR, $nsititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -343,14 +362,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByNsitmnfrid('fooValue');   // WHERE NsitMnfrId = 'fooValue'
      * $query->filterByNsitmnfrid('%fooValue%', Criteria::LIKE); // WHERE NsitMnfrId LIKE '%fooValue%'
+     * $query->filterByNsitmnfrid(['foo', 'bar']); // WHERE NsitMnfrId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $nsitmnfrid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $nsitmnfrid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitmnfrid($nsitmnfrid = null, $comparison = null)
+    public function filterByNsitmnfrid($nsitmnfrid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($nsitmnfrid)) {
@@ -358,7 +378,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITMNFRID, $nsitmnfrid, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITMNFRID, $nsitmnfrid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -368,14 +390,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByNsitdesc1('fooValue');   // WHERE NsitDesc1 = 'fooValue'
      * $query->filterByNsitdesc1('%fooValue%', Criteria::LIKE); // WHERE NsitDesc1 LIKE '%fooValue%'
+     * $query->filterByNsitdesc1(['foo', 'bar']); // WHERE NsitDesc1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $nsitdesc1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $nsitdesc1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitdesc1($nsitdesc1 = null, $comparison = null)
+    public function filterByNsitdesc1($nsitdesc1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($nsitdesc1)) {
@@ -383,7 +406,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITDESC1, $nsitdesc1, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITDESC1, $nsitdesc1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -393,14 +418,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByNsitdesc2('fooValue');   // WHERE NsitDesc2 = 'fooValue'
      * $query->filterByNsitdesc2('%fooValue%', Criteria::LIKE); // WHERE NsitDesc2 LIKE '%fooValue%'
+     * $query->filterByNsitdesc2(['foo', 'bar']); // WHERE NsitDesc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $nsitdesc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $nsitdesc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitdesc2($nsitdesc2 = null, $comparison = null)
+    public function filterByNsitdesc2($nsitdesc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($nsitdesc2)) {
@@ -408,7 +434,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITDESC2, $nsitdesc2, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITDESC2, $nsitdesc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -421,15 +449,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * $query->filterByNsitcost(array('min' => 12)); // WHERE NsitCost > 12
      * </code>
      *
-     * @param     mixed $nsitcost The value to use as filter.
+     * @param mixed $nsitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitcost($nsitcost = null, $comparison = null)
+    public function filterByNsitcost($nsitcost = null, ?string $comparison = null)
     {
         if (is_array($nsitcost)) {
             $useMinMax = false;
@@ -449,7 +477,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITCOST, $nsitcost, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITCOST, $nsitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -462,15 +492,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * $query->filterByNsitavail(array('min' => 12)); // WHERE NsitAvail > 12
      * </code>
      *
-     * @param     mixed $nsitavail The value to use as filter.
+     * @param mixed $nsitavail The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitavail($nsitavail = null, $comparison = null)
+    public function filterByNsitavail($nsitavail = null, ?string $comparison = null)
     {
         if (is_array($nsitavail)) {
             $useMinMax = false;
@@ -490,7 +520,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITAVAIL, $nsitavail, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITAVAIL, $nsitavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -500,14 +532,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByNsituom('fooValue');   // WHERE NsitUom = 'fooValue'
      * $query->filterByNsituom('%fooValue%', Criteria::LIKE); // WHERE NsitUom LIKE '%fooValue%'
+     * $query->filterByNsituom(['foo', 'bar']); // WHERE NsitUom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $nsituom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $nsituom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsituom($nsituom = null, $comparison = null)
+    public function filterByNsituom($nsituom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($nsituom)) {
@@ -515,7 +548,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITUOM, $nsituom, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITUOM, $nsituom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -528,15 +563,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * $query->filterByNsitprice(array('min' => 12)); // WHERE NsitPrice > 12
      * </code>
      *
-     * @param     mixed $nsitprice The value to use as filter.
+     * @param mixed $nsitprice The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitprice($nsitprice = null, $comparison = null)
+    public function filterByNsitprice($nsitprice = null, ?string $comparison = null)
     {
         if (is_array($nsitprice)) {
             $useMinMax = false;
@@ -556,7 +591,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITPRICE, $nsitprice, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITPRICE, $nsitprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -566,14 +603,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByNsitchgdate('fooValue');   // WHERE NsitChgDate = 'fooValue'
      * $query->filterByNsitchgdate('%fooValue%', Criteria::LIKE); // WHERE NsitChgDate LIKE '%fooValue%'
+     * $query->filterByNsitchgdate(['foo', 'bar']); // WHERE NsitChgDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $nsitchgdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $nsitchgdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitchgdate($nsitchgdate = null, $comparison = null)
+    public function filterByNsitchgdate($nsitchgdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($nsitchgdate)) {
@@ -581,7 +619,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITCHGDATE, $nsitchgdate, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_NSITCHGDATE, $nsitchgdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -591,14 +631,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -606,7 +647,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -616,14 +659,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -631,7 +675,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -641,14 +687,15 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -656,20 +703,22 @@ abstract class InvNonstockItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvNonstockItemTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvNonstockItemTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Vendor object
      *
      * @param \Vendor|ObjectCollection $vendor The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendor($vendor, $comparison = null)
+    public function filterByVendor($vendor, ?string $comparison = null)
     {
         if ($vendor instanceof \Vendor) {
             return $this
@@ -679,8 +728,10 @@ abstract class InvNonstockItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvNonstockItemTableMap::COL_NSITMNFRID, $vendor->toKeyValue('PrimaryKey', 'Apvevendid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByVendor() only accepts arguments of type \Vendor or Collection');
         }
@@ -689,12 +740,12 @@ abstract class InvNonstockItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Vendor relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinVendor($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinVendor(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Vendor');
@@ -723,9 +774,9 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \VendorQuery A secondary query class using the current class as primary query
      */
@@ -737,11 +788,107 @@ abstract class InvNonstockItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the Vendor relation Vendor object
+     *
+     * @param callable(\VendorQuery):\VendorQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withVendorQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useVendorQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Vendor table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \VendorQuery The inner query object of the EXISTS statement
+     */
+    public function useVendorExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT EXISTS query.
+     *
+     * @see useVendorExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useVendorNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \VendorQuery The inner query object of the IN statement
+     */
+    public function useInVendorQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT IN query.
+     *
+     * @see useVendorInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInVendorQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvNonstockItem $invNonstockItem Object to remove from the list of results
+     * @param ChildInvNonstockItem $invNonstockItem Object to remove from the list of results
      *
-     * @return $this|ChildInvNonstockItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invNonstockItem = null)
     {
@@ -760,7 +907,7 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvNonstockItemTableMap::DATABASE_NAME);
@@ -785,12 +932,12 @@ abstract class InvNonstockItemQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvNonstockItemTableMap::DATABASE_NAME);
@@ -815,4 +962,4 @@ abstract class InvNonstockItemQuery extends ModelCriteria
         });
     }
 
-} // InvNonstockItemQuery
+}

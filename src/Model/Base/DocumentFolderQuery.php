@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'doc_control' table.
- *
- *
+ * Base class that represents a query for the `doc_control` table.
  *
  * @method     ChildDocumentFolderQuery orderByDoccfolder($order = Criteria::ASC) Order by the DoccFolder column
  * @method     ChildDocumentFolderQuery orderByDoccfolderdesc($order = Criteria::ASC) Order by the DoccFolderDesc column
@@ -66,24 +65,24 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \DocumentQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildDocumentFolder findOne(ConnectionInterface $con = null) Return the first ChildDocumentFolder matching the query
- * @method     ChildDocumentFolder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildDocumentFolder matching the query, or a new ChildDocumentFolder object populated from the query conditions when no match is found
+ * @method     ChildDocumentFolder|null findOne(?ConnectionInterface $con = null) Return the first ChildDocumentFolder matching the query
+ * @method     ChildDocumentFolder findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildDocumentFolder matching the query, or a new ChildDocumentFolder object populated from the query conditions when no match is found
  *
- * @method     ChildDocumentFolder findOneByDoccfolder(string $DoccFolder) Return the first ChildDocumentFolder filtered by the DoccFolder column
- * @method     ChildDocumentFolder findOneByDoccfolderdesc(string $DoccFolderDesc) Return the first ChildDocumentFolder filtered by the DoccFolderDesc column
- * @method     ChildDocumentFolder findOneByDoccdir(string $DoccDir) Return the first ChildDocumentFolder filtered by the DoccDir column
- * @method     ChildDocumentFolder findOneByDocctag(string $DoccTag) Return the first ChildDocumentFolder filtered by the DoccTag column
- * @method     ChildDocumentFolder findOneByDoccmultcopy(string $DoccMultCopy) Return the first ChildDocumentFolder filtered by the DoccMultCopy column
- * @method     ChildDocumentFolder findOneByDoccoverwrt(string $DoccOverWrt) Return the first ChildDocumentFolder filtered by the DoccOverWrt column
- * @method     ChildDocumentFolder findOneByDoccfilecnt(int $DoccFileCnt) Return the first ChildDocumentFolder filtered by the DoccFileCnt column
- * @method     ChildDocumentFolder findOneByDoccautoscanid(string $DoccAutoScanId) Return the first ChildDocumentFolder filtered by the DoccAutoScanId column
- * @method     ChildDocumentFolder findOneByDoccUseAutoFile(string $DoccUseAutoFile) Return the first ChildDocumentFolder filtered by the DoccUseAutoFile column
- * @method     ChildDocumentFolder findOneByDateupdtd(string $DateUpdtd) Return the first ChildDocumentFolder filtered by the DateUpdtd column
- * @method     ChildDocumentFolder findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildDocumentFolder filtered by the TimeUpdtd column
- * @method     ChildDocumentFolder findOneByDummy(string $dummy) Return the first ChildDocumentFolder filtered by the dummy column *
-
- * @method     ChildDocumentFolder requirePk($key, ConnectionInterface $con = null) Return the ChildDocumentFolder by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildDocumentFolder requireOne(ConnectionInterface $con = null) Return the first ChildDocumentFolder matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildDocumentFolder|null findOneByDoccfolder(string $DoccFolder) Return the first ChildDocumentFolder filtered by the DoccFolder column
+ * @method     ChildDocumentFolder|null findOneByDoccfolderdesc(string $DoccFolderDesc) Return the first ChildDocumentFolder filtered by the DoccFolderDesc column
+ * @method     ChildDocumentFolder|null findOneByDoccdir(string $DoccDir) Return the first ChildDocumentFolder filtered by the DoccDir column
+ * @method     ChildDocumentFolder|null findOneByDocctag(string $DoccTag) Return the first ChildDocumentFolder filtered by the DoccTag column
+ * @method     ChildDocumentFolder|null findOneByDoccmultcopy(string $DoccMultCopy) Return the first ChildDocumentFolder filtered by the DoccMultCopy column
+ * @method     ChildDocumentFolder|null findOneByDoccoverwrt(string $DoccOverWrt) Return the first ChildDocumentFolder filtered by the DoccOverWrt column
+ * @method     ChildDocumentFolder|null findOneByDoccfilecnt(int $DoccFileCnt) Return the first ChildDocumentFolder filtered by the DoccFileCnt column
+ * @method     ChildDocumentFolder|null findOneByDoccautoscanid(string $DoccAutoScanId) Return the first ChildDocumentFolder filtered by the DoccAutoScanId column
+ * @method     ChildDocumentFolder|null findOneByDoccUseAutoFile(string $DoccUseAutoFile) Return the first ChildDocumentFolder filtered by the DoccUseAutoFile column
+ * @method     ChildDocumentFolder|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildDocumentFolder filtered by the DateUpdtd column
+ * @method     ChildDocumentFolder|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildDocumentFolder filtered by the TimeUpdtd column
+ * @method     ChildDocumentFolder|null findOneByDummy(string $dummy) Return the first ChildDocumentFolder filtered by the dummy column
+ *
+ * @method     ChildDocumentFolder requirePk($key, ?ConnectionInterface $con = null) Return the ChildDocumentFolder by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildDocumentFolder requireOne(?ConnectionInterface $con = null) Return the first ChildDocumentFolder matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildDocumentFolder requireOneByDoccfolder(string $DoccFolder) Return the first ChildDocumentFolder filtered by the DoccFolder column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDocumentFolder requireOneByDoccfolderdesc(string $DoccFolderDesc) Return the first ChildDocumentFolder filtered by the DoccFolderDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -98,21 +97,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDocumentFolder requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildDocumentFolder filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDocumentFolder requireOneByDummy(string $dummy) Return the first ChildDocumentFolder filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildDocumentFolder[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildDocumentFolder objects based on current ModelCriteria
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccfolder(string $DoccFolder) Return ChildDocumentFolder objects filtered by the DoccFolder column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccfolderdesc(string $DoccFolderDesc) Return ChildDocumentFolder objects filtered by the DoccFolderDesc column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccdir(string $DoccDir) Return ChildDocumentFolder objects filtered by the DoccDir column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDocctag(string $DoccTag) Return ChildDocumentFolder objects filtered by the DoccTag column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccmultcopy(string $DoccMultCopy) Return ChildDocumentFolder objects filtered by the DoccMultCopy column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccoverwrt(string $DoccOverWrt) Return ChildDocumentFolder objects filtered by the DoccOverWrt column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccfilecnt(int $DoccFileCnt) Return ChildDocumentFolder objects filtered by the DoccFileCnt column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccautoscanid(string $DoccAutoScanId) Return ChildDocumentFolder objects filtered by the DoccAutoScanId column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccUseAutoFile(string $DoccUseAutoFile) Return ChildDocumentFolder objects filtered by the DoccUseAutoFile column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildDocumentFolder objects filtered by the DateUpdtd column
- * @method     ChildDocumentFolder[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildDocumentFolder objects filtered by the TimeUpdtd column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDummy(string $dummy) Return ChildDocumentFolder objects filtered by the dummy column
- * @method     ChildDocumentFolder[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildDocumentFolder[]|Collection find(?ConnectionInterface $con = null) Return ChildDocumentFolder objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> find(?ConnectionInterface $con = null) Return ChildDocumentFolder objects based on current ModelCriteria
  *
+ * @method     ChildDocumentFolder[]|Collection findByDoccfolder(string|array<string> $DoccFolder) Return ChildDocumentFolder objects filtered by the DoccFolder column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDoccfolder(string|array<string> $DoccFolder) Return ChildDocumentFolder objects filtered by the DoccFolder column
+ * @method     ChildDocumentFolder[]|Collection findByDoccfolderdesc(string|array<string> $DoccFolderDesc) Return ChildDocumentFolder objects filtered by the DoccFolderDesc column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDoccfolderdesc(string|array<string> $DoccFolderDesc) Return ChildDocumentFolder objects filtered by the DoccFolderDesc column
+ * @method     ChildDocumentFolder[]|Collection findByDoccdir(string|array<string> $DoccDir) Return ChildDocumentFolder objects filtered by the DoccDir column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDoccdir(string|array<string> $DoccDir) Return ChildDocumentFolder objects filtered by the DoccDir column
+ * @method     ChildDocumentFolder[]|Collection findByDocctag(string|array<string> $DoccTag) Return ChildDocumentFolder objects filtered by the DoccTag column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDocctag(string|array<string> $DoccTag) Return ChildDocumentFolder objects filtered by the DoccTag column
+ * @method     ChildDocumentFolder[]|Collection findByDoccmultcopy(string|array<string> $DoccMultCopy) Return ChildDocumentFolder objects filtered by the DoccMultCopy column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDoccmultcopy(string|array<string> $DoccMultCopy) Return ChildDocumentFolder objects filtered by the DoccMultCopy column
+ * @method     ChildDocumentFolder[]|Collection findByDoccoverwrt(string|array<string> $DoccOverWrt) Return ChildDocumentFolder objects filtered by the DoccOverWrt column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDoccoverwrt(string|array<string> $DoccOverWrt) Return ChildDocumentFolder objects filtered by the DoccOverWrt column
+ * @method     ChildDocumentFolder[]|Collection findByDoccfilecnt(int|array<int> $DoccFileCnt) Return ChildDocumentFolder objects filtered by the DoccFileCnt column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDoccfilecnt(int|array<int> $DoccFileCnt) Return ChildDocumentFolder objects filtered by the DoccFileCnt column
+ * @method     ChildDocumentFolder[]|Collection findByDoccautoscanid(string|array<string> $DoccAutoScanId) Return ChildDocumentFolder objects filtered by the DoccAutoScanId column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDoccautoscanid(string|array<string> $DoccAutoScanId) Return ChildDocumentFolder objects filtered by the DoccAutoScanId column
+ * @method     ChildDocumentFolder[]|Collection findByDoccUseAutoFile(string|array<string> $DoccUseAutoFile) Return ChildDocumentFolder objects filtered by the DoccUseAutoFile column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDoccUseAutoFile(string|array<string> $DoccUseAutoFile) Return ChildDocumentFolder objects filtered by the DoccUseAutoFile column
+ * @method     ChildDocumentFolder[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildDocumentFolder objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildDocumentFolder objects filtered by the DateUpdtd column
+ * @method     ChildDocumentFolder[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildDocumentFolder objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildDocumentFolder objects filtered by the TimeUpdtd column
+ * @method     ChildDocumentFolder[]|Collection findByDummy(string|array<string> $dummy) Return ChildDocumentFolder objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildDocumentFolder> findByDummy(string|array<string> $dummy) Return ChildDocumentFolder objects filtered by the dummy column
+ *
+ * @method     ChildDocumentFolder[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildDocumentFolder> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class DocumentFolderQuery extends ModelCriteria
 {
@@ -121,9 +135,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\DocumentFolderQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\DocumentFolder', $modelAlias = null)
     {
@@ -133,12 +147,12 @@ abstract class DocumentFolderQuery extends ModelCriteria
     /**
      * Returns a new ChildDocumentFolderQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildDocumentFolderQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildDocumentFolderQuery) {
             return $criteria;
@@ -168,7 +182,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
      *
      * @return ChildDocumentFolder|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -200,8 +214,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -233,8 +247,8 @@ abstract class DocumentFolderQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildDocumentFolder|array|mixed the result, formatted by the current formatter
      */
@@ -254,12 +268,12 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -276,27 +290,31 @@ abstract class DocumentFolderQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDER, $key, Criteria::EQUAL);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDER, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDER, $keys, Criteria::IN);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDER, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -306,14 +324,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDoccfolder('fooValue');   // WHERE DoccFolder = 'fooValue'
      * $query->filterByDoccfolder('%fooValue%', Criteria::LIKE); // WHERE DoccFolder LIKE '%fooValue%'
+     * $query->filterByDoccfolder(['foo', 'bar']); // WHERE DoccFolder IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $doccfolder The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $doccfolder The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDoccfolder($doccfolder = null, $comparison = null)
+    public function filterByDoccfolder($doccfolder = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($doccfolder)) {
@@ -321,7 +340,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDER, $doccfolder, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDER, $doccfolder, $comparison);
+
+        return $this;
     }
 
     /**
@@ -331,14 +352,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDoccfolderdesc('fooValue');   // WHERE DoccFolderDesc = 'fooValue'
      * $query->filterByDoccfolderdesc('%fooValue%', Criteria::LIKE); // WHERE DoccFolderDesc LIKE '%fooValue%'
+     * $query->filterByDoccfolderdesc(['foo', 'bar']); // WHERE DoccFolderDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $doccfolderdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $doccfolderdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDoccfolderdesc($doccfolderdesc = null, $comparison = null)
+    public function filterByDoccfolderdesc($doccfolderdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($doccfolderdesc)) {
@@ -346,7 +368,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDERDESC, $doccfolderdesc, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDERDESC, $doccfolderdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -356,14 +380,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDoccdir('fooValue');   // WHERE DoccDir = 'fooValue'
      * $query->filterByDoccdir('%fooValue%', Criteria::LIKE); // WHERE DoccDir LIKE '%fooValue%'
+     * $query->filterByDoccdir(['foo', 'bar']); // WHERE DoccDir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $doccdir The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $doccdir The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDoccdir($doccdir = null, $comparison = null)
+    public function filterByDoccdir($doccdir = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($doccdir)) {
@@ -371,7 +396,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCDIR, $doccdir, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCDIR, $doccdir, $comparison);
+
+        return $this;
     }
 
     /**
@@ -381,14 +408,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDocctag('fooValue');   // WHERE DoccTag = 'fooValue'
      * $query->filterByDocctag('%fooValue%', Criteria::LIKE); // WHERE DoccTag LIKE '%fooValue%'
+     * $query->filterByDocctag(['foo', 'bar']); // WHERE DoccTag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $docctag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $docctag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDocctag($docctag = null, $comparison = null)
+    public function filterByDocctag($docctag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($docctag)) {
@@ -396,7 +424,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCTAG, $docctag, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCTAG, $docctag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -406,14 +436,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDoccmultcopy('fooValue');   // WHERE DoccMultCopy = 'fooValue'
      * $query->filterByDoccmultcopy('%fooValue%', Criteria::LIKE); // WHERE DoccMultCopy LIKE '%fooValue%'
+     * $query->filterByDoccmultcopy(['foo', 'bar']); // WHERE DoccMultCopy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $doccmultcopy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $doccmultcopy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDoccmultcopy($doccmultcopy = null, $comparison = null)
+    public function filterByDoccmultcopy($doccmultcopy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($doccmultcopy)) {
@@ -421,7 +452,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCMULTCOPY, $doccmultcopy, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCMULTCOPY, $doccmultcopy, $comparison);
+
+        return $this;
     }
 
     /**
@@ -431,14 +464,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDoccoverwrt('fooValue');   // WHERE DoccOverWrt = 'fooValue'
      * $query->filterByDoccoverwrt('%fooValue%', Criteria::LIKE); // WHERE DoccOverWrt LIKE '%fooValue%'
+     * $query->filterByDoccoverwrt(['foo', 'bar']); // WHERE DoccOverWrt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $doccoverwrt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $doccoverwrt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDoccoverwrt($doccoverwrt = null, $comparison = null)
+    public function filterByDoccoverwrt($doccoverwrt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($doccoverwrt)) {
@@ -446,7 +480,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCOVERWRT, $doccoverwrt, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCOVERWRT, $doccoverwrt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -459,15 +495,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * $query->filterByDoccfilecnt(array('min' => 12)); // WHERE DoccFileCnt > 12
      * </code>
      *
-     * @param     mixed $doccfilecnt The value to use as filter.
+     * @param mixed $doccfilecnt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDoccfilecnt($doccfilecnt = null, $comparison = null)
+    public function filterByDoccfilecnt($doccfilecnt = null, ?string $comparison = null)
     {
         if (is_array($doccfilecnt)) {
             $useMinMax = false;
@@ -487,7 +523,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFILECNT, $doccfilecnt, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCFILECNT, $doccfilecnt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -497,14 +535,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDoccautoscanid('fooValue');   // WHERE DoccAutoScanId = 'fooValue'
      * $query->filterByDoccautoscanid('%fooValue%', Criteria::LIKE); // WHERE DoccAutoScanId LIKE '%fooValue%'
+     * $query->filterByDoccautoscanid(['foo', 'bar']); // WHERE DoccAutoScanId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $doccautoscanid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $doccautoscanid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDoccautoscanid($doccautoscanid = null, $comparison = null)
+    public function filterByDoccautoscanid($doccautoscanid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($doccautoscanid)) {
@@ -512,7 +551,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCAUTOSCANID, $doccautoscanid, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCAUTOSCANID, $doccautoscanid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -522,22 +563,25 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDoccUseAutoFile('fooValue');   // WHERE DoccUseAutoFile = 'fooValue'
      * $query->filterByDoccUseAutoFile('%fooValue%', Criteria::LIKE); // WHERE DoccUseAutoFile LIKE '%fooValue%'
+     * $query->filterByDoccUseAutoFile(['foo', 'bar']); // WHERE DoccUseAutoFile IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $doccUseAutoFil The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $doccUseAutoFile The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDoccUseAutoFile($doccUseAutoFil = null, $comparison = null)
+    public function filterByDoccUseAutoFile($doccUseAutoFile = null, ?string $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($doccUseAutoFil)) {
+            if (is_array($doccUseAutoFile)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE, $doccUseAutoFil, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE, $doccUseAutoFile, $comparison);
+
+        return $this;
     }
 
     /**
@@ -547,14 +591,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -562,7 +607,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -572,14 +619,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -587,7 +635,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -597,14 +647,15 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -612,27 +663,33 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(DocumentFolderTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Document object
      *
      * @param \Document|ObjectCollection $document the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDocument($document, $comparison = null)
+    public function filterByDocument($document, ?string $comparison = null)
     {
         if ($document instanceof \Document) {
-            return $this
+            $this
                 ->addUsingAlias(DocumentFolderTableMap::COL_DOCCFOLDER, $document->getDoccfolder(), $comparison);
+
+            return $this;
         } elseif ($document instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useDocumentQuery()
                 ->filterByPrimaryKeys($document->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByDocument() only accepts arguments of type \Document or Collection');
         }
@@ -641,12 +698,12 @@ abstract class DocumentFolderQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Document relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinDocument($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinDocument(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Document');
@@ -675,9 +732,9 @@ abstract class DocumentFolderQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \DocumentQuery A secondary query class using the current class as primary query
      */
@@ -689,11 +746,107 @@ abstract class DocumentFolderQuery extends ModelCriteria
     }
 
     /**
+     * Use the Document relation Document object
+     *
+     * @param callable(\DocumentQuery):\DocumentQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withDocumentQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useDocumentQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Document table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \DocumentQuery The inner query object of the EXISTS statement
+     */
+    public function useDocumentExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \DocumentQuery */
+        $q = $this->useExistsQuery('Document', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Document table for a NOT EXISTS query.
+     *
+     * @see useDocumentExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \DocumentQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useDocumentNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \DocumentQuery */
+        $q = $this->useExistsQuery('Document', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Document table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \DocumentQuery The inner query object of the IN statement
+     */
+    public function useInDocumentQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \DocumentQuery */
+        $q = $this->useInQuery('Document', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Document table for a NOT IN query.
+     *
+     * @see useDocumentInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \DocumentQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInDocumentQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \DocumentQuery */
+        $q = $this->useInQuery('Document', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildDocumentFolder $documentFolder Object to remove from the list of results
+     * @param ChildDocumentFolder $documentFolder Object to remove from the list of results
      *
-     * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($documentFolder = null)
     {
@@ -710,7 +863,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(DocumentFolderTableMap::DATABASE_NAME);
@@ -735,12 +888,12 @@ abstract class DocumentFolderQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(DocumentFolderTableMap::DATABASE_NAME);
@@ -765,4 +918,4 @@ abstract class DocumentFolderQuery extends ModelCriteria
         });
     }
 
-} // DocumentFolderQuery
+}

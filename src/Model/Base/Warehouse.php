@@ -55,19 +55,21 @@ abstract class Warehouse implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\WarehouseTableMap';
+    public const TABLE_MAP = '\\Map\\WarehouseTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -76,14 +78,14 @@ abstract class Warehouse implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the intbwhse field.
@@ -383,54 +385,63 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildInvWhseItemBin[] Collection to store aggregation of ChildInvWhseItemBin objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseItemBin> Collection to store aggregation of ChildInvWhseItemBin objects.
      */
     protected $collInvWhseItemBins;
     protected $collInvWhseItemBinsPartial;
 
     /**
      * @var        ObjectCollection|ChildWarehouseBin[] Collection to store aggregation of ChildWarehouseBin objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseBin> Collection to store aggregation of ChildWarehouseBin objects.
      */
     protected $collWarehouseBins;
     protected $collWarehouseBinsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvWhseLot[] Collection to store aggregation of ChildInvWhseLot objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseLot> Collection to store aggregation of ChildInvWhseLot objects.
      */
     protected $collInvWhseLots;
     protected $collInvWhseLotsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvLotTag[] Collection to store aggregation of ChildInvLotTag objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag> Collection to store aggregation of ChildInvLotTag objects.
      */
     protected $collInvLotTags;
     protected $collInvLotTagsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferOrder[] Collection to store aggregation of ChildInvTransferOrder objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder> Collection to store aggregation of ChildInvTransferOrder objects.
      */
     protected $collInvTransferOrdersRelatedByIntbwhsefrom;
     protected $collInvTransferOrdersRelatedByIntbwhsefromPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferOrder[] Collection to store aggregation of ChildInvTransferOrder objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder> Collection to store aggregation of ChildInvTransferOrder objects.
      */
     protected $collInvTransferOrdersRelatedByIntbwhseto;
     protected $collInvTransferOrdersRelatedByIntbwhsetoPartial;
 
     /**
      * @var        ObjectCollection|ChildWarehouseInventory[] Collection to store aggregation of ChildWarehouseInventory objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseInventory> Collection to store aggregation of ChildWarehouseInventory objects.
      */
     protected $collWarehouseInventories;
     protected $collWarehouseInventoriesPartial;
 
     /**
      * @var        ObjectCollection|ChildWarehouseNote[] Collection to store aggregation of ChildWarehouseNote objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseNote> Collection to store aggregation of ChildWarehouseNote objects.
      */
     protected $collWarehouseNotes;
     protected $collWarehouseNotesPartial;
 
     /**
      * @var        ObjectCollection|ChildPoReceivingHead[] Collection to store aggregation of ChildPoReceivingHead objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPoReceivingHead> Collection to store aggregation of ChildPoReceivingHead objects.
      */
     protected $collPoReceivingHeads;
     protected $collPoReceivingHeadsPartial;
@@ -439,61 +450,70 @@ abstract class Warehouse implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvWhseItemBin[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseItemBin>
      */
     protected $invWhseItemBinsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseBin[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseBin>
      */
     protected $warehouseBinsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvWhseLot[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseLot>
      */
     protected $invWhseLotsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotTag[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag>
      */
     protected $invLotTagsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
     protected $invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
     protected $invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseInventory[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseInventory>
      */
     protected $warehouseInventoriesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseNote[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseNote>
      */
     protected $warehouseNotesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPoReceivingHead[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPoReceivingHead>
      */
     protected $poReceivingHeadsScheduledForDeletion = null;
 
@@ -503,7 +523,7 @@ abstract class Warehouse implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->intbwhse = '';
         $this->intbwhsename = '';
@@ -556,9 +576,9 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -566,10 +586,10 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -578,7 +598,7 @@ abstract class Warehouse implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -588,9 +608,9 @@ abstract class Warehouse implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -599,45 +619,43 @@ abstract class Warehouse implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -646,10 +664,10 @@ abstract class Warehouse implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>Warehouse</code>, delegates to
      * <code>equals(Warehouse)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -671,7 +689,7 @@ abstract class Warehouse implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -679,10 +697,10 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -690,15 +708,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -707,12 +725,12 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|Warehouse The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -722,13 +740,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -739,24 +757,27 @@ abstract class Warehouse implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -1144,8 +1165,8 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Set the value of [intbwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -1159,13 +1180,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhse()
+    }
 
     /**
      * Set the value of [intbwhsename] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsename($v)
     {
@@ -1179,13 +1200,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsename()
+    }
 
     /**
      * Set the value of [intbwhseadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseadr1($v)
     {
@@ -1199,13 +1220,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseadr1()
+    }
 
     /**
      * Set the value of [intbwhseadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseadr2($v)
     {
@@ -1219,13 +1240,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseadr2()
+    }
 
     /**
      * Set the value of [intbwhsecity] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsecity($v)
     {
@@ -1239,13 +1260,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsecity()
+    }
 
     /**
      * Set the value of [intbwhsestat] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsestat($v)
     {
@@ -1259,13 +1280,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsestat()
+    }
 
     /**
      * Set the value of [intbwhsezipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsezipcode($v)
     {
@@ -1279,13 +1300,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsezipcode()
+    }
 
     /**
      * Set the value of [intbwhsectry] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsectry($v)
     {
@@ -1299,13 +1320,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsectry()
+    }
 
     /**
      * Set the value of [intbwhseusehandheld] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseusehandheld($v)
     {
@@ -1319,13 +1340,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseusehandheld()
+    }
 
     /**
      * Set the value of [intbwhsecashcust] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsecashcust($v)
     {
@@ -1339,13 +1360,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsecashcust()
+    }
 
     /**
      * Set the value of [intbwhsepickdtl] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsepickdtl($v)
     {
@@ -1359,13 +1380,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsepickdtl()
+    }
 
     /**
      * Set the value of [intbwhseprodbin] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseprodbin($v)
     {
@@ -1379,13 +1400,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseprodbin()
+    }
 
     /**
      * Set the value of [intbwhsepharea] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsepharea($v)
     {
@@ -1399,13 +1420,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsepharea()
+    }
 
     /**
      * Set the value of [intbwhsephfrst3] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsephfrst3($v)
     {
@@ -1419,13 +1440,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsephfrst3()
+    }
 
     /**
      * Set the value of [intbwhsephlast4] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsephlast4($v)
     {
@@ -1439,13 +1460,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsephlast4()
+    }
 
     /**
      * Set the value of [intbwhsephext] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsephext($v)
     {
@@ -1459,13 +1480,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsephext()
+    }
 
     /**
      * Set the value of [intbwhsefaxarea] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsefaxarea($v)
     {
@@ -1479,13 +1500,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsefaxarea()
+    }
 
     /**
      * Set the value of [intbwhsefaxfrst3] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsefaxfrst3($v)
     {
@@ -1499,13 +1520,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsefaxfrst3()
+    }
 
     /**
      * Set the value of [intbwhsefaxlast4] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsefaxlast4($v)
     {
@@ -1519,13 +1540,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsefaxlast4()
+    }
 
     /**
      * Set the value of [intbwhseemailadr] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseemailadr($v)
     {
@@ -1539,13 +1560,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseemailadr()
+    }
 
     /**
      * Set the value of [intbwhseqcrgabin] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseqcrgabin($v)
     {
@@ -1559,13 +1580,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseqcrgabin()
+    }
 
     /**
      * Set the value of [intbwhserfprinter1] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhserfprinter1($v)
     {
@@ -1579,13 +1600,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhserfprinter1()
+    }
 
     /**
      * Set the value of [intbwhserfprinter2] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhserfprinter2($v)
     {
@@ -1599,13 +1620,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhserfprinter2()
+    }
 
     /**
      * Set the value of [intbwhserfprinter3] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhserfprinter3($v)
     {
@@ -1619,13 +1640,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhserfprinter3()
+    }
 
     /**
      * Set the value of [intbwhserfprinter4] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhserfprinter4($v)
     {
@@ -1639,13 +1660,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhserfprinter4()
+    }
 
     /**
      * Set the value of [intbwhserfprinter5] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhserfprinter5($v)
     {
@@ -1659,13 +1680,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhserfprinter5()
+    }
 
     /**
      * Set the value of [intbwhseprofwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseprofwhse($v)
     {
@@ -1679,13 +1700,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseprofwhse()
+    }
 
     /**
      * Set the value of [intbwhseasetwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseasetwhse($v)
     {
@@ -1699,13 +1720,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseasetwhse()
+    }
 
     /**
      * Set the value of [intbwhseconsignwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseconsignwhse($v)
     {
@@ -1719,13 +1740,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseconsignwhse()
+    }
 
     /**
      * Set the value of [intbwhsebinrangelist] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsebinrangelist($v)
     {
@@ -1739,13 +1760,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsebinrangelist()
+    }
 
     /**
      * Set the value of [intbwhsesupplywhse] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsesupplywhse($v)
     {
@@ -1759,13 +1780,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsesupplywhse()
+    }
 
     /**
      * Set the value of [intbwhseareasplit] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseareasplit($v)
     {
@@ -1779,13 +1800,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseareasplit()
+    }
 
     /**
      * Set the value of [intbwhsercvbincode] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsercvbincode($v)
     {
@@ -1799,13 +1820,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsercvbincode()
+    }
 
     /**
      * Set the value of [intbwhsercvbin] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhsercvbin($v)
     {
@@ -1819,13 +1840,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhsercvbin()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1839,13 +1860,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1859,13 +1880,13 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1879,7 +1900,7 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -1887,9 +1908,9 @@ abstract class Warehouse implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->intbwhse !== '') {
                 return false;
@@ -2041,7 +2062,7 @@ abstract class Warehouse implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -2051,17 +2072,17 @@ abstract class Warehouse implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -2175,8 +2196,8 @@ abstract class Warehouse implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : WarehouseTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -2201,23 +2222,24 @@ abstract class Warehouse implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -2268,13 +2290,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see Warehouse::setDeleted()
      * @see Warehouse::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -2304,12 +2326,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -2354,12 +2376,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -2535,19 +2557,19 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -2676,114 +2698,151 @@ abstract class Warehouse implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'IntbWhse':
                         $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseName':
                         $stmt->bindValue($identifier, $this->intbwhsename, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseAdr1':
                         $stmt->bindValue($identifier, $this->intbwhseadr1, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseAdr2':
                         $stmt->bindValue($identifier, $this->intbwhseadr2, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseCity':
                         $stmt->bindValue($identifier, $this->intbwhsecity, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseStat':
                         $stmt->bindValue($identifier, $this->intbwhsestat, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseZipCode':
                         $stmt->bindValue($identifier, $this->intbwhsezipcode, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseCtry':
                         $stmt->bindValue($identifier, $this->intbwhsectry, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseUseHandheld':
                         $stmt->bindValue($identifier, $this->intbwhseusehandheld, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseCashCust':
                         $stmt->bindValue($identifier, $this->intbwhsecashcust, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhsePickDtl':
                         $stmt->bindValue($identifier, $this->intbwhsepickdtl, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseProdBin':
                         $stmt->bindValue($identifier, $this->intbwhseprodbin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhsePhArea':
                         $stmt->bindValue($identifier, $this->intbwhsepharea, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhsePhFrst3':
                         $stmt->bindValue($identifier, $this->intbwhsephfrst3, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhsePhLast4':
                         $stmt->bindValue($identifier, $this->intbwhsephlast4, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhsePhExt':
                         $stmt->bindValue($identifier, $this->intbwhsephext, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseFaxArea':
                         $stmt->bindValue($identifier, $this->intbwhsefaxarea, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseFaxFrst3':
                         $stmt->bindValue($identifier, $this->intbwhsefaxfrst3, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseFaxLast4':
                         $stmt->bindValue($identifier, $this->intbwhsefaxlast4, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseEmailAdr':
                         $stmt->bindValue($identifier, $this->intbwhseemailadr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseQcRgaBin':
                         $stmt->bindValue($identifier, $this->intbwhseqcrgabin, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseRfPrinter1':
                         $stmt->bindValue($identifier, $this->intbwhserfprinter1, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseRfPrinter2':
                         $stmt->bindValue($identifier, $this->intbwhserfprinter2, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseRfPrinter3':
                         $stmt->bindValue($identifier, $this->intbwhserfprinter3, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseRfPrinter4':
                         $stmt->bindValue($identifier, $this->intbwhserfprinter4, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseRfPrinter5':
                         $stmt->bindValue($identifier, $this->intbwhserfprinter5, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseProfWhse':
                         $stmt->bindValue($identifier, $this->intbwhseprofwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseAsetWhse':
                         $stmt->bindValue($identifier, $this->intbwhseasetwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseConsignWhse':
                         $stmt->bindValue($identifier, $this->intbwhseconsignwhse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseBinRangeList':
                         $stmt->bindValue($identifier, $this->intbwhsebinrangelist, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseSupplyWhse':
                         $stmt->bindValue($identifier, $this->intbwhsesupplywhse, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseAreaSplit':
                         $stmt->bindValue($identifier, $this->intbwhseareasplit, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseRcvBinCode':
                         $stmt->bindValue($identifier, $this->intbwhsercvbincode, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseRcvBin':
                         $stmt->bindValue($identifier, $this->intbwhsercvbin, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -2799,12 +2858,12 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -2815,14 +2874,14 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = WarehouseTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -2834,126 +2893,125 @@ abstract class Warehouse implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getIntbwhse();
-                break;
+
             case 1:
                 return $this->getIntbwhsename();
-                break;
+
             case 2:
                 return $this->getIntbwhseadr1();
-                break;
+
             case 3:
                 return $this->getIntbwhseadr2();
-                break;
+
             case 4:
                 return $this->getIntbwhsecity();
-                break;
+
             case 5:
                 return $this->getIntbwhsestat();
-                break;
+
             case 6:
                 return $this->getIntbwhsezipcode();
-                break;
+
             case 7:
                 return $this->getIntbwhsectry();
-                break;
+
             case 8:
                 return $this->getIntbwhseusehandheld();
-                break;
+
             case 9:
                 return $this->getIntbwhsecashcust();
-                break;
+
             case 10:
                 return $this->getIntbwhsepickdtl();
-                break;
+
             case 11:
                 return $this->getIntbwhseprodbin();
-                break;
+
             case 12:
                 return $this->getIntbwhsepharea();
-                break;
+
             case 13:
                 return $this->getIntbwhsephfrst3();
-                break;
+
             case 14:
                 return $this->getIntbwhsephlast4();
-                break;
+
             case 15:
                 return $this->getIntbwhsephext();
-                break;
+
             case 16:
                 return $this->getIntbwhsefaxarea();
-                break;
+
             case 17:
                 return $this->getIntbwhsefaxfrst3();
-                break;
+
             case 18:
                 return $this->getIntbwhsefaxlast4();
-                break;
+
             case 19:
                 return $this->getIntbwhseemailadr();
-                break;
+
             case 20:
                 return $this->getIntbwhseqcrgabin();
-                break;
+
             case 21:
                 return $this->getIntbwhserfprinter1();
-                break;
+
             case 22:
                 return $this->getIntbwhserfprinter2();
-                break;
+
             case 23:
                 return $this->getIntbwhserfprinter3();
-                break;
+
             case 24:
                 return $this->getIntbwhserfprinter4();
-                break;
+
             case 25:
                 return $this->getIntbwhserfprinter5();
-                break;
+
             case 26:
                 return $this->getIntbwhseprofwhse();
-                break;
+
             case 27:
                 return $this->getIntbwhseasetwhse();
-                break;
+
             case 28:
                 return $this->getIntbwhseconsignwhse();
-                break;
+
             case 29:
                 return $this->getIntbwhsebinrangelist();
-                break;
+
             case 30:
                 return $this->getIntbwhsesupplywhse();
-                break;
+
             case 31:
                 return $this->getIntbwhseareasplit();
-                break;
+
             case 32:
                 return $this->getIntbwhsercvbincode();
-                break;
+
             case 33:
                 return $this->getIntbwhsercvbin();
-                break;
+
             case 34:
                 return $this->getDateupdtd();
-                break;
+
             case 35:
                 return $this->getTimeupdtd();
-                break;
+
             case 36:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -2963,24 +3021,23 @@ abstract class Warehouse implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['Warehouse'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['Warehouse'][$this->hashCode()] = true;
         $keys = WarehouseTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getIntbwhse(),
             $keys[1] => $this->getIntbwhsename(),
             $keys[2] => $this->getIntbwhseadr1(),
@@ -3018,7 +3075,7 @@ abstract class Warehouse implements ActiveRecordInterface
             $keys[34] => $this->getDateupdtd(),
             $keys[35] => $this->getTimeupdtd(),
             $keys[36] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -3168,30 +3225,32 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Warehouse
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = WarehouseTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\Warehouse
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -3323,11 +3382,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = WarehouseTableMap::getFieldNames($keyType);
 
@@ -3442,6 +3501,8 @@ abstract class Warehouse implements ActiveRecordInterface
         if (array_key_exists($keys[36], $arr)) {
             $this->setDummy($arr[$keys[36]]);
         }
+
+        return $this;
     }
 
      /**
@@ -3461,9 +3522,9 @@ abstract class Warehouse implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Warehouse The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -3477,9 +3538,9 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(WarehouseTableMap::DATABASE_NAME);
 
@@ -3602,13 +3663,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildWarehouseQuery::create();
         $criteria->add(WarehouseTableMap::COL_INTBWHSE, $this->intbwhse);
@@ -3620,7 +3681,7 @@ abstract class Warehouse implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -3650,19 +3711,20 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (intbwhse column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setIntbwhse($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getIntbwhse();
     }
@@ -3673,12 +3735,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Warehouse (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \Warehouse (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setIntbwhse($this->getIntbwhse());
         $copyObj->setIntbwhsename($this->getIntbwhsename());
@@ -3792,11 +3855,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \Warehouse Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -3812,44 +3875,44 @@ abstract class Warehouse implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('InvWhseItemBin' == $relationName) {
+        if ('InvWhseItemBin' === $relationName) {
             $this->initInvWhseItemBins();
             return;
         }
-        if ('WarehouseBin' == $relationName) {
+        if ('WarehouseBin' === $relationName) {
             $this->initWarehouseBins();
             return;
         }
-        if ('InvWhseLot' == $relationName) {
+        if ('InvWhseLot' === $relationName) {
             $this->initInvWhseLots();
             return;
         }
-        if ('InvLotTag' == $relationName) {
+        if ('InvLotTag' === $relationName) {
             $this->initInvLotTags();
             return;
         }
-        if ('InvTransferOrderRelatedByIntbwhsefrom' == $relationName) {
+        if ('InvTransferOrderRelatedByIntbwhsefrom' === $relationName) {
             $this->initInvTransferOrdersRelatedByIntbwhsefrom();
             return;
         }
-        if ('InvTransferOrderRelatedByIntbwhseto' == $relationName) {
+        if ('InvTransferOrderRelatedByIntbwhseto' === $relationName) {
             $this->initInvTransferOrdersRelatedByIntbwhseto();
             return;
         }
-        if ('WarehouseInventory' == $relationName) {
+        if ('WarehouseInventory' === $relationName) {
             $this->initWarehouseInventories();
             return;
         }
-        if ('WarehouseNote' == $relationName) {
+        if ('WarehouseNote' === $relationName) {
             $this->initWarehouseNotes();
             return;
         }
-        if ('PoReceivingHead' == $relationName) {
+        if ('PoReceivingHead' === $relationName) {
             $this->initPoReceivingHeads();
             return;
         }
@@ -3861,18 +3924,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvWhseItemBins()
+     * @return $this
+     * @see addInvWhseItemBins()
      */
     public function clearInvWhseItemBins()
     {
         $this->collInvWhseItemBins = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvWhseItemBins collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvWhseItemBins($v = true)
+    public function resetPartialInvWhseItemBins($v = true): void
     {
         $this->collInvWhseItemBinsPartial = $v;
     }
@@ -3884,12 +3951,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvWhseItemBins($overrideExisting = true)
+    public function initInvWhseItemBins(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvWhseItemBins && !$overrideExisting) {
             return;
@@ -3910,18 +3977,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseItemBin> List of ChildInvWhseItemBin objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvWhseItemBins(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvWhseItemBins(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
-        if (null === $this->collInvWhseItemBins || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvWhseItemBins) {
+        if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvWhseItemBins();
+                if (null === $this->collInvWhseItemBins) {
+                    $this->initInvWhseItemBins();
+                } else {
+                    $collectionClassName = InvWhseItemBinTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvWhseItemBins = new $collectionClassName;
+                    $collInvWhseItemBins->setModel('\InvWhseItemBin');
+
+                    return $collInvWhseItemBins;
+                }
             } else {
                 $collInvWhseItemBins = ChildInvWhseItemBinQuery::create(null, $criteria)
                     ->filterByWarehouse($this)
@@ -3965,11 +4042,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invWhseItemBins A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $invWhseItemBins A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvWhseItemBins(Collection $invWhseItemBins, ConnectionInterface $con = null)
+    public function setInvWhseItemBins(Collection $invWhseItemBins, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvWhseItemBin[] $invWhseItemBinsToDelete */
         $invWhseItemBinsToDelete = $this->getInvWhseItemBins(new Criteria(), $con)->diff($invWhseItemBins);
@@ -3998,13 +4075,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related InvWhseItemBin objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvWhseItemBin objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvWhseItemBin objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvWhseItemBins(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvWhseItemBins(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
         if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
@@ -4033,8 +4110,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildInvWhseItemBin object to this object
      * through the ChildInvWhseItemBin foreign key attribute.
      *
-     * @param  ChildInvWhseItemBin $l ChildInvWhseItemBin
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildInvWhseItemBin $l ChildInvWhseItemBin
+     * @return $this The current object (for fluent API support)
      */
     public function addInvWhseItemBin(ChildInvWhseItemBin $l)
     {
@@ -4057,15 +4134,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to add.
      */
-    protected function doAddInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin)
+    protected function doAddInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin): void
     {
         $this->collInvWhseItemBins[]= $invWhseItemBin;
         $invWhseItemBin->setWarehouse($this);
     }
 
     /**
-     * @param  ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin)
     {
@@ -4095,12 +4172,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseItemBin}> List of ChildInvWhseItemBin objects
      */
-    public function getInvWhseItemBinsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvWhseItemBinsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvWhseItemBinQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -4120,12 +4198,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseItemBin}> List of ChildInvWhseItemBin objects
      */
-    public function getInvWhseItemBinsJoinWarehouseInventory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvWhseItemBinsJoinWarehouseInventory(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvWhseItemBinQuery::create(null, $criteria);
         $query->joinWith('WarehouseInventory', $joinBehavior);
@@ -4139,18 +4218,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addWarehouseBins()
+     * @return $this
+     * @see addWarehouseBins()
      */
     public function clearWarehouseBins()
     {
         $this->collWarehouseBins = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collWarehouseBins collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialWarehouseBins($v = true)
+    public function resetPartialWarehouseBins($v = true): void
     {
         $this->collWarehouseBinsPartial = $v;
     }
@@ -4162,12 +4245,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initWarehouseBins($overrideExisting = true)
+    public function initWarehouseBins(bool $overrideExisting = true): void
     {
         if (null !== $this->collWarehouseBins && !$overrideExisting) {
             return;
@@ -4188,18 +4271,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildWarehouseBin[] List of ChildWarehouseBin objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildWarehouseBin> List of ChildWarehouseBin objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getWarehouseBins(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getWarehouseBins(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collWarehouseBinsPartial && !$this->isNew();
-        if (null === $this->collWarehouseBins || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collWarehouseBins) {
+        if (null === $this->collWarehouseBins || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initWarehouseBins();
+                if (null === $this->collWarehouseBins) {
+                    $this->initWarehouseBins();
+                } else {
+                    $collectionClassName = WarehouseBinTableMap::getTableMap()->getCollectionClassName();
+
+                    $collWarehouseBins = new $collectionClassName;
+                    $collWarehouseBins->setModel('\WarehouseBin');
+
+                    return $collWarehouseBins;
+                }
             } else {
                 $collWarehouseBins = ChildWarehouseBinQuery::create(null, $criteria)
                     ->filterByWarehouse($this)
@@ -4243,11 +4336,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $warehouseBins A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $warehouseBins A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setWarehouseBins(Collection $warehouseBins, ConnectionInterface $con = null)
+    public function setWarehouseBins(Collection $warehouseBins, ?ConnectionInterface $con = null)
     {
         /** @var ChildWarehouseBin[] $warehouseBinsToDelete */
         $warehouseBinsToDelete = $this->getWarehouseBins(new Criteria(), $con)->diff($warehouseBins);
@@ -4276,13 +4369,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related WarehouseBin objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related WarehouseBin objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related WarehouseBin objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countWarehouseBins(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countWarehouseBins(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collWarehouseBinsPartial && !$this->isNew();
         if (null === $this->collWarehouseBins || null !== $criteria || $partial) {
@@ -4311,8 +4404,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildWarehouseBin object to this object
      * through the ChildWarehouseBin foreign key attribute.
      *
-     * @param  ChildWarehouseBin $l ChildWarehouseBin
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildWarehouseBin $l ChildWarehouseBin
+     * @return $this The current object (for fluent API support)
      */
     public function addWarehouseBin(ChildWarehouseBin $l)
     {
@@ -4335,15 +4428,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildWarehouseBin $warehouseBin The ChildWarehouseBin object to add.
      */
-    protected function doAddWarehouseBin(ChildWarehouseBin $warehouseBin)
+    protected function doAddWarehouseBin(ChildWarehouseBin $warehouseBin): void
     {
         $this->collWarehouseBins[]= $warehouseBin;
         $warehouseBin->setWarehouse($this);
     }
 
     /**
-     * @param  ChildWarehouseBin $warehouseBin The ChildWarehouseBin object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildWarehouseBin $warehouseBin The ChildWarehouseBin object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeWarehouseBin(ChildWarehouseBin $warehouseBin)
     {
@@ -4373,12 +4466,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildWarehouseBin[] List of ChildWarehouseBin objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildWarehouseBin}> List of ChildWarehouseBin objects
      */
-    public function getWarehouseBinsJoinInvBinAreaCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getWarehouseBinsJoinInvBinAreaCode(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildWarehouseBinQuery::create(null, $criteria);
         $query->joinWith('InvBinAreaCode', $joinBehavior);
@@ -4392,18 +4486,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvWhseLots()
+     * @return $this
+     * @see addInvWhseLots()
      */
     public function clearInvWhseLots()
     {
         $this->collInvWhseLots = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvWhseLots collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvWhseLots($v = true)
+    public function resetPartialInvWhseLots($v = true): void
     {
         $this->collInvWhseLotsPartial = $v;
     }
@@ -4415,12 +4513,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvWhseLots($overrideExisting = true)
+    public function initInvWhseLots(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvWhseLots && !$overrideExisting) {
             return;
@@ -4441,18 +4539,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvWhseLot[] List of ChildInvWhseLot objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseLot> List of ChildInvWhseLot objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvWhseLots(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvWhseLots(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvWhseLotsPartial && !$this->isNew();
-        if (null === $this->collInvWhseLots || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvWhseLots) {
+        if (null === $this->collInvWhseLots || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvWhseLots();
+                if (null === $this->collInvWhseLots) {
+                    $this->initInvWhseLots();
+                } else {
+                    $collectionClassName = InvWhseLotTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvWhseLots = new $collectionClassName;
+                    $collInvWhseLots->setModel('\InvWhseLot');
+
+                    return $collInvWhseLots;
+                }
             } else {
                 $collInvWhseLots = ChildInvWhseLotQuery::create(null, $criteria)
                     ->filterByWarehouse($this)
@@ -4496,11 +4604,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invWhseLots A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $invWhseLots A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvWhseLots(Collection $invWhseLots, ConnectionInterface $con = null)
+    public function setInvWhseLots(Collection $invWhseLots, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvWhseLot[] $invWhseLotsToDelete */
         $invWhseLotsToDelete = $this->getInvWhseLots(new Criteria(), $con)->diff($invWhseLots);
@@ -4529,13 +4637,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related InvWhseLot objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvWhseLot objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvWhseLot objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvWhseLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvWhseLots(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvWhseLotsPartial && !$this->isNew();
         if (null === $this->collInvWhseLots || null !== $criteria || $partial) {
@@ -4564,8 +4672,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildInvWhseLot object to this object
      * through the ChildInvWhseLot foreign key attribute.
      *
-     * @param  ChildInvWhseLot $l ChildInvWhseLot
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildInvWhseLot $l ChildInvWhseLot
+     * @return $this The current object (for fluent API support)
      */
     public function addInvWhseLot(ChildInvWhseLot $l)
     {
@@ -4588,15 +4696,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildInvWhseLot $invWhseLot The ChildInvWhseLot object to add.
      */
-    protected function doAddInvWhseLot(ChildInvWhseLot $invWhseLot)
+    protected function doAddInvWhseLot(ChildInvWhseLot $invWhseLot): void
     {
         $this->collInvWhseLots[]= $invWhseLot;
         $invWhseLot->setWarehouse($this);
     }
 
     /**
-     * @param  ChildInvWhseLot $invWhseLot The ChildInvWhseLot object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildInvWhseLot $invWhseLot The ChildInvWhseLot object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvWhseLot(ChildInvWhseLot $invWhseLot)
     {
@@ -4626,12 +4734,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvWhseLot[] List of ChildInvWhseLot objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseLot}> List of ChildInvWhseLot objects
      */
-    public function getInvWhseLotsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvWhseLotsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvWhseLotQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -4651,12 +4760,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvWhseLot[] List of ChildInvWhseLot objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseLot}> List of ChildInvWhseLot objects
      */
-    public function getInvWhseLotsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvWhseLotsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvWhseLotQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -4670,18 +4780,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvLotTags()
+     * @return $this
+     * @see addInvLotTags()
      */
     public function clearInvLotTags()
     {
         $this->collInvLotTags = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvLotTags collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvLotTags($v = true)
+    public function resetPartialInvLotTags($v = true): void
     {
         $this->collInvLotTagsPartial = $v;
     }
@@ -4693,12 +4807,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvLotTags($overrideExisting = true)
+    public function initInvLotTags(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvLotTags && !$overrideExisting) {
             return;
@@ -4719,18 +4833,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag> List of ChildInvLotTag objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvLotTags(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvLotTags(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvLotTags) {
+        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvLotTags();
+                if (null === $this->collInvLotTags) {
+                    $this->initInvLotTags();
+                } else {
+                    $collectionClassName = InvLotTagTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvLotTags = new $collectionClassName;
+                    $collInvLotTags->setModel('\InvLotTag');
+
+                    return $collInvLotTags;
+                }
             } else {
                 $collInvLotTags = ChildInvLotTagQuery::create(null, $criteria)
                     ->filterByWarehouse($this)
@@ -4774,11 +4898,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invLotTags A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $invLotTags A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvLotTags(Collection $invLotTags, ConnectionInterface $con = null)
+    public function setInvLotTags(Collection $invLotTags, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvLotTag[] $invLotTagsToDelete */
         $invLotTagsToDelete = $this->getInvLotTags(new Criteria(), $con)->diff($invLotTags);
@@ -4807,13 +4931,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related InvLotTag objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvLotTag objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvLotTag objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvLotTags(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvLotTags(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
         if (null === $this->collInvLotTags || null !== $criteria || $partial) {
@@ -4842,8 +4966,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildInvLotTag object to this object
      * through the ChildInvLotTag foreign key attribute.
      *
-     * @param  ChildInvLotTag $l ChildInvLotTag
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildInvLotTag $l ChildInvLotTag
+     * @return $this The current object (for fluent API support)
      */
     public function addInvLotTag(ChildInvLotTag $l)
     {
@@ -4866,15 +4990,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to add.
      */
-    protected function doAddInvLotTag(ChildInvLotTag $invLotTag)
+    protected function doAddInvLotTag(ChildInvLotTag $invLotTag): void
     {
         $this->collInvLotTags[]= $invLotTag;
         $invLotTag->setWarehouse($this);
     }
 
     /**
-     * @param  ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvLotTag(ChildInvLotTag $invLotTag)
     {
@@ -4904,12 +5028,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -4929,12 +5054,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -4954,12 +5080,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinInvSerialMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('InvSerialMaster', $joinBehavior);
@@ -4979,12 +5106,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinDplusUser(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinDplusUser(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('DplusUser', $joinBehavior);
@@ -4998,18 +5126,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvTransferOrdersRelatedByIntbwhsefrom()
+     * @return $this
+     * @see addInvTransferOrdersRelatedByIntbwhsefrom()
      */
     public function clearInvTransferOrdersRelatedByIntbwhsefrom()
     {
         $this->collInvTransferOrdersRelatedByIntbwhsefrom = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvTransferOrdersRelatedByIntbwhsefrom collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvTransferOrdersRelatedByIntbwhsefrom($v = true)
+    public function resetPartialInvTransferOrdersRelatedByIntbwhsefrom($v = true): void
     {
         $this->collInvTransferOrdersRelatedByIntbwhsefromPartial = $v;
     }
@@ -5021,12 +5153,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvTransferOrdersRelatedByIntbwhsefrom($overrideExisting = true)
+    public function initInvTransferOrdersRelatedByIntbwhsefrom(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvTransferOrdersRelatedByIntbwhsefrom && !$overrideExisting) {
             return;
@@ -5047,18 +5179,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder> List of ChildInvTransferOrder objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvTransferOrdersRelatedByIntbwhsefrom(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvTransferOrdersRelatedByIntbwhsefrom(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersRelatedByIntbwhsefromPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvTransferOrdersRelatedByIntbwhsefrom) {
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvTransferOrdersRelatedByIntbwhsefrom();
+                if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom) {
+                    $this->initInvTransferOrdersRelatedByIntbwhsefrom();
+                } else {
+                    $collectionClassName = InvTransferOrderTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvTransferOrdersRelatedByIntbwhsefrom = new $collectionClassName;
+                    $collInvTransferOrdersRelatedByIntbwhsefrom->setModel('\InvTransferOrder');
+
+                    return $collInvTransferOrdersRelatedByIntbwhsefrom;
+                }
             } else {
                 $collInvTransferOrdersRelatedByIntbwhsefrom = ChildInvTransferOrderQuery::create(null, $criteria)
                     ->filterByWarehouseRelatedByIntbwhsefrom($this)
@@ -5102,11 +5244,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invTransferOrdersRelatedByIntbwhsefrom A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $invTransferOrdersRelatedByIntbwhsefrom A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvTransferOrdersRelatedByIntbwhsefrom(Collection $invTransferOrdersRelatedByIntbwhsefrom, ConnectionInterface $con = null)
+    public function setInvTransferOrdersRelatedByIntbwhsefrom(Collection $invTransferOrdersRelatedByIntbwhsefrom, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvTransferOrder[] $invTransferOrdersRelatedByIntbwhsefromToDelete */
         $invTransferOrdersRelatedByIntbwhsefromToDelete = $this->getInvTransferOrdersRelatedByIntbwhsefrom(new Criteria(), $con)->diff($invTransferOrdersRelatedByIntbwhsefrom);
@@ -5132,13 +5274,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related InvTransferOrder objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvTransferOrder objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvTransferOrder objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvTransferOrdersRelatedByIntbwhsefrom(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvTransferOrdersRelatedByIntbwhsefrom(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersRelatedByIntbwhsefromPartial && !$this->isNew();
         if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || null !== $criteria || $partial) {
@@ -5167,8 +5309,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildInvTransferOrder object to this object
      * through the ChildInvTransferOrder foreign key attribute.
      *
-     * @param  ChildInvTransferOrder $l ChildInvTransferOrder
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildInvTransferOrder $l ChildInvTransferOrder
+     * @return $this The current object (for fluent API support)
      */
     public function addInvTransferOrderRelatedByIntbwhsefrom(ChildInvTransferOrder $l)
     {
@@ -5191,15 +5333,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom The ChildInvTransferOrder object to add.
      */
-    protected function doAddInvTransferOrderRelatedByIntbwhsefrom(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom)
+    protected function doAddInvTransferOrderRelatedByIntbwhsefrom(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom): void
     {
         $this->collInvTransferOrdersRelatedByIntbwhsefrom[]= $invTransferOrderRelatedByIntbwhsefrom;
         $invTransferOrderRelatedByIntbwhsefrom->setWarehouseRelatedByIntbwhsefrom($this);
     }
 
     /**
-     * @param  ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom The ChildInvTransferOrder object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom The ChildInvTransferOrder object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvTransferOrderRelatedByIntbwhsefrom(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom)
     {
@@ -5229,12 +5371,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersRelatedByIntbwhsefromJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersRelatedByIntbwhsefromJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -5254,12 +5397,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersRelatedByIntbwhsefromJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersRelatedByIntbwhsefromJoinCustomerShipto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('CustomerShipto', $joinBehavior);
@@ -5279,12 +5423,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersRelatedByIntbwhsefromJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersRelatedByIntbwhsefromJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
@@ -5298,18 +5443,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvTransferOrdersRelatedByIntbwhseto()
+     * @return $this
+     * @see addInvTransferOrdersRelatedByIntbwhseto()
      */
     public function clearInvTransferOrdersRelatedByIntbwhseto()
     {
         $this->collInvTransferOrdersRelatedByIntbwhseto = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvTransferOrdersRelatedByIntbwhseto collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvTransferOrdersRelatedByIntbwhseto($v = true)
+    public function resetPartialInvTransferOrdersRelatedByIntbwhseto($v = true): void
     {
         $this->collInvTransferOrdersRelatedByIntbwhsetoPartial = $v;
     }
@@ -5321,12 +5470,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvTransferOrdersRelatedByIntbwhseto($overrideExisting = true)
+    public function initInvTransferOrdersRelatedByIntbwhseto(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvTransferOrdersRelatedByIntbwhseto && !$overrideExisting) {
             return;
@@ -5347,18 +5496,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder> List of ChildInvTransferOrder objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvTransferOrdersRelatedByIntbwhseto(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvTransferOrdersRelatedByIntbwhseto(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersRelatedByIntbwhsetoPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvTransferOrdersRelatedByIntbwhseto) {
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvTransferOrdersRelatedByIntbwhseto();
+                if (null === $this->collInvTransferOrdersRelatedByIntbwhseto) {
+                    $this->initInvTransferOrdersRelatedByIntbwhseto();
+                } else {
+                    $collectionClassName = InvTransferOrderTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvTransferOrdersRelatedByIntbwhseto = new $collectionClassName;
+                    $collInvTransferOrdersRelatedByIntbwhseto->setModel('\InvTransferOrder');
+
+                    return $collInvTransferOrdersRelatedByIntbwhseto;
+                }
             } else {
                 $collInvTransferOrdersRelatedByIntbwhseto = ChildInvTransferOrderQuery::create(null, $criteria)
                     ->filterByWarehouseRelatedByIntbwhseto($this)
@@ -5402,11 +5561,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invTransferOrdersRelatedByIntbwhseto A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $invTransferOrdersRelatedByIntbwhseto A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvTransferOrdersRelatedByIntbwhseto(Collection $invTransferOrdersRelatedByIntbwhseto, ConnectionInterface $con = null)
+    public function setInvTransferOrdersRelatedByIntbwhseto(Collection $invTransferOrdersRelatedByIntbwhseto, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvTransferOrder[] $invTransferOrdersRelatedByIntbwhsetoToDelete */
         $invTransferOrdersRelatedByIntbwhsetoToDelete = $this->getInvTransferOrdersRelatedByIntbwhseto(new Criteria(), $con)->diff($invTransferOrdersRelatedByIntbwhseto);
@@ -5432,13 +5591,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related InvTransferOrder objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvTransferOrder objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvTransferOrder objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvTransferOrdersRelatedByIntbwhseto(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvTransferOrdersRelatedByIntbwhseto(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersRelatedByIntbwhsetoPartial && !$this->isNew();
         if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || null !== $criteria || $partial) {
@@ -5467,8 +5626,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildInvTransferOrder object to this object
      * through the ChildInvTransferOrder foreign key attribute.
      *
-     * @param  ChildInvTransferOrder $l ChildInvTransferOrder
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildInvTransferOrder $l ChildInvTransferOrder
+     * @return $this The current object (for fluent API support)
      */
     public function addInvTransferOrderRelatedByIntbwhseto(ChildInvTransferOrder $l)
     {
@@ -5491,15 +5650,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto The ChildInvTransferOrder object to add.
      */
-    protected function doAddInvTransferOrderRelatedByIntbwhseto(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto)
+    protected function doAddInvTransferOrderRelatedByIntbwhseto(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto): void
     {
         $this->collInvTransferOrdersRelatedByIntbwhseto[]= $invTransferOrderRelatedByIntbwhseto;
         $invTransferOrderRelatedByIntbwhseto->setWarehouseRelatedByIntbwhseto($this);
     }
 
     /**
-     * @param  ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto The ChildInvTransferOrder object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto The ChildInvTransferOrder object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvTransferOrderRelatedByIntbwhseto(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto)
     {
@@ -5529,12 +5688,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersRelatedByIntbwhsetoJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersRelatedByIntbwhsetoJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -5554,12 +5714,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersRelatedByIntbwhsetoJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersRelatedByIntbwhsetoJoinCustomerShipto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('CustomerShipto', $joinBehavior);
@@ -5579,12 +5740,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersRelatedByIntbwhsetoJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersRelatedByIntbwhsetoJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
@@ -5598,18 +5760,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addWarehouseInventories()
+     * @return $this
+     * @see addWarehouseInventories()
      */
     public function clearWarehouseInventories()
     {
         $this->collWarehouseInventories = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collWarehouseInventories collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialWarehouseInventories($v = true)
+    public function resetPartialWarehouseInventories($v = true): void
     {
         $this->collWarehouseInventoriesPartial = $v;
     }
@@ -5621,12 +5787,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initWarehouseInventories($overrideExisting = true)
+    public function initWarehouseInventories(bool $overrideExisting = true): void
     {
         if (null !== $this->collWarehouseInventories && !$overrideExisting) {
             return;
@@ -5647,18 +5813,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildWarehouseInventory[] List of ChildWarehouseInventory objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildWarehouseInventory> List of ChildWarehouseInventory objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getWarehouseInventories(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getWarehouseInventories(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
-        if (null === $this->collWarehouseInventories || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collWarehouseInventories) {
+        if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initWarehouseInventories();
+                if (null === $this->collWarehouseInventories) {
+                    $this->initWarehouseInventories();
+                } else {
+                    $collectionClassName = WarehouseInventoryTableMap::getTableMap()->getCollectionClassName();
+
+                    $collWarehouseInventories = new $collectionClassName;
+                    $collWarehouseInventories->setModel('\WarehouseInventory');
+
+                    return $collWarehouseInventories;
+                }
             } else {
                 $collWarehouseInventories = ChildWarehouseInventoryQuery::create(null, $criteria)
                     ->filterByWarehouse($this)
@@ -5702,11 +5878,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $warehouseInventories A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $warehouseInventories A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setWarehouseInventories(Collection $warehouseInventories, ConnectionInterface $con = null)
+    public function setWarehouseInventories(Collection $warehouseInventories, ?ConnectionInterface $con = null)
     {
         /** @var ChildWarehouseInventory[] $warehouseInventoriesToDelete */
         $warehouseInventoriesToDelete = $this->getWarehouseInventories(new Criteria(), $con)->diff($warehouseInventories);
@@ -5735,13 +5911,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related WarehouseInventory objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related WarehouseInventory objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related WarehouseInventory objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countWarehouseInventories(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countWarehouseInventories(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
         if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
@@ -5770,8 +5946,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildWarehouseInventory object to this object
      * through the ChildWarehouseInventory foreign key attribute.
      *
-     * @param  ChildWarehouseInventory $l ChildWarehouseInventory
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildWarehouseInventory $l ChildWarehouseInventory
+     * @return $this The current object (for fluent API support)
      */
     public function addWarehouseInventory(ChildWarehouseInventory $l)
     {
@@ -5794,15 +5970,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to add.
      */
-    protected function doAddWarehouseInventory(ChildWarehouseInventory $warehouseInventory)
+    protected function doAddWarehouseInventory(ChildWarehouseInventory $warehouseInventory): void
     {
         $this->collWarehouseInventories[]= $warehouseInventory;
         $warehouseInventory->setWarehouse($this);
     }
 
     /**
-     * @param  ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeWarehouseInventory(ChildWarehouseInventory $warehouseInventory)
     {
@@ -5832,12 +6008,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildWarehouseInventory[] List of ChildWarehouseInventory objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildWarehouseInventory}> List of ChildWarehouseInventory objects
      */
-    public function getWarehouseInventoriesJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getWarehouseInventoriesJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildWarehouseInventoryQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -5851,18 +6028,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addWarehouseNotes()
+     * @return $this
+     * @see addWarehouseNotes()
      */
     public function clearWarehouseNotes()
     {
         $this->collWarehouseNotes = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collWarehouseNotes collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialWarehouseNotes($v = true)
+    public function resetPartialWarehouseNotes($v = true): void
     {
         $this->collWarehouseNotesPartial = $v;
     }
@@ -5874,12 +6055,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initWarehouseNotes($overrideExisting = true)
+    public function initWarehouseNotes(bool $overrideExisting = true): void
     {
         if (null !== $this->collWarehouseNotes && !$overrideExisting) {
             return;
@@ -5900,18 +6081,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildWarehouseNote[] List of ChildWarehouseNote objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildWarehouseNote> List of ChildWarehouseNote objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getWarehouseNotes(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getWarehouseNotes(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collWarehouseNotesPartial && !$this->isNew();
-        if (null === $this->collWarehouseNotes || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collWarehouseNotes) {
+        if (null === $this->collWarehouseNotes || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initWarehouseNotes();
+                if (null === $this->collWarehouseNotes) {
+                    $this->initWarehouseNotes();
+                } else {
+                    $collectionClassName = WarehouseNoteTableMap::getTableMap()->getCollectionClassName();
+
+                    $collWarehouseNotes = new $collectionClassName;
+                    $collWarehouseNotes->setModel('\WarehouseNote');
+
+                    return $collWarehouseNotes;
+                }
             } else {
                 $collWarehouseNotes = ChildWarehouseNoteQuery::create(null, $criteria)
                     ->filterByWarehouse($this)
@@ -5955,11 +6146,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $warehouseNotes A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $warehouseNotes A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setWarehouseNotes(Collection $warehouseNotes, ConnectionInterface $con = null)
+    public function setWarehouseNotes(Collection $warehouseNotes, ?ConnectionInterface $con = null)
     {
         /** @var ChildWarehouseNote[] $warehouseNotesToDelete */
         $warehouseNotesToDelete = $this->getWarehouseNotes(new Criteria(), $con)->diff($warehouseNotes);
@@ -5985,13 +6176,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related WarehouseNote objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related WarehouseNote objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related WarehouseNote objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countWarehouseNotes(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countWarehouseNotes(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collWarehouseNotesPartial && !$this->isNew();
         if (null === $this->collWarehouseNotes || null !== $criteria || $partial) {
@@ -6020,8 +6211,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildWarehouseNote object to this object
      * through the ChildWarehouseNote foreign key attribute.
      *
-     * @param  ChildWarehouseNote $l ChildWarehouseNote
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildWarehouseNote $l ChildWarehouseNote
+     * @return $this The current object (for fluent API support)
      */
     public function addWarehouseNote(ChildWarehouseNote $l)
     {
@@ -6044,15 +6235,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildWarehouseNote $warehouseNote The ChildWarehouseNote object to add.
      */
-    protected function doAddWarehouseNote(ChildWarehouseNote $warehouseNote)
+    protected function doAddWarehouseNote(ChildWarehouseNote $warehouseNote): void
     {
         $this->collWarehouseNotes[]= $warehouseNote;
         $warehouseNote->setWarehouse($this);
     }
 
     /**
-     * @param  ChildWarehouseNote $warehouseNote The ChildWarehouseNote object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildWarehouseNote $warehouseNote The ChildWarehouseNote object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeWarehouseNote(ChildWarehouseNote $warehouseNote)
     {
@@ -6076,18 +6267,22 @@ abstract class Warehouse implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPoReceivingHeads()
+     * @return $this
+     * @see addPoReceivingHeads()
      */
     public function clearPoReceivingHeads()
     {
         $this->collPoReceivingHeads = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPoReceivingHeads collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPoReceivingHeads($v = true)
+    public function resetPartialPoReceivingHeads($v = true): void
     {
         $this->collPoReceivingHeadsPartial = $v;
     }
@@ -6099,12 +6294,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPoReceivingHeads($overrideExisting = true)
+    public function initPoReceivingHeads(bool $overrideExisting = true): void
     {
         if (null !== $this->collPoReceivingHeads && !$overrideExisting) {
             return;
@@ -6125,18 +6320,28 @@ abstract class Warehouse implements ActiveRecordInterface
      * If this ChildWarehouse is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPoReceivingHead[] List of ChildPoReceivingHead objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPoReceivingHead> List of ChildPoReceivingHead objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPoReceivingHeads(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPoReceivingHeads(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPoReceivingHeadsPartial && !$this->isNew();
-        if (null === $this->collPoReceivingHeads || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPoReceivingHeads) {
+        if (null === $this->collPoReceivingHeads || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPoReceivingHeads();
+                if (null === $this->collPoReceivingHeads) {
+                    $this->initPoReceivingHeads();
+                } else {
+                    $collectionClassName = PoReceivingHeadTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPoReceivingHeads = new $collectionClassName;
+                    $collPoReceivingHeads->setModel('\PoReceivingHead');
+
+                    return $collPoReceivingHeads;
+                }
             } else {
                 $collPoReceivingHeads = ChildPoReceivingHeadQuery::create(null, $criteria)
                     ->filterByWarehouse($this)
@@ -6180,11 +6385,11 @@ abstract class Warehouse implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $poReceivingHeads A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param Collection $poReceivingHeads A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPoReceivingHeads(Collection $poReceivingHeads, ConnectionInterface $con = null)
+    public function setPoReceivingHeads(Collection $poReceivingHeads, ?ConnectionInterface $con = null)
     {
         /** @var ChildPoReceivingHead[] $poReceivingHeadsToDelete */
         $poReceivingHeadsToDelete = $this->getPoReceivingHeads(new Criteria(), $con)->diff($poReceivingHeads);
@@ -6210,13 +6415,13 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * Returns the number of related PoReceivingHead objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PoReceivingHead objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PoReceivingHead objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPoReceivingHeads(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPoReceivingHeads(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPoReceivingHeadsPartial && !$this->isNew();
         if (null === $this->collPoReceivingHeads || null !== $criteria || $partial) {
@@ -6245,8 +6450,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Method called to associate a ChildPoReceivingHead object to this object
      * through the ChildPoReceivingHead foreign key attribute.
      *
-     * @param  ChildPoReceivingHead $l ChildPoReceivingHead
-     * @return $this|\Warehouse The current object (for fluent API support)
+     * @param ChildPoReceivingHead $l ChildPoReceivingHead
+     * @return $this The current object (for fluent API support)
      */
     public function addPoReceivingHead(ChildPoReceivingHead $l)
     {
@@ -6269,15 +6474,15 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * @param ChildPoReceivingHead $poReceivingHead The ChildPoReceivingHead object to add.
      */
-    protected function doAddPoReceivingHead(ChildPoReceivingHead $poReceivingHead)
+    protected function doAddPoReceivingHead(ChildPoReceivingHead $poReceivingHead): void
     {
         $this->collPoReceivingHeads[]= $poReceivingHead;
         $poReceivingHead->setWarehouse($this);
     }
 
     /**
-     * @param  ChildPoReceivingHead $poReceivingHead The ChildPoReceivingHead object to remove.
-     * @return $this|ChildWarehouse The current object (for fluent API support)
+     * @param ChildPoReceivingHead $poReceivingHead The ChildPoReceivingHead object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePoReceivingHead(ChildPoReceivingHead $poReceivingHead)
     {
@@ -6307,12 +6512,13 @@ abstract class Warehouse implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Warehouse.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPoReceivingHead[] List of ChildPoReceivingHead objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPoReceivingHead}> List of ChildPoReceivingHead objects
      */
-    public function getPoReceivingHeadsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPoReceivingHeadsJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPoReceivingHeadQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -6324,6 +6530,8 @@ abstract class Warehouse implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -6370,6 +6578,8 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -6378,9 +6588,10 @@ abstract class Warehouse implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collInvWhseItemBins) {
@@ -6439,6 +6650,7 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->collWarehouseInventories = null;
         $this->collWarehouseNotes = null;
         $this->collPoReceivingHeads = null;
+        return $this;
     }
 
     /**
@@ -6453,99 +6665,79 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preSave')) {
-        //     return parent::preSave($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postSave')) {
-        //     parent::postSave($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preInsert')) {
-        //     return parent::preInsert($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postInsert')) {
-        //     parent::postInsert($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preUpdate')) {
-        //     return parent::preUpdate($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postUpdate')) {
-        //     parent::postUpdate($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preDelete')) {
-        //     return parent::preDelete($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postDelete')) {
-        //     parent::postDelete($con);
-        // }
-    }
+            }
 
 
     /**
@@ -6555,7 +6747,7 @@ abstract class Warehouse implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -6575,15 +6767,18 @@ abstract class Warehouse implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

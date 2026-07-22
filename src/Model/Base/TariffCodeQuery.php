@@ -10,14 +10,12 @@ use Map\TariffCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_tari_code' table.
- *
- *
+ * Base class that represents a query for the `inv_tari_code` table.
  *
  * @method     ChildTariffCodeQuery orderByIntbtaricode($order = Criteria::ASC) Order by the IntbTariCode column
  * @method     ChildTariffCodeQuery orderByIntbtarinbr($order = Criteria::ASC) Order by the IntbTariNbr column
@@ -43,19 +41,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTariffCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildTariffCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildTariffCode findOne(ConnectionInterface $con = null) Return the first ChildTariffCode matching the query
- * @method     ChildTariffCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildTariffCode matching the query, or a new ChildTariffCode object populated from the query conditions when no match is found
+ * @method     ChildTariffCode|null findOne(?ConnectionInterface $con = null) Return the first ChildTariffCode matching the query
+ * @method     ChildTariffCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildTariffCode matching the query, or a new ChildTariffCode object populated from the query conditions when no match is found
  *
- * @method     ChildTariffCode findOneByIntbtaricode(string $IntbTariCode) Return the first ChildTariffCode filtered by the IntbTariCode column
- * @method     ChildTariffCode findOneByIntbtarinbr(string $IntbTariNbr) Return the first ChildTariffCode filtered by the IntbTariNbr column
- * @method     ChildTariffCode findOneByIntbtaridesc(string $IntbTariDesc) Return the first ChildTariffCode filtered by the IntbTariDesc column
- * @method     ChildTariffCode findOneByIntbtaridutyratepct(string $IntbTariDutyRatePct) Return the first ChildTariffCode filtered by the IntbTariDutyRatePct column
- * @method     ChildTariffCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildTariffCode filtered by the DateUpdtd column
- * @method     ChildTariffCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTariffCode filtered by the TimeUpdtd column
- * @method     ChildTariffCode findOneByDummy(string $dummy) Return the first ChildTariffCode filtered by the dummy column *
-
- * @method     ChildTariffCode requirePk($key, ConnectionInterface $con = null) Return the ChildTariffCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTariffCode requireOne(ConnectionInterface $con = null) Return the first ChildTariffCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildTariffCode|null findOneByIntbtaricode(string $IntbTariCode) Return the first ChildTariffCode filtered by the IntbTariCode column
+ * @method     ChildTariffCode|null findOneByIntbtarinbr(string $IntbTariNbr) Return the first ChildTariffCode filtered by the IntbTariNbr column
+ * @method     ChildTariffCode|null findOneByIntbtaridesc(string $IntbTariDesc) Return the first ChildTariffCode filtered by the IntbTariDesc column
+ * @method     ChildTariffCode|null findOneByIntbtaridutyratepct(string $IntbTariDutyRatePct) Return the first ChildTariffCode filtered by the IntbTariDutyRatePct column
+ * @method     ChildTariffCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildTariffCode filtered by the DateUpdtd column
+ * @method     ChildTariffCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTariffCode filtered by the TimeUpdtd column
+ * @method     ChildTariffCode|null findOneByDummy(string $dummy) Return the first ChildTariffCode filtered by the dummy column
+ *
+ * @method     ChildTariffCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildTariffCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildTariffCode requireOne(?ConnectionInterface $con = null) Return the first ChildTariffCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildTariffCode requireOneByIntbtaricode(string $IntbTariCode) Return the first ChildTariffCode filtered by the IntbTariCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildTariffCode requireOneByIntbtarinbr(string $IntbTariNbr) Return the first ChildTariffCode filtered by the IntbTariNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,16 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTariffCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTariffCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildTariffCode requireOneByDummy(string $dummy) Return the first ChildTariffCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildTariffCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildTariffCode objects based on current ModelCriteria
- * @method     ChildTariffCode[]|ObjectCollection findByIntbtaricode(string $IntbTariCode) Return ChildTariffCode objects filtered by the IntbTariCode column
- * @method     ChildTariffCode[]|ObjectCollection findByIntbtarinbr(string $IntbTariNbr) Return ChildTariffCode objects filtered by the IntbTariNbr column
- * @method     ChildTariffCode[]|ObjectCollection findByIntbtaridesc(string $IntbTariDesc) Return ChildTariffCode objects filtered by the IntbTariDesc column
- * @method     ChildTariffCode[]|ObjectCollection findByIntbtaridutyratepct(string $IntbTariDutyRatePct) Return ChildTariffCode objects filtered by the IntbTariDutyRatePct column
- * @method     ChildTariffCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildTariffCode objects filtered by the DateUpdtd column
- * @method     ChildTariffCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildTariffCode objects filtered by the TimeUpdtd column
- * @method     ChildTariffCode[]|ObjectCollection findByDummy(string $dummy) Return ChildTariffCode objects filtered by the dummy column
- * @method     ChildTariffCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildTariffCode[]|Collection find(?ConnectionInterface $con = null) Return ChildTariffCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildTariffCode> find(?ConnectionInterface $con = null) Return ChildTariffCode objects based on current ModelCriteria
  *
+ * @method     ChildTariffCode[]|Collection findByIntbtaricode(string|array<string> $IntbTariCode) Return ChildTariffCode objects filtered by the IntbTariCode column
+ * @psalm-method Collection&\Traversable<ChildTariffCode> findByIntbtaricode(string|array<string> $IntbTariCode) Return ChildTariffCode objects filtered by the IntbTariCode column
+ * @method     ChildTariffCode[]|Collection findByIntbtarinbr(string|array<string> $IntbTariNbr) Return ChildTariffCode objects filtered by the IntbTariNbr column
+ * @psalm-method Collection&\Traversable<ChildTariffCode> findByIntbtarinbr(string|array<string> $IntbTariNbr) Return ChildTariffCode objects filtered by the IntbTariNbr column
+ * @method     ChildTariffCode[]|Collection findByIntbtaridesc(string|array<string> $IntbTariDesc) Return ChildTariffCode objects filtered by the IntbTariDesc column
+ * @psalm-method Collection&\Traversable<ChildTariffCode> findByIntbtaridesc(string|array<string> $IntbTariDesc) Return ChildTariffCode objects filtered by the IntbTariDesc column
+ * @method     ChildTariffCode[]|Collection findByIntbtaridutyratepct(string|array<string> $IntbTariDutyRatePct) Return ChildTariffCode objects filtered by the IntbTariDutyRatePct column
+ * @psalm-method Collection&\Traversable<ChildTariffCode> findByIntbtaridutyratepct(string|array<string> $IntbTariDutyRatePct) Return ChildTariffCode objects filtered by the IntbTariDutyRatePct column
+ * @method     ChildTariffCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildTariffCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildTariffCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildTariffCode objects filtered by the DateUpdtd column
+ * @method     ChildTariffCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildTariffCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildTariffCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildTariffCode objects filtered by the TimeUpdtd column
+ * @method     ChildTariffCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildTariffCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildTariffCode> findByDummy(string|array<string> $dummy) Return ChildTariffCode objects filtered by the dummy column
+ *
+ * @method     ChildTariffCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildTariffCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class TariffCodeQuery extends ModelCriteria
 {
@@ -83,9 +91,9 @@ abstract class TariffCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\TariffCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\TariffCode', $modelAlias = null)
     {
@@ -95,12 +103,12 @@ abstract class TariffCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildTariffCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildTariffCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildTariffCodeQuery) {
             return $criteria;
@@ -130,7 +138,7 @@ abstract class TariffCodeQuery extends ModelCriteria
      *
      * @return ChildTariffCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -162,8 +170,8 @@ abstract class TariffCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -195,8 +203,8 @@ abstract class TariffCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildTariffCode|array|mixed the result, formatted by the current formatter
      */
@@ -216,12 +224,12 @@ abstract class TariffCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -238,27 +246,31 @@ abstract class TariffCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARICODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARICODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARICODE, $keys, Criteria::IN);
+        $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARICODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -268,14 +280,15 @@ abstract class TariffCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbtaricode('fooValue');   // WHERE IntbTariCode = 'fooValue'
      * $query->filterByIntbtaricode('%fooValue%', Criteria::LIKE); // WHERE IntbTariCode LIKE '%fooValue%'
+     * $query->filterByIntbtaricode(['foo', 'bar']); // WHERE IntbTariCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbtaricode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbtaricode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbtaricode($intbtaricode = null, $comparison = null)
+    public function filterByIntbtaricode($intbtaricode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbtaricode)) {
@@ -283,7 +296,9 @@ abstract class TariffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARICODE, $intbtaricode, $comparison);
+        $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARICODE, $intbtaricode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -293,14 +308,15 @@ abstract class TariffCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbtarinbr('fooValue');   // WHERE IntbTariNbr = 'fooValue'
      * $query->filterByIntbtarinbr('%fooValue%', Criteria::LIKE); // WHERE IntbTariNbr LIKE '%fooValue%'
+     * $query->filterByIntbtarinbr(['foo', 'bar']); // WHERE IntbTariNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbtarinbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbtarinbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbtarinbr($intbtarinbr = null, $comparison = null)
+    public function filterByIntbtarinbr($intbtarinbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbtarinbr)) {
@@ -308,7 +324,9 @@ abstract class TariffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARINBR, $intbtarinbr, $comparison);
+        $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARINBR, $intbtarinbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -318,14 +336,15 @@ abstract class TariffCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbtaridesc('fooValue');   // WHERE IntbTariDesc = 'fooValue'
      * $query->filterByIntbtaridesc('%fooValue%', Criteria::LIKE); // WHERE IntbTariDesc LIKE '%fooValue%'
+     * $query->filterByIntbtaridesc(['foo', 'bar']); // WHERE IntbTariDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbtaridesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbtaridesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbtaridesc($intbtaridesc = null, $comparison = null)
+    public function filterByIntbtaridesc($intbtaridesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbtaridesc)) {
@@ -333,7 +352,9 @@ abstract class TariffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARIDESC, $intbtaridesc, $comparison);
+        $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARIDESC, $intbtaridesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -346,15 +367,15 @@ abstract class TariffCodeQuery extends ModelCriteria
      * $query->filterByIntbtaridutyratepct(array('min' => 12)); // WHERE IntbTariDutyRatePct > 12
      * </code>
      *
-     * @param     mixed $intbtaridutyratepct The value to use as filter.
+     * @param mixed $intbtaridutyratepct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbtaridutyratepct($intbtaridutyratepct = null, $comparison = null)
+    public function filterByIntbtaridutyratepct($intbtaridutyratepct = null, ?string $comparison = null)
     {
         if (is_array($intbtaridutyratepct)) {
             $useMinMax = false;
@@ -374,7 +395,9 @@ abstract class TariffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARIDUTYRATEPCT, $intbtaridutyratepct, $comparison);
+        $this->addUsingAlias(TariffCodeTableMap::COL_INTBTARIDUTYRATEPCT, $intbtaridutyratepct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -384,14 +407,15 @@ abstract class TariffCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -399,7 +423,9 @@ abstract class TariffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(TariffCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -409,14 +435,15 @@ abstract class TariffCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -424,7 +451,9 @@ abstract class TariffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(TariffCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -434,14 +463,15 @@ abstract class TariffCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -449,15 +479,17 @@ abstract class TariffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TariffCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(TariffCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildTariffCode $tariffCode Object to remove from the list of results
+     * @param ChildTariffCode $tariffCode Object to remove from the list of results
      *
-     * @return $this|ChildTariffCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($tariffCode = null)
     {
@@ -474,7 +506,7 @@ abstract class TariffCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(TariffCodeTableMap::DATABASE_NAME);
@@ -499,12 +531,12 @@ abstract class TariffCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(TariffCodeTableMap::DATABASE_NAME);
@@ -529,4 +561,4 @@ abstract class TariffCodeQuery extends ModelCriteria
         });
     }
 
-} // TariffCodeQuery
+}

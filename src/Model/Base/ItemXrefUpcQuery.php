@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'upc_item_xref' table.
- *
- *
+ * Base class that represents a query for the `upc_item_xref` table.
  *
  * @method     ChildItemXrefUpcQuery orderByUpcxcode($order = Criteria::ASC) Order by the UpcxCode column
  * @method     ChildItemXrefUpcQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
@@ -62,22 +61,22 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildItemXrefUpc findOne(ConnectionInterface $con = null) Return the first ChildItemXrefUpc matching the query
- * @method     ChildItemXrefUpc findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemXrefUpc matching the query, or a new ChildItemXrefUpc object populated from the query conditions when no match is found
+ * @method     ChildItemXrefUpc|null findOne(?ConnectionInterface $con = null) Return the first ChildItemXrefUpc matching the query
+ * @method     ChildItemXrefUpc findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItemXrefUpc matching the query, or a new ChildItemXrefUpc object populated from the query conditions when no match is found
  *
- * @method     ChildItemXrefUpc findOneByUpcxcode(string $UpcxCode) Return the first ChildItemXrefUpc filtered by the UpcxCode column
- * @method     ChildItemXrefUpc findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemXrefUpc filtered by the InitItemNbr column
- * @method     ChildItemXrefUpc findOneByUpcxprim(string $UpcxPrim) Return the first ChildItemXrefUpc filtered by the UpcxPrim column
- * @method     ChildItemXrefUpc findOneByUpcxqtyeachesperupc(int $UpcxQtyEachesPerUpc) Return the first ChildItemXrefUpc filtered by the UpcxQtyEachesPerUpc column
- * @method     ChildItemXrefUpc findOneByUpcxuom(string $UpcxUom) Return the first ChildItemXrefUpc filtered by the UpcxUom column
- * @method     ChildItemXrefUpc findOneByUpcxmstrcase(string $UpcxMstrCase) Return the first ChildItemXrefUpc filtered by the UpcxMstrCase column
- * @method     ChildItemXrefUpc findOneByUpcxlabel(string $UpcxLabel) Return the first ChildItemXrefUpc filtered by the UpcxLabel column
- * @method     ChildItemXrefUpc findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefUpc filtered by the DateUpdtd column
- * @method     ChildItemXrefUpc findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefUpc filtered by the TimeUpdtd column
- * @method     ChildItemXrefUpc findOneByDummy(string $dummy) Return the first ChildItemXrefUpc filtered by the dummy column *
-
- * @method     ChildItemXrefUpc requirePk($key, ConnectionInterface $con = null) Return the ChildItemXrefUpc by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemXrefUpc requireOne(ConnectionInterface $con = null) Return the first ChildItemXrefUpc matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemXrefUpc|null findOneByUpcxcode(string $UpcxCode) Return the first ChildItemXrefUpc filtered by the UpcxCode column
+ * @method     ChildItemXrefUpc|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemXrefUpc filtered by the InitItemNbr column
+ * @method     ChildItemXrefUpc|null findOneByUpcxprim(string $UpcxPrim) Return the first ChildItemXrefUpc filtered by the UpcxPrim column
+ * @method     ChildItemXrefUpc|null findOneByUpcxqtyeachesperupc(int $UpcxQtyEachesPerUpc) Return the first ChildItemXrefUpc filtered by the UpcxQtyEachesPerUpc column
+ * @method     ChildItemXrefUpc|null findOneByUpcxuom(string $UpcxUom) Return the first ChildItemXrefUpc filtered by the UpcxUom column
+ * @method     ChildItemXrefUpc|null findOneByUpcxmstrcase(string $UpcxMstrCase) Return the first ChildItemXrefUpc filtered by the UpcxMstrCase column
+ * @method     ChildItemXrefUpc|null findOneByUpcxlabel(string $UpcxLabel) Return the first ChildItemXrefUpc filtered by the UpcxLabel column
+ * @method     ChildItemXrefUpc|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefUpc filtered by the DateUpdtd column
+ * @method     ChildItemXrefUpc|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefUpc filtered by the TimeUpdtd column
+ * @method     ChildItemXrefUpc|null findOneByDummy(string $dummy) Return the first ChildItemXrefUpc filtered by the dummy column
+ *
+ * @method     ChildItemXrefUpc requirePk($key, ?ConnectionInterface $con = null) Return the ChildItemXrefUpc by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemXrefUpc requireOne(?ConnectionInterface $con = null) Return the first ChildItemXrefUpc matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemXrefUpc requireOneByUpcxcode(string $UpcxCode) Return the first ChildItemXrefUpc filtered by the UpcxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefUpc requireOneByInititemnbr(string $InitItemNbr) Return the first ChildItemXrefUpc filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -90,19 +89,32 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefUpc requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefUpc filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefUpc requireOneByDummy(string $dummy) Return the first ChildItemXrefUpc filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemXrefUpc[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemXrefUpc objects based on current ModelCriteria
- * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxcode(string $UpcxCode) Return ChildItemXrefUpc objects filtered by the UpcxCode column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildItemXrefUpc objects filtered by the InitItemNbr column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxprim(string $UpcxPrim) Return ChildItemXrefUpc objects filtered by the UpcxPrim column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxqtyeachesperupc(int $UpcxQtyEachesPerUpc) Return ChildItemXrefUpc objects filtered by the UpcxQtyEachesPerUpc column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxuom(string $UpcxUom) Return ChildItemXrefUpc objects filtered by the UpcxUom column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxmstrcase(string $UpcxMstrCase) Return ChildItemXrefUpc objects filtered by the UpcxMstrCase column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxlabel(string $UpcxLabel) Return ChildItemXrefUpc objects filtered by the UpcxLabel column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemXrefUpc objects filtered by the DateUpdtd column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemXrefUpc objects filtered by the TimeUpdtd column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByDummy(string $dummy) Return ChildItemXrefUpc objects filtered by the dummy column
- * @method     ChildItemXrefUpc[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItemXrefUpc[]|Collection find(?ConnectionInterface $con = null) Return ChildItemXrefUpc objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> find(?ConnectionInterface $con = null) Return ChildItemXrefUpc objects based on current ModelCriteria
  *
+ * @method     ChildItemXrefUpc[]|Collection findByUpcxcode(string|array<string> $UpcxCode) Return ChildItemXrefUpc objects filtered by the UpcxCode column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByUpcxcode(string|array<string> $UpcxCode) Return ChildItemXrefUpc objects filtered by the UpcxCode column
+ * @method     ChildItemXrefUpc[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemXrefUpc objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemXrefUpc objects filtered by the InitItemNbr column
+ * @method     ChildItemXrefUpc[]|Collection findByUpcxprim(string|array<string> $UpcxPrim) Return ChildItemXrefUpc objects filtered by the UpcxPrim column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByUpcxprim(string|array<string> $UpcxPrim) Return ChildItemXrefUpc objects filtered by the UpcxPrim column
+ * @method     ChildItemXrefUpc[]|Collection findByUpcxqtyeachesperupc(int|array<int> $UpcxQtyEachesPerUpc) Return ChildItemXrefUpc objects filtered by the UpcxQtyEachesPerUpc column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByUpcxqtyeachesperupc(int|array<int> $UpcxQtyEachesPerUpc) Return ChildItemXrefUpc objects filtered by the UpcxQtyEachesPerUpc column
+ * @method     ChildItemXrefUpc[]|Collection findByUpcxuom(string|array<string> $UpcxUom) Return ChildItemXrefUpc objects filtered by the UpcxUom column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByUpcxuom(string|array<string> $UpcxUom) Return ChildItemXrefUpc objects filtered by the UpcxUom column
+ * @method     ChildItemXrefUpc[]|Collection findByUpcxmstrcase(string|array<string> $UpcxMstrCase) Return ChildItemXrefUpc objects filtered by the UpcxMstrCase column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByUpcxmstrcase(string|array<string> $UpcxMstrCase) Return ChildItemXrefUpc objects filtered by the UpcxMstrCase column
+ * @method     ChildItemXrefUpc[]|Collection findByUpcxlabel(string|array<string> $UpcxLabel) Return ChildItemXrefUpc objects filtered by the UpcxLabel column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByUpcxlabel(string|array<string> $UpcxLabel) Return ChildItemXrefUpc objects filtered by the UpcxLabel column
+ * @method     ChildItemXrefUpc[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemXrefUpc objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemXrefUpc objects filtered by the DateUpdtd column
+ * @method     ChildItemXrefUpc[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemXrefUpc objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemXrefUpc objects filtered by the TimeUpdtd column
+ * @method     ChildItemXrefUpc[]|Collection findByDummy(string|array<string> $dummy) Return ChildItemXrefUpc objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItemXrefUpc> findByDummy(string|array<string> $dummy) Return ChildItemXrefUpc objects filtered by the dummy column
+ *
+ * @method     ChildItemXrefUpc[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItemXrefUpc> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItemXrefUpcQuery extends ModelCriteria
 {
@@ -111,9 +123,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItemXrefUpcQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ItemXrefUpc', $modelAlias = null)
     {
@@ -123,12 +135,12 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     /**
      * Returns a new ChildItemXrefUpcQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItemXrefUpcQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItemXrefUpcQuery) {
             return $criteria;
@@ -158,7 +170,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      *
      * @return ChildItemXrefUpc|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -190,8 +202,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -224,8 +236,8 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItemXrefUpc|array|mixed the result, formatted by the current formatter
      */
@@ -245,12 +257,12 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -267,9 +279,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -282,14 +294,16 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ItemXrefUpcTableMap::COL_UPCXCODE, $key[0], Criteria::EQUAL);
@@ -308,14 +322,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByUpcxcode('fooValue');   // WHERE UpcxCode = 'fooValue'
      * $query->filterByUpcxcode('%fooValue%', Criteria::LIKE); // WHERE UpcxCode LIKE '%fooValue%'
+     * $query->filterByUpcxcode(['foo', 'bar']); // WHERE UpcxCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $upcxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $upcxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUpcxcode($upcxcode = null, $comparison = null)
+    public function filterByUpcxcode($upcxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($upcxcode)) {
@@ -323,7 +338,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXCODE, $upcxcode, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXCODE, $upcxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +350,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -348,7 +366,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +378,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByUpcxprim('fooValue');   // WHERE UpcxPrim = 'fooValue'
      * $query->filterByUpcxprim('%fooValue%', Criteria::LIKE); // WHERE UpcxPrim LIKE '%fooValue%'
+     * $query->filterByUpcxprim(['foo', 'bar']); // WHERE UpcxPrim IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $upcxprim The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $upcxprim The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUpcxprim($upcxprim = null, $comparison = null)
+    public function filterByUpcxprim($upcxprim = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($upcxprim)) {
@@ -373,7 +394,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXPRIM, $upcxprim, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXPRIM, $upcxprim, $comparison);
+
+        return $this;
     }
 
     /**
@@ -386,15 +409,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * $query->filterByUpcxqtyeachesperupc(array('min' => 12)); // WHERE UpcxQtyEachesPerUpc > 12
      * </code>
      *
-     * @param     mixed $upcxqtyeachesperupc The value to use as filter.
+     * @param mixed $upcxqtyeachesperupc The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUpcxqtyeachesperupc($upcxqtyeachesperupc = null, $comparison = null)
+    public function filterByUpcxqtyeachesperupc($upcxqtyeachesperupc = null, ?string $comparison = null)
     {
         if (is_array($upcxqtyeachesperupc)) {
             $useMinMax = false;
@@ -414,7 +437,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC, $upcxqtyeachesperupc, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC, $upcxqtyeachesperupc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -424,14 +449,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByUpcxuom('fooValue');   // WHERE UpcxUom = 'fooValue'
      * $query->filterByUpcxuom('%fooValue%', Criteria::LIKE); // WHERE UpcxUom LIKE '%fooValue%'
+     * $query->filterByUpcxuom(['foo', 'bar']); // WHERE UpcxUom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $upcxuom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $upcxuom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUpcxuom($upcxuom = null, $comparison = null)
+    public function filterByUpcxuom($upcxuom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($upcxuom)) {
@@ -439,7 +465,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXUOM, $upcxuom, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXUOM, $upcxuom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -449,14 +477,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByUpcxmstrcase('fooValue');   // WHERE UpcxMstrCase = 'fooValue'
      * $query->filterByUpcxmstrcase('%fooValue%', Criteria::LIKE); // WHERE UpcxMstrCase LIKE '%fooValue%'
+     * $query->filterByUpcxmstrcase(['foo', 'bar']); // WHERE UpcxMstrCase IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $upcxmstrcase The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $upcxmstrcase The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUpcxmstrcase($upcxmstrcase = null, $comparison = null)
+    public function filterByUpcxmstrcase($upcxmstrcase = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($upcxmstrcase)) {
@@ -464,7 +493,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXMSTRCASE, $upcxmstrcase, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXMSTRCASE, $upcxmstrcase, $comparison);
+
+        return $this;
     }
 
     /**
@@ -474,14 +505,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByUpcxlabel('fooValue');   // WHERE UpcxLabel = 'fooValue'
      * $query->filterByUpcxlabel('%fooValue%', Criteria::LIKE); // WHERE UpcxLabel LIKE '%fooValue%'
+     * $query->filterByUpcxlabel(['foo', 'bar']); // WHERE UpcxLabel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $upcxlabel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $upcxlabel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUpcxlabel($upcxlabel = null, $comparison = null)
+    public function filterByUpcxlabel($upcxlabel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($upcxlabel)) {
@@ -489,7 +521,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXLABEL, $upcxlabel, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXLABEL, $upcxlabel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -499,14 +533,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -514,7 +549,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -524,14 +561,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -539,7 +577,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -549,14 +589,15 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -564,20 +605,22 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItemXrefUpcTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -587,8 +630,10 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemXrefUpcTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -597,12 +642,12 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -631,9 +676,9 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -645,11 +690,107 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildItemXrefUpc $itemXrefUpc Object to remove from the list of results
+     * @param ChildItemXrefUpc $itemXrefUpc Object to remove from the list of results
      *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itemXrefUpc = null)
     {
@@ -668,7 +809,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefUpcTableMap::DATABASE_NAME);
@@ -693,12 +834,12 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefUpcTableMap::DATABASE_NAME);
@@ -723,4 +864,4 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
         });
     }
 
-} // ItemXrefUpcQuery
+}

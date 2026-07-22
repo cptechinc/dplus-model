@@ -10,14 +10,12 @@ use Map\MsaSysopCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'sys_opt_options' table.
- *
- *
+ * Base class that represents a query for the `sys_opt_options` table.
  *
  * @method     ChildMsaSysopCodeQuery orderByOptnsystem($order = Criteria::ASC) Order by the OptnSystem column
  * @method     ChildMsaSysopCodeQuery orderByOptncode($order = Criteria::ASC) Order by the OptnCode column
@@ -65,30 +63,30 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildMsaSysopCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildMsaSysopCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildMsaSysopCode findOne(ConnectionInterface $con = null) Return the first ChildMsaSysopCode matching the query
- * @method     ChildMsaSysopCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildMsaSysopCode matching the query, or a new ChildMsaSysopCode object populated from the query conditions when no match is found
+ * @method     ChildMsaSysopCode|null findOne(?ConnectionInterface $con = null) Return the first ChildMsaSysopCode matching the query
+ * @method     ChildMsaSysopCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildMsaSysopCode matching the query, or a new ChildMsaSysopCode object populated from the query conditions when no match is found
  *
- * @method     ChildMsaSysopCode findOneByOptnsystem(string $OptnSystem) Return the first ChildMsaSysopCode filtered by the OptnSystem column
- * @method     ChildMsaSysopCode findOneByOptncode(string $OptnCode) Return the first ChildMsaSysopCode filtered by the OptnCode column
- * @method     ChildMsaSysopCode findOneByOptndesc(string $OptnDesc) Return the first ChildMsaSysopCode filtered by the OptnDesc column
- * @method     ChildMsaSysopCode findOneByOptnvalidate(string $OptnValidate) Return the first ChildMsaSysopCode filtered by the OptnValidate column
- * @method     ChildMsaSysopCode findOneByOptnforce(string $OptnForce) Return the first ChildMsaSysopCode filtered by the OptnForce column
- * @method     ChildMsaSysopCode findOneByOptnnotecode(string $OptnNoteCode) Return the first ChildMsaSysopCode filtered by the OptnNoteCode column
- * @method     ChildMsaSysopCode findOneByOptnlistseq(int $OptnListSeq) Return the first ChildMsaSysopCode filtered by the OptnListSeq column
- * @method     ChildMsaSysopCode findOneByOptnfilename(string $OptnFileName) Return the first ChildMsaSysopCode filtered by the OptnFileName column
- * @method     ChildMsaSysopCode findOneByOptnadvsrch(string $OptnAdvSrch) Return the first ChildMsaSysopCode filtered by the OptnAdvSrch column
- * @method     ChildMsaSysopCode findOneByOptnfieldtype(string $OptnFieldType) Return the first ChildMsaSysopCode filtered by the OptnFieldType column
- * @method     ChildMsaSysopCode findOneByOptndef1b4dec(int $OptnDef1B4Dec) Return the first ChildMsaSysopCode filtered by the OptnDef1B4Dec column
- * @method     ChildMsaSysopCode findOneByOptndef2aftdec(int $OptnDef2AftDec) Return the first ChildMsaSysopCode filtered by the OptnDef2AftDec column
- * @method     ChildMsaSysopCode findOneByOptndocstorfolder(string $OptnDocStorFolder) Return the first ChildMsaSysopCode filtered by the OptnDocStorFolder column
- * @method     ChildMsaSysopCode findOneByOptnwebvalidate(string $OptnWebValidate) Return the first ChildMsaSysopCode filtered by the OptnWebValidate column
- * @method     ChildMsaSysopCode findOneByOptnwebforce(string $OptnWebForce) Return the first ChildMsaSysopCode filtered by the OptnWebForce column
- * @method     ChildMsaSysopCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildMsaSysopCode filtered by the DateUpdtd column
- * @method     ChildMsaSysopCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMsaSysopCode filtered by the TimeUpdtd column
- * @method     ChildMsaSysopCode findOneByDummy(string $dummy) Return the first ChildMsaSysopCode filtered by the dummy column *
-
- * @method     ChildMsaSysopCode requirePk($key, ConnectionInterface $con = null) Return the ChildMsaSysopCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildMsaSysopCode requireOne(ConnectionInterface $con = null) Return the first ChildMsaSysopCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildMsaSysopCode|null findOneByOptnsystem(string $OptnSystem) Return the first ChildMsaSysopCode filtered by the OptnSystem column
+ * @method     ChildMsaSysopCode|null findOneByOptncode(string $OptnCode) Return the first ChildMsaSysopCode filtered by the OptnCode column
+ * @method     ChildMsaSysopCode|null findOneByOptndesc(string $OptnDesc) Return the first ChildMsaSysopCode filtered by the OptnDesc column
+ * @method     ChildMsaSysopCode|null findOneByOptnvalidate(string $OptnValidate) Return the first ChildMsaSysopCode filtered by the OptnValidate column
+ * @method     ChildMsaSysopCode|null findOneByOptnforce(string $OptnForce) Return the first ChildMsaSysopCode filtered by the OptnForce column
+ * @method     ChildMsaSysopCode|null findOneByOptnnotecode(string $OptnNoteCode) Return the first ChildMsaSysopCode filtered by the OptnNoteCode column
+ * @method     ChildMsaSysopCode|null findOneByOptnlistseq(int $OptnListSeq) Return the first ChildMsaSysopCode filtered by the OptnListSeq column
+ * @method     ChildMsaSysopCode|null findOneByOptnfilename(string $OptnFileName) Return the first ChildMsaSysopCode filtered by the OptnFileName column
+ * @method     ChildMsaSysopCode|null findOneByOptnadvsrch(string $OptnAdvSrch) Return the first ChildMsaSysopCode filtered by the OptnAdvSrch column
+ * @method     ChildMsaSysopCode|null findOneByOptnfieldtype(string $OptnFieldType) Return the first ChildMsaSysopCode filtered by the OptnFieldType column
+ * @method     ChildMsaSysopCode|null findOneByOptndef1b4dec(int $OptnDef1B4Dec) Return the first ChildMsaSysopCode filtered by the OptnDef1B4Dec column
+ * @method     ChildMsaSysopCode|null findOneByOptndef2aftdec(int $OptnDef2AftDec) Return the first ChildMsaSysopCode filtered by the OptnDef2AftDec column
+ * @method     ChildMsaSysopCode|null findOneByOptndocstorfolder(string $OptnDocStorFolder) Return the first ChildMsaSysopCode filtered by the OptnDocStorFolder column
+ * @method     ChildMsaSysopCode|null findOneByOptnwebvalidate(string $OptnWebValidate) Return the first ChildMsaSysopCode filtered by the OptnWebValidate column
+ * @method     ChildMsaSysopCode|null findOneByOptnwebforce(string $OptnWebForce) Return the first ChildMsaSysopCode filtered by the OptnWebForce column
+ * @method     ChildMsaSysopCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildMsaSysopCode filtered by the DateUpdtd column
+ * @method     ChildMsaSysopCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMsaSysopCode filtered by the TimeUpdtd column
+ * @method     ChildMsaSysopCode|null findOneByDummy(string $dummy) Return the first ChildMsaSysopCode filtered by the dummy column
+ *
+ * @method     ChildMsaSysopCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildMsaSysopCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildMsaSysopCode requireOne(?ConnectionInterface $con = null) Return the first ChildMsaSysopCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildMsaSysopCode requireOneByOptnsystem(string $OptnSystem) Return the first ChildMsaSysopCode filtered by the OptnSystem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildMsaSysopCode requireOneByOptncode(string $OptnCode) Return the first ChildMsaSysopCode filtered by the OptnCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -109,27 +107,48 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildMsaSysopCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildMsaSysopCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildMsaSysopCode requireOneByDummy(string $dummy) Return the first ChildMsaSysopCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildMsaSysopCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildMsaSysopCode objects based on current ModelCriteria
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnsystem(string $OptnSystem) Return ChildMsaSysopCode objects filtered by the OptnSystem column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptncode(string $OptnCode) Return ChildMsaSysopCode objects filtered by the OptnCode column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptndesc(string $OptnDesc) Return ChildMsaSysopCode objects filtered by the OptnDesc column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnvalidate(string $OptnValidate) Return ChildMsaSysopCode objects filtered by the OptnValidate column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnforce(string $OptnForce) Return ChildMsaSysopCode objects filtered by the OptnForce column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnnotecode(string $OptnNoteCode) Return ChildMsaSysopCode objects filtered by the OptnNoteCode column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnlistseq(int $OptnListSeq) Return ChildMsaSysopCode objects filtered by the OptnListSeq column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnfilename(string $OptnFileName) Return ChildMsaSysopCode objects filtered by the OptnFileName column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnadvsrch(string $OptnAdvSrch) Return ChildMsaSysopCode objects filtered by the OptnAdvSrch column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnfieldtype(string $OptnFieldType) Return ChildMsaSysopCode objects filtered by the OptnFieldType column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptndef1b4dec(int $OptnDef1B4Dec) Return ChildMsaSysopCode objects filtered by the OptnDef1B4Dec column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptndef2aftdec(int $OptnDef2AftDec) Return ChildMsaSysopCode objects filtered by the OptnDef2AftDec column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptndocstorfolder(string $OptnDocStorFolder) Return ChildMsaSysopCode objects filtered by the OptnDocStorFolder column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnwebvalidate(string $OptnWebValidate) Return ChildMsaSysopCode objects filtered by the OptnWebValidate column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByOptnwebforce(string $OptnWebForce) Return ChildMsaSysopCode objects filtered by the OptnWebForce column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildMsaSysopCode objects filtered by the DateUpdtd column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildMsaSysopCode objects filtered by the TimeUpdtd column
- * @method     ChildMsaSysopCode[]|ObjectCollection findByDummy(string $dummy) Return ChildMsaSysopCode objects filtered by the dummy column
- * @method     ChildMsaSysopCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildMsaSysopCode[]|Collection find(?ConnectionInterface $con = null) Return ChildMsaSysopCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> find(?ConnectionInterface $con = null) Return ChildMsaSysopCode objects based on current ModelCriteria
  *
+ * @method     ChildMsaSysopCode[]|Collection findByOptnsystem(string|array<string> $OptnSystem) Return ChildMsaSysopCode objects filtered by the OptnSystem column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnsystem(string|array<string> $OptnSystem) Return ChildMsaSysopCode objects filtered by the OptnSystem column
+ * @method     ChildMsaSysopCode[]|Collection findByOptncode(string|array<string> $OptnCode) Return ChildMsaSysopCode objects filtered by the OptnCode column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptncode(string|array<string> $OptnCode) Return ChildMsaSysopCode objects filtered by the OptnCode column
+ * @method     ChildMsaSysopCode[]|Collection findByOptndesc(string|array<string> $OptnDesc) Return ChildMsaSysopCode objects filtered by the OptnDesc column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptndesc(string|array<string> $OptnDesc) Return ChildMsaSysopCode objects filtered by the OptnDesc column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnvalidate(string|array<string> $OptnValidate) Return ChildMsaSysopCode objects filtered by the OptnValidate column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnvalidate(string|array<string> $OptnValidate) Return ChildMsaSysopCode objects filtered by the OptnValidate column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnforce(string|array<string> $OptnForce) Return ChildMsaSysopCode objects filtered by the OptnForce column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnforce(string|array<string> $OptnForce) Return ChildMsaSysopCode objects filtered by the OptnForce column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnnotecode(string|array<string> $OptnNoteCode) Return ChildMsaSysopCode objects filtered by the OptnNoteCode column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnnotecode(string|array<string> $OptnNoteCode) Return ChildMsaSysopCode objects filtered by the OptnNoteCode column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnlistseq(int|array<int> $OptnListSeq) Return ChildMsaSysopCode objects filtered by the OptnListSeq column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnlistseq(int|array<int> $OptnListSeq) Return ChildMsaSysopCode objects filtered by the OptnListSeq column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnfilename(string|array<string> $OptnFileName) Return ChildMsaSysopCode objects filtered by the OptnFileName column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnfilename(string|array<string> $OptnFileName) Return ChildMsaSysopCode objects filtered by the OptnFileName column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnadvsrch(string|array<string> $OptnAdvSrch) Return ChildMsaSysopCode objects filtered by the OptnAdvSrch column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnadvsrch(string|array<string> $OptnAdvSrch) Return ChildMsaSysopCode objects filtered by the OptnAdvSrch column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnfieldtype(string|array<string> $OptnFieldType) Return ChildMsaSysopCode objects filtered by the OptnFieldType column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnfieldtype(string|array<string> $OptnFieldType) Return ChildMsaSysopCode objects filtered by the OptnFieldType column
+ * @method     ChildMsaSysopCode[]|Collection findByOptndef1b4dec(int|array<int> $OptnDef1B4Dec) Return ChildMsaSysopCode objects filtered by the OptnDef1B4Dec column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptndef1b4dec(int|array<int> $OptnDef1B4Dec) Return ChildMsaSysopCode objects filtered by the OptnDef1B4Dec column
+ * @method     ChildMsaSysopCode[]|Collection findByOptndef2aftdec(int|array<int> $OptnDef2AftDec) Return ChildMsaSysopCode objects filtered by the OptnDef2AftDec column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptndef2aftdec(int|array<int> $OptnDef2AftDec) Return ChildMsaSysopCode objects filtered by the OptnDef2AftDec column
+ * @method     ChildMsaSysopCode[]|Collection findByOptndocstorfolder(string|array<string> $OptnDocStorFolder) Return ChildMsaSysopCode objects filtered by the OptnDocStorFolder column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptndocstorfolder(string|array<string> $OptnDocStorFolder) Return ChildMsaSysopCode objects filtered by the OptnDocStorFolder column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnwebvalidate(string|array<string> $OptnWebValidate) Return ChildMsaSysopCode objects filtered by the OptnWebValidate column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnwebvalidate(string|array<string> $OptnWebValidate) Return ChildMsaSysopCode objects filtered by the OptnWebValidate column
+ * @method     ChildMsaSysopCode[]|Collection findByOptnwebforce(string|array<string> $OptnWebForce) Return ChildMsaSysopCode objects filtered by the OptnWebForce column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByOptnwebforce(string|array<string> $OptnWebForce) Return ChildMsaSysopCode objects filtered by the OptnWebForce column
+ * @method     ChildMsaSysopCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildMsaSysopCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildMsaSysopCode objects filtered by the DateUpdtd column
+ * @method     ChildMsaSysopCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildMsaSysopCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildMsaSysopCode objects filtered by the TimeUpdtd column
+ * @method     ChildMsaSysopCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildMsaSysopCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildMsaSysopCode> findByDummy(string|array<string> $dummy) Return ChildMsaSysopCode objects filtered by the dummy column
+ *
+ * @method     ChildMsaSysopCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildMsaSysopCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class MsaSysopCodeQuery extends ModelCriteria
 {
@@ -138,9 +157,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\MsaSysopCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\MsaSysopCode', $modelAlias = null)
     {
@@ -150,12 +169,12 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildMsaSysopCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildMsaSysopCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildMsaSysopCodeQuery) {
             return $criteria;
@@ -185,7 +204,7 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      *
      * @return ChildMsaSysopCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -217,8 +236,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -251,8 +270,8 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildMsaSysopCode|array|mixed the result, formatted by the current formatter
      */
@@ -272,12 +291,12 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -294,9 +313,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -309,14 +328,16 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(MsaSysopCodeTableMap::COL_OPTNSYSTEM, $key[0], Criteria::EQUAL);
@@ -335,14 +356,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnsystem('fooValue');   // WHERE OptnSystem = 'fooValue'
      * $query->filterByOptnsystem('%fooValue%', Criteria::LIKE); // WHERE OptnSystem LIKE '%fooValue%'
+     * $query->filterByOptnsystem(['foo', 'bar']); // WHERE OptnSystem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnsystem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnsystem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnsystem($optnsystem = null, $comparison = null)
+    public function filterByOptnsystem($optnsystem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnsystem)) {
@@ -350,7 +372,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNSYSTEM, $optnsystem, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNSYSTEM, $optnsystem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -360,14 +384,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptncode('fooValue');   // WHERE OptnCode = 'fooValue'
      * $query->filterByOptncode('%fooValue%', Criteria::LIKE); // WHERE OptnCode LIKE '%fooValue%'
+     * $query->filterByOptncode(['foo', 'bar']); // WHERE OptnCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optncode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optncode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptncode($optncode = null, $comparison = null)
+    public function filterByOptncode($optncode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optncode)) {
@@ -375,7 +400,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNCODE, $optncode, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNCODE, $optncode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -385,14 +412,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptndesc('fooValue');   // WHERE OptnDesc = 'fooValue'
      * $query->filterByOptndesc('%fooValue%', Criteria::LIKE); // WHERE OptnDesc LIKE '%fooValue%'
+     * $query->filterByOptndesc(['foo', 'bar']); // WHERE OptnDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optndesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optndesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptndesc($optndesc = null, $comparison = null)
+    public function filterByOptndesc($optndesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optndesc)) {
@@ -400,7 +428,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDESC, $optndesc, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDESC, $optndesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -410,14 +440,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnvalidate('fooValue');   // WHERE OptnValidate = 'fooValue'
      * $query->filterByOptnvalidate('%fooValue%', Criteria::LIKE); // WHERE OptnValidate LIKE '%fooValue%'
+     * $query->filterByOptnvalidate(['foo', 'bar']); // WHERE OptnValidate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnvalidate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnvalidate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnvalidate($optnvalidate = null, $comparison = null)
+    public function filterByOptnvalidate($optnvalidate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnvalidate)) {
@@ -425,7 +456,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNVALIDATE, $optnvalidate, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNVALIDATE, $optnvalidate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -435,14 +468,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnforce('fooValue');   // WHERE OptnForce = 'fooValue'
      * $query->filterByOptnforce('%fooValue%', Criteria::LIKE); // WHERE OptnForce LIKE '%fooValue%'
+     * $query->filterByOptnforce(['foo', 'bar']); // WHERE OptnForce IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnforce The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnforce The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnforce($optnforce = null, $comparison = null)
+    public function filterByOptnforce($optnforce = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnforce)) {
@@ -450,7 +484,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFORCE, $optnforce, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFORCE, $optnforce, $comparison);
+
+        return $this;
     }
 
     /**
@@ -460,14 +496,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnnotecode('fooValue');   // WHERE OptnNoteCode = 'fooValue'
      * $query->filterByOptnnotecode('%fooValue%', Criteria::LIKE); // WHERE OptnNoteCode LIKE '%fooValue%'
+     * $query->filterByOptnnotecode(['foo', 'bar']); // WHERE OptnNoteCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnnotecode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnnotecode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnnotecode($optnnotecode = null, $comparison = null)
+    public function filterByOptnnotecode($optnnotecode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnnotecode)) {
@@ -475,7 +512,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNNOTECODE, $optnnotecode, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNNOTECODE, $optnnotecode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -488,15 +527,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * $query->filterByOptnlistseq(array('min' => 12)); // WHERE OptnListSeq > 12
      * </code>
      *
-     * @param     mixed $optnlistseq The value to use as filter.
+     * @param mixed $optnlistseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnlistseq($optnlistseq = null, $comparison = null)
+    public function filterByOptnlistseq($optnlistseq = null, ?string $comparison = null)
     {
         if (is_array($optnlistseq)) {
             $useMinMax = false;
@@ -516,7 +555,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNLISTSEQ, $optnlistseq, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNLISTSEQ, $optnlistseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -526,14 +567,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnfilename('fooValue');   // WHERE OptnFileName = 'fooValue'
      * $query->filterByOptnfilename('%fooValue%', Criteria::LIKE); // WHERE OptnFileName LIKE '%fooValue%'
+     * $query->filterByOptnfilename(['foo', 'bar']); // WHERE OptnFileName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnfilename The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnfilename The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnfilename($optnfilename = null, $comparison = null)
+    public function filterByOptnfilename($optnfilename = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnfilename)) {
@@ -541,7 +583,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFILENAME, $optnfilename, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFILENAME, $optnfilename, $comparison);
+
+        return $this;
     }
 
     /**
@@ -551,14 +595,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnadvsrch('fooValue');   // WHERE OptnAdvSrch = 'fooValue'
      * $query->filterByOptnadvsrch('%fooValue%', Criteria::LIKE); // WHERE OptnAdvSrch LIKE '%fooValue%'
+     * $query->filterByOptnadvsrch(['foo', 'bar']); // WHERE OptnAdvSrch IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnadvsrch The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnadvsrch The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnadvsrch($optnadvsrch = null, $comparison = null)
+    public function filterByOptnadvsrch($optnadvsrch = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnadvsrch)) {
@@ -566,7 +611,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNADVSRCH, $optnadvsrch, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNADVSRCH, $optnadvsrch, $comparison);
+
+        return $this;
     }
 
     /**
@@ -576,14 +623,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnfieldtype('fooValue');   // WHERE OptnFieldType = 'fooValue'
      * $query->filterByOptnfieldtype('%fooValue%', Criteria::LIKE); // WHERE OptnFieldType LIKE '%fooValue%'
+     * $query->filterByOptnfieldtype(['foo', 'bar']); // WHERE OptnFieldType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnfieldtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnfieldtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnfieldtype($optnfieldtype = null, $comparison = null)
+    public function filterByOptnfieldtype($optnfieldtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnfieldtype)) {
@@ -591,7 +639,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFIELDTYPE, $optnfieldtype, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNFIELDTYPE, $optnfieldtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -604,15 +654,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * $query->filterByOptndef1b4dec(array('min' => 12)); // WHERE OptnDef1B4Dec > 12
      * </code>
      *
-     * @param     mixed $optndef1b4dec The value to use as filter.
+     * @param mixed $optndef1b4dec The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptndef1b4dec($optndef1b4dec = null, $comparison = null)
+    public function filterByOptndef1b4dec($optndef1b4dec = null, ?string $comparison = null)
     {
         if (is_array($optndef1b4dec)) {
             $useMinMax = false;
@@ -632,7 +682,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDEF1B4DEC, $optndef1b4dec, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDEF1B4DEC, $optndef1b4dec, $comparison);
+
+        return $this;
     }
 
     /**
@@ -645,15 +697,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * $query->filterByOptndef2aftdec(array('min' => 12)); // WHERE OptnDef2AftDec > 12
      * </code>
      *
-     * @param     mixed $optndef2aftdec The value to use as filter.
+     * @param mixed $optndef2aftdec The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptndef2aftdec($optndef2aftdec = null, $comparison = null)
+    public function filterByOptndef2aftdec($optndef2aftdec = null, ?string $comparison = null)
     {
         if (is_array($optndef2aftdec)) {
             $useMinMax = false;
@@ -673,7 +725,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDEF2AFTDEC, $optndef2aftdec, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDEF2AFTDEC, $optndef2aftdec, $comparison);
+
+        return $this;
     }
 
     /**
@@ -683,14 +737,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptndocstorfolder('fooValue');   // WHERE OptnDocStorFolder = 'fooValue'
      * $query->filterByOptndocstorfolder('%fooValue%', Criteria::LIKE); // WHERE OptnDocStorFolder LIKE '%fooValue%'
+     * $query->filterByOptndocstorfolder(['foo', 'bar']); // WHERE OptnDocStorFolder IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optndocstorfolder The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optndocstorfolder The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptndocstorfolder($optndocstorfolder = null, $comparison = null)
+    public function filterByOptndocstorfolder($optndocstorfolder = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optndocstorfolder)) {
@@ -698,7 +753,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER, $optndocstorfolder, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER, $optndocstorfolder, $comparison);
+
+        return $this;
     }
 
     /**
@@ -708,14 +765,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnwebvalidate('fooValue');   // WHERE OptnWebValidate = 'fooValue'
      * $query->filterByOptnwebvalidate('%fooValue%', Criteria::LIKE); // WHERE OptnWebValidate LIKE '%fooValue%'
+     * $query->filterByOptnwebvalidate(['foo', 'bar']); // WHERE OptnWebValidate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnwebvalidate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnwebvalidate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnwebvalidate($optnwebvalidate = null, $comparison = null)
+    public function filterByOptnwebvalidate($optnwebvalidate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnwebvalidate)) {
@@ -723,7 +781,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE, $optnwebvalidate, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE, $optnwebvalidate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -733,14 +793,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOptnwebforce('fooValue');   // WHERE OptnWebForce = 'fooValue'
      * $query->filterByOptnwebforce('%fooValue%', Criteria::LIKE); // WHERE OptnWebForce LIKE '%fooValue%'
+     * $query->filterByOptnwebforce(['foo', 'bar']); // WHERE OptnWebForce IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $optnwebforce The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $optnwebforce The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOptnwebforce($optnwebforce = null, $comparison = null)
+    public function filterByOptnwebforce($optnwebforce = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($optnwebforce)) {
@@ -748,7 +809,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNWEBFORCE, $optnwebforce, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_OPTNWEBFORCE, $optnwebforce, $comparison);
+
+        return $this;
     }
 
     /**
@@ -758,14 +821,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -773,7 +837,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -783,14 +849,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -798,7 +865,9 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -808,14 +877,15 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -823,15 +893,17 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(MsaSysopCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(MsaSysopCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildMsaSysopCode $msaSysopCode Object to remove from the list of results
+     * @param ChildMsaSysopCode $msaSysopCode Object to remove from the list of results
      *
-     * @return $this|ChildMsaSysopCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($msaSysopCode = null)
     {
@@ -850,7 +922,7 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsaSysopCodeTableMap::DATABASE_NAME);
@@ -875,12 +947,12 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsaSysopCodeTableMap::DATABASE_NAME);
@@ -905,4 +977,4 @@ abstract class MsaSysopCodeQuery extends ModelCriteria
         });
     }
 
-} // MsaSysopCodeQuery
+}

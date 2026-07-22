@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'cust_stock_head' table.
- *
- *
+ * Base class that represents a query for the `cust_stock_head` table.
  *
  * @method     ChildCstkHeadQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildCstkHeadQuery orderByArstshipid($order = Criteria::ASC) Order by the ArstShipId column
@@ -78,38 +77,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCstkHeadQuery rightJoinWithCustomerShipto() Adds a RIGHT JOIN clause and with to the query using the CustomerShipto relation
  * @method     ChildCstkHeadQuery innerJoinWithCustomerShipto() Adds a INNER JOIN clause and with to the query using the CustomerShipto relation
  *
- * @method     ChildCstkHeadQuery leftJoinCstkItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the CstkItem relation
- * @method     ChildCstkHeadQuery rightJoinCstkItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CstkItem relation
- * @method     ChildCstkHeadQuery innerJoinCstkItem($relationAlias = null) Adds a INNER JOIN clause to the query using the CstkItem relation
+ * @method     \CustomerQuery|\CustomerShiptoQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildCstkHeadQuery joinWithCstkItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CstkItem relation
+ * @method     ChildCstkHead|null findOne(?ConnectionInterface $con = null) Return the first ChildCstkHead matching the query
+ * @method     ChildCstkHead findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCstkHead matching the query, or a new ChildCstkHead object populated from the query conditions when no match is found
  *
- * @method     ChildCstkHeadQuery leftJoinWithCstkItem() Adds a LEFT JOIN clause and with to the query using the CstkItem relation
- * @method     ChildCstkHeadQuery rightJoinWithCstkItem() Adds a RIGHT JOIN clause and with to the query using the CstkItem relation
- * @method     ChildCstkHeadQuery innerJoinWithCstkItem() Adds a INNER JOIN clause and with to the query using the CstkItem relation
+ * @method     ChildCstkHead|null findOneByArcucustid(string $ArcuCustId) Return the first ChildCstkHead filtered by the ArcuCustId column
+ * @method     ChildCstkHead|null findOneByArstshipid(string $ArstShipId) Return the first ChildCstkHead filtered by the ArstShipId column
+ * @method     ChildCstkHead|null findOneByCskhcell(string $CskhCell) Return the first ChildCstkHead filtered by the CskhCell column
+ * @method     ChildCstkHead|null findOneByCskhenterdate(string $CskhEnterDate) Return the first ChildCstkHead filtered by the CskhEnterDate column
+ * @method     ChildCstkHead|null findOneByCskhconsign(string $CskhConsign) Return the first ChildCstkHead filtered by the CskhConsign column
+ * @method     ChildCstkHead|null findOneByCskhreplcnt(string $CskhReplCnt) Return the first ChildCstkHead filtered by the CskhReplCnt column
+ * @method     ChildCstkHead|null findOneByCskhlabelformat(string $CskhLabelFormat) Return the first ChildCstkHead filtered by the CskhLabelFormat column
+ * @method     ChildCstkHead|null findOneByCskhwhse(string $CskhWhse) Return the first ChildCstkHead filtered by the CskhWhse column
+ * @method     ChildCstkHead|null findOneByCskhapproved(string $CskhApproved) Return the first ChildCstkHead filtered by the CskhApproved column
+ * @method     ChildCstkHead|null findOneByCskhconsignbinwhse(string $CskhConsignBinWhse) Return the first ChildCstkHead filtered by the CskhConsignBinWhse column
+ * @method     ChildCstkHead|null findOneByCskhconsignbincust(string $CskhConsignBinCust) Return the first ChildCstkHead filtered by the CskhConsignBinCust column
+ * @method     ChildCstkHead|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildCstkHead filtered by the DateUpdtd column
+ * @method     ChildCstkHead|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCstkHead filtered by the TimeUpdtd column
+ * @method     ChildCstkHead|null findOneByDummy(string $dummy) Return the first ChildCstkHead filtered by the dummy column
  *
- * @method     \CustomerQuery|\CustomerShiptoQuery|\CstkItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
- *
- * @method     ChildCstkHead findOne(ConnectionInterface $con = null) Return the first ChildCstkHead matching the query
- * @method     ChildCstkHead findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCstkHead matching the query, or a new ChildCstkHead object populated from the query conditions when no match is found
- *
- * @method     ChildCstkHead findOneByArcucustid(string $ArcuCustId) Return the first ChildCstkHead filtered by the ArcuCustId column
- * @method     ChildCstkHead findOneByArstshipid(string $ArstShipId) Return the first ChildCstkHead filtered by the ArstShipId column
- * @method     ChildCstkHead findOneByCskhcell(string $CskhCell) Return the first ChildCstkHead filtered by the CskhCell column
- * @method     ChildCstkHead findOneByCskhenterdate(string $CskhEnterDate) Return the first ChildCstkHead filtered by the CskhEnterDate column
- * @method     ChildCstkHead findOneByCskhconsign(string $CskhConsign) Return the first ChildCstkHead filtered by the CskhConsign column
- * @method     ChildCstkHead findOneByCskhreplcnt(string $CskhReplCnt) Return the first ChildCstkHead filtered by the CskhReplCnt column
- * @method     ChildCstkHead findOneByCskhlabelformat(string $CskhLabelFormat) Return the first ChildCstkHead filtered by the CskhLabelFormat column
- * @method     ChildCstkHead findOneByCskhwhse(string $CskhWhse) Return the first ChildCstkHead filtered by the CskhWhse column
- * @method     ChildCstkHead findOneByCskhapproved(string $CskhApproved) Return the first ChildCstkHead filtered by the CskhApproved column
- * @method     ChildCstkHead findOneByCskhconsignbinwhse(string $CskhConsignBinWhse) Return the first ChildCstkHead filtered by the CskhConsignBinWhse column
- * @method     ChildCstkHead findOneByCskhconsignbincust(string $CskhConsignBinCust) Return the first ChildCstkHead filtered by the CskhConsignBinCust column
- * @method     ChildCstkHead findOneByDateupdtd(string $DateUpdtd) Return the first ChildCstkHead filtered by the DateUpdtd column
- * @method     ChildCstkHead findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCstkHead filtered by the TimeUpdtd column
- * @method     ChildCstkHead findOneByDummy(string $dummy) Return the first ChildCstkHead filtered by the dummy column *
-
- * @method     ChildCstkHead requirePk($key, ConnectionInterface $con = null) Return the ChildCstkHead by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCstkHead requireOne(ConnectionInterface $con = null) Return the first ChildCstkHead matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCstkHead requirePk($key, ?ConnectionInterface $con = null) Return the ChildCstkHead by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCstkHead requireOne(?ConnectionInterface $con = null) Return the first ChildCstkHead matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCstkHead requireOneByArcucustid(string $ArcuCustId) Return the first ChildCstkHead filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCstkHead requireOneByArstshipid(string $ArstShipId) Return the first ChildCstkHead filtered by the ArstShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -126,23 +115,40 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCstkHead requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCstkHead filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCstkHead requireOneByDummy(string $dummy) Return the first ChildCstkHead filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCstkHead[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCstkHead objects based on current ModelCriteria
- * @method     ChildCstkHead[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildCstkHead objects filtered by the ArcuCustId column
- * @method     ChildCstkHead[]|ObjectCollection findByArstshipid(string $ArstShipId) Return ChildCstkHead objects filtered by the ArstShipId column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhcell(string $CskhCell) Return ChildCstkHead objects filtered by the CskhCell column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhenterdate(string $CskhEnterDate) Return ChildCstkHead objects filtered by the CskhEnterDate column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhconsign(string $CskhConsign) Return ChildCstkHead objects filtered by the CskhConsign column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhreplcnt(string $CskhReplCnt) Return ChildCstkHead objects filtered by the CskhReplCnt column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhlabelformat(string $CskhLabelFormat) Return ChildCstkHead objects filtered by the CskhLabelFormat column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhwhse(string $CskhWhse) Return ChildCstkHead objects filtered by the CskhWhse column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhapproved(string $CskhApproved) Return ChildCstkHead objects filtered by the CskhApproved column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhconsignbinwhse(string $CskhConsignBinWhse) Return ChildCstkHead objects filtered by the CskhConsignBinWhse column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhconsignbincust(string $CskhConsignBinCust) Return ChildCstkHead objects filtered by the CskhConsignBinCust column
- * @method     ChildCstkHead[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCstkHead objects filtered by the DateUpdtd column
- * @method     ChildCstkHead[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCstkHead objects filtered by the TimeUpdtd column
- * @method     ChildCstkHead[]|ObjectCollection findByDummy(string $dummy) Return ChildCstkHead objects filtered by the dummy column
- * @method     ChildCstkHead[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCstkHead[]|Collection find(?ConnectionInterface $con = null) Return ChildCstkHead objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCstkHead> find(?ConnectionInterface $con = null) Return ChildCstkHead objects based on current ModelCriteria
  *
+ * @method     ChildCstkHead[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildCstkHead objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByArcucustid(string|array<string> $ArcuCustId) Return ChildCstkHead objects filtered by the ArcuCustId column
+ * @method     ChildCstkHead[]|Collection findByArstshipid(string|array<string> $ArstShipId) Return ChildCstkHead objects filtered by the ArstShipId column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByArstshipid(string|array<string> $ArstShipId) Return ChildCstkHead objects filtered by the ArstShipId column
+ * @method     ChildCstkHead[]|Collection findByCskhcell(string|array<string> $CskhCell) Return ChildCstkHead objects filtered by the CskhCell column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhcell(string|array<string> $CskhCell) Return ChildCstkHead objects filtered by the CskhCell column
+ * @method     ChildCstkHead[]|Collection findByCskhenterdate(string|array<string> $CskhEnterDate) Return ChildCstkHead objects filtered by the CskhEnterDate column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhenterdate(string|array<string> $CskhEnterDate) Return ChildCstkHead objects filtered by the CskhEnterDate column
+ * @method     ChildCstkHead[]|Collection findByCskhconsign(string|array<string> $CskhConsign) Return ChildCstkHead objects filtered by the CskhConsign column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhconsign(string|array<string> $CskhConsign) Return ChildCstkHead objects filtered by the CskhConsign column
+ * @method     ChildCstkHead[]|Collection findByCskhreplcnt(string|array<string> $CskhReplCnt) Return ChildCstkHead objects filtered by the CskhReplCnt column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhreplcnt(string|array<string> $CskhReplCnt) Return ChildCstkHead objects filtered by the CskhReplCnt column
+ * @method     ChildCstkHead[]|Collection findByCskhlabelformat(string|array<string> $CskhLabelFormat) Return ChildCstkHead objects filtered by the CskhLabelFormat column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhlabelformat(string|array<string> $CskhLabelFormat) Return ChildCstkHead objects filtered by the CskhLabelFormat column
+ * @method     ChildCstkHead[]|Collection findByCskhwhse(string|array<string> $CskhWhse) Return ChildCstkHead objects filtered by the CskhWhse column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhwhse(string|array<string> $CskhWhse) Return ChildCstkHead objects filtered by the CskhWhse column
+ * @method     ChildCstkHead[]|Collection findByCskhapproved(string|array<string> $CskhApproved) Return ChildCstkHead objects filtered by the CskhApproved column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhapproved(string|array<string> $CskhApproved) Return ChildCstkHead objects filtered by the CskhApproved column
+ * @method     ChildCstkHead[]|Collection findByCskhconsignbinwhse(string|array<string> $CskhConsignBinWhse) Return ChildCstkHead objects filtered by the CskhConsignBinWhse column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhconsignbinwhse(string|array<string> $CskhConsignBinWhse) Return ChildCstkHead objects filtered by the CskhConsignBinWhse column
+ * @method     ChildCstkHead[]|Collection findByCskhconsignbincust(string|array<string> $CskhConsignBinCust) Return ChildCstkHead objects filtered by the CskhConsignBinCust column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByCskhconsignbincust(string|array<string> $CskhConsignBinCust) Return ChildCstkHead objects filtered by the CskhConsignBinCust column
+ * @method     ChildCstkHead[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCstkHead objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCstkHead objects filtered by the DateUpdtd column
+ * @method     ChildCstkHead[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCstkHead objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCstkHead objects filtered by the TimeUpdtd column
+ * @method     ChildCstkHead[]|Collection findByDummy(string|array<string> $dummy) Return ChildCstkHead objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCstkHead> findByDummy(string|array<string> $dummy) Return ChildCstkHead objects filtered by the dummy column
+ *
+ * @method     ChildCstkHead[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCstkHead> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CstkHeadQuery extends ModelCriteria
 {
@@ -151,9 +157,9 @@ abstract class CstkHeadQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CstkHeadQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\CstkHead', $modelAlias = null)
     {
@@ -163,12 +169,12 @@ abstract class CstkHeadQuery extends ModelCriteria
     /**
      * Returns a new ChildCstkHeadQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCstkHeadQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCstkHeadQuery) {
             return $criteria;
@@ -198,7 +204,7 @@ abstract class CstkHeadQuery extends ModelCriteria
      *
      * @return ChildCstkHead|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -230,8 +236,8 @@ abstract class CstkHeadQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -265,8 +271,8 @@ abstract class CstkHeadQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCstkHead|array|mixed the result, formatted by the current formatter
      */
@@ -286,12 +292,12 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -308,9 +314,9 @@ abstract class CstkHeadQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -324,14 +330,16 @@ abstract class CstkHeadQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CstkHeadTableMap::COL_ARCUCUSTID, $key[0], Criteria::EQUAL);
@@ -352,14 +360,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -367,7 +376,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -377,14 +388,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArstshipid('fooValue');   // WHERE ArstShipId = 'fooValue'
      * $query->filterByArstshipid('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
+     * $query->filterByArstshipid(['foo', 'bar']); // WHERE ArstShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstshipid($arstshipid = null, $comparison = null)
+    public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstshipid)) {
@@ -392,7 +404,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -402,14 +416,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhcell('fooValue');   // WHERE CskhCell = 'fooValue'
      * $query->filterByCskhcell('%fooValue%', Criteria::LIKE); // WHERE CskhCell LIKE '%fooValue%'
+     * $query->filterByCskhcell(['foo', 'bar']); // WHERE CskhCell IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhcell The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhcell The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhcell($cskhcell = null, $comparison = null)
+    public function filterByCskhcell($cskhcell = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhcell)) {
@@ -417,7 +432,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCELL, $cskhcell, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCELL, $cskhcell, $comparison);
+
+        return $this;
     }
 
     /**
@@ -427,14 +444,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhenterdate('fooValue');   // WHERE CskhEnterDate = 'fooValue'
      * $query->filterByCskhenterdate('%fooValue%', Criteria::LIKE); // WHERE CskhEnterDate LIKE '%fooValue%'
+     * $query->filterByCskhenterdate(['foo', 'bar']); // WHERE CskhEnterDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhenterdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhenterdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhenterdate($cskhenterdate = null, $comparison = null)
+    public function filterByCskhenterdate($cskhenterdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhenterdate)) {
@@ -442,7 +460,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHENTERDATE, $cskhenterdate, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHENTERDATE, $cskhenterdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -452,14 +472,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhconsign('fooValue');   // WHERE CskhConsign = 'fooValue'
      * $query->filterByCskhconsign('%fooValue%', Criteria::LIKE); // WHERE CskhConsign LIKE '%fooValue%'
+     * $query->filterByCskhconsign(['foo', 'bar']); // WHERE CskhConsign IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhconsign The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhconsign The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhconsign($cskhconsign = null, $comparison = null)
+    public function filterByCskhconsign($cskhconsign = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhconsign)) {
@@ -467,7 +488,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGN, $cskhconsign, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGN, $cskhconsign, $comparison);
+
+        return $this;
     }
 
     /**
@@ -477,14 +500,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhreplcnt('fooValue');   // WHERE CskhReplCnt = 'fooValue'
      * $query->filterByCskhreplcnt('%fooValue%', Criteria::LIKE); // WHERE CskhReplCnt LIKE '%fooValue%'
+     * $query->filterByCskhreplcnt(['foo', 'bar']); // WHERE CskhReplCnt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhreplcnt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhreplcnt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhreplcnt($cskhreplcnt = null, $comparison = null)
+    public function filterByCskhreplcnt($cskhreplcnt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhreplcnt)) {
@@ -492,7 +516,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHREPLCNT, $cskhreplcnt, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHREPLCNT, $cskhreplcnt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -502,14 +528,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhlabelformat('fooValue');   // WHERE CskhLabelFormat = 'fooValue'
      * $query->filterByCskhlabelformat('%fooValue%', Criteria::LIKE); // WHERE CskhLabelFormat LIKE '%fooValue%'
+     * $query->filterByCskhlabelformat(['foo', 'bar']); // WHERE CskhLabelFormat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhlabelformat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhlabelformat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhlabelformat($cskhlabelformat = null, $comparison = null)
+    public function filterByCskhlabelformat($cskhlabelformat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhlabelformat)) {
@@ -517,7 +544,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHLABELFORMAT, $cskhlabelformat, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHLABELFORMAT, $cskhlabelformat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -527,14 +556,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhwhse('fooValue');   // WHERE CskhWhse = 'fooValue'
      * $query->filterByCskhwhse('%fooValue%', Criteria::LIKE); // WHERE CskhWhse LIKE '%fooValue%'
+     * $query->filterByCskhwhse(['foo', 'bar']); // WHERE CskhWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhwhse($cskhwhse = null, $comparison = null)
+    public function filterByCskhwhse($cskhwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhwhse)) {
@@ -542,7 +572,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHWHSE, $cskhwhse, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHWHSE, $cskhwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -552,14 +584,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhapproved('fooValue');   // WHERE CskhApproved = 'fooValue'
      * $query->filterByCskhapproved('%fooValue%', Criteria::LIKE); // WHERE CskhApproved LIKE '%fooValue%'
+     * $query->filterByCskhapproved(['foo', 'bar']); // WHERE CskhApproved IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhapproved The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhapproved The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhapproved($cskhapproved = null, $comparison = null)
+    public function filterByCskhapproved($cskhapproved = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhapproved)) {
@@ -567,7 +600,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHAPPROVED, $cskhapproved, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHAPPROVED, $cskhapproved, $comparison);
+
+        return $this;
     }
 
     /**
@@ -577,14 +612,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhconsignbinwhse('fooValue');   // WHERE CskhConsignBinWhse = 'fooValue'
      * $query->filterByCskhconsignbinwhse('%fooValue%', Criteria::LIKE); // WHERE CskhConsignBinWhse LIKE '%fooValue%'
+     * $query->filterByCskhconsignbinwhse(['foo', 'bar']); // WHERE CskhConsignBinWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhconsignbinwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhconsignbinwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhconsignbinwhse($cskhconsignbinwhse = null, $comparison = null)
+    public function filterByCskhconsignbinwhse($cskhconsignbinwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhconsignbinwhse)) {
@@ -592,7 +628,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE, $cskhconsignbinwhse, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE, $cskhconsignbinwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -602,14 +640,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByCskhconsignbincust('fooValue');   // WHERE CskhConsignBinCust = 'fooValue'
      * $query->filterByCskhconsignbincust('%fooValue%', Criteria::LIKE); // WHERE CskhConsignBinCust LIKE '%fooValue%'
+     * $query->filterByCskhconsignbincust(['foo', 'bar']); // WHERE CskhConsignBinCust IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cskhconsignbincust The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cskhconsignbincust The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCskhconsignbincust($cskhconsignbincust = null, $comparison = null)
+    public function filterByCskhconsignbincust($cskhconsignbincust = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cskhconsignbincust)) {
@@ -617,7 +656,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, $cskhconsignbincust, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, $cskhconsignbincust, $comparison);
+
+        return $this;
     }
 
     /**
@@ -627,14 +668,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -642,7 +684,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -652,14 +696,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -667,7 +712,9 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -677,14 +724,15 @@ abstract class CstkHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -692,20 +740,22 @@ abstract class CstkHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CstkHeadTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CstkHeadTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -715,8 +765,10 @@ abstract class CstkHeadQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(CstkHeadTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -725,12 +777,12 @@ abstract class CstkHeadQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -759,9 +811,9 @@ abstract class CstkHeadQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -773,16 +825,112 @@ abstract class CstkHeadQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \CustomerShipto object
      *
      * @param \CustomerShipto $customerShipto The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomerShipto($customerShipto, $comparison = null)
+    public function filterByCustomerShipto($customerShipto, ?string $comparison = null)
     {
         if ($customerShipto instanceof \CustomerShipto) {
             return $this
@@ -796,12 +944,12 @@ abstract class CstkHeadQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the CustomerShipto relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomerShipto($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomerShipto(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('CustomerShipto');
@@ -830,9 +978,9 @@ abstract class CstkHeadQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerShiptoQuery A secondary query class using the current class as primary query
      */
@@ -844,81 +992,107 @@ abstract class CstkHeadQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \CstkItem object
+     * Use the CustomerShipto relation CustomerShipto object
      *
-     * @param \CstkItem|ObjectCollection $cstkItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param callable(\CustomerShiptoQuery):\CustomerShiptoQuery $callable A function working on the related query
      *
-     * @return ChildCstkHeadQuery The current query, for fluid interface
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
      */
-    public function filterByCstkItem($cstkItem, $comparison = null)
-    {
-        if ($cstkItem instanceof \CstkItem) {
-            return $this
-                ->addUsingAlias(CstkHeadTableMap::COL_ARCUCUSTID, $cstkItem->getArcucustid(), $comparison)
-                ->addUsingAlias(CstkHeadTableMap::COL_ARSTSHIPID, $cstkItem->getArstshipid(), $comparison)
-                ->addUsingAlias(CstkHeadTableMap::COL_CSKHCELL, $cstkItem->getCskhcell(), $comparison);
-        } else {
-            throw new PropelException('filterByCstkItem() only accepts arguments of type \CstkItem');
-        }
-    }
-
-    /**
-     * Adds a JOIN clause to the query using the CstkItem relation
-     *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
-     *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
-     */
-    public function joinCstkItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
-    {
-        $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('CstkItem');
-
-        // create a ModelJoin object for this join
-        $join = new ModelJoin();
-        $join->setJoinType($joinType);
-        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
-            $join->setPreviousJoin($previousJoin);
-        }
-
-        // add the ModelJoin to the current object
-        if ($relationAlias) {
-            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
-            $this->addJoinObject($join, $relationAlias);
-        } else {
-            $this->addJoinObject($join, 'CstkItem');
-        }
+    public function withCustomerShiptoQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerShiptoQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
 
         return $this;
     }
 
     /**
-     * Use the CstkItem relation CstkItem object
+     * Use the relation to CustomerShipto table for an EXISTS query.
      *
-     * @see useQuery()
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
-     *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
      *
-     * @return \CstkItemQuery A secondary query class using the current class as primary query
+     * @return \CustomerShiptoQuery The inner query object of the EXISTS statement
      */
-    public function useCstkItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useCustomerShiptoExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
     {
-        return $this
-            ->joinCstkItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CstkItem', '\CstkItemQuery');
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useExistsQuery('CustomerShipto', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for a NOT EXISTS query.
+     *
+     * @see useCustomerShiptoExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerShiptoQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerShiptoNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useExistsQuery('CustomerShipto', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerShiptoQuery The inner query object of the IN statement
+     */
+    public function useInCustomerShiptoQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useInQuery('CustomerShipto', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for a NOT IN query.
+     *
+     * @see useCustomerShiptoInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerShiptoQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerShiptoQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useInQuery('CustomerShipto', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCstkHead $cstkHead Object to remove from the list of results
+     * @param ChildCstkHead $cstkHead Object to remove from the list of results
      *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($cstkHead = null)
     {
@@ -938,7 +1112,7 @@ abstract class CstkHeadQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CstkHeadTableMap::DATABASE_NAME);
@@ -963,12 +1137,12 @@ abstract class CstkHeadQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CstkHeadTableMap::DATABASE_NAME);
@@ -993,4 +1167,4 @@ abstract class CstkHeadQuery extends ModelCriteria
         });
     }
 
-} // CstkHeadQuery
+}

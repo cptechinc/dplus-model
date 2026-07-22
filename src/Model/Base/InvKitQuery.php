@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_kit_head' table.
- *
- *
+ * Base class that represents a query for the `inv_kit_head` table.
  *
  * @method     ChildInvKitQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildInvKitQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
@@ -60,29 +59,36 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery|\InvKitComponentQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvKit findOne(ConnectionInterface $con = null) Return the first ChildInvKit matching the query
- * @method     ChildInvKit findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvKit matching the query, or a new ChildInvKit object populated from the query conditions when no match is found
+ * @method     ChildInvKit|null findOne(?ConnectionInterface $con = null) Return the first ChildInvKit matching the query
+ * @method     ChildInvKit findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvKit matching the query, or a new ChildInvKit object populated from the query conditions when no match is found
  *
- * @method     ChildInvKit findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvKit filtered by the InitItemNbr column
- * @method     ChildInvKit findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvKit filtered by the DateUpdtd column
- * @method     ChildInvKit findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvKit filtered by the TimeUpdtd column
- * @method     ChildInvKit findOneByDummy(string $dummy) Return the first ChildInvKit filtered by the dummy column *
-
- * @method     ChildInvKit requirePk($key, ConnectionInterface $con = null) Return the ChildInvKit by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvKit requireOne(ConnectionInterface $con = null) Return the first ChildInvKit matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvKit|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvKit filtered by the InitItemNbr column
+ * @method     ChildInvKit|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvKit filtered by the DateUpdtd column
+ * @method     ChildInvKit|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvKit filtered by the TimeUpdtd column
+ * @method     ChildInvKit|null findOneByDummy(string $dummy) Return the first ChildInvKit filtered by the dummy column
+ *
+ * @method     ChildInvKit requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvKit by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvKit requireOne(?ConnectionInterface $con = null) Return the first ChildInvKit matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvKit requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvKit filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvKit requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvKit filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvKit requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvKit filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvKit requireOneByDummy(string $dummy) Return the first ChildInvKit filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvKit[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvKit objects based on current ModelCriteria
- * @method     ChildInvKit[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvKit objects filtered by the InitItemNbr column
- * @method     ChildInvKit[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvKit objects filtered by the DateUpdtd column
- * @method     ChildInvKit[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvKit objects filtered by the TimeUpdtd column
- * @method     ChildInvKit[]|ObjectCollection findByDummy(string $dummy) Return ChildInvKit objects filtered by the dummy column
- * @method     ChildInvKit[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvKit[]|Collection find(?ConnectionInterface $con = null) Return ChildInvKit objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvKit> find(?ConnectionInterface $con = null) Return ChildInvKit objects based on current ModelCriteria
  *
+ * @method     ChildInvKit[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvKit objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvKit> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvKit objects filtered by the InitItemNbr column
+ * @method     ChildInvKit[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvKit objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvKit> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvKit objects filtered by the DateUpdtd column
+ * @method     ChildInvKit[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvKit objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvKit> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvKit objects filtered by the TimeUpdtd column
+ * @method     ChildInvKit[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvKit objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvKit> findByDummy(string|array<string> $dummy) Return ChildInvKit objects filtered by the dummy column
+ *
+ * @method     ChildInvKit[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvKit> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvKitQuery extends ModelCriteria
 {
@@ -91,9 +97,9 @@ abstract class InvKitQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvKitQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvKit', $modelAlias = null)
     {
@@ -103,12 +109,12 @@ abstract class InvKitQuery extends ModelCriteria
     /**
      * Returns a new ChildInvKitQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvKitQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvKitQuery) {
             return $criteria;
@@ -138,7 +144,7 @@ abstract class InvKitQuery extends ModelCriteria
      *
      * @return ChildInvKit|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -170,8 +176,8 @@ abstract class InvKitQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -203,8 +209,8 @@ abstract class InvKitQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvKit|array|mixed the result, formatted by the current formatter
      */
@@ -224,12 +230,12 @@ abstract class InvKitQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -246,27 +252,31 @@ abstract class InvKitQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(InvKitTableMap::COL_INITITEMNBR, $key, Criteria::EQUAL);
+        $this->addUsingAlias(InvKitTableMap::COL_INITITEMNBR, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(InvKitTableMap::COL_INITITEMNBR, $keys, Criteria::IN);
+        $this->addUsingAlias(InvKitTableMap::COL_INITITEMNBR, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -276,14 +286,15 @@ abstract class InvKitQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -291,7 +302,9 @@ abstract class InvKitQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvKitTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvKitTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -301,14 +314,15 @@ abstract class InvKitQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -316,7 +330,9 @@ abstract class InvKitQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvKitTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvKitTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -326,14 +342,15 @@ abstract class InvKitQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -341,7 +358,9 @@ abstract class InvKitQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvKitTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvKitTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -351,14 +370,15 @@ abstract class InvKitQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -366,20 +386,22 @@ abstract class InvKitQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvKitTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvKitTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -389,8 +411,10 @@ abstract class InvKitQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvKitTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -399,12 +423,12 @@ abstract class InvKitQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -433,9 +457,9 @@ abstract class InvKitQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -447,23 +471,123 @@ abstract class InvKitQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvKitComponent object
      *
      * @param \InvKitComponent|ObjectCollection $invKitComponent the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvKitComponent($invKitComponent, $comparison = null)
+    public function filterByInvKitComponent($invKitComponent, ?string $comparison = null)
     {
         if ($invKitComponent instanceof \InvKitComponent) {
-            return $this
+            $this
                 ->addUsingAlias(InvKitTableMap::COL_INITITEMNBR, $invKitComponent->getKtdtkey1(), $comparison);
+
+            return $this;
         } elseif ($invKitComponent instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvKitComponentQuery()
                 ->filterByPrimaryKeys($invKitComponent->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvKitComponent() only accepts arguments of type \InvKitComponent or Collection');
         }
@@ -472,12 +596,12 @@ abstract class InvKitQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvKitComponent relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvKitComponent($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvKitComponent(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvKitComponent');
@@ -506,9 +630,9 @@ abstract class InvKitQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvKitComponentQuery A secondary query class using the current class as primary query
      */
@@ -520,11 +644,107 @@ abstract class InvKitQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvKitComponent relation InvKitComponent object
+     *
+     * @param callable(\InvKitComponentQuery):\InvKitComponentQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvKitComponentQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvKitComponentQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvKitComponent table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvKitComponentQuery The inner query object of the EXISTS statement
+     */
+    public function useInvKitComponentExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvKitComponentQuery */
+        $q = $this->useExistsQuery('InvKitComponent', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKitComponent table for a NOT EXISTS query.
+     *
+     * @see useInvKitComponentExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvKitComponentQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvKitComponentNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvKitComponentQuery */
+        $q = $this->useExistsQuery('InvKitComponent', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKitComponent table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvKitComponentQuery The inner query object of the IN statement
+     */
+    public function useInInvKitComponentQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvKitComponentQuery */
+        $q = $this->useInQuery('InvKitComponent', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKitComponent table for a NOT IN query.
+     *
+     * @see useInvKitComponentInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvKitComponentQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvKitComponentQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvKitComponentQuery */
+        $q = $this->useInQuery('InvKitComponent', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvKit $invKit Object to remove from the list of results
+     * @param ChildInvKit $invKit Object to remove from the list of results
      *
-     * @return $this|ChildInvKitQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invKit = null)
     {
@@ -541,7 +761,7 @@ abstract class InvKitQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvKitTableMap::DATABASE_NAME);
@@ -566,12 +786,12 @@ abstract class InvKitQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvKitTableMap::DATABASE_NAME);
@@ -596,4 +816,4 @@ abstract class InvKitQuery extends ModelCriteria
         });
     }
 
-} // InvKitQuery
+}

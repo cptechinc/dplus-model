@@ -10,14 +10,12 @@ use Map\ThermalLabelFormatTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'thermal_label_head' table.
- *
- *
+ * Base class that represents a query for the `thermal_label_head` table.
  *
  * @method     ChildThermalLabelFormatQuery orderByTllhformat($order = Criteria::ASC) Order by the TllhFormat column
  * @method     ChildThermalLabelFormatQuery orderByTllhdesc($order = Criteria::ASC) Order by the TllhDesc column
@@ -55,25 +53,25 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildThermalLabelFormatQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildThermalLabelFormatQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildThermalLabelFormat findOne(ConnectionInterface $con = null) Return the first ChildThermalLabelFormat matching the query
- * @method     ChildThermalLabelFormat findOneOrCreate(ConnectionInterface $con = null) Return the first ChildThermalLabelFormat matching the query, or a new ChildThermalLabelFormat object populated from the query conditions when no match is found
+ * @method     ChildThermalLabelFormat|null findOne(?ConnectionInterface $con = null) Return the first ChildThermalLabelFormat matching the query
+ * @method     ChildThermalLabelFormat findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildThermalLabelFormat matching the query, or a new ChildThermalLabelFormat object populated from the query conditions when no match is found
  *
- * @method     ChildThermalLabelFormat findOneByTllhformat(string $TllhFormat) Return the first ChildThermalLabelFormat filtered by the TllhFormat column
- * @method     ChildThermalLabelFormat findOneByTllhdesc(string $TllhDesc) Return the first ChildThermalLabelFormat filtered by the TllhDesc column
- * @method     ChildThermalLabelFormat findOneByTllhsrc(string $TllhSrc) Return the first ChildThermalLabelFormat filtered by the TllhSrc column
- * @method     ChildThermalLabelFormat findOneByTllhprtrmodl(string $TllhPrtrModl) Return the first ChildThermalLabelFormat filtered by the TllhPrtrModl column
- * @method     ChildThermalLabelFormat findOneByTllhprtrsplr(string $TllhPrtrSplr) Return the first ChildThermalLabelFormat filtered by the TllhPrtrSplr column
- * @method     ChildThermalLabelFormat findOneByTllhwidth(string $TllhWidth) Return the first ChildThermalLabelFormat filtered by the TllhWidth column
- * @method     ChildThermalLabelFormat findOneByTllhlength(string $TllhLength) Return the first ChildThermalLabelFormat filtered by the TllhLength column
- * @method     ChildThermalLabelFormat findOneByTllhlock(string $TllhLock) Return the first ChildThermalLabelFormat filtered by the TllhLock column
- * @method     ChildThermalLabelFormat findOneByTllhsortby(int $TllhSortBy) Return the first ChildThermalLabelFormat filtered by the TllhSortBy column
- * @method     ChildThermalLabelFormat findOneByTllhtype(string $TllhType) Return the first ChildThermalLabelFormat filtered by the TllhType column
- * @method     ChildThermalLabelFormat findOneByDateupdtd(string $DateUpdtd) Return the first ChildThermalLabelFormat filtered by the DateUpdtd column
- * @method     ChildThermalLabelFormat findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildThermalLabelFormat filtered by the TimeUpdtd column
- * @method     ChildThermalLabelFormat findOneByDummy(string $dummy) Return the first ChildThermalLabelFormat filtered by the dummy column *
-
- * @method     ChildThermalLabelFormat requirePk($key, ConnectionInterface $con = null) Return the ChildThermalLabelFormat by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildThermalLabelFormat requireOne(ConnectionInterface $con = null) Return the first ChildThermalLabelFormat matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildThermalLabelFormat|null findOneByTllhformat(string $TllhFormat) Return the first ChildThermalLabelFormat filtered by the TllhFormat column
+ * @method     ChildThermalLabelFormat|null findOneByTllhdesc(string $TllhDesc) Return the first ChildThermalLabelFormat filtered by the TllhDesc column
+ * @method     ChildThermalLabelFormat|null findOneByTllhsrc(string $TllhSrc) Return the first ChildThermalLabelFormat filtered by the TllhSrc column
+ * @method     ChildThermalLabelFormat|null findOneByTllhprtrmodl(string $TllhPrtrModl) Return the first ChildThermalLabelFormat filtered by the TllhPrtrModl column
+ * @method     ChildThermalLabelFormat|null findOneByTllhprtrsplr(string $TllhPrtrSplr) Return the first ChildThermalLabelFormat filtered by the TllhPrtrSplr column
+ * @method     ChildThermalLabelFormat|null findOneByTllhwidth(string $TllhWidth) Return the first ChildThermalLabelFormat filtered by the TllhWidth column
+ * @method     ChildThermalLabelFormat|null findOneByTllhlength(string $TllhLength) Return the first ChildThermalLabelFormat filtered by the TllhLength column
+ * @method     ChildThermalLabelFormat|null findOneByTllhlock(string $TllhLock) Return the first ChildThermalLabelFormat filtered by the TllhLock column
+ * @method     ChildThermalLabelFormat|null findOneByTllhsortby(int $TllhSortBy) Return the first ChildThermalLabelFormat filtered by the TllhSortBy column
+ * @method     ChildThermalLabelFormat|null findOneByTllhtype(string $TllhType) Return the first ChildThermalLabelFormat filtered by the TllhType column
+ * @method     ChildThermalLabelFormat|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildThermalLabelFormat filtered by the DateUpdtd column
+ * @method     ChildThermalLabelFormat|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildThermalLabelFormat filtered by the TimeUpdtd column
+ * @method     ChildThermalLabelFormat|null findOneByDummy(string $dummy) Return the first ChildThermalLabelFormat filtered by the dummy column
+ *
+ * @method     ChildThermalLabelFormat requirePk($key, ?ConnectionInterface $con = null) Return the ChildThermalLabelFormat by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildThermalLabelFormat requireOne(?ConnectionInterface $con = null) Return the first ChildThermalLabelFormat matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildThermalLabelFormat requireOneByTllhformat(string $TllhFormat) Return the first ChildThermalLabelFormat filtered by the TllhFormat column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildThermalLabelFormat requireOneByTllhdesc(string $TllhDesc) Return the first ChildThermalLabelFormat filtered by the TllhDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -89,22 +87,38 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildThermalLabelFormat requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildThermalLabelFormat filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildThermalLabelFormat requireOneByDummy(string $dummy) Return the first ChildThermalLabelFormat filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildThermalLabelFormat[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildThermalLabelFormat objects based on current ModelCriteria
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhformat(string $TllhFormat) Return ChildThermalLabelFormat objects filtered by the TllhFormat column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhdesc(string $TllhDesc) Return ChildThermalLabelFormat objects filtered by the TllhDesc column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhsrc(string $TllhSrc) Return ChildThermalLabelFormat objects filtered by the TllhSrc column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhprtrmodl(string $TllhPrtrModl) Return ChildThermalLabelFormat objects filtered by the TllhPrtrModl column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhprtrsplr(string $TllhPrtrSplr) Return ChildThermalLabelFormat objects filtered by the TllhPrtrSplr column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhwidth(string $TllhWidth) Return ChildThermalLabelFormat objects filtered by the TllhWidth column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhlength(string $TllhLength) Return ChildThermalLabelFormat objects filtered by the TllhLength column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhlock(string $TllhLock) Return ChildThermalLabelFormat objects filtered by the TllhLock column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhsortby(int $TllhSortBy) Return ChildThermalLabelFormat objects filtered by the TllhSortBy column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTllhtype(string $TllhType) Return ChildThermalLabelFormat objects filtered by the TllhType column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildThermalLabelFormat objects filtered by the DateUpdtd column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildThermalLabelFormat objects filtered by the TimeUpdtd column
- * @method     ChildThermalLabelFormat[]|ObjectCollection findByDummy(string $dummy) Return ChildThermalLabelFormat objects filtered by the dummy column
- * @method     ChildThermalLabelFormat[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildThermalLabelFormat[]|Collection find(?ConnectionInterface $con = null) Return ChildThermalLabelFormat objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> find(?ConnectionInterface $con = null) Return ChildThermalLabelFormat objects based on current ModelCriteria
  *
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhformat(string|array<string> $TllhFormat) Return ChildThermalLabelFormat objects filtered by the TllhFormat column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhformat(string|array<string> $TllhFormat) Return ChildThermalLabelFormat objects filtered by the TllhFormat column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhdesc(string|array<string> $TllhDesc) Return ChildThermalLabelFormat objects filtered by the TllhDesc column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhdesc(string|array<string> $TllhDesc) Return ChildThermalLabelFormat objects filtered by the TllhDesc column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhsrc(string|array<string> $TllhSrc) Return ChildThermalLabelFormat objects filtered by the TllhSrc column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhsrc(string|array<string> $TllhSrc) Return ChildThermalLabelFormat objects filtered by the TllhSrc column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhprtrmodl(string|array<string> $TllhPrtrModl) Return ChildThermalLabelFormat objects filtered by the TllhPrtrModl column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhprtrmodl(string|array<string> $TllhPrtrModl) Return ChildThermalLabelFormat objects filtered by the TllhPrtrModl column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhprtrsplr(string|array<string> $TllhPrtrSplr) Return ChildThermalLabelFormat objects filtered by the TllhPrtrSplr column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhprtrsplr(string|array<string> $TllhPrtrSplr) Return ChildThermalLabelFormat objects filtered by the TllhPrtrSplr column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhwidth(string|array<string> $TllhWidth) Return ChildThermalLabelFormat objects filtered by the TllhWidth column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhwidth(string|array<string> $TllhWidth) Return ChildThermalLabelFormat objects filtered by the TllhWidth column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhlength(string|array<string> $TllhLength) Return ChildThermalLabelFormat objects filtered by the TllhLength column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhlength(string|array<string> $TllhLength) Return ChildThermalLabelFormat objects filtered by the TllhLength column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhlock(string|array<string> $TllhLock) Return ChildThermalLabelFormat objects filtered by the TllhLock column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhlock(string|array<string> $TllhLock) Return ChildThermalLabelFormat objects filtered by the TllhLock column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhsortby(int|array<int> $TllhSortBy) Return ChildThermalLabelFormat objects filtered by the TllhSortBy column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhsortby(int|array<int> $TllhSortBy) Return ChildThermalLabelFormat objects filtered by the TllhSortBy column
+ * @method     ChildThermalLabelFormat[]|Collection findByTllhtype(string|array<string> $TllhType) Return ChildThermalLabelFormat objects filtered by the TllhType column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTllhtype(string|array<string> $TllhType) Return ChildThermalLabelFormat objects filtered by the TllhType column
+ * @method     ChildThermalLabelFormat[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildThermalLabelFormat objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildThermalLabelFormat objects filtered by the DateUpdtd column
+ * @method     ChildThermalLabelFormat[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildThermalLabelFormat objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildThermalLabelFormat objects filtered by the TimeUpdtd column
+ * @method     ChildThermalLabelFormat[]|Collection findByDummy(string|array<string> $dummy) Return ChildThermalLabelFormat objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildThermalLabelFormat> findByDummy(string|array<string> $dummy) Return ChildThermalLabelFormat objects filtered by the dummy column
+ *
+ * @method     ChildThermalLabelFormat[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildThermalLabelFormat> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ThermalLabelFormatQuery extends ModelCriteria
 {
@@ -113,9 +127,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ThermalLabelFormatQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ThermalLabelFormat', $modelAlias = null)
     {
@@ -125,12 +139,12 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
     /**
      * Returns a new ChildThermalLabelFormatQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildThermalLabelFormatQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildThermalLabelFormatQuery) {
             return $criteria;
@@ -160,7 +174,7 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      *
      * @return ChildThermalLabelFormat|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -192,8 +206,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -225,8 +239,8 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildThermalLabelFormat|array|mixed the result, formatted by the current formatter
      */
@@ -246,12 +260,12 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -268,27 +282,31 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHFORMAT, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHFORMAT, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHFORMAT, $keys, Criteria::IN);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHFORMAT, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -298,14 +316,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByTllhformat('fooValue');   // WHERE TllhFormat = 'fooValue'
      * $query->filterByTllhformat('%fooValue%', Criteria::LIKE); // WHERE TllhFormat LIKE '%fooValue%'
+     * $query->filterByTllhformat(['foo', 'bar']); // WHERE TllhFormat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tllhformat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tllhformat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhformat($tllhformat = null, $comparison = null)
+    public function filterByTllhformat($tllhformat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tllhformat)) {
@@ -313,7 +332,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHFORMAT, $tllhformat, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHFORMAT, $tllhformat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -323,14 +344,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByTllhdesc('fooValue');   // WHERE TllhDesc = 'fooValue'
      * $query->filterByTllhdesc('%fooValue%', Criteria::LIKE); // WHERE TllhDesc LIKE '%fooValue%'
+     * $query->filterByTllhdesc(['foo', 'bar']); // WHERE TllhDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tllhdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tllhdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhdesc($tllhdesc = null, $comparison = null)
+    public function filterByTllhdesc($tllhdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tllhdesc)) {
@@ -338,7 +360,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHDESC, $tllhdesc, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHDESC, $tllhdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -348,14 +372,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByTllhsrc('fooValue');   // WHERE TllhSrc = 'fooValue'
      * $query->filterByTllhsrc('%fooValue%', Criteria::LIKE); // WHERE TllhSrc LIKE '%fooValue%'
+     * $query->filterByTllhsrc(['foo', 'bar']); // WHERE TllhSrc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tllhsrc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tllhsrc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhsrc($tllhsrc = null, $comparison = null)
+    public function filterByTllhsrc($tllhsrc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tllhsrc)) {
@@ -363,7 +388,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHSRC, $tllhsrc, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHSRC, $tllhsrc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -373,14 +400,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByTllhprtrmodl('fooValue');   // WHERE TllhPrtrModl = 'fooValue'
      * $query->filterByTllhprtrmodl('%fooValue%', Criteria::LIKE); // WHERE TllhPrtrModl LIKE '%fooValue%'
+     * $query->filterByTllhprtrmodl(['foo', 'bar']); // WHERE TllhPrtrModl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tllhprtrmodl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tllhprtrmodl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhprtrmodl($tllhprtrmodl = null, $comparison = null)
+    public function filterByTllhprtrmodl($tllhprtrmodl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tllhprtrmodl)) {
@@ -388,7 +416,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHPRTRMODL, $tllhprtrmodl, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHPRTRMODL, $tllhprtrmodl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -398,14 +428,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByTllhprtrsplr('fooValue');   // WHERE TllhPrtrSplr = 'fooValue'
      * $query->filterByTllhprtrsplr('%fooValue%', Criteria::LIKE); // WHERE TllhPrtrSplr LIKE '%fooValue%'
+     * $query->filterByTllhprtrsplr(['foo', 'bar']); // WHERE TllhPrtrSplr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tllhprtrsplr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tllhprtrsplr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhprtrsplr($tllhprtrsplr = null, $comparison = null)
+    public function filterByTllhprtrsplr($tllhprtrsplr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tllhprtrsplr)) {
@@ -413,7 +444,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHPRTRSPLR, $tllhprtrsplr, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHPRTRSPLR, $tllhprtrsplr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -426,15 +459,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * $query->filterByTllhwidth(array('min' => 12)); // WHERE TllhWidth > 12
      * </code>
      *
-     * @param     mixed $tllhwidth The value to use as filter.
+     * @param mixed $tllhwidth The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhwidth($tllhwidth = null, $comparison = null)
+    public function filterByTllhwidth($tllhwidth = null, ?string $comparison = null)
     {
         if (is_array($tllhwidth)) {
             $useMinMax = false;
@@ -454,7 +487,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHWIDTH, $tllhwidth, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHWIDTH, $tllhwidth, $comparison);
+
+        return $this;
     }
 
     /**
@@ -467,15 +502,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * $query->filterByTllhlength(array('min' => 12)); // WHERE TllhLength > 12
      * </code>
      *
-     * @param     mixed $tllhlength The value to use as filter.
+     * @param mixed $tllhlength The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhlength($tllhlength = null, $comparison = null)
+    public function filterByTllhlength($tllhlength = null, ?string $comparison = null)
     {
         if (is_array($tllhlength)) {
             $useMinMax = false;
@@ -495,7 +530,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHLENGTH, $tllhlength, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHLENGTH, $tllhlength, $comparison);
+
+        return $this;
     }
 
     /**
@@ -505,14 +542,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByTllhlock('fooValue');   // WHERE TllhLock = 'fooValue'
      * $query->filterByTllhlock('%fooValue%', Criteria::LIKE); // WHERE TllhLock LIKE '%fooValue%'
+     * $query->filterByTllhlock(['foo', 'bar']); // WHERE TllhLock IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tllhlock The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tllhlock The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhlock($tllhlock = null, $comparison = null)
+    public function filterByTllhlock($tllhlock = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tllhlock)) {
@@ -520,7 +558,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHLOCK, $tllhlock, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHLOCK, $tllhlock, $comparison);
+
+        return $this;
     }
 
     /**
@@ -533,15 +573,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * $query->filterByTllhsortby(array('min' => 12)); // WHERE TllhSortBy > 12
      * </code>
      *
-     * @param     mixed $tllhsortby The value to use as filter.
+     * @param mixed $tllhsortby The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhsortby($tllhsortby = null, $comparison = null)
+    public function filterByTllhsortby($tllhsortby = null, ?string $comparison = null)
     {
         if (is_array($tllhsortby)) {
             $useMinMax = false;
@@ -561,7 +601,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHSORTBY, $tllhsortby, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHSORTBY, $tllhsortby, $comparison);
+
+        return $this;
     }
 
     /**
@@ -571,14 +613,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByTllhtype('fooValue');   // WHERE TllhType = 'fooValue'
      * $query->filterByTllhtype('%fooValue%', Criteria::LIKE); // WHERE TllhType LIKE '%fooValue%'
+     * $query->filterByTllhtype(['foo', 'bar']); // WHERE TllhType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tllhtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tllhtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTllhtype($tllhtype = null, $comparison = null)
+    public function filterByTllhtype($tllhtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tllhtype)) {
@@ -586,7 +629,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHTYPE, $tllhtype, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TLLHTYPE, $tllhtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -596,14 +641,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -611,7 +657,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -621,14 +669,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -636,7 +685,9 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -646,14 +697,15 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -661,15 +713,17 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ThermalLabelFormatTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ThermalLabelFormatTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildThermalLabelFormat $thermalLabelFormat Object to remove from the list of results
+     * @param ChildThermalLabelFormat $thermalLabelFormat Object to remove from the list of results
      *
-     * @return $this|ChildThermalLabelFormatQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($thermalLabelFormat = null)
     {
@@ -686,7 +740,7 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ThermalLabelFormatTableMap::DATABASE_NAME);
@@ -711,12 +765,12 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ThermalLabelFormatTableMap::DATABASE_NAME);
@@ -741,4 +795,4 @@ abstract class ThermalLabelFormatQuery extends ModelCriteria
         });
     }
 
-} // ThermalLabelFormatQuery
+}

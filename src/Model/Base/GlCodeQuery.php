@@ -10,14 +10,12 @@ use Map\GlCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'gl_master' table.
- *
- *
+ * Base class that represents a query for the `gl_master` table.
  *
  * @method     ChildGlCodeQuery orderByGlmaacct($order = Criteria::ASC) Order by the GlmaAcct column
  * @method     ChildGlCodeQuery orderByGlmadesc($order = Criteria::ASC) Order by the GlmaDesc column
@@ -71,33 +69,33 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildGlCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildGlCode findOne(ConnectionInterface $con = null) Return the first ChildGlCode matching the query
- * @method     ChildGlCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildGlCode matching the query, or a new ChildGlCode object populated from the query conditions when no match is found
+ * @method     ChildGlCode|null findOne(?ConnectionInterface $con = null) Return the first ChildGlCode matching the query
+ * @method     ChildGlCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildGlCode matching the query, or a new ChildGlCode object populated from the query conditions when no match is found
  *
- * @method     ChildGlCode findOneByGlmaacct(string $GlmaAcct) Return the first ChildGlCode filtered by the GlmaAcct column
- * @method     ChildGlCode findOneByGlmadesc(string $GlmaDesc) Return the first ChildGlCode filtered by the GlmaDesc column
- * @method     ChildGlCode findOneByGlmadrcr(string $GlmaDrCr) Return the first ChildGlCode filtered by the GlmaDrCr column
- * @method     ChildGlCode findOneByGlmaclosacct(string $GlmaClosAcct) Return the first ChildGlCode filtered by the GlmaClosAcct column
- * @method     ChildGlCode findOneByGlmapackpost(string $GlmaPackPost) Return the first ChildGlCode filtered by the GlmaPackPost column
- * @method     ChildGlCode findOneByGlmavald(string $GlmaVald) Return the first ChildGlCode filtered by the GlmaVald column
- * @method     ChildGlCode findOneByGlmaco01(string $GlmaCo01) Return the first ChildGlCode filtered by the GlmaCo01 column
- * @method     ChildGlCode findOneByGlmaco02(string $GlmaCo02) Return the first ChildGlCode filtered by the GlmaCo02 column
- * @method     ChildGlCode findOneByGlmaco03(string $GlmaCo03) Return the first ChildGlCode filtered by the GlmaCo03 column
- * @method     ChildGlCode findOneByGlmaco04(string $GlmaCo04) Return the first ChildGlCode filtered by the GlmaCo04 column
- * @method     ChildGlCode findOneByGlmaco05(string $GlmaCo05) Return the first ChildGlCode filtered by the GlmaCo05 column
- * @method     ChildGlCode findOneByGlmaco06(string $GlmaCo06) Return the first ChildGlCode filtered by the GlmaCo06 column
- * @method     ChildGlCode findOneByGlmaco07(string $GlmaCo07) Return the first ChildGlCode filtered by the GlmaCo07 column
- * @method     ChildGlCode findOneByGlmaco08(string $GlmaCo08) Return the first ChildGlCode filtered by the GlmaCo08 column
- * @method     ChildGlCode findOneByGlmaco09(string $GlmaCo09) Return the first ChildGlCode filtered by the GlmaCo09 column
- * @method     ChildGlCode findOneByGlmaco10(string $GlmaCo10) Return the first ChildGlCode filtered by the GlmaCo10 column
- * @method     ChildGlCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildGlCode filtered by the DateUpdtd column
- * @method     ChildGlCode findOneByGlmaAcWhseAppendPos(int $GlmaAcWhseAppendPos) Return the first ChildGlCode filtered by the GlmaAcWhseAppendPos column
- * @method     ChildGlCode findOneByGlmaAchAcct(string $GlmaAchAcct) Return the first ChildGlCode filtered by the GlmaAchAcct column
- * @method     ChildGlCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlCode filtered by the TimeUpdtd column
- * @method     ChildGlCode findOneByDummy(string $dummy) Return the first ChildGlCode filtered by the dummy column *
-
- * @method     ChildGlCode requirePk($key, ConnectionInterface $con = null) Return the ChildGlCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildGlCode requireOne(ConnectionInterface $con = null) Return the first ChildGlCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildGlCode|null findOneByGlmaacct(string $GlmaAcct) Return the first ChildGlCode filtered by the GlmaAcct column
+ * @method     ChildGlCode|null findOneByGlmadesc(string $GlmaDesc) Return the first ChildGlCode filtered by the GlmaDesc column
+ * @method     ChildGlCode|null findOneByGlmadrcr(string $GlmaDrCr) Return the first ChildGlCode filtered by the GlmaDrCr column
+ * @method     ChildGlCode|null findOneByGlmaclosacct(string $GlmaClosAcct) Return the first ChildGlCode filtered by the GlmaClosAcct column
+ * @method     ChildGlCode|null findOneByGlmapackpost(string $GlmaPackPost) Return the first ChildGlCode filtered by the GlmaPackPost column
+ * @method     ChildGlCode|null findOneByGlmavald(string $GlmaVald) Return the first ChildGlCode filtered by the GlmaVald column
+ * @method     ChildGlCode|null findOneByGlmaco01(string $GlmaCo01) Return the first ChildGlCode filtered by the GlmaCo01 column
+ * @method     ChildGlCode|null findOneByGlmaco02(string $GlmaCo02) Return the first ChildGlCode filtered by the GlmaCo02 column
+ * @method     ChildGlCode|null findOneByGlmaco03(string $GlmaCo03) Return the first ChildGlCode filtered by the GlmaCo03 column
+ * @method     ChildGlCode|null findOneByGlmaco04(string $GlmaCo04) Return the first ChildGlCode filtered by the GlmaCo04 column
+ * @method     ChildGlCode|null findOneByGlmaco05(string $GlmaCo05) Return the first ChildGlCode filtered by the GlmaCo05 column
+ * @method     ChildGlCode|null findOneByGlmaco06(string $GlmaCo06) Return the first ChildGlCode filtered by the GlmaCo06 column
+ * @method     ChildGlCode|null findOneByGlmaco07(string $GlmaCo07) Return the first ChildGlCode filtered by the GlmaCo07 column
+ * @method     ChildGlCode|null findOneByGlmaco08(string $GlmaCo08) Return the first ChildGlCode filtered by the GlmaCo08 column
+ * @method     ChildGlCode|null findOneByGlmaco09(string $GlmaCo09) Return the first ChildGlCode filtered by the GlmaCo09 column
+ * @method     ChildGlCode|null findOneByGlmaco10(string $GlmaCo10) Return the first ChildGlCode filtered by the GlmaCo10 column
+ * @method     ChildGlCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildGlCode filtered by the DateUpdtd column
+ * @method     ChildGlCode|null findOneByGlmaAcWhseAppendPos(int $GlmaAcWhseAppendPos) Return the first ChildGlCode filtered by the GlmaAcWhseAppendPos column
+ * @method     ChildGlCode|null findOneByGlmaAchAcct(string $GlmaAchAcct) Return the first ChildGlCode filtered by the GlmaAchAcct column
+ * @method     ChildGlCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlCode filtered by the TimeUpdtd column
+ * @method     ChildGlCode|null findOneByDummy(string $dummy) Return the first ChildGlCode filtered by the dummy column
+ *
+ * @method     ChildGlCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildGlCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildGlCode requireOne(?ConnectionInterface $con = null) Return the first ChildGlCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildGlCode requireOneByGlmaacct(string $GlmaAcct) Return the first ChildGlCode filtered by the GlmaAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlCode requireOneByGlmadesc(string $GlmaDesc) Return the first ChildGlCode filtered by the GlmaDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -121,30 +119,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlCode requireOneByDummy(string $dummy) Return the first ChildGlCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildGlCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildGlCode objects based on current ModelCriteria
- * @method     ChildGlCode[]|ObjectCollection findByGlmaacct(string $GlmaAcct) Return ChildGlCode objects filtered by the GlmaAcct column
- * @method     ChildGlCode[]|ObjectCollection findByGlmadesc(string $GlmaDesc) Return ChildGlCode objects filtered by the GlmaDesc column
- * @method     ChildGlCode[]|ObjectCollection findByGlmadrcr(string $GlmaDrCr) Return ChildGlCode objects filtered by the GlmaDrCr column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaclosacct(string $GlmaClosAcct) Return ChildGlCode objects filtered by the GlmaClosAcct column
- * @method     ChildGlCode[]|ObjectCollection findByGlmapackpost(string $GlmaPackPost) Return ChildGlCode objects filtered by the GlmaPackPost column
- * @method     ChildGlCode[]|ObjectCollection findByGlmavald(string $GlmaVald) Return ChildGlCode objects filtered by the GlmaVald column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco01(string $GlmaCo01) Return ChildGlCode objects filtered by the GlmaCo01 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco02(string $GlmaCo02) Return ChildGlCode objects filtered by the GlmaCo02 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco03(string $GlmaCo03) Return ChildGlCode objects filtered by the GlmaCo03 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco04(string $GlmaCo04) Return ChildGlCode objects filtered by the GlmaCo04 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco05(string $GlmaCo05) Return ChildGlCode objects filtered by the GlmaCo05 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco06(string $GlmaCo06) Return ChildGlCode objects filtered by the GlmaCo06 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco07(string $GlmaCo07) Return ChildGlCode objects filtered by the GlmaCo07 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco08(string $GlmaCo08) Return ChildGlCode objects filtered by the GlmaCo08 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco09(string $GlmaCo09) Return ChildGlCode objects filtered by the GlmaCo09 column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaco10(string $GlmaCo10) Return ChildGlCode objects filtered by the GlmaCo10 column
- * @method     ChildGlCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildGlCode objects filtered by the DateUpdtd column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaAcWhseAppendPos(int $GlmaAcWhseAppendPos) Return ChildGlCode objects filtered by the GlmaAcWhseAppendPos column
- * @method     ChildGlCode[]|ObjectCollection findByGlmaAchAcct(string $GlmaAchAcct) Return ChildGlCode objects filtered by the GlmaAchAcct column
- * @method     ChildGlCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildGlCode objects filtered by the TimeUpdtd column
- * @method     ChildGlCode[]|ObjectCollection findByDummy(string $dummy) Return ChildGlCode objects filtered by the dummy column
- * @method     ChildGlCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildGlCode[]|Collection find(?ConnectionInterface $con = null) Return ChildGlCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildGlCode> find(?ConnectionInterface $con = null) Return ChildGlCode objects based on current ModelCriteria
  *
+ * @method     ChildGlCode[]|Collection findByGlmaacct(string|array<string> $GlmaAcct) Return ChildGlCode objects filtered by the GlmaAcct column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaacct(string|array<string> $GlmaAcct) Return ChildGlCode objects filtered by the GlmaAcct column
+ * @method     ChildGlCode[]|Collection findByGlmadesc(string|array<string> $GlmaDesc) Return ChildGlCode objects filtered by the GlmaDesc column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmadesc(string|array<string> $GlmaDesc) Return ChildGlCode objects filtered by the GlmaDesc column
+ * @method     ChildGlCode[]|Collection findByGlmadrcr(string|array<string> $GlmaDrCr) Return ChildGlCode objects filtered by the GlmaDrCr column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmadrcr(string|array<string> $GlmaDrCr) Return ChildGlCode objects filtered by the GlmaDrCr column
+ * @method     ChildGlCode[]|Collection findByGlmaclosacct(string|array<string> $GlmaClosAcct) Return ChildGlCode objects filtered by the GlmaClosAcct column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaclosacct(string|array<string> $GlmaClosAcct) Return ChildGlCode objects filtered by the GlmaClosAcct column
+ * @method     ChildGlCode[]|Collection findByGlmapackpost(string|array<string> $GlmaPackPost) Return ChildGlCode objects filtered by the GlmaPackPost column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmapackpost(string|array<string> $GlmaPackPost) Return ChildGlCode objects filtered by the GlmaPackPost column
+ * @method     ChildGlCode[]|Collection findByGlmavald(string|array<string> $GlmaVald) Return ChildGlCode objects filtered by the GlmaVald column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmavald(string|array<string> $GlmaVald) Return ChildGlCode objects filtered by the GlmaVald column
+ * @method     ChildGlCode[]|Collection findByGlmaco01(string|array<string> $GlmaCo01) Return ChildGlCode objects filtered by the GlmaCo01 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco01(string|array<string> $GlmaCo01) Return ChildGlCode objects filtered by the GlmaCo01 column
+ * @method     ChildGlCode[]|Collection findByGlmaco02(string|array<string> $GlmaCo02) Return ChildGlCode objects filtered by the GlmaCo02 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco02(string|array<string> $GlmaCo02) Return ChildGlCode objects filtered by the GlmaCo02 column
+ * @method     ChildGlCode[]|Collection findByGlmaco03(string|array<string> $GlmaCo03) Return ChildGlCode objects filtered by the GlmaCo03 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco03(string|array<string> $GlmaCo03) Return ChildGlCode objects filtered by the GlmaCo03 column
+ * @method     ChildGlCode[]|Collection findByGlmaco04(string|array<string> $GlmaCo04) Return ChildGlCode objects filtered by the GlmaCo04 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco04(string|array<string> $GlmaCo04) Return ChildGlCode objects filtered by the GlmaCo04 column
+ * @method     ChildGlCode[]|Collection findByGlmaco05(string|array<string> $GlmaCo05) Return ChildGlCode objects filtered by the GlmaCo05 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco05(string|array<string> $GlmaCo05) Return ChildGlCode objects filtered by the GlmaCo05 column
+ * @method     ChildGlCode[]|Collection findByGlmaco06(string|array<string> $GlmaCo06) Return ChildGlCode objects filtered by the GlmaCo06 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco06(string|array<string> $GlmaCo06) Return ChildGlCode objects filtered by the GlmaCo06 column
+ * @method     ChildGlCode[]|Collection findByGlmaco07(string|array<string> $GlmaCo07) Return ChildGlCode objects filtered by the GlmaCo07 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco07(string|array<string> $GlmaCo07) Return ChildGlCode objects filtered by the GlmaCo07 column
+ * @method     ChildGlCode[]|Collection findByGlmaco08(string|array<string> $GlmaCo08) Return ChildGlCode objects filtered by the GlmaCo08 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco08(string|array<string> $GlmaCo08) Return ChildGlCode objects filtered by the GlmaCo08 column
+ * @method     ChildGlCode[]|Collection findByGlmaco09(string|array<string> $GlmaCo09) Return ChildGlCode objects filtered by the GlmaCo09 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco09(string|array<string> $GlmaCo09) Return ChildGlCode objects filtered by the GlmaCo09 column
+ * @method     ChildGlCode[]|Collection findByGlmaco10(string|array<string> $GlmaCo10) Return ChildGlCode objects filtered by the GlmaCo10 column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaco10(string|array<string> $GlmaCo10) Return ChildGlCode objects filtered by the GlmaCo10 column
+ * @method     ChildGlCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildGlCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildGlCode objects filtered by the DateUpdtd column
+ * @method     ChildGlCode[]|Collection findByGlmaAcWhseAppendPos(int|array<int> $GlmaAcWhseAppendPos) Return ChildGlCode objects filtered by the GlmaAcWhseAppendPos column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaAcWhseAppendPos(int|array<int> $GlmaAcWhseAppendPos) Return ChildGlCode objects filtered by the GlmaAcWhseAppendPos column
+ * @method     ChildGlCode[]|Collection findByGlmaAchAcct(string|array<string> $GlmaAchAcct) Return ChildGlCode objects filtered by the GlmaAchAcct column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByGlmaAchAcct(string|array<string> $GlmaAchAcct) Return ChildGlCode objects filtered by the GlmaAchAcct column
+ * @method     ChildGlCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildGlCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildGlCode objects filtered by the TimeUpdtd column
+ * @method     ChildGlCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildGlCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildGlCode> findByDummy(string|array<string> $dummy) Return ChildGlCode objects filtered by the dummy column
+ *
+ * @method     ChildGlCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildGlCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class GlCodeQuery extends ModelCriteria
 {
@@ -153,9 +175,9 @@ abstract class GlCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\GlCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\GlCode', $modelAlias = null)
     {
@@ -165,12 +187,12 @@ abstract class GlCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildGlCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildGlCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildGlCodeQuery) {
             return $criteria;
@@ -200,7 +222,7 @@ abstract class GlCodeQuery extends ModelCriteria
      *
      * @return ChildGlCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -232,8 +254,8 @@ abstract class GlCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -265,8 +287,8 @@ abstract class GlCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildGlCode|array|mixed the result, formatted by the current formatter
      */
@@ -286,12 +308,12 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -308,27 +330,31 @@ abstract class GlCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAACCT, $key, Criteria::EQUAL);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMAACCT, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAACCT, $keys, Criteria::IN);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMAACCT, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -338,14 +364,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaacct('fooValue');   // WHERE GlmaAcct = 'fooValue'
      * $query->filterByGlmaacct('%fooValue%', Criteria::LIKE); // WHERE GlmaAcct LIKE '%fooValue%'
+     * $query->filterByGlmaacct(['foo', 'bar']); // WHERE GlmaAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaacct($glmaacct = null, $comparison = null)
+    public function filterByGlmaacct($glmaacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaacct)) {
@@ -353,7 +380,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAACCT, $glmaacct, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMAACCT, $glmaacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +392,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmadesc('fooValue');   // WHERE GlmaDesc = 'fooValue'
      * $query->filterByGlmadesc('%fooValue%', Criteria::LIKE); // WHERE GlmaDesc LIKE '%fooValue%'
+     * $query->filterByGlmadesc(['foo', 'bar']); // WHERE GlmaDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmadesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmadesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmadesc($glmadesc = null, $comparison = null)
+    public function filterByGlmadesc($glmadesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmadesc)) {
@@ -378,7 +408,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMADESC, $glmadesc, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMADESC, $glmadesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -388,14 +420,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmadrcr('fooValue');   // WHERE GlmaDrCr = 'fooValue'
      * $query->filterByGlmadrcr('%fooValue%', Criteria::LIKE); // WHERE GlmaDrCr LIKE '%fooValue%'
+     * $query->filterByGlmadrcr(['foo', 'bar']); // WHERE GlmaDrCr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmadrcr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmadrcr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmadrcr($glmadrcr = null, $comparison = null)
+    public function filterByGlmadrcr($glmadrcr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmadrcr)) {
@@ -403,7 +436,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMADRCR, $glmadrcr, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMADRCR, $glmadrcr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -413,14 +448,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaclosacct('fooValue');   // WHERE GlmaClosAcct = 'fooValue'
      * $query->filterByGlmaclosacct('%fooValue%', Criteria::LIKE); // WHERE GlmaClosAcct LIKE '%fooValue%'
+     * $query->filterByGlmaclosacct(['foo', 'bar']); // WHERE GlmaClosAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaclosacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaclosacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaclosacct($glmaclosacct = null, $comparison = null)
+    public function filterByGlmaclosacct($glmaclosacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaclosacct)) {
@@ -428,7 +464,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACLOSACCT, $glmaclosacct, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACLOSACCT, $glmaclosacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -438,14 +476,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmapackpost('fooValue');   // WHERE GlmaPackPost = 'fooValue'
      * $query->filterByGlmapackpost('%fooValue%', Criteria::LIKE); // WHERE GlmaPackPost LIKE '%fooValue%'
+     * $query->filterByGlmapackpost(['foo', 'bar']); // WHERE GlmaPackPost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmapackpost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmapackpost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmapackpost($glmapackpost = null, $comparison = null)
+    public function filterByGlmapackpost($glmapackpost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmapackpost)) {
@@ -453,7 +492,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAPACKPOST, $glmapackpost, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMAPACKPOST, $glmapackpost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -463,14 +504,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmavald('fooValue');   // WHERE GlmaVald = 'fooValue'
      * $query->filterByGlmavald('%fooValue%', Criteria::LIKE); // WHERE GlmaVald LIKE '%fooValue%'
+     * $query->filterByGlmavald(['foo', 'bar']); // WHERE GlmaVald IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmavald The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmavald The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmavald($glmavald = null, $comparison = null)
+    public function filterByGlmavald($glmavald = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmavald)) {
@@ -478,7 +520,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAVALD, $glmavald, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMAVALD, $glmavald, $comparison);
+
+        return $this;
     }
 
     /**
@@ -488,14 +532,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco01('fooValue');   // WHERE GlmaCo01 = 'fooValue'
      * $query->filterByGlmaco01('%fooValue%', Criteria::LIKE); // WHERE GlmaCo01 LIKE '%fooValue%'
+     * $query->filterByGlmaco01(['foo', 'bar']); // WHERE GlmaCo01 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco01 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco01 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco01($glmaco01 = null, $comparison = null)
+    public function filterByGlmaco01($glmaco01 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco01)) {
@@ -503,7 +548,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO01, $glmaco01, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO01, $glmaco01, $comparison);
+
+        return $this;
     }
 
     /**
@@ -513,14 +560,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco02('fooValue');   // WHERE GlmaCo02 = 'fooValue'
      * $query->filterByGlmaco02('%fooValue%', Criteria::LIKE); // WHERE GlmaCo02 LIKE '%fooValue%'
+     * $query->filterByGlmaco02(['foo', 'bar']); // WHERE GlmaCo02 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco02 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco02 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco02($glmaco02 = null, $comparison = null)
+    public function filterByGlmaco02($glmaco02 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco02)) {
@@ -528,7 +576,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO02, $glmaco02, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO02, $glmaco02, $comparison);
+
+        return $this;
     }
 
     /**
@@ -538,14 +588,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco03('fooValue');   // WHERE GlmaCo03 = 'fooValue'
      * $query->filterByGlmaco03('%fooValue%', Criteria::LIKE); // WHERE GlmaCo03 LIKE '%fooValue%'
+     * $query->filterByGlmaco03(['foo', 'bar']); // WHERE GlmaCo03 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco03 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco03 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco03($glmaco03 = null, $comparison = null)
+    public function filterByGlmaco03($glmaco03 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco03)) {
@@ -553,7 +604,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO03, $glmaco03, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO03, $glmaco03, $comparison);
+
+        return $this;
     }
 
     /**
@@ -563,14 +616,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco04('fooValue');   // WHERE GlmaCo04 = 'fooValue'
      * $query->filterByGlmaco04('%fooValue%', Criteria::LIKE); // WHERE GlmaCo04 LIKE '%fooValue%'
+     * $query->filterByGlmaco04(['foo', 'bar']); // WHERE GlmaCo04 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco04 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco04 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco04($glmaco04 = null, $comparison = null)
+    public function filterByGlmaco04($glmaco04 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco04)) {
@@ -578,7 +632,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO04, $glmaco04, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO04, $glmaco04, $comparison);
+
+        return $this;
     }
 
     /**
@@ -588,14 +644,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco05('fooValue');   // WHERE GlmaCo05 = 'fooValue'
      * $query->filterByGlmaco05('%fooValue%', Criteria::LIKE); // WHERE GlmaCo05 LIKE '%fooValue%'
+     * $query->filterByGlmaco05(['foo', 'bar']); // WHERE GlmaCo05 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco05 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco05 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco05($glmaco05 = null, $comparison = null)
+    public function filterByGlmaco05($glmaco05 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco05)) {
@@ -603,7 +660,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO05, $glmaco05, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO05, $glmaco05, $comparison);
+
+        return $this;
     }
 
     /**
@@ -613,14 +672,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco06('fooValue');   // WHERE GlmaCo06 = 'fooValue'
      * $query->filterByGlmaco06('%fooValue%', Criteria::LIKE); // WHERE GlmaCo06 LIKE '%fooValue%'
+     * $query->filterByGlmaco06(['foo', 'bar']); // WHERE GlmaCo06 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco06 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco06 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco06($glmaco06 = null, $comparison = null)
+    public function filterByGlmaco06($glmaco06 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco06)) {
@@ -628,7 +688,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO06, $glmaco06, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO06, $glmaco06, $comparison);
+
+        return $this;
     }
 
     /**
@@ -638,14 +700,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco07('fooValue');   // WHERE GlmaCo07 = 'fooValue'
      * $query->filterByGlmaco07('%fooValue%', Criteria::LIKE); // WHERE GlmaCo07 LIKE '%fooValue%'
+     * $query->filterByGlmaco07(['foo', 'bar']); // WHERE GlmaCo07 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco07 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco07 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco07($glmaco07 = null, $comparison = null)
+    public function filterByGlmaco07($glmaco07 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco07)) {
@@ -653,7 +716,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO07, $glmaco07, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO07, $glmaco07, $comparison);
+
+        return $this;
     }
 
     /**
@@ -663,14 +728,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco08('fooValue');   // WHERE GlmaCo08 = 'fooValue'
      * $query->filterByGlmaco08('%fooValue%', Criteria::LIKE); // WHERE GlmaCo08 LIKE '%fooValue%'
+     * $query->filterByGlmaco08(['foo', 'bar']); // WHERE GlmaCo08 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco08 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco08 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco08($glmaco08 = null, $comparison = null)
+    public function filterByGlmaco08($glmaco08 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco08)) {
@@ -678,7 +744,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO08, $glmaco08, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO08, $glmaco08, $comparison);
+
+        return $this;
     }
 
     /**
@@ -688,14 +756,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco09('fooValue');   // WHERE GlmaCo09 = 'fooValue'
      * $query->filterByGlmaco09('%fooValue%', Criteria::LIKE); // WHERE GlmaCo09 LIKE '%fooValue%'
+     * $query->filterByGlmaco09(['foo', 'bar']); // WHERE GlmaCo09 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco09 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco09 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco09($glmaco09 = null, $comparison = null)
+    public function filterByGlmaco09($glmaco09 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco09)) {
@@ -703,7 +772,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO09, $glmaco09, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO09, $glmaco09, $comparison);
+
+        return $this;
     }
 
     /**
@@ -713,14 +784,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaco10('fooValue');   // WHERE GlmaCo10 = 'fooValue'
      * $query->filterByGlmaco10('%fooValue%', Criteria::LIKE); // WHERE GlmaCo10 LIKE '%fooValue%'
+     * $query->filterByGlmaco10(['foo', 'bar']); // WHERE GlmaCo10 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaco10 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaco10 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaco10($glmaco10 = null, $comparison = null)
+    public function filterByGlmaco10($glmaco10 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaco10)) {
@@ -728,7 +800,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMACO10, $glmaco10, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMACO10, $glmaco10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -738,14 +812,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -753,7 +828,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -766,15 +843,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * $query->filterByGlmaAcWhseAppendPos(array('min' => 12)); // WHERE GlmaAcWhseAppendPos > 12
      * </code>
      *
-     * @param     mixed $glmaAcWhseAppendPos The value to use as filter.
+     * @param mixed $glmaAcWhseAppendPos The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaAcWhseAppendPos($glmaAcWhseAppendPos = null, $comparison = null)
+    public function filterByGlmaAcWhseAppendPos($glmaAcWhseAppendPos = null, ?string $comparison = null)
     {
         if (is_array($glmaAcWhseAppendPos)) {
             $useMinMax = false;
@@ -794,7 +871,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS, $glmaAcWhseAppendPos, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS, $glmaAcWhseAppendPos, $comparison);
+
+        return $this;
     }
 
     /**
@@ -804,14 +883,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGlmaAchAcct('fooValue');   // WHERE GlmaAchAcct = 'fooValue'
      * $query->filterByGlmaAchAcct('%fooValue%', Criteria::LIKE); // WHERE GlmaAchAcct LIKE '%fooValue%'
+     * $query->filterByGlmaAchAcct(['foo', 'bar']); // WHERE GlmaAchAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $glmaAchAcct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $glmaAchAcct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGlmaAchAcct($glmaAchAcct = null, $comparison = null)
+    public function filterByGlmaAchAcct($glmaAchAcct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($glmaAchAcct)) {
@@ -819,7 +899,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAACHACCT, $glmaAchAcct, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_GLMAACHACCT, $glmaAchAcct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -829,14 +911,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -844,7 +927,9 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -854,14 +939,15 @@ abstract class GlCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -869,15 +955,17 @@ abstract class GlCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(GlCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildGlCode $glCode Object to remove from the list of results
+     * @param ChildGlCode $glCode Object to remove from the list of results
      *
-     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($glCode = null)
     {
@@ -894,7 +982,7 @@ abstract class GlCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlCodeTableMap::DATABASE_NAME);
@@ -919,12 +1007,12 @@ abstract class GlCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlCodeTableMap::DATABASE_NAME);
@@ -949,4 +1037,4 @@ abstract class GlCodeQuery extends ModelCriteria
         });
     }
 
-} // GlCodeQuery
+}

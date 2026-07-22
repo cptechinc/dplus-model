@@ -10,14 +10,12 @@ use Map\GlTextCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'gl_text_code' table.
- *
- *
+ * Base class that represents a query for the `gl_text_code` table.
  *
  * @method     ChildGlTextCodeQuery orderByGltbtextcode($order = Criteria::ASC) Order by the GltbTextCode column
  * @method     ChildGlTextCodeQuery orderByGltbtext1($order = Criteria::ASC) Order by the GltbText1 column
@@ -45,20 +43,20 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlTextCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildGlTextCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildGlTextCode findOne(ConnectionInterface $con = null) Return the first ChildGlTextCode matching the query
- * @method     ChildGlTextCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildGlTextCode matching the query, or a new ChildGlTextCode object populated from the query conditions when no match is found
+ * @method     ChildGlTextCode|null findOne(?ConnectionInterface $con = null) Return the first ChildGlTextCode matching the query
+ * @method     ChildGlTextCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildGlTextCode matching the query, or a new ChildGlTextCode object populated from the query conditions when no match is found
  *
- * @method     ChildGlTextCode findOneByGltbtextcode(string $GltbTextCode) Return the first ChildGlTextCode filtered by the GltbTextCode column
- * @method     ChildGlTextCode findOneByGltbtext1(string $GltbText1) Return the first ChildGlTextCode filtered by the GltbText1 column
- * @method     ChildGlTextCode findOneByGltbtext2(string $GltbText2) Return the first ChildGlTextCode filtered by the GltbText2 column
- * @method     ChildGlTextCode findOneByGltbtext3(string $GltbText3) Return the first ChildGlTextCode filtered by the GltbText3 column
- * @method     ChildGlTextCode findOneByGltbtext4(string $GltbText4) Return the first ChildGlTextCode filtered by the GltbText4 column
- * @method     ChildGlTextCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildGlTextCode filtered by the DateUpdtd column
- * @method     ChildGlTextCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlTextCode filtered by the TimeUpdtd column
- * @method     ChildGlTextCode findOneByDummy(string $dummy) Return the first ChildGlTextCode filtered by the dummy column *
-
- * @method     ChildGlTextCode requirePk($key, ConnectionInterface $con = null) Return the ChildGlTextCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildGlTextCode requireOne(ConnectionInterface $con = null) Return the first ChildGlTextCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildGlTextCode|null findOneByGltbtextcode(string $GltbTextCode) Return the first ChildGlTextCode filtered by the GltbTextCode column
+ * @method     ChildGlTextCode|null findOneByGltbtext1(string $GltbText1) Return the first ChildGlTextCode filtered by the GltbText1 column
+ * @method     ChildGlTextCode|null findOneByGltbtext2(string $GltbText2) Return the first ChildGlTextCode filtered by the GltbText2 column
+ * @method     ChildGlTextCode|null findOneByGltbtext3(string $GltbText3) Return the first ChildGlTextCode filtered by the GltbText3 column
+ * @method     ChildGlTextCode|null findOneByGltbtext4(string $GltbText4) Return the first ChildGlTextCode filtered by the GltbText4 column
+ * @method     ChildGlTextCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildGlTextCode filtered by the DateUpdtd column
+ * @method     ChildGlTextCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlTextCode filtered by the TimeUpdtd column
+ * @method     ChildGlTextCode|null findOneByDummy(string $dummy) Return the first ChildGlTextCode filtered by the dummy column
+ *
+ * @method     ChildGlTextCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildGlTextCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildGlTextCode requireOne(?ConnectionInterface $con = null) Return the first ChildGlTextCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildGlTextCode requireOneByGltbtextcode(string $GltbTextCode) Return the first ChildGlTextCode filtered by the GltbTextCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlTextCode requireOneByGltbtext1(string $GltbText1) Return the first ChildGlTextCode filtered by the GltbText1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -69,17 +67,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlTextCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlTextCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlTextCode requireOneByDummy(string $dummy) Return the first ChildGlTextCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildGlTextCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildGlTextCode objects based on current ModelCriteria
- * @method     ChildGlTextCode[]|ObjectCollection findByGltbtextcode(string $GltbTextCode) Return ChildGlTextCode objects filtered by the GltbTextCode column
- * @method     ChildGlTextCode[]|ObjectCollection findByGltbtext1(string $GltbText1) Return ChildGlTextCode objects filtered by the GltbText1 column
- * @method     ChildGlTextCode[]|ObjectCollection findByGltbtext2(string $GltbText2) Return ChildGlTextCode objects filtered by the GltbText2 column
- * @method     ChildGlTextCode[]|ObjectCollection findByGltbtext3(string $GltbText3) Return ChildGlTextCode objects filtered by the GltbText3 column
- * @method     ChildGlTextCode[]|ObjectCollection findByGltbtext4(string $GltbText4) Return ChildGlTextCode objects filtered by the GltbText4 column
- * @method     ChildGlTextCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildGlTextCode objects filtered by the DateUpdtd column
- * @method     ChildGlTextCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildGlTextCode objects filtered by the TimeUpdtd column
- * @method     ChildGlTextCode[]|ObjectCollection findByDummy(string $dummy) Return ChildGlTextCode objects filtered by the dummy column
- * @method     ChildGlTextCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildGlTextCode[]|Collection find(?ConnectionInterface $con = null) Return ChildGlTextCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> find(?ConnectionInterface $con = null) Return ChildGlTextCode objects based on current ModelCriteria
  *
+ * @method     ChildGlTextCode[]|Collection findByGltbtextcode(string|array<string> $GltbTextCode) Return ChildGlTextCode objects filtered by the GltbTextCode column
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> findByGltbtextcode(string|array<string> $GltbTextCode) Return ChildGlTextCode objects filtered by the GltbTextCode column
+ * @method     ChildGlTextCode[]|Collection findByGltbtext1(string|array<string> $GltbText1) Return ChildGlTextCode objects filtered by the GltbText1 column
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> findByGltbtext1(string|array<string> $GltbText1) Return ChildGlTextCode objects filtered by the GltbText1 column
+ * @method     ChildGlTextCode[]|Collection findByGltbtext2(string|array<string> $GltbText2) Return ChildGlTextCode objects filtered by the GltbText2 column
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> findByGltbtext2(string|array<string> $GltbText2) Return ChildGlTextCode objects filtered by the GltbText2 column
+ * @method     ChildGlTextCode[]|Collection findByGltbtext3(string|array<string> $GltbText3) Return ChildGlTextCode objects filtered by the GltbText3 column
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> findByGltbtext3(string|array<string> $GltbText3) Return ChildGlTextCode objects filtered by the GltbText3 column
+ * @method     ChildGlTextCode[]|Collection findByGltbtext4(string|array<string> $GltbText4) Return ChildGlTextCode objects filtered by the GltbText4 column
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> findByGltbtext4(string|array<string> $GltbText4) Return ChildGlTextCode objects filtered by the GltbText4 column
+ * @method     ChildGlTextCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildGlTextCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildGlTextCode objects filtered by the DateUpdtd column
+ * @method     ChildGlTextCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildGlTextCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildGlTextCode objects filtered by the TimeUpdtd column
+ * @method     ChildGlTextCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildGlTextCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildGlTextCode> findByDummy(string|array<string> $dummy) Return ChildGlTextCode objects filtered by the dummy column
+ *
+ * @method     ChildGlTextCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildGlTextCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class GlTextCodeQuery extends ModelCriteria
 {
@@ -88,9 +97,9 @@ abstract class GlTextCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\GlTextCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\GlTextCode', $modelAlias = null)
     {
@@ -100,12 +109,12 @@ abstract class GlTextCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildGlTextCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildGlTextCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildGlTextCodeQuery) {
             return $criteria;
@@ -135,7 +144,7 @@ abstract class GlTextCodeQuery extends ModelCriteria
      *
      * @return ChildGlTextCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -167,8 +176,8 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -200,8 +209,8 @@ abstract class GlTextCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildGlTextCode|array|mixed the result, formatted by the current formatter
      */
@@ -221,12 +230,12 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -243,27 +252,31 @@ abstract class GlTextCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXTCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXTCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXTCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXTCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -273,14 +286,15 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbtextcode('fooValue');   // WHERE GltbTextCode = 'fooValue'
      * $query->filterByGltbtextcode('%fooValue%', Criteria::LIKE); // WHERE GltbTextCode LIKE '%fooValue%'
+     * $query->filterByGltbtextcode(['foo', 'bar']); // WHERE GltbTextCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbtextcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbtextcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbtextcode($gltbtextcode = null, $comparison = null)
+    public function filterByGltbtextcode($gltbtextcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbtextcode)) {
@@ -288,7 +302,9 @@ abstract class GlTextCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXTCODE, $gltbtextcode, $comparison);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXTCODE, $gltbtextcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -298,14 +314,15 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbtext1('fooValue');   // WHERE GltbText1 = 'fooValue'
      * $query->filterByGltbtext1('%fooValue%', Criteria::LIKE); // WHERE GltbText1 LIKE '%fooValue%'
+     * $query->filterByGltbtext1(['foo', 'bar']); // WHERE GltbText1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbtext1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbtext1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbtext1($gltbtext1 = null, $comparison = null)
+    public function filterByGltbtext1($gltbtext1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbtext1)) {
@@ -313,7 +330,9 @@ abstract class GlTextCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXT1, $gltbtext1, $comparison);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXT1, $gltbtext1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -323,14 +342,15 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbtext2('fooValue');   // WHERE GltbText2 = 'fooValue'
      * $query->filterByGltbtext2('%fooValue%', Criteria::LIKE); // WHERE GltbText2 LIKE '%fooValue%'
+     * $query->filterByGltbtext2(['foo', 'bar']); // WHERE GltbText2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbtext2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbtext2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbtext2($gltbtext2 = null, $comparison = null)
+    public function filterByGltbtext2($gltbtext2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbtext2)) {
@@ -338,7 +358,9 @@ abstract class GlTextCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXT2, $gltbtext2, $comparison);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXT2, $gltbtext2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -348,14 +370,15 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbtext3('fooValue');   // WHERE GltbText3 = 'fooValue'
      * $query->filterByGltbtext3('%fooValue%', Criteria::LIKE); // WHERE GltbText3 LIKE '%fooValue%'
+     * $query->filterByGltbtext3(['foo', 'bar']); // WHERE GltbText3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbtext3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbtext3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbtext3($gltbtext3 = null, $comparison = null)
+    public function filterByGltbtext3($gltbtext3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbtext3)) {
@@ -363,7 +386,9 @@ abstract class GlTextCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXT3, $gltbtext3, $comparison);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXT3, $gltbtext3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -373,14 +398,15 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbtext4('fooValue');   // WHERE GltbText4 = 'fooValue'
      * $query->filterByGltbtext4('%fooValue%', Criteria::LIKE); // WHERE GltbText4 LIKE '%fooValue%'
+     * $query->filterByGltbtext4(['foo', 'bar']); // WHERE GltbText4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbtext4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbtext4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbtext4($gltbtext4 = null, $comparison = null)
+    public function filterByGltbtext4($gltbtext4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbtext4)) {
@@ -388,7 +414,9 @@ abstract class GlTextCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXT4, $gltbtext4, $comparison);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_GLTBTEXT4, $gltbtext4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -398,14 +426,15 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -413,7 +442,9 @@ abstract class GlTextCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -423,14 +454,15 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -438,7 +470,9 @@ abstract class GlTextCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -448,14 +482,15 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -463,15 +498,17 @@ abstract class GlTextCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlTextCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(GlTextCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildGlTextCode $glTextCode Object to remove from the list of results
+     * @param ChildGlTextCode $glTextCode Object to remove from the list of results
      *
-     * @return $this|ChildGlTextCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($glTextCode = null)
     {
@@ -488,7 +525,7 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlTextCodeTableMap::DATABASE_NAME);
@@ -513,12 +550,12 @@ abstract class GlTextCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlTextCodeTableMap::DATABASE_NAME);
@@ -543,4 +580,4 @@ abstract class GlTextCodeQuery extends ModelCriteria
         });
     }
 
-} // GlTextCodeQuery
+}

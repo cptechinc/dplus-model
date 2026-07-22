@@ -44,19 +44,21 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\PurchaseOrderDetailTableMap';
+    public const TABLE_MAP = '\\Map\\PurchaseOrderDetailTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -65,14 +67,14 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the pohdnbr field.
@@ -446,18 +448,21 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrderDetailReceipt[] Collection to store aggregation of ChildPurchaseOrderDetailReceipt objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt> Collection to store aggregation of ChildPurchaseOrderDetailReceipt objects.
      */
     protected $collPurchaseOrderDetailReceipts;
     protected $collPurchaseOrderDetailReceiptsPartial;
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrderDetailReceiving[] Collection to store aggregation of ChildPurchaseOrderDetailReceiving objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving> Collection to store aggregation of ChildPurchaseOrderDetailReceiving objects.
      */
     protected $collPurchaseOrderDetailReceivings;
     protected $collPurchaseOrderDetailReceivingsPartial;
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] Collection to store aggregation of ChildPurchaseOrderDetailLotReceiving objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving> Collection to store aggregation of ChildPurchaseOrderDetailLotReceiving objects.
      */
     protected $collPurchaseOrderDetailLotReceivings;
     protected $collPurchaseOrderDetailLotReceivingsPartial;
@@ -466,25 +471,28 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailReceipt[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt>
      */
     protected $purchaseOrderDetailReceiptsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailReceiving[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving>
      */
     protected $purchaseOrderDetailReceivingsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailLotReceiving[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving>
      */
     protected $purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
 
@@ -494,7 +502,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->pohdnbr = 0;
         $this->podtline = 0;
@@ -555,9 +563,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -565,10 +573,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -577,7 +585,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -587,9 +595,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -598,45 +606,43 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -645,10 +651,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>PurchaseOrderDetail</code>, delegates to
      * <code>equals(PurchaseOrderDetail)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -670,7 +676,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -678,10 +684,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -689,15 +695,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -706,12 +712,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|PurchaseOrderDetail The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -721,13 +727,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -738,24 +744,27 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -1223,8 +1232,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Set the value of [pohdnbr] column.
      *
-     * @param int $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPohdnbr($v)
     {
@@ -1242,13 +1251,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPohdnbr()
+    }
 
     /**
      * Set the value of [podtline] column.
      *
-     * @param int $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtline($v)
     {
@@ -1262,13 +1271,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtline()
+    }
 
     /**
      * Set the value of [inititemnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -1286,13 +1295,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInititemnbr()
+    }
 
     /**
      * Set the value of [podtdesc1] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtdesc1($v)
     {
@@ -1306,13 +1315,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtdesc1()
+    }
 
     /**
      * Set the value of [podtdesc2] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtdesc2($v)
     {
@@ -1326,13 +1335,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtdesc2()
+    }
 
     /**
      * Set the value of [podtvenditemnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtvenditemnbr($v)
     {
@@ -1346,13 +1355,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtvenditemnbr()
+    }
 
     /**
      * Set the value of [intbwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -1366,13 +1375,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhse()
+    }
 
     /**
      * Set the value of [podtshipdate] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtshipdate($v)
     {
@@ -1386,13 +1395,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtshipdate()
+    }
 
     /**
      * Set the value of [podtexptdate] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtexptdate($v)
     {
@@ -1406,13 +1415,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtexptdate()
+    }
 
     /**
      * Set the value of [podtcancdate] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtcancdate($v)
     {
@@ -1426,13 +1435,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtcancdate()
+    }
 
     /**
      * Set the value of [intbuompur] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbuompur($v)
     {
@@ -1446,13 +1455,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbuompur()
+    }
 
     /**
      * Set the value of [podtqtyord] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtqtyord($v)
     {
@@ -1466,13 +1475,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtqtyord()
+    }
 
     /**
      * Set the value of [podtcost] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtcost($v)
     {
@@ -1486,13 +1495,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtcost()
+    }
 
     /**
      * Set the value of [podtcosttot] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtcosttot($v)
     {
@@ -1506,13 +1515,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtcosttot()
+    }
 
     /**
      * Set the value of [podtrel] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtrel($v)
     {
@@ -1526,13 +1535,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtrel()
+    }
 
     /**
      * Set the value of [podtspecordr] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtspecordr($v)
     {
@@ -1546,13 +1555,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtspecordr()
+    }
 
     /**
      * Set the value of [podtglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtglacct($v)
     {
@@ -1566,13 +1575,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtglacct()
+    }
 
     /**
      * Set the value of [podtsonbr] column.
      *
-     * @param int $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtsonbr($v)
     {
@@ -1586,13 +1595,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtsonbr()
+    }
 
     /**
      * Set the value of [podtstat] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtstat($v)
     {
@@ -1606,13 +1615,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtstat()
+    }
 
     /**
      * Set the value of [podtorigsoline] column.
      *
-     * @param int $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtorigsoline($v)
     {
@@ -1626,13 +1635,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtorigsoline()
+    }
 
     /**
      * Set the value of [podtqtyduein] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtqtyduein($v)
     {
@@ -1646,13 +1655,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtqtyduein()
+    }
 
     /**
      * Set the value of [podttype] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodttype($v)
     {
@@ -1666,13 +1675,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodttype()
+    }
 
     /**
      * Set the value of [podtwghttot] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtwghttot($v)
     {
@@ -1686,13 +1695,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtwghttot()
+    }
 
     /**
      * Set the value of [podtforeigncost] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtforeigncost($v)
     {
@@ -1706,13 +1715,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtforeigncost()
+    }
 
     /**
      * Set the value of [podtforeigncosttot] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtforeigncosttot($v)
     {
@@ -1726,13 +1735,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtforeigncosttot()
+    }
 
     /**
      * Set the value of [podtstanunitcost] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtstanunitcost($v)
     {
@@ -1746,13 +1755,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtstanunitcost()
+    }
 
     /**
      * Set the value of [podtackdate] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtackdate($v)
     {
@@ -1766,13 +1775,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtackdate()
+    }
 
     /**
      * Set the value of [podtinvcclearflag] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtinvcclearflag($v)
     {
@@ -1786,13 +1795,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtinvcclearflag()
+    }
 
     /**
      * Set the value of [podtprtkitdet] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtprtkitdet($v)
     {
@@ -1806,13 +1815,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtprtkitdet()
+    }
 
     /**
      * Set the value of [podtdestwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtdestwhse($v)
     {
@@ -1826,13 +1835,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtdestwhse()
+    }
 
     /**
      * Set the value of [podtrevision] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtrevision($v)
     {
@@ -1846,13 +1855,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtrevision()
+    }
 
     /**
      * Set the value of [podtprtpoeoru] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtprtpoeoru($v)
     {
@@ -1866,13 +1875,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtprtpoeoru()
+    }
 
     /**
      * Set the value of [potbcnfmcode] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbcnfmcode($v)
     {
@@ -1886,13 +1895,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbcnfmcode()
+    }
 
     /**
      * Set the value of [podtrcptnbr] column.
      *
-     * @param int $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtrcptnbr($v)
     {
@@ -1906,13 +1915,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtrcptnbr()
+    }
 
     /**
      * Set the value of [podtwipnbr] column.
      *
-     * @param int $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtwipnbr($v)
     {
@@ -1926,13 +1935,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtwipnbr()
+    }
 
     /**
      * Set the value of [podtordras] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtordras($v)
     {
@@ -1946,13 +1955,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtordras()
+    }
 
     /**
      * Set the value of [podtboldate] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtboldate($v)
     {
@@ -1966,13 +1975,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtboldate()
+    }
 
     /**
      * Set the value of [podtlistpric] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtlistpric($v)
     {
@@ -1986,13 +1995,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtlistpric()
+    }
 
     /**
      * Set the value of [podtdelivereddate] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtdelivereddate($v)
     {
@@ -2006,13 +2015,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtdelivereddate()
+    }
 
     /**
      * Set the value of [podtlandcost] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtlandcost($v)
     {
@@ -2026,13 +2035,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtlandcost()
+    }
 
     /**
      * Set the value of [podtcasesord] column.
      *
-     * @param int $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtcasesord($v)
     {
@@ -2046,13 +2055,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtcasesord()
+    }
 
     /**
      * Set the value of [podtcat3] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPodtcat3($v)
     {
@@ -2066,13 +2075,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPodtcat3()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -2086,13 +2095,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -2106,13 +2115,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -2126,7 +2135,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -2134,9 +2143,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->pohdnbr !== 0) {
                 return false;
@@ -2320,7 +2329,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -2330,17 +2339,17 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -2478,8 +2487,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -2504,9 +2513,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aPurchaseOrder !== null && $this->pohdnbr !== $this->aPurchaseOrder->getPohdnbr()) {
             $this->aPurchaseOrder = null;
@@ -2514,19 +2524,19 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -2567,13 +2577,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see PurchaseOrderDetail::setDeleted()
      * @see PurchaseOrderDetail::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -2603,12 +2613,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -2653,12 +2663,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -2750,19 +2760,19 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -2915,138 +2925,183 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'PohdNbr':
                         $stmt->bindValue($identifier, $this->pohdnbr, PDO::PARAM_INT);
+
                         break;
                     case 'PodtLine':
                         $stmt->bindValue($identifier, $this->podtline, PDO::PARAM_INT);
+
                         break;
                     case 'InitItemNbr':
                         $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
+
                         break;
                     case 'PodtDesc1':
                         $stmt->bindValue($identifier, $this->podtdesc1, PDO::PARAM_STR);
+
                         break;
                     case 'PodtDesc2':
                         $stmt->bindValue($identifier, $this->podtdesc2, PDO::PARAM_STR);
+
                         break;
                     case 'PodtVendItemNbr':
                         $stmt->bindValue($identifier, $this->podtvenditemnbr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhse':
                         $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+
                         break;
                     case 'PodtShipDate':
                         $stmt->bindValue($identifier, $this->podtshipdate, PDO::PARAM_STR);
+
                         break;
                     case 'PodtExptDate':
                         $stmt->bindValue($identifier, $this->podtexptdate, PDO::PARAM_STR);
+
                         break;
                     case 'PodtCancDate':
                         $stmt->bindValue($identifier, $this->podtcancdate, PDO::PARAM_STR);
+
                         break;
                     case 'IntbUomPur':
                         $stmt->bindValue($identifier, $this->intbuompur, PDO::PARAM_STR);
+
                         break;
                     case 'PodtQtyOrd':
                         $stmt->bindValue($identifier, $this->podtqtyord, PDO::PARAM_STR);
+
                         break;
                     case 'PodtCost':
                         $stmt->bindValue($identifier, $this->podtcost, PDO::PARAM_STR);
+
                         break;
                     case 'PodtCostTot':
                         $stmt->bindValue($identifier, $this->podtcosttot, PDO::PARAM_STR);
+
                         break;
                     case 'PodtRel':
                         $stmt->bindValue($identifier, $this->podtrel, PDO::PARAM_STR);
+
                         break;
                     case 'PodtSpecOrdr':
                         $stmt->bindValue($identifier, $this->podtspecordr, PDO::PARAM_STR);
+
                         break;
                     case 'PodtGlAcct':
                         $stmt->bindValue($identifier, $this->podtglacct, PDO::PARAM_STR);
+
                         break;
                     case 'PodtSoNbr':
                         $stmt->bindValue($identifier, $this->podtsonbr, PDO::PARAM_INT);
+
                         break;
                     case 'PodtStat':
                         $stmt->bindValue($identifier, $this->podtstat, PDO::PARAM_STR);
+
                         break;
                     case 'PodtOrigSoLine':
                         $stmt->bindValue($identifier, $this->podtorigsoline, PDO::PARAM_INT);
+
                         break;
                     case 'PodtQtyDueIn':
                         $stmt->bindValue($identifier, $this->podtqtyduein, PDO::PARAM_STR);
+
                         break;
                     case 'PodtType':
                         $stmt->bindValue($identifier, $this->podttype, PDO::PARAM_STR);
+
                         break;
                     case 'PodtWghtTot':
                         $stmt->bindValue($identifier, $this->podtwghttot, PDO::PARAM_STR);
+
                         break;
                     case 'PodtForeignCost':
                         $stmt->bindValue($identifier, $this->podtforeigncost, PDO::PARAM_STR);
+
                         break;
                     case 'PodtForeignCostTot':
                         $stmt->bindValue($identifier, $this->podtforeigncosttot, PDO::PARAM_STR);
+
                         break;
                     case 'PodtStanUnitCost':
                         $stmt->bindValue($identifier, $this->podtstanunitcost, PDO::PARAM_STR);
+
                         break;
                     case 'PodtAckDate':
                         $stmt->bindValue($identifier, $this->podtackdate, PDO::PARAM_STR);
+
                         break;
                     case 'PodtInvcClearFlag':
                         $stmt->bindValue($identifier, $this->podtinvcclearflag, PDO::PARAM_STR);
+
                         break;
                     case 'PodtPrtKitDet':
                         $stmt->bindValue($identifier, $this->podtprtkitdet, PDO::PARAM_STR);
+
                         break;
                     case 'PodtDestWhse':
                         $stmt->bindValue($identifier, $this->podtdestwhse, PDO::PARAM_STR);
+
                         break;
                     case 'PodtRevision':
                         $stmt->bindValue($identifier, $this->podtrevision, PDO::PARAM_STR);
+
                         break;
                     case 'PodtPrtPoEOrU':
                         $stmt->bindValue($identifier, $this->podtprtpoeoru, PDO::PARAM_STR);
+
                         break;
                     case 'PotbCnfmCode':
                         $stmt->bindValue($identifier, $this->potbcnfmcode, PDO::PARAM_STR);
+
                         break;
                     case 'PodtRcptNbr':
                         $stmt->bindValue($identifier, $this->podtrcptnbr, PDO::PARAM_INT);
+
                         break;
                     case 'PodtWipNbr':
                         $stmt->bindValue($identifier, $this->podtwipnbr, PDO::PARAM_INT);
+
                         break;
                     case 'PodtOrdrAs':
                         $stmt->bindValue($identifier, $this->podtordras, PDO::PARAM_STR);
+
                         break;
                     case 'PodtBolDate':
                         $stmt->bindValue($identifier, $this->podtboldate, PDO::PARAM_STR);
+
                         break;
                     case 'PodtListPric':
                         $stmt->bindValue($identifier, $this->podtlistpric, PDO::PARAM_STR);
+
                         break;
                     case 'PodtDeliveredDate':
                         $stmt->bindValue($identifier, $this->podtdelivereddate, PDO::PARAM_STR);
+
                         break;
                     case 'PodtLandCost':
                         $stmt->bindValue($identifier, $this->podtlandcost, PDO::PARAM_STR);
+
                         break;
                     case 'PodtCasesOrd':
                         $stmt->bindValue($identifier, $this->podtcasesord, PDO::PARAM_INT);
+
                         break;
                     case 'PodtCat3':
                         $stmt->bindValue($identifier, $this->podtcat3, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -3062,12 +3117,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -3078,14 +3133,14 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = PurchaseOrderDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -3097,150 +3152,149 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getPohdnbr();
-                break;
+
             case 1:
                 return $this->getPodtline();
-                break;
+
             case 2:
                 return $this->getInititemnbr();
-                break;
+
             case 3:
                 return $this->getPodtdesc1();
-                break;
+
             case 4:
                 return $this->getPodtdesc2();
-                break;
+
             case 5:
                 return $this->getPodtvenditemnbr();
-                break;
+
             case 6:
                 return $this->getIntbwhse();
-                break;
+
             case 7:
                 return $this->getPodtshipdate();
-                break;
+
             case 8:
                 return $this->getPodtexptdate();
-                break;
+
             case 9:
                 return $this->getPodtcancdate();
-                break;
+
             case 10:
                 return $this->getIntbuompur();
-                break;
+
             case 11:
                 return $this->getPodtqtyord();
-                break;
+
             case 12:
                 return $this->getPodtcost();
-                break;
+
             case 13:
                 return $this->getPodtcosttot();
-                break;
+
             case 14:
                 return $this->getPodtrel();
-                break;
+
             case 15:
                 return $this->getPodtspecordr();
-                break;
+
             case 16:
                 return $this->getPodtglacct();
-                break;
+
             case 17:
                 return $this->getPodtsonbr();
-                break;
+
             case 18:
                 return $this->getPodtstat();
-                break;
+
             case 19:
                 return $this->getPodtorigsoline();
-                break;
+
             case 20:
                 return $this->getPodtqtyduein();
-                break;
+
             case 21:
                 return $this->getPodttype();
-                break;
+
             case 22:
                 return $this->getPodtwghttot();
-                break;
+
             case 23:
                 return $this->getPodtforeigncost();
-                break;
+
             case 24:
                 return $this->getPodtforeigncosttot();
-                break;
+
             case 25:
                 return $this->getPodtstanunitcost();
-                break;
+
             case 26:
                 return $this->getPodtackdate();
-                break;
+
             case 27:
                 return $this->getPodtinvcclearflag();
-                break;
+
             case 28:
                 return $this->getPodtprtkitdet();
-                break;
+
             case 29:
                 return $this->getPodtdestwhse();
-                break;
+
             case 30:
                 return $this->getPodtrevision();
-                break;
+
             case 31:
                 return $this->getPodtprtpoeoru();
-                break;
+
             case 32:
                 return $this->getPotbcnfmcode();
-                break;
+
             case 33:
                 return $this->getPodtrcptnbr();
-                break;
+
             case 34:
                 return $this->getPodtwipnbr();
-                break;
+
             case 35:
                 return $this->getPodtordras();
-                break;
+
             case 36:
                 return $this->getPodtboldate();
-                break;
+
             case 37:
                 return $this->getPodtlistpric();
-                break;
+
             case 38:
                 return $this->getPodtdelivereddate();
-                break;
+
             case 39:
                 return $this->getPodtlandcost();
-                break;
+
             case 40:
                 return $this->getPodtcasesord();
-                break;
+
             case 41:
                 return $this->getPodtcat3();
-                break;
+
             case 42:
                 return $this->getDateupdtd();
-                break;
+
             case 43:
                 return $this->getTimeupdtd();
-                break;
+
             case 44:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -3250,24 +3304,23 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['PurchaseOrderDetail'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['PurchaseOrderDetail'][$this->hashCode()] = true;
         $keys = PurchaseOrderDetailTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getPohdnbr(),
             $keys[1] => $this->getPodtline(),
             $keys[2] => $this->getInititemnbr(),
@@ -3313,7 +3366,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $keys[42] => $this->getDateupdtd(),
             $keys[43] => $this->getTimeupdtd(),
             $keys[44] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -3403,30 +3456,32 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\PurchaseOrderDetail
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = PurchaseOrderDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\PurchaseOrderDetail
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -3582,11 +3637,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = PurchaseOrderDetailTableMap::getFieldNames($keyType);
 
@@ -3725,6 +3780,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if (array_key_exists($keys[44], $arr)) {
             $this->setDummy($arr[$keys[44]]);
         }
+
+        return $this;
     }
 
      /**
@@ -3744,9 +3801,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\PurchaseOrderDetail The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -3760,9 +3817,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(PurchaseOrderDetailTableMap::DATABASE_NAME);
 
@@ -3909,13 +3966,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildPurchaseOrderDetailQuery::create();
         $criteria->add(PurchaseOrderDetailTableMap::COL_POHDNBR, $this->pohdnbr);
@@ -3928,7 +3985,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -3961,7 +4018,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
+        $pks = [];
         $pks[0] = $this->getPohdnbr();
         $pks[1] = $this->getPodtline();
 
@@ -3971,10 +4028,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Set the [composite] primary key.
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey(array $keys): void
     {
         $this->setPohdnbr($keys[0]);
         $this->setPodtline($keys[1]);
@@ -3982,9 +4039,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return (null === $this->getPohdnbr()) && (null === $this->getPodtline());
     }
@@ -3995,12 +4053,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \PurchaseOrderDetail (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \PurchaseOrderDetail (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setPohdnbr($this->getPohdnbr());
         $copyObj->setPodtline($this->getPodtline());
@@ -4086,11 +4145,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \PurchaseOrderDetail Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -4103,9 +4162,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildPurchaseOrder object.
      *
-     * @param  ChildPurchaseOrder $v
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildPurchaseOrder $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setPurchaseOrder(ChildPurchaseOrder $v = null)
     {
@@ -4131,11 +4190,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Get the associated ChildPurchaseOrder object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildPurchaseOrder The associated ChildPurchaseOrder object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrder(ConnectionInterface $con = null)
+    public function getPurchaseOrder(?ConnectionInterface $con = null)
     {
         if ($this->aPurchaseOrder === null && ($this->pohdnbr != 0)) {
             $this->aPurchaseOrder = ChildPurchaseOrderQuery::create()->findPk($this->pohdnbr, $con);
@@ -4154,9 +4213,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
-     * @param  ChildItemMasterItem $v
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildItemMasterItem $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
@@ -4182,11 +4241,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Get the associated ChildItemMasterItem object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildItemMasterItem The associated ChildItemMasterItem object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemMasterItem(ConnectionInterface $con = null)
+    public function getItemMasterItem(?ConnectionInterface $con = null)
     {
         if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
             $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
@@ -4208,20 +4267,20 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('PurchaseOrderDetailReceipt' == $relationName) {
+        if ('PurchaseOrderDetailReceipt' === $relationName) {
             $this->initPurchaseOrderDetailReceipts();
             return;
         }
-        if ('PurchaseOrderDetailReceiving' == $relationName) {
+        if ('PurchaseOrderDetailReceiving' === $relationName) {
             $this->initPurchaseOrderDetailReceivings();
             return;
         }
-        if ('PurchaseOrderDetailLotReceiving' == $relationName) {
+        if ('PurchaseOrderDetailLotReceiving' === $relationName) {
             $this->initPurchaseOrderDetailLotReceivings();
             return;
         }
@@ -4233,18 +4292,22 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrderDetailReceipts()
+     * @return $this
+     * @see addPurchaseOrderDetailReceipts()
      */
     public function clearPurchaseOrderDetailReceipts()
     {
         $this->collPurchaseOrderDetailReceipts = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrderDetailReceipts collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrderDetailReceipts($v = true)
+    public function resetPartialPurchaseOrderDetailReceipts($v = true): void
     {
         $this->collPurchaseOrderDetailReceiptsPartial = $v;
     }
@@ -4256,12 +4319,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrderDetailReceipts($overrideExisting = true)
+    public function initPurchaseOrderDetailReceipts(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrderDetailReceipts && !$overrideExisting) {
             return;
@@ -4282,18 +4345,28 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * If this ChildPurchaseOrderDetail is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt> List of ChildPurchaseOrderDetailReceipt objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrderDetailReceipts(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrderDetailReceipts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceipts) {
+        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrderDetailReceipts();
+                if (null === $this->collPurchaseOrderDetailReceipts) {
+                    $this->initPurchaseOrderDetailReceipts();
+                } else {
+                    $collectionClassName = PurchaseOrderDetailReceiptTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrderDetailReceipts = new $collectionClassName;
+                    $collPurchaseOrderDetailReceipts->setModel('\PurchaseOrderDetailReceipt');
+
+                    return $collPurchaseOrderDetailReceipts;
+                }
             } else {
                 $collPurchaseOrderDetailReceipts = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria)
                     ->filterByPurchaseOrderDetail($this)
@@ -4337,11 +4410,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrderDetailReceipts A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     * @param Collection $purchaseOrderDetailReceipts A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrderDetailReceipts(Collection $purchaseOrderDetailReceipts, ConnectionInterface $con = null)
+    public function setPurchaseOrderDetailReceipts(Collection $purchaseOrderDetailReceipts, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrderDetailReceipt[] $purchaseOrderDetailReceiptsToDelete */
         $purchaseOrderDetailReceiptsToDelete = $this->getPurchaseOrderDetailReceipts(new Criteria(), $con)->diff($purchaseOrderDetailReceipts);
@@ -4370,13 +4443,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrderDetailReceipt objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrderDetailReceipt objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrderDetailReceipt objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrderDetailReceipts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrderDetailReceipts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
         if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
@@ -4405,8 +4478,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrderDetailReceipt object to this object
      * through the ChildPurchaseOrderDetailReceipt foreign key attribute.
      *
-     * @param  ChildPurchaseOrderDetailReceipt $l ChildPurchaseOrderDetailReceipt
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailReceipt $l ChildPurchaseOrderDetailReceipt
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $l)
     {
@@ -4429,15 +4502,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt The ChildPurchaseOrderDetailReceipt object to add.
      */
-    protected function doAddPurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt)
+    protected function doAddPurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt): void
     {
         $this->collPurchaseOrderDetailReceipts[]= $purchaseOrderDetailReceipt;
         $purchaseOrderDetailReceipt->setPurchaseOrderDetail($this);
     }
 
     /**
-     * @param  ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt The ChildPurchaseOrderDetailReceipt object to remove.
-     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt The ChildPurchaseOrderDetailReceipt object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt)
     {
@@ -4467,12 +4540,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt}> List of ChildPurchaseOrderDetailReceipt objects
      */
-    public function getPurchaseOrderDetailReceiptsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceiptsJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -4492,12 +4566,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt}> List of ChildPurchaseOrderDetailReceipt objects
      */
-    public function getPurchaseOrderDetailReceiptsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceiptsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -4511,18 +4586,22 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrderDetailReceivings()
+     * @return $this
+     * @see addPurchaseOrderDetailReceivings()
      */
     public function clearPurchaseOrderDetailReceivings()
     {
         $this->collPurchaseOrderDetailReceivings = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrderDetailReceivings collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrderDetailReceivings($v = true)
+    public function resetPartialPurchaseOrderDetailReceivings($v = true): void
     {
         $this->collPurchaseOrderDetailReceivingsPartial = $v;
     }
@@ -4534,12 +4613,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrderDetailReceivings($overrideExisting = true)
+    public function initPurchaseOrderDetailReceivings(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrderDetailReceivings && !$overrideExisting) {
             return;
@@ -4560,18 +4639,28 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * If this ChildPurchaseOrderDetail is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving> List of ChildPurchaseOrderDetailReceiving objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrderDetailReceivings(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrderDetailReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
+        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrderDetailReceivings();
+                if (null === $this->collPurchaseOrderDetailReceivings) {
+                    $this->initPurchaseOrderDetailReceivings();
+                } else {
+                    $collectionClassName = PurchaseOrderDetailReceivingTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrderDetailReceivings = new $collectionClassName;
+                    $collPurchaseOrderDetailReceivings->setModel('\PurchaseOrderDetailReceiving');
+
+                    return $collPurchaseOrderDetailReceivings;
+                }
             } else {
                 $collPurchaseOrderDetailReceivings = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria)
                     ->filterByPurchaseOrderDetail($this)
@@ -4615,11 +4704,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrderDetailReceivings A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     * @param Collection $purchaseOrderDetailReceivings A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrderDetailReceivings(Collection $purchaseOrderDetailReceivings, ConnectionInterface $con = null)
+    public function setPurchaseOrderDetailReceivings(Collection $purchaseOrderDetailReceivings, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrderDetailReceiving[] $purchaseOrderDetailReceivingsToDelete */
         $purchaseOrderDetailReceivingsToDelete = $this->getPurchaseOrderDetailReceivings(new Criteria(), $con)->diff($purchaseOrderDetailReceivings);
@@ -4648,13 +4737,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrderDetailReceiving objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrderDetailReceiving objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrderDetailReceiving objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrderDetailReceivings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrderDetailReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
         if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
@@ -4683,8 +4772,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrderDetailReceiving object to this object
      * through the ChildPurchaseOrderDetailReceiving foreign key attribute.
      *
-     * @param  ChildPurchaseOrderDetailReceiving $l ChildPurchaseOrderDetailReceiving
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailReceiving $l ChildPurchaseOrderDetailReceiving
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $l)
     {
@@ -4707,15 +4796,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to add.
      */
-    protected function doAddPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving)
+    protected function doAddPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving): void
     {
         $this->collPurchaseOrderDetailReceivings[]= $purchaseOrderDetailReceiving;
         $purchaseOrderDetailReceiving->setPurchaseOrderDetail($this);
     }
 
     /**
-     * @param  ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to remove.
-     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving)
     {
@@ -4745,12 +4834,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving}> List of ChildPurchaseOrderDetailReceiving objects
      */
-    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -4770,12 +4860,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving}> List of ChildPurchaseOrderDetailReceiving objects
      */
-    public function getPurchaseOrderDetailReceivingsJoinPoReceivingHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceivingsJoinPoReceivingHead(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
         $query->joinWith('PoReceivingHead', $joinBehavior);
@@ -4795,12 +4886,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving}> List of ChildPurchaseOrderDetailReceiving objects
      */
-    public function getPurchaseOrderDetailReceivingsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceivingsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -4820,12 +4912,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving}> List of ChildPurchaseOrderDetailReceiving objects
      */
-    public function getPurchaseOrderDetailReceivingsJoinUnitofMeasureSale(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceivingsJoinUnitofMeasureSale(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
         $query->joinWith('UnitofMeasureSale', $joinBehavior);
@@ -4839,18 +4932,22 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrderDetailLotReceivings()
+     * @return $this
+     * @see addPurchaseOrderDetailLotReceivings()
      */
     public function clearPurchaseOrderDetailLotReceivings()
     {
         $this->collPurchaseOrderDetailLotReceivings = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrderDetailLotReceivings collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrderDetailLotReceivings($v = true)
+    public function resetPartialPurchaseOrderDetailLotReceivings($v = true): void
     {
         $this->collPurchaseOrderDetailLotReceivingsPartial = $v;
     }
@@ -4862,12 +4959,12 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrderDetailLotReceivings($overrideExisting = true)
+    public function initPurchaseOrderDetailLotReceivings(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrderDetailLotReceivings && !$overrideExisting) {
             return;
@@ -4888,18 +4985,28 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * If this ChildPurchaseOrderDetail is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving> List of ChildPurchaseOrderDetailLotReceiving objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrderDetailLotReceivings(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrderDetailLotReceivings) {
+        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrderDetailLotReceivings();
+                if (null === $this->collPurchaseOrderDetailLotReceivings) {
+                    $this->initPurchaseOrderDetailLotReceivings();
+                } else {
+                    $collectionClassName = PurchaseOrderDetailLotReceivingTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrderDetailLotReceivings = new $collectionClassName;
+                    $collPurchaseOrderDetailLotReceivings->setModel('\PurchaseOrderDetailLotReceiving');
+
+                    return $collPurchaseOrderDetailLotReceivings;
+                }
             } else {
                 $collPurchaseOrderDetailLotReceivings = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria)
                     ->filterByPurchaseOrderDetail($this)
@@ -4943,11 +5050,11 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrderDetailLotReceivings A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     * @param Collection $purchaseOrderDetailLotReceivings A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrderDetailLotReceivings(Collection $purchaseOrderDetailLotReceivings, ConnectionInterface $con = null)
+    public function setPurchaseOrderDetailLotReceivings(Collection $purchaseOrderDetailLotReceivings, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrderDetailLotReceiving[] $purchaseOrderDetailLotReceivingsToDelete */
         $purchaseOrderDetailLotReceivingsToDelete = $this->getPurchaseOrderDetailLotReceivings(new Criteria(), $con)->diff($purchaseOrderDetailLotReceivings);
@@ -4976,13 +5083,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrderDetailLotReceiving objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrderDetailLotReceiving objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrderDetailLotReceiving objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrderDetailLotReceivings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
         if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
@@ -5011,8 +5118,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrderDetailLotReceiving object to this object
      * through the ChildPurchaseOrderDetailLotReceiving foreign key attribute.
      *
-     * @param  ChildPurchaseOrderDetailLotReceiving $l ChildPurchaseOrderDetailLotReceiving
-     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailLotReceiving $l ChildPurchaseOrderDetailLotReceiving
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $l)
     {
@@ -5035,15 +5142,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving The ChildPurchaseOrderDetailLotReceiving object to add.
      */
-    protected function doAddPurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving)
+    protected function doAddPurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving): void
     {
         $this->collPurchaseOrderDetailLotReceivings[]= $purchaseOrderDetailLotReceiving;
         $purchaseOrderDetailLotReceiving->setPurchaseOrderDetail($this);
     }
 
     /**
-     * @param  ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving The ChildPurchaseOrderDetailLotReceiving object to remove.
-     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving The ChildPurchaseOrderDetailLotReceiving object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving)
     {
@@ -5073,12 +5180,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving}> List of ChildPurchaseOrderDetailLotReceiving objects
      */
-    public function getPurchaseOrderDetailLotReceivingsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailLotReceivingsJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -5098,12 +5206,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving}> List of ChildPurchaseOrderDetailLotReceiving objects
      */
-    public function getPurchaseOrderDetailLotReceivingsJoinPoReceivingHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailLotReceivingsJoinPoReceivingHead(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
         $query->joinWith('PoReceivingHead', $joinBehavior);
@@ -5123,12 +5232,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in PurchaseOrderDetail.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving}> List of ChildPurchaseOrderDetailLotReceiving objects
      */
-    public function getPurchaseOrderDetailLotReceivingsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailLotReceivingsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -5140,6 +5250,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -5200,6 +5312,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -5208,9 +5322,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collPurchaseOrderDetailReceipts) {
@@ -5235,6 +5350,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->collPurchaseOrderDetailLotReceivings = null;
         $this->aPurchaseOrder = null;
         $this->aItemMasterItem = null;
+        return $this;
     }
 
     /**
@@ -5249,99 +5365,79 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -5351,7 +5447,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -5371,15 +5467,18 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cash_head' table.
- *
- *
+ * Base class that represents a query for the `ar_cash_head` table.
  *
  * @method     ChildArCashHeadQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildArCashHeadQuery orderByArchamtrec($order = Criteria::ASC) Order by the ArchAmtRec column
@@ -78,25 +77,25 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery|\ArPaymentPendingQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildArCashHead findOne(ConnectionInterface $con = null) Return the first ChildArCashHead matching the query
- * @method     ChildArCashHead findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArCashHead matching the query, or a new ChildArCashHead object populated from the query conditions when no match is found
+ * @method     ChildArCashHead|null findOne(?ConnectionInterface $con = null) Return the first ChildArCashHead matching the query
+ * @method     ChildArCashHead findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArCashHead matching the query, or a new ChildArCashHead object populated from the query conditions when no match is found
  *
- * @method     ChildArCashHead findOneByArcucustid(string $ArcuCustId) Return the first ChildArCashHead filtered by the ArcuCustId column
- * @method     ChildArCashHead findOneByArchamtrec(string $ArchAmtRec) Return the first ChildArCashHead filtered by the ArchAmtRec column
- * @method     ChildArCashHead findOneByArchclerkid(string $ArchClerkId) Return the first ChildArCashHead filtered by the ArchClerkId column
- * @method     ChildArCashHead findOneByArchpostflag(string $ArchPostFlag) Return the first ChildArCashHead filtered by the ArchPostFlag column
- * @method     ChildArCashHead findOneByArchorigwhse(string $ArchOrigWhse) Return the first ChildArCashHead filtered by the ArchOrigWhse column
- * @method     ChildArCashHead findOneByArchccnbr(string $ArchCcNbr) Return the first ChildArCashHead filtered by the ArchCcNbr column
- * @method     ChildArCashHead findOneByArchccexpdate(string $ArchCcExpDate) Return the first ChildArCashHead filtered by the ArchCcExpDate column
- * @method     ChildArCashHead findOneByArchccvalidcode(string $ArchCcValidCode) Return the first ChildArCashHead filtered by the ArchCcValidCode column
- * @method     ChildArCashHead findOneByArchccaprv(string $ArchCcAprv) Return the first ChildArCashHead filtered by the ArchCcAprv column
- * @method     ChildArCashHead findOneByArchccinfo(string $ArchCcInfo) Return the first ChildArCashHead filtered by the ArchCcInfo column
- * @method     ChildArCashHead findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCashHead filtered by the DateUpdtd column
- * @method     ChildArCashHead findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCashHead filtered by the TimeUpdtd column
- * @method     ChildArCashHead findOneByDummy(string $dummy) Return the first ChildArCashHead filtered by the dummy column *
-
- * @method     ChildArCashHead requirePk($key, ConnectionInterface $con = null) Return the ChildArCashHead by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArCashHead requireOne(ConnectionInterface $con = null) Return the first ChildArCashHead matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCashHead|null findOneByArcucustid(string $ArcuCustId) Return the first ChildArCashHead filtered by the ArcuCustId column
+ * @method     ChildArCashHead|null findOneByArchamtrec(string $ArchAmtRec) Return the first ChildArCashHead filtered by the ArchAmtRec column
+ * @method     ChildArCashHead|null findOneByArchclerkid(string $ArchClerkId) Return the first ChildArCashHead filtered by the ArchClerkId column
+ * @method     ChildArCashHead|null findOneByArchpostflag(string $ArchPostFlag) Return the first ChildArCashHead filtered by the ArchPostFlag column
+ * @method     ChildArCashHead|null findOneByArchorigwhse(string $ArchOrigWhse) Return the first ChildArCashHead filtered by the ArchOrigWhse column
+ * @method     ChildArCashHead|null findOneByArchccnbr(string $ArchCcNbr) Return the first ChildArCashHead filtered by the ArchCcNbr column
+ * @method     ChildArCashHead|null findOneByArchccexpdate(string $ArchCcExpDate) Return the first ChildArCashHead filtered by the ArchCcExpDate column
+ * @method     ChildArCashHead|null findOneByArchccvalidcode(string $ArchCcValidCode) Return the first ChildArCashHead filtered by the ArchCcValidCode column
+ * @method     ChildArCashHead|null findOneByArchccaprv(string $ArchCcAprv) Return the first ChildArCashHead filtered by the ArchCcAprv column
+ * @method     ChildArCashHead|null findOneByArchccinfo(string $ArchCcInfo) Return the first ChildArCashHead filtered by the ArchCcInfo column
+ * @method     ChildArCashHead|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCashHead filtered by the DateUpdtd column
+ * @method     ChildArCashHead|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCashHead filtered by the TimeUpdtd column
+ * @method     ChildArCashHead|null findOneByDummy(string $dummy) Return the first ChildArCashHead filtered by the dummy column
+ *
+ * @method     ChildArCashHead requirePk($key, ?ConnectionInterface $con = null) Return the ChildArCashHead by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCashHead requireOne(?ConnectionInterface $con = null) Return the first ChildArCashHead matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArCashHead requireOneByArcucustid(string $ArcuCustId) Return the first ChildArCashHead filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCashHead requireOneByArchamtrec(string $ArchAmtRec) Return the first ChildArCashHead filtered by the ArchAmtRec column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -112,22 +111,38 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCashHead requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCashHead filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCashHead requireOneByDummy(string $dummy) Return the first ChildArCashHead filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArCashHead[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArCashHead objects based on current ModelCriteria
- * @method     ChildArCashHead[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildArCashHead objects filtered by the ArcuCustId column
- * @method     ChildArCashHead[]|ObjectCollection findByArchamtrec(string $ArchAmtRec) Return ChildArCashHead objects filtered by the ArchAmtRec column
- * @method     ChildArCashHead[]|ObjectCollection findByArchclerkid(string $ArchClerkId) Return ChildArCashHead objects filtered by the ArchClerkId column
- * @method     ChildArCashHead[]|ObjectCollection findByArchpostflag(string $ArchPostFlag) Return ChildArCashHead objects filtered by the ArchPostFlag column
- * @method     ChildArCashHead[]|ObjectCollection findByArchorigwhse(string $ArchOrigWhse) Return ChildArCashHead objects filtered by the ArchOrigWhse column
- * @method     ChildArCashHead[]|ObjectCollection findByArchccnbr(string $ArchCcNbr) Return ChildArCashHead objects filtered by the ArchCcNbr column
- * @method     ChildArCashHead[]|ObjectCollection findByArchccexpdate(string $ArchCcExpDate) Return ChildArCashHead objects filtered by the ArchCcExpDate column
- * @method     ChildArCashHead[]|ObjectCollection findByArchccvalidcode(string $ArchCcValidCode) Return ChildArCashHead objects filtered by the ArchCcValidCode column
- * @method     ChildArCashHead[]|ObjectCollection findByArchccaprv(string $ArchCcAprv) Return ChildArCashHead objects filtered by the ArchCcAprv column
- * @method     ChildArCashHead[]|ObjectCollection findByArchccinfo(string $ArchCcInfo) Return ChildArCashHead objects filtered by the ArchCcInfo column
- * @method     ChildArCashHead[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCashHead objects filtered by the DateUpdtd column
- * @method     ChildArCashHead[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCashHead objects filtered by the TimeUpdtd column
- * @method     ChildArCashHead[]|ObjectCollection findByDummy(string $dummy) Return ChildArCashHead objects filtered by the dummy column
- * @method     ChildArCashHead[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArCashHead[]|Collection find(?ConnectionInterface $con = null) Return ChildArCashHead objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArCashHead> find(?ConnectionInterface $con = null) Return ChildArCashHead objects based on current ModelCriteria
  *
+ * @method     ChildArCashHead[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildArCashHead objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArcucustid(string|array<string> $ArcuCustId) Return ChildArCashHead objects filtered by the ArcuCustId column
+ * @method     ChildArCashHead[]|Collection findByArchamtrec(string|array<string> $ArchAmtRec) Return ChildArCashHead objects filtered by the ArchAmtRec column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchamtrec(string|array<string> $ArchAmtRec) Return ChildArCashHead objects filtered by the ArchAmtRec column
+ * @method     ChildArCashHead[]|Collection findByArchclerkid(string|array<string> $ArchClerkId) Return ChildArCashHead objects filtered by the ArchClerkId column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchclerkid(string|array<string> $ArchClerkId) Return ChildArCashHead objects filtered by the ArchClerkId column
+ * @method     ChildArCashHead[]|Collection findByArchpostflag(string|array<string> $ArchPostFlag) Return ChildArCashHead objects filtered by the ArchPostFlag column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchpostflag(string|array<string> $ArchPostFlag) Return ChildArCashHead objects filtered by the ArchPostFlag column
+ * @method     ChildArCashHead[]|Collection findByArchorigwhse(string|array<string> $ArchOrigWhse) Return ChildArCashHead objects filtered by the ArchOrigWhse column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchorigwhse(string|array<string> $ArchOrigWhse) Return ChildArCashHead objects filtered by the ArchOrigWhse column
+ * @method     ChildArCashHead[]|Collection findByArchccnbr(string|array<string> $ArchCcNbr) Return ChildArCashHead objects filtered by the ArchCcNbr column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchccnbr(string|array<string> $ArchCcNbr) Return ChildArCashHead objects filtered by the ArchCcNbr column
+ * @method     ChildArCashHead[]|Collection findByArchccexpdate(string|array<string> $ArchCcExpDate) Return ChildArCashHead objects filtered by the ArchCcExpDate column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchccexpdate(string|array<string> $ArchCcExpDate) Return ChildArCashHead objects filtered by the ArchCcExpDate column
+ * @method     ChildArCashHead[]|Collection findByArchccvalidcode(string|array<string> $ArchCcValidCode) Return ChildArCashHead objects filtered by the ArchCcValidCode column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchccvalidcode(string|array<string> $ArchCcValidCode) Return ChildArCashHead objects filtered by the ArchCcValidCode column
+ * @method     ChildArCashHead[]|Collection findByArchccaprv(string|array<string> $ArchCcAprv) Return ChildArCashHead objects filtered by the ArchCcAprv column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchccaprv(string|array<string> $ArchCcAprv) Return ChildArCashHead objects filtered by the ArchCcAprv column
+ * @method     ChildArCashHead[]|Collection findByArchccinfo(string|array<string> $ArchCcInfo) Return ChildArCashHead objects filtered by the ArchCcInfo column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByArchccinfo(string|array<string> $ArchCcInfo) Return ChildArCashHead objects filtered by the ArchCcInfo column
+ * @method     ChildArCashHead[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArCashHead objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArCashHead objects filtered by the DateUpdtd column
+ * @method     ChildArCashHead[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArCashHead objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArCashHead objects filtered by the TimeUpdtd column
+ * @method     ChildArCashHead[]|Collection findByDummy(string|array<string> $dummy) Return ChildArCashHead objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArCashHead> findByDummy(string|array<string> $dummy) Return ChildArCashHead objects filtered by the dummy column
+ *
+ * @method     ChildArCashHead[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArCashHead> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArCashHeadQuery extends ModelCriteria
 {
@@ -136,9 +151,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArCashHeadQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArCashHead', $modelAlias = null)
     {
@@ -148,12 +163,12 @@ abstract class ArCashHeadQuery extends ModelCriteria
     /**
      * Returns a new ChildArCashHeadQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArCashHeadQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArCashHeadQuery) {
             return $criteria;
@@ -183,7 +198,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
      *
      * @return ChildArCashHead|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -215,8 +230,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -248,8 +263,8 @@ abstract class ArCashHeadQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArCashHead|array|mixed the result, formatted by the current formatter
      */
@@ -269,12 +284,12 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -291,27 +306,31 @@ abstract class ArCashHeadQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $keys, Criteria::IN);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -321,14 +340,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -336,7 +356,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -349,15 +371,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * $query->filterByArchamtrec(array('min' => 12)); // WHERE ArchAmtRec > 12
      * </code>
      *
-     * @param     mixed $archamtrec The value to use as filter.
+     * @param mixed $archamtrec The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchamtrec($archamtrec = null, $comparison = null)
+    public function filterByArchamtrec($archamtrec = null, ?string $comparison = null)
     {
         if (is_array($archamtrec)) {
             $useMinMax = false;
@@ -377,7 +399,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHAMTREC, $archamtrec, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHAMTREC, $archamtrec, $comparison);
+
+        return $this;
     }
 
     /**
@@ -387,14 +411,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArchclerkid('fooValue');   // WHERE ArchClerkId = 'fooValue'
      * $query->filterByArchclerkid('%fooValue%', Criteria::LIKE); // WHERE ArchClerkId LIKE '%fooValue%'
+     * $query->filterByArchclerkid(['foo', 'bar']); // WHERE ArchClerkId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $archclerkid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $archclerkid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchclerkid($archclerkid = null, $comparison = null)
+    public function filterByArchclerkid($archclerkid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($archclerkid)) {
@@ -402,7 +427,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCLERKID, $archclerkid, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCLERKID, $archclerkid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -412,14 +439,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArchpostflag('fooValue');   // WHERE ArchPostFlag = 'fooValue'
      * $query->filterByArchpostflag('%fooValue%', Criteria::LIKE); // WHERE ArchPostFlag LIKE '%fooValue%'
+     * $query->filterByArchpostflag(['foo', 'bar']); // WHERE ArchPostFlag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $archpostflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $archpostflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchpostflag($archpostflag = null, $comparison = null)
+    public function filterByArchpostflag($archpostflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($archpostflag)) {
@@ -427,7 +455,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHPOSTFLAG, $archpostflag, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHPOSTFLAG, $archpostflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -437,14 +467,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArchorigwhse('fooValue');   // WHERE ArchOrigWhse = 'fooValue'
      * $query->filterByArchorigwhse('%fooValue%', Criteria::LIKE); // WHERE ArchOrigWhse LIKE '%fooValue%'
+     * $query->filterByArchorigwhse(['foo', 'bar']); // WHERE ArchOrigWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $archorigwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $archorigwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchorigwhse($archorigwhse = null, $comparison = null)
+    public function filterByArchorigwhse($archorigwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($archorigwhse)) {
@@ -452,7 +483,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHORIGWHSE, $archorigwhse, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHORIGWHSE, $archorigwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -462,14 +495,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArchccnbr('fooValue');   // WHERE ArchCcNbr = 'fooValue'
      * $query->filterByArchccnbr('%fooValue%', Criteria::LIKE); // WHERE ArchCcNbr LIKE '%fooValue%'
+     * $query->filterByArchccnbr(['foo', 'bar']); // WHERE ArchCcNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $archccnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $archccnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchccnbr($archccnbr = null, $comparison = null)
+    public function filterByArchccnbr($archccnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($archccnbr)) {
@@ -477,7 +511,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCNBR, $archccnbr, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCNBR, $archccnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -487,14 +523,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArchccexpdate('fooValue');   // WHERE ArchCcExpDate = 'fooValue'
      * $query->filterByArchccexpdate('%fooValue%', Criteria::LIKE); // WHERE ArchCcExpDate LIKE '%fooValue%'
+     * $query->filterByArchccexpdate(['foo', 'bar']); // WHERE ArchCcExpDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $archccexpdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $archccexpdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchccexpdate($archccexpdate = null, $comparison = null)
+    public function filterByArchccexpdate($archccexpdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($archccexpdate)) {
@@ -502,7 +539,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCEXPDATE, $archccexpdate, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCEXPDATE, $archccexpdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -512,14 +551,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArchccvalidcode('fooValue');   // WHERE ArchCcValidCode = 'fooValue'
      * $query->filterByArchccvalidcode('%fooValue%', Criteria::LIKE); // WHERE ArchCcValidCode LIKE '%fooValue%'
+     * $query->filterByArchccvalidcode(['foo', 'bar']); // WHERE ArchCcValidCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $archccvalidcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $archccvalidcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchccvalidcode($archccvalidcode = null, $comparison = null)
+    public function filterByArchccvalidcode($archccvalidcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($archccvalidcode)) {
@@ -527,7 +567,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCVALIDCODE, $archccvalidcode, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCVALIDCODE, $archccvalidcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -537,14 +579,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArchccaprv('fooValue');   // WHERE ArchCcAprv = 'fooValue'
      * $query->filterByArchccaprv('%fooValue%', Criteria::LIKE); // WHERE ArchCcAprv LIKE '%fooValue%'
+     * $query->filterByArchccaprv(['foo', 'bar']); // WHERE ArchCcAprv IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $archccaprv The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $archccaprv The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchccaprv($archccaprv = null, $comparison = null)
+    public function filterByArchccaprv($archccaprv = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($archccaprv)) {
@@ -552,7 +595,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCAPRV, $archccaprv, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCAPRV, $archccaprv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -562,14 +607,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByArchccinfo('fooValue');   // WHERE ArchCcInfo = 'fooValue'
      * $query->filterByArchccinfo('%fooValue%', Criteria::LIKE); // WHERE ArchCcInfo LIKE '%fooValue%'
+     * $query->filterByArchccinfo(['foo', 'bar']); // WHERE ArchCcInfo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $archccinfo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $archccinfo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArchccinfo($archccinfo = null, $comparison = null)
+    public function filterByArchccinfo($archccinfo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($archccinfo)) {
@@ -577,7 +623,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCINFO, $archccinfo, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_ARCHCCINFO, $archccinfo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -587,14 +635,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -602,7 +651,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -612,14 +663,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -627,7 +679,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -637,14 +691,15 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -652,20 +707,22 @@ abstract class ArCashHeadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCashHeadTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArCashHeadTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -675,8 +732,10 @@ abstract class ArCashHeadQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -685,12 +744,12 @@ abstract class ArCashHeadQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -719,9 +778,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -733,23 +792,123 @@ abstract class ArCashHeadQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ArPaymentPending object
      *
      * @param \ArPaymentPending|ObjectCollection $arPaymentPending the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArPaymentPending($arPaymentPending, $comparison = null)
+    public function filterByArPaymentPending($arPaymentPending, ?string $comparison = null)
     {
         if ($arPaymentPending instanceof \ArPaymentPending) {
-            return $this
+            $this
                 ->addUsingAlias(ArCashHeadTableMap::COL_ARCUCUSTID, $arPaymentPending->getArcucustid(), $comparison);
+
+            return $this;
         } elseif ($arPaymentPending instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useArPaymentPendingQuery()
                 ->filterByPrimaryKeys($arPaymentPending->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByArPaymentPending() only accepts arguments of type \ArPaymentPending or Collection');
         }
@@ -758,12 +917,12 @@ abstract class ArCashHeadQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ArPaymentPending relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinArPaymentPending($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinArPaymentPending(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ArPaymentPending');
@@ -792,9 +951,9 @@ abstract class ArCashHeadQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ArPaymentPendingQuery A secondary query class using the current class as primary query
      */
@@ -806,11 +965,107 @@ abstract class ArCashHeadQuery extends ModelCriteria
     }
 
     /**
+     * Use the ArPaymentPending relation ArPaymentPending object
+     *
+     * @param callable(\ArPaymentPendingQuery):\ArPaymentPendingQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withArPaymentPendingQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useArPaymentPendingQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ArPaymentPending table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ArPaymentPendingQuery The inner query object of the EXISTS statement
+     */
+    public function useArPaymentPendingExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ArPaymentPendingQuery */
+        $q = $this->useExistsQuery('ArPaymentPending', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArPaymentPending table for a NOT EXISTS query.
+     *
+     * @see useArPaymentPendingExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ArPaymentPendingQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useArPaymentPendingNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ArPaymentPendingQuery */
+        $q = $this->useExistsQuery('ArPaymentPending', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArPaymentPending table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ArPaymentPendingQuery The inner query object of the IN statement
+     */
+    public function useInArPaymentPendingQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ArPaymentPendingQuery */
+        $q = $this->useInQuery('ArPaymentPending', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArPaymentPending table for a NOT IN query.
+     *
+     * @see useArPaymentPendingInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ArPaymentPendingQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInArPaymentPendingQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ArPaymentPendingQuery */
+        $q = $this->useInQuery('ArPaymentPending', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildArCashHead $arCashHead Object to remove from the list of results
+     * @param ChildArCashHead $arCashHead Object to remove from the list of results
      *
-     * @return $this|ChildArCashHeadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($arCashHead = null)
     {
@@ -827,7 +1082,7 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCashHeadTableMap::DATABASE_NAME);
@@ -852,12 +1107,12 @@ abstract class ArCashHeadQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCashHeadTableMap::DATABASE_NAME);
@@ -882,4 +1137,4 @@ abstract class ArCashHeadQuery extends ModelCriteria
         });
     }
 
-} // ArCashHeadQuery
+}

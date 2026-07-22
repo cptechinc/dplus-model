@@ -10,14 +10,12 @@ use Map\ConfigInTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'in_config' table.
- *
- *
+ * Base class that represents a query for the `in_config` table.
  *
  * @method     ChildConfigInQuery orderByIntbconfkey($order = Criteria::ASC) Order by the IntbConfKey column
  * @method     ChildConfigInQuery orderByIntbconfglifac($order = Criteria::ASC) Order by the IntbConfGlIfac column
@@ -377,186 +375,186 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigInQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigInQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigIn findOne(ConnectionInterface $con = null) Return the first ChildConfigIn matching the query
- * @method     ChildConfigIn findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigIn matching the query, or a new ChildConfigIn object populated from the query conditions when no match is found
+ * @method     ChildConfigIn|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigIn matching the query
+ * @method     ChildConfigIn findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigIn matching the query, or a new ChildConfigIn object populated from the query conditions when no match is found
  *
- * @method     ChildConfigIn findOneByIntbconfkey(int $IntbConfKey) Return the first ChildConfigIn filtered by the IntbConfKey column
- * @method     ChildConfigIn findOneByIntbconfglifac(string $IntbConfGlIfac) Return the first ChildConfigIn filtered by the IntbConfGlIfac column
- * @method     ChildConfigIn findOneByIntbconfuseiw(string $IntbConfUseIw) Return the first ChildConfigIn filtered by the IntbConfUseIw column
- * @method     ChildConfigIn findOneByIntbconflifofifo(string $IntbConfLifoFifo) Return the first ChildConfigIn filtered by the IntbConfLifoFifo column
- * @method     ChildConfigIn findOneByIntbconfgoneg(string $IntbConfGoNeg) Return the first ChildConfigIn filtered by the IntbConfGoNeg column
- * @method     ChildConfigIn findOneByIntbconfuselots(string $IntbConfUseLots) Return the first ChildConfigIn filtered by the IntbConfUseLots column
- * @method     ChildConfigIn findOneByIntbconfnbruppr(string $IntbConfNbrUppr) Return the first ChildConfigIn filtered by the IntbConfNbrUppr column
- * @method     ChildConfigIn findOneByIntbconfdescuppr(string $IntbConfDescUppr) Return the first ChildConfigIn filtered by the IntbConfDescUppr column
- * @method     ChildConfigIn findOneByIntbconfusedesc2(string $IntbConfUseDesc2) Return the first ChildConfigIn filtered by the IntbConfUseDesc2 column
- * @method     ChildConfigIn findOneByIntbconfuseupccode(string $IntbConfUseUpcCode) Return the first ChildConfigIn filtered by the IntbConfUseUpcCode column
- * @method     ChildConfigIn findOneByIntbconfupceancntrl(string $IntbConfUpcEanCntrl) Return the first ChildConfigIn filtered by the IntbConfUpcEanCntrl column
- * @method     ChildConfigIn findOneByIntbconfupcgennbr(int $IntbConfUpcGenNbr) Return the first ChildConfigIn filtered by the IntbConfUpcGenNbr column
- * @method     ChildConfigIn findOneByIntbcon2allowdupupc(string $IntbCon2AllowDupUpc) Return the first ChildConfigIn filtered by the IntbCon2AllowDupUpc column
- * @method     ChildConfigIn findOneByIntbconfxrefnospace(string $IntbConfXrefNoSpace) Return the first ChildConfigIn filtered by the IntbConfXrefNoSpace column
- * @method     ChildConfigIn findOneByIntbconfusepricgrup(string $IntbConfUsePricGrup) Return the first ChildConfigIn filtered by the IntbConfUsePricGrup column
- * @method     ChildConfigIn findOneByIntbconfusecommgrup(string $IntbConfUseCommGrup) Return the first ChildConfigIn filtered by the IntbConfUseCommGrup column
- * @method     ChildConfigIn findOneByIntbconfusewarrdays(string $IntbConfUseWarrDays) Return the first ChildConfigIn filtered by the IntbConfUseWarrDays column
- * @method     ChildConfigIn findOneByIntbconfstanbasedef(string $IntbConfStanBaseDef) Return the first ChildConfigIn filtered by the IntbConfStanBaseDef column
- * @method     ChildConfigIn findOneByIntbconfgrupdef(string $IntbConfGrupDef) Return the first ChildConfigIn filtered by the IntbConfGrupDef column
- * @method     ChildConfigIn findOneByIntbconfpricgrupdef(string $IntbConfPricGrupDef) Return the first ChildConfigIn filtered by the IntbConfPricGrupDef column
- * @method     ChildConfigIn findOneByIntbconfcommgrupdef(string $IntbConfCommGrupDef) Return the first ChildConfigIn filtered by the IntbConfCommGrupDef column
- * @method     ChildConfigIn findOneByIntbconftypedef(string $IntbConfTypeDef) Return the first ChildConfigIn filtered by the IntbConfTypeDef column
- * @method     ChildConfigIn findOneByIntbconfmultilotref(string $IntbConfMultiLotRef) Return the first ChildConfigIn filtered by the IntbConfMultiLotRef column
- * @method     ChildConfigIn findOneByIntbconfpricuseitem(string $IntbConfPricUseItem) Return the first ChildConfigIn filtered by the IntbConfPricUseItem column
- * @method     ChildConfigIn findOneByIntbconfcommuseitem(string $IntbConfCommUseItem) Return the first ChildConfigIn filtered by the IntbConfCommUseItem column
- * @method     ChildConfigIn findOneByIntbconfuomsaledef(string $IntbConfUomSaleDef) Return the first ChildConfigIn filtered by the IntbConfUomSaleDef column
- * @method     ChildConfigIn findOneByIntbconfuompurdef(string $IntbConfUomPurDef) Return the first ChildConfigIn filtered by the IntbConfUomPurDef column
- * @method     ChildConfigIn findOneByIntbconfsviadef(string $IntbConfSviaDef) Return the first ChildConfigIn filtered by the IntbConfSviaDef column
- * @method     ChildConfigIn findOneByIntbconfcustxreforuse(string $IntbConfCustxrefOrUse) Return the first ChildConfigIn filtered by the IntbConfCustxrefOrUse column
- * @method     ChildConfigIn findOneByIntbconfheadgetdef(int $IntbConfHeadGetDef) Return the first ChildConfigIn filtered by the IntbConfHeadGetDef column
- * @method     ChildConfigIn findOneByIntbconfitemgetdef(int $IntbConfItemGetDef) Return the first ChildConfigIn filtered by the IntbConfItemGetDef column
- * @method     ChildConfigIn findOneByIntbconfgetdispohaval(string $IntbConfGetDispOhAval) Return the first ChildConfigIn filtered by the IntbConfGetDispOhAval column
- * @method     ChildConfigIn findOneByIntbconfusercode1labl(string $IntbConfUserCode1Labl) Return the first ChildConfigIn filtered by the IntbConfUserCode1Labl column
- * @method     ChildConfigIn findOneByIntbconfusercode1ver(string $IntbConfUserCode1Ver) Return the first ChildConfigIn filtered by the IntbConfUserCode1Ver column
- * @method     ChildConfigIn findOneByIntbconfusercode2labl(string $IntbConfUserCode2Labl) Return the first ChildConfigIn filtered by the IntbConfUserCode2Labl column
- * @method     ChildConfigIn findOneByIntbconfusercode2ver(string $IntbConfUserCode2Ver) Return the first ChildConfigIn filtered by the IntbConfUserCode2Ver column
- * @method     ChildConfigIn findOneByIntbconfitemline(int $IntbConfItemLine) Return the first ChildConfigIn filtered by the IntbConfItemLine column
- * @method     ChildConfigIn findOneByIntbconfitemcols(int $IntbConfItemCols) Return the first ChildConfigIn filtered by the IntbConfItemCols column
- * @method     ChildConfigIn findOneByIntbconfheadline(int $IntbConfHeadLine) Return the first ChildConfigIn filtered by the IntbConfHeadLine column
- * @method     ChildConfigIn findOneByIntbconfheadcols(int $IntbConfHeadCols) Return the first ChildConfigIn filtered by the IntbConfHeadCols column
- * @method     ChildConfigIn findOneByIntbconfdetline(int $IntbConfDetLine) Return the first ChildConfigIn filtered by the IntbConfDetLine column
- * @method     ChildConfigIn findOneByIntbconfdetcols(int $IntbConfDetCols) Return the first ChildConfigIn filtered by the IntbConfDetCols column
- * @method     ChildConfigIn findOneByIntbconfminmaxzero(string $IntbConfMinMaxZero) Return the first ChildConfigIn filtered by the IntbConfMinMaxZero column
- * @method     ChildConfigIn findOneByIntbconfminrec(string $IntbConfMinRec) Return the first ChildConfigIn filtered by the IntbConfMinRec column
- * @method     ChildConfigIn findOneByIntbconfatbelowmin(string $IntbConfAtBelowMin) Return the first ChildConfigIn filtered by the IntbConfAtBelowMin column
- * @method     ChildConfigIn findOneByIntbconfonewhse(string $IntbConfOneWhse) Return the first ChildConfigIn filtered by the IntbConfOneWhse column
- * @method     ChildConfigIn findOneByIntbconfytdmth(int $IntbConfYtdMth) Return the first ChildConfigIn filtered by the IntbConfYtdMth column
- * @method     ChildConfigIn findOneByIntbconfusegramsltr(string $IntbConfUseGramsLtr) Return the first ChildConfigIn filtered by the IntbConfUseGramsLtr column
- * @method     ChildConfigIn findOneByIntbconfabcbywhse(string $IntbConfAbcByWhse) Return the first ChildConfigIn filtered by the IntbConfAbcByWhse column
- * @method     ChildConfigIn findOneByIntbconfabcnbrmths(int $IntbConfAbcNbrMths) Return the first ChildConfigIn filtered by the IntbConfAbcNbrMths column
- * @method     ChildConfigIn findOneByIntbconfabcbasecode(string $IntbConfAbcBaseCode) Return the first ChildConfigIn filtered by the IntbConfAbcBaseCode column
- * @method     ChildConfigIn findOneByIntbconfabclevla(string $IntbConfAbcLevlA) Return the first ChildConfigIn filtered by the IntbConfAbcLevlA column
- * @method     ChildConfigIn findOneByIntbconfabclevlb(string $IntbConfAbcLevlB) Return the first ChildConfigIn filtered by the IntbConfAbcLevlB column
- * @method     ChildConfigIn findOneByIntbconfabclevlc(string $IntbConfAbcLevlC) Return the first ChildConfigIn filtered by the IntbConfAbcLevlC column
- * @method     ChildConfigIn findOneByIntbconfabclevld(string $IntbConfAbcLevlD) Return the first ChildConfigIn filtered by the IntbConfAbcLevlD column
- * @method     ChildConfigIn findOneByIntbconfabclevle(string $IntbConfAbcLevlE) Return the first ChildConfigIn filtered by the IntbConfAbcLevlE column
- * @method     ChildConfigIn findOneByIntbconfabclevlf(string $IntbConfAbcLevlF) Return the first ChildConfigIn filtered by the IntbConfAbcLevlF column
- * @method     ChildConfigIn findOneByIntbconfabclevlg(string $IntbConfAbcLevlG) Return the first ChildConfigIn filtered by the IntbConfAbcLevlG column
- * @method     ChildConfigIn findOneByIntbconfabclevlh(string $IntbConfAbcLevlH) Return the first ChildConfigIn filtered by the IntbConfAbcLevlH column
- * @method     ChildConfigIn findOneByIntbconfabclevli(string $IntbConfAbcLevlI) Return the first ChildConfigIn filtered by the IntbConfAbcLevlI column
- * @method     ChildConfigIn findOneByIntbconfabclevlj(string $IntbConfAbcLevlJ) Return the first ChildConfigIn filtered by the IntbConfAbcLevlJ column
- * @method     ChildConfigIn findOneByIntbconfuseforeignx(string $IntbConfUseForeignX) Return the first ChildConfigIn filtered by the IntbConfUseForeignX column
- * @method     ChildConfigIn findOneByIntbconfusenafta(string $IntbConfUseNafta) Return the first ChildConfigIn filtered by the IntbConfUseNafta column
- * @method     ChildConfigIn findOneByIntbconfnaftaprefcode(string $IntbConfNaftaPrefCode) Return the first ChildConfigIn filtered by the IntbConfNaftaPrefCode column
- * @method     ChildConfigIn findOneByIntbconfnaftaproducer(string $IntbConfNaftaProducer) Return the first ChildConfigIn filtered by the IntbConfNaftaProducer column
- * @method     ChildConfigIn findOneByIntbconfnaftadoccode(string $IntbConfNaftaDocCode) Return the first ChildConfigIn filtered by the IntbConfNaftaDocCode column
- * @method     ChildConfigIn findOneByIntbconfphyscurrwksh(string $IntbConfPhysCurrWksh) Return the first ChildConfigIn filtered by the IntbConfPhysCurrWksh column
- * @method     ChildConfigIn findOneByIntbconf20or30(int $IntbConf20Or30) Return the first ChildConfigIn filtered by the IntbConf20Or30 column
- * @method     ChildConfigIn findOneByIntbconfdisporigcnt(string $IntbConfDispOrigCnt) Return the first ChildConfigIn filtered by the IntbConfDispOrigCnt column
- * @method     ChildConfigIn findOneByIntbconfdispgl(string $IntbConfDispGl) Return the first ChildConfigIn filtered by the IntbConfDispGl column
- * @method     ChildConfigIn findOneByIntbconfdispref(string $IntbConfDispRef) Return the first ChildConfigIn filtered by the IntbConfDispRef column
- * @method     ChildConfigIn findOneByIntbconfdispcost(string $IntbConfDispCost) Return the first ChildConfigIn filtered by the IntbConfDispCost column
- * @method     ChildConfigIn findOneByIntbconfprtval(string $IntbConfPrtVal) Return the first ChildConfigIn filtered by the IntbConfPrtVal column
- * @method     ChildConfigIn findOneByIntbconfprtgl(string $IntbConfPrtGl) Return the first ChildConfigIn filtered by the IntbConfPrtGl column
- * @method     ChildConfigIn findOneByIntbconfglacct(string $IntbConfGlAcct) Return the first ChildConfigIn filtered by the IntbConfGlAcct column
- * @method     ChildConfigIn findOneByIntbconfref(string $IntbConfRef) Return the first ChildConfigIn filtered by the IntbConfRef column
- * @method     ChildConfigIn findOneByIntbconfcosttype(string $IntbConfCostType) Return the first ChildConfigIn filtered by the IntbConfCostType column
- * @method     ChildConfigIn findOneByIntbconfnormalonly(string $IntbConfNormalOnly) Return the first ChildConfigIn filtered by the IntbConfNormalOnly column
- * @method     ChildConfigIn findOneByIntbconfusewhsedef(string $IntbConfUseWhseDef) Return the first ChildConfigIn filtered by the IntbConfUseWhseDef column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse01(string $IntbCon2DfltWhse01) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse01 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse02(string $IntbCon2DfltWhse02) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse02 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse03(string $IntbCon2DfltWhse03) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse03 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse04(string $IntbCon2DfltWhse04) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse04 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse05(string $IntbCon2DfltWhse05) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse05 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse06(string $IntbCon2DfltWhse06) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse06 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse07(string $IntbCon2DfltWhse07) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse07 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse08(string $IntbCon2DfltWhse08) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse08 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse09(string $IntbCon2DfltWhse09) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse09 column
- * @method     ChildConfigIn findOneByIntbcon2dfltwhse10(string $IntbCon2DfltWhse10) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse10 column
- * @method     ChildConfigIn findOneByIntbconfbindef(string $IntbConfBinDef) Return the first ChildConfigIn filtered by the IntbConfBinDef column
- * @method     ChildConfigIn findOneByIntbconfcycldef(string $IntbConfCyclDef) Return the first ChildConfigIn filtered by the IntbConfCyclDef column
- * @method     ChildConfigIn findOneByIntbconfstatdef(string $IntbConfStatDef) Return the first ChildConfigIn filtered by the IntbConfStatDef column
- * @method     ChildConfigIn findOneByIntbconfabcdef(string $IntbConfAbcDef) Return the first ChildConfigIn filtered by the IntbConfAbcDef column
- * @method     ChildConfigIn findOneByIntbconfspecordrdef(string $IntbConfSpecOrdrDef) Return the first ChildConfigIn filtered by the IntbConfSpecOrdrDef column
- * @method     ChildConfigIn findOneByIntbconfordrpntdef(string $IntbConfOrdrPntDef) Return the first ChildConfigIn filtered by the IntbConfOrdrPntDef column
- * @method     ChildConfigIn findOneByIntbconfmaxdef(string $IntbConfMaxDef) Return the first ChildConfigIn filtered by the IntbConfMaxDef column
- * @method     ChildConfigIn findOneByIntbconfordrqtydef(string $IntbConfOrdrQtyDef) Return the first ChildConfigIn filtered by the IntbConfOrdrQtyDef column
- * @method     ChildConfigIn findOneByIntbconftrcptallowcmpl(string $IntbConfTrcptAllowCmpl) Return the first ChildConfigIn filtered by the IntbConfTrcptAllowCmpl column
- * @method     ChildConfigIn findOneByIntbconftrecmmtstock(string $IntbConfTreCmmtStock) Return the first ChildConfigIn filtered by the IntbConfTreCmmtStock column
- * @method     ChildConfigIn findOneByIntbconfusefrtin(string $IntbConfUseFrtIn) Return the first ChildConfigIn filtered by the IntbConfUseFrtIn column
- * @method     ChildConfigIn findOneByIntbconfeachoruom(string $IntbConfEachOrUom) Return the first ChildConfigIn filtered by the IntbConfEachOrUom column
- * @method     ChildConfigIn findOneByIntbconfneglotcorr(string $IntbConfNegLotCorr) Return the first ChildConfigIn filtered by the IntbConfNegLotCorr column
- * @method     ChildConfigIn findOneByIntbconftrnsglacct(string $IntbConfTrnsGlAcct) Return the first ChildConfigIn filtered by the IntbConfTrnsGlAcct column
- * @method     ChildConfigIn findOneByIntbconftrnsprotstock(string $IntbConfTrnsProtStock) Return the first ChildConfigIn filtered by the IntbConfTrnsProtStock column
- * @method     ChildConfigIn findOneByIntbconfnumericitem(string $IntbConfNumericItem) Return the first ChildConfigIn filtered by the IntbConfNumericItem column
- * @method     ChildConfigIn findOneByIntbconfitemdigits(int $IntbConfItemDigits) Return the first ChildConfigIn filtered by the IntbConfItemDigits column
- * @method     ChildConfigIn findOneByIntbconfsinglewhse(string $IntbConfSingleWhse) Return the first ChildConfigIn filtered by the IntbConfSingleWhse column
- * @method     ChildConfigIn findOneByIntbconfupdusepct(string $IntbConfUpdUsePct) Return the first ChildConfigIn filtered by the IntbConfUpdUsePct column
- * @method     ChildConfigIn findOneByIntbconfupdpric(string $IntbConfUpdPric) Return the first ChildConfigIn filtered by the IntbConfUpdPric column
- * @method     ChildConfigIn findOneByIntbconfupdstdcost(string $IntbConfUpdStdCost) Return the first ChildConfigIn filtered by the IntbConfUpdStdCost column
- * @method     ChildConfigIn findOneByIntbconfupdxrefcost(string $IntbConfUpdXrefCost) Return the first ChildConfigIn filtered by the IntbConfUpdXrefCost column
- * @method     ChildConfigIn findOneByIntbconfiqpaupddate(string $IntbConfIqpaUpdDate) Return the first ChildConfigIn filtered by the IntbConfIqpaUpdDate column
- * @method     ChildConfigIn findOneByIntbconfupcxrefoptn(string $IntbConfUpcXrefOptn) Return the first ChildConfigIn filtered by the IntbConfUpcXrefOptn column
- * @method     ChildConfigIn findOneByIntbconftranviewlib(string $IntbConfTranViewLIB) Return the first ChildConfigIn filtered by the IntbConfTranViewLIB column
- * @method     ChildConfigIn findOneByIntbconfresvcost(string $IntbConfResvCost) Return the first ChildConfigIn filtered by the IntbConfResvCost column
- * @method     ChildConfigIn findOneByIntbcon2tranzerorqst(string $IntbCon2TranZeroRqst) Return the first ChildConfigIn filtered by the IntbCon2TranZeroRqst column
- * @method     ChildConfigIn findOneByIntbconfmonendadjdate(string $IntbConfMonEndAdjDate) Return the first ChildConfigIn filtered by the IntbConfMonEndAdjDate column
- * @method     ChildConfigIn findOneByIntbconfmonendtrndate(string $IntbConfMonEndTrnDate) Return the first ChildConfigIn filtered by the IntbConfMonEndTrnDate column
- * @method     ChildConfigIn findOneByIntbconfmonendlogdate(string $IntbConfMonEndLogDate) Return the first ChildConfigIn filtered by the IntbConfMonEndLogDate column
- * @method     ChildConfigIn findOneByIntbconfdstatproc(string $IntbConfDStatProc) Return the first ChildConfigIn filtered by the IntbConfDStatProc column
- * @method     ChildConfigIn findOneByIntbconfstancostupd(string $IntbConfStanCostUpd) Return the first ChildConfigIn filtered by the IntbConfStanCostUpd column
- * @method     ChildConfigIn findOneByIntbconflastcost(string $IntbConfLastCost) Return the first ChildConfigIn filtered by the IntbConfLastCost column
- * @method     ChildConfigIn findOneByIntbconfusesorgpct(string $IntbConfUseSOrGPct) Return the first ChildConfigIn filtered by the IntbConfUseSOrGPct column
- * @method     ChildConfigIn findOneByIntbconfaddonstan(string $IntbConfAddOnStan) Return the first ChildConfigIn filtered by the IntbConfAddOnStan column
- * @method     ChildConfigIn findOneByIntbconfstdcosterror(string $IntbConfStdCostError) Return the first ChildConfigIn filtered by the IntbConfStdCostError column
- * @method     ChildConfigIn findOneByIntbconfavgcurrfive(string $IntbConfAvgCurrFive) Return the first ChildConfigIn filtered by the IntbConfAvgCurrFive column
- * @method     ChildConfigIn findOneByIntbconfusecntrlbin(string $IntbConfUseCntrlBin) Return the first ChildConfigIn filtered by the IntbConfUseCntrlBin column
- * @method     ChildConfigIn findOneByIntbconfnbrbinareas(int $IntbConfNbrBinAreas) Return the first ChildConfigIn filtered by the IntbConfNbrBinAreas column
- * @method     ChildConfigIn findOneByIntbconfusemultbin(string $IntbConfUseMultBin) Return the first ChildConfigIn filtered by the IntbConfUseMultBin column
- * @method     ChildConfigIn findOneByIntbconfdfltwhsebin(string $IntbConfDfltWhseBin) Return the first ChildConfigIn filtered by the IntbConfDfltWhseBin column
- * @method     ChildConfigIn findOneByIntbconfdfltbin(string $IntbConfDfltBin) Return the first ChildConfigIn filtered by the IntbConfDfltBin column
- * @method     ChildConfigIn findOneByIntbconfctryitemlot(string $IntbConfCtryItemLot) Return the first ChildConfigIn filtered by the IntbConfCtryItemLot column
- * @method     ChildConfigIn findOneByIntbconfuseshipbin(string $IntbConfUseShipBin) Return the first ChildConfigIn filtered by the IntbConfUseShipBin column
- * @method     ChildConfigIn findOneByIntbcon2prtbinrlabel(string $IntbCon2PrtBinrLabel) Return the first ChildConfigIn filtered by the IntbCon2PrtBinrLabel column
- * @method     ChildConfigIn findOneByIntbcon2itemlookup(string $IntbCon2ItemLookup) Return the first ChildConfigIn filtered by the IntbCon2ItemLookup column
- * @method     ChildConfigIn findOneByIntbconfincldcti(string $IntbConfIncldCti) Return the first ChildConfigIn filtered by the IntbConfIncldCti column
- * @method     ChildConfigIn findOneByIntbconfcertimage(string $IntbConfCertImage) Return the first ChildConfigIn filtered by the IntbConfCertImage column
- * @method     ChildConfigIn findOneByIntbconfdrawimage(string $IntbConfDrawImage) Return the first ChildConfigIn filtered by the IntbConfDrawImage column
- * @method     ChildConfigIn findOneByIntbconfconfirmimage(string $IntbConfConfirmImage) Return the first ChildConfigIn filtered by the IntbConfConfirmImage column
- * @method     ChildConfigIn findOneByIntbcon2productimage(string $IntbCon2ProductImage) Return the first ChildConfigIn filtered by the IntbCon2ProductImage column
- * @method     ChildConfigIn findOneByIntbconfdefpick(string $IntbConfDefPick) Return the first ChildConfigIn filtered by the IntbConfDefPick column
- * @method     ChildConfigIn findOneByIntbconfdefpack(string $IntbConfDefPack) Return the first ChildConfigIn filtered by the IntbConfDefPack column
- * @method     ChildConfigIn findOneByIntbconfdefinvc(string $IntbConfDefInvc) Return the first ChildConfigIn filtered by the IntbConfDefInvc column
- * @method     ChildConfigIn findOneByIntbconfdefack(string $IntbConfDefAck) Return the first ChildConfigIn filtered by the IntbConfDefAck column
- * @method     ChildConfigIn findOneByIntbconfdefquot(string $IntbConfDefQuot) Return the first ChildConfigIn filtered by the IntbConfDefQuot column
- * @method     ChildConfigIn findOneByIntbconfdefpo(string $IntbConfDefPo) Return the first ChildConfigIn filtered by the IntbConfDefPo column
- * @method     ChildConfigIn findOneByIntbconfdeftrans(string $IntbConfDefTrans) Return the first ChildConfigIn filtered by the IntbConfDefTrans column
- * @method     ChildConfigIn findOneByIntbconfadjglcogs(string $IntbConfAdjGlCogs) Return the first ChildConfigIn filtered by the IntbConfAdjGlCogs column
- * @method     ChildConfigIn findOneByIntbcon2dfltadjglacct(string $IntbCon2DfltAdjGlAcct) Return the first ChildConfigIn filtered by the IntbCon2DfltAdjGlAcct column
- * @method     ChildConfigIn findOneByIntbconfadjcostbase(string $IntbConfAdjCostBase) Return the first ChildConfigIn filtered by the IntbConfAdjCostBase column
- * @method     ChildConfigIn findOneByIntbconfdfltadjtbin(string $IntbConfDfltAdjtBin) Return the first ChildConfigIn filtered by the IntbConfDfltAdjtBin column
- * @method     ChildConfigIn findOneByIntbconfadjtbin(string $IntbConfAdjtBin) Return the first ChildConfigIn filtered by the IntbConfAdjtBin column
- * @method     ChildConfigIn findOneByIntbconfcstockseq(string $IntbConfCStockSeq) Return the first ChildConfigIn filtered by the IntbConfCStockSeq column
- * @method     ChildConfigIn findOneByIntbconfcstockhistday(int $IntbConfCStockHistDay) Return the first ChildConfigIn filtered by the IntbConfCStockHistDay column
- * @method     ChildConfigIn findOneByIntbconfcstockformat(string $IntbConfCStockFormat) Return the first ChildConfigIn filtered by the IntbConfCStockFormat column
- * @method     ChildConfigIn findOneByIntbconfcstkexportitem(string $IntbConfCstkExportItem) Return the first ChildConfigIn filtered by the IntbConfCstkExportItem column
- * @method     ChildConfigIn findOneByIntbconfcstkpdmcontract(string $IntbConfCstkPdmContract) Return the first ChildConfigIn filtered by the IntbConfCstkPdmContract column
- * @method     ChildConfigIn findOneByIntbcon2importseq(string $IntbCon2ImportSeq) Return the first ChildConfigIn filtered by the IntbCon2ImportSeq column
- * @method     ChildConfigIn findOneByIntbconfstopitemchg(int $IntbConfStopItemChg) Return the first ChildConfigIn filtered by the IntbConfStopItemChg column
- * @method     ChildConfigIn findOneByIntbconfaddtomxrfe(string $IntbConfAddToMxrfe) Return the first ChildConfigIn filtered by the IntbConfAddToMxrfe column
- * @method     ChildConfigIn findOneByIntbconfmxrfevendid(string $IntbConfMxrfeVendId) Return the first ChildConfigIn filtered by the IntbConfMxrfeVendId column
- * @method     ChildConfigIn findOneByIntbcon2newidlabellist(string $IntbCon2NewIdLabelList) Return the first ChildConfigIn filtered by the IntbCon2NewIdLabelList column
- * @method     ChildConfigIn findOneByIntbconfuseformat(string $IntbConfUseFormat) Return the first ChildConfigIn filtered by the IntbConfUseFormat column
- * @method     ChildConfigIn findOneByIntbconfdefformat(string $IntbConfDefFormat) Return the first ChildConfigIn filtered by the IntbConfDefFormat column
- * @method     ChildConfigIn findOneByIntbconfseqshortitem(string $IntbConfSeqShortItem) Return the first ChildConfigIn filtered by the IntbConfSeqShortItem column
- * @method     ChildConfigIn findOneByIntbconfshortitemlen(int $IntbConfShortItemLen) Return the first ChildConfigIn filtered by the IntbConfShortItemLen column
- * @method     ChildConfigIn findOneByIntbconfusescale(string $IntbConfUseScale) Return the first ChildConfigIn filtered by the IntbConfUseScale column
- * @method     ChildConfigIn findOneByIntbconfstorewght(string $IntbConfStoreWght) Return the first ChildConfigIn filtered by the IntbConfStoreWght column
- * @method     ChildConfigIn findOneByIntbconfvalidasstcode(string $IntbConfValidAsstCode) Return the first ChildConfigIn filtered by the IntbConfValidAsstCode column
- * @method     ChildConfigIn findOneByIntbconfwhitegoods(string $IntbConfWhiteGoods) Return the first ChildConfigIn filtered by the IntbConfWhiteGoods column
- * @method     ChildConfigIn findOneByIntbcon2transcustid(string $IntbCon2TransCustId) Return the first ChildConfigIn filtered by the IntbCon2TransCustId column
- * @method     ChildConfigIn findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigIn filtered by the DateUpdtd column
- * @method     ChildConfigIn findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigIn filtered by the TimeUpdtd column
- * @method     ChildConfigIn findOneByDummy(string $dummy) Return the first ChildConfigIn filtered by the dummy column *
-
- * @method     ChildConfigIn requirePk($key, ConnectionInterface $con = null) Return the ChildConfigIn by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigIn requireOne(ConnectionInterface $con = null) Return the first ChildConfigIn matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigIn|null findOneByIntbconfkey(int $IntbConfKey) Return the first ChildConfigIn filtered by the IntbConfKey column
+ * @method     ChildConfigIn|null findOneByIntbconfglifac(string $IntbConfGlIfac) Return the first ChildConfigIn filtered by the IntbConfGlIfac column
+ * @method     ChildConfigIn|null findOneByIntbconfuseiw(string $IntbConfUseIw) Return the first ChildConfigIn filtered by the IntbConfUseIw column
+ * @method     ChildConfigIn|null findOneByIntbconflifofifo(string $IntbConfLifoFifo) Return the first ChildConfigIn filtered by the IntbConfLifoFifo column
+ * @method     ChildConfigIn|null findOneByIntbconfgoneg(string $IntbConfGoNeg) Return the first ChildConfigIn filtered by the IntbConfGoNeg column
+ * @method     ChildConfigIn|null findOneByIntbconfuselots(string $IntbConfUseLots) Return the first ChildConfigIn filtered by the IntbConfUseLots column
+ * @method     ChildConfigIn|null findOneByIntbconfnbruppr(string $IntbConfNbrUppr) Return the first ChildConfigIn filtered by the IntbConfNbrUppr column
+ * @method     ChildConfigIn|null findOneByIntbconfdescuppr(string $IntbConfDescUppr) Return the first ChildConfigIn filtered by the IntbConfDescUppr column
+ * @method     ChildConfigIn|null findOneByIntbconfusedesc2(string $IntbConfUseDesc2) Return the first ChildConfigIn filtered by the IntbConfUseDesc2 column
+ * @method     ChildConfigIn|null findOneByIntbconfuseupccode(string $IntbConfUseUpcCode) Return the first ChildConfigIn filtered by the IntbConfUseUpcCode column
+ * @method     ChildConfigIn|null findOneByIntbconfupceancntrl(string $IntbConfUpcEanCntrl) Return the first ChildConfigIn filtered by the IntbConfUpcEanCntrl column
+ * @method     ChildConfigIn|null findOneByIntbconfupcgennbr(int $IntbConfUpcGenNbr) Return the first ChildConfigIn filtered by the IntbConfUpcGenNbr column
+ * @method     ChildConfigIn|null findOneByIntbcon2allowdupupc(string $IntbCon2AllowDupUpc) Return the first ChildConfigIn filtered by the IntbCon2AllowDupUpc column
+ * @method     ChildConfigIn|null findOneByIntbconfxrefnospace(string $IntbConfXrefNoSpace) Return the first ChildConfigIn filtered by the IntbConfXrefNoSpace column
+ * @method     ChildConfigIn|null findOneByIntbconfusepricgrup(string $IntbConfUsePricGrup) Return the first ChildConfigIn filtered by the IntbConfUsePricGrup column
+ * @method     ChildConfigIn|null findOneByIntbconfusecommgrup(string $IntbConfUseCommGrup) Return the first ChildConfigIn filtered by the IntbConfUseCommGrup column
+ * @method     ChildConfigIn|null findOneByIntbconfusewarrdays(string $IntbConfUseWarrDays) Return the first ChildConfigIn filtered by the IntbConfUseWarrDays column
+ * @method     ChildConfigIn|null findOneByIntbconfstanbasedef(string $IntbConfStanBaseDef) Return the first ChildConfigIn filtered by the IntbConfStanBaseDef column
+ * @method     ChildConfigIn|null findOneByIntbconfgrupdef(string $IntbConfGrupDef) Return the first ChildConfigIn filtered by the IntbConfGrupDef column
+ * @method     ChildConfigIn|null findOneByIntbconfpricgrupdef(string $IntbConfPricGrupDef) Return the first ChildConfigIn filtered by the IntbConfPricGrupDef column
+ * @method     ChildConfigIn|null findOneByIntbconfcommgrupdef(string $IntbConfCommGrupDef) Return the first ChildConfigIn filtered by the IntbConfCommGrupDef column
+ * @method     ChildConfigIn|null findOneByIntbconftypedef(string $IntbConfTypeDef) Return the first ChildConfigIn filtered by the IntbConfTypeDef column
+ * @method     ChildConfigIn|null findOneByIntbconfmultilotref(string $IntbConfMultiLotRef) Return the first ChildConfigIn filtered by the IntbConfMultiLotRef column
+ * @method     ChildConfigIn|null findOneByIntbconfpricuseitem(string $IntbConfPricUseItem) Return the first ChildConfigIn filtered by the IntbConfPricUseItem column
+ * @method     ChildConfigIn|null findOneByIntbconfcommuseitem(string $IntbConfCommUseItem) Return the first ChildConfigIn filtered by the IntbConfCommUseItem column
+ * @method     ChildConfigIn|null findOneByIntbconfuomsaledef(string $IntbConfUomSaleDef) Return the first ChildConfigIn filtered by the IntbConfUomSaleDef column
+ * @method     ChildConfigIn|null findOneByIntbconfuompurdef(string $IntbConfUomPurDef) Return the first ChildConfigIn filtered by the IntbConfUomPurDef column
+ * @method     ChildConfigIn|null findOneByIntbconfsviadef(string $IntbConfSviaDef) Return the first ChildConfigIn filtered by the IntbConfSviaDef column
+ * @method     ChildConfigIn|null findOneByIntbconfcustxreforuse(string $IntbConfCustxrefOrUse) Return the first ChildConfigIn filtered by the IntbConfCustxrefOrUse column
+ * @method     ChildConfigIn|null findOneByIntbconfheadgetdef(int $IntbConfHeadGetDef) Return the first ChildConfigIn filtered by the IntbConfHeadGetDef column
+ * @method     ChildConfigIn|null findOneByIntbconfitemgetdef(int $IntbConfItemGetDef) Return the first ChildConfigIn filtered by the IntbConfItemGetDef column
+ * @method     ChildConfigIn|null findOneByIntbconfgetdispohaval(string $IntbConfGetDispOhAval) Return the first ChildConfigIn filtered by the IntbConfGetDispOhAval column
+ * @method     ChildConfigIn|null findOneByIntbconfusercode1labl(string $IntbConfUserCode1Labl) Return the first ChildConfigIn filtered by the IntbConfUserCode1Labl column
+ * @method     ChildConfigIn|null findOneByIntbconfusercode1ver(string $IntbConfUserCode1Ver) Return the first ChildConfigIn filtered by the IntbConfUserCode1Ver column
+ * @method     ChildConfigIn|null findOneByIntbconfusercode2labl(string $IntbConfUserCode2Labl) Return the first ChildConfigIn filtered by the IntbConfUserCode2Labl column
+ * @method     ChildConfigIn|null findOneByIntbconfusercode2ver(string $IntbConfUserCode2Ver) Return the first ChildConfigIn filtered by the IntbConfUserCode2Ver column
+ * @method     ChildConfigIn|null findOneByIntbconfitemline(int $IntbConfItemLine) Return the first ChildConfigIn filtered by the IntbConfItemLine column
+ * @method     ChildConfigIn|null findOneByIntbconfitemcols(int $IntbConfItemCols) Return the first ChildConfigIn filtered by the IntbConfItemCols column
+ * @method     ChildConfigIn|null findOneByIntbconfheadline(int $IntbConfHeadLine) Return the first ChildConfigIn filtered by the IntbConfHeadLine column
+ * @method     ChildConfigIn|null findOneByIntbconfheadcols(int $IntbConfHeadCols) Return the first ChildConfigIn filtered by the IntbConfHeadCols column
+ * @method     ChildConfigIn|null findOneByIntbconfdetline(int $IntbConfDetLine) Return the first ChildConfigIn filtered by the IntbConfDetLine column
+ * @method     ChildConfigIn|null findOneByIntbconfdetcols(int $IntbConfDetCols) Return the first ChildConfigIn filtered by the IntbConfDetCols column
+ * @method     ChildConfigIn|null findOneByIntbconfminmaxzero(string $IntbConfMinMaxZero) Return the first ChildConfigIn filtered by the IntbConfMinMaxZero column
+ * @method     ChildConfigIn|null findOneByIntbconfminrec(string $IntbConfMinRec) Return the first ChildConfigIn filtered by the IntbConfMinRec column
+ * @method     ChildConfigIn|null findOneByIntbconfatbelowmin(string $IntbConfAtBelowMin) Return the first ChildConfigIn filtered by the IntbConfAtBelowMin column
+ * @method     ChildConfigIn|null findOneByIntbconfonewhse(string $IntbConfOneWhse) Return the first ChildConfigIn filtered by the IntbConfOneWhse column
+ * @method     ChildConfigIn|null findOneByIntbconfytdmth(int $IntbConfYtdMth) Return the first ChildConfigIn filtered by the IntbConfYtdMth column
+ * @method     ChildConfigIn|null findOneByIntbconfusegramsltr(string $IntbConfUseGramsLtr) Return the first ChildConfigIn filtered by the IntbConfUseGramsLtr column
+ * @method     ChildConfigIn|null findOneByIntbconfabcbywhse(string $IntbConfAbcByWhse) Return the first ChildConfigIn filtered by the IntbConfAbcByWhse column
+ * @method     ChildConfigIn|null findOneByIntbconfabcnbrmths(int $IntbConfAbcNbrMths) Return the first ChildConfigIn filtered by the IntbConfAbcNbrMths column
+ * @method     ChildConfigIn|null findOneByIntbconfabcbasecode(string $IntbConfAbcBaseCode) Return the first ChildConfigIn filtered by the IntbConfAbcBaseCode column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevla(string $IntbConfAbcLevlA) Return the first ChildConfigIn filtered by the IntbConfAbcLevlA column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevlb(string $IntbConfAbcLevlB) Return the first ChildConfigIn filtered by the IntbConfAbcLevlB column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevlc(string $IntbConfAbcLevlC) Return the first ChildConfigIn filtered by the IntbConfAbcLevlC column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevld(string $IntbConfAbcLevlD) Return the first ChildConfigIn filtered by the IntbConfAbcLevlD column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevle(string $IntbConfAbcLevlE) Return the first ChildConfigIn filtered by the IntbConfAbcLevlE column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevlf(string $IntbConfAbcLevlF) Return the first ChildConfigIn filtered by the IntbConfAbcLevlF column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevlg(string $IntbConfAbcLevlG) Return the first ChildConfigIn filtered by the IntbConfAbcLevlG column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevlh(string $IntbConfAbcLevlH) Return the first ChildConfigIn filtered by the IntbConfAbcLevlH column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevli(string $IntbConfAbcLevlI) Return the first ChildConfigIn filtered by the IntbConfAbcLevlI column
+ * @method     ChildConfigIn|null findOneByIntbconfabclevlj(string $IntbConfAbcLevlJ) Return the first ChildConfigIn filtered by the IntbConfAbcLevlJ column
+ * @method     ChildConfigIn|null findOneByIntbconfuseforeignx(string $IntbConfUseForeignX) Return the first ChildConfigIn filtered by the IntbConfUseForeignX column
+ * @method     ChildConfigIn|null findOneByIntbconfusenafta(string $IntbConfUseNafta) Return the first ChildConfigIn filtered by the IntbConfUseNafta column
+ * @method     ChildConfigIn|null findOneByIntbconfnaftaprefcode(string $IntbConfNaftaPrefCode) Return the first ChildConfigIn filtered by the IntbConfNaftaPrefCode column
+ * @method     ChildConfigIn|null findOneByIntbconfnaftaproducer(string $IntbConfNaftaProducer) Return the first ChildConfigIn filtered by the IntbConfNaftaProducer column
+ * @method     ChildConfigIn|null findOneByIntbconfnaftadoccode(string $IntbConfNaftaDocCode) Return the first ChildConfigIn filtered by the IntbConfNaftaDocCode column
+ * @method     ChildConfigIn|null findOneByIntbconfphyscurrwksh(string $IntbConfPhysCurrWksh) Return the first ChildConfigIn filtered by the IntbConfPhysCurrWksh column
+ * @method     ChildConfigIn|null findOneByIntbconf20or30(int $IntbConf20Or30) Return the first ChildConfigIn filtered by the IntbConf20Or30 column
+ * @method     ChildConfigIn|null findOneByIntbconfdisporigcnt(string $IntbConfDispOrigCnt) Return the first ChildConfigIn filtered by the IntbConfDispOrigCnt column
+ * @method     ChildConfigIn|null findOneByIntbconfdispgl(string $IntbConfDispGl) Return the first ChildConfigIn filtered by the IntbConfDispGl column
+ * @method     ChildConfigIn|null findOneByIntbconfdispref(string $IntbConfDispRef) Return the first ChildConfigIn filtered by the IntbConfDispRef column
+ * @method     ChildConfigIn|null findOneByIntbconfdispcost(string $IntbConfDispCost) Return the first ChildConfigIn filtered by the IntbConfDispCost column
+ * @method     ChildConfigIn|null findOneByIntbconfprtval(string $IntbConfPrtVal) Return the first ChildConfigIn filtered by the IntbConfPrtVal column
+ * @method     ChildConfigIn|null findOneByIntbconfprtgl(string $IntbConfPrtGl) Return the first ChildConfigIn filtered by the IntbConfPrtGl column
+ * @method     ChildConfigIn|null findOneByIntbconfglacct(string $IntbConfGlAcct) Return the first ChildConfigIn filtered by the IntbConfGlAcct column
+ * @method     ChildConfigIn|null findOneByIntbconfref(string $IntbConfRef) Return the first ChildConfigIn filtered by the IntbConfRef column
+ * @method     ChildConfigIn|null findOneByIntbconfcosttype(string $IntbConfCostType) Return the first ChildConfigIn filtered by the IntbConfCostType column
+ * @method     ChildConfigIn|null findOneByIntbconfnormalonly(string $IntbConfNormalOnly) Return the first ChildConfigIn filtered by the IntbConfNormalOnly column
+ * @method     ChildConfigIn|null findOneByIntbconfusewhsedef(string $IntbConfUseWhseDef) Return the first ChildConfigIn filtered by the IntbConfUseWhseDef column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse01(string $IntbCon2DfltWhse01) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse01 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse02(string $IntbCon2DfltWhse02) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse02 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse03(string $IntbCon2DfltWhse03) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse03 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse04(string $IntbCon2DfltWhse04) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse04 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse05(string $IntbCon2DfltWhse05) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse05 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse06(string $IntbCon2DfltWhse06) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse06 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse07(string $IntbCon2DfltWhse07) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse07 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse08(string $IntbCon2DfltWhse08) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse08 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse09(string $IntbCon2DfltWhse09) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse09 column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltwhse10(string $IntbCon2DfltWhse10) Return the first ChildConfigIn filtered by the IntbCon2DfltWhse10 column
+ * @method     ChildConfigIn|null findOneByIntbconfbindef(string $IntbConfBinDef) Return the first ChildConfigIn filtered by the IntbConfBinDef column
+ * @method     ChildConfigIn|null findOneByIntbconfcycldef(string $IntbConfCyclDef) Return the first ChildConfigIn filtered by the IntbConfCyclDef column
+ * @method     ChildConfigIn|null findOneByIntbconfstatdef(string $IntbConfStatDef) Return the first ChildConfigIn filtered by the IntbConfStatDef column
+ * @method     ChildConfigIn|null findOneByIntbconfabcdef(string $IntbConfAbcDef) Return the first ChildConfigIn filtered by the IntbConfAbcDef column
+ * @method     ChildConfigIn|null findOneByIntbconfspecordrdef(string $IntbConfSpecOrdrDef) Return the first ChildConfigIn filtered by the IntbConfSpecOrdrDef column
+ * @method     ChildConfigIn|null findOneByIntbconfordrpntdef(string $IntbConfOrdrPntDef) Return the first ChildConfigIn filtered by the IntbConfOrdrPntDef column
+ * @method     ChildConfigIn|null findOneByIntbconfmaxdef(string $IntbConfMaxDef) Return the first ChildConfigIn filtered by the IntbConfMaxDef column
+ * @method     ChildConfigIn|null findOneByIntbconfordrqtydef(string $IntbConfOrdrQtyDef) Return the first ChildConfigIn filtered by the IntbConfOrdrQtyDef column
+ * @method     ChildConfigIn|null findOneByIntbconftrcptallowcmpl(string $IntbConfTrcptAllowCmpl) Return the first ChildConfigIn filtered by the IntbConfTrcptAllowCmpl column
+ * @method     ChildConfigIn|null findOneByIntbconftrecmmtstock(string $IntbConfTreCmmtStock) Return the first ChildConfigIn filtered by the IntbConfTreCmmtStock column
+ * @method     ChildConfigIn|null findOneByIntbconfusefrtin(string $IntbConfUseFrtIn) Return the first ChildConfigIn filtered by the IntbConfUseFrtIn column
+ * @method     ChildConfigIn|null findOneByIntbconfeachoruom(string $IntbConfEachOrUom) Return the first ChildConfigIn filtered by the IntbConfEachOrUom column
+ * @method     ChildConfigIn|null findOneByIntbconfneglotcorr(string $IntbConfNegLotCorr) Return the first ChildConfigIn filtered by the IntbConfNegLotCorr column
+ * @method     ChildConfigIn|null findOneByIntbconftrnsglacct(string $IntbConfTrnsGlAcct) Return the first ChildConfigIn filtered by the IntbConfTrnsGlAcct column
+ * @method     ChildConfigIn|null findOneByIntbconftrnsprotstock(string $IntbConfTrnsProtStock) Return the first ChildConfigIn filtered by the IntbConfTrnsProtStock column
+ * @method     ChildConfigIn|null findOneByIntbconfnumericitem(string $IntbConfNumericItem) Return the first ChildConfigIn filtered by the IntbConfNumericItem column
+ * @method     ChildConfigIn|null findOneByIntbconfitemdigits(int $IntbConfItemDigits) Return the first ChildConfigIn filtered by the IntbConfItemDigits column
+ * @method     ChildConfigIn|null findOneByIntbconfsinglewhse(string $IntbConfSingleWhse) Return the first ChildConfigIn filtered by the IntbConfSingleWhse column
+ * @method     ChildConfigIn|null findOneByIntbconfupdusepct(string $IntbConfUpdUsePct) Return the first ChildConfigIn filtered by the IntbConfUpdUsePct column
+ * @method     ChildConfigIn|null findOneByIntbconfupdpric(string $IntbConfUpdPric) Return the first ChildConfigIn filtered by the IntbConfUpdPric column
+ * @method     ChildConfigIn|null findOneByIntbconfupdstdcost(string $IntbConfUpdStdCost) Return the first ChildConfigIn filtered by the IntbConfUpdStdCost column
+ * @method     ChildConfigIn|null findOneByIntbconfupdxrefcost(string $IntbConfUpdXrefCost) Return the first ChildConfigIn filtered by the IntbConfUpdXrefCost column
+ * @method     ChildConfigIn|null findOneByIntbconfiqpaupddate(string $IntbConfIqpaUpdDate) Return the first ChildConfigIn filtered by the IntbConfIqpaUpdDate column
+ * @method     ChildConfigIn|null findOneByIntbconfupcxrefoptn(string $IntbConfUpcXrefOptn) Return the first ChildConfigIn filtered by the IntbConfUpcXrefOptn column
+ * @method     ChildConfigIn|null findOneByIntbconftranviewlib(string $IntbConfTranViewLIB) Return the first ChildConfigIn filtered by the IntbConfTranViewLIB column
+ * @method     ChildConfigIn|null findOneByIntbconfresvcost(string $IntbConfResvCost) Return the first ChildConfigIn filtered by the IntbConfResvCost column
+ * @method     ChildConfigIn|null findOneByIntbcon2tranzerorqst(string $IntbCon2TranZeroRqst) Return the first ChildConfigIn filtered by the IntbCon2TranZeroRqst column
+ * @method     ChildConfigIn|null findOneByIntbconfmonendadjdate(string $IntbConfMonEndAdjDate) Return the first ChildConfigIn filtered by the IntbConfMonEndAdjDate column
+ * @method     ChildConfigIn|null findOneByIntbconfmonendtrndate(string $IntbConfMonEndTrnDate) Return the first ChildConfigIn filtered by the IntbConfMonEndTrnDate column
+ * @method     ChildConfigIn|null findOneByIntbconfmonendlogdate(string $IntbConfMonEndLogDate) Return the first ChildConfigIn filtered by the IntbConfMonEndLogDate column
+ * @method     ChildConfigIn|null findOneByIntbconfdstatproc(string $IntbConfDStatProc) Return the first ChildConfigIn filtered by the IntbConfDStatProc column
+ * @method     ChildConfigIn|null findOneByIntbconfstancostupd(string $IntbConfStanCostUpd) Return the first ChildConfigIn filtered by the IntbConfStanCostUpd column
+ * @method     ChildConfigIn|null findOneByIntbconflastcost(string $IntbConfLastCost) Return the first ChildConfigIn filtered by the IntbConfLastCost column
+ * @method     ChildConfigIn|null findOneByIntbconfusesorgpct(string $IntbConfUseSOrGPct) Return the first ChildConfigIn filtered by the IntbConfUseSOrGPct column
+ * @method     ChildConfigIn|null findOneByIntbconfaddonstan(string $IntbConfAddOnStan) Return the first ChildConfigIn filtered by the IntbConfAddOnStan column
+ * @method     ChildConfigIn|null findOneByIntbconfstdcosterror(string $IntbConfStdCostError) Return the first ChildConfigIn filtered by the IntbConfStdCostError column
+ * @method     ChildConfigIn|null findOneByIntbconfavgcurrfive(string $IntbConfAvgCurrFive) Return the first ChildConfigIn filtered by the IntbConfAvgCurrFive column
+ * @method     ChildConfigIn|null findOneByIntbconfusecntrlbin(string $IntbConfUseCntrlBin) Return the first ChildConfigIn filtered by the IntbConfUseCntrlBin column
+ * @method     ChildConfigIn|null findOneByIntbconfnbrbinareas(int $IntbConfNbrBinAreas) Return the first ChildConfigIn filtered by the IntbConfNbrBinAreas column
+ * @method     ChildConfigIn|null findOneByIntbconfusemultbin(string $IntbConfUseMultBin) Return the first ChildConfigIn filtered by the IntbConfUseMultBin column
+ * @method     ChildConfigIn|null findOneByIntbconfdfltwhsebin(string $IntbConfDfltWhseBin) Return the first ChildConfigIn filtered by the IntbConfDfltWhseBin column
+ * @method     ChildConfigIn|null findOneByIntbconfdfltbin(string $IntbConfDfltBin) Return the first ChildConfigIn filtered by the IntbConfDfltBin column
+ * @method     ChildConfigIn|null findOneByIntbconfctryitemlot(string $IntbConfCtryItemLot) Return the first ChildConfigIn filtered by the IntbConfCtryItemLot column
+ * @method     ChildConfigIn|null findOneByIntbconfuseshipbin(string $IntbConfUseShipBin) Return the first ChildConfigIn filtered by the IntbConfUseShipBin column
+ * @method     ChildConfigIn|null findOneByIntbcon2prtbinrlabel(string $IntbCon2PrtBinrLabel) Return the first ChildConfigIn filtered by the IntbCon2PrtBinrLabel column
+ * @method     ChildConfigIn|null findOneByIntbcon2itemlookup(string $IntbCon2ItemLookup) Return the first ChildConfigIn filtered by the IntbCon2ItemLookup column
+ * @method     ChildConfigIn|null findOneByIntbconfincldcti(string $IntbConfIncldCti) Return the first ChildConfigIn filtered by the IntbConfIncldCti column
+ * @method     ChildConfigIn|null findOneByIntbconfcertimage(string $IntbConfCertImage) Return the first ChildConfigIn filtered by the IntbConfCertImage column
+ * @method     ChildConfigIn|null findOneByIntbconfdrawimage(string $IntbConfDrawImage) Return the first ChildConfigIn filtered by the IntbConfDrawImage column
+ * @method     ChildConfigIn|null findOneByIntbconfconfirmimage(string $IntbConfConfirmImage) Return the first ChildConfigIn filtered by the IntbConfConfirmImage column
+ * @method     ChildConfigIn|null findOneByIntbcon2productimage(string $IntbCon2ProductImage) Return the first ChildConfigIn filtered by the IntbCon2ProductImage column
+ * @method     ChildConfigIn|null findOneByIntbconfdefpick(string $IntbConfDefPick) Return the first ChildConfigIn filtered by the IntbConfDefPick column
+ * @method     ChildConfigIn|null findOneByIntbconfdefpack(string $IntbConfDefPack) Return the first ChildConfigIn filtered by the IntbConfDefPack column
+ * @method     ChildConfigIn|null findOneByIntbconfdefinvc(string $IntbConfDefInvc) Return the first ChildConfigIn filtered by the IntbConfDefInvc column
+ * @method     ChildConfigIn|null findOneByIntbconfdefack(string $IntbConfDefAck) Return the first ChildConfigIn filtered by the IntbConfDefAck column
+ * @method     ChildConfigIn|null findOneByIntbconfdefquot(string $IntbConfDefQuot) Return the first ChildConfigIn filtered by the IntbConfDefQuot column
+ * @method     ChildConfigIn|null findOneByIntbconfdefpo(string $IntbConfDefPo) Return the first ChildConfigIn filtered by the IntbConfDefPo column
+ * @method     ChildConfigIn|null findOneByIntbconfdeftrans(string $IntbConfDefTrans) Return the first ChildConfigIn filtered by the IntbConfDefTrans column
+ * @method     ChildConfigIn|null findOneByIntbconfadjglcogs(string $IntbConfAdjGlCogs) Return the first ChildConfigIn filtered by the IntbConfAdjGlCogs column
+ * @method     ChildConfigIn|null findOneByIntbcon2dfltadjglacct(string $IntbCon2DfltAdjGlAcct) Return the first ChildConfigIn filtered by the IntbCon2DfltAdjGlAcct column
+ * @method     ChildConfigIn|null findOneByIntbconfadjcostbase(string $IntbConfAdjCostBase) Return the first ChildConfigIn filtered by the IntbConfAdjCostBase column
+ * @method     ChildConfigIn|null findOneByIntbconfdfltadjtbin(string $IntbConfDfltAdjtBin) Return the first ChildConfigIn filtered by the IntbConfDfltAdjtBin column
+ * @method     ChildConfigIn|null findOneByIntbconfadjtbin(string $IntbConfAdjtBin) Return the first ChildConfigIn filtered by the IntbConfAdjtBin column
+ * @method     ChildConfigIn|null findOneByIntbconfcstockseq(string $IntbConfCStockSeq) Return the first ChildConfigIn filtered by the IntbConfCStockSeq column
+ * @method     ChildConfigIn|null findOneByIntbconfcstockhistday(int $IntbConfCStockHistDay) Return the first ChildConfigIn filtered by the IntbConfCStockHistDay column
+ * @method     ChildConfigIn|null findOneByIntbconfcstockformat(string $IntbConfCStockFormat) Return the first ChildConfigIn filtered by the IntbConfCStockFormat column
+ * @method     ChildConfigIn|null findOneByIntbconfcstkexportitem(string $IntbConfCstkExportItem) Return the first ChildConfigIn filtered by the IntbConfCstkExportItem column
+ * @method     ChildConfigIn|null findOneByIntbconfcstkpdmcontract(string $IntbConfCstkPdmContract) Return the first ChildConfigIn filtered by the IntbConfCstkPdmContract column
+ * @method     ChildConfigIn|null findOneByIntbcon2importseq(string $IntbCon2ImportSeq) Return the first ChildConfigIn filtered by the IntbCon2ImportSeq column
+ * @method     ChildConfigIn|null findOneByIntbconfstopitemchg(int $IntbConfStopItemChg) Return the first ChildConfigIn filtered by the IntbConfStopItemChg column
+ * @method     ChildConfigIn|null findOneByIntbconfaddtomxrfe(string $IntbConfAddToMxrfe) Return the first ChildConfigIn filtered by the IntbConfAddToMxrfe column
+ * @method     ChildConfigIn|null findOneByIntbconfmxrfevendid(string $IntbConfMxrfeVendId) Return the first ChildConfigIn filtered by the IntbConfMxrfeVendId column
+ * @method     ChildConfigIn|null findOneByIntbcon2newidlabellist(string $IntbCon2NewIdLabelList) Return the first ChildConfigIn filtered by the IntbCon2NewIdLabelList column
+ * @method     ChildConfigIn|null findOneByIntbconfuseformat(string $IntbConfUseFormat) Return the first ChildConfigIn filtered by the IntbConfUseFormat column
+ * @method     ChildConfigIn|null findOneByIntbconfdefformat(string $IntbConfDefFormat) Return the first ChildConfigIn filtered by the IntbConfDefFormat column
+ * @method     ChildConfigIn|null findOneByIntbconfseqshortitem(string $IntbConfSeqShortItem) Return the first ChildConfigIn filtered by the IntbConfSeqShortItem column
+ * @method     ChildConfigIn|null findOneByIntbconfshortitemlen(int $IntbConfShortItemLen) Return the first ChildConfigIn filtered by the IntbConfShortItemLen column
+ * @method     ChildConfigIn|null findOneByIntbconfusescale(string $IntbConfUseScale) Return the first ChildConfigIn filtered by the IntbConfUseScale column
+ * @method     ChildConfigIn|null findOneByIntbconfstorewght(string $IntbConfStoreWght) Return the first ChildConfigIn filtered by the IntbConfStoreWght column
+ * @method     ChildConfigIn|null findOneByIntbconfvalidasstcode(string $IntbConfValidAsstCode) Return the first ChildConfigIn filtered by the IntbConfValidAsstCode column
+ * @method     ChildConfigIn|null findOneByIntbconfwhitegoods(string $IntbConfWhiteGoods) Return the first ChildConfigIn filtered by the IntbConfWhiteGoods column
+ * @method     ChildConfigIn|null findOneByIntbcon2transcustid(string $IntbCon2TransCustId) Return the first ChildConfigIn filtered by the IntbCon2TransCustId column
+ * @method     ChildConfigIn|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigIn filtered by the DateUpdtd column
+ * @method     ChildConfigIn|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigIn filtered by the TimeUpdtd column
+ * @method     ChildConfigIn|null findOneByDummy(string $dummy) Return the first ChildConfigIn filtered by the dummy column
+ *
+ * @method     ChildConfigIn requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigIn by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigIn requireOne(?ConnectionInterface $con = null) Return the first ChildConfigIn matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigIn requireOneByIntbconfkey(int $IntbConfKey) Return the first ChildConfigIn filtered by the IntbConfKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconfglifac(string $IntbConfGlIfac) Return the first ChildConfigIn filtered by the IntbConfGlIfac column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -733,183 +731,360 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIn requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigIn filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByDummy(string $dummy) Return the first ChildConfigIn filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigIn[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigIn objects based on current ModelCriteria
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfkey(int $IntbConfKey) Return ChildConfigIn objects filtered by the IntbConfKey column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfglifac(string $IntbConfGlIfac) Return ChildConfigIn objects filtered by the IntbConfGlIfac column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuseiw(string $IntbConfUseIw) Return ChildConfigIn objects filtered by the IntbConfUseIw column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconflifofifo(string $IntbConfLifoFifo) Return ChildConfigIn objects filtered by the IntbConfLifoFifo column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfgoneg(string $IntbConfGoNeg) Return ChildConfigIn objects filtered by the IntbConfGoNeg column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuselots(string $IntbConfUseLots) Return ChildConfigIn objects filtered by the IntbConfUseLots column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfnbruppr(string $IntbConfNbrUppr) Return ChildConfigIn objects filtered by the IntbConfNbrUppr column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdescuppr(string $IntbConfDescUppr) Return ChildConfigIn objects filtered by the IntbConfDescUppr column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusedesc2(string $IntbConfUseDesc2) Return ChildConfigIn objects filtered by the IntbConfUseDesc2 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuseupccode(string $IntbConfUseUpcCode) Return ChildConfigIn objects filtered by the IntbConfUseUpcCode column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupceancntrl(string $IntbConfUpcEanCntrl) Return ChildConfigIn objects filtered by the IntbConfUpcEanCntrl column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupcgennbr(int $IntbConfUpcGenNbr) Return ChildConfigIn objects filtered by the IntbConfUpcGenNbr column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2allowdupupc(string $IntbCon2AllowDupUpc) Return ChildConfigIn objects filtered by the IntbCon2AllowDupUpc column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfxrefnospace(string $IntbConfXrefNoSpace) Return ChildConfigIn objects filtered by the IntbConfXrefNoSpace column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusepricgrup(string $IntbConfUsePricGrup) Return ChildConfigIn objects filtered by the IntbConfUsePricGrup column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusecommgrup(string $IntbConfUseCommGrup) Return ChildConfigIn objects filtered by the IntbConfUseCommGrup column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusewarrdays(string $IntbConfUseWarrDays) Return ChildConfigIn objects filtered by the IntbConfUseWarrDays column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfstanbasedef(string $IntbConfStanBaseDef) Return ChildConfigIn objects filtered by the IntbConfStanBaseDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfgrupdef(string $IntbConfGrupDef) Return ChildConfigIn objects filtered by the IntbConfGrupDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfpricgrupdef(string $IntbConfPricGrupDef) Return ChildConfigIn objects filtered by the IntbConfPricGrupDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcommgrupdef(string $IntbConfCommGrupDef) Return ChildConfigIn objects filtered by the IntbConfCommGrupDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconftypedef(string $IntbConfTypeDef) Return ChildConfigIn objects filtered by the IntbConfTypeDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfmultilotref(string $IntbConfMultiLotRef) Return ChildConfigIn objects filtered by the IntbConfMultiLotRef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfpricuseitem(string $IntbConfPricUseItem) Return ChildConfigIn objects filtered by the IntbConfPricUseItem column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcommuseitem(string $IntbConfCommUseItem) Return ChildConfigIn objects filtered by the IntbConfCommUseItem column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuomsaledef(string $IntbConfUomSaleDef) Return ChildConfigIn objects filtered by the IntbConfUomSaleDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuompurdef(string $IntbConfUomPurDef) Return ChildConfigIn objects filtered by the IntbConfUomPurDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfsviadef(string $IntbConfSviaDef) Return ChildConfigIn objects filtered by the IntbConfSviaDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcustxreforuse(string $IntbConfCustxrefOrUse) Return ChildConfigIn objects filtered by the IntbConfCustxrefOrUse column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfheadgetdef(int $IntbConfHeadGetDef) Return ChildConfigIn objects filtered by the IntbConfHeadGetDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfitemgetdef(int $IntbConfItemGetDef) Return ChildConfigIn objects filtered by the IntbConfItemGetDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfgetdispohaval(string $IntbConfGetDispOhAval) Return ChildConfigIn objects filtered by the IntbConfGetDispOhAval column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusercode1labl(string $IntbConfUserCode1Labl) Return ChildConfigIn objects filtered by the IntbConfUserCode1Labl column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusercode1ver(string $IntbConfUserCode1Ver) Return ChildConfigIn objects filtered by the IntbConfUserCode1Ver column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusercode2labl(string $IntbConfUserCode2Labl) Return ChildConfigIn objects filtered by the IntbConfUserCode2Labl column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusercode2ver(string $IntbConfUserCode2Ver) Return ChildConfigIn objects filtered by the IntbConfUserCode2Ver column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfitemline(int $IntbConfItemLine) Return ChildConfigIn objects filtered by the IntbConfItemLine column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfitemcols(int $IntbConfItemCols) Return ChildConfigIn objects filtered by the IntbConfItemCols column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfheadline(int $IntbConfHeadLine) Return ChildConfigIn objects filtered by the IntbConfHeadLine column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfheadcols(int $IntbConfHeadCols) Return ChildConfigIn objects filtered by the IntbConfHeadCols column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdetline(int $IntbConfDetLine) Return ChildConfigIn objects filtered by the IntbConfDetLine column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdetcols(int $IntbConfDetCols) Return ChildConfigIn objects filtered by the IntbConfDetCols column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfminmaxzero(string $IntbConfMinMaxZero) Return ChildConfigIn objects filtered by the IntbConfMinMaxZero column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfminrec(string $IntbConfMinRec) Return ChildConfigIn objects filtered by the IntbConfMinRec column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfatbelowmin(string $IntbConfAtBelowMin) Return ChildConfigIn objects filtered by the IntbConfAtBelowMin column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfonewhse(string $IntbConfOneWhse) Return ChildConfigIn objects filtered by the IntbConfOneWhse column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfytdmth(int $IntbConfYtdMth) Return ChildConfigIn objects filtered by the IntbConfYtdMth column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusegramsltr(string $IntbConfUseGramsLtr) Return ChildConfigIn objects filtered by the IntbConfUseGramsLtr column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabcbywhse(string $IntbConfAbcByWhse) Return ChildConfigIn objects filtered by the IntbConfAbcByWhse column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabcnbrmths(int $IntbConfAbcNbrMths) Return ChildConfigIn objects filtered by the IntbConfAbcNbrMths column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabcbasecode(string $IntbConfAbcBaseCode) Return ChildConfigIn objects filtered by the IntbConfAbcBaseCode column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevla(string $IntbConfAbcLevlA) Return ChildConfigIn objects filtered by the IntbConfAbcLevlA column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevlb(string $IntbConfAbcLevlB) Return ChildConfigIn objects filtered by the IntbConfAbcLevlB column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevlc(string $IntbConfAbcLevlC) Return ChildConfigIn objects filtered by the IntbConfAbcLevlC column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevld(string $IntbConfAbcLevlD) Return ChildConfigIn objects filtered by the IntbConfAbcLevlD column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevle(string $IntbConfAbcLevlE) Return ChildConfigIn objects filtered by the IntbConfAbcLevlE column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevlf(string $IntbConfAbcLevlF) Return ChildConfigIn objects filtered by the IntbConfAbcLevlF column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevlg(string $IntbConfAbcLevlG) Return ChildConfigIn objects filtered by the IntbConfAbcLevlG column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevlh(string $IntbConfAbcLevlH) Return ChildConfigIn objects filtered by the IntbConfAbcLevlH column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevli(string $IntbConfAbcLevlI) Return ChildConfigIn objects filtered by the IntbConfAbcLevlI column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabclevlj(string $IntbConfAbcLevlJ) Return ChildConfigIn objects filtered by the IntbConfAbcLevlJ column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuseforeignx(string $IntbConfUseForeignX) Return ChildConfigIn objects filtered by the IntbConfUseForeignX column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusenafta(string $IntbConfUseNafta) Return ChildConfigIn objects filtered by the IntbConfUseNafta column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfnaftaprefcode(string $IntbConfNaftaPrefCode) Return ChildConfigIn objects filtered by the IntbConfNaftaPrefCode column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfnaftaproducer(string $IntbConfNaftaProducer) Return ChildConfigIn objects filtered by the IntbConfNaftaProducer column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfnaftadoccode(string $IntbConfNaftaDocCode) Return ChildConfigIn objects filtered by the IntbConfNaftaDocCode column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfphyscurrwksh(string $IntbConfPhysCurrWksh) Return ChildConfigIn objects filtered by the IntbConfPhysCurrWksh column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconf20or30(int $IntbConf20Or30) Return ChildConfigIn objects filtered by the IntbConf20Or30 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdisporigcnt(string $IntbConfDispOrigCnt) Return ChildConfigIn objects filtered by the IntbConfDispOrigCnt column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdispgl(string $IntbConfDispGl) Return ChildConfigIn objects filtered by the IntbConfDispGl column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdispref(string $IntbConfDispRef) Return ChildConfigIn objects filtered by the IntbConfDispRef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdispcost(string $IntbConfDispCost) Return ChildConfigIn objects filtered by the IntbConfDispCost column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfprtval(string $IntbConfPrtVal) Return ChildConfigIn objects filtered by the IntbConfPrtVal column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfprtgl(string $IntbConfPrtGl) Return ChildConfigIn objects filtered by the IntbConfPrtGl column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfglacct(string $IntbConfGlAcct) Return ChildConfigIn objects filtered by the IntbConfGlAcct column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfref(string $IntbConfRef) Return ChildConfigIn objects filtered by the IntbConfRef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcosttype(string $IntbConfCostType) Return ChildConfigIn objects filtered by the IntbConfCostType column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfnormalonly(string $IntbConfNormalOnly) Return ChildConfigIn objects filtered by the IntbConfNormalOnly column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusewhsedef(string $IntbConfUseWhseDef) Return ChildConfigIn objects filtered by the IntbConfUseWhseDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse01(string $IntbCon2DfltWhse01) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse01 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse02(string $IntbCon2DfltWhse02) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse02 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse03(string $IntbCon2DfltWhse03) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse03 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse04(string $IntbCon2DfltWhse04) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse04 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse05(string $IntbCon2DfltWhse05) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse05 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse06(string $IntbCon2DfltWhse06) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse06 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse07(string $IntbCon2DfltWhse07) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse07 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse08(string $IntbCon2DfltWhse08) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse08 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse09(string $IntbCon2DfltWhse09) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse09 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltwhse10(string $IntbCon2DfltWhse10) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse10 column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfbindef(string $IntbConfBinDef) Return ChildConfigIn objects filtered by the IntbConfBinDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcycldef(string $IntbConfCyclDef) Return ChildConfigIn objects filtered by the IntbConfCyclDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfstatdef(string $IntbConfStatDef) Return ChildConfigIn objects filtered by the IntbConfStatDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfabcdef(string $IntbConfAbcDef) Return ChildConfigIn objects filtered by the IntbConfAbcDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfspecordrdef(string $IntbConfSpecOrdrDef) Return ChildConfigIn objects filtered by the IntbConfSpecOrdrDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfordrpntdef(string $IntbConfOrdrPntDef) Return ChildConfigIn objects filtered by the IntbConfOrdrPntDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfmaxdef(string $IntbConfMaxDef) Return ChildConfigIn objects filtered by the IntbConfMaxDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfordrqtydef(string $IntbConfOrdrQtyDef) Return ChildConfigIn objects filtered by the IntbConfOrdrQtyDef column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconftrcptallowcmpl(string $IntbConfTrcptAllowCmpl) Return ChildConfigIn objects filtered by the IntbConfTrcptAllowCmpl column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconftrecmmtstock(string $IntbConfTreCmmtStock) Return ChildConfigIn objects filtered by the IntbConfTreCmmtStock column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusefrtin(string $IntbConfUseFrtIn) Return ChildConfigIn objects filtered by the IntbConfUseFrtIn column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfeachoruom(string $IntbConfEachOrUom) Return ChildConfigIn objects filtered by the IntbConfEachOrUom column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfneglotcorr(string $IntbConfNegLotCorr) Return ChildConfigIn objects filtered by the IntbConfNegLotCorr column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconftrnsglacct(string $IntbConfTrnsGlAcct) Return ChildConfigIn objects filtered by the IntbConfTrnsGlAcct column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconftrnsprotstock(string $IntbConfTrnsProtStock) Return ChildConfigIn objects filtered by the IntbConfTrnsProtStock column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfnumericitem(string $IntbConfNumericItem) Return ChildConfigIn objects filtered by the IntbConfNumericItem column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfitemdigits(int $IntbConfItemDigits) Return ChildConfigIn objects filtered by the IntbConfItemDigits column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfsinglewhse(string $IntbConfSingleWhse) Return ChildConfigIn objects filtered by the IntbConfSingleWhse column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupdusepct(string $IntbConfUpdUsePct) Return ChildConfigIn objects filtered by the IntbConfUpdUsePct column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupdpric(string $IntbConfUpdPric) Return ChildConfigIn objects filtered by the IntbConfUpdPric column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupdstdcost(string $IntbConfUpdStdCost) Return ChildConfigIn objects filtered by the IntbConfUpdStdCost column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupdxrefcost(string $IntbConfUpdXrefCost) Return ChildConfigIn objects filtered by the IntbConfUpdXrefCost column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfiqpaupddate(string $IntbConfIqpaUpdDate) Return ChildConfigIn objects filtered by the IntbConfIqpaUpdDate column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupcxrefoptn(string $IntbConfUpcXrefOptn) Return ChildConfigIn objects filtered by the IntbConfUpcXrefOptn column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconftranviewlib(string $IntbConfTranViewLIB) Return ChildConfigIn objects filtered by the IntbConfTranViewLIB column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfresvcost(string $IntbConfResvCost) Return ChildConfigIn objects filtered by the IntbConfResvCost column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2tranzerorqst(string $IntbCon2TranZeroRqst) Return ChildConfigIn objects filtered by the IntbCon2TranZeroRqst column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfmonendadjdate(string $IntbConfMonEndAdjDate) Return ChildConfigIn objects filtered by the IntbConfMonEndAdjDate column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfmonendtrndate(string $IntbConfMonEndTrnDate) Return ChildConfigIn objects filtered by the IntbConfMonEndTrnDate column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfmonendlogdate(string $IntbConfMonEndLogDate) Return ChildConfigIn objects filtered by the IntbConfMonEndLogDate column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdstatproc(string $IntbConfDStatProc) Return ChildConfigIn objects filtered by the IntbConfDStatProc column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfstancostupd(string $IntbConfStanCostUpd) Return ChildConfigIn objects filtered by the IntbConfStanCostUpd column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconflastcost(string $IntbConfLastCost) Return ChildConfigIn objects filtered by the IntbConfLastCost column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusesorgpct(string $IntbConfUseSOrGPct) Return ChildConfigIn objects filtered by the IntbConfUseSOrGPct column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfaddonstan(string $IntbConfAddOnStan) Return ChildConfigIn objects filtered by the IntbConfAddOnStan column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfstdcosterror(string $IntbConfStdCostError) Return ChildConfigIn objects filtered by the IntbConfStdCostError column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfavgcurrfive(string $IntbConfAvgCurrFive) Return ChildConfigIn objects filtered by the IntbConfAvgCurrFive column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusecntrlbin(string $IntbConfUseCntrlBin) Return ChildConfigIn objects filtered by the IntbConfUseCntrlBin column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfnbrbinareas(int $IntbConfNbrBinAreas) Return ChildConfigIn objects filtered by the IntbConfNbrBinAreas column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusemultbin(string $IntbConfUseMultBin) Return ChildConfigIn objects filtered by the IntbConfUseMultBin column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdfltwhsebin(string $IntbConfDfltWhseBin) Return ChildConfigIn objects filtered by the IntbConfDfltWhseBin column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdfltbin(string $IntbConfDfltBin) Return ChildConfigIn objects filtered by the IntbConfDfltBin column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfctryitemlot(string $IntbConfCtryItemLot) Return ChildConfigIn objects filtered by the IntbConfCtryItemLot column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuseshipbin(string $IntbConfUseShipBin) Return ChildConfigIn objects filtered by the IntbConfUseShipBin column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2prtbinrlabel(string $IntbCon2PrtBinrLabel) Return ChildConfigIn objects filtered by the IntbCon2PrtBinrLabel column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2itemlookup(string $IntbCon2ItemLookup) Return ChildConfigIn objects filtered by the IntbCon2ItemLookup column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfincldcti(string $IntbConfIncldCti) Return ChildConfigIn objects filtered by the IntbConfIncldCti column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcertimage(string $IntbConfCertImage) Return ChildConfigIn objects filtered by the IntbConfCertImage column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdrawimage(string $IntbConfDrawImage) Return ChildConfigIn objects filtered by the IntbConfDrawImage column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfconfirmimage(string $IntbConfConfirmImage) Return ChildConfigIn objects filtered by the IntbConfConfirmImage column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2productimage(string $IntbCon2ProductImage) Return ChildConfigIn objects filtered by the IntbCon2ProductImage column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdefpick(string $IntbConfDefPick) Return ChildConfigIn objects filtered by the IntbConfDefPick column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdefpack(string $IntbConfDefPack) Return ChildConfigIn objects filtered by the IntbConfDefPack column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdefinvc(string $IntbConfDefInvc) Return ChildConfigIn objects filtered by the IntbConfDefInvc column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdefack(string $IntbConfDefAck) Return ChildConfigIn objects filtered by the IntbConfDefAck column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdefquot(string $IntbConfDefQuot) Return ChildConfigIn objects filtered by the IntbConfDefQuot column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdefpo(string $IntbConfDefPo) Return ChildConfigIn objects filtered by the IntbConfDefPo column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdeftrans(string $IntbConfDefTrans) Return ChildConfigIn objects filtered by the IntbConfDefTrans column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfadjglcogs(string $IntbConfAdjGlCogs) Return ChildConfigIn objects filtered by the IntbConfAdjGlCogs column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2dfltadjglacct(string $IntbCon2DfltAdjGlAcct) Return ChildConfigIn objects filtered by the IntbCon2DfltAdjGlAcct column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfadjcostbase(string $IntbConfAdjCostBase) Return ChildConfigIn objects filtered by the IntbConfAdjCostBase column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdfltadjtbin(string $IntbConfDfltAdjtBin) Return ChildConfigIn objects filtered by the IntbConfDfltAdjtBin column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfadjtbin(string $IntbConfAdjtBin) Return ChildConfigIn objects filtered by the IntbConfAdjtBin column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcstockseq(string $IntbConfCStockSeq) Return ChildConfigIn objects filtered by the IntbConfCStockSeq column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcstockhistday(int $IntbConfCStockHistDay) Return ChildConfigIn objects filtered by the IntbConfCStockHistDay column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcstockformat(string $IntbConfCStockFormat) Return ChildConfigIn objects filtered by the IntbConfCStockFormat column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcstkexportitem(string $IntbConfCstkExportItem) Return ChildConfigIn objects filtered by the IntbConfCstkExportItem column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcstkpdmcontract(string $IntbConfCstkPdmContract) Return ChildConfigIn objects filtered by the IntbConfCstkPdmContract column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2importseq(string $IntbCon2ImportSeq) Return ChildConfigIn objects filtered by the IntbCon2ImportSeq column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfstopitemchg(int $IntbConfStopItemChg) Return ChildConfigIn objects filtered by the IntbConfStopItemChg column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfaddtomxrfe(string $IntbConfAddToMxrfe) Return ChildConfigIn objects filtered by the IntbConfAddToMxrfe column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfmxrfevendid(string $IntbConfMxrfeVendId) Return ChildConfigIn objects filtered by the IntbConfMxrfeVendId column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2newidlabellist(string $IntbCon2NewIdLabelList) Return ChildConfigIn objects filtered by the IntbCon2NewIdLabelList column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuseformat(string $IntbConfUseFormat) Return ChildConfigIn objects filtered by the IntbConfUseFormat column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfdefformat(string $IntbConfDefFormat) Return ChildConfigIn objects filtered by the IntbConfDefFormat column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfseqshortitem(string $IntbConfSeqShortItem) Return ChildConfigIn objects filtered by the IntbConfSeqShortItem column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfshortitemlen(int $IntbConfShortItemLen) Return ChildConfigIn objects filtered by the IntbConfShortItemLen column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfusescale(string $IntbConfUseScale) Return ChildConfigIn objects filtered by the IntbConfUseScale column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfstorewght(string $IntbConfStoreWght) Return ChildConfigIn objects filtered by the IntbConfStoreWght column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfvalidasstcode(string $IntbConfValidAsstCode) Return ChildConfigIn objects filtered by the IntbConfValidAsstCode column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfwhitegoods(string $IntbConfWhiteGoods) Return ChildConfigIn objects filtered by the IntbConfWhiteGoods column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2transcustid(string $IntbCon2TransCustId) Return ChildConfigIn objects filtered by the IntbCon2TransCustId column
- * @method     ChildConfigIn[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigIn objects filtered by the DateUpdtd column
- * @method     ChildConfigIn[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigIn objects filtered by the TimeUpdtd column
- * @method     ChildConfigIn[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigIn objects filtered by the dummy column
- * @method     ChildConfigIn[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigIn[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigIn objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigIn> find(?ConnectionInterface $con = null) Return ChildConfigIn objects based on current ModelCriteria
  *
+ * @method     ChildConfigIn[]|Collection findByIntbconfkey(int|array<int> $IntbConfKey) Return ChildConfigIn objects filtered by the IntbConfKey column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfkey(int|array<int> $IntbConfKey) Return ChildConfigIn objects filtered by the IntbConfKey column
+ * @method     ChildConfigIn[]|Collection findByIntbconfglifac(string|array<string> $IntbConfGlIfac) Return ChildConfigIn objects filtered by the IntbConfGlIfac column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfglifac(string|array<string> $IntbConfGlIfac) Return ChildConfigIn objects filtered by the IntbConfGlIfac column
+ * @method     ChildConfigIn[]|Collection findByIntbconfuseiw(string|array<string> $IntbConfUseIw) Return ChildConfigIn objects filtered by the IntbConfUseIw column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfuseiw(string|array<string> $IntbConfUseIw) Return ChildConfigIn objects filtered by the IntbConfUseIw column
+ * @method     ChildConfigIn[]|Collection findByIntbconflifofifo(string|array<string> $IntbConfLifoFifo) Return ChildConfigIn objects filtered by the IntbConfLifoFifo column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconflifofifo(string|array<string> $IntbConfLifoFifo) Return ChildConfigIn objects filtered by the IntbConfLifoFifo column
+ * @method     ChildConfigIn[]|Collection findByIntbconfgoneg(string|array<string> $IntbConfGoNeg) Return ChildConfigIn objects filtered by the IntbConfGoNeg column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfgoneg(string|array<string> $IntbConfGoNeg) Return ChildConfigIn objects filtered by the IntbConfGoNeg column
+ * @method     ChildConfigIn[]|Collection findByIntbconfuselots(string|array<string> $IntbConfUseLots) Return ChildConfigIn objects filtered by the IntbConfUseLots column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfuselots(string|array<string> $IntbConfUseLots) Return ChildConfigIn objects filtered by the IntbConfUseLots column
+ * @method     ChildConfigIn[]|Collection findByIntbconfnbruppr(string|array<string> $IntbConfNbrUppr) Return ChildConfigIn objects filtered by the IntbConfNbrUppr column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfnbruppr(string|array<string> $IntbConfNbrUppr) Return ChildConfigIn objects filtered by the IntbConfNbrUppr column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdescuppr(string|array<string> $IntbConfDescUppr) Return ChildConfigIn objects filtered by the IntbConfDescUppr column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdescuppr(string|array<string> $IntbConfDescUppr) Return ChildConfigIn objects filtered by the IntbConfDescUppr column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusedesc2(string|array<string> $IntbConfUseDesc2) Return ChildConfigIn objects filtered by the IntbConfUseDesc2 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusedesc2(string|array<string> $IntbConfUseDesc2) Return ChildConfigIn objects filtered by the IntbConfUseDesc2 column
+ * @method     ChildConfigIn[]|Collection findByIntbconfuseupccode(string|array<string> $IntbConfUseUpcCode) Return ChildConfigIn objects filtered by the IntbConfUseUpcCode column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfuseupccode(string|array<string> $IntbConfUseUpcCode) Return ChildConfigIn objects filtered by the IntbConfUseUpcCode column
+ * @method     ChildConfigIn[]|Collection findByIntbconfupceancntrl(string|array<string> $IntbConfUpcEanCntrl) Return ChildConfigIn objects filtered by the IntbConfUpcEanCntrl column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfupceancntrl(string|array<string> $IntbConfUpcEanCntrl) Return ChildConfigIn objects filtered by the IntbConfUpcEanCntrl column
+ * @method     ChildConfigIn[]|Collection findByIntbconfupcgennbr(int|array<int> $IntbConfUpcGenNbr) Return ChildConfigIn objects filtered by the IntbConfUpcGenNbr column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfupcgennbr(int|array<int> $IntbConfUpcGenNbr) Return ChildConfigIn objects filtered by the IntbConfUpcGenNbr column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2allowdupupc(string|array<string> $IntbCon2AllowDupUpc) Return ChildConfigIn objects filtered by the IntbCon2AllowDupUpc column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2allowdupupc(string|array<string> $IntbCon2AllowDupUpc) Return ChildConfigIn objects filtered by the IntbCon2AllowDupUpc column
+ * @method     ChildConfigIn[]|Collection findByIntbconfxrefnospace(string|array<string> $IntbConfXrefNoSpace) Return ChildConfigIn objects filtered by the IntbConfXrefNoSpace column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfxrefnospace(string|array<string> $IntbConfXrefNoSpace) Return ChildConfigIn objects filtered by the IntbConfXrefNoSpace column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusepricgrup(string|array<string> $IntbConfUsePricGrup) Return ChildConfigIn objects filtered by the IntbConfUsePricGrup column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusepricgrup(string|array<string> $IntbConfUsePricGrup) Return ChildConfigIn objects filtered by the IntbConfUsePricGrup column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusecommgrup(string|array<string> $IntbConfUseCommGrup) Return ChildConfigIn objects filtered by the IntbConfUseCommGrup column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusecommgrup(string|array<string> $IntbConfUseCommGrup) Return ChildConfigIn objects filtered by the IntbConfUseCommGrup column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusewarrdays(string|array<string> $IntbConfUseWarrDays) Return ChildConfigIn objects filtered by the IntbConfUseWarrDays column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusewarrdays(string|array<string> $IntbConfUseWarrDays) Return ChildConfigIn objects filtered by the IntbConfUseWarrDays column
+ * @method     ChildConfigIn[]|Collection findByIntbconfstanbasedef(string|array<string> $IntbConfStanBaseDef) Return ChildConfigIn objects filtered by the IntbConfStanBaseDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfstanbasedef(string|array<string> $IntbConfStanBaseDef) Return ChildConfigIn objects filtered by the IntbConfStanBaseDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfgrupdef(string|array<string> $IntbConfGrupDef) Return ChildConfigIn objects filtered by the IntbConfGrupDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfgrupdef(string|array<string> $IntbConfGrupDef) Return ChildConfigIn objects filtered by the IntbConfGrupDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfpricgrupdef(string|array<string> $IntbConfPricGrupDef) Return ChildConfigIn objects filtered by the IntbConfPricGrupDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfpricgrupdef(string|array<string> $IntbConfPricGrupDef) Return ChildConfigIn objects filtered by the IntbConfPricGrupDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcommgrupdef(string|array<string> $IntbConfCommGrupDef) Return ChildConfigIn objects filtered by the IntbConfCommGrupDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcommgrupdef(string|array<string> $IntbConfCommGrupDef) Return ChildConfigIn objects filtered by the IntbConfCommGrupDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconftypedef(string|array<string> $IntbConfTypeDef) Return ChildConfigIn objects filtered by the IntbConfTypeDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconftypedef(string|array<string> $IntbConfTypeDef) Return ChildConfigIn objects filtered by the IntbConfTypeDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfmultilotref(string|array<string> $IntbConfMultiLotRef) Return ChildConfigIn objects filtered by the IntbConfMultiLotRef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfmultilotref(string|array<string> $IntbConfMultiLotRef) Return ChildConfigIn objects filtered by the IntbConfMultiLotRef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfpricuseitem(string|array<string> $IntbConfPricUseItem) Return ChildConfigIn objects filtered by the IntbConfPricUseItem column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfpricuseitem(string|array<string> $IntbConfPricUseItem) Return ChildConfigIn objects filtered by the IntbConfPricUseItem column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcommuseitem(string|array<string> $IntbConfCommUseItem) Return ChildConfigIn objects filtered by the IntbConfCommUseItem column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcommuseitem(string|array<string> $IntbConfCommUseItem) Return ChildConfigIn objects filtered by the IntbConfCommUseItem column
+ * @method     ChildConfigIn[]|Collection findByIntbconfuomsaledef(string|array<string> $IntbConfUomSaleDef) Return ChildConfigIn objects filtered by the IntbConfUomSaleDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfuomsaledef(string|array<string> $IntbConfUomSaleDef) Return ChildConfigIn objects filtered by the IntbConfUomSaleDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfuompurdef(string|array<string> $IntbConfUomPurDef) Return ChildConfigIn objects filtered by the IntbConfUomPurDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfuompurdef(string|array<string> $IntbConfUomPurDef) Return ChildConfigIn objects filtered by the IntbConfUomPurDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfsviadef(string|array<string> $IntbConfSviaDef) Return ChildConfigIn objects filtered by the IntbConfSviaDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfsviadef(string|array<string> $IntbConfSviaDef) Return ChildConfigIn objects filtered by the IntbConfSviaDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcustxreforuse(string|array<string> $IntbConfCustxrefOrUse) Return ChildConfigIn objects filtered by the IntbConfCustxrefOrUse column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcustxreforuse(string|array<string> $IntbConfCustxrefOrUse) Return ChildConfigIn objects filtered by the IntbConfCustxrefOrUse column
+ * @method     ChildConfigIn[]|Collection findByIntbconfheadgetdef(int|array<int> $IntbConfHeadGetDef) Return ChildConfigIn objects filtered by the IntbConfHeadGetDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfheadgetdef(int|array<int> $IntbConfHeadGetDef) Return ChildConfigIn objects filtered by the IntbConfHeadGetDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfitemgetdef(int|array<int> $IntbConfItemGetDef) Return ChildConfigIn objects filtered by the IntbConfItemGetDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfitemgetdef(int|array<int> $IntbConfItemGetDef) Return ChildConfigIn objects filtered by the IntbConfItemGetDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfgetdispohaval(string|array<string> $IntbConfGetDispOhAval) Return ChildConfigIn objects filtered by the IntbConfGetDispOhAval column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfgetdispohaval(string|array<string> $IntbConfGetDispOhAval) Return ChildConfigIn objects filtered by the IntbConfGetDispOhAval column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusercode1labl(string|array<string> $IntbConfUserCode1Labl) Return ChildConfigIn objects filtered by the IntbConfUserCode1Labl column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusercode1labl(string|array<string> $IntbConfUserCode1Labl) Return ChildConfigIn objects filtered by the IntbConfUserCode1Labl column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusercode1ver(string|array<string> $IntbConfUserCode1Ver) Return ChildConfigIn objects filtered by the IntbConfUserCode1Ver column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusercode1ver(string|array<string> $IntbConfUserCode1Ver) Return ChildConfigIn objects filtered by the IntbConfUserCode1Ver column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusercode2labl(string|array<string> $IntbConfUserCode2Labl) Return ChildConfigIn objects filtered by the IntbConfUserCode2Labl column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusercode2labl(string|array<string> $IntbConfUserCode2Labl) Return ChildConfigIn objects filtered by the IntbConfUserCode2Labl column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusercode2ver(string|array<string> $IntbConfUserCode2Ver) Return ChildConfigIn objects filtered by the IntbConfUserCode2Ver column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusercode2ver(string|array<string> $IntbConfUserCode2Ver) Return ChildConfigIn objects filtered by the IntbConfUserCode2Ver column
+ * @method     ChildConfigIn[]|Collection findByIntbconfitemline(int|array<int> $IntbConfItemLine) Return ChildConfigIn objects filtered by the IntbConfItemLine column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfitemline(int|array<int> $IntbConfItemLine) Return ChildConfigIn objects filtered by the IntbConfItemLine column
+ * @method     ChildConfigIn[]|Collection findByIntbconfitemcols(int|array<int> $IntbConfItemCols) Return ChildConfigIn objects filtered by the IntbConfItemCols column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfitemcols(int|array<int> $IntbConfItemCols) Return ChildConfigIn objects filtered by the IntbConfItemCols column
+ * @method     ChildConfigIn[]|Collection findByIntbconfheadline(int|array<int> $IntbConfHeadLine) Return ChildConfigIn objects filtered by the IntbConfHeadLine column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfheadline(int|array<int> $IntbConfHeadLine) Return ChildConfigIn objects filtered by the IntbConfHeadLine column
+ * @method     ChildConfigIn[]|Collection findByIntbconfheadcols(int|array<int> $IntbConfHeadCols) Return ChildConfigIn objects filtered by the IntbConfHeadCols column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfheadcols(int|array<int> $IntbConfHeadCols) Return ChildConfigIn objects filtered by the IntbConfHeadCols column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdetline(int|array<int> $IntbConfDetLine) Return ChildConfigIn objects filtered by the IntbConfDetLine column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdetline(int|array<int> $IntbConfDetLine) Return ChildConfigIn objects filtered by the IntbConfDetLine column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdetcols(int|array<int> $IntbConfDetCols) Return ChildConfigIn objects filtered by the IntbConfDetCols column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdetcols(int|array<int> $IntbConfDetCols) Return ChildConfigIn objects filtered by the IntbConfDetCols column
+ * @method     ChildConfigIn[]|Collection findByIntbconfminmaxzero(string|array<string> $IntbConfMinMaxZero) Return ChildConfigIn objects filtered by the IntbConfMinMaxZero column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfminmaxzero(string|array<string> $IntbConfMinMaxZero) Return ChildConfigIn objects filtered by the IntbConfMinMaxZero column
+ * @method     ChildConfigIn[]|Collection findByIntbconfminrec(string|array<string> $IntbConfMinRec) Return ChildConfigIn objects filtered by the IntbConfMinRec column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfminrec(string|array<string> $IntbConfMinRec) Return ChildConfigIn objects filtered by the IntbConfMinRec column
+ * @method     ChildConfigIn[]|Collection findByIntbconfatbelowmin(string|array<string> $IntbConfAtBelowMin) Return ChildConfigIn objects filtered by the IntbConfAtBelowMin column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfatbelowmin(string|array<string> $IntbConfAtBelowMin) Return ChildConfigIn objects filtered by the IntbConfAtBelowMin column
+ * @method     ChildConfigIn[]|Collection findByIntbconfonewhse(string|array<string> $IntbConfOneWhse) Return ChildConfigIn objects filtered by the IntbConfOneWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfonewhse(string|array<string> $IntbConfOneWhse) Return ChildConfigIn objects filtered by the IntbConfOneWhse column
+ * @method     ChildConfigIn[]|Collection findByIntbconfytdmth(int|array<int> $IntbConfYtdMth) Return ChildConfigIn objects filtered by the IntbConfYtdMth column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfytdmth(int|array<int> $IntbConfYtdMth) Return ChildConfigIn objects filtered by the IntbConfYtdMth column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusegramsltr(string|array<string> $IntbConfUseGramsLtr) Return ChildConfigIn objects filtered by the IntbConfUseGramsLtr column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusegramsltr(string|array<string> $IntbConfUseGramsLtr) Return ChildConfigIn objects filtered by the IntbConfUseGramsLtr column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabcbywhse(string|array<string> $IntbConfAbcByWhse) Return ChildConfigIn objects filtered by the IntbConfAbcByWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabcbywhse(string|array<string> $IntbConfAbcByWhse) Return ChildConfigIn objects filtered by the IntbConfAbcByWhse column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabcnbrmths(int|array<int> $IntbConfAbcNbrMths) Return ChildConfigIn objects filtered by the IntbConfAbcNbrMths column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabcnbrmths(int|array<int> $IntbConfAbcNbrMths) Return ChildConfigIn objects filtered by the IntbConfAbcNbrMths column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabcbasecode(string|array<string> $IntbConfAbcBaseCode) Return ChildConfigIn objects filtered by the IntbConfAbcBaseCode column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabcbasecode(string|array<string> $IntbConfAbcBaseCode) Return ChildConfigIn objects filtered by the IntbConfAbcBaseCode column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevla(string|array<string> $IntbConfAbcLevlA) Return ChildConfigIn objects filtered by the IntbConfAbcLevlA column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevla(string|array<string> $IntbConfAbcLevlA) Return ChildConfigIn objects filtered by the IntbConfAbcLevlA column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevlb(string|array<string> $IntbConfAbcLevlB) Return ChildConfigIn objects filtered by the IntbConfAbcLevlB column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevlb(string|array<string> $IntbConfAbcLevlB) Return ChildConfigIn objects filtered by the IntbConfAbcLevlB column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevlc(string|array<string> $IntbConfAbcLevlC) Return ChildConfigIn objects filtered by the IntbConfAbcLevlC column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevlc(string|array<string> $IntbConfAbcLevlC) Return ChildConfigIn objects filtered by the IntbConfAbcLevlC column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevld(string|array<string> $IntbConfAbcLevlD) Return ChildConfigIn objects filtered by the IntbConfAbcLevlD column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevld(string|array<string> $IntbConfAbcLevlD) Return ChildConfigIn objects filtered by the IntbConfAbcLevlD column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevle(string|array<string> $IntbConfAbcLevlE) Return ChildConfigIn objects filtered by the IntbConfAbcLevlE column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevle(string|array<string> $IntbConfAbcLevlE) Return ChildConfigIn objects filtered by the IntbConfAbcLevlE column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevlf(string|array<string> $IntbConfAbcLevlF) Return ChildConfigIn objects filtered by the IntbConfAbcLevlF column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevlf(string|array<string> $IntbConfAbcLevlF) Return ChildConfigIn objects filtered by the IntbConfAbcLevlF column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevlg(string|array<string> $IntbConfAbcLevlG) Return ChildConfigIn objects filtered by the IntbConfAbcLevlG column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevlg(string|array<string> $IntbConfAbcLevlG) Return ChildConfigIn objects filtered by the IntbConfAbcLevlG column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevlh(string|array<string> $IntbConfAbcLevlH) Return ChildConfigIn objects filtered by the IntbConfAbcLevlH column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevlh(string|array<string> $IntbConfAbcLevlH) Return ChildConfigIn objects filtered by the IntbConfAbcLevlH column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevli(string|array<string> $IntbConfAbcLevlI) Return ChildConfigIn objects filtered by the IntbConfAbcLevlI column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevli(string|array<string> $IntbConfAbcLevlI) Return ChildConfigIn objects filtered by the IntbConfAbcLevlI column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabclevlj(string|array<string> $IntbConfAbcLevlJ) Return ChildConfigIn objects filtered by the IntbConfAbcLevlJ column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabclevlj(string|array<string> $IntbConfAbcLevlJ) Return ChildConfigIn objects filtered by the IntbConfAbcLevlJ column
+ * @method     ChildConfigIn[]|Collection findByIntbconfuseforeignx(string|array<string> $IntbConfUseForeignX) Return ChildConfigIn objects filtered by the IntbConfUseForeignX column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfuseforeignx(string|array<string> $IntbConfUseForeignX) Return ChildConfigIn objects filtered by the IntbConfUseForeignX column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusenafta(string|array<string> $IntbConfUseNafta) Return ChildConfigIn objects filtered by the IntbConfUseNafta column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusenafta(string|array<string> $IntbConfUseNafta) Return ChildConfigIn objects filtered by the IntbConfUseNafta column
+ * @method     ChildConfigIn[]|Collection findByIntbconfnaftaprefcode(string|array<string> $IntbConfNaftaPrefCode) Return ChildConfigIn objects filtered by the IntbConfNaftaPrefCode column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfnaftaprefcode(string|array<string> $IntbConfNaftaPrefCode) Return ChildConfigIn objects filtered by the IntbConfNaftaPrefCode column
+ * @method     ChildConfigIn[]|Collection findByIntbconfnaftaproducer(string|array<string> $IntbConfNaftaProducer) Return ChildConfigIn objects filtered by the IntbConfNaftaProducer column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfnaftaproducer(string|array<string> $IntbConfNaftaProducer) Return ChildConfigIn objects filtered by the IntbConfNaftaProducer column
+ * @method     ChildConfigIn[]|Collection findByIntbconfnaftadoccode(string|array<string> $IntbConfNaftaDocCode) Return ChildConfigIn objects filtered by the IntbConfNaftaDocCode column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfnaftadoccode(string|array<string> $IntbConfNaftaDocCode) Return ChildConfigIn objects filtered by the IntbConfNaftaDocCode column
+ * @method     ChildConfigIn[]|Collection findByIntbconfphyscurrwksh(string|array<string> $IntbConfPhysCurrWksh) Return ChildConfigIn objects filtered by the IntbConfPhysCurrWksh column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfphyscurrwksh(string|array<string> $IntbConfPhysCurrWksh) Return ChildConfigIn objects filtered by the IntbConfPhysCurrWksh column
+ * @method     ChildConfigIn[]|Collection findByIntbconf20or30(int|array<int> $IntbConf20Or30) Return ChildConfigIn objects filtered by the IntbConf20Or30 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconf20or30(int|array<int> $IntbConf20Or30) Return ChildConfigIn objects filtered by the IntbConf20Or30 column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdisporigcnt(string|array<string> $IntbConfDispOrigCnt) Return ChildConfigIn objects filtered by the IntbConfDispOrigCnt column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdisporigcnt(string|array<string> $IntbConfDispOrigCnt) Return ChildConfigIn objects filtered by the IntbConfDispOrigCnt column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdispgl(string|array<string> $IntbConfDispGl) Return ChildConfigIn objects filtered by the IntbConfDispGl column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdispgl(string|array<string> $IntbConfDispGl) Return ChildConfigIn objects filtered by the IntbConfDispGl column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdispref(string|array<string> $IntbConfDispRef) Return ChildConfigIn objects filtered by the IntbConfDispRef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdispref(string|array<string> $IntbConfDispRef) Return ChildConfigIn objects filtered by the IntbConfDispRef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdispcost(string|array<string> $IntbConfDispCost) Return ChildConfigIn objects filtered by the IntbConfDispCost column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdispcost(string|array<string> $IntbConfDispCost) Return ChildConfigIn objects filtered by the IntbConfDispCost column
+ * @method     ChildConfigIn[]|Collection findByIntbconfprtval(string|array<string> $IntbConfPrtVal) Return ChildConfigIn objects filtered by the IntbConfPrtVal column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfprtval(string|array<string> $IntbConfPrtVal) Return ChildConfigIn objects filtered by the IntbConfPrtVal column
+ * @method     ChildConfigIn[]|Collection findByIntbconfprtgl(string|array<string> $IntbConfPrtGl) Return ChildConfigIn objects filtered by the IntbConfPrtGl column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfprtgl(string|array<string> $IntbConfPrtGl) Return ChildConfigIn objects filtered by the IntbConfPrtGl column
+ * @method     ChildConfigIn[]|Collection findByIntbconfglacct(string|array<string> $IntbConfGlAcct) Return ChildConfigIn objects filtered by the IntbConfGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfglacct(string|array<string> $IntbConfGlAcct) Return ChildConfigIn objects filtered by the IntbConfGlAcct column
+ * @method     ChildConfigIn[]|Collection findByIntbconfref(string|array<string> $IntbConfRef) Return ChildConfigIn objects filtered by the IntbConfRef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfref(string|array<string> $IntbConfRef) Return ChildConfigIn objects filtered by the IntbConfRef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcosttype(string|array<string> $IntbConfCostType) Return ChildConfigIn objects filtered by the IntbConfCostType column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcosttype(string|array<string> $IntbConfCostType) Return ChildConfigIn objects filtered by the IntbConfCostType column
+ * @method     ChildConfigIn[]|Collection findByIntbconfnormalonly(string|array<string> $IntbConfNormalOnly) Return ChildConfigIn objects filtered by the IntbConfNormalOnly column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfnormalonly(string|array<string> $IntbConfNormalOnly) Return ChildConfigIn objects filtered by the IntbConfNormalOnly column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusewhsedef(string|array<string> $IntbConfUseWhseDef) Return ChildConfigIn objects filtered by the IntbConfUseWhseDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusewhsedef(string|array<string> $IntbConfUseWhseDef) Return ChildConfigIn objects filtered by the IntbConfUseWhseDef column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse01(string|array<string> $IntbCon2DfltWhse01) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse01 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse01(string|array<string> $IntbCon2DfltWhse01) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse01 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse02(string|array<string> $IntbCon2DfltWhse02) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse02 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse02(string|array<string> $IntbCon2DfltWhse02) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse02 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse03(string|array<string> $IntbCon2DfltWhse03) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse03 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse03(string|array<string> $IntbCon2DfltWhse03) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse03 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse04(string|array<string> $IntbCon2DfltWhse04) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse04 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse04(string|array<string> $IntbCon2DfltWhse04) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse04 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse05(string|array<string> $IntbCon2DfltWhse05) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse05 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse05(string|array<string> $IntbCon2DfltWhse05) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse05 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse06(string|array<string> $IntbCon2DfltWhse06) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse06 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse06(string|array<string> $IntbCon2DfltWhse06) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse06 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse07(string|array<string> $IntbCon2DfltWhse07) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse07 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse07(string|array<string> $IntbCon2DfltWhse07) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse07 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse08(string|array<string> $IntbCon2DfltWhse08) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse08 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse08(string|array<string> $IntbCon2DfltWhse08) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse08 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse09(string|array<string> $IntbCon2DfltWhse09) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse09 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse09(string|array<string> $IntbCon2DfltWhse09) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse09 column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltwhse10(string|array<string> $IntbCon2DfltWhse10) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse10 column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltwhse10(string|array<string> $IntbCon2DfltWhse10) Return ChildConfigIn objects filtered by the IntbCon2DfltWhse10 column
+ * @method     ChildConfigIn[]|Collection findByIntbconfbindef(string|array<string> $IntbConfBinDef) Return ChildConfigIn objects filtered by the IntbConfBinDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfbindef(string|array<string> $IntbConfBinDef) Return ChildConfigIn objects filtered by the IntbConfBinDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcycldef(string|array<string> $IntbConfCyclDef) Return ChildConfigIn objects filtered by the IntbConfCyclDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcycldef(string|array<string> $IntbConfCyclDef) Return ChildConfigIn objects filtered by the IntbConfCyclDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfstatdef(string|array<string> $IntbConfStatDef) Return ChildConfigIn objects filtered by the IntbConfStatDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfstatdef(string|array<string> $IntbConfStatDef) Return ChildConfigIn objects filtered by the IntbConfStatDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfabcdef(string|array<string> $IntbConfAbcDef) Return ChildConfigIn objects filtered by the IntbConfAbcDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfabcdef(string|array<string> $IntbConfAbcDef) Return ChildConfigIn objects filtered by the IntbConfAbcDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfspecordrdef(string|array<string> $IntbConfSpecOrdrDef) Return ChildConfigIn objects filtered by the IntbConfSpecOrdrDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfspecordrdef(string|array<string> $IntbConfSpecOrdrDef) Return ChildConfigIn objects filtered by the IntbConfSpecOrdrDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfordrpntdef(string|array<string> $IntbConfOrdrPntDef) Return ChildConfigIn objects filtered by the IntbConfOrdrPntDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfordrpntdef(string|array<string> $IntbConfOrdrPntDef) Return ChildConfigIn objects filtered by the IntbConfOrdrPntDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfmaxdef(string|array<string> $IntbConfMaxDef) Return ChildConfigIn objects filtered by the IntbConfMaxDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfmaxdef(string|array<string> $IntbConfMaxDef) Return ChildConfigIn objects filtered by the IntbConfMaxDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconfordrqtydef(string|array<string> $IntbConfOrdrQtyDef) Return ChildConfigIn objects filtered by the IntbConfOrdrQtyDef column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfordrqtydef(string|array<string> $IntbConfOrdrQtyDef) Return ChildConfigIn objects filtered by the IntbConfOrdrQtyDef column
+ * @method     ChildConfigIn[]|Collection findByIntbconftrcptallowcmpl(string|array<string> $IntbConfTrcptAllowCmpl) Return ChildConfigIn objects filtered by the IntbConfTrcptAllowCmpl column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconftrcptallowcmpl(string|array<string> $IntbConfTrcptAllowCmpl) Return ChildConfigIn objects filtered by the IntbConfTrcptAllowCmpl column
+ * @method     ChildConfigIn[]|Collection findByIntbconftrecmmtstock(string|array<string> $IntbConfTreCmmtStock) Return ChildConfigIn objects filtered by the IntbConfTreCmmtStock column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconftrecmmtstock(string|array<string> $IntbConfTreCmmtStock) Return ChildConfigIn objects filtered by the IntbConfTreCmmtStock column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusefrtin(string|array<string> $IntbConfUseFrtIn) Return ChildConfigIn objects filtered by the IntbConfUseFrtIn column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusefrtin(string|array<string> $IntbConfUseFrtIn) Return ChildConfigIn objects filtered by the IntbConfUseFrtIn column
+ * @method     ChildConfigIn[]|Collection findByIntbconfeachoruom(string|array<string> $IntbConfEachOrUom) Return ChildConfigIn objects filtered by the IntbConfEachOrUom column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfeachoruom(string|array<string> $IntbConfEachOrUom) Return ChildConfigIn objects filtered by the IntbConfEachOrUom column
+ * @method     ChildConfigIn[]|Collection findByIntbconfneglotcorr(string|array<string> $IntbConfNegLotCorr) Return ChildConfigIn objects filtered by the IntbConfNegLotCorr column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfneglotcorr(string|array<string> $IntbConfNegLotCorr) Return ChildConfigIn objects filtered by the IntbConfNegLotCorr column
+ * @method     ChildConfigIn[]|Collection findByIntbconftrnsglacct(string|array<string> $IntbConfTrnsGlAcct) Return ChildConfigIn objects filtered by the IntbConfTrnsGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconftrnsglacct(string|array<string> $IntbConfTrnsGlAcct) Return ChildConfigIn objects filtered by the IntbConfTrnsGlAcct column
+ * @method     ChildConfigIn[]|Collection findByIntbconftrnsprotstock(string|array<string> $IntbConfTrnsProtStock) Return ChildConfigIn objects filtered by the IntbConfTrnsProtStock column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconftrnsprotstock(string|array<string> $IntbConfTrnsProtStock) Return ChildConfigIn objects filtered by the IntbConfTrnsProtStock column
+ * @method     ChildConfigIn[]|Collection findByIntbconfnumericitem(string|array<string> $IntbConfNumericItem) Return ChildConfigIn objects filtered by the IntbConfNumericItem column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfnumericitem(string|array<string> $IntbConfNumericItem) Return ChildConfigIn objects filtered by the IntbConfNumericItem column
+ * @method     ChildConfigIn[]|Collection findByIntbconfitemdigits(int|array<int> $IntbConfItemDigits) Return ChildConfigIn objects filtered by the IntbConfItemDigits column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfitemdigits(int|array<int> $IntbConfItemDigits) Return ChildConfigIn objects filtered by the IntbConfItemDigits column
+ * @method     ChildConfigIn[]|Collection findByIntbconfsinglewhse(string|array<string> $IntbConfSingleWhse) Return ChildConfigIn objects filtered by the IntbConfSingleWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfsinglewhse(string|array<string> $IntbConfSingleWhse) Return ChildConfigIn objects filtered by the IntbConfSingleWhse column
+ * @method     ChildConfigIn[]|Collection findByIntbconfupdusepct(string|array<string> $IntbConfUpdUsePct) Return ChildConfigIn objects filtered by the IntbConfUpdUsePct column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfupdusepct(string|array<string> $IntbConfUpdUsePct) Return ChildConfigIn objects filtered by the IntbConfUpdUsePct column
+ * @method     ChildConfigIn[]|Collection findByIntbconfupdpric(string|array<string> $IntbConfUpdPric) Return ChildConfigIn objects filtered by the IntbConfUpdPric column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfupdpric(string|array<string> $IntbConfUpdPric) Return ChildConfigIn objects filtered by the IntbConfUpdPric column
+ * @method     ChildConfigIn[]|Collection findByIntbconfupdstdcost(string|array<string> $IntbConfUpdStdCost) Return ChildConfigIn objects filtered by the IntbConfUpdStdCost column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfupdstdcost(string|array<string> $IntbConfUpdStdCost) Return ChildConfigIn objects filtered by the IntbConfUpdStdCost column
+ * @method     ChildConfigIn[]|Collection findByIntbconfupdxrefcost(string|array<string> $IntbConfUpdXrefCost) Return ChildConfigIn objects filtered by the IntbConfUpdXrefCost column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfupdxrefcost(string|array<string> $IntbConfUpdXrefCost) Return ChildConfigIn objects filtered by the IntbConfUpdXrefCost column
+ * @method     ChildConfigIn[]|Collection findByIntbconfiqpaupddate(string|array<string> $IntbConfIqpaUpdDate) Return ChildConfigIn objects filtered by the IntbConfIqpaUpdDate column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfiqpaupddate(string|array<string> $IntbConfIqpaUpdDate) Return ChildConfigIn objects filtered by the IntbConfIqpaUpdDate column
+ * @method     ChildConfigIn[]|Collection findByIntbconfupcxrefoptn(string|array<string> $IntbConfUpcXrefOptn) Return ChildConfigIn objects filtered by the IntbConfUpcXrefOptn column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfupcxrefoptn(string|array<string> $IntbConfUpcXrefOptn) Return ChildConfigIn objects filtered by the IntbConfUpcXrefOptn column
+ * @method     ChildConfigIn[]|Collection findByIntbconftranviewlib(string|array<string> $IntbConfTranViewLIB) Return ChildConfigIn objects filtered by the IntbConfTranViewLIB column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconftranviewlib(string|array<string> $IntbConfTranViewLIB) Return ChildConfigIn objects filtered by the IntbConfTranViewLIB column
+ * @method     ChildConfigIn[]|Collection findByIntbconfresvcost(string|array<string> $IntbConfResvCost) Return ChildConfigIn objects filtered by the IntbConfResvCost column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfresvcost(string|array<string> $IntbConfResvCost) Return ChildConfigIn objects filtered by the IntbConfResvCost column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2tranzerorqst(string|array<string> $IntbCon2TranZeroRqst) Return ChildConfigIn objects filtered by the IntbCon2TranZeroRqst column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2tranzerorqst(string|array<string> $IntbCon2TranZeroRqst) Return ChildConfigIn objects filtered by the IntbCon2TranZeroRqst column
+ * @method     ChildConfigIn[]|Collection findByIntbconfmonendadjdate(string|array<string> $IntbConfMonEndAdjDate) Return ChildConfigIn objects filtered by the IntbConfMonEndAdjDate column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfmonendadjdate(string|array<string> $IntbConfMonEndAdjDate) Return ChildConfigIn objects filtered by the IntbConfMonEndAdjDate column
+ * @method     ChildConfigIn[]|Collection findByIntbconfmonendtrndate(string|array<string> $IntbConfMonEndTrnDate) Return ChildConfigIn objects filtered by the IntbConfMonEndTrnDate column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfmonendtrndate(string|array<string> $IntbConfMonEndTrnDate) Return ChildConfigIn objects filtered by the IntbConfMonEndTrnDate column
+ * @method     ChildConfigIn[]|Collection findByIntbconfmonendlogdate(string|array<string> $IntbConfMonEndLogDate) Return ChildConfigIn objects filtered by the IntbConfMonEndLogDate column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfmonendlogdate(string|array<string> $IntbConfMonEndLogDate) Return ChildConfigIn objects filtered by the IntbConfMonEndLogDate column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdstatproc(string|array<string> $IntbConfDStatProc) Return ChildConfigIn objects filtered by the IntbConfDStatProc column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdstatproc(string|array<string> $IntbConfDStatProc) Return ChildConfigIn objects filtered by the IntbConfDStatProc column
+ * @method     ChildConfigIn[]|Collection findByIntbconfstancostupd(string|array<string> $IntbConfStanCostUpd) Return ChildConfigIn objects filtered by the IntbConfStanCostUpd column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfstancostupd(string|array<string> $IntbConfStanCostUpd) Return ChildConfigIn objects filtered by the IntbConfStanCostUpd column
+ * @method     ChildConfigIn[]|Collection findByIntbconflastcost(string|array<string> $IntbConfLastCost) Return ChildConfigIn objects filtered by the IntbConfLastCost column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconflastcost(string|array<string> $IntbConfLastCost) Return ChildConfigIn objects filtered by the IntbConfLastCost column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusesorgpct(string|array<string> $IntbConfUseSOrGPct) Return ChildConfigIn objects filtered by the IntbConfUseSOrGPct column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusesorgpct(string|array<string> $IntbConfUseSOrGPct) Return ChildConfigIn objects filtered by the IntbConfUseSOrGPct column
+ * @method     ChildConfigIn[]|Collection findByIntbconfaddonstan(string|array<string> $IntbConfAddOnStan) Return ChildConfigIn objects filtered by the IntbConfAddOnStan column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfaddonstan(string|array<string> $IntbConfAddOnStan) Return ChildConfigIn objects filtered by the IntbConfAddOnStan column
+ * @method     ChildConfigIn[]|Collection findByIntbconfstdcosterror(string|array<string> $IntbConfStdCostError) Return ChildConfigIn objects filtered by the IntbConfStdCostError column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfstdcosterror(string|array<string> $IntbConfStdCostError) Return ChildConfigIn objects filtered by the IntbConfStdCostError column
+ * @method     ChildConfigIn[]|Collection findByIntbconfavgcurrfive(string|array<string> $IntbConfAvgCurrFive) Return ChildConfigIn objects filtered by the IntbConfAvgCurrFive column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfavgcurrfive(string|array<string> $IntbConfAvgCurrFive) Return ChildConfigIn objects filtered by the IntbConfAvgCurrFive column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusecntrlbin(string|array<string> $IntbConfUseCntrlBin) Return ChildConfigIn objects filtered by the IntbConfUseCntrlBin column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusecntrlbin(string|array<string> $IntbConfUseCntrlBin) Return ChildConfigIn objects filtered by the IntbConfUseCntrlBin column
+ * @method     ChildConfigIn[]|Collection findByIntbconfnbrbinareas(int|array<int> $IntbConfNbrBinAreas) Return ChildConfigIn objects filtered by the IntbConfNbrBinAreas column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfnbrbinareas(int|array<int> $IntbConfNbrBinAreas) Return ChildConfigIn objects filtered by the IntbConfNbrBinAreas column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusemultbin(string|array<string> $IntbConfUseMultBin) Return ChildConfigIn objects filtered by the IntbConfUseMultBin column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusemultbin(string|array<string> $IntbConfUseMultBin) Return ChildConfigIn objects filtered by the IntbConfUseMultBin column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdfltwhsebin(string|array<string> $IntbConfDfltWhseBin) Return ChildConfigIn objects filtered by the IntbConfDfltWhseBin column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdfltwhsebin(string|array<string> $IntbConfDfltWhseBin) Return ChildConfigIn objects filtered by the IntbConfDfltWhseBin column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdfltbin(string|array<string> $IntbConfDfltBin) Return ChildConfigIn objects filtered by the IntbConfDfltBin column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdfltbin(string|array<string> $IntbConfDfltBin) Return ChildConfigIn objects filtered by the IntbConfDfltBin column
+ * @method     ChildConfigIn[]|Collection findByIntbconfctryitemlot(string|array<string> $IntbConfCtryItemLot) Return ChildConfigIn objects filtered by the IntbConfCtryItemLot column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfctryitemlot(string|array<string> $IntbConfCtryItemLot) Return ChildConfigIn objects filtered by the IntbConfCtryItemLot column
+ * @method     ChildConfigIn[]|Collection findByIntbconfuseshipbin(string|array<string> $IntbConfUseShipBin) Return ChildConfigIn objects filtered by the IntbConfUseShipBin column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfuseshipbin(string|array<string> $IntbConfUseShipBin) Return ChildConfigIn objects filtered by the IntbConfUseShipBin column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2prtbinrlabel(string|array<string> $IntbCon2PrtBinrLabel) Return ChildConfigIn objects filtered by the IntbCon2PrtBinrLabel column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2prtbinrlabel(string|array<string> $IntbCon2PrtBinrLabel) Return ChildConfigIn objects filtered by the IntbCon2PrtBinrLabel column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2itemlookup(string|array<string> $IntbCon2ItemLookup) Return ChildConfigIn objects filtered by the IntbCon2ItemLookup column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2itemlookup(string|array<string> $IntbCon2ItemLookup) Return ChildConfigIn objects filtered by the IntbCon2ItemLookup column
+ * @method     ChildConfigIn[]|Collection findByIntbconfincldcti(string|array<string> $IntbConfIncldCti) Return ChildConfigIn objects filtered by the IntbConfIncldCti column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfincldcti(string|array<string> $IntbConfIncldCti) Return ChildConfigIn objects filtered by the IntbConfIncldCti column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcertimage(string|array<string> $IntbConfCertImage) Return ChildConfigIn objects filtered by the IntbConfCertImage column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcertimage(string|array<string> $IntbConfCertImage) Return ChildConfigIn objects filtered by the IntbConfCertImage column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdrawimage(string|array<string> $IntbConfDrawImage) Return ChildConfigIn objects filtered by the IntbConfDrawImage column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdrawimage(string|array<string> $IntbConfDrawImage) Return ChildConfigIn objects filtered by the IntbConfDrawImage column
+ * @method     ChildConfigIn[]|Collection findByIntbconfconfirmimage(string|array<string> $IntbConfConfirmImage) Return ChildConfigIn objects filtered by the IntbConfConfirmImage column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfconfirmimage(string|array<string> $IntbConfConfirmImage) Return ChildConfigIn objects filtered by the IntbConfConfirmImage column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2productimage(string|array<string> $IntbCon2ProductImage) Return ChildConfigIn objects filtered by the IntbCon2ProductImage column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2productimage(string|array<string> $IntbCon2ProductImage) Return ChildConfigIn objects filtered by the IntbCon2ProductImage column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdefpick(string|array<string> $IntbConfDefPick) Return ChildConfigIn objects filtered by the IntbConfDefPick column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdefpick(string|array<string> $IntbConfDefPick) Return ChildConfigIn objects filtered by the IntbConfDefPick column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdefpack(string|array<string> $IntbConfDefPack) Return ChildConfigIn objects filtered by the IntbConfDefPack column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdefpack(string|array<string> $IntbConfDefPack) Return ChildConfigIn objects filtered by the IntbConfDefPack column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdefinvc(string|array<string> $IntbConfDefInvc) Return ChildConfigIn objects filtered by the IntbConfDefInvc column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdefinvc(string|array<string> $IntbConfDefInvc) Return ChildConfigIn objects filtered by the IntbConfDefInvc column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdefack(string|array<string> $IntbConfDefAck) Return ChildConfigIn objects filtered by the IntbConfDefAck column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdefack(string|array<string> $IntbConfDefAck) Return ChildConfigIn objects filtered by the IntbConfDefAck column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdefquot(string|array<string> $IntbConfDefQuot) Return ChildConfigIn objects filtered by the IntbConfDefQuot column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdefquot(string|array<string> $IntbConfDefQuot) Return ChildConfigIn objects filtered by the IntbConfDefQuot column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdefpo(string|array<string> $IntbConfDefPo) Return ChildConfigIn objects filtered by the IntbConfDefPo column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdefpo(string|array<string> $IntbConfDefPo) Return ChildConfigIn objects filtered by the IntbConfDefPo column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdeftrans(string|array<string> $IntbConfDefTrans) Return ChildConfigIn objects filtered by the IntbConfDefTrans column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdeftrans(string|array<string> $IntbConfDefTrans) Return ChildConfigIn objects filtered by the IntbConfDefTrans column
+ * @method     ChildConfigIn[]|Collection findByIntbconfadjglcogs(string|array<string> $IntbConfAdjGlCogs) Return ChildConfigIn objects filtered by the IntbConfAdjGlCogs column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfadjglcogs(string|array<string> $IntbConfAdjGlCogs) Return ChildConfigIn objects filtered by the IntbConfAdjGlCogs column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2dfltadjglacct(string|array<string> $IntbCon2DfltAdjGlAcct) Return ChildConfigIn objects filtered by the IntbCon2DfltAdjGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2dfltadjglacct(string|array<string> $IntbCon2DfltAdjGlAcct) Return ChildConfigIn objects filtered by the IntbCon2DfltAdjGlAcct column
+ * @method     ChildConfigIn[]|Collection findByIntbconfadjcostbase(string|array<string> $IntbConfAdjCostBase) Return ChildConfigIn objects filtered by the IntbConfAdjCostBase column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfadjcostbase(string|array<string> $IntbConfAdjCostBase) Return ChildConfigIn objects filtered by the IntbConfAdjCostBase column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdfltadjtbin(string|array<string> $IntbConfDfltAdjtBin) Return ChildConfigIn objects filtered by the IntbConfDfltAdjtBin column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdfltadjtbin(string|array<string> $IntbConfDfltAdjtBin) Return ChildConfigIn objects filtered by the IntbConfDfltAdjtBin column
+ * @method     ChildConfigIn[]|Collection findByIntbconfadjtbin(string|array<string> $IntbConfAdjtBin) Return ChildConfigIn objects filtered by the IntbConfAdjtBin column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfadjtbin(string|array<string> $IntbConfAdjtBin) Return ChildConfigIn objects filtered by the IntbConfAdjtBin column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcstockseq(string|array<string> $IntbConfCStockSeq) Return ChildConfigIn objects filtered by the IntbConfCStockSeq column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcstockseq(string|array<string> $IntbConfCStockSeq) Return ChildConfigIn objects filtered by the IntbConfCStockSeq column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcstockhistday(int|array<int> $IntbConfCStockHistDay) Return ChildConfigIn objects filtered by the IntbConfCStockHistDay column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcstockhistday(int|array<int> $IntbConfCStockHistDay) Return ChildConfigIn objects filtered by the IntbConfCStockHistDay column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcstockformat(string|array<string> $IntbConfCStockFormat) Return ChildConfigIn objects filtered by the IntbConfCStockFormat column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcstockformat(string|array<string> $IntbConfCStockFormat) Return ChildConfigIn objects filtered by the IntbConfCStockFormat column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcstkexportitem(string|array<string> $IntbConfCstkExportItem) Return ChildConfigIn objects filtered by the IntbConfCstkExportItem column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcstkexportitem(string|array<string> $IntbConfCstkExportItem) Return ChildConfigIn objects filtered by the IntbConfCstkExportItem column
+ * @method     ChildConfigIn[]|Collection findByIntbconfcstkpdmcontract(string|array<string> $IntbConfCstkPdmContract) Return ChildConfigIn objects filtered by the IntbConfCstkPdmContract column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfcstkpdmcontract(string|array<string> $IntbConfCstkPdmContract) Return ChildConfigIn objects filtered by the IntbConfCstkPdmContract column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2importseq(string|array<string> $IntbCon2ImportSeq) Return ChildConfigIn objects filtered by the IntbCon2ImportSeq column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2importseq(string|array<string> $IntbCon2ImportSeq) Return ChildConfigIn objects filtered by the IntbCon2ImportSeq column
+ * @method     ChildConfigIn[]|Collection findByIntbconfstopitemchg(int|array<int> $IntbConfStopItemChg) Return ChildConfigIn objects filtered by the IntbConfStopItemChg column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfstopitemchg(int|array<int> $IntbConfStopItemChg) Return ChildConfigIn objects filtered by the IntbConfStopItemChg column
+ * @method     ChildConfigIn[]|Collection findByIntbconfaddtomxrfe(string|array<string> $IntbConfAddToMxrfe) Return ChildConfigIn objects filtered by the IntbConfAddToMxrfe column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfaddtomxrfe(string|array<string> $IntbConfAddToMxrfe) Return ChildConfigIn objects filtered by the IntbConfAddToMxrfe column
+ * @method     ChildConfigIn[]|Collection findByIntbconfmxrfevendid(string|array<string> $IntbConfMxrfeVendId) Return ChildConfigIn objects filtered by the IntbConfMxrfeVendId column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfmxrfevendid(string|array<string> $IntbConfMxrfeVendId) Return ChildConfigIn objects filtered by the IntbConfMxrfeVendId column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2newidlabellist(string|array<string> $IntbCon2NewIdLabelList) Return ChildConfigIn objects filtered by the IntbCon2NewIdLabelList column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2newidlabellist(string|array<string> $IntbCon2NewIdLabelList) Return ChildConfigIn objects filtered by the IntbCon2NewIdLabelList column
+ * @method     ChildConfigIn[]|Collection findByIntbconfuseformat(string|array<string> $IntbConfUseFormat) Return ChildConfigIn objects filtered by the IntbConfUseFormat column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfuseformat(string|array<string> $IntbConfUseFormat) Return ChildConfigIn objects filtered by the IntbConfUseFormat column
+ * @method     ChildConfigIn[]|Collection findByIntbconfdefformat(string|array<string> $IntbConfDefFormat) Return ChildConfigIn objects filtered by the IntbConfDefFormat column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfdefformat(string|array<string> $IntbConfDefFormat) Return ChildConfigIn objects filtered by the IntbConfDefFormat column
+ * @method     ChildConfigIn[]|Collection findByIntbconfseqshortitem(string|array<string> $IntbConfSeqShortItem) Return ChildConfigIn objects filtered by the IntbConfSeqShortItem column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfseqshortitem(string|array<string> $IntbConfSeqShortItem) Return ChildConfigIn objects filtered by the IntbConfSeqShortItem column
+ * @method     ChildConfigIn[]|Collection findByIntbconfshortitemlen(int|array<int> $IntbConfShortItemLen) Return ChildConfigIn objects filtered by the IntbConfShortItemLen column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfshortitemlen(int|array<int> $IntbConfShortItemLen) Return ChildConfigIn objects filtered by the IntbConfShortItemLen column
+ * @method     ChildConfigIn[]|Collection findByIntbconfusescale(string|array<string> $IntbConfUseScale) Return ChildConfigIn objects filtered by the IntbConfUseScale column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfusescale(string|array<string> $IntbConfUseScale) Return ChildConfigIn objects filtered by the IntbConfUseScale column
+ * @method     ChildConfigIn[]|Collection findByIntbconfstorewght(string|array<string> $IntbConfStoreWght) Return ChildConfigIn objects filtered by the IntbConfStoreWght column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfstorewght(string|array<string> $IntbConfStoreWght) Return ChildConfigIn objects filtered by the IntbConfStoreWght column
+ * @method     ChildConfigIn[]|Collection findByIntbconfvalidasstcode(string|array<string> $IntbConfValidAsstCode) Return ChildConfigIn objects filtered by the IntbConfValidAsstCode column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfvalidasstcode(string|array<string> $IntbConfValidAsstCode) Return ChildConfigIn objects filtered by the IntbConfValidAsstCode column
+ * @method     ChildConfigIn[]|Collection findByIntbconfwhitegoods(string|array<string> $IntbConfWhiteGoods) Return ChildConfigIn objects filtered by the IntbConfWhiteGoods column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbconfwhitegoods(string|array<string> $IntbConfWhiteGoods) Return ChildConfigIn objects filtered by the IntbConfWhiteGoods column
+ * @method     ChildConfigIn[]|Collection findByIntbcon2transcustid(string|array<string> $IntbCon2TransCustId) Return ChildConfigIn objects filtered by the IntbCon2TransCustId column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByIntbcon2transcustid(string|array<string> $IntbCon2TransCustId) Return ChildConfigIn objects filtered by the IntbCon2TransCustId column
+ * @method     ChildConfigIn[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigIn objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigIn objects filtered by the DateUpdtd column
+ * @method     ChildConfigIn[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigIn objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigIn objects filtered by the TimeUpdtd column
+ * @method     ChildConfigIn[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigIn objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigIn> findByDummy(string|array<string> $dummy) Return ChildConfigIn objects filtered by the dummy column
+ *
+ * @method     ChildConfigIn[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigIn> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigInQuery extends ModelCriteria
 {
@@ -918,9 +1093,9 @@ abstract class ConfigInQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigInQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigIn', $modelAlias = null)
     {
@@ -930,12 +1105,12 @@ abstract class ConfigInQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigInQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigInQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigInQuery) {
             return $criteria;
@@ -965,7 +1140,7 @@ abstract class ConfigInQuery extends ModelCriteria
      *
      * @return ChildConfigIn|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -997,8 +1172,8 @@ abstract class ConfigInQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -1030,8 +1205,8 @@ abstract class ConfigInQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigIn|array|mixed the result, formatted by the current formatter
      */
@@ -1051,12 +1226,12 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -1073,27 +1248,31 @@ abstract class ConfigInQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFKEY, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFKEY, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFKEY, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFKEY, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -1106,15 +1285,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfkey(array('min' => 12)); // WHERE IntbConfKey > 12
      * </code>
      *
-     * @param     mixed $intbconfkey The value to use as filter.
+     * @param mixed $intbconfkey The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfkey($intbconfkey = null, $comparison = null)
+    public function filterByIntbconfkey($intbconfkey = null, ?string $comparison = null)
     {
         if (is_array($intbconfkey)) {
             $useMinMax = false;
@@ -1134,7 +1313,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFKEY, $intbconfkey, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFKEY, $intbconfkey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1144,14 +1325,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfglifac('fooValue');   // WHERE IntbConfGlIfac = 'fooValue'
      * $query->filterByIntbconfglifac('%fooValue%', Criteria::LIKE); // WHERE IntbConfGlIfac LIKE '%fooValue%'
+     * $query->filterByIntbconfglifac(['foo', 'bar']); // WHERE IntbConfGlIfac IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfglifac The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfglifac The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfglifac($intbconfglifac = null, $comparison = null)
+    public function filterByIntbconfglifac($intbconfglifac = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfglifac)) {
@@ -1159,7 +1341,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGLIFAC, $intbconfglifac, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGLIFAC, $intbconfglifac, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1169,14 +1353,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfuseiw('fooValue');   // WHERE IntbConfUseIw = 'fooValue'
      * $query->filterByIntbconfuseiw('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseIw LIKE '%fooValue%'
+     * $query->filterByIntbconfuseiw(['foo', 'bar']); // WHERE IntbConfUseIw IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfuseiw The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfuseiw The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfuseiw($intbconfuseiw = null, $comparison = null)
+    public function filterByIntbconfuseiw($intbconfuseiw = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfuseiw)) {
@@ -1184,7 +1369,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEIW, $intbconfuseiw, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEIW, $intbconfuseiw, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1194,14 +1381,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconflifofifo('fooValue');   // WHERE IntbConfLifoFifo = 'fooValue'
      * $query->filterByIntbconflifofifo('%fooValue%', Criteria::LIKE); // WHERE IntbConfLifoFifo LIKE '%fooValue%'
+     * $query->filterByIntbconflifofifo(['foo', 'bar']); // WHERE IntbConfLifoFifo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconflifofifo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconflifofifo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconflifofifo($intbconflifofifo = null, $comparison = null)
+    public function filterByIntbconflifofifo($intbconflifofifo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconflifofifo)) {
@@ -1209,7 +1397,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFLIFOFIFO, $intbconflifofifo, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFLIFOFIFO, $intbconflifofifo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1219,14 +1409,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfgoneg('fooValue');   // WHERE IntbConfGoNeg = 'fooValue'
      * $query->filterByIntbconfgoneg('%fooValue%', Criteria::LIKE); // WHERE IntbConfGoNeg LIKE '%fooValue%'
+     * $query->filterByIntbconfgoneg(['foo', 'bar']); // WHERE IntbConfGoNeg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfgoneg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfgoneg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfgoneg($intbconfgoneg = null, $comparison = null)
+    public function filterByIntbconfgoneg($intbconfgoneg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfgoneg)) {
@@ -1234,7 +1425,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGONEG, $intbconfgoneg, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGONEG, $intbconfgoneg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1244,14 +1437,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfuselots('fooValue');   // WHERE IntbConfUseLots = 'fooValue'
      * $query->filterByIntbconfuselots('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseLots LIKE '%fooValue%'
+     * $query->filterByIntbconfuselots(['foo', 'bar']); // WHERE IntbConfUseLots IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfuselots The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfuselots The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfuselots($intbconfuselots = null, $comparison = null)
+    public function filterByIntbconfuselots($intbconfuselots = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfuselots)) {
@@ -1259,7 +1453,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSELOTS, $intbconfuselots, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSELOTS, $intbconfuselots, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1269,14 +1465,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfnbruppr('fooValue');   // WHERE IntbConfNbrUppr = 'fooValue'
      * $query->filterByIntbconfnbruppr('%fooValue%', Criteria::LIKE); // WHERE IntbConfNbrUppr LIKE '%fooValue%'
+     * $query->filterByIntbconfnbruppr(['foo', 'bar']); // WHERE IntbConfNbrUppr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfnbruppr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfnbruppr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfnbruppr($intbconfnbruppr = null, $comparison = null)
+    public function filterByIntbconfnbruppr($intbconfnbruppr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfnbruppr)) {
@@ -1284,7 +1481,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNBRUPPR, $intbconfnbruppr, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNBRUPPR, $intbconfnbruppr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1294,14 +1493,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdescuppr('fooValue');   // WHERE IntbConfDescUppr = 'fooValue'
      * $query->filterByIntbconfdescuppr('%fooValue%', Criteria::LIKE); // WHERE IntbConfDescUppr LIKE '%fooValue%'
+     * $query->filterByIntbconfdescuppr(['foo', 'bar']); // WHERE IntbConfDescUppr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdescuppr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdescuppr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdescuppr($intbconfdescuppr = null, $comparison = null)
+    public function filterByIntbconfdescuppr($intbconfdescuppr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdescuppr)) {
@@ -1309,7 +1509,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDESCUPPR, $intbconfdescuppr, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDESCUPPR, $intbconfdescuppr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1319,14 +1521,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusedesc2('fooValue');   // WHERE IntbConfUseDesc2 = 'fooValue'
      * $query->filterByIntbconfusedesc2('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseDesc2 LIKE '%fooValue%'
+     * $query->filterByIntbconfusedesc2(['foo', 'bar']); // WHERE IntbConfUseDesc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusedesc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusedesc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusedesc2($intbconfusedesc2 = null, $comparison = null)
+    public function filterByIntbconfusedesc2($intbconfusedesc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusedesc2)) {
@@ -1334,7 +1537,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEDESC2, $intbconfusedesc2, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEDESC2, $intbconfusedesc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1344,14 +1549,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfuseupccode('fooValue');   // WHERE IntbConfUseUpcCode = 'fooValue'
      * $query->filterByIntbconfuseupccode('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseUpcCode LIKE '%fooValue%'
+     * $query->filterByIntbconfuseupccode(['foo', 'bar']); // WHERE IntbConfUseUpcCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfuseupccode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfuseupccode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfuseupccode($intbconfuseupccode = null, $comparison = null)
+    public function filterByIntbconfuseupccode($intbconfuseupccode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfuseupccode)) {
@@ -1359,7 +1565,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEUPCCODE, $intbconfuseupccode, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEUPCCODE, $intbconfuseupccode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1369,14 +1577,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfupceancntrl('fooValue');   // WHERE IntbConfUpcEanCntrl = 'fooValue'
      * $query->filterByIntbconfupceancntrl('%fooValue%', Criteria::LIKE); // WHERE IntbConfUpcEanCntrl LIKE '%fooValue%'
+     * $query->filterByIntbconfupceancntrl(['foo', 'bar']); // WHERE IntbConfUpcEanCntrl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfupceancntrl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfupceancntrl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfupceancntrl($intbconfupceancntrl = null, $comparison = null)
+    public function filterByIntbconfupceancntrl($intbconfupceancntrl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfupceancntrl)) {
@@ -1384,7 +1593,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPCEANCNTRL, $intbconfupceancntrl, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPCEANCNTRL, $intbconfupceancntrl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1397,15 +1608,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfupcgennbr(array('min' => 12)); // WHERE IntbConfUpcGenNbr > 12
      * </code>
      *
-     * @param     mixed $intbconfupcgennbr The value to use as filter.
+     * @param mixed $intbconfupcgennbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfupcgennbr($intbconfupcgennbr = null, $comparison = null)
+    public function filterByIntbconfupcgennbr($intbconfupcgennbr = null, ?string $comparison = null)
     {
         if (is_array($intbconfupcgennbr)) {
             $useMinMax = false;
@@ -1425,7 +1636,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPCGENNBR, $intbconfupcgennbr, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPCGENNBR, $intbconfupcgennbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1435,14 +1648,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2allowdupupc('fooValue');   // WHERE IntbCon2AllowDupUpc = 'fooValue'
      * $query->filterByIntbcon2allowdupupc('%fooValue%', Criteria::LIKE); // WHERE IntbCon2AllowDupUpc LIKE '%fooValue%'
+     * $query->filterByIntbcon2allowdupupc(['foo', 'bar']); // WHERE IntbCon2AllowDupUpc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2allowdupupc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2allowdupupc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2allowdupupc($intbcon2allowdupupc = null, $comparison = null)
+    public function filterByIntbcon2allowdupupc($intbcon2allowdupupc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2allowdupupc)) {
@@ -1450,7 +1664,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2ALLOWDUPUPC, $intbcon2allowdupupc, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2ALLOWDUPUPC, $intbcon2allowdupupc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1460,14 +1676,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfxrefnospace('fooValue');   // WHERE IntbConfXrefNoSpace = 'fooValue'
      * $query->filterByIntbconfxrefnospace('%fooValue%', Criteria::LIKE); // WHERE IntbConfXrefNoSpace LIKE '%fooValue%'
+     * $query->filterByIntbconfxrefnospace(['foo', 'bar']); // WHERE IntbConfXrefNoSpace IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfxrefnospace The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfxrefnospace The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfxrefnospace($intbconfxrefnospace = null, $comparison = null)
+    public function filterByIntbconfxrefnospace($intbconfxrefnospace = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfxrefnospace)) {
@@ -1475,7 +1692,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFXREFNOSPACE, $intbconfxrefnospace, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFXREFNOSPACE, $intbconfxrefnospace, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1485,14 +1704,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusepricgrup('fooValue');   // WHERE IntbConfUsePricGrup = 'fooValue'
      * $query->filterByIntbconfusepricgrup('%fooValue%', Criteria::LIKE); // WHERE IntbConfUsePricGrup LIKE '%fooValue%'
+     * $query->filterByIntbconfusepricgrup(['foo', 'bar']); // WHERE IntbConfUsePricGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusepricgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusepricgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusepricgrup($intbconfusepricgrup = null, $comparison = null)
+    public function filterByIntbconfusepricgrup($intbconfusepricgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusepricgrup)) {
@@ -1500,7 +1720,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEPRICGRUP, $intbconfusepricgrup, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEPRICGRUP, $intbconfusepricgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1510,14 +1732,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusecommgrup('fooValue');   // WHERE IntbConfUseCommGrup = 'fooValue'
      * $query->filterByIntbconfusecommgrup('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseCommGrup LIKE '%fooValue%'
+     * $query->filterByIntbconfusecommgrup(['foo', 'bar']); // WHERE IntbConfUseCommGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusecommgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusecommgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusecommgrup($intbconfusecommgrup = null, $comparison = null)
+    public function filterByIntbconfusecommgrup($intbconfusecommgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusecommgrup)) {
@@ -1525,7 +1748,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSECOMMGRUP, $intbconfusecommgrup, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSECOMMGRUP, $intbconfusecommgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1535,14 +1760,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusewarrdays('fooValue');   // WHERE IntbConfUseWarrDays = 'fooValue'
      * $query->filterByIntbconfusewarrdays('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseWarrDays LIKE '%fooValue%'
+     * $query->filterByIntbconfusewarrdays(['foo', 'bar']); // WHERE IntbConfUseWarrDays IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusewarrdays The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusewarrdays The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusewarrdays($intbconfusewarrdays = null, $comparison = null)
+    public function filterByIntbconfusewarrdays($intbconfusewarrdays = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusewarrdays)) {
@@ -1550,7 +1776,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEWARRDAYS, $intbconfusewarrdays, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEWARRDAYS, $intbconfusewarrdays, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1560,14 +1788,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfstanbasedef('fooValue');   // WHERE IntbConfStanBaseDef = 'fooValue'
      * $query->filterByIntbconfstanbasedef('%fooValue%', Criteria::LIKE); // WHERE IntbConfStanBaseDef LIKE '%fooValue%'
+     * $query->filterByIntbconfstanbasedef(['foo', 'bar']); // WHERE IntbConfStanBaseDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfstanbasedef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfstanbasedef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfstanbasedef($intbconfstanbasedef = null, $comparison = null)
+    public function filterByIntbconfstanbasedef($intbconfstanbasedef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfstanbasedef)) {
@@ -1575,7 +1804,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTANBASEDEF, $intbconfstanbasedef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTANBASEDEF, $intbconfstanbasedef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1585,14 +1816,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfgrupdef('fooValue');   // WHERE IntbConfGrupDef = 'fooValue'
      * $query->filterByIntbconfgrupdef('%fooValue%', Criteria::LIKE); // WHERE IntbConfGrupDef LIKE '%fooValue%'
+     * $query->filterByIntbconfgrupdef(['foo', 'bar']); // WHERE IntbConfGrupDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfgrupdef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfgrupdef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfgrupdef($intbconfgrupdef = null, $comparison = null)
+    public function filterByIntbconfgrupdef($intbconfgrupdef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfgrupdef)) {
@@ -1600,7 +1832,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGRUPDEF, $intbconfgrupdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGRUPDEF, $intbconfgrupdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1610,14 +1844,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfpricgrupdef('fooValue');   // WHERE IntbConfPricGrupDef = 'fooValue'
      * $query->filterByIntbconfpricgrupdef('%fooValue%', Criteria::LIKE); // WHERE IntbConfPricGrupDef LIKE '%fooValue%'
+     * $query->filterByIntbconfpricgrupdef(['foo', 'bar']); // WHERE IntbConfPricGrupDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfpricgrupdef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfpricgrupdef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfpricgrupdef($intbconfpricgrupdef = null, $comparison = null)
+    public function filterByIntbconfpricgrupdef($intbconfpricgrupdef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfpricgrupdef)) {
@@ -1625,7 +1860,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPRICGRUPDEF, $intbconfpricgrupdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPRICGRUPDEF, $intbconfpricgrupdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1635,14 +1872,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcommgrupdef('fooValue');   // WHERE IntbConfCommGrupDef = 'fooValue'
      * $query->filterByIntbconfcommgrupdef('%fooValue%', Criteria::LIKE); // WHERE IntbConfCommGrupDef LIKE '%fooValue%'
+     * $query->filterByIntbconfcommgrupdef(['foo', 'bar']); // WHERE IntbConfCommGrupDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcommgrupdef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcommgrupdef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcommgrupdef($intbconfcommgrupdef = null, $comparison = null)
+    public function filterByIntbconfcommgrupdef($intbconfcommgrupdef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcommgrupdef)) {
@@ -1650,7 +1888,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCOMMGRUPDEF, $intbconfcommgrupdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCOMMGRUPDEF, $intbconfcommgrupdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1660,14 +1900,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconftypedef('fooValue');   // WHERE IntbConfTypeDef = 'fooValue'
      * $query->filterByIntbconftypedef('%fooValue%', Criteria::LIKE); // WHERE IntbConfTypeDef LIKE '%fooValue%'
+     * $query->filterByIntbconftypedef(['foo', 'bar']); // WHERE IntbConfTypeDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconftypedef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconftypedef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconftypedef($intbconftypedef = null, $comparison = null)
+    public function filterByIntbconftypedef($intbconftypedef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconftypedef)) {
@@ -1675,7 +1916,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTYPEDEF, $intbconftypedef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTYPEDEF, $intbconftypedef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1685,14 +1928,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfmultilotref('fooValue');   // WHERE IntbConfMultiLotRef = 'fooValue'
      * $query->filterByIntbconfmultilotref('%fooValue%', Criteria::LIKE); // WHERE IntbConfMultiLotRef LIKE '%fooValue%'
+     * $query->filterByIntbconfmultilotref(['foo', 'bar']); // WHERE IntbConfMultiLotRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfmultilotref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfmultilotref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfmultilotref($intbconfmultilotref = null, $comparison = null)
+    public function filterByIntbconfmultilotref($intbconfmultilotref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfmultilotref)) {
@@ -1700,7 +1944,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMULTILOTREF, $intbconfmultilotref, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMULTILOTREF, $intbconfmultilotref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1710,14 +1956,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfpricuseitem('fooValue');   // WHERE IntbConfPricUseItem = 'fooValue'
      * $query->filterByIntbconfpricuseitem('%fooValue%', Criteria::LIKE); // WHERE IntbConfPricUseItem LIKE '%fooValue%'
+     * $query->filterByIntbconfpricuseitem(['foo', 'bar']); // WHERE IntbConfPricUseItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfpricuseitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfpricuseitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfpricuseitem($intbconfpricuseitem = null, $comparison = null)
+    public function filterByIntbconfpricuseitem($intbconfpricuseitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfpricuseitem)) {
@@ -1725,7 +1972,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPRICUSEITEM, $intbconfpricuseitem, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPRICUSEITEM, $intbconfpricuseitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1735,14 +1984,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcommuseitem('fooValue');   // WHERE IntbConfCommUseItem = 'fooValue'
      * $query->filterByIntbconfcommuseitem('%fooValue%', Criteria::LIKE); // WHERE IntbConfCommUseItem LIKE '%fooValue%'
+     * $query->filterByIntbconfcommuseitem(['foo', 'bar']); // WHERE IntbConfCommUseItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcommuseitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcommuseitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcommuseitem($intbconfcommuseitem = null, $comparison = null)
+    public function filterByIntbconfcommuseitem($intbconfcommuseitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcommuseitem)) {
@@ -1750,7 +2000,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCOMMUSEITEM, $intbconfcommuseitem, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCOMMUSEITEM, $intbconfcommuseitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1760,14 +2012,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfuomsaledef('fooValue');   // WHERE IntbConfUomSaleDef = 'fooValue'
      * $query->filterByIntbconfuomsaledef('%fooValue%', Criteria::LIKE); // WHERE IntbConfUomSaleDef LIKE '%fooValue%'
+     * $query->filterByIntbconfuomsaledef(['foo', 'bar']); // WHERE IntbConfUomSaleDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfuomsaledef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfuomsaledef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfuomsaledef($intbconfuomsaledef = null, $comparison = null)
+    public function filterByIntbconfuomsaledef($intbconfuomsaledef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfuomsaledef)) {
@@ -1775,7 +2028,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUOMSALEDEF, $intbconfuomsaledef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUOMSALEDEF, $intbconfuomsaledef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1785,14 +2040,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfuompurdef('fooValue');   // WHERE IntbConfUomPurDef = 'fooValue'
      * $query->filterByIntbconfuompurdef('%fooValue%', Criteria::LIKE); // WHERE IntbConfUomPurDef LIKE '%fooValue%'
+     * $query->filterByIntbconfuompurdef(['foo', 'bar']); // WHERE IntbConfUomPurDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfuompurdef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfuompurdef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfuompurdef($intbconfuompurdef = null, $comparison = null)
+    public function filterByIntbconfuompurdef($intbconfuompurdef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfuompurdef)) {
@@ -1800,7 +2056,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUOMPURDEF, $intbconfuompurdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUOMPURDEF, $intbconfuompurdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1810,14 +2068,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfsviadef('fooValue');   // WHERE IntbConfSviaDef = 'fooValue'
      * $query->filterByIntbconfsviadef('%fooValue%', Criteria::LIKE); // WHERE IntbConfSviaDef LIKE '%fooValue%'
+     * $query->filterByIntbconfsviadef(['foo', 'bar']); // WHERE IntbConfSviaDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfsviadef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfsviadef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfsviadef($intbconfsviadef = null, $comparison = null)
+    public function filterByIntbconfsviadef($intbconfsviadef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfsviadef)) {
@@ -1825,7 +2084,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSVIADEF, $intbconfsviadef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSVIADEF, $intbconfsviadef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1835,14 +2096,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcustxreforuse('fooValue');   // WHERE IntbConfCustxrefOrUse = 'fooValue'
      * $query->filterByIntbconfcustxreforuse('%fooValue%', Criteria::LIKE); // WHERE IntbConfCustxrefOrUse LIKE '%fooValue%'
+     * $query->filterByIntbconfcustxreforuse(['foo', 'bar']); // WHERE IntbConfCustxrefOrUse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcustxreforuse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcustxreforuse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcustxreforuse($intbconfcustxreforuse = null, $comparison = null)
+    public function filterByIntbconfcustxreforuse($intbconfcustxreforuse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcustxreforuse)) {
@@ -1850,7 +2112,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCUSTXREFORUSE, $intbconfcustxreforuse, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCUSTXREFORUSE, $intbconfcustxreforuse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1863,15 +2127,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfheadgetdef(array('min' => 12)); // WHERE IntbConfHeadGetDef > 12
      * </code>
      *
-     * @param     mixed $intbconfheadgetdef The value to use as filter.
+     * @param mixed $intbconfheadgetdef The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfheadgetdef($intbconfheadgetdef = null, $comparison = null)
+    public function filterByIntbconfheadgetdef($intbconfheadgetdef = null, ?string $comparison = null)
     {
         if (is_array($intbconfheadgetdef)) {
             $useMinMax = false;
@@ -1891,7 +2155,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFHEADGETDEF, $intbconfheadgetdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFHEADGETDEF, $intbconfheadgetdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1904,15 +2170,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfitemgetdef(array('min' => 12)); // WHERE IntbConfItemGetDef > 12
      * </code>
      *
-     * @param     mixed $intbconfitemgetdef The value to use as filter.
+     * @param mixed $intbconfitemgetdef The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfitemgetdef($intbconfitemgetdef = null, $comparison = null)
+    public function filterByIntbconfitemgetdef($intbconfitemgetdef = null, ?string $comparison = null)
     {
         if (is_array($intbconfitemgetdef)) {
             $useMinMax = false;
@@ -1932,7 +2198,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFITEMGETDEF, $intbconfitemgetdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFITEMGETDEF, $intbconfitemgetdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1942,14 +2210,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfgetdispohaval('fooValue');   // WHERE IntbConfGetDispOhAval = 'fooValue'
      * $query->filterByIntbconfgetdispohaval('%fooValue%', Criteria::LIKE); // WHERE IntbConfGetDispOhAval LIKE '%fooValue%'
+     * $query->filterByIntbconfgetdispohaval(['foo', 'bar']); // WHERE IntbConfGetDispOhAval IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfgetdispohaval The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfgetdispohaval The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfgetdispohaval($intbconfgetdispohaval = null, $comparison = null)
+    public function filterByIntbconfgetdispohaval($intbconfgetdispohaval = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfgetdispohaval)) {
@@ -1957,7 +2226,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGETDISPOHAVAL, $intbconfgetdispohaval, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGETDISPOHAVAL, $intbconfgetdispohaval, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1967,14 +2238,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusercode1labl('fooValue');   // WHERE IntbConfUserCode1Labl = 'fooValue'
      * $query->filterByIntbconfusercode1labl('%fooValue%', Criteria::LIKE); // WHERE IntbConfUserCode1Labl LIKE '%fooValue%'
+     * $query->filterByIntbconfusercode1labl(['foo', 'bar']); // WHERE IntbConfUserCode1Labl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusercode1labl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusercode1labl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusercode1labl($intbconfusercode1labl = null, $comparison = null)
+    public function filterByIntbconfusercode1labl($intbconfusercode1labl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusercode1labl)) {
@@ -1982,7 +2254,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSERCODE1LABL, $intbconfusercode1labl, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSERCODE1LABL, $intbconfusercode1labl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1992,14 +2266,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusercode1ver('fooValue');   // WHERE IntbConfUserCode1Ver = 'fooValue'
      * $query->filterByIntbconfusercode1ver('%fooValue%', Criteria::LIKE); // WHERE IntbConfUserCode1Ver LIKE '%fooValue%'
+     * $query->filterByIntbconfusercode1ver(['foo', 'bar']); // WHERE IntbConfUserCode1Ver IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusercode1ver The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusercode1ver The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusercode1ver($intbconfusercode1ver = null, $comparison = null)
+    public function filterByIntbconfusercode1ver($intbconfusercode1ver = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusercode1ver)) {
@@ -2007,7 +2282,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSERCODE1VER, $intbconfusercode1ver, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSERCODE1VER, $intbconfusercode1ver, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2017,14 +2294,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusercode2labl('fooValue');   // WHERE IntbConfUserCode2Labl = 'fooValue'
      * $query->filterByIntbconfusercode2labl('%fooValue%', Criteria::LIKE); // WHERE IntbConfUserCode2Labl LIKE '%fooValue%'
+     * $query->filterByIntbconfusercode2labl(['foo', 'bar']); // WHERE IntbConfUserCode2Labl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusercode2labl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusercode2labl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusercode2labl($intbconfusercode2labl = null, $comparison = null)
+    public function filterByIntbconfusercode2labl($intbconfusercode2labl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusercode2labl)) {
@@ -2032,7 +2310,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSERCODE2LABL, $intbconfusercode2labl, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSERCODE2LABL, $intbconfusercode2labl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2042,14 +2322,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusercode2ver('fooValue');   // WHERE IntbConfUserCode2Ver = 'fooValue'
      * $query->filterByIntbconfusercode2ver('%fooValue%', Criteria::LIKE); // WHERE IntbConfUserCode2Ver LIKE '%fooValue%'
+     * $query->filterByIntbconfusercode2ver(['foo', 'bar']); // WHERE IntbConfUserCode2Ver IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusercode2ver The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusercode2ver The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusercode2ver($intbconfusercode2ver = null, $comparison = null)
+    public function filterByIntbconfusercode2ver($intbconfusercode2ver = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusercode2ver)) {
@@ -2057,7 +2338,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSERCODE2VER, $intbconfusercode2ver, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSERCODE2VER, $intbconfusercode2ver, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2070,15 +2353,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfitemline(array('min' => 12)); // WHERE IntbConfItemLine > 12
      * </code>
      *
-     * @param     mixed $intbconfitemline The value to use as filter.
+     * @param mixed $intbconfitemline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfitemline($intbconfitemline = null, $comparison = null)
+    public function filterByIntbconfitemline($intbconfitemline = null, ?string $comparison = null)
     {
         if (is_array($intbconfitemline)) {
             $useMinMax = false;
@@ -2098,7 +2381,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFITEMLINE, $intbconfitemline, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFITEMLINE, $intbconfitemline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2111,15 +2396,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfitemcols(array('min' => 12)); // WHERE IntbConfItemCols > 12
      * </code>
      *
-     * @param     mixed $intbconfitemcols The value to use as filter.
+     * @param mixed $intbconfitemcols The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfitemcols($intbconfitemcols = null, $comparison = null)
+    public function filterByIntbconfitemcols($intbconfitemcols = null, ?string $comparison = null)
     {
         if (is_array($intbconfitemcols)) {
             $useMinMax = false;
@@ -2139,7 +2424,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFITEMCOLS, $intbconfitemcols, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFITEMCOLS, $intbconfitemcols, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2152,15 +2439,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfheadline(array('min' => 12)); // WHERE IntbConfHeadLine > 12
      * </code>
      *
-     * @param     mixed $intbconfheadline The value to use as filter.
+     * @param mixed $intbconfheadline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfheadline($intbconfheadline = null, $comparison = null)
+    public function filterByIntbconfheadline($intbconfheadline = null, ?string $comparison = null)
     {
         if (is_array($intbconfheadline)) {
             $useMinMax = false;
@@ -2180,7 +2467,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFHEADLINE, $intbconfheadline, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFHEADLINE, $intbconfheadline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2193,15 +2482,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfheadcols(array('min' => 12)); // WHERE IntbConfHeadCols > 12
      * </code>
      *
-     * @param     mixed $intbconfheadcols The value to use as filter.
+     * @param mixed $intbconfheadcols The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfheadcols($intbconfheadcols = null, $comparison = null)
+    public function filterByIntbconfheadcols($intbconfheadcols = null, ?string $comparison = null)
     {
         if (is_array($intbconfheadcols)) {
             $useMinMax = false;
@@ -2221,7 +2510,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFHEADCOLS, $intbconfheadcols, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFHEADCOLS, $intbconfheadcols, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2234,15 +2525,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfdetline(array('min' => 12)); // WHERE IntbConfDetLine > 12
      * </code>
      *
-     * @param     mixed $intbconfdetline The value to use as filter.
+     * @param mixed $intbconfdetline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdetline($intbconfdetline = null, $comparison = null)
+    public function filterByIntbconfdetline($intbconfdetline = null, ?string $comparison = null)
     {
         if (is_array($intbconfdetline)) {
             $useMinMax = false;
@@ -2262,7 +2553,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDETLINE, $intbconfdetline, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDETLINE, $intbconfdetline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2275,15 +2568,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfdetcols(array('min' => 12)); // WHERE IntbConfDetCols > 12
      * </code>
      *
-     * @param     mixed $intbconfdetcols The value to use as filter.
+     * @param mixed $intbconfdetcols The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdetcols($intbconfdetcols = null, $comparison = null)
+    public function filterByIntbconfdetcols($intbconfdetcols = null, ?string $comparison = null)
     {
         if (is_array($intbconfdetcols)) {
             $useMinMax = false;
@@ -2303,7 +2596,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDETCOLS, $intbconfdetcols, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDETCOLS, $intbconfdetcols, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2313,14 +2608,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfminmaxzero('fooValue');   // WHERE IntbConfMinMaxZero = 'fooValue'
      * $query->filterByIntbconfminmaxzero('%fooValue%', Criteria::LIKE); // WHERE IntbConfMinMaxZero LIKE '%fooValue%'
+     * $query->filterByIntbconfminmaxzero(['foo', 'bar']); // WHERE IntbConfMinMaxZero IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfminmaxzero The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfminmaxzero The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfminmaxzero($intbconfminmaxzero = null, $comparison = null)
+    public function filterByIntbconfminmaxzero($intbconfminmaxzero = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfminmaxzero)) {
@@ -2328,7 +2624,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMINMAXZERO, $intbconfminmaxzero, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMINMAXZERO, $intbconfminmaxzero, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2338,14 +2636,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfminrec('fooValue');   // WHERE IntbConfMinRec = 'fooValue'
      * $query->filterByIntbconfminrec('%fooValue%', Criteria::LIKE); // WHERE IntbConfMinRec LIKE '%fooValue%'
+     * $query->filterByIntbconfminrec(['foo', 'bar']); // WHERE IntbConfMinRec IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfminrec The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfminrec The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfminrec($intbconfminrec = null, $comparison = null)
+    public function filterByIntbconfminrec($intbconfminrec = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfminrec)) {
@@ -2353,7 +2652,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMINREC, $intbconfminrec, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMINREC, $intbconfminrec, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2363,14 +2664,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfatbelowmin('fooValue');   // WHERE IntbConfAtBelowMin = 'fooValue'
      * $query->filterByIntbconfatbelowmin('%fooValue%', Criteria::LIKE); // WHERE IntbConfAtBelowMin LIKE '%fooValue%'
+     * $query->filterByIntbconfatbelowmin(['foo', 'bar']); // WHERE IntbConfAtBelowMin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfatbelowmin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfatbelowmin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfatbelowmin($intbconfatbelowmin = null, $comparison = null)
+    public function filterByIntbconfatbelowmin($intbconfatbelowmin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfatbelowmin)) {
@@ -2378,7 +2680,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFATBELOWMIN, $intbconfatbelowmin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFATBELOWMIN, $intbconfatbelowmin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2388,14 +2692,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfonewhse('fooValue');   // WHERE IntbConfOneWhse = 'fooValue'
      * $query->filterByIntbconfonewhse('%fooValue%', Criteria::LIKE); // WHERE IntbConfOneWhse LIKE '%fooValue%'
+     * $query->filterByIntbconfonewhse(['foo', 'bar']); // WHERE IntbConfOneWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfonewhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfonewhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfonewhse($intbconfonewhse = null, $comparison = null)
+    public function filterByIntbconfonewhse($intbconfonewhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfonewhse)) {
@@ -2403,7 +2708,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFONEWHSE, $intbconfonewhse, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFONEWHSE, $intbconfonewhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2416,15 +2723,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfytdmth(array('min' => 12)); // WHERE IntbConfYtdMth > 12
      * </code>
      *
-     * @param     mixed $intbconfytdmth The value to use as filter.
+     * @param mixed $intbconfytdmth The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfytdmth($intbconfytdmth = null, $comparison = null)
+    public function filterByIntbconfytdmth($intbconfytdmth = null, ?string $comparison = null)
     {
         if (is_array($intbconfytdmth)) {
             $useMinMax = false;
@@ -2444,7 +2751,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFYTDMTH, $intbconfytdmth, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFYTDMTH, $intbconfytdmth, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2454,14 +2763,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusegramsltr('fooValue');   // WHERE IntbConfUseGramsLtr = 'fooValue'
      * $query->filterByIntbconfusegramsltr('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseGramsLtr LIKE '%fooValue%'
+     * $query->filterByIntbconfusegramsltr(['foo', 'bar']); // WHERE IntbConfUseGramsLtr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusegramsltr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusegramsltr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusegramsltr($intbconfusegramsltr = null, $comparison = null)
+    public function filterByIntbconfusegramsltr($intbconfusegramsltr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusegramsltr)) {
@@ -2469,7 +2779,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEGRAMSLTR, $intbconfusegramsltr, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEGRAMSLTR, $intbconfusegramsltr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2479,14 +2791,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfabcbywhse('fooValue');   // WHERE IntbConfAbcByWhse = 'fooValue'
      * $query->filterByIntbconfabcbywhse('%fooValue%', Criteria::LIKE); // WHERE IntbConfAbcByWhse LIKE '%fooValue%'
+     * $query->filterByIntbconfabcbywhse(['foo', 'bar']); // WHERE IntbConfAbcByWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfabcbywhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfabcbywhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabcbywhse($intbconfabcbywhse = null, $comparison = null)
+    public function filterByIntbconfabcbywhse($intbconfabcbywhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfabcbywhse)) {
@@ -2494,7 +2807,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCBYWHSE, $intbconfabcbywhse, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCBYWHSE, $intbconfabcbywhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2507,15 +2822,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabcnbrmths(array('min' => 12)); // WHERE IntbConfAbcNbrMths > 12
      * </code>
      *
-     * @param     mixed $intbconfabcnbrmths The value to use as filter.
+     * @param mixed $intbconfabcnbrmths The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabcnbrmths($intbconfabcnbrmths = null, $comparison = null)
+    public function filterByIntbconfabcnbrmths($intbconfabcnbrmths = null, ?string $comparison = null)
     {
         if (is_array($intbconfabcnbrmths)) {
             $useMinMax = false;
@@ -2535,7 +2850,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCNBRMTHS, $intbconfabcnbrmths, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCNBRMTHS, $intbconfabcnbrmths, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2545,14 +2862,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfabcbasecode('fooValue');   // WHERE IntbConfAbcBaseCode = 'fooValue'
      * $query->filterByIntbconfabcbasecode('%fooValue%', Criteria::LIKE); // WHERE IntbConfAbcBaseCode LIKE '%fooValue%'
+     * $query->filterByIntbconfabcbasecode(['foo', 'bar']); // WHERE IntbConfAbcBaseCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfabcbasecode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfabcbasecode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabcbasecode($intbconfabcbasecode = null, $comparison = null)
+    public function filterByIntbconfabcbasecode($intbconfabcbasecode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfabcbasecode)) {
@@ -2560,7 +2878,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCBASECODE, $intbconfabcbasecode, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCBASECODE, $intbconfabcbasecode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2573,15 +2893,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevla(array('min' => 12)); // WHERE IntbConfAbcLevlA > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevla The value to use as filter.
+     * @param mixed $intbconfabclevla The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevla($intbconfabclevla = null, $comparison = null)
+    public function filterByIntbconfabclevla($intbconfabclevla = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevla)) {
             $useMinMax = false;
@@ -2601,7 +2921,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLA, $intbconfabclevla, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLA, $intbconfabclevla, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2614,15 +2936,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevlb(array('min' => 12)); // WHERE IntbConfAbcLevlB > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevlb The value to use as filter.
+     * @param mixed $intbconfabclevlb The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevlb($intbconfabclevlb = null, $comparison = null)
+    public function filterByIntbconfabclevlb($intbconfabclevlb = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevlb)) {
             $useMinMax = false;
@@ -2642,7 +2964,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLB, $intbconfabclevlb, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLB, $intbconfabclevlb, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2655,15 +2979,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevlc(array('min' => 12)); // WHERE IntbConfAbcLevlC > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevlc The value to use as filter.
+     * @param mixed $intbconfabclevlc The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevlc($intbconfabclevlc = null, $comparison = null)
+    public function filterByIntbconfabclevlc($intbconfabclevlc = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevlc)) {
             $useMinMax = false;
@@ -2683,7 +3007,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLC, $intbconfabclevlc, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLC, $intbconfabclevlc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2696,15 +3022,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevld(array('min' => 12)); // WHERE IntbConfAbcLevlD > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevld The value to use as filter.
+     * @param mixed $intbconfabclevld The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevld($intbconfabclevld = null, $comparison = null)
+    public function filterByIntbconfabclevld($intbconfabclevld = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevld)) {
             $useMinMax = false;
@@ -2724,7 +3050,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLD, $intbconfabclevld, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLD, $intbconfabclevld, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2737,15 +3065,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevle(array('min' => 12)); // WHERE IntbConfAbcLevlE > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevle The value to use as filter.
+     * @param mixed $intbconfabclevle The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevle($intbconfabclevle = null, $comparison = null)
+    public function filterByIntbconfabclevle($intbconfabclevle = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevle)) {
             $useMinMax = false;
@@ -2765,7 +3093,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLE, $intbconfabclevle, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLE, $intbconfabclevle, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2778,15 +3108,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevlf(array('min' => 12)); // WHERE IntbConfAbcLevlF > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevlf The value to use as filter.
+     * @param mixed $intbconfabclevlf The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevlf($intbconfabclevlf = null, $comparison = null)
+    public function filterByIntbconfabclevlf($intbconfabclevlf = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevlf)) {
             $useMinMax = false;
@@ -2806,7 +3136,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLF, $intbconfabclevlf, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLF, $intbconfabclevlf, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2819,15 +3151,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevlg(array('min' => 12)); // WHERE IntbConfAbcLevlG > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevlg The value to use as filter.
+     * @param mixed $intbconfabclevlg The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevlg($intbconfabclevlg = null, $comparison = null)
+    public function filterByIntbconfabclevlg($intbconfabclevlg = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevlg)) {
             $useMinMax = false;
@@ -2847,7 +3179,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLG, $intbconfabclevlg, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLG, $intbconfabclevlg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2860,15 +3194,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevlh(array('min' => 12)); // WHERE IntbConfAbcLevlH > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevlh The value to use as filter.
+     * @param mixed $intbconfabclevlh The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevlh($intbconfabclevlh = null, $comparison = null)
+    public function filterByIntbconfabclevlh($intbconfabclevlh = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevlh)) {
             $useMinMax = false;
@@ -2888,7 +3222,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLH, $intbconfabclevlh, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLH, $intbconfabclevlh, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2901,15 +3237,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevli(array('min' => 12)); // WHERE IntbConfAbcLevlI > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevli The value to use as filter.
+     * @param mixed $intbconfabclevli The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevli($intbconfabclevli = null, $comparison = null)
+    public function filterByIntbconfabclevli($intbconfabclevli = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevli)) {
             $useMinMax = false;
@@ -2929,7 +3265,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLI, $intbconfabclevli, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLI, $intbconfabclevli, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2942,15 +3280,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfabclevlj(array('min' => 12)); // WHERE IntbConfAbcLevlJ > 12
      * </code>
      *
-     * @param     mixed $intbconfabclevlj The value to use as filter.
+     * @param mixed $intbconfabclevlj The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabclevlj($intbconfabclevlj = null, $comparison = null)
+    public function filterByIntbconfabclevlj($intbconfabclevlj = null, ?string $comparison = null)
     {
         if (is_array($intbconfabclevlj)) {
             $useMinMax = false;
@@ -2970,7 +3308,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLJ, $intbconfabclevlj, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCLEVLJ, $intbconfabclevlj, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2980,14 +3320,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfuseforeignx('fooValue');   // WHERE IntbConfUseForeignX = 'fooValue'
      * $query->filterByIntbconfuseforeignx('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseForeignX LIKE '%fooValue%'
+     * $query->filterByIntbconfuseforeignx(['foo', 'bar']); // WHERE IntbConfUseForeignX IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfuseforeignx The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfuseforeignx The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfuseforeignx($intbconfuseforeignx = null, $comparison = null)
+    public function filterByIntbconfuseforeignx($intbconfuseforeignx = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfuseforeignx)) {
@@ -2995,7 +3336,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEFOREIGNX, $intbconfuseforeignx, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEFOREIGNX, $intbconfuseforeignx, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3005,14 +3348,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusenafta('fooValue');   // WHERE IntbConfUseNafta = 'fooValue'
      * $query->filterByIntbconfusenafta('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseNafta LIKE '%fooValue%'
+     * $query->filterByIntbconfusenafta(['foo', 'bar']); // WHERE IntbConfUseNafta IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusenafta The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusenafta The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusenafta($intbconfusenafta = null, $comparison = null)
+    public function filterByIntbconfusenafta($intbconfusenafta = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusenafta)) {
@@ -3020,7 +3364,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSENAFTA, $intbconfusenafta, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSENAFTA, $intbconfusenafta, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3030,14 +3376,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfnaftaprefcode('fooValue');   // WHERE IntbConfNaftaPrefCode = 'fooValue'
      * $query->filterByIntbconfnaftaprefcode('%fooValue%', Criteria::LIKE); // WHERE IntbConfNaftaPrefCode LIKE '%fooValue%'
+     * $query->filterByIntbconfnaftaprefcode(['foo', 'bar']); // WHERE IntbConfNaftaPrefCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfnaftaprefcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfnaftaprefcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfnaftaprefcode($intbconfnaftaprefcode = null, $comparison = null)
+    public function filterByIntbconfnaftaprefcode($intbconfnaftaprefcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfnaftaprefcode)) {
@@ -3045,7 +3392,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNAFTAPREFCODE, $intbconfnaftaprefcode, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNAFTAPREFCODE, $intbconfnaftaprefcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3055,14 +3404,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfnaftaproducer('fooValue');   // WHERE IntbConfNaftaProducer = 'fooValue'
      * $query->filterByIntbconfnaftaproducer('%fooValue%', Criteria::LIKE); // WHERE IntbConfNaftaProducer LIKE '%fooValue%'
+     * $query->filterByIntbconfnaftaproducer(['foo', 'bar']); // WHERE IntbConfNaftaProducer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfnaftaproducer The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfnaftaproducer The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfnaftaproducer($intbconfnaftaproducer = null, $comparison = null)
+    public function filterByIntbconfnaftaproducer($intbconfnaftaproducer = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfnaftaproducer)) {
@@ -3070,7 +3420,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNAFTAPRODUCER, $intbconfnaftaproducer, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNAFTAPRODUCER, $intbconfnaftaproducer, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3080,14 +3432,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfnaftadoccode('fooValue');   // WHERE IntbConfNaftaDocCode = 'fooValue'
      * $query->filterByIntbconfnaftadoccode('%fooValue%', Criteria::LIKE); // WHERE IntbConfNaftaDocCode LIKE '%fooValue%'
+     * $query->filterByIntbconfnaftadoccode(['foo', 'bar']); // WHERE IntbConfNaftaDocCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfnaftadoccode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfnaftadoccode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfnaftadoccode($intbconfnaftadoccode = null, $comparison = null)
+    public function filterByIntbconfnaftadoccode($intbconfnaftadoccode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfnaftadoccode)) {
@@ -3095,7 +3448,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNAFTADOCCODE, $intbconfnaftadoccode, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNAFTADOCCODE, $intbconfnaftadoccode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3105,14 +3460,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfphyscurrwksh('fooValue');   // WHERE IntbConfPhysCurrWksh = 'fooValue'
      * $query->filterByIntbconfphyscurrwksh('%fooValue%', Criteria::LIKE); // WHERE IntbConfPhysCurrWksh LIKE '%fooValue%'
+     * $query->filterByIntbconfphyscurrwksh(['foo', 'bar']); // WHERE IntbConfPhysCurrWksh IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfphyscurrwksh The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfphyscurrwksh The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfphyscurrwksh($intbconfphyscurrwksh = null, $comparison = null)
+    public function filterByIntbconfphyscurrwksh($intbconfphyscurrwksh = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfphyscurrwksh)) {
@@ -3120,7 +3476,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPHYSCURRWKSH, $intbconfphyscurrwksh, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPHYSCURRWKSH, $intbconfphyscurrwksh, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3133,15 +3491,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconf20or30(array('min' => 12)); // WHERE IntbConf20Or30 > 12
      * </code>
      *
-     * @param     mixed $intbconf20or30 The value to use as filter.
+     * @param mixed $intbconf20or30 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconf20or30($intbconf20or30 = null, $comparison = null)
+    public function filterByIntbconf20or30($intbconf20or30 = null, ?string $comparison = null)
     {
         if (is_array($intbconf20or30)) {
             $useMinMax = false;
@@ -3161,7 +3519,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONF20OR30, $intbconf20or30, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONF20OR30, $intbconf20or30, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3171,14 +3531,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdisporigcnt('fooValue');   // WHERE IntbConfDispOrigCnt = 'fooValue'
      * $query->filterByIntbconfdisporigcnt('%fooValue%', Criteria::LIKE); // WHERE IntbConfDispOrigCnt LIKE '%fooValue%'
+     * $query->filterByIntbconfdisporigcnt(['foo', 'bar']); // WHERE IntbConfDispOrigCnt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdisporigcnt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdisporigcnt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdisporigcnt($intbconfdisporigcnt = null, $comparison = null)
+    public function filterByIntbconfdisporigcnt($intbconfdisporigcnt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdisporigcnt)) {
@@ -3186,7 +3547,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDISPORIGCNT, $intbconfdisporigcnt, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDISPORIGCNT, $intbconfdisporigcnt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3196,14 +3559,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdispgl('fooValue');   // WHERE IntbConfDispGl = 'fooValue'
      * $query->filterByIntbconfdispgl('%fooValue%', Criteria::LIKE); // WHERE IntbConfDispGl LIKE '%fooValue%'
+     * $query->filterByIntbconfdispgl(['foo', 'bar']); // WHERE IntbConfDispGl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdispgl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdispgl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdispgl($intbconfdispgl = null, $comparison = null)
+    public function filterByIntbconfdispgl($intbconfdispgl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdispgl)) {
@@ -3211,7 +3575,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDISPGL, $intbconfdispgl, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDISPGL, $intbconfdispgl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3221,14 +3587,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdispref('fooValue');   // WHERE IntbConfDispRef = 'fooValue'
      * $query->filterByIntbconfdispref('%fooValue%', Criteria::LIKE); // WHERE IntbConfDispRef LIKE '%fooValue%'
+     * $query->filterByIntbconfdispref(['foo', 'bar']); // WHERE IntbConfDispRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdispref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdispref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdispref($intbconfdispref = null, $comparison = null)
+    public function filterByIntbconfdispref($intbconfdispref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdispref)) {
@@ -3236,7 +3603,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDISPREF, $intbconfdispref, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDISPREF, $intbconfdispref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3246,14 +3615,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdispcost('fooValue');   // WHERE IntbConfDispCost = 'fooValue'
      * $query->filterByIntbconfdispcost('%fooValue%', Criteria::LIKE); // WHERE IntbConfDispCost LIKE '%fooValue%'
+     * $query->filterByIntbconfdispcost(['foo', 'bar']); // WHERE IntbConfDispCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdispcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdispcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdispcost($intbconfdispcost = null, $comparison = null)
+    public function filterByIntbconfdispcost($intbconfdispcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdispcost)) {
@@ -3261,7 +3631,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDISPCOST, $intbconfdispcost, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDISPCOST, $intbconfdispcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3271,14 +3643,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfprtval('fooValue');   // WHERE IntbConfPrtVal = 'fooValue'
      * $query->filterByIntbconfprtval('%fooValue%', Criteria::LIKE); // WHERE IntbConfPrtVal LIKE '%fooValue%'
+     * $query->filterByIntbconfprtval(['foo', 'bar']); // WHERE IntbConfPrtVal IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfprtval The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfprtval The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfprtval($intbconfprtval = null, $comparison = null)
+    public function filterByIntbconfprtval($intbconfprtval = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfprtval)) {
@@ -3286,7 +3659,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPRTVAL, $intbconfprtval, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPRTVAL, $intbconfprtval, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3296,14 +3671,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfprtgl('fooValue');   // WHERE IntbConfPrtGl = 'fooValue'
      * $query->filterByIntbconfprtgl('%fooValue%', Criteria::LIKE); // WHERE IntbConfPrtGl LIKE '%fooValue%'
+     * $query->filterByIntbconfprtgl(['foo', 'bar']); // WHERE IntbConfPrtGl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfprtgl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfprtgl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfprtgl($intbconfprtgl = null, $comparison = null)
+    public function filterByIntbconfprtgl($intbconfprtgl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfprtgl)) {
@@ -3311,7 +3687,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPRTGL, $intbconfprtgl, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFPRTGL, $intbconfprtgl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3321,14 +3699,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfglacct('fooValue');   // WHERE IntbConfGlAcct = 'fooValue'
      * $query->filterByIntbconfglacct('%fooValue%', Criteria::LIKE); // WHERE IntbConfGlAcct LIKE '%fooValue%'
+     * $query->filterByIntbconfglacct(['foo', 'bar']); // WHERE IntbConfGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfglacct($intbconfglacct = null, $comparison = null)
+    public function filterByIntbconfglacct($intbconfglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfglacct)) {
@@ -3336,7 +3715,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGLACCT, $intbconfglacct, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFGLACCT, $intbconfglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3346,14 +3727,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfref('fooValue');   // WHERE IntbConfRef = 'fooValue'
      * $query->filterByIntbconfref('%fooValue%', Criteria::LIKE); // WHERE IntbConfRef LIKE '%fooValue%'
+     * $query->filterByIntbconfref(['foo', 'bar']); // WHERE IntbConfRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfref($intbconfref = null, $comparison = null)
+    public function filterByIntbconfref($intbconfref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfref)) {
@@ -3361,7 +3743,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFREF, $intbconfref, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFREF, $intbconfref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3371,14 +3755,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcosttype('fooValue');   // WHERE IntbConfCostType = 'fooValue'
      * $query->filterByIntbconfcosttype('%fooValue%', Criteria::LIKE); // WHERE IntbConfCostType LIKE '%fooValue%'
+     * $query->filterByIntbconfcosttype(['foo', 'bar']); // WHERE IntbConfCostType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcosttype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcosttype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcosttype($intbconfcosttype = null, $comparison = null)
+    public function filterByIntbconfcosttype($intbconfcosttype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcosttype)) {
@@ -3386,7 +3771,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCOSTTYPE, $intbconfcosttype, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCOSTTYPE, $intbconfcosttype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3396,14 +3783,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfnormalonly('fooValue');   // WHERE IntbConfNormalOnly = 'fooValue'
      * $query->filterByIntbconfnormalonly('%fooValue%', Criteria::LIKE); // WHERE IntbConfNormalOnly LIKE '%fooValue%'
+     * $query->filterByIntbconfnormalonly(['foo', 'bar']); // WHERE IntbConfNormalOnly IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfnormalonly The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfnormalonly The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfnormalonly($intbconfnormalonly = null, $comparison = null)
+    public function filterByIntbconfnormalonly($intbconfnormalonly = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfnormalonly)) {
@@ -3411,7 +3799,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNORMALONLY, $intbconfnormalonly, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNORMALONLY, $intbconfnormalonly, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3421,14 +3811,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusewhsedef('fooValue');   // WHERE IntbConfUseWhseDef = 'fooValue'
      * $query->filterByIntbconfusewhsedef('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseWhseDef LIKE '%fooValue%'
+     * $query->filterByIntbconfusewhsedef(['foo', 'bar']); // WHERE IntbConfUseWhseDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusewhsedef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusewhsedef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusewhsedef($intbconfusewhsedef = null, $comparison = null)
+    public function filterByIntbconfusewhsedef($intbconfusewhsedef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusewhsedef)) {
@@ -3436,7 +3827,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEWHSEDEF, $intbconfusewhsedef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEWHSEDEF, $intbconfusewhsedef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3446,14 +3839,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse01('fooValue');   // WHERE IntbCon2DfltWhse01 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse01('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse01 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse01(['foo', 'bar']); // WHERE IntbCon2DfltWhse01 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse01 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse01 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse01($intbcon2dfltwhse01 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse01($intbcon2dfltwhse01 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse01)) {
@@ -3461,7 +3855,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE01, $intbcon2dfltwhse01, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE01, $intbcon2dfltwhse01, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3471,14 +3867,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse02('fooValue');   // WHERE IntbCon2DfltWhse02 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse02('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse02 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse02(['foo', 'bar']); // WHERE IntbCon2DfltWhse02 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse02 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse02 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse02($intbcon2dfltwhse02 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse02($intbcon2dfltwhse02 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse02)) {
@@ -3486,7 +3883,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE02, $intbcon2dfltwhse02, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE02, $intbcon2dfltwhse02, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3496,14 +3895,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse03('fooValue');   // WHERE IntbCon2DfltWhse03 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse03('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse03 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse03(['foo', 'bar']); // WHERE IntbCon2DfltWhse03 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse03 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse03 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse03($intbcon2dfltwhse03 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse03($intbcon2dfltwhse03 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse03)) {
@@ -3511,7 +3911,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE03, $intbcon2dfltwhse03, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE03, $intbcon2dfltwhse03, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3521,14 +3923,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse04('fooValue');   // WHERE IntbCon2DfltWhse04 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse04('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse04 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse04(['foo', 'bar']); // WHERE IntbCon2DfltWhse04 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse04 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse04 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse04($intbcon2dfltwhse04 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse04($intbcon2dfltwhse04 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse04)) {
@@ -3536,7 +3939,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE04, $intbcon2dfltwhse04, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE04, $intbcon2dfltwhse04, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3546,14 +3951,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse05('fooValue');   // WHERE IntbCon2DfltWhse05 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse05('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse05 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse05(['foo', 'bar']); // WHERE IntbCon2DfltWhse05 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse05 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse05 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse05($intbcon2dfltwhse05 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse05($intbcon2dfltwhse05 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse05)) {
@@ -3561,7 +3967,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE05, $intbcon2dfltwhse05, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE05, $intbcon2dfltwhse05, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3571,14 +3979,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse06('fooValue');   // WHERE IntbCon2DfltWhse06 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse06('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse06 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse06(['foo', 'bar']); // WHERE IntbCon2DfltWhse06 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse06 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse06 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse06($intbcon2dfltwhse06 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse06($intbcon2dfltwhse06 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse06)) {
@@ -3586,7 +3995,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE06, $intbcon2dfltwhse06, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE06, $intbcon2dfltwhse06, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3596,14 +4007,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse07('fooValue');   // WHERE IntbCon2DfltWhse07 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse07('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse07 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse07(['foo', 'bar']); // WHERE IntbCon2DfltWhse07 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse07 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse07 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse07($intbcon2dfltwhse07 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse07($intbcon2dfltwhse07 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse07)) {
@@ -3611,7 +4023,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE07, $intbcon2dfltwhse07, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE07, $intbcon2dfltwhse07, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3621,14 +4035,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse08('fooValue');   // WHERE IntbCon2DfltWhse08 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse08('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse08 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse08(['foo', 'bar']); // WHERE IntbCon2DfltWhse08 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse08 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse08 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse08($intbcon2dfltwhse08 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse08($intbcon2dfltwhse08 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse08)) {
@@ -3636,7 +4051,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE08, $intbcon2dfltwhse08, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE08, $intbcon2dfltwhse08, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3646,14 +4063,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse09('fooValue');   // WHERE IntbCon2DfltWhse09 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse09('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse09 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse09(['foo', 'bar']); // WHERE IntbCon2DfltWhse09 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse09 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse09 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse09($intbcon2dfltwhse09 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse09($intbcon2dfltwhse09 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse09)) {
@@ -3661,7 +4079,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE09, $intbcon2dfltwhse09, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE09, $intbcon2dfltwhse09, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3671,14 +4091,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltwhse10('fooValue');   // WHERE IntbCon2DfltWhse10 = 'fooValue'
      * $query->filterByIntbcon2dfltwhse10('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltWhse10 LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltwhse10(['foo', 'bar']); // WHERE IntbCon2DfltWhse10 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltwhse10 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltwhse10 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltwhse10($intbcon2dfltwhse10 = null, $comparison = null)
+    public function filterByIntbcon2dfltwhse10($intbcon2dfltwhse10 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltwhse10)) {
@@ -3686,7 +4107,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE10, $intbcon2dfltwhse10, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTWHSE10, $intbcon2dfltwhse10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3696,14 +4119,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfbindef('fooValue');   // WHERE IntbConfBinDef = 'fooValue'
      * $query->filterByIntbconfbindef('%fooValue%', Criteria::LIKE); // WHERE IntbConfBinDef LIKE '%fooValue%'
+     * $query->filterByIntbconfbindef(['foo', 'bar']); // WHERE IntbConfBinDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfbindef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfbindef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfbindef($intbconfbindef = null, $comparison = null)
+    public function filterByIntbconfbindef($intbconfbindef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfbindef)) {
@@ -3711,7 +4135,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFBINDEF, $intbconfbindef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFBINDEF, $intbconfbindef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3721,14 +4147,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcycldef('fooValue');   // WHERE IntbConfCyclDef = 'fooValue'
      * $query->filterByIntbconfcycldef('%fooValue%', Criteria::LIKE); // WHERE IntbConfCyclDef LIKE '%fooValue%'
+     * $query->filterByIntbconfcycldef(['foo', 'bar']); // WHERE IntbConfCyclDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcycldef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcycldef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcycldef($intbconfcycldef = null, $comparison = null)
+    public function filterByIntbconfcycldef($intbconfcycldef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcycldef)) {
@@ -3736,7 +4163,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCYCLDEF, $intbconfcycldef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCYCLDEF, $intbconfcycldef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3746,14 +4175,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfstatdef('fooValue');   // WHERE IntbConfStatDef = 'fooValue'
      * $query->filterByIntbconfstatdef('%fooValue%', Criteria::LIKE); // WHERE IntbConfStatDef LIKE '%fooValue%'
+     * $query->filterByIntbconfstatdef(['foo', 'bar']); // WHERE IntbConfStatDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfstatdef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfstatdef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfstatdef($intbconfstatdef = null, $comparison = null)
+    public function filterByIntbconfstatdef($intbconfstatdef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfstatdef)) {
@@ -3761,7 +4191,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTATDEF, $intbconfstatdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTATDEF, $intbconfstatdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3771,14 +4203,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfabcdef('fooValue');   // WHERE IntbConfAbcDef = 'fooValue'
      * $query->filterByIntbconfabcdef('%fooValue%', Criteria::LIKE); // WHERE IntbConfAbcDef LIKE '%fooValue%'
+     * $query->filterByIntbconfabcdef(['foo', 'bar']); // WHERE IntbConfAbcDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfabcdef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfabcdef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfabcdef($intbconfabcdef = null, $comparison = null)
+    public function filterByIntbconfabcdef($intbconfabcdef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfabcdef)) {
@@ -3786,7 +4219,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCDEF, $intbconfabcdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFABCDEF, $intbconfabcdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3796,14 +4231,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfspecordrdef('fooValue');   // WHERE IntbConfSpecOrdrDef = 'fooValue'
      * $query->filterByIntbconfspecordrdef('%fooValue%', Criteria::LIKE); // WHERE IntbConfSpecOrdrDef LIKE '%fooValue%'
+     * $query->filterByIntbconfspecordrdef(['foo', 'bar']); // WHERE IntbConfSpecOrdrDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfspecordrdef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfspecordrdef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfspecordrdef($intbconfspecordrdef = null, $comparison = null)
+    public function filterByIntbconfspecordrdef($intbconfspecordrdef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfspecordrdef)) {
@@ -3811,7 +4247,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSPECORDRDEF, $intbconfspecordrdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSPECORDRDEF, $intbconfspecordrdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3824,15 +4262,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfordrpntdef(array('min' => 12)); // WHERE IntbConfOrdrPntDef > 12
      * </code>
      *
-     * @param     mixed $intbconfordrpntdef The value to use as filter.
+     * @param mixed $intbconfordrpntdef The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfordrpntdef($intbconfordrpntdef = null, $comparison = null)
+    public function filterByIntbconfordrpntdef($intbconfordrpntdef = null, ?string $comparison = null)
     {
         if (is_array($intbconfordrpntdef)) {
             $useMinMax = false;
@@ -3852,7 +4290,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFORDRPNTDEF, $intbconfordrpntdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFORDRPNTDEF, $intbconfordrpntdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3865,15 +4305,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfmaxdef(array('min' => 12)); // WHERE IntbConfMaxDef > 12
      * </code>
      *
-     * @param     mixed $intbconfmaxdef The value to use as filter.
+     * @param mixed $intbconfmaxdef The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfmaxdef($intbconfmaxdef = null, $comparison = null)
+    public function filterByIntbconfmaxdef($intbconfmaxdef = null, ?string $comparison = null)
     {
         if (is_array($intbconfmaxdef)) {
             $useMinMax = false;
@@ -3893,7 +4333,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMAXDEF, $intbconfmaxdef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMAXDEF, $intbconfmaxdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3906,15 +4348,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfordrqtydef(array('min' => 12)); // WHERE IntbConfOrdrQtyDef > 12
      * </code>
      *
-     * @param     mixed $intbconfordrqtydef The value to use as filter.
+     * @param mixed $intbconfordrqtydef The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfordrqtydef($intbconfordrqtydef = null, $comparison = null)
+    public function filterByIntbconfordrqtydef($intbconfordrqtydef = null, ?string $comparison = null)
     {
         if (is_array($intbconfordrqtydef)) {
             $useMinMax = false;
@@ -3934,7 +4376,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFORDRQTYDEF, $intbconfordrqtydef, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFORDRQTYDEF, $intbconfordrqtydef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3944,14 +4388,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconftrcptallowcmpl('fooValue');   // WHERE IntbConfTrcptAllowCmpl = 'fooValue'
      * $query->filterByIntbconftrcptallowcmpl('%fooValue%', Criteria::LIKE); // WHERE IntbConfTrcptAllowCmpl LIKE '%fooValue%'
+     * $query->filterByIntbconftrcptallowcmpl(['foo', 'bar']); // WHERE IntbConfTrcptAllowCmpl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconftrcptallowcmpl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconftrcptallowcmpl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconftrcptallowcmpl($intbconftrcptallowcmpl = null, $comparison = null)
+    public function filterByIntbconftrcptallowcmpl($intbconftrcptallowcmpl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconftrcptallowcmpl)) {
@@ -3959,7 +4404,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRCPTALLOWCMPL, $intbconftrcptallowcmpl, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRCPTALLOWCMPL, $intbconftrcptallowcmpl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3969,14 +4416,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconftrecmmtstock('fooValue');   // WHERE IntbConfTreCmmtStock = 'fooValue'
      * $query->filterByIntbconftrecmmtstock('%fooValue%', Criteria::LIKE); // WHERE IntbConfTreCmmtStock LIKE '%fooValue%'
+     * $query->filterByIntbconftrecmmtstock(['foo', 'bar']); // WHERE IntbConfTreCmmtStock IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconftrecmmtstock The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconftrecmmtstock The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconftrecmmtstock($intbconftrecmmtstock = null, $comparison = null)
+    public function filterByIntbconftrecmmtstock($intbconftrecmmtstock = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconftrecmmtstock)) {
@@ -3984,7 +4432,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRECMMTSTOCK, $intbconftrecmmtstock, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRECMMTSTOCK, $intbconftrecmmtstock, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3994,14 +4444,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusefrtin('fooValue');   // WHERE IntbConfUseFrtIn = 'fooValue'
      * $query->filterByIntbconfusefrtin('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseFrtIn LIKE '%fooValue%'
+     * $query->filterByIntbconfusefrtin(['foo', 'bar']); // WHERE IntbConfUseFrtIn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusefrtin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusefrtin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusefrtin($intbconfusefrtin = null, $comparison = null)
+    public function filterByIntbconfusefrtin($intbconfusefrtin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusefrtin)) {
@@ -4009,7 +4460,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEFRTIN, $intbconfusefrtin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEFRTIN, $intbconfusefrtin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4019,14 +4472,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfeachoruom('fooValue');   // WHERE IntbConfEachOrUom = 'fooValue'
      * $query->filterByIntbconfeachoruom('%fooValue%', Criteria::LIKE); // WHERE IntbConfEachOrUom LIKE '%fooValue%'
+     * $query->filterByIntbconfeachoruom(['foo', 'bar']); // WHERE IntbConfEachOrUom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfeachoruom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfeachoruom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfeachoruom($intbconfeachoruom = null, $comparison = null)
+    public function filterByIntbconfeachoruom($intbconfeachoruom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfeachoruom)) {
@@ -4034,7 +4488,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFEACHORUOM, $intbconfeachoruom, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFEACHORUOM, $intbconfeachoruom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4044,14 +4500,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfneglotcorr('fooValue');   // WHERE IntbConfNegLotCorr = 'fooValue'
      * $query->filterByIntbconfneglotcorr('%fooValue%', Criteria::LIKE); // WHERE IntbConfNegLotCorr LIKE '%fooValue%'
+     * $query->filterByIntbconfneglotcorr(['foo', 'bar']); // WHERE IntbConfNegLotCorr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfneglotcorr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfneglotcorr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfneglotcorr($intbconfneglotcorr = null, $comparison = null)
+    public function filterByIntbconfneglotcorr($intbconfneglotcorr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfneglotcorr)) {
@@ -4059,7 +4516,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNEGLOTCORR, $intbconfneglotcorr, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNEGLOTCORR, $intbconfneglotcorr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4069,14 +4528,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconftrnsglacct('fooValue');   // WHERE IntbConfTrnsGlAcct = 'fooValue'
      * $query->filterByIntbconftrnsglacct('%fooValue%', Criteria::LIKE); // WHERE IntbConfTrnsGlAcct LIKE '%fooValue%'
+     * $query->filterByIntbconftrnsglacct(['foo', 'bar']); // WHERE IntbConfTrnsGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconftrnsglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconftrnsglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconftrnsglacct($intbconftrnsglacct = null, $comparison = null)
+    public function filterByIntbconftrnsglacct($intbconftrnsglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconftrnsglacct)) {
@@ -4084,7 +4544,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRNSGLACCT, $intbconftrnsglacct, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRNSGLACCT, $intbconftrnsglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4097,15 +4559,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconftrnsprotstock(array('min' => 12)); // WHERE IntbConfTrnsProtStock > 12
      * </code>
      *
-     * @param     mixed $intbconftrnsprotstock The value to use as filter.
+     * @param mixed $intbconftrnsprotstock The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconftrnsprotstock($intbconftrnsprotstock = null, $comparison = null)
+    public function filterByIntbconftrnsprotstock($intbconftrnsprotstock = null, ?string $comparison = null)
     {
         if (is_array($intbconftrnsprotstock)) {
             $useMinMax = false;
@@ -4125,7 +4587,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRNSPROTSTOCK, $intbconftrnsprotstock, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRNSPROTSTOCK, $intbconftrnsprotstock, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4135,14 +4599,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfnumericitem('fooValue');   // WHERE IntbConfNumericItem = 'fooValue'
      * $query->filterByIntbconfnumericitem('%fooValue%', Criteria::LIKE); // WHERE IntbConfNumericItem LIKE '%fooValue%'
+     * $query->filterByIntbconfnumericitem(['foo', 'bar']); // WHERE IntbConfNumericItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfnumericitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfnumericitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfnumericitem($intbconfnumericitem = null, $comparison = null)
+    public function filterByIntbconfnumericitem($intbconfnumericitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfnumericitem)) {
@@ -4150,7 +4615,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNUMERICITEM, $intbconfnumericitem, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNUMERICITEM, $intbconfnumericitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4163,15 +4630,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfitemdigits(array('min' => 12)); // WHERE IntbConfItemDigits > 12
      * </code>
      *
-     * @param     mixed $intbconfitemdigits The value to use as filter.
+     * @param mixed $intbconfitemdigits The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfitemdigits($intbconfitemdigits = null, $comparison = null)
+    public function filterByIntbconfitemdigits($intbconfitemdigits = null, ?string $comparison = null)
     {
         if (is_array($intbconfitemdigits)) {
             $useMinMax = false;
@@ -4191,7 +4658,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFITEMDIGITS, $intbconfitemdigits, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFITEMDIGITS, $intbconfitemdigits, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4201,14 +4670,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfsinglewhse('fooValue');   // WHERE IntbConfSingleWhse = 'fooValue'
      * $query->filterByIntbconfsinglewhse('%fooValue%', Criteria::LIKE); // WHERE IntbConfSingleWhse LIKE '%fooValue%'
+     * $query->filterByIntbconfsinglewhse(['foo', 'bar']); // WHERE IntbConfSingleWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfsinglewhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfsinglewhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfsinglewhse($intbconfsinglewhse = null, $comparison = null)
+    public function filterByIntbconfsinglewhse($intbconfsinglewhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfsinglewhse)) {
@@ -4216,7 +4686,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSINGLEWHSE, $intbconfsinglewhse, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSINGLEWHSE, $intbconfsinglewhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4226,14 +4698,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfupdusepct('fooValue');   // WHERE IntbConfUpdUsePct = 'fooValue'
      * $query->filterByIntbconfupdusepct('%fooValue%', Criteria::LIKE); // WHERE IntbConfUpdUsePct LIKE '%fooValue%'
+     * $query->filterByIntbconfupdusepct(['foo', 'bar']); // WHERE IntbConfUpdUsePct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfupdusepct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfupdusepct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfupdusepct($intbconfupdusepct = null, $comparison = null)
+    public function filterByIntbconfupdusepct($intbconfupdusepct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfupdusepct)) {
@@ -4241,7 +4714,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPDUSEPCT, $intbconfupdusepct, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPDUSEPCT, $intbconfupdusepct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4251,14 +4726,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfupdpric('fooValue');   // WHERE IntbConfUpdPric = 'fooValue'
      * $query->filterByIntbconfupdpric('%fooValue%', Criteria::LIKE); // WHERE IntbConfUpdPric LIKE '%fooValue%'
+     * $query->filterByIntbconfupdpric(['foo', 'bar']); // WHERE IntbConfUpdPric IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfupdpric The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfupdpric The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfupdpric($intbconfupdpric = null, $comparison = null)
+    public function filterByIntbconfupdpric($intbconfupdpric = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfupdpric)) {
@@ -4266,7 +4742,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPDPRIC, $intbconfupdpric, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPDPRIC, $intbconfupdpric, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4276,14 +4754,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfupdstdcost('fooValue');   // WHERE IntbConfUpdStdCost = 'fooValue'
      * $query->filterByIntbconfupdstdcost('%fooValue%', Criteria::LIKE); // WHERE IntbConfUpdStdCost LIKE '%fooValue%'
+     * $query->filterByIntbconfupdstdcost(['foo', 'bar']); // WHERE IntbConfUpdStdCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfupdstdcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfupdstdcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfupdstdcost($intbconfupdstdcost = null, $comparison = null)
+    public function filterByIntbconfupdstdcost($intbconfupdstdcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfupdstdcost)) {
@@ -4291,7 +4770,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPDSTDCOST, $intbconfupdstdcost, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPDSTDCOST, $intbconfupdstdcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4301,14 +4782,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfupdxrefcost('fooValue');   // WHERE IntbConfUpdXrefCost = 'fooValue'
      * $query->filterByIntbconfupdxrefcost('%fooValue%', Criteria::LIKE); // WHERE IntbConfUpdXrefCost LIKE '%fooValue%'
+     * $query->filterByIntbconfupdxrefcost(['foo', 'bar']); // WHERE IntbConfUpdXrefCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfupdxrefcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfupdxrefcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfupdxrefcost($intbconfupdxrefcost = null, $comparison = null)
+    public function filterByIntbconfupdxrefcost($intbconfupdxrefcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfupdxrefcost)) {
@@ -4316,7 +4798,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPDXREFCOST, $intbconfupdxrefcost, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPDXREFCOST, $intbconfupdxrefcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4326,14 +4810,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfiqpaupddate('fooValue');   // WHERE IntbConfIqpaUpdDate = 'fooValue'
      * $query->filterByIntbconfiqpaupddate('%fooValue%', Criteria::LIKE); // WHERE IntbConfIqpaUpdDate LIKE '%fooValue%'
+     * $query->filterByIntbconfiqpaupddate(['foo', 'bar']); // WHERE IntbConfIqpaUpdDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfiqpaupddate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfiqpaupddate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfiqpaupddate($intbconfiqpaupddate = null, $comparison = null)
+    public function filterByIntbconfiqpaupddate($intbconfiqpaupddate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfiqpaupddate)) {
@@ -4341,7 +4826,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFIQPAUPDDATE, $intbconfiqpaupddate, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFIQPAUPDDATE, $intbconfiqpaupddate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4351,14 +4838,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfupcxrefoptn('fooValue');   // WHERE IntbConfUpcXrefOptn = 'fooValue'
      * $query->filterByIntbconfupcxrefoptn('%fooValue%', Criteria::LIKE); // WHERE IntbConfUpcXrefOptn LIKE '%fooValue%'
+     * $query->filterByIntbconfupcxrefoptn(['foo', 'bar']); // WHERE IntbConfUpcXrefOptn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfupcxrefoptn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfupcxrefoptn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfupcxrefoptn($intbconfupcxrefoptn = null, $comparison = null)
+    public function filterByIntbconfupcxrefoptn($intbconfupcxrefoptn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfupcxrefoptn)) {
@@ -4366,7 +4854,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPCXREFOPTN, $intbconfupcxrefoptn, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPCXREFOPTN, $intbconfupcxrefoptn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4376,14 +4866,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconftranviewlib('fooValue');   // WHERE IntbConfTranViewLIB = 'fooValue'
      * $query->filterByIntbconftranviewlib('%fooValue%', Criteria::LIKE); // WHERE IntbConfTranViewLIB LIKE '%fooValue%'
+     * $query->filterByIntbconftranviewlib(['foo', 'bar']); // WHERE IntbConfTranViewLIB IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconftranviewlib The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconftranviewlib The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconftranviewlib($intbconftranviewlib = null, $comparison = null)
+    public function filterByIntbconftranviewlib($intbconftranviewlib = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconftranviewlib)) {
@@ -4391,7 +4882,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRANVIEWLIB, $intbconftranviewlib, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTRANVIEWLIB, $intbconftranviewlib, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4401,14 +4894,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfresvcost('fooValue');   // WHERE IntbConfResvCost = 'fooValue'
      * $query->filterByIntbconfresvcost('%fooValue%', Criteria::LIKE); // WHERE IntbConfResvCost LIKE '%fooValue%'
+     * $query->filterByIntbconfresvcost(['foo', 'bar']); // WHERE IntbConfResvCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfresvcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfresvcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfresvcost($intbconfresvcost = null, $comparison = null)
+    public function filterByIntbconfresvcost($intbconfresvcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfresvcost)) {
@@ -4416,7 +4910,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFRESVCOST, $intbconfresvcost, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFRESVCOST, $intbconfresvcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4426,14 +4922,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2tranzerorqst('fooValue');   // WHERE IntbCon2TranZeroRqst = 'fooValue'
      * $query->filterByIntbcon2tranzerorqst('%fooValue%', Criteria::LIKE); // WHERE IntbCon2TranZeroRqst LIKE '%fooValue%'
+     * $query->filterByIntbcon2tranzerorqst(['foo', 'bar']); // WHERE IntbCon2TranZeroRqst IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2tranzerorqst The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2tranzerorqst The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2tranzerorqst($intbcon2tranzerorqst = null, $comparison = null)
+    public function filterByIntbcon2tranzerorqst($intbcon2tranzerorqst = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2tranzerorqst)) {
@@ -4441,7 +4938,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2TRANZERORQST, $intbcon2tranzerorqst, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2TRANZERORQST, $intbcon2tranzerorqst, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4451,14 +4950,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfmonendadjdate('fooValue');   // WHERE IntbConfMonEndAdjDate = 'fooValue'
      * $query->filterByIntbconfmonendadjdate('%fooValue%', Criteria::LIKE); // WHERE IntbConfMonEndAdjDate LIKE '%fooValue%'
+     * $query->filterByIntbconfmonendadjdate(['foo', 'bar']); // WHERE IntbConfMonEndAdjDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfmonendadjdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfmonendadjdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfmonendadjdate($intbconfmonendadjdate = null, $comparison = null)
+    public function filterByIntbconfmonendadjdate($intbconfmonendadjdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfmonendadjdate)) {
@@ -4466,7 +4966,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMONENDADJDATE, $intbconfmonendadjdate, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMONENDADJDATE, $intbconfmonendadjdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4476,14 +4978,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfmonendtrndate('fooValue');   // WHERE IntbConfMonEndTrnDate = 'fooValue'
      * $query->filterByIntbconfmonendtrndate('%fooValue%', Criteria::LIKE); // WHERE IntbConfMonEndTrnDate LIKE '%fooValue%'
+     * $query->filterByIntbconfmonendtrndate(['foo', 'bar']); // WHERE IntbConfMonEndTrnDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfmonendtrndate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfmonendtrndate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfmonendtrndate($intbconfmonendtrndate = null, $comparison = null)
+    public function filterByIntbconfmonendtrndate($intbconfmonendtrndate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfmonendtrndate)) {
@@ -4491,7 +4994,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMONENDTRNDATE, $intbconfmonendtrndate, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMONENDTRNDATE, $intbconfmonendtrndate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4501,14 +5006,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfmonendlogdate('fooValue');   // WHERE IntbConfMonEndLogDate = 'fooValue'
      * $query->filterByIntbconfmonendlogdate('%fooValue%', Criteria::LIKE); // WHERE IntbConfMonEndLogDate LIKE '%fooValue%'
+     * $query->filterByIntbconfmonendlogdate(['foo', 'bar']); // WHERE IntbConfMonEndLogDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfmonendlogdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfmonendlogdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfmonendlogdate($intbconfmonendlogdate = null, $comparison = null)
+    public function filterByIntbconfmonendlogdate($intbconfmonendlogdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfmonendlogdate)) {
@@ -4516,7 +5022,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMONENDLOGDATE, $intbconfmonendlogdate, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMONENDLOGDATE, $intbconfmonendlogdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4526,14 +5034,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdstatproc('fooValue');   // WHERE IntbConfDStatProc = 'fooValue'
      * $query->filterByIntbconfdstatproc('%fooValue%', Criteria::LIKE); // WHERE IntbConfDStatProc LIKE '%fooValue%'
+     * $query->filterByIntbconfdstatproc(['foo', 'bar']); // WHERE IntbConfDStatProc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdstatproc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdstatproc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdstatproc($intbconfdstatproc = null, $comparison = null)
+    public function filterByIntbconfdstatproc($intbconfdstatproc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdstatproc)) {
@@ -4541,7 +5050,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDSTATPROC, $intbconfdstatproc, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDSTATPROC, $intbconfdstatproc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4551,14 +5062,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfstancostupd('fooValue');   // WHERE IntbConfStanCostUpd = 'fooValue'
      * $query->filterByIntbconfstancostupd('%fooValue%', Criteria::LIKE); // WHERE IntbConfStanCostUpd LIKE '%fooValue%'
+     * $query->filterByIntbconfstancostupd(['foo', 'bar']); // WHERE IntbConfStanCostUpd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfstancostupd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfstancostupd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfstancostupd($intbconfstancostupd = null, $comparison = null)
+    public function filterByIntbconfstancostupd($intbconfstancostupd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfstancostupd)) {
@@ -4566,7 +5078,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTANCOSTUPD, $intbconfstancostupd, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTANCOSTUPD, $intbconfstancostupd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4576,14 +5090,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconflastcost('fooValue');   // WHERE IntbConfLastCost = 'fooValue'
      * $query->filterByIntbconflastcost('%fooValue%', Criteria::LIKE); // WHERE IntbConfLastCost LIKE '%fooValue%'
+     * $query->filterByIntbconflastcost(['foo', 'bar']); // WHERE IntbConfLastCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconflastcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconflastcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconflastcost($intbconflastcost = null, $comparison = null)
+    public function filterByIntbconflastcost($intbconflastcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconflastcost)) {
@@ -4591,7 +5106,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFLASTCOST, $intbconflastcost, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFLASTCOST, $intbconflastcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4601,14 +5118,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusesorgpct('fooValue');   // WHERE IntbConfUseSOrGPct = 'fooValue'
      * $query->filterByIntbconfusesorgpct('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseSOrGPct LIKE '%fooValue%'
+     * $query->filterByIntbconfusesorgpct(['foo', 'bar']); // WHERE IntbConfUseSOrGPct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusesorgpct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusesorgpct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusesorgpct($intbconfusesorgpct = null, $comparison = null)
+    public function filterByIntbconfusesorgpct($intbconfusesorgpct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusesorgpct)) {
@@ -4616,7 +5134,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSESORGPCT, $intbconfusesorgpct, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSESORGPCT, $intbconfusesorgpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4629,15 +5149,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfaddonstan(array('min' => 12)); // WHERE IntbConfAddOnStan > 12
      * </code>
      *
-     * @param     mixed $intbconfaddonstan The value to use as filter.
+     * @param mixed $intbconfaddonstan The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfaddonstan($intbconfaddonstan = null, $comparison = null)
+    public function filterByIntbconfaddonstan($intbconfaddonstan = null, ?string $comparison = null)
     {
         if (is_array($intbconfaddonstan)) {
             $useMinMax = false;
@@ -4657,7 +5177,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADDONSTAN, $intbconfaddonstan, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADDONSTAN, $intbconfaddonstan, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4667,14 +5189,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfstdcosterror('fooValue');   // WHERE IntbConfStdCostError = 'fooValue'
      * $query->filterByIntbconfstdcosterror('%fooValue%', Criteria::LIKE); // WHERE IntbConfStdCostError LIKE '%fooValue%'
+     * $query->filterByIntbconfstdcosterror(['foo', 'bar']); // WHERE IntbConfStdCostError IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfstdcosterror The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfstdcosterror The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfstdcosterror($intbconfstdcosterror = null, $comparison = null)
+    public function filterByIntbconfstdcosterror($intbconfstdcosterror = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfstdcosterror)) {
@@ -4682,7 +5205,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTDCOSTERROR, $intbconfstdcosterror, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTDCOSTERROR, $intbconfstdcosterror, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4692,14 +5217,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfavgcurrfive('fooValue');   // WHERE IntbConfAvgCurrFive = 'fooValue'
      * $query->filterByIntbconfavgcurrfive('%fooValue%', Criteria::LIKE); // WHERE IntbConfAvgCurrFive LIKE '%fooValue%'
+     * $query->filterByIntbconfavgcurrfive(['foo', 'bar']); // WHERE IntbConfAvgCurrFive IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfavgcurrfive The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfavgcurrfive The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfavgcurrfive($intbconfavgcurrfive = null, $comparison = null)
+    public function filterByIntbconfavgcurrfive($intbconfavgcurrfive = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfavgcurrfive)) {
@@ -4707,7 +5233,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFAVGCURRFIVE, $intbconfavgcurrfive, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFAVGCURRFIVE, $intbconfavgcurrfive, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4717,14 +5245,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusecntrlbin('fooValue');   // WHERE IntbConfUseCntrlBin = 'fooValue'
      * $query->filterByIntbconfusecntrlbin('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseCntrlBin LIKE '%fooValue%'
+     * $query->filterByIntbconfusecntrlbin(['foo', 'bar']); // WHERE IntbConfUseCntrlBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusecntrlbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusecntrlbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusecntrlbin($intbconfusecntrlbin = null, $comparison = null)
+    public function filterByIntbconfusecntrlbin($intbconfusecntrlbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusecntrlbin)) {
@@ -4732,7 +5261,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSECNTRLBIN, $intbconfusecntrlbin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSECNTRLBIN, $intbconfusecntrlbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4745,15 +5276,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfnbrbinareas(array('min' => 12)); // WHERE IntbConfNbrBinAreas > 12
      * </code>
      *
-     * @param     mixed $intbconfnbrbinareas The value to use as filter.
+     * @param mixed $intbconfnbrbinareas The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfnbrbinareas($intbconfnbrbinareas = null, $comparison = null)
+    public function filterByIntbconfnbrbinareas($intbconfnbrbinareas = null, ?string $comparison = null)
     {
         if (is_array($intbconfnbrbinareas)) {
             $useMinMax = false;
@@ -4773,7 +5304,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNBRBINAREAS, $intbconfnbrbinareas, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFNBRBINAREAS, $intbconfnbrbinareas, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4783,14 +5316,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusemultbin('fooValue');   // WHERE IntbConfUseMultBin = 'fooValue'
      * $query->filterByIntbconfusemultbin('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseMultBin LIKE '%fooValue%'
+     * $query->filterByIntbconfusemultbin(['foo', 'bar']); // WHERE IntbConfUseMultBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusemultbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusemultbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusemultbin($intbconfusemultbin = null, $comparison = null)
+    public function filterByIntbconfusemultbin($intbconfusemultbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusemultbin)) {
@@ -4798,7 +5332,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEMULTBIN, $intbconfusemultbin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEMULTBIN, $intbconfusemultbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4808,14 +5344,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdfltwhsebin('fooValue');   // WHERE IntbConfDfltWhseBin = 'fooValue'
      * $query->filterByIntbconfdfltwhsebin('%fooValue%', Criteria::LIKE); // WHERE IntbConfDfltWhseBin LIKE '%fooValue%'
+     * $query->filterByIntbconfdfltwhsebin(['foo', 'bar']); // WHERE IntbConfDfltWhseBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdfltwhsebin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdfltwhsebin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdfltwhsebin($intbconfdfltwhsebin = null, $comparison = null)
+    public function filterByIntbconfdfltwhsebin($intbconfdfltwhsebin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdfltwhsebin)) {
@@ -4823,7 +5360,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDFLTWHSEBIN, $intbconfdfltwhsebin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDFLTWHSEBIN, $intbconfdfltwhsebin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4833,14 +5372,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdfltbin('fooValue');   // WHERE IntbConfDfltBin = 'fooValue'
      * $query->filterByIntbconfdfltbin('%fooValue%', Criteria::LIKE); // WHERE IntbConfDfltBin LIKE '%fooValue%'
+     * $query->filterByIntbconfdfltbin(['foo', 'bar']); // WHERE IntbConfDfltBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdfltbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdfltbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdfltbin($intbconfdfltbin = null, $comparison = null)
+    public function filterByIntbconfdfltbin($intbconfdfltbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdfltbin)) {
@@ -4848,7 +5388,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDFLTBIN, $intbconfdfltbin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDFLTBIN, $intbconfdfltbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4858,14 +5400,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfctryitemlot('fooValue');   // WHERE IntbConfCtryItemLot = 'fooValue'
      * $query->filterByIntbconfctryitemlot('%fooValue%', Criteria::LIKE); // WHERE IntbConfCtryItemLot LIKE '%fooValue%'
+     * $query->filterByIntbconfctryitemlot(['foo', 'bar']); // WHERE IntbConfCtryItemLot IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfctryitemlot The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfctryitemlot The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfctryitemlot($intbconfctryitemlot = null, $comparison = null)
+    public function filterByIntbconfctryitemlot($intbconfctryitemlot = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfctryitemlot)) {
@@ -4873,7 +5416,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCTRYITEMLOT, $intbconfctryitemlot, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCTRYITEMLOT, $intbconfctryitemlot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4883,14 +5428,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfuseshipbin('fooValue');   // WHERE IntbConfUseShipBin = 'fooValue'
      * $query->filterByIntbconfuseshipbin('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseShipBin LIKE '%fooValue%'
+     * $query->filterByIntbconfuseshipbin(['foo', 'bar']); // WHERE IntbConfUseShipBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfuseshipbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfuseshipbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfuseshipbin($intbconfuseshipbin = null, $comparison = null)
+    public function filterByIntbconfuseshipbin($intbconfuseshipbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfuseshipbin)) {
@@ -4898,7 +5444,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSESHIPBIN, $intbconfuseshipbin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSESHIPBIN, $intbconfuseshipbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4908,14 +5456,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2prtbinrlabel('fooValue');   // WHERE IntbCon2PrtBinrLabel = 'fooValue'
      * $query->filterByIntbcon2prtbinrlabel('%fooValue%', Criteria::LIKE); // WHERE IntbCon2PrtBinrLabel LIKE '%fooValue%'
+     * $query->filterByIntbcon2prtbinrlabel(['foo', 'bar']); // WHERE IntbCon2PrtBinrLabel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2prtbinrlabel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2prtbinrlabel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2prtbinrlabel($intbcon2prtbinrlabel = null, $comparison = null)
+    public function filterByIntbcon2prtbinrlabel($intbcon2prtbinrlabel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2prtbinrlabel)) {
@@ -4923,7 +5472,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2PRTBINRLABEL, $intbcon2prtbinrlabel, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2PRTBINRLABEL, $intbcon2prtbinrlabel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4933,14 +5484,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2itemlookup('fooValue');   // WHERE IntbCon2ItemLookup = 'fooValue'
      * $query->filterByIntbcon2itemlookup('%fooValue%', Criteria::LIKE); // WHERE IntbCon2ItemLookup LIKE '%fooValue%'
+     * $query->filterByIntbcon2itemlookup(['foo', 'bar']); // WHERE IntbCon2ItemLookup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2itemlookup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2itemlookup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2itemlookup($intbcon2itemlookup = null, $comparison = null)
+    public function filterByIntbcon2itemlookup($intbcon2itemlookup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2itemlookup)) {
@@ -4948,7 +5500,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2ITEMLOOKUP, $intbcon2itemlookup, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2ITEMLOOKUP, $intbcon2itemlookup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4958,14 +5512,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfincldcti('fooValue');   // WHERE IntbConfIncldCti = 'fooValue'
      * $query->filterByIntbconfincldcti('%fooValue%', Criteria::LIKE); // WHERE IntbConfIncldCti LIKE '%fooValue%'
+     * $query->filterByIntbconfincldcti(['foo', 'bar']); // WHERE IntbConfIncldCti IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfincldcti The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfincldcti The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfincldcti($intbconfincldcti = null, $comparison = null)
+    public function filterByIntbconfincldcti($intbconfincldcti = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfincldcti)) {
@@ -4973,7 +5528,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFINCLDCTI, $intbconfincldcti, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFINCLDCTI, $intbconfincldcti, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4983,14 +5540,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcertimage('fooValue');   // WHERE IntbConfCertImage = 'fooValue'
      * $query->filterByIntbconfcertimage('%fooValue%', Criteria::LIKE); // WHERE IntbConfCertImage LIKE '%fooValue%'
+     * $query->filterByIntbconfcertimage(['foo', 'bar']); // WHERE IntbConfCertImage IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcertimage The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcertimage The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcertimage($intbconfcertimage = null, $comparison = null)
+    public function filterByIntbconfcertimage($intbconfcertimage = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcertimage)) {
@@ -4998,7 +5556,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCERTIMAGE, $intbconfcertimage, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCERTIMAGE, $intbconfcertimage, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5008,14 +5568,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdrawimage('fooValue');   // WHERE IntbConfDrawImage = 'fooValue'
      * $query->filterByIntbconfdrawimage('%fooValue%', Criteria::LIKE); // WHERE IntbConfDrawImage LIKE '%fooValue%'
+     * $query->filterByIntbconfdrawimage(['foo', 'bar']); // WHERE IntbConfDrawImage IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdrawimage The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdrawimage The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdrawimage($intbconfdrawimage = null, $comparison = null)
+    public function filterByIntbconfdrawimage($intbconfdrawimage = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdrawimage)) {
@@ -5023,7 +5584,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDRAWIMAGE, $intbconfdrawimage, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDRAWIMAGE, $intbconfdrawimage, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5033,14 +5596,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfconfirmimage('fooValue');   // WHERE IntbConfConfirmImage = 'fooValue'
      * $query->filterByIntbconfconfirmimage('%fooValue%', Criteria::LIKE); // WHERE IntbConfConfirmImage LIKE '%fooValue%'
+     * $query->filterByIntbconfconfirmimage(['foo', 'bar']); // WHERE IntbConfConfirmImage IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfconfirmimage The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfconfirmimage The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfconfirmimage($intbconfconfirmimage = null, $comparison = null)
+    public function filterByIntbconfconfirmimage($intbconfconfirmimage = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfconfirmimage)) {
@@ -5048,7 +5612,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCONFIRMIMAGE, $intbconfconfirmimage, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCONFIRMIMAGE, $intbconfconfirmimage, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5058,14 +5624,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2productimage('fooValue');   // WHERE IntbCon2ProductImage = 'fooValue'
      * $query->filterByIntbcon2productimage('%fooValue%', Criteria::LIKE); // WHERE IntbCon2ProductImage LIKE '%fooValue%'
+     * $query->filterByIntbcon2productimage(['foo', 'bar']); // WHERE IntbCon2ProductImage IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2productimage The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2productimage The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2productimage($intbcon2productimage = null, $comparison = null)
+    public function filterByIntbcon2productimage($intbcon2productimage = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2productimage)) {
@@ -5073,7 +5640,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2PRODUCTIMAGE, $intbcon2productimage, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2PRODUCTIMAGE, $intbcon2productimage, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5083,14 +5652,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdefpick('fooValue');   // WHERE IntbConfDefPick = 'fooValue'
      * $query->filterByIntbconfdefpick('%fooValue%', Criteria::LIKE); // WHERE IntbConfDefPick LIKE '%fooValue%'
+     * $query->filterByIntbconfdefpick(['foo', 'bar']); // WHERE IntbConfDefPick IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdefpick The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdefpick The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdefpick($intbconfdefpick = null, $comparison = null)
+    public function filterByIntbconfdefpick($intbconfdefpick = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdefpick)) {
@@ -5098,7 +5668,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFPICK, $intbconfdefpick, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFPICK, $intbconfdefpick, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5108,14 +5680,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdefpack('fooValue');   // WHERE IntbConfDefPack = 'fooValue'
      * $query->filterByIntbconfdefpack('%fooValue%', Criteria::LIKE); // WHERE IntbConfDefPack LIKE '%fooValue%'
+     * $query->filterByIntbconfdefpack(['foo', 'bar']); // WHERE IntbConfDefPack IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdefpack The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdefpack The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdefpack($intbconfdefpack = null, $comparison = null)
+    public function filterByIntbconfdefpack($intbconfdefpack = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdefpack)) {
@@ -5123,7 +5696,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFPACK, $intbconfdefpack, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFPACK, $intbconfdefpack, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5133,14 +5708,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdefinvc('fooValue');   // WHERE IntbConfDefInvc = 'fooValue'
      * $query->filterByIntbconfdefinvc('%fooValue%', Criteria::LIKE); // WHERE IntbConfDefInvc LIKE '%fooValue%'
+     * $query->filterByIntbconfdefinvc(['foo', 'bar']); // WHERE IntbConfDefInvc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdefinvc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdefinvc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdefinvc($intbconfdefinvc = null, $comparison = null)
+    public function filterByIntbconfdefinvc($intbconfdefinvc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdefinvc)) {
@@ -5148,7 +5724,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFINVC, $intbconfdefinvc, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFINVC, $intbconfdefinvc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5158,14 +5736,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdefack('fooValue');   // WHERE IntbConfDefAck = 'fooValue'
      * $query->filterByIntbconfdefack('%fooValue%', Criteria::LIKE); // WHERE IntbConfDefAck LIKE '%fooValue%'
+     * $query->filterByIntbconfdefack(['foo', 'bar']); // WHERE IntbConfDefAck IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdefack The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdefack The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdefack($intbconfdefack = null, $comparison = null)
+    public function filterByIntbconfdefack($intbconfdefack = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdefack)) {
@@ -5173,7 +5752,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFACK, $intbconfdefack, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFACK, $intbconfdefack, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5183,14 +5764,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdefquot('fooValue');   // WHERE IntbConfDefQuot = 'fooValue'
      * $query->filterByIntbconfdefquot('%fooValue%', Criteria::LIKE); // WHERE IntbConfDefQuot LIKE '%fooValue%'
+     * $query->filterByIntbconfdefquot(['foo', 'bar']); // WHERE IntbConfDefQuot IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdefquot The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdefquot The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdefquot($intbconfdefquot = null, $comparison = null)
+    public function filterByIntbconfdefquot($intbconfdefquot = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdefquot)) {
@@ -5198,7 +5780,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFQUOT, $intbconfdefquot, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFQUOT, $intbconfdefquot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5208,14 +5792,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdefpo('fooValue');   // WHERE IntbConfDefPo = 'fooValue'
      * $query->filterByIntbconfdefpo('%fooValue%', Criteria::LIKE); // WHERE IntbConfDefPo LIKE '%fooValue%'
+     * $query->filterByIntbconfdefpo(['foo', 'bar']); // WHERE IntbConfDefPo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdefpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdefpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdefpo($intbconfdefpo = null, $comparison = null)
+    public function filterByIntbconfdefpo($intbconfdefpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdefpo)) {
@@ -5223,7 +5808,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFPO, $intbconfdefpo, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFPO, $intbconfdefpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5233,14 +5820,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdeftrans('fooValue');   // WHERE IntbConfDefTrans = 'fooValue'
      * $query->filterByIntbconfdeftrans('%fooValue%', Criteria::LIKE); // WHERE IntbConfDefTrans LIKE '%fooValue%'
+     * $query->filterByIntbconfdeftrans(['foo', 'bar']); // WHERE IntbConfDefTrans IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdeftrans The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdeftrans The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdeftrans($intbconfdeftrans = null, $comparison = null)
+    public function filterByIntbconfdeftrans($intbconfdeftrans = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdeftrans)) {
@@ -5248,7 +5836,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFTRANS, $intbconfdeftrans, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFTRANS, $intbconfdeftrans, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5258,14 +5848,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfadjglcogs('fooValue');   // WHERE IntbConfAdjGlCogs = 'fooValue'
      * $query->filterByIntbconfadjglcogs('%fooValue%', Criteria::LIKE); // WHERE IntbConfAdjGlCogs LIKE '%fooValue%'
+     * $query->filterByIntbconfadjglcogs(['foo', 'bar']); // WHERE IntbConfAdjGlCogs IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfadjglcogs The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfadjglcogs The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfadjglcogs($intbconfadjglcogs = null, $comparison = null)
+    public function filterByIntbconfadjglcogs($intbconfadjglcogs = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfadjglcogs)) {
@@ -5273,7 +5864,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADJGLCOGS, $intbconfadjglcogs, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADJGLCOGS, $intbconfadjglcogs, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5283,14 +5876,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2dfltadjglacct('fooValue');   // WHERE IntbCon2DfltAdjGlAcct = 'fooValue'
      * $query->filterByIntbcon2dfltadjglacct('%fooValue%', Criteria::LIKE); // WHERE IntbCon2DfltAdjGlAcct LIKE '%fooValue%'
+     * $query->filterByIntbcon2dfltadjglacct(['foo', 'bar']); // WHERE IntbCon2DfltAdjGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2dfltadjglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2dfltadjglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2dfltadjglacct($intbcon2dfltadjglacct = null, $comparison = null)
+    public function filterByIntbcon2dfltadjglacct($intbcon2dfltadjglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2dfltadjglacct)) {
@@ -5298,7 +5892,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTADJGLACCT, $intbcon2dfltadjglacct, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2DFLTADJGLACCT, $intbcon2dfltadjglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5308,14 +5904,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfadjcostbase('fooValue');   // WHERE IntbConfAdjCostBase = 'fooValue'
      * $query->filterByIntbconfadjcostbase('%fooValue%', Criteria::LIKE); // WHERE IntbConfAdjCostBase LIKE '%fooValue%'
+     * $query->filterByIntbconfadjcostbase(['foo', 'bar']); // WHERE IntbConfAdjCostBase IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfadjcostbase The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfadjcostbase The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfadjcostbase($intbconfadjcostbase = null, $comparison = null)
+    public function filterByIntbconfadjcostbase($intbconfadjcostbase = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfadjcostbase)) {
@@ -5323,7 +5920,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADJCOSTBASE, $intbconfadjcostbase, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADJCOSTBASE, $intbconfadjcostbase, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5333,14 +5932,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdfltadjtbin('fooValue');   // WHERE IntbConfDfltAdjtBin = 'fooValue'
      * $query->filterByIntbconfdfltadjtbin('%fooValue%', Criteria::LIKE); // WHERE IntbConfDfltAdjtBin LIKE '%fooValue%'
+     * $query->filterByIntbconfdfltadjtbin(['foo', 'bar']); // WHERE IntbConfDfltAdjtBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdfltadjtbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdfltadjtbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdfltadjtbin($intbconfdfltadjtbin = null, $comparison = null)
+    public function filterByIntbconfdfltadjtbin($intbconfdfltadjtbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdfltadjtbin)) {
@@ -5348,7 +5948,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDFLTADJTBIN, $intbconfdfltadjtbin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDFLTADJTBIN, $intbconfdfltadjtbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5358,14 +5960,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfadjtbin('fooValue');   // WHERE IntbConfAdjtBin = 'fooValue'
      * $query->filterByIntbconfadjtbin('%fooValue%', Criteria::LIKE); // WHERE IntbConfAdjtBin LIKE '%fooValue%'
+     * $query->filterByIntbconfadjtbin(['foo', 'bar']); // WHERE IntbConfAdjtBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfadjtbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfadjtbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfadjtbin($intbconfadjtbin = null, $comparison = null)
+    public function filterByIntbconfadjtbin($intbconfadjtbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfadjtbin)) {
@@ -5373,7 +5976,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADJTBIN, $intbconfadjtbin, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADJTBIN, $intbconfadjtbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5383,14 +5988,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcstockseq('fooValue');   // WHERE IntbConfCStockSeq = 'fooValue'
      * $query->filterByIntbconfcstockseq('%fooValue%', Criteria::LIKE); // WHERE IntbConfCStockSeq LIKE '%fooValue%'
+     * $query->filterByIntbconfcstockseq(['foo', 'bar']); // WHERE IntbConfCStockSeq IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcstockseq The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcstockseq The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcstockseq($intbconfcstockseq = null, $comparison = null)
+    public function filterByIntbconfcstockseq($intbconfcstockseq = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcstockseq)) {
@@ -5398,7 +6004,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTOCKSEQ, $intbconfcstockseq, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTOCKSEQ, $intbconfcstockseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5411,15 +6019,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfcstockhistday(array('min' => 12)); // WHERE IntbConfCStockHistDay > 12
      * </code>
      *
-     * @param     mixed $intbconfcstockhistday The value to use as filter.
+     * @param mixed $intbconfcstockhistday The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcstockhistday($intbconfcstockhistday = null, $comparison = null)
+    public function filterByIntbconfcstockhistday($intbconfcstockhistday = null, ?string $comparison = null)
     {
         if (is_array($intbconfcstockhistday)) {
             $useMinMax = false;
@@ -5439,7 +6047,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTOCKHISTDAY, $intbconfcstockhistday, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTOCKHISTDAY, $intbconfcstockhistday, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5449,14 +6059,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcstockformat('fooValue');   // WHERE IntbConfCStockFormat = 'fooValue'
      * $query->filterByIntbconfcstockformat('%fooValue%', Criteria::LIKE); // WHERE IntbConfCStockFormat LIKE '%fooValue%'
+     * $query->filterByIntbconfcstockformat(['foo', 'bar']); // WHERE IntbConfCStockFormat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcstockformat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcstockformat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcstockformat($intbconfcstockformat = null, $comparison = null)
+    public function filterByIntbconfcstockformat($intbconfcstockformat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcstockformat)) {
@@ -5464,7 +6075,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTOCKFORMAT, $intbconfcstockformat, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTOCKFORMAT, $intbconfcstockformat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5474,14 +6087,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcstkexportitem('fooValue');   // WHERE IntbConfCstkExportItem = 'fooValue'
      * $query->filterByIntbconfcstkexportitem('%fooValue%', Criteria::LIKE); // WHERE IntbConfCstkExportItem LIKE '%fooValue%'
+     * $query->filterByIntbconfcstkexportitem(['foo', 'bar']); // WHERE IntbConfCstkExportItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcstkexportitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcstkexportitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcstkexportitem($intbconfcstkexportitem = null, $comparison = null)
+    public function filterByIntbconfcstkexportitem($intbconfcstkexportitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcstkexportitem)) {
@@ -5489,7 +6103,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTKEXPORTITEM, $intbconfcstkexportitem, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTKEXPORTITEM, $intbconfcstkexportitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5499,14 +6115,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfcstkpdmcontract('fooValue');   // WHERE IntbConfCstkPdmContract = 'fooValue'
      * $query->filterByIntbconfcstkpdmcontract('%fooValue%', Criteria::LIKE); // WHERE IntbConfCstkPdmContract LIKE '%fooValue%'
+     * $query->filterByIntbconfcstkpdmcontract(['foo', 'bar']); // WHERE IntbConfCstkPdmContract IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfcstkpdmcontract The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfcstkpdmcontract The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfcstkpdmcontract($intbconfcstkpdmcontract = null, $comparison = null)
+    public function filterByIntbconfcstkpdmcontract($intbconfcstkpdmcontract = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfcstkpdmcontract)) {
@@ -5514,7 +6131,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTKPDMCONTRACT, $intbconfcstkpdmcontract, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFCSTKPDMCONTRACT, $intbconfcstkpdmcontract, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5524,14 +6143,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2importseq('fooValue');   // WHERE IntbCon2ImportSeq = 'fooValue'
      * $query->filterByIntbcon2importseq('%fooValue%', Criteria::LIKE); // WHERE IntbCon2ImportSeq LIKE '%fooValue%'
+     * $query->filterByIntbcon2importseq(['foo', 'bar']); // WHERE IntbCon2ImportSeq IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2importseq The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2importseq The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2importseq($intbcon2importseq = null, $comparison = null)
+    public function filterByIntbcon2importseq($intbcon2importseq = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2importseq)) {
@@ -5539,7 +6159,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2IMPORTSEQ, $intbcon2importseq, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2IMPORTSEQ, $intbcon2importseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5552,15 +6174,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfstopitemchg(array('min' => 12)); // WHERE IntbConfStopItemChg > 12
      * </code>
      *
-     * @param     mixed $intbconfstopitemchg The value to use as filter.
+     * @param mixed $intbconfstopitemchg The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfstopitemchg($intbconfstopitemchg = null, $comparison = null)
+    public function filterByIntbconfstopitemchg($intbconfstopitemchg = null, ?string $comparison = null)
     {
         if (is_array($intbconfstopitemchg)) {
             $useMinMax = false;
@@ -5580,7 +6202,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTOPITEMCHG, $intbconfstopitemchg, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTOPITEMCHG, $intbconfstopitemchg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5590,14 +6214,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfaddtomxrfe('fooValue');   // WHERE IntbConfAddToMxrfe = 'fooValue'
      * $query->filterByIntbconfaddtomxrfe('%fooValue%', Criteria::LIKE); // WHERE IntbConfAddToMxrfe LIKE '%fooValue%'
+     * $query->filterByIntbconfaddtomxrfe(['foo', 'bar']); // WHERE IntbConfAddToMxrfe IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfaddtomxrfe The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfaddtomxrfe The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfaddtomxrfe($intbconfaddtomxrfe = null, $comparison = null)
+    public function filterByIntbconfaddtomxrfe($intbconfaddtomxrfe = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfaddtomxrfe)) {
@@ -5605,7 +6230,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADDTOMXRFE, $intbconfaddtomxrfe, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFADDTOMXRFE, $intbconfaddtomxrfe, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5615,14 +6242,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfmxrfevendid('fooValue');   // WHERE IntbConfMxrfeVendId = 'fooValue'
      * $query->filterByIntbconfmxrfevendid('%fooValue%', Criteria::LIKE); // WHERE IntbConfMxrfeVendId LIKE '%fooValue%'
+     * $query->filterByIntbconfmxrfevendid(['foo', 'bar']); // WHERE IntbConfMxrfeVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfmxrfevendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfmxrfevendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfmxrfevendid($intbconfmxrfevendid = null, $comparison = null)
+    public function filterByIntbconfmxrfevendid($intbconfmxrfevendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfmxrfevendid)) {
@@ -5630,7 +6258,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMXRFEVENDID, $intbconfmxrfevendid, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMXRFEVENDID, $intbconfmxrfevendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5640,14 +6270,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2newidlabellist('fooValue');   // WHERE IntbCon2NewIdLabelList = 'fooValue'
      * $query->filterByIntbcon2newidlabellist('%fooValue%', Criteria::LIKE); // WHERE IntbCon2NewIdLabelList LIKE '%fooValue%'
+     * $query->filterByIntbcon2newidlabellist(['foo', 'bar']); // WHERE IntbCon2NewIdLabelList IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2newidlabellist The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2newidlabellist The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2newidlabellist($intbcon2newidlabellist = null, $comparison = null)
+    public function filterByIntbcon2newidlabellist($intbcon2newidlabellist = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2newidlabellist)) {
@@ -5655,7 +6286,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2NEWIDLABELLIST, $intbcon2newidlabellist, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2NEWIDLABELLIST, $intbcon2newidlabellist, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5665,14 +6298,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfuseformat('fooValue');   // WHERE IntbConfUseFormat = 'fooValue'
      * $query->filterByIntbconfuseformat('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseFormat LIKE '%fooValue%'
+     * $query->filterByIntbconfuseformat(['foo', 'bar']); // WHERE IntbConfUseFormat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfuseformat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfuseformat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfuseformat($intbconfuseformat = null, $comparison = null)
+    public function filterByIntbconfuseformat($intbconfuseformat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfuseformat)) {
@@ -5680,7 +6314,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEFORMAT, $intbconfuseformat, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSEFORMAT, $intbconfuseformat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5690,14 +6326,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfdefformat('fooValue');   // WHERE IntbConfDefFormat = 'fooValue'
      * $query->filterByIntbconfdefformat('%fooValue%', Criteria::LIKE); // WHERE IntbConfDefFormat LIKE '%fooValue%'
+     * $query->filterByIntbconfdefformat(['foo', 'bar']); // WHERE IntbConfDefFormat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfdefformat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfdefformat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfdefformat($intbconfdefformat = null, $comparison = null)
+    public function filterByIntbconfdefformat($intbconfdefformat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfdefformat)) {
@@ -5705,7 +6342,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFFORMAT, $intbconfdefformat, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFDEFFORMAT, $intbconfdefformat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5715,14 +6354,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfseqshortitem('fooValue');   // WHERE IntbConfSeqShortItem = 'fooValue'
      * $query->filterByIntbconfseqshortitem('%fooValue%', Criteria::LIKE); // WHERE IntbConfSeqShortItem LIKE '%fooValue%'
+     * $query->filterByIntbconfseqshortitem(['foo', 'bar']); // WHERE IntbConfSeqShortItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfseqshortitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfseqshortitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfseqshortitem($intbconfseqshortitem = null, $comparison = null)
+    public function filterByIntbconfseqshortitem($intbconfseqshortitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfseqshortitem)) {
@@ -5730,7 +6370,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSEQSHORTITEM, $intbconfseqshortitem, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSEQSHORTITEM, $intbconfseqshortitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5743,15 +6385,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * $query->filterByIntbconfshortitemlen(array('min' => 12)); // WHERE IntbConfShortItemLen > 12
      * </code>
      *
-     * @param     mixed $intbconfshortitemlen The value to use as filter.
+     * @param mixed $intbconfshortitemlen The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfshortitemlen($intbconfshortitemlen = null, $comparison = null)
+    public function filterByIntbconfshortitemlen($intbconfshortitemlen = null, ?string $comparison = null)
     {
         if (is_array($intbconfshortitemlen)) {
             $useMinMax = false;
@@ -5771,7 +6413,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSHORTITEMLEN, $intbconfshortitemlen, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSHORTITEMLEN, $intbconfshortitemlen, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5781,14 +6425,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfusescale('fooValue');   // WHERE IntbConfUseScale = 'fooValue'
      * $query->filterByIntbconfusescale('%fooValue%', Criteria::LIKE); // WHERE IntbConfUseScale LIKE '%fooValue%'
+     * $query->filterByIntbconfusescale(['foo', 'bar']); // WHERE IntbConfUseScale IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfusescale The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfusescale The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfusescale($intbconfusescale = null, $comparison = null)
+    public function filterByIntbconfusescale($intbconfusescale = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfusescale)) {
@@ -5796,7 +6441,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSESCALE, $intbconfusescale, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUSESCALE, $intbconfusescale, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5806,14 +6453,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfstorewght('fooValue');   // WHERE IntbConfStoreWght = 'fooValue'
      * $query->filterByIntbconfstorewght('%fooValue%', Criteria::LIKE); // WHERE IntbConfStoreWght LIKE '%fooValue%'
+     * $query->filterByIntbconfstorewght(['foo', 'bar']); // WHERE IntbConfStoreWght IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfstorewght The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfstorewght The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfstorewght($intbconfstorewght = null, $comparison = null)
+    public function filterByIntbconfstorewght($intbconfstorewght = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfstorewght)) {
@@ -5821,7 +6469,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTOREWGHT, $intbconfstorewght, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFSTOREWGHT, $intbconfstorewght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5831,14 +6481,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfvalidasstcode('fooValue');   // WHERE IntbConfValidAsstCode = 'fooValue'
      * $query->filterByIntbconfvalidasstcode('%fooValue%', Criteria::LIKE); // WHERE IntbConfValidAsstCode LIKE '%fooValue%'
+     * $query->filterByIntbconfvalidasstcode(['foo', 'bar']); // WHERE IntbConfValidAsstCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfvalidasstcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfvalidasstcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfvalidasstcode($intbconfvalidasstcode = null, $comparison = null)
+    public function filterByIntbconfvalidasstcode($intbconfvalidasstcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfvalidasstcode)) {
@@ -5846,7 +6497,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFVALIDASSTCODE, $intbconfvalidasstcode, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFVALIDASSTCODE, $intbconfvalidasstcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5856,14 +6509,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbconfwhitegoods('fooValue');   // WHERE IntbConfWhiteGoods = 'fooValue'
      * $query->filterByIntbconfwhitegoods('%fooValue%', Criteria::LIKE); // WHERE IntbConfWhiteGoods LIKE '%fooValue%'
+     * $query->filterByIntbconfwhitegoods(['foo', 'bar']); // WHERE IntbConfWhiteGoods IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbconfwhitegoods The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbconfwhitegoods The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbconfwhitegoods($intbconfwhitegoods = null, $comparison = null)
+    public function filterByIntbconfwhitegoods($intbconfwhitegoods = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbconfwhitegoods)) {
@@ -5871,7 +6525,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFWHITEGOODS, $intbconfwhitegoods, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFWHITEGOODS, $intbconfwhitegoods, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5881,14 +6537,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcon2transcustid('fooValue');   // WHERE IntbCon2TransCustId = 'fooValue'
      * $query->filterByIntbcon2transcustid('%fooValue%', Criteria::LIKE); // WHERE IntbCon2TransCustId LIKE '%fooValue%'
+     * $query->filterByIntbcon2transcustid(['foo', 'bar']); // WHERE IntbCon2TransCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcon2transcustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcon2transcustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcon2transcustid($intbcon2transcustid = null, $comparison = null)
+    public function filterByIntbcon2transcustid($intbcon2transcustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcon2transcustid)) {
@@ -5896,7 +6553,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2TRANSCUSTID, $intbcon2transcustid, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_INTBCON2TRANSCUSTID, $intbcon2transcustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5906,14 +6565,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -5921,7 +6581,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5931,14 +6593,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -5946,7 +6609,9 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5956,14 +6621,15 @@ abstract class ConfigInQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -5971,15 +6637,17 @@ abstract class ConfigInQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigInTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigInTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigIn $configIn Object to remove from the list of results
+     * @param ChildConfigIn $configIn Object to remove from the list of results
      *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configIn = null)
     {
@@ -5996,7 +6664,7 @@ abstract class ConfigInQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigInTableMap::DATABASE_NAME);
@@ -6021,12 +6689,12 @@ abstract class ConfigInQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigInTableMap::DATABASE_NAME);
@@ -6051,4 +6719,4 @@ abstract class ConfigInQuery extends ModelCriteria
         });
     }
 
-} // ConfigInQuery
+}

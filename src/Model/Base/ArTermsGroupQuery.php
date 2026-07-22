@@ -10,14 +10,12 @@ use Map\ArTermsGroupTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_terms_grp' table.
- *
- *
+ * Base class that represents a query for the `ar_terms_grp` table.
  *
  * @method     ChildArTermsGroupQuery orderByArtggrup($order = Criteria::ASC) Order by the ArtgGrup column
  * @method     ChildArTermsGroupQuery orderByArtgdesc($order = Criteria::ASC) Order by the ArtgDesc column
@@ -39,17 +37,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArTermsGroupQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildArTermsGroupQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildArTermsGroup findOne(ConnectionInterface $con = null) Return the first ChildArTermsGroup matching the query
- * @method     ChildArTermsGroup findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArTermsGroup matching the query, or a new ChildArTermsGroup object populated from the query conditions when no match is found
+ * @method     ChildArTermsGroup|null findOne(?ConnectionInterface $con = null) Return the first ChildArTermsGroup matching the query
+ * @method     ChildArTermsGroup findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArTermsGroup matching the query, or a new ChildArTermsGroup object populated from the query conditions when no match is found
  *
- * @method     ChildArTermsGroup findOneByArtggrup(string $ArtgGrup) Return the first ChildArTermsGroup filtered by the ArtgGrup column
- * @method     ChildArTermsGroup findOneByArtgdesc(string $ArtgDesc) Return the first ChildArTermsGroup filtered by the ArtgDesc column
- * @method     ChildArTermsGroup findOneByDateupdtd(string $DateUpdtd) Return the first ChildArTermsGroup filtered by the DateUpdtd column
- * @method     ChildArTermsGroup findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArTermsGroup filtered by the TimeUpdtd column
- * @method     ChildArTermsGroup findOneByDummy(string $dummy) Return the first ChildArTermsGroup filtered by the dummy column *
-
- * @method     ChildArTermsGroup requirePk($key, ConnectionInterface $con = null) Return the ChildArTermsGroup by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArTermsGroup requireOne(ConnectionInterface $con = null) Return the first ChildArTermsGroup matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArTermsGroup|null findOneByArtggrup(string $ArtgGrup) Return the first ChildArTermsGroup filtered by the ArtgGrup column
+ * @method     ChildArTermsGroup|null findOneByArtgdesc(string $ArtgDesc) Return the first ChildArTermsGroup filtered by the ArtgDesc column
+ * @method     ChildArTermsGroup|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArTermsGroup filtered by the DateUpdtd column
+ * @method     ChildArTermsGroup|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArTermsGroup filtered by the TimeUpdtd column
+ * @method     ChildArTermsGroup|null findOneByDummy(string $dummy) Return the first ChildArTermsGroup filtered by the dummy column
+ *
+ * @method     ChildArTermsGroup requirePk($key, ?ConnectionInterface $con = null) Return the ChildArTermsGroup by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArTermsGroup requireOne(?ConnectionInterface $con = null) Return the first ChildArTermsGroup matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArTermsGroup requireOneByArtggrup(string $ArtgGrup) Return the first ChildArTermsGroup filtered by the ArtgGrup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArTermsGroup requireOneByArtgdesc(string $ArtgDesc) Return the first ChildArTermsGroup filtered by the ArtgDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -57,14 +55,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArTermsGroup requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArTermsGroup filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArTermsGroup requireOneByDummy(string $dummy) Return the first ChildArTermsGroup filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArTermsGroup[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArTermsGroup objects based on current ModelCriteria
- * @method     ChildArTermsGroup[]|ObjectCollection findByArtggrup(string $ArtgGrup) Return ChildArTermsGroup objects filtered by the ArtgGrup column
- * @method     ChildArTermsGroup[]|ObjectCollection findByArtgdesc(string $ArtgDesc) Return ChildArTermsGroup objects filtered by the ArtgDesc column
- * @method     ChildArTermsGroup[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArTermsGroup objects filtered by the DateUpdtd column
- * @method     ChildArTermsGroup[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArTermsGroup objects filtered by the TimeUpdtd column
- * @method     ChildArTermsGroup[]|ObjectCollection findByDummy(string $dummy) Return ChildArTermsGroup objects filtered by the dummy column
- * @method     ChildArTermsGroup[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArTermsGroup[]|Collection find(?ConnectionInterface $con = null) Return ChildArTermsGroup objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArTermsGroup> find(?ConnectionInterface $con = null) Return ChildArTermsGroup objects based on current ModelCriteria
  *
+ * @method     ChildArTermsGroup[]|Collection findByArtggrup(string|array<string> $ArtgGrup) Return ChildArTermsGroup objects filtered by the ArtgGrup column
+ * @psalm-method Collection&\Traversable<ChildArTermsGroup> findByArtggrup(string|array<string> $ArtgGrup) Return ChildArTermsGroup objects filtered by the ArtgGrup column
+ * @method     ChildArTermsGroup[]|Collection findByArtgdesc(string|array<string> $ArtgDesc) Return ChildArTermsGroup objects filtered by the ArtgDesc column
+ * @psalm-method Collection&\Traversable<ChildArTermsGroup> findByArtgdesc(string|array<string> $ArtgDesc) Return ChildArTermsGroup objects filtered by the ArtgDesc column
+ * @method     ChildArTermsGroup[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArTermsGroup objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArTermsGroup> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArTermsGroup objects filtered by the DateUpdtd column
+ * @method     ChildArTermsGroup[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArTermsGroup objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArTermsGroup> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArTermsGroup objects filtered by the TimeUpdtd column
+ * @method     ChildArTermsGroup[]|Collection findByDummy(string|array<string> $dummy) Return ChildArTermsGroup objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArTermsGroup> findByDummy(string|array<string> $dummy) Return ChildArTermsGroup objects filtered by the dummy column
+ *
+ * @method     ChildArTermsGroup[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArTermsGroup> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArTermsGroupQuery extends ModelCriteria
 {
@@ -73,9 +79,9 @@ abstract class ArTermsGroupQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArTermsGroupQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArTermsGroup', $modelAlias = null)
     {
@@ -85,12 +91,12 @@ abstract class ArTermsGroupQuery extends ModelCriteria
     /**
      * Returns a new ChildArTermsGroupQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArTermsGroupQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArTermsGroupQuery) {
             return $criteria;
@@ -120,7 +126,7 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      *
      * @return ChildArTermsGroup|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -152,8 +158,8 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -185,8 +191,8 @@ abstract class ArTermsGroupQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArTermsGroup|array|mixed the result, formatted by the current formatter
      */
@@ -206,12 +212,12 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -228,27 +234,31 @@ abstract class ArTermsGroupQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArTermsGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ArTermsGroupTableMap::COL_ARTGGRUP, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ArTermsGroupTableMap::COL_ARTGGRUP, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArTermsGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ArTermsGroupTableMap::COL_ARTGGRUP, $keys, Criteria::IN);
+        $this->addUsingAlias(ArTermsGroupTableMap::COL_ARTGGRUP, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -258,14 +268,15 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByArtggrup('fooValue');   // WHERE ArtgGrup = 'fooValue'
      * $query->filterByArtggrup('%fooValue%', Criteria::LIKE); // WHERE ArtgGrup LIKE '%fooValue%'
+     * $query->filterByArtggrup(['foo', 'bar']); // WHERE ArtgGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artggrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artggrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArTermsGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtggrup($artggrup = null, $comparison = null)
+    public function filterByArtggrup($artggrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artggrup)) {
@@ -273,7 +284,9 @@ abstract class ArTermsGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArTermsGroupTableMap::COL_ARTGGRUP, $artggrup, $comparison);
+        $this->addUsingAlias(ArTermsGroupTableMap::COL_ARTGGRUP, $artggrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -283,14 +296,15 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByArtgdesc('fooValue');   // WHERE ArtgDesc = 'fooValue'
      * $query->filterByArtgdesc('%fooValue%', Criteria::LIKE); // WHERE ArtgDesc LIKE '%fooValue%'
+     * $query->filterByArtgdesc(['foo', 'bar']); // WHERE ArtgDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artgdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artgdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArTermsGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtgdesc($artgdesc = null, $comparison = null)
+    public function filterByArtgdesc($artgdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artgdesc)) {
@@ -298,7 +312,9 @@ abstract class ArTermsGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArTermsGroupTableMap::COL_ARTGDESC, $artgdesc, $comparison);
+        $this->addUsingAlias(ArTermsGroupTableMap::COL_ARTGDESC, $artgdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -308,14 +324,15 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArTermsGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -323,7 +340,9 @@ abstract class ArTermsGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArTermsGroupTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArTermsGroupTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +352,15 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArTermsGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -348,7 +368,9 @@ abstract class ArTermsGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArTermsGroupTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArTermsGroupTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +380,15 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArTermsGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -373,15 +396,17 @@ abstract class ArTermsGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArTermsGroupTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArTermsGroupTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildArTermsGroup $arTermsGroup Object to remove from the list of results
+     * @param ChildArTermsGroup $arTermsGroup Object to remove from the list of results
      *
-     * @return $this|ChildArTermsGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($arTermsGroup = null)
     {
@@ -398,7 +423,7 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTermsGroupTableMap::DATABASE_NAME);
@@ -423,12 +448,12 @@ abstract class ArTermsGroupQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArTermsGroupTableMap::DATABASE_NAME);
@@ -453,4 +478,4 @@ abstract class ArTermsGroupQuery extends ModelCriteria
         });
     }
 
-} // ArTermsGroupQuery
+}

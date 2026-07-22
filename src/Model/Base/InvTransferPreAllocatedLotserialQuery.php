@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_trans_pre_allo' table.
- *
- *
+ * Base class that represents a query for the `inv_trans_pre_allo` table.
  *
  * @method     ChildInvTransferPreAllocatedLotserialQuery orderByInhdnbr($order = Criteria::ASC) Order by the InhdNbr column
  * @method     ChildInvTransferPreAllocatedLotserialQuery orderByIndtline($order = Criteria::ASC) Order by the IndtLine column
@@ -124,33 +123,33 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery|\InvTransferOrderQuery|\InvTransferDetailQuery|\InvLotMasterQuery|\InvSerialMasterQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvTransferPreAllocatedLotserial findOne(ConnectionInterface $con = null) Return the first ChildInvTransferPreAllocatedLotserial matching the query
- * @method     ChildInvTransferPreAllocatedLotserial findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvTransferPreAllocatedLotserial matching the query, or a new ChildInvTransferPreAllocatedLotserial object populated from the query conditions when no match is found
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOne(?ConnectionInterface $con = null) Return the first ChildInvTransferPreAllocatedLotserial matching the query
+ * @method     ChildInvTransferPreAllocatedLotserial findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvTransferPreAllocatedLotserial matching the query, or a new ChildInvTransferPreAllocatedLotserial object populated from the query conditions when no match is found
  *
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInhdnbr(int $InhdNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InhdNbr column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByIndtline(int $IndtLine) Return the first ChildInvTransferPreAllocatedLotserial filtered by the IndtLine column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InitItemNbr column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidlotser(string $InidLotSer) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidLotSer column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidbin(string $InidBin) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidBin column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidplltnbr(int $InidPlltNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidPlltNbr column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidcrtnnbr(int $InidCrtnNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidCrtnNbr column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidqtyresv(string $InidQtyResv) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidQtyResv column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidqtyship(string $InidQtyShip) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidQtyShip column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidqtynotpost(string $InidQtyNotPost) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidQtyNotPost column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidunitcost(string $InidUnitCost) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidUnitCost column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidlotserfrom(string $InidLotSerFrom) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidLotSerFrom column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidbinfrom(string $InidBinFrom) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidBinFrom column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidcases(int $InidCases) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidCases column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidtag(int $InidTag) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidTag column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidinspctlvl(string $InidInspctLvl) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidInspctLvl column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidlotref(string $InidLotRef) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidLotRef column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByInidcrtnqty(string $InidCrtnQty) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidCrtnQty column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvTransferPreAllocatedLotserial filtered by the DateUpdtd column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvTransferPreAllocatedLotserial filtered by the TimeUpdtd column
- * @method     ChildInvTransferPreAllocatedLotserial findOneByDummy(string $dummy) Return the first ChildInvTransferPreAllocatedLotserial filtered by the dummy column *
-
- * @method     ChildInvTransferPreAllocatedLotserial requirePk($key, ConnectionInterface $con = null) Return the ChildInvTransferPreAllocatedLotserial by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvTransferPreAllocatedLotserial requireOne(ConnectionInterface $con = null) Return the first ChildInvTransferPreAllocatedLotserial matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInhdnbr(int $InhdNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InhdNbr column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByIndtline(int $IndtLine) Return the first ChildInvTransferPreAllocatedLotserial filtered by the IndtLine column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InitItemNbr column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidlotser(string $InidLotSer) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidLotSer column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidbin(string $InidBin) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidBin column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidplltnbr(int $InidPlltNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidPlltNbr column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidcrtnnbr(int $InidCrtnNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidCrtnNbr column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidqtyresv(string $InidQtyResv) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidQtyResv column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidqtyship(string $InidQtyShip) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidQtyShip column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidqtynotpost(string $InidQtyNotPost) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidQtyNotPost column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidunitcost(string $InidUnitCost) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidUnitCost column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidlotserfrom(string $InidLotSerFrom) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidLotSerFrom column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidbinfrom(string $InidBinFrom) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidBinFrom column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidcases(int $InidCases) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidCases column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidtag(int $InidTag) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidTag column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidinspctlvl(string $InidInspctLvl) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidInspctLvl column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidlotref(string $InidLotRef) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidLotRef column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByInidcrtnqty(string $InidCrtnQty) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InidCrtnQty column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvTransferPreAllocatedLotserial filtered by the DateUpdtd column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvTransferPreAllocatedLotserial filtered by the TimeUpdtd column
+ * @method     ChildInvTransferPreAllocatedLotserial|null findOneByDummy(string $dummy) Return the first ChildInvTransferPreAllocatedLotserial filtered by the dummy column
+ *
+ * @method     ChildInvTransferPreAllocatedLotserial requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvTransferPreAllocatedLotserial by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvTransferPreAllocatedLotserial requireOne(?ConnectionInterface $con = null) Return the first ChildInvTransferPreAllocatedLotserial matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvTransferPreAllocatedLotserial requireOneByInhdnbr(int $InhdNbr) Return the first ChildInvTransferPreAllocatedLotserial filtered by the InhdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvTransferPreAllocatedLotserial requireOneByIndtline(int $IndtLine) Return the first ChildInvTransferPreAllocatedLotserial filtered by the IndtLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -174,30 +173,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvTransferPreAllocatedLotserial requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvTransferPreAllocatedLotserial filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvTransferPreAllocatedLotserial requireOneByDummy(string $dummy) Return the first ChildInvTransferPreAllocatedLotserial filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvTransferPreAllocatedLotserial objects based on current ModelCriteria
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInhdnbr(int $InhdNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InhdNbr column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByIndtline(int $IndtLine) Return ChildInvTransferPreAllocatedLotserial objects filtered by the IndtLine column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InitItemNbr column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidlotser(string $InidLotSer) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotSer column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidbin(string $InidBin) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidBin column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidplltnbr(int $InidPlltNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidPlltNbr column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidcrtnnbr(int $InidCrtnNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCrtnNbr column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidqtyresv(string $InidQtyResv) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyResv column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidqtyship(string $InidQtyShip) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyShip column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidqtynotpost(string $InidQtyNotPost) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyNotPost column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidunitcost(string $InidUnitCost) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidUnitCost column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidlotserfrom(string $InidLotSerFrom) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotSerFrom column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidbinfrom(string $InidBinFrom) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidBinFrom column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidcases(int $InidCases) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCases column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidtag(int $InidTag) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidTag column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidinspctlvl(string $InidInspctLvl) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidInspctLvl column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidlotref(string $InidLotRef) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotRef column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByInidcrtnqty(string $InidCrtnQty) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCrtnQty column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvTransferPreAllocatedLotserial objects filtered by the DateUpdtd column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvTransferPreAllocatedLotserial objects filtered by the TimeUpdtd column
- * @method     ChildInvTransferPreAllocatedLotserial[]|ObjectCollection findByDummy(string $dummy) Return ChildInvTransferPreAllocatedLotserial objects filtered by the dummy column
- * @method     ChildInvTransferPreAllocatedLotserial[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection find(?ConnectionInterface $con = null) Return ChildInvTransferPreAllocatedLotserial objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> find(?ConnectionInterface $con = null) Return ChildInvTransferPreAllocatedLotserial objects based on current ModelCriteria
  *
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInhdnbr(int|array<int> $InhdNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InhdNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInhdnbr(int|array<int> $InhdNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InhdNbr column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByIndtline(int|array<int> $IndtLine) Return ChildInvTransferPreAllocatedLotserial objects filtered by the IndtLine column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByIndtline(int|array<int> $IndtLine) Return ChildInvTransferPreAllocatedLotserial objects filtered by the IndtLine column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InitItemNbr column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidlotser(string|array<string> $InidLotSer) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotSer column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidlotser(string|array<string> $InidLotSer) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotSer column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidbin(string|array<string> $InidBin) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidBin column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidbin(string|array<string> $InidBin) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidBin column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidplltnbr(int|array<int> $InidPlltNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidPlltNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidplltnbr(int|array<int> $InidPlltNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidPlltNbr column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidcrtnnbr(int|array<int> $InidCrtnNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCrtnNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidcrtnnbr(int|array<int> $InidCrtnNbr) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCrtnNbr column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidqtyresv(string|array<string> $InidQtyResv) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyResv column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidqtyresv(string|array<string> $InidQtyResv) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyResv column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidqtyship(string|array<string> $InidQtyShip) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyShip column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidqtyship(string|array<string> $InidQtyShip) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyShip column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidqtynotpost(string|array<string> $InidQtyNotPost) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyNotPost column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidqtynotpost(string|array<string> $InidQtyNotPost) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidQtyNotPost column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidunitcost(string|array<string> $InidUnitCost) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidUnitCost column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidunitcost(string|array<string> $InidUnitCost) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidUnitCost column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidlotserfrom(string|array<string> $InidLotSerFrom) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotSerFrom column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidlotserfrom(string|array<string> $InidLotSerFrom) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotSerFrom column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidbinfrom(string|array<string> $InidBinFrom) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidBinFrom column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidbinfrom(string|array<string> $InidBinFrom) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidBinFrom column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidcases(int|array<int> $InidCases) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCases column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidcases(int|array<int> $InidCases) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCases column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidtag(int|array<int> $InidTag) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidTag column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidtag(int|array<int> $InidTag) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidTag column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidinspctlvl(string|array<string> $InidInspctLvl) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidInspctLvl column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidinspctlvl(string|array<string> $InidInspctLvl) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidInspctLvl column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidlotref(string|array<string> $InidLotRef) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotRef column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidlotref(string|array<string> $InidLotRef) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidLotRef column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByInidcrtnqty(string|array<string> $InidCrtnQty) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCrtnQty column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByInidcrtnqty(string|array<string> $InidCrtnQty) Return ChildInvTransferPreAllocatedLotserial objects filtered by the InidCrtnQty column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvTransferPreAllocatedLotserial objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvTransferPreAllocatedLotserial objects filtered by the DateUpdtd column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvTransferPreAllocatedLotserial objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvTransferPreAllocatedLotserial objects filtered by the TimeUpdtd column
+ * @method     ChildInvTransferPreAllocatedLotserial[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvTransferPreAllocatedLotserial objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvTransferPreAllocatedLotserial> findByDummy(string|array<string> $dummy) Return ChildInvTransferPreAllocatedLotserial objects filtered by the dummy column
+ *
+ * @method     ChildInvTransferPreAllocatedLotserial[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvTransferPreAllocatedLotserial> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
 {
@@ -206,9 +229,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvTransferPreAllocatedLotserialQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvTransferPreAllocatedLotserial', $modelAlias = null)
     {
@@ -218,12 +241,12 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Returns a new ChildInvTransferPreAllocatedLotserialQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvTransferPreAllocatedLotserialQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvTransferPreAllocatedLotserialQuery) {
             return $criteria;
@@ -253,7 +276,7 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      *
      * @return ChildInvTransferPreAllocatedLotserial|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -285,8 +308,8 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -324,8 +347,8 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvTransferPreAllocatedLotserial|array|mixed the result, formatted by the current formatter
      */
@@ -345,12 +368,12 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -367,9 +390,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -387,14 +410,16 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvTransferPreAllocatedLotserialTableMap::COL_INHDNBR, $key[0], Criteria::EQUAL);
@@ -430,15 +455,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      *
      * @see       filterByInvTransferDetail()
      *
-     * @param     mixed $inhdnbr The value to use as filter.
+     * @param mixed $inhdnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhdnbr($inhdnbr = null, $comparison = null)
+    public function filterByInhdnbr($inhdnbr = null, ?string $comparison = null)
     {
         if (is_array($inhdnbr)) {
             $useMinMax = false;
@@ -458,7 +483,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INHDNBR, $inhdnbr, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INHDNBR, $inhdnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -473,15 +500,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      *
      * @see       filterByInvTransferDetail()
      *
-     * @param     mixed $indtline The value to use as filter.
+     * @param mixed $indtline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtline($indtline = null, $comparison = null)
+    public function filterByIndtline($indtline = null, ?string $comparison = null)
     {
         if (is_array($indtline)) {
             $useMinMax = false;
@@ -501,7 +528,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INDTLINE, $indtline, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INDTLINE, $indtline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -511,14 +540,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -526,7 +556,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -536,14 +568,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByInidlotser('fooValue');   // WHERE InidLotSer = 'fooValue'
      * $query->filterByInidlotser('%fooValue%', Criteria::LIKE); // WHERE InidLotSer LIKE '%fooValue%'
+     * $query->filterByInidlotser(['foo', 'bar']); // WHERE InidLotSer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inidlotser The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inidlotser The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidlotser($inidlotser = null, $comparison = null)
+    public function filterByInidlotser($inidlotser = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inidlotser)) {
@@ -551,7 +584,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDLOTSER, $inidlotser, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDLOTSER, $inidlotser, $comparison);
+
+        return $this;
     }
 
     /**
@@ -561,14 +596,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByInidbin('fooValue');   // WHERE InidBin = 'fooValue'
      * $query->filterByInidbin('%fooValue%', Criteria::LIKE); // WHERE InidBin LIKE '%fooValue%'
+     * $query->filterByInidbin(['foo', 'bar']); // WHERE InidBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inidbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inidbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidbin($inidbin = null, $comparison = null)
+    public function filterByInidbin($inidbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inidbin)) {
@@ -576,7 +612,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDBIN, $inidbin, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDBIN, $inidbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -589,15 +627,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidplltnbr(array('min' => 12)); // WHERE InidPlltNbr > 12
      * </code>
      *
-     * @param     mixed $inidplltnbr The value to use as filter.
+     * @param mixed $inidplltnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidplltnbr($inidplltnbr = null, $comparison = null)
+    public function filterByInidplltnbr($inidplltnbr = null, ?string $comparison = null)
     {
         if (is_array($inidplltnbr)) {
             $useMinMax = false;
@@ -617,7 +655,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDPLLTNBR, $inidplltnbr, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDPLLTNBR, $inidplltnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -630,15 +670,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidcrtnnbr(array('min' => 12)); // WHERE InidCrtnNbr > 12
      * </code>
      *
-     * @param     mixed $inidcrtnnbr The value to use as filter.
+     * @param mixed $inidcrtnnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidcrtnnbr($inidcrtnnbr = null, $comparison = null)
+    public function filterByInidcrtnnbr($inidcrtnnbr = null, ?string $comparison = null)
     {
         if (is_array($inidcrtnnbr)) {
             $useMinMax = false;
@@ -658,7 +698,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDCRTNNBR, $inidcrtnnbr, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDCRTNNBR, $inidcrtnnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -671,15 +713,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidqtyresv(array('min' => 12)); // WHERE InidQtyResv > 12
      * </code>
      *
-     * @param     mixed $inidqtyresv The value to use as filter.
+     * @param mixed $inidqtyresv The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidqtyresv($inidqtyresv = null, $comparison = null)
+    public function filterByInidqtyresv($inidqtyresv = null, ?string $comparison = null)
     {
         if (is_array($inidqtyresv)) {
             $useMinMax = false;
@@ -699,7 +741,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDQTYRESV, $inidqtyresv, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDQTYRESV, $inidqtyresv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -712,15 +756,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidqtyship(array('min' => 12)); // WHERE InidQtyShip > 12
      * </code>
      *
-     * @param     mixed $inidqtyship The value to use as filter.
+     * @param mixed $inidqtyship The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidqtyship($inidqtyship = null, $comparison = null)
+    public function filterByInidqtyship($inidqtyship = null, ?string $comparison = null)
     {
         if (is_array($inidqtyship)) {
             $useMinMax = false;
@@ -740,7 +784,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDQTYSHIP, $inidqtyship, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDQTYSHIP, $inidqtyship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -753,15 +799,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidqtynotpost(array('min' => 12)); // WHERE InidQtyNotPost > 12
      * </code>
      *
-     * @param     mixed $inidqtynotpost The value to use as filter.
+     * @param mixed $inidqtynotpost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidqtynotpost($inidqtynotpost = null, $comparison = null)
+    public function filterByInidqtynotpost($inidqtynotpost = null, ?string $comparison = null)
     {
         if (is_array($inidqtynotpost)) {
             $useMinMax = false;
@@ -781,7 +827,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDQTYNOTPOST, $inidqtynotpost, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDQTYNOTPOST, $inidqtynotpost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -794,15 +842,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidunitcost(array('min' => 12)); // WHERE InidUnitCost > 12
      * </code>
      *
-     * @param     mixed $inidunitcost The value to use as filter.
+     * @param mixed $inidunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidunitcost($inidunitcost = null, $comparison = null)
+    public function filterByInidunitcost($inidunitcost = null, ?string $comparison = null)
     {
         if (is_array($inidunitcost)) {
             $useMinMax = false;
@@ -822,7 +870,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDUNITCOST, $inidunitcost, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDUNITCOST, $inidunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -832,14 +882,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByInidlotserfrom('fooValue');   // WHERE InidLotSerFrom = 'fooValue'
      * $query->filterByInidlotserfrom('%fooValue%', Criteria::LIKE); // WHERE InidLotSerFrom LIKE '%fooValue%'
+     * $query->filterByInidlotserfrom(['foo', 'bar']); // WHERE InidLotSerFrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inidlotserfrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inidlotserfrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidlotserfrom($inidlotserfrom = null, $comparison = null)
+    public function filterByInidlotserfrom($inidlotserfrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inidlotserfrom)) {
@@ -847,7 +898,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDLOTSERFROM, $inidlotserfrom, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDLOTSERFROM, $inidlotserfrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -857,14 +910,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByInidbinfrom('fooValue');   // WHERE InidBinFrom = 'fooValue'
      * $query->filterByInidbinfrom('%fooValue%', Criteria::LIKE); // WHERE InidBinFrom LIKE '%fooValue%'
+     * $query->filterByInidbinfrom(['foo', 'bar']); // WHERE InidBinFrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inidbinfrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inidbinfrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidbinfrom($inidbinfrom = null, $comparison = null)
+    public function filterByInidbinfrom($inidbinfrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inidbinfrom)) {
@@ -872,7 +926,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDBINFROM, $inidbinfrom, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDBINFROM, $inidbinfrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -885,15 +941,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidcases(array('min' => 12)); // WHERE InidCases > 12
      * </code>
      *
-     * @param     mixed $inidcases The value to use as filter.
+     * @param mixed $inidcases The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidcases($inidcases = null, $comparison = null)
+    public function filterByInidcases($inidcases = null, ?string $comparison = null)
     {
         if (is_array($inidcases)) {
             $useMinMax = false;
@@ -913,7 +969,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDCASES, $inidcases, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDCASES, $inidcases, $comparison);
+
+        return $this;
     }
 
     /**
@@ -926,15 +984,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidtag(array('min' => 12)); // WHERE InidTag > 12
      * </code>
      *
-     * @param     mixed $inidtag The value to use as filter.
+     * @param mixed $inidtag The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidtag($inidtag = null, $comparison = null)
+    public function filterByInidtag($inidtag = null, ?string $comparison = null)
     {
         if (is_array($inidtag)) {
             $useMinMax = false;
@@ -954,7 +1012,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDTAG, $inidtag, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDTAG, $inidtag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -964,14 +1024,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByInidinspctlvl('fooValue');   // WHERE InidInspctLvl = 'fooValue'
      * $query->filterByInidinspctlvl('%fooValue%', Criteria::LIKE); // WHERE InidInspctLvl LIKE '%fooValue%'
+     * $query->filterByInidinspctlvl(['foo', 'bar']); // WHERE InidInspctLvl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inidinspctlvl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inidinspctlvl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidinspctlvl($inidinspctlvl = null, $comparison = null)
+    public function filterByInidinspctlvl($inidinspctlvl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inidinspctlvl)) {
@@ -979,7 +1040,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDINSPCTLVL, $inidinspctlvl, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDINSPCTLVL, $inidinspctlvl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -989,14 +1052,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByInidlotref('fooValue');   // WHERE InidLotRef = 'fooValue'
      * $query->filterByInidlotref('%fooValue%', Criteria::LIKE); // WHERE InidLotRef LIKE '%fooValue%'
+     * $query->filterByInidlotref(['foo', 'bar']); // WHERE InidLotRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inidlotref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inidlotref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidlotref($inidlotref = null, $comparison = null)
+    public function filterByInidlotref($inidlotref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inidlotref)) {
@@ -1004,7 +1068,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDLOTREF, $inidlotref, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDLOTREF, $inidlotref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1017,15 +1083,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByInidcrtnqty(array('min' => 12)); // WHERE InidCrtnQty > 12
      * </code>
      *
-     * @param     mixed $inidcrtnqty The value to use as filter.
+     * @param mixed $inidcrtnqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInidcrtnqty($inidcrtnqty = null, $comparison = null)
+    public function filterByInidcrtnqty($inidcrtnqty = null, ?string $comparison = null)
     {
         if (is_array($inidcrtnqty)) {
             $useMinMax = false;
@@ -1045,7 +1111,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDCRTNQTY, $inidcrtnqty, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INIDCRTNQTY, $inidcrtnqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1055,14 +1123,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1070,7 +1139,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1080,14 +1151,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1095,7 +1167,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1105,14 +1179,15 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1120,20 +1195,22 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1143,8 +1220,10 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1153,12 +1232,12 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1187,9 +1266,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1201,16 +1280,112 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferOrder object
      *
      * @param \InvTransferOrder|ObjectCollection $invTransferOrder The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferOrder($invTransferOrder, $comparison = null)
+    public function filterByInvTransferOrder($invTransferOrder, ?string $comparison = null)
     {
         if ($invTransferOrder instanceof \InvTransferOrder) {
             return $this
@@ -1220,8 +1395,10 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvTransferPreAllocatedLotserialTableMap::COL_INHDNBR, $invTransferOrder->toKeyValue('PrimaryKey', 'Inhdnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferOrder() only accepts arguments of type \InvTransferOrder or Collection');
         }
@@ -1230,12 +1407,12 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferOrder');
@@ -1264,9 +1441,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
      */
@@ -1278,16 +1455,112 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferOrder relation InvTransferOrder object
+     *
+     * @param callable(\InvTransferOrderQuery):\InvTransferOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for a NOT EXISTS query.
+     *
+     * @see useInvTransferOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferOrderQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for a NOT IN query.
+     *
+     * @see useInvTransferOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferDetail object
      *
      * @param \InvTransferDetail $invTransferDetail The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferDetail($invTransferDetail, $comparison = null)
+    public function filterByInvTransferDetail($invTransferDetail, ?string $comparison = null)
     {
         if ($invTransferDetail instanceof \InvTransferDetail) {
             return $this
@@ -1301,12 +1574,12 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferDetail');
@@ -1335,9 +1608,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferDetailQuery A secondary query class using the current class as primary query
      */
@@ -1349,16 +1622,112 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferDetail relation InvTransferDetail object
+     *
+     * @param callable(\InvTransferDetailQuery):\InvTransferDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferDetailQuery */
+        $q = $this->useExistsQuery('InvTransferDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferDetail table for a NOT EXISTS query.
+     *
+     * @see useInvTransferDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferDetailQuery */
+        $q = $this->useExistsQuery('InvTransferDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferDetailQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferDetailQuery */
+        $q = $this->useInQuery('InvTransferDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferDetail table for a NOT IN query.
+     *
+     * @see useInvTransferDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferDetailQuery */
+        $q = $this->useInQuery('InvTransferDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvLotMaster object
      *
      * @param \InvLotMaster $invLotMaster The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvLotMaster($invLotMaster, $comparison = null)
+    public function filterByInvLotMaster($invLotMaster, ?string $comparison = null)
     {
         if ($invLotMaster instanceof \InvLotMaster) {
             return $this
@@ -1372,12 +1741,12 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvLotMaster relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvLotMaster($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotMaster(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvLotMaster');
@@ -1406,9 +1775,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvLotMasterQuery A secondary query class using the current class as primary query
      */
@@ -1420,16 +1789,112 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvLotMaster relation InvLotMaster object
+     *
+     * @param callable(\InvLotMasterQuery):\InvLotMasterQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvLotMasterQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvLotMasterQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvLotMasterQuery The inner query object of the EXISTS statement
+     */
+    public function useInvLotMasterExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useExistsQuery('InvLotMaster', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for a NOT EXISTS query.
+     *
+     * @see useInvLotMasterExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotMasterQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvLotMasterNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useExistsQuery('InvLotMaster', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvLotMasterQuery The inner query object of the IN statement
+     */
+    public function useInInvLotMasterQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useInQuery('InvLotMaster', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for a NOT IN query.
+     *
+     * @see useInvLotMasterInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotMasterQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvLotMasterQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useInQuery('InvLotMaster', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvSerialMaster object
      *
      * @param \InvSerialMaster $invSerialMaster The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvSerialMaster($invSerialMaster, $comparison = null)
+    public function filterByInvSerialMaster($invSerialMaster, ?string $comparison = null)
     {
         if ($invSerialMaster instanceof \InvSerialMaster) {
             return $this
@@ -1443,12 +1908,12 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvSerialMaster relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvSerialMaster($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvSerialMaster(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvSerialMaster');
@@ -1477,9 +1942,9 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvSerialMasterQuery A secondary query class using the current class as primary query
      */
@@ -1491,11 +1956,107 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvSerialMaster relation InvSerialMaster object
+     *
+     * @param callable(\InvSerialMasterQuery):\InvSerialMasterQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvSerialMasterQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvSerialMasterQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvSerialMaster table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvSerialMasterQuery The inner query object of the EXISTS statement
+     */
+    public function useInvSerialMasterExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvSerialMasterQuery */
+        $q = $this->useExistsQuery('InvSerialMaster', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialMaster table for a NOT EXISTS query.
+     *
+     * @see useInvSerialMasterExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvSerialMasterQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvSerialMasterNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvSerialMasterQuery */
+        $q = $this->useExistsQuery('InvSerialMaster', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialMaster table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvSerialMasterQuery The inner query object of the IN statement
+     */
+    public function useInInvSerialMasterQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvSerialMasterQuery */
+        $q = $this->useInQuery('InvSerialMaster', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialMaster table for a NOT IN query.
+     *
+     * @see useInvSerialMasterInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvSerialMasterQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvSerialMasterQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvSerialMasterQuery */
+        $q = $this->useInQuery('InvSerialMaster', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvTransferPreAllocatedLotserial $invTransferPreAllocatedLotserial Object to remove from the list of results
+     * @param ChildInvTransferPreAllocatedLotserial $invTransferPreAllocatedLotserial Object to remove from the list of results
      *
-     * @return $this|ChildInvTransferPreAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invTransferPreAllocatedLotserial = null)
     {
@@ -1519,7 +2080,7 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferPreAllocatedLotserialTableMap::DATABASE_NAME);
@@ -1544,12 +2105,12 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferPreAllocatedLotserialTableMap::DATABASE_NAME);
@@ -1574,4 +2135,4 @@ abstract class InvTransferPreAllocatedLotserialQuery extends ModelCriteria
         });
     }
 
-} // InvTransferPreAllocatedLotserialQuery
+}

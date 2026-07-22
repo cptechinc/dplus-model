@@ -50,19 +50,21 @@ abstract class SalesOrder implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\SalesOrderTableMap';
+    public const TABLE_MAP = '\\Map\\SalesOrderTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -71,14 +73,14 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the oehdnbr field.
@@ -1604,30 +1606,35 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildSalesOrderDetail[] Collection to store aggregation of ChildSalesOrderDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderDetail> Collection to store aggregation of ChildSalesOrderDetail objects.
      */
     protected $collSalesOrderDetails;
     protected $collSalesOrderDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesOrderShipment[] Collection to store aggregation of ChildSalesOrderShipment objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderShipment> Collection to store aggregation of ChildSalesOrderShipment objects.
      */
     protected $collSalesOrderShipments;
     protected $collSalesOrderShipmentsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesOrderLotserial[] Collection to store aggregation of ChildSalesOrderLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderLotserial> Collection to store aggregation of ChildSalesOrderLotserial objects.
      */
     protected $collSalesOrderLotserials;
     protected $collSalesOrderLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildSoAllocatedLotserial[] Collection to store aggregation of ChildSoAllocatedLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoAllocatedLotserial> Collection to store aggregation of ChildSoAllocatedLotserial objects.
      */
     protected $collSoAllocatedLotserials;
     protected $collSoAllocatedLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildSoPickedLotserial[] Collection to store aggregation of ChildSoPickedLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoPickedLotserial> Collection to store aggregation of ChildSoPickedLotserial objects.
      */
     protected $collSoPickedLotserials;
     protected $collSoPickedLotserialsPartial;
@@ -1636,37 +1643,42 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderDetail>
      */
     protected $salesOrderDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderShipment[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderShipment>
      */
     protected $salesOrderShipmentsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderLotserial>
      */
     protected $salesOrderLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoAllocatedLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoAllocatedLotserial>
      */
     protected $soAllocatedLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoPickedLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoPickedLotserial>
      */
     protected $soPickedLotserialsScheduledForDeletion = null;
 
@@ -1676,7 +1688,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->oehdnbr = 0;
         $this->oehdstat = 'N';
@@ -1881,9 +1893,9 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -1891,10 +1903,10 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -1903,7 +1915,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -1913,9 +1925,9 @@ abstract class SalesOrder implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -1924,45 +1936,43 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -1971,10 +1981,10 @@ abstract class SalesOrder implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>SalesOrder</code>, delegates to
      * <code>equals(SalesOrder)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -1996,7 +2006,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -2004,10 +2014,10 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -2015,15 +2025,15 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -2032,12 +2042,12 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|SalesOrder The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -2047,13 +2057,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -2064,24 +2074,27 @@ abstract class SalesOrder implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -3989,8 +4002,8 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Set the value of [oehdnbr] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdnbr($v)
     {
@@ -4004,13 +4017,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdnbr()
+    }
 
     /**
      * Set the value of [oehdstat] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstat($v)
     {
@@ -4024,13 +4037,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstat()
+    }
 
     /**
      * Set the value of [oehdhold] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdhold($v)
     {
@@ -4044,13 +4057,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdhold()
+    }
 
     /**
      * Set the value of [arcucustid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArcucustid($v)
     {
@@ -4072,13 +4085,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArcucustid()
+    }
 
     /**
      * Set the value of [arstshipid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstshipid($v)
     {
@@ -4096,13 +4109,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstshipid()
+    }
 
     /**
      * Set the value of [oehdstname] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstname($v)
     {
@@ -4116,13 +4129,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstname()
+    }
 
     /**
      * Set the value of [oehdstlastname] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstlastname($v)
     {
@@ -4136,13 +4149,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstlastname()
+    }
 
     /**
      * Set the value of [oehdstfirstname] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstfirstname($v)
     {
@@ -4156,13 +4169,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstfirstname()
+    }
 
     /**
      * Set the value of [oehdstadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstadr1($v)
     {
@@ -4176,13 +4189,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstadr1()
+    }
 
     /**
      * Set the value of [oehdstadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstadr2($v)
     {
@@ -4196,13 +4209,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstadr2()
+    }
 
     /**
      * Set the value of [oehdstadr3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstadr3($v)
     {
@@ -4216,13 +4229,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstadr3()
+    }
 
     /**
      * Set the value of [oehdstctry] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstctry($v)
     {
@@ -4236,13 +4249,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstctry()
+    }
 
     /**
      * Set the value of [oehdstcity] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstcity($v)
     {
@@ -4256,13 +4269,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstcity()
+    }
 
     /**
      * Set the value of [oehdststat] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdststat($v)
     {
@@ -4276,13 +4289,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdststat()
+    }
 
     /**
      * Set the value of [oehdstzipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstzipcode($v)
     {
@@ -4296,13 +4309,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstzipcode()
+    }
 
     /**
      * Set the value of [oehdcustpo] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcustpo($v)
     {
@@ -4316,13 +4329,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcustpo()
+    }
 
     /**
      * Set the value of [oehdordrdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdordrdate($v)
     {
@@ -4336,13 +4349,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdordrdate()
+    }
 
     /**
      * Set the value of [artmtermcd] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmtermcd($v)
     {
@@ -4356,13 +4369,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmtermcd()
+    }
 
     /**
      * Set the value of [artbshipvia] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbshipvia($v)
     {
@@ -4376,13 +4389,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbshipvia()
+    }
 
     /**
      * Set the value of [arininvnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArininvnbr($v)
     {
@@ -4396,13 +4409,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArininvnbr()
+    }
 
     /**
      * Set the value of [oehdinvdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdinvdate($v)
     {
@@ -4416,13 +4429,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdinvdate()
+    }
 
     /**
      * Set the value of [oehdglpd] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdglpd($v)
     {
@@ -4436,13 +4449,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdglpd()
+    }
 
     /**
      * Set the value of [arspsaleper1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper1($v)
     {
@@ -4456,13 +4469,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper1()
+    }
 
     /**
      * Set the value of [oehdsp1pct] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdsp1pct($v)
     {
@@ -4476,13 +4489,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdsp1pct()
+    }
 
     /**
      * Set the value of [arspsaleper2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper2($v)
     {
@@ -4496,13 +4509,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper2()
+    }
 
     /**
      * Set the value of [oehdsp2pct] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdsp2pct($v)
     {
@@ -4516,13 +4529,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdsp2pct()
+    }
 
     /**
      * Set the value of [arspsaleper3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper3($v)
     {
@@ -4536,13 +4549,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper3()
+    }
 
     /**
      * Set the value of [oehdsp3pct] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdsp3pct($v)
     {
@@ -4556,13 +4569,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdsp3pct()
+    }
 
     /**
      * Set the value of [oehdcntrnbr] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcntrnbr($v)
     {
@@ -4576,13 +4589,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcntrnbr()
+    }
 
     /**
      * Set the value of [oehdwibatch] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdwibatch($v)
     {
@@ -4596,13 +4609,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdwibatch()
+    }
 
     /**
      * Set the value of [oehddroprelhold] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddroprelhold($v)
     {
@@ -4616,13 +4629,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddroprelhold()
+    }
 
     /**
      * Set the value of [oehdtaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdtaxsub($v)
     {
@@ -4636,13 +4649,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdtaxsub()
+    }
 
     /**
      * Set the value of [oehdnontaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdnontaxsub($v)
     {
@@ -4656,13 +4669,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdnontaxsub()
+    }
 
     /**
      * Set the value of [oehdtaxtot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdtaxtot($v)
     {
@@ -4676,13 +4689,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdtaxtot()
+    }
 
     /**
      * Set the value of [oehdfrttot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttot($v)
     {
@@ -4696,13 +4709,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttot()
+    }
 
     /**
      * Set the value of [oehdmisctot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdmisctot($v)
     {
@@ -4716,13 +4729,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdmisctot()
+    }
 
     /**
      * Set the value of [oehdordrtot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdordrtot($v)
     {
@@ -4736,13 +4749,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdordrtot()
+    }
 
     /**
      * Set the value of [oehdcosttot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcosttot($v)
     {
@@ -4756,13 +4769,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcosttot()
+    }
 
     /**
      * Set the value of [oehdspcommlock] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdspcommlock($v)
     {
@@ -4776,13 +4789,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdspcommlock()
+    }
 
     /**
      * Set the value of [oehdtakendate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdtakendate($v)
     {
@@ -4796,13 +4809,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdtakendate()
+    }
 
     /**
      * Set the value of [oehdtakentime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdtakentime($v)
     {
@@ -4816,13 +4829,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdtakentime()
+    }
 
     /**
      * Set the value of [oehdpickdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpickdate($v)
     {
@@ -4836,13 +4849,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpickdate()
+    }
 
     /**
      * Set the value of [oehdpicktime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpicktime($v)
     {
@@ -4856,13 +4869,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpicktime()
+    }
 
     /**
      * Set the value of [oehdpackdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpackdate($v)
     {
@@ -4876,13 +4889,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpackdate()
+    }
 
     /**
      * Set the value of [oehdpacktime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpacktime($v)
     {
@@ -4896,13 +4909,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpacktime()
+    }
 
     /**
      * Set the value of [oehdverifydate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdverifydate($v)
     {
@@ -4916,13 +4929,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdverifydate()
+    }
 
     /**
      * Set the value of [oehdverifytime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdverifytime($v)
     {
@@ -4936,13 +4949,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdverifytime()
+    }
 
     /**
      * Set the value of [oehdcreditmemo] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcreditmemo($v)
     {
@@ -4956,13 +4969,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcreditmemo()
+    }
 
     /**
      * Set the value of [oehdbookedyn] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdbookedyn($v)
     {
@@ -4976,13 +4989,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdbookedyn()
+    }
 
     /**
      * Set the value of [intbwhseorig] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseorig($v)
     {
@@ -4996,13 +5009,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseorig()
+    }
 
     /**
      * Set the value of [oehdbtstat] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdbtstat($v)
     {
@@ -5016,13 +5029,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdbtstat()
+    }
 
     /**
      * Set the value of [oehdshipcomp] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdshipcomp($v)
     {
@@ -5036,13 +5049,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdshipcomp()
+    }
 
     /**
      * Set the value of [oehdcwoflag] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcwoflag($v)
     {
@@ -5056,13 +5069,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcwoflag()
+    }
 
     /**
      * Set the value of [oehddivision] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddivision($v)
     {
@@ -5076,13 +5089,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddivision()
+    }
 
     /**
      * Set the value of [oehdtakencode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdtakencode($v)
     {
@@ -5096,13 +5109,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdtakencode()
+    }
 
     /**
      * Set the value of [oehdpickcode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpickcode($v)
     {
@@ -5116,13 +5129,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpickcode()
+    }
 
     /**
      * Set the value of [oehdpackcode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpackcode($v)
     {
@@ -5136,13 +5149,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpackcode()
+    }
 
     /**
      * Set the value of [oehdverifycode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdverifycode($v)
     {
@@ -5156,13 +5169,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdverifycode()
+    }
 
     /**
      * Set the value of [oehdtotdisc] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdtotdisc($v)
     {
@@ -5176,13 +5189,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdtotdisc()
+    }
 
     /**
      * Set the value of [oehdedirefnbrqual] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdedirefnbrqual($v)
     {
@@ -5196,13 +5209,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdedirefnbrqual()
+    }
 
     /**
      * Set the value of [oehdusercode1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdusercode1($v)
     {
@@ -5216,13 +5229,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdusercode1()
+    }
 
     /**
      * Set the value of [oehdusercode2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdusercode2($v)
     {
@@ -5236,13 +5249,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdusercode2()
+    }
 
     /**
      * Set the value of [oehdusercode3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdusercode3($v)
     {
@@ -5256,13 +5269,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdusercode3()
+    }
 
     /**
      * Set the value of [oehdusercode4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdusercode4($v)
     {
@@ -5276,13 +5289,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdusercode4()
+    }
 
     /**
      * Set the value of [oehdexchctry] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdexchctry($v)
     {
@@ -5296,13 +5309,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdexchctry()
+    }
 
     /**
      * Set the value of [oehdexchrate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdexchrate($v)
     {
@@ -5316,13 +5329,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdexchrate()
+    }
 
     /**
      * Set the value of [oehdwghttot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdwghttot($v)
     {
@@ -5336,13 +5349,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdwghttot()
+    }
 
     /**
      * Set the value of [oehdwghtoride] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdwghtoride($v)
     {
@@ -5356,13 +5369,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdwghtoride()
+    }
 
     /**
      * Set the value of [oehdccinfo] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdccinfo($v)
     {
@@ -5376,13 +5389,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdccinfo()
+    }
 
     /**
      * Set the value of [oehdboxcount] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdboxcount($v)
     {
@@ -5396,13 +5409,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdboxcount()
+    }
 
     /**
      * Set the value of [oehdrqstdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdrqstdate($v)
     {
@@ -5416,13 +5429,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdrqstdate()
+    }
 
     /**
      * Set the value of [oehdcancdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcancdate($v)
     {
@@ -5436,13 +5449,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcancdate()
+    }
 
     /**
      * Set the value of [oehdcrntuser] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcrntuser($v)
     {
@@ -5456,13 +5469,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcrntuser()
+    }
 
     /**
      * Set the value of [oehdreleasenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdreleasenbr($v)
     {
@@ -5476,13 +5489,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdreleasenbr()
+    }
 
     /**
      * Set the value of [intbwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -5496,13 +5509,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhse()
+    }
 
     /**
      * Set the value of [oehdbordbuilddate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdbordbuilddate($v)
     {
@@ -5516,13 +5529,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdbordbuilddate()
+    }
 
     /**
      * Set the value of [oehddeptcode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddeptcode($v)
     {
@@ -5536,13 +5549,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddeptcode()
+    }
 
     /**
      * Set the value of [oehdfrtinentered] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrtinentered($v)
     {
@@ -5556,13 +5569,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrtinentered()
+    }
 
     /**
      * Set the value of [oehddropshipentered] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddropshipentered($v)
     {
@@ -5576,13 +5589,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddropshipentered()
+    }
 
     /**
      * Set the value of [oehderflag] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehderflag($v)
     {
@@ -5596,13 +5609,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehderflag()
+    }
 
     /**
      * Set the value of [oehdfrtin] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrtin($v)
     {
@@ -5616,13 +5629,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrtin()
+    }
 
     /**
      * Set the value of [oehddropship] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddropship($v)
     {
@@ -5636,13 +5649,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddropship()
+    }
 
     /**
      * Set the value of [oehdminorder] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdminorder($v)
     {
@@ -5656,13 +5669,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdminorder()
+    }
 
     /**
      * Set the value of [oehdcontractterms] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcontractterms($v)
     {
@@ -5676,13 +5689,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcontractterms()
+    }
 
     /**
      * Set the value of [oehddropshipbilled] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddropshipbilled($v)
     {
@@ -5696,13 +5709,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddropshipbilled()
+    }
 
     /**
      * Set the value of [oehdordtyp] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdordtyp($v)
     {
@@ -5716,13 +5729,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdordtyp()
+    }
 
     /**
      * Set the value of [oehdtracknbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdtracknbr($v)
     {
@@ -5736,13 +5749,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdtracknbr()
+    }
 
     /**
      * Set the value of [oehdsource] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdsource($v)
     {
@@ -5756,13 +5769,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdsource()
+    }
 
     /**
      * Set the value of [oehdccaprv] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdccaprv($v)
     {
@@ -5776,13 +5789,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdccaprv()
+    }
 
     /**
      * Set the value of [oehdpickfmattype] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpickfmattype($v)
     {
@@ -5796,13 +5809,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpickfmattype()
+    }
 
     /**
      * Set the value of [oehdinvcfmattype] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdinvcfmattype($v)
     {
@@ -5816,13 +5829,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdinvcfmattype()
+    }
 
     /**
      * Set the value of [oehdcashamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcashamt($v)
     {
@@ -5836,13 +5849,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcashamt()
+    }
 
     /**
      * Set the value of [oehdcheckamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcheckamt($v)
     {
@@ -5856,13 +5869,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcheckamt()
+    }
 
     /**
      * Set the value of [oehdchecknbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdchecknbr($v)
     {
@@ -5876,13 +5889,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdchecknbr()
+    }
 
     /**
      * Set the value of [oehddepositamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddepositamt($v)
     {
@@ -5896,13 +5909,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddepositamt()
+    }
 
     /**
      * Set the value of [oehddepositnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddepositnbr($v)
     {
@@ -5916,13 +5929,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddepositnbr()
+    }
 
     /**
      * Set the value of [oehdccamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdccamt($v)
     {
@@ -5936,13 +5949,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdccamt()
+    }
 
     /**
      * Set the value of [oehdotaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdotaxsub($v)
     {
@@ -5956,13 +5969,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdotaxsub()
+    }
 
     /**
      * Set the value of [oehdonontaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdonontaxsub($v)
     {
@@ -5976,13 +5989,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdonontaxsub()
+    }
 
     /**
      * Set the value of [oehdotaxtot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdotaxtot($v)
     {
@@ -5996,13 +6009,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdotaxtot()
+    }
 
     /**
      * Set the value of [oehdoordrtot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdoordrtot($v)
     {
@@ -6016,13 +6029,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdoordrtot()
+    }
 
     /**
      * Set the value of [oehdpickprintdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpickprintdate($v)
     {
@@ -6036,13 +6049,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpickprintdate()
+    }
 
     /**
      * Set the value of [oehdpickprinttime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpickprinttime($v)
     {
@@ -6056,13 +6069,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpickprinttime()
+    }
 
     /**
      * Set the value of [oehdcont] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcont($v)
     {
@@ -6076,13 +6089,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcont()
+    }
 
     /**
      * Set the value of [oehdcontteleintl] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcontteleintl($v)
     {
@@ -6096,13 +6109,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcontteleintl()
+    }
 
     /**
      * Set the value of [oehdconttelenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdconttelenbr($v)
     {
@@ -6116,13 +6129,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdconttelenbr()
+    }
 
     /**
      * Set the value of [oehdcontteleext] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcontteleext($v)
     {
@@ -6136,13 +6149,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcontteleext()
+    }
 
     /**
      * Set the value of [oehdcontfaxintl] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcontfaxintl($v)
     {
@@ -6156,13 +6169,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcontfaxintl()
+    }
 
     /**
      * Set the value of [oehdcontfaxnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcontfaxnbr($v)
     {
@@ -6176,13 +6189,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcontfaxnbr()
+    }
 
     /**
      * Set the value of [oehdshipacct] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdshipacct($v)
     {
@@ -6196,13 +6209,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdshipacct()
+    }
 
     /**
      * Set the value of [oehdchgdue] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdchgdue($v)
     {
@@ -6216,13 +6229,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdchgdue()
+    }
 
     /**
      * Set the value of [oehdaddlpricdisc] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdaddlpricdisc($v)
     {
@@ -6236,13 +6249,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdaddlpricdisc()
+    }
 
     /**
      * Set the value of [oehdallship] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdallship($v)
     {
@@ -6256,13 +6269,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdallship()
+    }
 
     /**
      * Set the value of [oehdqtyorderamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdqtyorderamt($v)
     {
@@ -6276,13 +6289,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdqtyorderamt()
+    }
 
     /**
      * Set the value of [oehdcreditapplied] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcreditapplied($v)
     {
@@ -6296,13 +6309,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcreditapplied()
+    }
 
     /**
      * Set the value of [oehdinvcprintdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdinvcprintdate($v)
     {
@@ -6316,13 +6329,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdinvcprintdate()
+    }
 
     /**
      * Set the value of [oehdinvcprinttime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdinvcprinttime($v)
     {
@@ -6336,13 +6349,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdinvcprinttime()
+    }
 
     /**
      * Set the value of [oehddiscfrt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscfrt($v)
     {
@@ -6356,13 +6369,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscfrt()
+    }
 
     /**
      * Set the value of [oehdorideshipcomp] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdorideshipcomp($v)
     {
@@ -6376,13 +6389,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdorideshipcomp()
+    }
 
     /**
      * Set the value of [oehdcontemail] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcontemail($v)
     {
@@ -6396,13 +6409,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcontemail()
+    }
 
     /**
      * Set the value of [oehdmanualfrt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdmanualfrt($v)
     {
@@ -6416,13 +6429,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdmanualfrt()
+    }
 
     /**
      * Set the value of [oehdinternalfrt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdinternalfrt($v)
     {
@@ -6436,13 +6449,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdinternalfrt()
+    }
 
     /**
      * Set the value of [oehdfrtcost] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrtcost($v)
     {
@@ -6456,13 +6469,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrtcost()
+    }
 
     /**
      * Set the value of [oehdroute] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdroute($v)
     {
@@ -6476,13 +6489,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdroute()
+    }
 
     /**
      * Set the value of [oehdrouteseq] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdrouteseq($v)
     {
@@ -6496,13 +6509,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdrouteseq()
+    }
 
     /**
      * Set the value of [oehdfrttaxcode1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxcode1($v)
     {
@@ -6516,13 +6529,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxcode1()
+    }
 
     /**
      * Set the value of [oehdfrttaxamt1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxamt1($v)
     {
@@ -6536,13 +6549,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxamt1()
+    }
 
     /**
      * Set the value of [oehdfrttaxcode2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxcode2($v)
     {
@@ -6556,13 +6569,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxcode2()
+    }
 
     /**
      * Set the value of [oehdfrttaxamt2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxamt2($v)
     {
@@ -6576,13 +6589,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxamt2()
+    }
 
     /**
      * Set the value of [oehdfrttaxcode3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxcode3($v)
     {
@@ -6596,13 +6609,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxcode3()
+    }
 
     /**
      * Set the value of [oehdfrttaxamt3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxamt3($v)
     {
@@ -6616,13 +6629,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxamt3()
+    }
 
     /**
      * Set the value of [oehdfrttaxcode4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxcode4($v)
     {
@@ -6636,13 +6649,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxcode4()
+    }
 
     /**
      * Set the value of [oehdfrttaxamt4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxamt4($v)
     {
@@ -6656,13 +6669,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxamt4()
+    }
 
     /**
      * Set the value of [oehdfrttaxcode5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxcode5($v)
     {
@@ -6676,13 +6689,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxcode5()
+    }
 
     /**
      * Set the value of [oehdfrttaxamt5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrttaxamt5($v)
     {
@@ -6696,13 +6709,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrttaxamt5()
+    }
 
     /**
      * Set the value of [oehdedi855sent] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdedi855sent($v)
     {
@@ -6716,13 +6729,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdedi855sent()
+    }
 
     /**
      * Set the value of [oehdfrt3rdparty] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrt3rdparty($v)
     {
@@ -6736,13 +6749,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrt3rdparty()
+    }
 
     /**
      * Set the value of [oehdfob] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfob($v)
     {
@@ -6756,13 +6769,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfob()
+    }
 
     /**
      * Set the value of [oehdconfirmimagyn] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdconfirmimagyn($v)
     {
@@ -6776,13 +6789,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdconfirmimagyn()
+    }
 
     /**
      * Set the value of [oehdindustconform] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdindustconform($v)
     {
@@ -6796,13 +6809,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdindustconform()
+    }
 
     /**
      * Set the value of [oehdcstkconsign] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcstkconsign($v)
     {
@@ -6816,13 +6829,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcstkconsign()
+    }
 
     /**
      * Set the value of [oehdlmdelaycapsent] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdlmdelaycapsent($v)
     {
@@ -6836,13 +6849,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdlmdelaycapsent()
+    }
 
     /**
      * Set the value of [oehdmfgid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdmfgid($v)
     {
@@ -6856,13 +6869,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdmfgid()
+    }
 
     /**
      * Set the value of [oehdstoreid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdstoreid($v)
     {
@@ -6876,13 +6889,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdstoreid()
+    }
 
     /**
      * Set the value of [oehdpickqueue] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpickqueue($v)
     {
@@ -6896,13 +6909,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpickqueue()
+    }
 
     /**
      * Set the value of [oehdarrvdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdarrvdate($v)
     {
@@ -6916,13 +6929,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdarrvdate()
+    }
 
     /**
      * Set the value of [oehdsurchgstat] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdsurchgstat($v)
     {
@@ -6936,13 +6949,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdsurchgstat()
+    }
 
     /**
      * Set the value of [oehdfrtgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdfrtgrup($v)
     {
@@ -6956,13 +6969,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdfrtgrup()
+    }
 
     /**
      * Set the value of [oehdcommoride] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdcommoride($v)
     {
@@ -6976,13 +6989,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdcommoride()
+    }
 
     /**
      * Set the value of [oehdchrgsplt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdchrgsplt($v)
     {
@@ -6996,13 +7009,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdchrgsplt()
+    }
 
     /**
      * Set the value of [oehdacccaprv] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdacccaprv($v)
     {
@@ -7016,13 +7029,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdacccaprv()
+    }
 
     /**
      * Set the value of [oehdorigordrnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdorigordrnbr($v)
     {
@@ -7036,13 +7049,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdorigordrnbr()
+    }
 
     /**
      * Set the value of [oehdpostdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdpostdate($v)
     {
@@ -7056,13 +7069,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdpostdate()
+    }
 
     /**
      * Set the value of [oehddiscdate1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscdate1($v)
     {
@@ -7076,13 +7089,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscdate1()
+    }
 
     /**
      * Set the value of [oehddiscpct1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscpct1($v)
     {
@@ -7096,13 +7109,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscpct1()
+    }
 
     /**
      * Set the value of [oehdduedate1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduedate1($v)
     {
@@ -7116,13 +7129,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduedate1()
+    }
 
     /**
      * Set the value of [oehddueamt1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddueamt1($v)
     {
@@ -7136,13 +7149,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddueamt1()
+    }
 
     /**
      * Set the value of [oehdduepct1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduepct1($v)
     {
@@ -7156,13 +7169,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduepct1()
+    }
 
     /**
      * Set the value of [oehddiscdate2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscdate2($v)
     {
@@ -7176,13 +7189,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscdate2()
+    }
 
     /**
      * Set the value of [oehddiscpct2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscpct2($v)
     {
@@ -7196,13 +7209,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscpct2()
+    }
 
     /**
      * Set the value of [oehdduedate2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduedate2($v)
     {
@@ -7216,13 +7229,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduedate2()
+    }
 
     /**
      * Set the value of [oehddueamt2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddueamt2($v)
     {
@@ -7236,13 +7249,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddueamt2()
+    }
 
     /**
      * Set the value of [oehdduepct2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduepct2($v)
     {
@@ -7256,13 +7269,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduepct2()
+    }
 
     /**
      * Set the value of [oehddiscdate3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscdate3($v)
     {
@@ -7276,13 +7289,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscdate3()
+    }
 
     /**
      * Set the value of [oehddiscpct3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscpct3($v)
     {
@@ -7296,13 +7309,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscpct3()
+    }
 
     /**
      * Set the value of [oehdduedate3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduedate3($v)
     {
@@ -7316,13 +7329,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduedate3()
+    }
 
     /**
      * Set the value of [oehddueamt3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddueamt3($v)
     {
@@ -7336,13 +7349,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddueamt3()
+    }
 
     /**
      * Set the value of [oehdduepct3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduepct3($v)
     {
@@ -7356,13 +7369,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduepct3()
+    }
 
     /**
      * Set the value of [oehddiscdate4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscdate4($v)
     {
@@ -7376,13 +7389,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscdate4()
+    }
 
     /**
      * Set the value of [oehddiscpct4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscpct4($v)
     {
@@ -7396,13 +7409,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscpct4()
+    }
 
     /**
      * Set the value of [oehdduedate4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduedate4($v)
     {
@@ -7416,13 +7429,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduedate4()
+    }
 
     /**
      * Set the value of [oehddueamt4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddueamt4($v)
     {
@@ -7436,13 +7449,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddueamt4()
+    }
 
     /**
      * Set the value of [oehdduepct4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduepct4($v)
     {
@@ -7456,13 +7469,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduepct4()
+    }
 
     /**
      * Set the value of [oehddiscdate5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscdate5($v)
     {
@@ -7476,13 +7489,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscdate5()
+    }
 
     /**
      * Set the value of [oehddiscpct5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscpct5($v)
     {
@@ -7496,13 +7509,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscpct5()
+    }
 
     /**
      * Set the value of [oehdduedate5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduedate5($v)
     {
@@ -7516,13 +7529,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduedate5()
+    }
 
     /**
      * Set the value of [oehddueamt5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddueamt5($v)
     {
@@ -7536,13 +7549,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddueamt5()
+    }
 
     /**
      * Set the value of [oehdduepct5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduepct5($v)
     {
@@ -7556,13 +7569,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduepct5()
+    }
 
     /**
      * Set the value of [oehddiscdate6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscdate6($v)
     {
@@ -7576,13 +7589,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscdate6()
+    }
 
     /**
      * Set the value of [oehddiscpct6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddiscpct6($v)
     {
@@ -7596,13 +7609,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddiscpct6()
+    }
 
     /**
      * Set the value of [oehdduedate6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduedate6($v)
     {
@@ -7616,13 +7629,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduedate6()
+    }
 
     /**
      * Set the value of [oehddueamt6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehddueamt6($v)
     {
@@ -7636,13 +7649,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehddueamt6()
+    }
 
     /**
      * Set the value of [oehdduepct6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdduepct6($v)
     {
@@ -7656,13 +7669,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdduepct6()
+    }
 
     /**
      * Set the value of [oehdrefnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdrefnbr($v)
     {
@@ -7676,13 +7689,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdrefnbr()
+    }
 
     /**
      * Set the value of [oehdacprognbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdacprognbr($v)
     {
@@ -7696,13 +7709,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdacprognbr()
+    }
 
     /**
      * Set the value of [oehdacprogexpdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehdacprogexpdate($v)
     {
@@ -7716,13 +7729,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehdacprogexpdate()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -7736,13 +7749,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -7756,13 +7769,13 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -7776,7 +7789,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -7784,9 +7797,9 @@ abstract class SalesOrder implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->oehdnbr !== 0) {
                 return false;
@@ -8546,7 +8559,7 @@ abstract class SalesOrder implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -8556,17 +8569,17 @@ abstract class SalesOrder implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -9136,8 +9149,8 @@ abstract class SalesOrder implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : SalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -9162,9 +9175,10 @@ abstract class SalesOrder implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
             $this->aCustomer = null;
@@ -9175,19 +9189,19 @@ abstract class SalesOrder implements ActiveRecordInterface
         if ($this->aCustomerShipto !== null && $this->arstshipid !== $this->aCustomerShipto->getArstshipid()) {
             $this->aCustomerShipto = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -9232,13 +9246,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see SalesOrder::setDeleted()
      * @see SalesOrder::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -9268,12 +9282,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -9318,12 +9332,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -9449,19 +9463,19 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -10046,570 +10060,759 @@ abstract class SalesOrder implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'OehdNbr':
                         $stmt->bindValue($identifier, $this->oehdnbr, PDO::PARAM_INT);
+
                         break;
                     case 'OehdStat':
                         $stmt->bindValue($identifier, $this->oehdstat, PDO::PARAM_STR);
+
                         break;
                     case 'OehdHold':
                         $stmt->bindValue($identifier, $this->oehdhold, PDO::PARAM_STR);
+
                         break;
                     case 'ArcuCustId':
                         $stmt->bindValue($identifier, $this->arcucustid, PDO::PARAM_STR);
+
                         break;
                     case 'ArstShipId':
                         $stmt->bindValue($identifier, $this->arstshipid, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStName':
                         $stmt->bindValue($identifier, $this->oehdstname, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStLastName':
                         $stmt->bindValue($identifier, $this->oehdstlastname, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStFirstName':
                         $stmt->bindValue($identifier, $this->oehdstfirstname, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStAdr1':
                         $stmt->bindValue($identifier, $this->oehdstadr1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStAdr2':
                         $stmt->bindValue($identifier, $this->oehdstadr2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStAdr3':
                         $stmt->bindValue($identifier, $this->oehdstadr3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStCtry':
                         $stmt->bindValue($identifier, $this->oehdstctry, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStCity':
                         $stmt->bindValue($identifier, $this->oehdstcity, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStStat':
                         $stmt->bindValue($identifier, $this->oehdststat, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStZipCode':
                         $stmt->bindValue($identifier, $this->oehdstzipcode, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCustPo':
                         $stmt->bindValue($identifier, $this->oehdcustpo, PDO::PARAM_STR);
+
                         break;
                     case 'OehdOrdrDate':
                         $stmt->bindValue($identifier, $this->oehdordrdate, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmTermCd':
                         $stmt->bindValue($identifier, $this->artmtermcd, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbShipVia':
                         $stmt->bindValue($identifier, $this->artbshipvia, PDO::PARAM_STR);
+
                         break;
                     case 'ArinInvNbr':
                         $stmt->bindValue($identifier, $this->arininvnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdInvDate':
                         $stmt->bindValue($identifier, $this->oehdinvdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdGLPd':
                         $stmt->bindValue($identifier, $this->oehdglpd, PDO::PARAM_INT);
+
                         break;
                     case 'ArspSalePer1':
                         $stmt->bindValue($identifier, $this->arspsaleper1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdSp1Pct':
                         $stmt->bindValue($identifier, $this->oehdsp1pct, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer2':
                         $stmt->bindValue($identifier, $this->arspsaleper2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdSp2Pct':
                         $stmt->bindValue($identifier, $this->oehdsp2pct, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer3':
                         $stmt->bindValue($identifier, $this->arspsaleper3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdSp3Pct':
                         $stmt->bindValue($identifier, $this->oehdsp3pct, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCntrNbr':
                         $stmt->bindValue($identifier, $this->oehdcntrnbr, PDO::PARAM_INT);
+
                         break;
                     case 'OehdWiBatch':
                         $stmt->bindValue($identifier, $this->oehdwibatch, PDO::PARAM_INT);
+
                         break;
                     case 'OehdDropRelHold':
                         $stmt->bindValue($identifier, $this->oehddroprelhold, PDO::PARAM_STR);
+
                         break;
                     case 'OehdTaxSub':
                         $stmt->bindValue($identifier, $this->oehdtaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'OehdNonTaxSub':
                         $stmt->bindValue($identifier, $this->oehdnontaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'OehdTaxTot':
                         $stmt->bindValue($identifier, $this->oehdtaxtot, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTot':
                         $stmt->bindValue($identifier, $this->oehdfrttot, PDO::PARAM_STR);
+
                         break;
                     case 'OehdMiscTot':
                         $stmt->bindValue($identifier, $this->oehdmisctot, PDO::PARAM_STR);
+
                         break;
                     case 'OehdOrdrTot':
                         $stmt->bindValue($identifier, $this->oehdordrtot, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCostTot':
                         $stmt->bindValue($identifier, $this->oehdcosttot, PDO::PARAM_STR);
+
                         break;
                     case 'OehdSpCommLock':
                         $stmt->bindValue($identifier, $this->oehdspcommlock, PDO::PARAM_STR);
+
                         break;
                     case 'OehdTakenDate':
                         $stmt->bindValue($identifier, $this->oehdtakendate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdTakenTime':
                         $stmt->bindValue($identifier, $this->oehdtakentime, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPickDate':
                         $stmt->bindValue($identifier, $this->oehdpickdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPickTime':
                         $stmt->bindValue($identifier, $this->oehdpicktime, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPackDate':
                         $stmt->bindValue($identifier, $this->oehdpackdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPackTime':
                         $stmt->bindValue($identifier, $this->oehdpacktime, PDO::PARAM_STR);
+
                         break;
                     case 'OehdVerifyDate':
                         $stmt->bindValue($identifier, $this->oehdverifydate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdVerifyTime':
                         $stmt->bindValue($identifier, $this->oehdverifytime, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCreditMemo':
                         $stmt->bindValue($identifier, $this->oehdcreditmemo, PDO::PARAM_STR);
+
                         break;
                     case 'OehdBookedYn':
                         $stmt->bindValue($identifier, $this->oehdbookedyn, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseOrig':
                         $stmt->bindValue($identifier, $this->intbwhseorig, PDO::PARAM_STR);
+
                         break;
                     case 'OehdBtStat':
                         $stmt->bindValue($identifier, $this->oehdbtstat, PDO::PARAM_STR);
+
                         break;
                     case 'OehdShipComp':
                         $stmt->bindValue($identifier, $this->oehdshipcomp, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCwoFlag':
                         $stmt->bindValue($identifier, $this->oehdcwoflag, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDivision':
                         $stmt->bindValue($identifier, $this->oehddivision, PDO::PARAM_STR);
+
                         break;
                     case 'OehdTakenCode':
                         $stmt->bindValue($identifier, $this->oehdtakencode, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPickCode':
                         $stmt->bindValue($identifier, $this->oehdpickcode, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPackCode':
                         $stmt->bindValue($identifier, $this->oehdpackcode, PDO::PARAM_STR);
+
                         break;
                     case 'OehdVerifyCode':
                         $stmt->bindValue($identifier, $this->oehdverifycode, PDO::PARAM_STR);
+
                         break;
                     case 'OehdTotDisc':
                         $stmt->bindValue($identifier, $this->oehdtotdisc, PDO::PARAM_STR);
+
                         break;
                     case 'OehdEdiRefNbrQual':
                         $stmt->bindValue($identifier, $this->oehdedirefnbrqual, PDO::PARAM_STR);
+
                         break;
                     case 'OehdUserCode1':
                         $stmt->bindValue($identifier, $this->oehdusercode1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdUserCode2':
                         $stmt->bindValue($identifier, $this->oehdusercode2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdUserCode3':
                         $stmt->bindValue($identifier, $this->oehdusercode3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdUserCode4':
                         $stmt->bindValue($identifier, $this->oehdusercode4, PDO::PARAM_STR);
+
                         break;
                     case 'OehdExchCtry':
                         $stmt->bindValue($identifier, $this->oehdexchctry, PDO::PARAM_STR);
+
                         break;
                     case 'OehdExchRate':
                         $stmt->bindValue($identifier, $this->oehdexchrate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdWghtTot':
                         $stmt->bindValue($identifier, $this->oehdwghttot, PDO::PARAM_STR);
+
                         break;
                     case 'OehdWghtOride':
                         $stmt->bindValue($identifier, $this->oehdwghtoride, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCcInfo':
                         $stmt->bindValue($identifier, $this->oehdccinfo, PDO::PARAM_STR);
+
                         break;
                     case 'OehdBoxCount':
                         $stmt->bindValue($identifier, $this->oehdboxcount, PDO::PARAM_INT);
+
                         break;
                     case 'OehdRqstDate':
                         $stmt->bindValue($identifier, $this->oehdrqstdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCancDate':
                         $stmt->bindValue($identifier, $this->oehdcancdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCrntUser':
                         $stmt->bindValue($identifier, $this->oehdcrntuser, PDO::PARAM_STR);
+
                         break;
                     case 'OehdReleaseNbr':
                         $stmt->bindValue($identifier, $this->oehdreleasenbr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhse':
                         $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+
                         break;
                     case 'OehdBordBuildDate':
                         $stmt->bindValue($identifier, $this->oehdbordbuilddate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDeptCode':
                         $stmt->bindValue($identifier, $this->oehddeptcode, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtInEntered':
                         $stmt->bindValue($identifier, $this->oehdfrtinentered, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDropShipEntered':
                         $stmt->bindValue($identifier, $this->oehddropshipentered, PDO::PARAM_STR);
+
                         break;
                     case 'OehdErFlag':
                         $stmt->bindValue($identifier, $this->oehderflag, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtIn':
                         $stmt->bindValue($identifier, $this->oehdfrtin, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDropShip':
                         $stmt->bindValue($identifier, $this->oehddropship, PDO::PARAM_STR);
+
                         break;
                     case 'OehdMinOrder':
                         $stmt->bindValue($identifier, $this->oehdminorder, PDO::PARAM_STR);
+
                         break;
                     case 'OehdContractTerms':
                         $stmt->bindValue($identifier, $this->oehdcontractterms, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDropShipBilled':
                         $stmt->bindValue($identifier, $this->oehddropshipbilled, PDO::PARAM_STR);
+
                         break;
                     case 'OehdOrdTyp':
                         $stmt->bindValue($identifier, $this->oehdordtyp, PDO::PARAM_STR);
+
                         break;
                     case 'OehdTrackNbr':
                         $stmt->bindValue($identifier, $this->oehdtracknbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdSource':
                         $stmt->bindValue($identifier, $this->oehdsource, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCcAprv':
                         $stmt->bindValue($identifier, $this->oehdccaprv, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPickFmatType':
                         $stmt->bindValue($identifier, $this->oehdpickfmattype, PDO::PARAM_STR);
+
                         break;
                     case 'OehdInvcFmatType':
                         $stmt->bindValue($identifier, $this->oehdinvcfmattype, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCashAmt':
                         $stmt->bindValue($identifier, $this->oehdcashamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCheckAmt':
                         $stmt->bindValue($identifier, $this->oehdcheckamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCheckNbr':
                         $stmt->bindValue($identifier, $this->oehdchecknbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDepositAmt':
                         $stmt->bindValue($identifier, $this->oehddepositamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDepositNbr':
                         $stmt->bindValue($identifier, $this->oehddepositnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCcAmt':
                         $stmt->bindValue($identifier, $this->oehdccamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdOTaxSub':
                         $stmt->bindValue($identifier, $this->oehdotaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'OehdONonTaxSub':
                         $stmt->bindValue($identifier, $this->oehdonontaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'OehdOTaxTot':
                         $stmt->bindValue($identifier, $this->oehdotaxtot, PDO::PARAM_STR);
+
                         break;
                     case 'OehdOOrdrTot':
                         $stmt->bindValue($identifier, $this->oehdoordrtot, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPickPrintDate':
                         $stmt->bindValue($identifier, $this->oehdpickprintdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPickPrintTime':
                         $stmt->bindValue($identifier, $this->oehdpickprinttime, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCont':
                         $stmt->bindValue($identifier, $this->oehdcont, PDO::PARAM_STR);
+
                         break;
                     case 'OehdContTeleIntl':
                         $stmt->bindValue($identifier, $this->oehdcontteleintl, PDO::PARAM_STR);
+
                         break;
                     case 'OehdContTeleNbr':
                         $stmt->bindValue($identifier, $this->oehdconttelenbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdContTeleExt':
                         $stmt->bindValue($identifier, $this->oehdcontteleext, PDO::PARAM_STR);
+
                         break;
                     case 'OehdContFaxIntl':
                         $stmt->bindValue($identifier, $this->oehdcontfaxintl, PDO::PARAM_STR);
+
                         break;
                     case 'OehdContFaxNbr':
                         $stmt->bindValue($identifier, $this->oehdcontfaxnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdShipAcct':
                         $stmt->bindValue($identifier, $this->oehdshipacct, PDO::PARAM_STR);
+
                         break;
                     case 'OehdChgDue':
                         $stmt->bindValue($identifier, $this->oehdchgdue, PDO::PARAM_STR);
+
                         break;
                     case 'OehdAddlPricDisc':
                         $stmt->bindValue($identifier, $this->oehdaddlpricdisc, PDO::PARAM_STR);
+
                         break;
                     case 'OehdAllShip':
                         $stmt->bindValue($identifier, $this->oehdallship, PDO::PARAM_STR);
+
                         break;
                     case 'OehdQtyOrderAmt':
                         $stmt->bindValue($identifier, $this->oehdqtyorderamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCreditApplied':
                         $stmt->bindValue($identifier, $this->oehdcreditapplied, PDO::PARAM_STR);
+
                         break;
                     case 'OehdInvcPrintDate':
                         $stmt->bindValue($identifier, $this->oehdinvcprintdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdInvcPrintTime':
                         $stmt->bindValue($identifier, $this->oehdinvcprinttime, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscFrt':
                         $stmt->bindValue($identifier, $this->oehddiscfrt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdOrideShipComp':
                         $stmt->bindValue($identifier, $this->oehdorideshipcomp, PDO::PARAM_STR);
+
                         break;
                     case 'OehdContEmail':
                         $stmt->bindValue($identifier, $this->oehdcontemail, PDO::PARAM_STR);
+
                         break;
                     case 'OehdManualFrt':
                         $stmt->bindValue($identifier, $this->oehdmanualfrt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdInternalFrt':
                         $stmt->bindValue($identifier, $this->oehdinternalfrt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtCost':
                         $stmt->bindValue($identifier, $this->oehdfrtcost, PDO::PARAM_STR);
+
                         break;
                     case 'OehdRoute':
                         $stmt->bindValue($identifier, $this->oehdroute, PDO::PARAM_STR);
+
                         break;
                     case 'OehdRouteSeq':
                         $stmt->bindValue($identifier, $this->oehdrouteseq, PDO::PARAM_INT);
+
                         break;
                     case 'OehdFrtTaxCode1':
                         $stmt->bindValue($identifier, $this->oehdfrttaxcode1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxAmt1':
                         $stmt->bindValue($identifier, $this->oehdfrttaxamt1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxCode2':
                         $stmt->bindValue($identifier, $this->oehdfrttaxcode2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxAmt2':
                         $stmt->bindValue($identifier, $this->oehdfrttaxamt2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxCode3':
                         $stmt->bindValue($identifier, $this->oehdfrttaxcode3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxAmt3':
                         $stmt->bindValue($identifier, $this->oehdfrttaxamt3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxCode4':
                         $stmt->bindValue($identifier, $this->oehdfrttaxcode4, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxAmt4':
                         $stmt->bindValue($identifier, $this->oehdfrttaxamt4, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxCode5':
                         $stmt->bindValue($identifier, $this->oehdfrttaxcode5, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtTaxAmt5':
                         $stmt->bindValue($identifier, $this->oehdfrttaxamt5, PDO::PARAM_STR);
+
                         break;
                     case 'OehdEdi855Sent':
                         $stmt->bindValue($identifier, $this->oehdedi855sent, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrt3rdParty':
                         $stmt->bindValue($identifier, $this->oehdfrt3rdparty, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFob':
                         $stmt->bindValue($identifier, $this->oehdfob, PDO::PARAM_STR);
+
                         break;
                     case 'OehdConfirmImagYn':
                         $stmt->bindValue($identifier, $this->oehdconfirmimagyn, PDO::PARAM_STR);
+
                         break;
                     case 'OehdIndustConform':
                         $stmt->bindValue($identifier, $this->oehdindustconform, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCstkConsign':
                         $stmt->bindValue($identifier, $this->oehdcstkconsign, PDO::PARAM_STR);
+
                         break;
                     case 'OehdLmDelayCapSent':
                         $stmt->bindValue($identifier, $this->oehdlmdelaycapsent, PDO::PARAM_STR);
+
                         break;
                     case 'OehdMfgId':
                         $stmt->bindValue($identifier, $this->oehdmfgid, PDO::PARAM_STR);
+
                         break;
                     case 'OehdStoreId':
                         $stmt->bindValue($identifier, $this->oehdstoreid, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPickQueue':
                         $stmt->bindValue($identifier, $this->oehdpickqueue, PDO::PARAM_STR);
+
                         break;
                     case 'OehdArrvDate':
                         $stmt->bindValue($identifier, $this->oehdarrvdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdSurchgStat':
                         $stmt->bindValue($identifier, $this->oehdsurchgstat, PDO::PARAM_STR);
+
                         break;
                     case 'OehdFrtGrup':
                         $stmt->bindValue($identifier, $this->oehdfrtgrup, PDO::PARAM_STR);
+
                         break;
                     case 'OehdCommOride':
                         $stmt->bindValue($identifier, $this->oehdcommoride, PDO::PARAM_STR);
+
                         break;
                     case 'OehdChrgSplt':
                         $stmt->bindValue($identifier, $this->oehdchrgsplt, PDO::PARAM_STR);
+
                         break;
                     case 'OehdAcCcAprv':
                         $stmt->bindValue($identifier, $this->oehdacccaprv, PDO::PARAM_STR);
+
                         break;
                     case 'OehdOrigOrdrNbr':
                         $stmt->bindValue($identifier, $this->oehdorigordrnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdPostDate':
                         $stmt->bindValue($identifier, $this->oehdpostdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscDate1':
                         $stmt->bindValue($identifier, $this->oehddiscdate1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscPct1':
                         $stmt->bindValue($identifier, $this->oehddiscpct1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueDate1':
                         $stmt->bindValue($identifier, $this->oehdduedate1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueAmt1':
                         $stmt->bindValue($identifier, $this->oehddueamt1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDuePct1':
                         $stmt->bindValue($identifier, $this->oehdduepct1, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscDate2':
                         $stmt->bindValue($identifier, $this->oehddiscdate2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscPct2':
                         $stmt->bindValue($identifier, $this->oehddiscpct2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueDate2':
                         $stmt->bindValue($identifier, $this->oehdduedate2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueAmt2':
                         $stmt->bindValue($identifier, $this->oehddueamt2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDuePct2':
                         $stmt->bindValue($identifier, $this->oehdduepct2, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscDate3':
                         $stmt->bindValue($identifier, $this->oehddiscdate3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscPct3':
                         $stmt->bindValue($identifier, $this->oehddiscpct3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueDate3':
                         $stmt->bindValue($identifier, $this->oehdduedate3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueAmt3':
                         $stmt->bindValue($identifier, $this->oehddueamt3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDuePct3':
                         $stmt->bindValue($identifier, $this->oehdduepct3, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscDate4':
                         $stmt->bindValue($identifier, $this->oehddiscdate4, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscPct4':
                         $stmt->bindValue($identifier, $this->oehddiscpct4, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueDate4':
                         $stmt->bindValue($identifier, $this->oehdduedate4, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueAmt4':
                         $stmt->bindValue($identifier, $this->oehddueamt4, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDuePct4':
                         $stmt->bindValue($identifier, $this->oehdduepct4, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscDate5':
                         $stmt->bindValue($identifier, $this->oehddiscdate5, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscPct5':
                         $stmt->bindValue($identifier, $this->oehddiscpct5, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueDate5':
                         $stmt->bindValue($identifier, $this->oehdduedate5, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueAmt5':
                         $stmt->bindValue($identifier, $this->oehddueamt5, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDuePct5':
                         $stmt->bindValue($identifier, $this->oehdduepct5, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscDate6':
                         $stmt->bindValue($identifier, $this->oehddiscdate6, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDiscPct6':
                         $stmt->bindValue($identifier, $this->oehddiscpct6, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueDate6':
                         $stmt->bindValue($identifier, $this->oehdduedate6, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDueAmt6':
                         $stmt->bindValue($identifier, $this->oehddueamt6, PDO::PARAM_STR);
+
                         break;
                     case 'OehdDuePct6':
                         $stmt->bindValue($identifier, $this->oehdduepct6, PDO::PARAM_STR);
+
                         break;
                     case 'OehdRefNbr':
                         $stmt->bindValue($identifier, $this->oehdrefnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdAcProgNbr':
                         $stmt->bindValue($identifier, $this->oehdacprognbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehdAcProgExpDate':
                         $stmt->bindValue($identifier, $this->oehdacprogexpdate, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -10625,12 +10828,12 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -10641,14 +10844,14 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -10660,582 +10863,581 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getOehdnbr();
-                break;
+
             case 1:
                 return $this->getOehdstat();
-                break;
+
             case 2:
                 return $this->getOehdhold();
-                break;
+
             case 3:
                 return $this->getArcucustid();
-                break;
+
             case 4:
                 return $this->getArstshipid();
-                break;
+
             case 5:
                 return $this->getOehdstname();
-                break;
+
             case 6:
                 return $this->getOehdstlastname();
-                break;
+
             case 7:
                 return $this->getOehdstfirstname();
-                break;
+
             case 8:
                 return $this->getOehdstadr1();
-                break;
+
             case 9:
                 return $this->getOehdstadr2();
-                break;
+
             case 10:
                 return $this->getOehdstadr3();
-                break;
+
             case 11:
                 return $this->getOehdstctry();
-                break;
+
             case 12:
                 return $this->getOehdstcity();
-                break;
+
             case 13:
                 return $this->getOehdststat();
-                break;
+
             case 14:
                 return $this->getOehdstzipcode();
-                break;
+
             case 15:
                 return $this->getOehdcustpo();
-                break;
+
             case 16:
                 return $this->getOehdordrdate();
-                break;
+
             case 17:
                 return $this->getArtmtermcd();
-                break;
+
             case 18:
                 return $this->getArtbshipvia();
-                break;
+
             case 19:
                 return $this->getArininvnbr();
-                break;
+
             case 20:
                 return $this->getOehdinvdate();
-                break;
+
             case 21:
                 return $this->getOehdglpd();
-                break;
+
             case 22:
                 return $this->getArspsaleper1();
-                break;
+
             case 23:
                 return $this->getOehdsp1pct();
-                break;
+
             case 24:
                 return $this->getArspsaleper2();
-                break;
+
             case 25:
                 return $this->getOehdsp2pct();
-                break;
+
             case 26:
                 return $this->getArspsaleper3();
-                break;
+
             case 27:
                 return $this->getOehdsp3pct();
-                break;
+
             case 28:
                 return $this->getOehdcntrnbr();
-                break;
+
             case 29:
                 return $this->getOehdwibatch();
-                break;
+
             case 30:
                 return $this->getOehddroprelhold();
-                break;
+
             case 31:
                 return $this->getOehdtaxsub();
-                break;
+
             case 32:
                 return $this->getOehdnontaxsub();
-                break;
+
             case 33:
                 return $this->getOehdtaxtot();
-                break;
+
             case 34:
                 return $this->getOehdfrttot();
-                break;
+
             case 35:
                 return $this->getOehdmisctot();
-                break;
+
             case 36:
                 return $this->getOehdordrtot();
-                break;
+
             case 37:
                 return $this->getOehdcosttot();
-                break;
+
             case 38:
                 return $this->getOehdspcommlock();
-                break;
+
             case 39:
                 return $this->getOehdtakendate();
-                break;
+
             case 40:
                 return $this->getOehdtakentime();
-                break;
+
             case 41:
                 return $this->getOehdpickdate();
-                break;
+
             case 42:
                 return $this->getOehdpicktime();
-                break;
+
             case 43:
                 return $this->getOehdpackdate();
-                break;
+
             case 44:
                 return $this->getOehdpacktime();
-                break;
+
             case 45:
                 return $this->getOehdverifydate();
-                break;
+
             case 46:
                 return $this->getOehdverifytime();
-                break;
+
             case 47:
                 return $this->getOehdcreditmemo();
-                break;
+
             case 48:
                 return $this->getOehdbookedyn();
-                break;
+
             case 49:
                 return $this->getIntbwhseorig();
-                break;
+
             case 50:
                 return $this->getOehdbtstat();
-                break;
+
             case 51:
                 return $this->getOehdshipcomp();
-                break;
+
             case 52:
                 return $this->getOehdcwoflag();
-                break;
+
             case 53:
                 return $this->getOehddivision();
-                break;
+
             case 54:
                 return $this->getOehdtakencode();
-                break;
+
             case 55:
                 return $this->getOehdpickcode();
-                break;
+
             case 56:
                 return $this->getOehdpackcode();
-                break;
+
             case 57:
                 return $this->getOehdverifycode();
-                break;
+
             case 58:
                 return $this->getOehdtotdisc();
-                break;
+
             case 59:
                 return $this->getOehdedirefnbrqual();
-                break;
+
             case 60:
                 return $this->getOehdusercode1();
-                break;
+
             case 61:
                 return $this->getOehdusercode2();
-                break;
+
             case 62:
                 return $this->getOehdusercode3();
-                break;
+
             case 63:
                 return $this->getOehdusercode4();
-                break;
+
             case 64:
                 return $this->getOehdexchctry();
-                break;
+
             case 65:
                 return $this->getOehdexchrate();
-                break;
+
             case 66:
                 return $this->getOehdwghttot();
-                break;
+
             case 67:
                 return $this->getOehdwghtoride();
-                break;
+
             case 68:
                 return $this->getOehdccinfo();
-                break;
+
             case 69:
                 return $this->getOehdboxcount();
-                break;
+
             case 70:
                 return $this->getOehdrqstdate();
-                break;
+
             case 71:
                 return $this->getOehdcancdate();
-                break;
+
             case 72:
                 return $this->getOehdcrntuser();
-                break;
+
             case 73:
                 return $this->getOehdreleasenbr();
-                break;
+
             case 74:
                 return $this->getIntbwhse();
-                break;
+
             case 75:
                 return $this->getOehdbordbuilddate();
-                break;
+
             case 76:
                 return $this->getOehddeptcode();
-                break;
+
             case 77:
                 return $this->getOehdfrtinentered();
-                break;
+
             case 78:
                 return $this->getOehddropshipentered();
-                break;
+
             case 79:
                 return $this->getOehderflag();
-                break;
+
             case 80:
                 return $this->getOehdfrtin();
-                break;
+
             case 81:
                 return $this->getOehddropship();
-                break;
+
             case 82:
                 return $this->getOehdminorder();
-                break;
+
             case 83:
                 return $this->getOehdcontractterms();
-                break;
+
             case 84:
                 return $this->getOehddropshipbilled();
-                break;
+
             case 85:
                 return $this->getOehdordtyp();
-                break;
+
             case 86:
                 return $this->getOehdtracknbr();
-                break;
+
             case 87:
                 return $this->getOehdsource();
-                break;
+
             case 88:
                 return $this->getOehdccaprv();
-                break;
+
             case 89:
                 return $this->getOehdpickfmattype();
-                break;
+
             case 90:
                 return $this->getOehdinvcfmattype();
-                break;
+
             case 91:
                 return $this->getOehdcashamt();
-                break;
+
             case 92:
                 return $this->getOehdcheckamt();
-                break;
+
             case 93:
                 return $this->getOehdchecknbr();
-                break;
+
             case 94:
                 return $this->getOehddepositamt();
-                break;
+
             case 95:
                 return $this->getOehddepositnbr();
-                break;
+
             case 96:
                 return $this->getOehdccamt();
-                break;
+
             case 97:
                 return $this->getOehdotaxsub();
-                break;
+
             case 98:
                 return $this->getOehdonontaxsub();
-                break;
+
             case 99:
                 return $this->getOehdotaxtot();
-                break;
+
             case 100:
                 return $this->getOehdoordrtot();
-                break;
+
             case 101:
                 return $this->getOehdpickprintdate();
-                break;
+
             case 102:
                 return $this->getOehdpickprinttime();
-                break;
+
             case 103:
                 return $this->getOehdcont();
-                break;
+
             case 104:
                 return $this->getOehdcontteleintl();
-                break;
+
             case 105:
                 return $this->getOehdconttelenbr();
-                break;
+
             case 106:
                 return $this->getOehdcontteleext();
-                break;
+
             case 107:
                 return $this->getOehdcontfaxintl();
-                break;
+
             case 108:
                 return $this->getOehdcontfaxnbr();
-                break;
+
             case 109:
                 return $this->getOehdshipacct();
-                break;
+
             case 110:
                 return $this->getOehdchgdue();
-                break;
+
             case 111:
                 return $this->getOehdaddlpricdisc();
-                break;
+
             case 112:
                 return $this->getOehdallship();
-                break;
+
             case 113:
                 return $this->getOehdqtyorderamt();
-                break;
+
             case 114:
                 return $this->getOehdcreditapplied();
-                break;
+
             case 115:
                 return $this->getOehdinvcprintdate();
-                break;
+
             case 116:
                 return $this->getOehdinvcprinttime();
-                break;
+
             case 117:
                 return $this->getOehddiscfrt();
-                break;
+
             case 118:
                 return $this->getOehdorideshipcomp();
-                break;
+
             case 119:
                 return $this->getOehdcontemail();
-                break;
+
             case 120:
                 return $this->getOehdmanualfrt();
-                break;
+
             case 121:
                 return $this->getOehdinternalfrt();
-                break;
+
             case 122:
                 return $this->getOehdfrtcost();
-                break;
+
             case 123:
                 return $this->getOehdroute();
-                break;
+
             case 124:
                 return $this->getOehdrouteseq();
-                break;
+
             case 125:
                 return $this->getOehdfrttaxcode1();
-                break;
+
             case 126:
                 return $this->getOehdfrttaxamt1();
-                break;
+
             case 127:
                 return $this->getOehdfrttaxcode2();
-                break;
+
             case 128:
                 return $this->getOehdfrttaxamt2();
-                break;
+
             case 129:
                 return $this->getOehdfrttaxcode3();
-                break;
+
             case 130:
                 return $this->getOehdfrttaxamt3();
-                break;
+
             case 131:
                 return $this->getOehdfrttaxcode4();
-                break;
+
             case 132:
                 return $this->getOehdfrttaxamt4();
-                break;
+
             case 133:
                 return $this->getOehdfrttaxcode5();
-                break;
+
             case 134:
                 return $this->getOehdfrttaxamt5();
-                break;
+
             case 135:
                 return $this->getOehdedi855sent();
-                break;
+
             case 136:
                 return $this->getOehdfrt3rdparty();
-                break;
+
             case 137:
                 return $this->getOehdfob();
-                break;
+
             case 138:
                 return $this->getOehdconfirmimagyn();
-                break;
+
             case 139:
                 return $this->getOehdindustconform();
-                break;
+
             case 140:
                 return $this->getOehdcstkconsign();
-                break;
+
             case 141:
                 return $this->getOehdlmdelaycapsent();
-                break;
+
             case 142:
                 return $this->getOehdmfgid();
-                break;
+
             case 143:
                 return $this->getOehdstoreid();
-                break;
+
             case 144:
                 return $this->getOehdpickqueue();
-                break;
+
             case 145:
                 return $this->getOehdarrvdate();
-                break;
+
             case 146:
                 return $this->getOehdsurchgstat();
-                break;
+
             case 147:
                 return $this->getOehdfrtgrup();
-                break;
+
             case 148:
                 return $this->getOehdcommoride();
-                break;
+
             case 149:
                 return $this->getOehdchrgsplt();
-                break;
+
             case 150:
                 return $this->getOehdacccaprv();
-                break;
+
             case 151:
                 return $this->getOehdorigordrnbr();
-                break;
+
             case 152:
                 return $this->getOehdpostdate();
-                break;
+
             case 153:
                 return $this->getOehddiscdate1();
-                break;
+
             case 154:
                 return $this->getOehddiscpct1();
-                break;
+
             case 155:
                 return $this->getOehdduedate1();
-                break;
+
             case 156:
                 return $this->getOehddueamt1();
-                break;
+
             case 157:
                 return $this->getOehdduepct1();
-                break;
+
             case 158:
                 return $this->getOehddiscdate2();
-                break;
+
             case 159:
                 return $this->getOehddiscpct2();
-                break;
+
             case 160:
                 return $this->getOehdduedate2();
-                break;
+
             case 161:
                 return $this->getOehddueamt2();
-                break;
+
             case 162:
                 return $this->getOehdduepct2();
-                break;
+
             case 163:
                 return $this->getOehddiscdate3();
-                break;
+
             case 164:
                 return $this->getOehddiscpct3();
-                break;
+
             case 165:
                 return $this->getOehdduedate3();
-                break;
+
             case 166:
                 return $this->getOehddueamt3();
-                break;
+
             case 167:
                 return $this->getOehdduepct3();
-                break;
+
             case 168:
                 return $this->getOehddiscdate4();
-                break;
+
             case 169:
                 return $this->getOehddiscpct4();
-                break;
+
             case 170:
                 return $this->getOehdduedate4();
-                break;
+
             case 171:
                 return $this->getOehddueamt4();
-                break;
+
             case 172:
                 return $this->getOehdduepct4();
-                break;
+
             case 173:
                 return $this->getOehddiscdate5();
-                break;
+
             case 174:
                 return $this->getOehddiscpct5();
-                break;
+
             case 175:
                 return $this->getOehdduedate5();
-                break;
+
             case 176:
                 return $this->getOehddueamt5();
-                break;
+
             case 177:
                 return $this->getOehdduepct5();
-                break;
+
             case 178:
                 return $this->getOehddiscdate6();
-                break;
+
             case 179:
                 return $this->getOehddiscpct6();
-                break;
+
             case 180:
                 return $this->getOehdduedate6();
-                break;
+
             case 181:
                 return $this->getOehddueamt6();
-                break;
+
             case 182:
                 return $this->getOehdduepct6();
-                break;
+
             case 183:
                 return $this->getOehdrefnbr();
-                break;
+
             case 184:
                 return $this->getOehdacprognbr();
-                break;
+
             case 185:
                 return $this->getOehdacprogexpdate();
-                break;
+
             case 186:
                 return $this->getDateupdtd();
-                break;
+
             case 187:
                 return $this->getTimeupdtd();
-                break;
+
             case 188:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -11245,24 +11447,23 @@ abstract class SalesOrder implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['SalesOrder'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['SalesOrder'][$this->hashCode()] = true;
         $keys = SalesOrderTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getOehdnbr(),
             $keys[1] => $this->getOehdstat(),
             $keys[2] => $this->getOehdhold(),
@@ -11452,7 +11653,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             $keys[186] => $this->getDateupdtd(),
             $keys[187] => $this->getTimeupdtd(),
             $keys[188] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -11572,30 +11773,32 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\SalesOrder
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\SalesOrder
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -12183,11 +12386,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = SalesOrderTableMap::getFieldNames($keyType);
 
@@ -12758,6 +12961,8 @@ abstract class SalesOrder implements ActiveRecordInterface
         if (array_key_exists($keys[188], $arr)) {
             $this->setDummy($arr[$keys[188]]);
         }
+
+        return $this;
     }
 
      /**
@@ -12777,9 +12982,9 @@ abstract class SalesOrder implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\SalesOrder The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -12793,9 +12998,9 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(SalesOrderTableMap::DATABASE_NAME);
 
@@ -13374,13 +13579,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildSalesOrderQuery::create();
         $criteria->add(SalesOrderTableMap::COL_OEHDNBR, $this->oehdnbr);
@@ -13392,7 +13597,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -13422,19 +13627,20 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (oehdnbr column).
      *
-     * @param       int $key Primary key.
+     * @param int|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?int $key = null): void
     {
         $this->setOehdnbr($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getOehdnbr();
     }
@@ -13445,12 +13651,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \SalesOrder (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \SalesOrder (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setOehdnbr($this->getOehdnbr());
         $copyObj->setOehdstat($this->getOehdstat());
@@ -13692,11 +13899,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \SalesOrder Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -13709,9 +13916,9 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param  ChildCustomer $v
-     * @return $this|\SalesOrder The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildCustomer $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
@@ -13737,11 +13944,11 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Get the associated ChildCustomer object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildCustomer The associated ChildCustomer object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getCustomer(ConnectionInterface $con = null)
+    public function getCustomer(?ConnectionInterface $con = null)
     {
         if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
             $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
@@ -13760,9 +13967,9 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomerShipto object.
      *
-     * @param  ChildCustomerShipto $v
-     * @return $this|\SalesOrder The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildCustomerShipto $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomerShipto(ChildCustomerShipto $v = null)
     {
@@ -13794,11 +14001,11 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Get the associated ChildCustomerShipto object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildCustomerShipto The associated ChildCustomerShipto object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getCustomerShipto(ConnectionInterface $con = null)
+    public function getCustomerShipto(?ConnectionInterface $con = null)
     {
         if ($this->aCustomerShipto === null && (($this->arcucustid !== "" && $this->arcucustid !== null) && ($this->arstshipid !== "" && $this->arstshipid !== null))) {
             $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk(array($this->arcucustid, $this->arstshipid), $con);
@@ -13820,28 +14027,28 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('SalesOrderDetail' == $relationName) {
+        if ('SalesOrderDetail' === $relationName) {
             $this->initSalesOrderDetails();
             return;
         }
-        if ('SalesOrderShipment' == $relationName) {
+        if ('SalesOrderShipment' === $relationName) {
             $this->initSalesOrderShipments();
             return;
         }
-        if ('SalesOrderLotserial' == $relationName) {
+        if ('SalesOrderLotserial' === $relationName) {
             $this->initSalesOrderLotserials();
             return;
         }
-        if ('SoAllocatedLotserial' == $relationName) {
+        if ('SoAllocatedLotserial' === $relationName) {
             $this->initSoAllocatedLotserials();
             return;
         }
-        if ('SoPickedLotserial' == $relationName) {
+        if ('SoPickedLotserial' === $relationName) {
             $this->initSoPickedLotserials();
             return;
         }
@@ -13853,18 +14060,22 @@ abstract class SalesOrder implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesOrderDetails()
+     * @return $this
+     * @see addSalesOrderDetails()
      */
     public function clearSalesOrderDetails()
     {
         $this->collSalesOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesOrderDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesOrderDetails($v = true)
+    public function resetPartialSalesOrderDetails($v = true): void
     {
         $this->collSalesOrderDetailsPartial = $v;
     }
@@ -13876,12 +14087,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesOrderDetails($overrideExisting = true)
+    public function initSalesOrderDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesOrderDetails && !$overrideExisting) {
             return;
@@ -13902,18 +14113,28 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If this ChildSalesOrder is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesOrderDetail[] List of ChildSalesOrderDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderDetail> List of ChildSalesOrderDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesOrderDetails) {
+        if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesOrderDetails();
+                if (null === $this->collSalesOrderDetails) {
+                    $this->initSalesOrderDetails();
+                } else {
+                    $collectionClassName = SalesOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesOrderDetails = new $collectionClassName;
+                    $collSalesOrderDetails->setModel('\SalesOrderDetail');
+
+                    return $collSalesOrderDetails;
+                }
             } else {
                 $collSalesOrderDetails = ChildSalesOrderDetailQuery::create(null, $criteria)
                     ->filterBySalesOrder($this)
@@ -13957,11 +14178,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesOrderDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param Collection $salesOrderDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesOrderDetails(Collection $salesOrderDetails, ConnectionInterface $con = null)
+    public function setSalesOrderDetails(Collection $salesOrderDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesOrderDetail[] $salesOrderDetailsToDelete */
         $salesOrderDetailsToDelete = $this->getSalesOrderDetails(new Criteria(), $con)->diff($salesOrderDetails);
@@ -13990,13 +14211,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Returns the number of related SalesOrderDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesOrderDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesOrderDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
         if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
@@ -14025,8 +14246,8 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Method called to associate a ChildSalesOrderDetail object to this object
      * through the ChildSalesOrderDetail foreign key attribute.
      *
-     * @param  ChildSalesOrderDetail $l ChildSalesOrderDetail
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param ChildSalesOrderDetail $l ChildSalesOrderDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesOrderDetail(ChildSalesOrderDetail $l)
     {
@@ -14049,15 +14270,15 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * @param ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to add.
      */
-    protected function doAddSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail)
+    protected function doAddSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail): void
     {
         $this->collSalesOrderDetails[]= $salesOrderDetail;
         $salesOrderDetail->setSalesOrder($this);
     }
 
     /**
-     * @param  ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to remove.
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail)
     {
@@ -14075,24 +14296,54 @@ abstract class SalesOrder implements ActiveRecordInterface
         return $this;
     }
 
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this SalesOrder is new, it will return
+     * an empty collection; or if this SalesOrder has previously
+     * been saved, it will retrieve related SalesOrderDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in SalesOrder.
+     *
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSalesOrderDetail[] List of ChildSalesOrderDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderDetail}> List of ChildSalesOrderDetail objects
+     */
+    public function getSalesOrderDetailsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSalesOrderDetailQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getSalesOrderDetails($query, $con);
+    }
+
     /**
      * Clears out the collSalesOrderShipments collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesOrderShipments()
+     * @return $this
+     * @see addSalesOrderShipments()
      */
     public function clearSalesOrderShipments()
     {
         $this->collSalesOrderShipments = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesOrderShipments collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesOrderShipments($v = true)
+    public function resetPartialSalesOrderShipments($v = true): void
     {
         $this->collSalesOrderShipmentsPartial = $v;
     }
@@ -14104,12 +14355,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesOrderShipments($overrideExisting = true)
+    public function initSalesOrderShipments(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesOrderShipments && !$overrideExisting) {
             return;
@@ -14130,18 +14381,28 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If this ChildSalesOrder is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesOrderShipment[] List of ChildSalesOrderShipment objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderShipment> List of ChildSalesOrderShipment objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesOrderShipments(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesOrderShipments(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderShipmentsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderShipments || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesOrderShipments) {
+        if (null === $this->collSalesOrderShipments || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesOrderShipments();
+                if (null === $this->collSalesOrderShipments) {
+                    $this->initSalesOrderShipments();
+                } else {
+                    $collectionClassName = SalesOrderShipmentTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesOrderShipments = new $collectionClassName;
+                    $collSalesOrderShipments->setModel('\SalesOrderShipment');
+
+                    return $collSalesOrderShipments;
+                }
             } else {
                 $collSalesOrderShipments = ChildSalesOrderShipmentQuery::create(null, $criteria)
                     ->filterBySalesOrder($this)
@@ -14185,11 +14446,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesOrderShipments A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param Collection $salesOrderShipments A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesOrderShipments(Collection $salesOrderShipments, ConnectionInterface $con = null)
+    public function setSalesOrderShipments(Collection $salesOrderShipments, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesOrderShipment[] $salesOrderShipmentsToDelete */
         $salesOrderShipmentsToDelete = $this->getSalesOrderShipments(new Criteria(), $con)->diff($salesOrderShipments);
@@ -14218,13 +14479,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Returns the number of related SalesOrderShipment objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesOrderShipment objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesOrderShipment objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesOrderShipments(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesOrderShipments(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderShipmentsPartial && !$this->isNew();
         if (null === $this->collSalesOrderShipments || null !== $criteria || $partial) {
@@ -14253,8 +14514,8 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Method called to associate a ChildSalesOrderShipment object to this object
      * through the ChildSalesOrderShipment foreign key attribute.
      *
-     * @param  ChildSalesOrderShipment $l ChildSalesOrderShipment
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param ChildSalesOrderShipment $l ChildSalesOrderShipment
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesOrderShipment(ChildSalesOrderShipment $l)
     {
@@ -14277,15 +14538,15 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * @param ChildSalesOrderShipment $salesOrderShipment The ChildSalesOrderShipment object to add.
      */
-    protected function doAddSalesOrderShipment(ChildSalesOrderShipment $salesOrderShipment)
+    protected function doAddSalesOrderShipment(ChildSalesOrderShipment $salesOrderShipment): void
     {
         $this->collSalesOrderShipments[]= $salesOrderShipment;
         $salesOrderShipment->setSalesOrder($this);
     }
 
     /**
-     * @param  ChildSalesOrderShipment $salesOrderShipment The ChildSalesOrderShipment object to remove.
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param ChildSalesOrderShipment $salesOrderShipment The ChildSalesOrderShipment object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesOrderShipment(ChildSalesOrderShipment $salesOrderShipment)
     {
@@ -14315,12 +14576,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesOrderShipment[] List of ChildSalesOrderShipment objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderShipment}> List of ChildSalesOrderShipment objects
      */
-    public function getSalesOrderShipmentsJoinSalesHistory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesOrderShipmentsJoinSalesHistory(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesOrderShipmentQuery::create(null, $criteria);
         $query->joinWith('SalesHistory', $joinBehavior);
@@ -14334,18 +14596,22 @@ abstract class SalesOrder implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesOrderLotserials()
+     * @return $this
+     * @see addSalesOrderLotserials()
      */
     public function clearSalesOrderLotserials()
     {
         $this->collSalesOrderLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesOrderLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesOrderLotserials($v = true)
+    public function resetPartialSalesOrderLotserials($v = true): void
     {
         $this->collSalesOrderLotserialsPartial = $v;
     }
@@ -14357,12 +14623,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesOrderLotserials($overrideExisting = true)
+    public function initSalesOrderLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesOrderLotserials && !$overrideExisting) {
             return;
@@ -14383,18 +14649,28 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If this ChildSalesOrder is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesOrderLotserial[] List of ChildSalesOrderLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderLotserial> List of ChildSalesOrderLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesOrderLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesOrderLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesOrderLotserials) {
+        if (null === $this->collSalesOrderLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesOrderLotserials();
+                if (null === $this->collSalesOrderLotserials) {
+                    $this->initSalesOrderLotserials();
+                } else {
+                    $collectionClassName = SalesOrderLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesOrderLotserials = new $collectionClassName;
+                    $collSalesOrderLotserials->setModel('\SalesOrderLotserial');
+
+                    return $collSalesOrderLotserials;
+                }
             } else {
                 $collSalesOrderLotserials = ChildSalesOrderLotserialQuery::create(null, $criteria)
                     ->filterBySalesOrder($this)
@@ -14438,11 +14714,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesOrderLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param Collection $salesOrderLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesOrderLotserials(Collection $salesOrderLotserials, ConnectionInterface $con = null)
+    public function setSalesOrderLotserials(Collection $salesOrderLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesOrderLotserial[] $salesOrderLotserialsToDelete */
         $salesOrderLotserialsToDelete = $this->getSalesOrderLotserials(new Criteria(), $con)->diff($salesOrderLotserials);
@@ -14471,13 +14747,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Returns the number of related SalesOrderLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesOrderLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesOrderLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesOrderLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesOrderLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderLotserialsPartial && !$this->isNew();
         if (null === $this->collSalesOrderLotserials || null !== $criteria || $partial) {
@@ -14506,8 +14782,8 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Method called to associate a ChildSalesOrderLotserial object to this object
      * through the ChildSalesOrderLotserial foreign key attribute.
      *
-     * @param  ChildSalesOrderLotserial $l ChildSalesOrderLotserial
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param ChildSalesOrderLotserial $l ChildSalesOrderLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesOrderLotserial(ChildSalesOrderLotserial $l)
     {
@@ -14530,15 +14806,15 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * @param ChildSalesOrderLotserial $salesOrderLotserial The ChildSalesOrderLotserial object to add.
      */
-    protected function doAddSalesOrderLotserial(ChildSalesOrderLotserial $salesOrderLotserial)
+    protected function doAddSalesOrderLotserial(ChildSalesOrderLotserial $salesOrderLotserial): void
     {
         $this->collSalesOrderLotserials[]= $salesOrderLotserial;
         $salesOrderLotserial->setSalesOrder($this);
     }
 
     /**
-     * @param  ChildSalesOrderLotserial $salesOrderLotserial The ChildSalesOrderLotserial object to remove.
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param ChildSalesOrderLotserial $salesOrderLotserial The ChildSalesOrderLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesOrderLotserial(ChildSalesOrderLotserial $salesOrderLotserial)
     {
@@ -14568,12 +14844,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesOrderLotserial[] List of ChildSalesOrderLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderLotserial}> List of ChildSalesOrderLotserial objects
      */
-    public function getSalesOrderLotserialsJoinSalesOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesOrderLotserialsJoinSalesOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesOrderLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrderDetail', $joinBehavior);
@@ -14593,12 +14870,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesOrderLotserial[] List of ChildSalesOrderLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderLotserial}> List of ChildSalesOrderLotserial objects
      */
-    public function getSalesOrderLotserialsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesOrderLotserialsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesOrderLotserialQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -14612,18 +14890,22 @@ abstract class SalesOrder implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSoAllocatedLotserials()
+     * @return $this
+     * @see addSoAllocatedLotserials()
      */
     public function clearSoAllocatedLotserials()
     {
         $this->collSoAllocatedLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSoAllocatedLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSoAllocatedLotserials($v = true)
+    public function resetPartialSoAllocatedLotserials($v = true): void
     {
         $this->collSoAllocatedLotserialsPartial = $v;
     }
@@ -14635,12 +14917,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSoAllocatedLotserials($overrideExisting = true)
+    public function initSoAllocatedLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collSoAllocatedLotserials && !$overrideExisting) {
             return;
@@ -14661,18 +14943,28 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If this ChildSalesOrder is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoAllocatedLotserial> List of ChildSoAllocatedLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSoAllocatedLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSoAllocatedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoAllocatedLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSoAllocatedLotserials) {
+        if (null === $this->collSoAllocatedLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSoAllocatedLotserials();
+                if (null === $this->collSoAllocatedLotserials) {
+                    $this->initSoAllocatedLotserials();
+                } else {
+                    $collectionClassName = SoAllocatedLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSoAllocatedLotserials = new $collectionClassName;
+                    $collSoAllocatedLotserials->setModel('\SoAllocatedLotserial');
+
+                    return $collSoAllocatedLotserials;
+                }
             } else {
                 $collSoAllocatedLotserials = ChildSoAllocatedLotserialQuery::create(null, $criteria)
                     ->filterBySalesOrder($this)
@@ -14716,11 +15008,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $soAllocatedLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param Collection $soAllocatedLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSoAllocatedLotserials(Collection $soAllocatedLotserials, ConnectionInterface $con = null)
+    public function setSoAllocatedLotserials(Collection $soAllocatedLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildSoAllocatedLotserial[] $soAllocatedLotserialsToDelete */
         $soAllocatedLotserialsToDelete = $this->getSoAllocatedLotserials(new Criteria(), $con)->diff($soAllocatedLotserials);
@@ -14749,13 +15041,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Returns the number of related SoAllocatedLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SoAllocatedLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SoAllocatedLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSoAllocatedLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSoAllocatedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoAllocatedLotserialsPartial && !$this->isNew();
         if (null === $this->collSoAllocatedLotserials || null !== $criteria || $partial) {
@@ -14784,8 +15076,8 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Method called to associate a ChildSoAllocatedLotserial object to this object
      * through the ChildSoAllocatedLotserial foreign key attribute.
      *
-     * @param  ChildSoAllocatedLotserial $l ChildSoAllocatedLotserial
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param ChildSoAllocatedLotserial $l ChildSoAllocatedLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addSoAllocatedLotserial(ChildSoAllocatedLotserial $l)
     {
@@ -14808,15 +15100,15 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * @param ChildSoAllocatedLotserial $soAllocatedLotserial The ChildSoAllocatedLotserial object to add.
      */
-    protected function doAddSoAllocatedLotserial(ChildSoAllocatedLotserial $soAllocatedLotserial)
+    protected function doAddSoAllocatedLotserial(ChildSoAllocatedLotserial $soAllocatedLotserial): void
     {
         $this->collSoAllocatedLotserials[]= $soAllocatedLotserial;
         $soAllocatedLotserial->setSalesOrder($this);
     }
 
     /**
-     * @param  ChildSoAllocatedLotserial $soAllocatedLotserial The ChildSoAllocatedLotserial object to remove.
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param ChildSoAllocatedLotserial $soAllocatedLotserial The ChildSoAllocatedLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSoAllocatedLotserial(ChildSoAllocatedLotserial $soAllocatedLotserial)
     {
@@ -14846,12 +15138,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoAllocatedLotserial}> List of ChildSoAllocatedLotserial objects
      */
-    public function getSoAllocatedLotserialsJoinSalesOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoAllocatedLotserialsJoinSalesOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrderDetail', $joinBehavior);
@@ -14871,12 +15164,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoAllocatedLotserial}> List of ChildSoAllocatedLotserial objects
      */
-    public function getSoAllocatedLotserialsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoAllocatedLotserialsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -14896,12 +15190,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoAllocatedLotserial}> List of ChildSoAllocatedLotserial objects
      */
-    public function getSoAllocatedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoAllocatedLotserialsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -14915,18 +15210,22 @@ abstract class SalesOrder implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSoPickedLotserials()
+     * @return $this
+     * @see addSoPickedLotserials()
      */
     public function clearSoPickedLotserials()
     {
         $this->collSoPickedLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSoPickedLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSoPickedLotserials($v = true)
+    public function resetPartialSoPickedLotserials($v = true): void
     {
         $this->collSoPickedLotserialsPartial = $v;
     }
@@ -14938,12 +15237,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSoPickedLotserials($overrideExisting = true)
+    public function initSoPickedLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collSoPickedLotserials && !$overrideExisting) {
             return;
@@ -14964,18 +15263,28 @@ abstract class SalesOrder implements ActiveRecordInterface
      * If this ChildSalesOrder is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoPickedLotserial> List of ChildSoPickedLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSoPickedLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSoPickedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoPickedLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSoPickedLotserials) {
+        if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSoPickedLotserials();
+                if (null === $this->collSoPickedLotserials) {
+                    $this->initSoPickedLotserials();
+                } else {
+                    $collectionClassName = SoPickedLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSoPickedLotserials = new $collectionClassName;
+                    $collSoPickedLotserials->setModel('\SoPickedLotserial');
+
+                    return $collSoPickedLotserials;
+                }
             } else {
                 $collSoPickedLotserials = ChildSoPickedLotserialQuery::create(null, $criteria)
                     ->filterBySalesOrder($this)
@@ -15019,11 +15328,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $soPickedLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param Collection $soPickedLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSoPickedLotserials(Collection $soPickedLotserials, ConnectionInterface $con = null)
+    public function setSoPickedLotserials(Collection $soPickedLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildSoPickedLotserial[] $soPickedLotserialsToDelete */
         $soPickedLotserialsToDelete = $this->getSoPickedLotserials(new Criteria(), $con)->diff($soPickedLotserials);
@@ -15052,13 +15361,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Returns the number of related SoPickedLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SoPickedLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SoPickedLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSoPickedLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSoPickedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
         if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
@@ -15087,8 +15396,8 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Method called to associate a ChildSoPickedLotserial object to this object
      * through the ChildSoPickedLotserial foreign key attribute.
      *
-     * @param  ChildSoPickedLotserial $l ChildSoPickedLotserial
-     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @param ChildSoPickedLotserial $l ChildSoPickedLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addSoPickedLotserial(ChildSoPickedLotserial $l)
     {
@@ -15111,15 +15420,15 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * @param ChildSoPickedLotserial $soPickedLotserial The ChildSoPickedLotserial object to add.
      */
-    protected function doAddSoPickedLotserial(ChildSoPickedLotserial $soPickedLotserial)
+    protected function doAddSoPickedLotserial(ChildSoPickedLotserial $soPickedLotserial): void
     {
         $this->collSoPickedLotserials[]= $soPickedLotserial;
         $soPickedLotserial->setSalesOrder($this);
     }
 
     /**
-     * @param  ChildSoPickedLotserial $soPickedLotserial The ChildSoPickedLotserial object to remove.
-     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     * @param ChildSoPickedLotserial $soPickedLotserial The ChildSoPickedLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSoPickedLotserial(ChildSoPickedLotserial $soPickedLotserial)
     {
@@ -15149,12 +15458,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoPickedLotserial}> List of ChildSoPickedLotserial objects
      */
-    public function getSoPickedLotserialsJoinSalesOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoPickedLotserialsJoinSalesOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrderDetail', $joinBehavior);
@@ -15174,12 +15484,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoPickedLotserial}> List of ChildSoPickedLotserial objects
      */
-    public function getSoPickedLotserialsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoPickedLotserialsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -15199,12 +15510,13 @@ abstract class SalesOrder implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesOrder.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoPickedLotserial}> List of ChildSoPickedLotserial objects
      */
-    public function getSoPickedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoPickedLotserialsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -15216,6 +15528,8 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -15420,6 +15734,8 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -15428,9 +15744,10 @@ abstract class SalesOrder implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collSalesOrderDetails) {
@@ -15467,6 +15784,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->collSoPickedLotserials = null;
         $this->aCustomer = null;
         $this->aCustomerShipto = null;
+        return $this;
     }
 
     /**
@@ -15481,99 +15799,79 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -15583,7 +15881,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -15603,15 +15901,18 @@ abstract class SalesOrder implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

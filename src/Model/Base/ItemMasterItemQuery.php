@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_item_mast' table.
- *
- *
+ * Base class that represents a query for the `inv_item_mast` table.
  *
  * @method     ChildItemMasterItemQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildItemMasterItemQuery orderByInitdesc1($order = Criteria::ASC) Order by the InitDesc1 column
@@ -720,79 +719,79 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvStockCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\CstkItemQuery|\InvWhseItemBinQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvWhseLotQuery|\ItemSubstituteQuery|\InvLotTagQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotMasterQuery|\InvSerialMasterQuery|\InvTransferDetailQuery|\InvTransferLotserialQuery|\InvTransferPreAllocatedLotserialQuery|\InvTransferPickedLotserialQuery|\InvSerialWarrantyQuery|\WarehouseInventoryQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\InvOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\InvPalletQuery|\PurchaseOrderDetailQuery|\PurchaseOrderDetailReceiptQuery|\PurchaseOrderDetailReceivingQuery|\PurchaseOrderDetailLotReceivingQuery|\BomComponentQuery|\BomItemQuery|\RcyclReceiptDetailQuery|\RcyclReceiptLotQuery|\BookingDetailQuery|\SalesHistoryDetailQuery|\SalesOrderDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\SoAllocatedLotserialQuery|\ItemPricingDiscountQuery|\SoPickedLotserialQuery|\SoStandingOrderDetailQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvStockCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\CstkItemQuery|\InvWhseItemBinQuery|\ItemAddonItemQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvWhseLotQuery|\ItemSubstituteQuery|\ItemSubstituteQuery|\InvLotTagQuery|\InvItem2ItemQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotMasterQuery|\InvSerialMasterQuery|\InvTransferDetailQuery|\InvTransferLotserialQuery|\InvTransferPreAllocatedLotserialQuery|\InvTransferPickedLotserialQuery|\InvSerialWarrantyQuery|\WarehouseInventoryQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\InvOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\InvPalletQuery|\PurchaseOrderDetailQuery|\PurchaseOrderDetailReceiptQuery|\PurchaseOrderDetailReceivingQuery|\PurchaseOrderDetailLotReceivingQuery|\BomComponentQuery|\BomItemQuery|\RcyclReceiptDetailQuery|\RcyclReceiptLotQuery|\BookingDetailQuery|\SalesHistoryDetailQuery|\SalesOrderDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\SoAllocatedLotserialQuery|\ItemPricingDiscountQuery|\SoPickedLotserialQuery|\SoStandingOrderDetailQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
- * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
+ * @method     ChildItemMasterItem|null findOne(?ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
+ * @method     ChildItemMasterItem findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
  *
- * @method     ChildItemMasterItem findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemMasterItem filtered by the InitItemNbr column
- * @method     ChildItemMasterItem findOneByInitdesc1(string $InitDesc1) Return the first ChildItemMasterItem filtered by the InitDesc1 column
- * @method     ChildItemMasterItem findOneByInitdesc2(string $InitDesc2) Return the first ChildItemMasterItem filtered by the InitDesc2 column
- * @method     ChildItemMasterItem findOneByIntbgrup(string $IntbGrup) Return the first ChildItemMasterItem filtered by the IntbGrup column
- * @method     ChildItemMasterItem findOneByInitformatcode(string $InitFormatCode) Return the first ChildItemMasterItem filtered by the InitFormatCode column
- * @method     ChildItemMasterItem findOneByInitsplit(string $InitSplit) Return the first ChildItemMasterItem filtered by the InitSplit column
- * @method     ChildItemMasterItem findOneByInitsherdatecd(string $InitSherDateCd) Return the first ChildItemMasterItem filtered by the InitSherDateCd column
- * @method     ChildItemMasterItem findOneByInitcoreyn(string $InitCoreYN) Return the first ChildItemMasterItem filtered by the InitCoreYN column
- * @method     ChildItemMasterItem findOneByIntbusercode1(string $IntbUserCode1) Return the first ChildItemMasterItem filtered by the IntbUserCode1 column
- * @method     ChildItemMasterItem findOneByIntbusercode2(string $IntbUserCode2) Return the first ChildItemMasterItem filtered by the IntbUserCode2 column
- * @method     ChildItemMasterItem findOneByInittype(string $InitType) Return the first ChildItemMasterItem filtered by the InitType column
- * @method     ChildItemMasterItem findOneByInittax(string $InitTax) Return the first ChildItemMasterItem filtered by the InitTax column
- * @method     ChildItemMasterItem findOneByInitrtlpric(string $InitRtlPric) Return the first ChildItemMasterItem filtered by the InitRtlPric column
- * @method     ChildItemMasterItem findOneByInitstatchgd(string $InitStatChgd) Return the first ChildItemMasterItem filtered by the InitStatChgd column
- * @method     ChildItemMasterItem findOneByInitspecitemcd(string $InitSpecItemCd) Return the first ChildItemMasterItem filtered by the InitSpecItemCd column
- * @method     ChildItemMasterItem findOneByInitwarrdays(int $InitWarrDays) Return the first ChildItemMasterItem filtered by the InitWarrDays column
- * @method     ChildItemMasterItem findOneByIntbuomsale(string $IntbUomSale) Return the first ChildItemMasterItem filtered by the IntbUomSale column
- * @method     ChildItemMasterItem findOneByInitwght(string $InitWght) Return the first ChildItemMasterItem filtered by the InitWght column
- * @method     ChildItemMasterItem findOneByInitbord(string $InitBord) Return the first ChildItemMasterItem filtered by the InitBord column
- * @method     ChildItemMasterItem findOneByInitbaseitemid(string $InitBaseItemId) Return the first ChildItemMasterItem filtered by the InitBaseItemId column
- * @method     ChildItemMasterItem findOneByInitspecificcust(string $InitSpecificCust) Return the first ChildItemMasterItem filtered by the InitSpecificCust column
- * @method     ChildItemMasterItem findOneByInitgivedisc(string $InitGiveDisc) Return the first ChildItemMasterItem filtered by the InitGiveDisc column
- * @method     ChildItemMasterItem findOneByInitasstcode(string $InitAsstCode) Return the first ChildItemMasterItem filtered by the InitAsstCode column
- * @method     ChildItemMasterItem findOneByInitpriclastdate(string $InitPricLastDate) Return the first ChildItemMasterItem filtered by the InitPricLastDate column
- * @method     ChildItemMasterItem findOneByIntbuompur(string $IntbUomPur) Return the first ChildItemMasterItem filtered by the IntbUomPur column
- * @method     ChildItemMasterItem findOneByInitstancost(string $InitStanCost) Return the first ChildItemMasterItem filtered by the InitStanCost column
- * @method     ChildItemMasterItem findOneByInitstancostbase(string $InitStanCostBase) Return the first ChildItemMasterItem filtered by the InitStanCostBase column
- * @method     ChildItemMasterItem findOneByInitstancostlastdate(string $InitStanCostLastDate) Return the first ChildItemMasterItem filtered by the InitStanCostLastDate column
- * @method     ChildItemMasterItem findOneByInitminmarg(string $InitMinMarg) Return the first ChildItemMasterItem filtered by the InitMinMarg column
- * @method     ChildItemMasterItem findOneByInitvendid(string $InitVendId) Return the first ChildItemMasterItem filtered by the InitVendId column
- * @method     ChildItemMasterItem findOneByInitinspect(string $InitInspect) Return the first ChildItemMasterItem filtered by the InitInspect column
- * @method     ChildItemMasterItem findOneByInitstockcode(string $InitStockCode) Return the first ChildItemMasterItem filtered by the InitStockCode column
- * @method     ChildItemMasterItem findOneByInitsupritemnbr(string $InitSuprItemNbr) Return the first ChildItemMasterItem filtered by the InitSuprItemNbr column
- * @method     ChildItemMasterItem findOneByInitvendshipfrom(string $InitVendShipFrom) Return the first ChildItemMasterItem filtered by the InitVendShipFrom column
- * @method     ChildItemMasterItem findOneByInitcntryoforigin(string $InitCntryOfOrigin) Return the first ChildItemMasterItem filtered by the InitCntryOfOrigin column
- * @method     ChildItemMasterItem findOneByInitasstqty(string $InitAsstQty) Return the first ChildItemMasterItem filtered by the InitAsstQty column
- * @method     ChildItemMasterItem findOneByIntbtariffcode(string $IntbTariffCode) Return the first ChildItemMasterItem filtered by the IntbTariffCode column
- * @method     ChildItemMasterItem findOneByInitpreference(string $InitPreference) Return the first ChildItemMasterItem filtered by the InitPreference column
- * @method     ChildItemMasterItem findOneByInitproducer(string $InitProducer) Return the first ChildItemMasterItem filtered by the InitProducer column
- * @method     ChildItemMasterItem findOneByInitdocumentation(string $InitDocumentation) Return the first ChildItemMasterItem filtered by the InitDocumentation column
- * @method     ChildItemMasterItem findOneByInitpurchcrtnqty(int $InitPurchCrtnQty) Return the first ChildItemMasterItem filtered by the InitPurchCrtnQty column
- * @method     ChildItemMasterItem findOneByAptbbuyrcode(string $AptbBuyrCode) Return the first ChildItemMasterItem filtered by the AptbBuyrCode column
- * @method     ChildItemMasterItem findOneByInitlastcost(string $InitLastCost) Return the first ChildItemMasterItem filtered by the InitLastCost column
- * @method     ChildItemMasterItem findOneByInitliters(string $InitLiters) Return the first ChildItemMasterItem filtered by the InitLiters column
- * @method     ChildItemMasterItem findOneByIntbmsdscode(string $IntbMsdsCode) Return the first ChildItemMasterItem filtered by the IntbMsdsCode column
- * @method     ChildItemMasterItem findOneByInitrequirefrt(string $InitRequireFrt) Return the first ChildItemMasterItem filtered by the InitRequireFrt column
- * @method     ChildItemMasterItem findOneByInitmfrtcode(string $InitMfrtCode) Return the first ChildItemMasterItem filtered by the InitMfrtCode column
- * @method     ChildItemMasterItem findOneByInitinnerpackqty(int $InitInnerPackQty) Return the first ChildItemMasterItem filtered by the InitInnerPackQty column
- * @method     ChildItemMasterItem findOneByInitouterpackqty(int $InitOuterPackQty) Return the first ChildItemMasterItem filtered by the InitOuterPackQty column
- * @method     ChildItemMasterItem findOneByInitbasestancost(string $InitBaseStanCost) Return the first ChildItemMasterItem filtered by the InitBaseStanCost column
- * @method     ChildItemMasterItem findOneByInitshiptareqty(int $InitShipTareQty) Return the first ChildItemMasterItem filtered by the InitShipTareQty column
- * @method     ChildItemMasterItem findOneByInitwgitem(string $InitWgItem) Return the first ChildItemMasterItem filtered by the InitWgItem column
- * @method     ChildItemMasterItem findOneByIntbpricgrup(string $IntbPricGrup) Return the first ChildItemMasterItem filtered by the IntbPricGrup column
- * @method     ChildItemMasterItem findOneByIntbcommgrup(string $IntbCommGrup) Return the first ChildItemMasterItem filtered by the IntbCommGrup column
- * @method     ChildItemMasterItem findOneByInitlastcostdate(string $InitLastCostDate) Return the first ChildItemMasterItem filtered by the InitLastCostDate column
- * @method     ChildItemMasterItem findOneByInitqtypercase(int $InitQtyPerCase) Return the first ChildItemMasterItem filtered by the InitQtyPerCase column
- * @method     ChildItemMasterItem findOneByInitrevision(string $InitRevision) Return the first ChildItemMasterItem filtered by the InitRevision column
- * @method     ChildItemMasterItem findOneByInitcommsaleqty(int $InitCommSaleQty) Return the first ChildItemMasterItem filtered by the InitCommSaleQty column
- * @method     ChildItemMasterItem findOneByInitcubes(string $InitCubes) Return the first ChildItemMasterItem filtered by the InitCubes column
- * @method     ChildItemMasterItem findOneByInittimefence(int $InitTimeFence) Return the first ChildItemMasterItem filtered by the InitTimeFence column
- * @method     ChildItemMasterItem findOneByInitsrvcminchrg(string $InitSrvcMinChrg) Return the first ChildItemMasterItem filtered by the InitSrvcMinChrg column
- * @method     ChildItemMasterItem findOneByInitMinMargBase(string $InitMinMargBase) Return the first ChildItemMasterItem filtered by the InitMinMargBase column
- * @method     ChildItemMasterItem findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemMasterItem filtered by the DateUpdtd column
- * @method     ChildItemMasterItem findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemMasterItem filtered by the TimeUpdtd column
- * @method     ChildItemMasterItem findOneByDummy(string $dummy) Return the first ChildItemMasterItem filtered by the dummy column *
-
- * @method     ChildItemMasterItem requirePk($key, ConnectionInterface $con = null) Return the ChildItemMasterItem by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemMasterItem requireOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMasterItem|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemMasterItem filtered by the InitItemNbr column
+ * @method     ChildItemMasterItem|null findOneByInitdesc1(string $InitDesc1) Return the first ChildItemMasterItem filtered by the InitDesc1 column
+ * @method     ChildItemMasterItem|null findOneByInitdesc2(string $InitDesc2) Return the first ChildItemMasterItem filtered by the InitDesc2 column
+ * @method     ChildItemMasterItem|null findOneByIntbgrup(string $IntbGrup) Return the first ChildItemMasterItem filtered by the IntbGrup column
+ * @method     ChildItemMasterItem|null findOneByInitformatcode(string $InitFormatCode) Return the first ChildItemMasterItem filtered by the InitFormatCode column
+ * @method     ChildItemMasterItem|null findOneByInitsplit(string $InitSplit) Return the first ChildItemMasterItem filtered by the InitSplit column
+ * @method     ChildItemMasterItem|null findOneByInitsherdatecd(string $InitSherDateCd) Return the first ChildItemMasterItem filtered by the InitSherDateCd column
+ * @method     ChildItemMasterItem|null findOneByInitcoreyn(string $InitCoreYN) Return the first ChildItemMasterItem filtered by the InitCoreYN column
+ * @method     ChildItemMasterItem|null findOneByIntbusercode1(string $IntbUserCode1) Return the first ChildItemMasterItem filtered by the IntbUserCode1 column
+ * @method     ChildItemMasterItem|null findOneByIntbusercode2(string $IntbUserCode2) Return the first ChildItemMasterItem filtered by the IntbUserCode2 column
+ * @method     ChildItemMasterItem|null findOneByInittype(string $InitType) Return the first ChildItemMasterItem filtered by the InitType column
+ * @method     ChildItemMasterItem|null findOneByInittax(string $InitTax) Return the first ChildItemMasterItem filtered by the InitTax column
+ * @method     ChildItemMasterItem|null findOneByInitrtlpric(string $InitRtlPric) Return the first ChildItemMasterItem filtered by the InitRtlPric column
+ * @method     ChildItemMasterItem|null findOneByInitstatchgd(string $InitStatChgd) Return the first ChildItemMasterItem filtered by the InitStatChgd column
+ * @method     ChildItemMasterItem|null findOneByInitspecitemcd(string $InitSpecItemCd) Return the first ChildItemMasterItem filtered by the InitSpecItemCd column
+ * @method     ChildItemMasterItem|null findOneByInitwarrdays(int $InitWarrDays) Return the first ChildItemMasterItem filtered by the InitWarrDays column
+ * @method     ChildItemMasterItem|null findOneByIntbuomsale(string $IntbUomSale) Return the first ChildItemMasterItem filtered by the IntbUomSale column
+ * @method     ChildItemMasterItem|null findOneByInitwght(string $InitWght) Return the first ChildItemMasterItem filtered by the InitWght column
+ * @method     ChildItemMasterItem|null findOneByInitbord(string $InitBord) Return the first ChildItemMasterItem filtered by the InitBord column
+ * @method     ChildItemMasterItem|null findOneByInitbaseitemid(string $InitBaseItemId) Return the first ChildItemMasterItem filtered by the InitBaseItemId column
+ * @method     ChildItemMasterItem|null findOneByInitspecificcust(string $InitSpecificCust) Return the first ChildItemMasterItem filtered by the InitSpecificCust column
+ * @method     ChildItemMasterItem|null findOneByInitgivedisc(string $InitGiveDisc) Return the first ChildItemMasterItem filtered by the InitGiveDisc column
+ * @method     ChildItemMasterItem|null findOneByInitasstcode(string $InitAsstCode) Return the first ChildItemMasterItem filtered by the InitAsstCode column
+ * @method     ChildItemMasterItem|null findOneByInitpriclastdate(string $InitPricLastDate) Return the first ChildItemMasterItem filtered by the InitPricLastDate column
+ * @method     ChildItemMasterItem|null findOneByIntbuompur(string $IntbUomPur) Return the first ChildItemMasterItem filtered by the IntbUomPur column
+ * @method     ChildItemMasterItem|null findOneByInitstancost(string $InitStanCost) Return the first ChildItemMasterItem filtered by the InitStanCost column
+ * @method     ChildItemMasterItem|null findOneByInitstancostbase(string $InitStanCostBase) Return the first ChildItemMasterItem filtered by the InitStanCostBase column
+ * @method     ChildItemMasterItem|null findOneByInitstancostlastdate(string $InitStanCostLastDate) Return the first ChildItemMasterItem filtered by the InitStanCostLastDate column
+ * @method     ChildItemMasterItem|null findOneByInitminmarg(string $InitMinMarg) Return the first ChildItemMasterItem filtered by the InitMinMarg column
+ * @method     ChildItemMasterItem|null findOneByInitvendid(string $InitVendId) Return the first ChildItemMasterItem filtered by the InitVendId column
+ * @method     ChildItemMasterItem|null findOneByInitinspect(string $InitInspect) Return the first ChildItemMasterItem filtered by the InitInspect column
+ * @method     ChildItemMasterItem|null findOneByInitstockcode(string $InitStockCode) Return the first ChildItemMasterItem filtered by the InitStockCode column
+ * @method     ChildItemMasterItem|null findOneByInitsupritemnbr(string $InitSuprItemNbr) Return the first ChildItemMasterItem filtered by the InitSuprItemNbr column
+ * @method     ChildItemMasterItem|null findOneByInitvendshipfrom(string $InitVendShipFrom) Return the first ChildItemMasterItem filtered by the InitVendShipFrom column
+ * @method     ChildItemMasterItem|null findOneByInitcntryoforigin(string $InitCntryOfOrigin) Return the first ChildItemMasterItem filtered by the InitCntryOfOrigin column
+ * @method     ChildItemMasterItem|null findOneByInitasstqty(string $InitAsstQty) Return the first ChildItemMasterItem filtered by the InitAsstQty column
+ * @method     ChildItemMasterItem|null findOneByIntbtariffcode(string $IntbTariffCode) Return the first ChildItemMasterItem filtered by the IntbTariffCode column
+ * @method     ChildItemMasterItem|null findOneByInitpreference(string $InitPreference) Return the first ChildItemMasterItem filtered by the InitPreference column
+ * @method     ChildItemMasterItem|null findOneByInitproducer(string $InitProducer) Return the first ChildItemMasterItem filtered by the InitProducer column
+ * @method     ChildItemMasterItem|null findOneByInitdocumentation(string $InitDocumentation) Return the first ChildItemMasterItem filtered by the InitDocumentation column
+ * @method     ChildItemMasterItem|null findOneByInitpurchcrtnqty(int $InitPurchCrtnQty) Return the first ChildItemMasterItem filtered by the InitPurchCrtnQty column
+ * @method     ChildItemMasterItem|null findOneByAptbbuyrcode(string $AptbBuyrCode) Return the first ChildItemMasterItem filtered by the AptbBuyrCode column
+ * @method     ChildItemMasterItem|null findOneByInitlastcost(string $InitLastCost) Return the first ChildItemMasterItem filtered by the InitLastCost column
+ * @method     ChildItemMasterItem|null findOneByInitliters(string $InitLiters) Return the first ChildItemMasterItem filtered by the InitLiters column
+ * @method     ChildItemMasterItem|null findOneByIntbmsdscode(string $IntbMsdsCode) Return the first ChildItemMasterItem filtered by the IntbMsdsCode column
+ * @method     ChildItemMasterItem|null findOneByInitrequirefrt(string $InitRequireFrt) Return the first ChildItemMasterItem filtered by the InitRequireFrt column
+ * @method     ChildItemMasterItem|null findOneByInitmfrtcode(string $InitMfrtCode) Return the first ChildItemMasterItem filtered by the InitMfrtCode column
+ * @method     ChildItemMasterItem|null findOneByInitinnerpackqty(int $InitInnerPackQty) Return the first ChildItemMasterItem filtered by the InitInnerPackQty column
+ * @method     ChildItemMasterItem|null findOneByInitouterpackqty(int $InitOuterPackQty) Return the first ChildItemMasterItem filtered by the InitOuterPackQty column
+ * @method     ChildItemMasterItem|null findOneByInitbasestancost(string $InitBaseStanCost) Return the first ChildItemMasterItem filtered by the InitBaseStanCost column
+ * @method     ChildItemMasterItem|null findOneByInitshiptareqty(int $InitShipTareQty) Return the first ChildItemMasterItem filtered by the InitShipTareQty column
+ * @method     ChildItemMasterItem|null findOneByInitwgitem(string $InitWgItem) Return the first ChildItemMasterItem filtered by the InitWgItem column
+ * @method     ChildItemMasterItem|null findOneByIntbpricgrup(string $IntbPricGrup) Return the first ChildItemMasterItem filtered by the IntbPricGrup column
+ * @method     ChildItemMasterItem|null findOneByIntbcommgrup(string $IntbCommGrup) Return the first ChildItemMasterItem filtered by the IntbCommGrup column
+ * @method     ChildItemMasterItem|null findOneByInitlastcostdate(string $InitLastCostDate) Return the first ChildItemMasterItem filtered by the InitLastCostDate column
+ * @method     ChildItemMasterItem|null findOneByInitqtypercase(int $InitQtyPerCase) Return the first ChildItemMasterItem filtered by the InitQtyPerCase column
+ * @method     ChildItemMasterItem|null findOneByInitrevision(string $InitRevision) Return the first ChildItemMasterItem filtered by the InitRevision column
+ * @method     ChildItemMasterItem|null findOneByInitcommsaleqty(int $InitCommSaleQty) Return the first ChildItemMasterItem filtered by the InitCommSaleQty column
+ * @method     ChildItemMasterItem|null findOneByInitcubes(string $InitCubes) Return the first ChildItemMasterItem filtered by the InitCubes column
+ * @method     ChildItemMasterItem|null findOneByInittimefence(int $InitTimeFence) Return the first ChildItemMasterItem filtered by the InitTimeFence column
+ * @method     ChildItemMasterItem|null findOneByInitsrvcminchrg(string $InitSrvcMinChrg) Return the first ChildItemMasterItem filtered by the InitSrvcMinChrg column
+ * @method     ChildItemMasterItem|null findOneByInitMinMargBase(string $InitMinMargBase) Return the first ChildItemMasterItem filtered by the InitMinMargBase column
+ * @method     ChildItemMasterItem|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemMasterItem filtered by the DateUpdtd column
+ * @method     ChildItemMasterItem|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemMasterItem filtered by the TimeUpdtd column
+ * @method     ChildItemMasterItem|null findOneByDummy(string $dummy) Return the first ChildItemMasterItem filtered by the dummy column
+ *
+ * @method     ChildItemMasterItem requirePk($key, ?ConnectionInterface $con = null) Return the ChildItemMasterItem by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMasterItem requireOne(?ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemMasterItem requireOneByInititemnbr(string $InitItemNbr) Return the first ChildItemMasterItem filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByInitdesc1(string $InitDesc1) Return the first ChildItemMasterItem filtered by the InitDesc1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -860,74 +859,142 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItem requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemMasterItem filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByDummy(string $dummy) Return the first ChildItemMasterItem filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemMasterItem[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemMasterItem objects based on current ModelCriteria
- * @method     ChildItemMasterItem[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildItemMasterItem objects filtered by the InitItemNbr column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitdesc1(string $InitDesc1) Return ChildItemMasterItem objects filtered by the InitDesc1 column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitdesc2(string $InitDesc2) Return ChildItemMasterItem objects filtered by the InitDesc2 column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbgrup(string $IntbGrup) Return ChildItemMasterItem objects filtered by the IntbGrup column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitformatcode(string $InitFormatCode) Return ChildItemMasterItem objects filtered by the InitFormatCode column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitsplit(string $InitSplit) Return ChildItemMasterItem objects filtered by the InitSplit column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitsherdatecd(string $InitSherDateCd) Return ChildItemMasterItem objects filtered by the InitSherDateCd column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitcoreyn(string $InitCoreYN) Return ChildItemMasterItem objects filtered by the InitCoreYN column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbusercode1(string $IntbUserCode1) Return ChildItemMasterItem objects filtered by the IntbUserCode1 column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbusercode2(string $IntbUserCode2) Return ChildItemMasterItem objects filtered by the IntbUserCode2 column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInittype(string $InitType) Return ChildItemMasterItem objects filtered by the InitType column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInittax(string $InitTax) Return ChildItemMasterItem objects filtered by the InitTax column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitrtlpric(string $InitRtlPric) Return ChildItemMasterItem objects filtered by the InitRtlPric column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitstatchgd(string $InitStatChgd) Return ChildItemMasterItem objects filtered by the InitStatChgd column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitspecitemcd(string $InitSpecItemCd) Return ChildItemMasterItem objects filtered by the InitSpecItemCd column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitwarrdays(int $InitWarrDays) Return ChildItemMasterItem objects filtered by the InitWarrDays column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbuomsale(string $IntbUomSale) Return ChildItemMasterItem objects filtered by the IntbUomSale column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitwght(string $InitWght) Return ChildItemMasterItem objects filtered by the InitWght column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitbord(string $InitBord) Return ChildItemMasterItem objects filtered by the InitBord column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitbaseitemid(string $InitBaseItemId) Return ChildItemMasterItem objects filtered by the InitBaseItemId column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitspecificcust(string $InitSpecificCust) Return ChildItemMasterItem objects filtered by the InitSpecificCust column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitgivedisc(string $InitGiveDisc) Return ChildItemMasterItem objects filtered by the InitGiveDisc column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitasstcode(string $InitAsstCode) Return ChildItemMasterItem objects filtered by the InitAsstCode column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitpriclastdate(string $InitPricLastDate) Return ChildItemMasterItem objects filtered by the InitPricLastDate column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbuompur(string $IntbUomPur) Return ChildItemMasterItem objects filtered by the IntbUomPur column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitstancost(string $InitStanCost) Return ChildItemMasterItem objects filtered by the InitStanCost column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitstancostbase(string $InitStanCostBase) Return ChildItemMasterItem objects filtered by the InitStanCostBase column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitstancostlastdate(string $InitStanCostLastDate) Return ChildItemMasterItem objects filtered by the InitStanCostLastDate column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitminmarg(string $InitMinMarg) Return ChildItemMasterItem objects filtered by the InitMinMarg column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitvendid(string $InitVendId) Return ChildItemMasterItem objects filtered by the InitVendId column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitinspect(string $InitInspect) Return ChildItemMasterItem objects filtered by the InitInspect column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitstockcode(string $InitStockCode) Return ChildItemMasterItem objects filtered by the InitStockCode column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitsupritemnbr(string $InitSuprItemNbr) Return ChildItemMasterItem objects filtered by the InitSuprItemNbr column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitvendshipfrom(string $InitVendShipFrom) Return ChildItemMasterItem objects filtered by the InitVendShipFrom column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitcntryoforigin(string $InitCntryOfOrigin) Return ChildItemMasterItem objects filtered by the InitCntryOfOrigin column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitasstqty(string $InitAsstQty) Return ChildItemMasterItem objects filtered by the InitAsstQty column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbtariffcode(string $IntbTariffCode) Return ChildItemMasterItem objects filtered by the IntbTariffCode column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitpreference(string $InitPreference) Return ChildItemMasterItem objects filtered by the InitPreference column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitproducer(string $InitProducer) Return ChildItemMasterItem objects filtered by the InitProducer column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitdocumentation(string $InitDocumentation) Return ChildItemMasterItem objects filtered by the InitDocumentation column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitpurchcrtnqty(int $InitPurchCrtnQty) Return ChildItemMasterItem objects filtered by the InitPurchCrtnQty column
- * @method     ChildItemMasterItem[]|ObjectCollection findByAptbbuyrcode(string $AptbBuyrCode) Return ChildItemMasterItem objects filtered by the AptbBuyrCode column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitlastcost(string $InitLastCost) Return ChildItemMasterItem objects filtered by the InitLastCost column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitliters(string $InitLiters) Return ChildItemMasterItem objects filtered by the InitLiters column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbmsdscode(string $IntbMsdsCode) Return ChildItemMasterItem objects filtered by the IntbMsdsCode column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitrequirefrt(string $InitRequireFrt) Return ChildItemMasterItem objects filtered by the InitRequireFrt column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitmfrtcode(string $InitMfrtCode) Return ChildItemMasterItem objects filtered by the InitMfrtCode column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitinnerpackqty(int $InitInnerPackQty) Return ChildItemMasterItem objects filtered by the InitInnerPackQty column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitouterpackqty(int $InitOuterPackQty) Return ChildItemMasterItem objects filtered by the InitOuterPackQty column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitbasestancost(string $InitBaseStanCost) Return ChildItemMasterItem objects filtered by the InitBaseStanCost column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitshiptareqty(int $InitShipTareQty) Return ChildItemMasterItem objects filtered by the InitShipTareQty column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitwgitem(string $InitWgItem) Return ChildItemMasterItem objects filtered by the InitWgItem column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbpricgrup(string $IntbPricGrup) Return ChildItemMasterItem objects filtered by the IntbPricGrup column
- * @method     ChildItemMasterItem[]|ObjectCollection findByIntbcommgrup(string $IntbCommGrup) Return ChildItemMasterItem objects filtered by the IntbCommGrup column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitlastcostdate(string $InitLastCostDate) Return ChildItemMasterItem objects filtered by the InitLastCostDate column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitqtypercase(int $InitQtyPerCase) Return ChildItemMasterItem objects filtered by the InitQtyPerCase column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitrevision(string $InitRevision) Return ChildItemMasterItem objects filtered by the InitRevision column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitcommsaleqty(int $InitCommSaleQty) Return ChildItemMasterItem objects filtered by the InitCommSaleQty column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitcubes(string $InitCubes) Return ChildItemMasterItem objects filtered by the InitCubes column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInittimefence(int $InitTimeFence) Return ChildItemMasterItem objects filtered by the InitTimeFence column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitsrvcminchrg(string $InitSrvcMinChrg) Return ChildItemMasterItem objects filtered by the InitSrvcMinChrg column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitMinMargBase(string $InitMinMargBase) Return ChildItemMasterItem objects filtered by the InitMinMargBase column
- * @method     ChildItemMasterItem[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemMasterItem objects filtered by the DateUpdtd column
- * @method     ChildItemMasterItem[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemMasterItem objects filtered by the TimeUpdtd column
- * @method     ChildItemMasterItem[]|ObjectCollection findByDummy(string $dummy) Return ChildItemMasterItem objects filtered by the dummy column
- * @method     ChildItemMasterItem[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItemMasterItem[]|Collection find(?ConnectionInterface $con = null) Return ChildItemMasterItem objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> find(?ConnectionInterface $con = null) Return ChildItemMasterItem objects based on current ModelCriteria
  *
+ * @method     ChildItemMasterItem[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemMasterItem objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItemMasterItem objects filtered by the InitItemNbr column
+ * @method     ChildItemMasterItem[]|Collection findByInitdesc1(string|array<string> $InitDesc1) Return ChildItemMasterItem objects filtered by the InitDesc1 column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitdesc1(string|array<string> $InitDesc1) Return ChildItemMasterItem objects filtered by the InitDesc1 column
+ * @method     ChildItemMasterItem[]|Collection findByInitdesc2(string|array<string> $InitDesc2) Return ChildItemMasterItem objects filtered by the InitDesc2 column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitdesc2(string|array<string> $InitDesc2) Return ChildItemMasterItem objects filtered by the InitDesc2 column
+ * @method     ChildItemMasterItem[]|Collection findByIntbgrup(string|array<string> $IntbGrup) Return ChildItemMasterItem objects filtered by the IntbGrup column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbgrup(string|array<string> $IntbGrup) Return ChildItemMasterItem objects filtered by the IntbGrup column
+ * @method     ChildItemMasterItem[]|Collection findByInitformatcode(string|array<string> $InitFormatCode) Return ChildItemMasterItem objects filtered by the InitFormatCode column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitformatcode(string|array<string> $InitFormatCode) Return ChildItemMasterItem objects filtered by the InitFormatCode column
+ * @method     ChildItemMasterItem[]|Collection findByInitsplit(string|array<string> $InitSplit) Return ChildItemMasterItem objects filtered by the InitSplit column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitsplit(string|array<string> $InitSplit) Return ChildItemMasterItem objects filtered by the InitSplit column
+ * @method     ChildItemMasterItem[]|Collection findByInitsherdatecd(string|array<string> $InitSherDateCd) Return ChildItemMasterItem objects filtered by the InitSherDateCd column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitsherdatecd(string|array<string> $InitSherDateCd) Return ChildItemMasterItem objects filtered by the InitSherDateCd column
+ * @method     ChildItemMasterItem[]|Collection findByInitcoreyn(string|array<string> $InitCoreYN) Return ChildItemMasterItem objects filtered by the InitCoreYN column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitcoreyn(string|array<string> $InitCoreYN) Return ChildItemMasterItem objects filtered by the InitCoreYN column
+ * @method     ChildItemMasterItem[]|Collection findByIntbusercode1(string|array<string> $IntbUserCode1) Return ChildItemMasterItem objects filtered by the IntbUserCode1 column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbusercode1(string|array<string> $IntbUserCode1) Return ChildItemMasterItem objects filtered by the IntbUserCode1 column
+ * @method     ChildItemMasterItem[]|Collection findByIntbusercode2(string|array<string> $IntbUserCode2) Return ChildItemMasterItem objects filtered by the IntbUserCode2 column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbusercode2(string|array<string> $IntbUserCode2) Return ChildItemMasterItem objects filtered by the IntbUserCode2 column
+ * @method     ChildItemMasterItem[]|Collection findByInittype(string|array<string> $InitType) Return ChildItemMasterItem objects filtered by the InitType column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInittype(string|array<string> $InitType) Return ChildItemMasterItem objects filtered by the InitType column
+ * @method     ChildItemMasterItem[]|Collection findByInittax(string|array<string> $InitTax) Return ChildItemMasterItem objects filtered by the InitTax column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInittax(string|array<string> $InitTax) Return ChildItemMasterItem objects filtered by the InitTax column
+ * @method     ChildItemMasterItem[]|Collection findByInitrtlpric(string|array<string> $InitRtlPric) Return ChildItemMasterItem objects filtered by the InitRtlPric column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitrtlpric(string|array<string> $InitRtlPric) Return ChildItemMasterItem objects filtered by the InitRtlPric column
+ * @method     ChildItemMasterItem[]|Collection findByInitstatchgd(string|array<string> $InitStatChgd) Return ChildItemMasterItem objects filtered by the InitStatChgd column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitstatchgd(string|array<string> $InitStatChgd) Return ChildItemMasterItem objects filtered by the InitStatChgd column
+ * @method     ChildItemMasterItem[]|Collection findByInitspecitemcd(string|array<string> $InitSpecItemCd) Return ChildItemMasterItem objects filtered by the InitSpecItemCd column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitspecitemcd(string|array<string> $InitSpecItemCd) Return ChildItemMasterItem objects filtered by the InitSpecItemCd column
+ * @method     ChildItemMasterItem[]|Collection findByInitwarrdays(int|array<int> $InitWarrDays) Return ChildItemMasterItem objects filtered by the InitWarrDays column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitwarrdays(int|array<int> $InitWarrDays) Return ChildItemMasterItem objects filtered by the InitWarrDays column
+ * @method     ChildItemMasterItem[]|Collection findByIntbuomsale(string|array<string> $IntbUomSale) Return ChildItemMasterItem objects filtered by the IntbUomSale column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbuomsale(string|array<string> $IntbUomSale) Return ChildItemMasterItem objects filtered by the IntbUomSale column
+ * @method     ChildItemMasterItem[]|Collection findByInitwght(string|array<string> $InitWght) Return ChildItemMasterItem objects filtered by the InitWght column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitwght(string|array<string> $InitWght) Return ChildItemMasterItem objects filtered by the InitWght column
+ * @method     ChildItemMasterItem[]|Collection findByInitbord(string|array<string> $InitBord) Return ChildItemMasterItem objects filtered by the InitBord column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitbord(string|array<string> $InitBord) Return ChildItemMasterItem objects filtered by the InitBord column
+ * @method     ChildItemMasterItem[]|Collection findByInitbaseitemid(string|array<string> $InitBaseItemId) Return ChildItemMasterItem objects filtered by the InitBaseItemId column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitbaseitemid(string|array<string> $InitBaseItemId) Return ChildItemMasterItem objects filtered by the InitBaseItemId column
+ * @method     ChildItemMasterItem[]|Collection findByInitspecificcust(string|array<string> $InitSpecificCust) Return ChildItemMasterItem objects filtered by the InitSpecificCust column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitspecificcust(string|array<string> $InitSpecificCust) Return ChildItemMasterItem objects filtered by the InitSpecificCust column
+ * @method     ChildItemMasterItem[]|Collection findByInitgivedisc(string|array<string> $InitGiveDisc) Return ChildItemMasterItem objects filtered by the InitGiveDisc column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitgivedisc(string|array<string> $InitGiveDisc) Return ChildItemMasterItem objects filtered by the InitGiveDisc column
+ * @method     ChildItemMasterItem[]|Collection findByInitasstcode(string|array<string> $InitAsstCode) Return ChildItemMasterItem objects filtered by the InitAsstCode column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitasstcode(string|array<string> $InitAsstCode) Return ChildItemMasterItem objects filtered by the InitAsstCode column
+ * @method     ChildItemMasterItem[]|Collection findByInitpriclastdate(string|array<string> $InitPricLastDate) Return ChildItemMasterItem objects filtered by the InitPricLastDate column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitpriclastdate(string|array<string> $InitPricLastDate) Return ChildItemMasterItem objects filtered by the InitPricLastDate column
+ * @method     ChildItemMasterItem[]|Collection findByIntbuompur(string|array<string> $IntbUomPur) Return ChildItemMasterItem objects filtered by the IntbUomPur column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbuompur(string|array<string> $IntbUomPur) Return ChildItemMasterItem objects filtered by the IntbUomPur column
+ * @method     ChildItemMasterItem[]|Collection findByInitstancost(string|array<string> $InitStanCost) Return ChildItemMasterItem objects filtered by the InitStanCost column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitstancost(string|array<string> $InitStanCost) Return ChildItemMasterItem objects filtered by the InitStanCost column
+ * @method     ChildItemMasterItem[]|Collection findByInitstancostbase(string|array<string> $InitStanCostBase) Return ChildItemMasterItem objects filtered by the InitStanCostBase column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitstancostbase(string|array<string> $InitStanCostBase) Return ChildItemMasterItem objects filtered by the InitStanCostBase column
+ * @method     ChildItemMasterItem[]|Collection findByInitstancostlastdate(string|array<string> $InitStanCostLastDate) Return ChildItemMasterItem objects filtered by the InitStanCostLastDate column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitstancostlastdate(string|array<string> $InitStanCostLastDate) Return ChildItemMasterItem objects filtered by the InitStanCostLastDate column
+ * @method     ChildItemMasterItem[]|Collection findByInitminmarg(string|array<string> $InitMinMarg) Return ChildItemMasterItem objects filtered by the InitMinMarg column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitminmarg(string|array<string> $InitMinMarg) Return ChildItemMasterItem objects filtered by the InitMinMarg column
+ * @method     ChildItemMasterItem[]|Collection findByInitvendid(string|array<string> $InitVendId) Return ChildItemMasterItem objects filtered by the InitVendId column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitvendid(string|array<string> $InitVendId) Return ChildItemMasterItem objects filtered by the InitVendId column
+ * @method     ChildItemMasterItem[]|Collection findByInitinspect(string|array<string> $InitInspect) Return ChildItemMasterItem objects filtered by the InitInspect column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitinspect(string|array<string> $InitInspect) Return ChildItemMasterItem objects filtered by the InitInspect column
+ * @method     ChildItemMasterItem[]|Collection findByInitstockcode(string|array<string> $InitStockCode) Return ChildItemMasterItem objects filtered by the InitStockCode column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitstockcode(string|array<string> $InitStockCode) Return ChildItemMasterItem objects filtered by the InitStockCode column
+ * @method     ChildItemMasterItem[]|Collection findByInitsupritemnbr(string|array<string> $InitSuprItemNbr) Return ChildItemMasterItem objects filtered by the InitSuprItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitsupritemnbr(string|array<string> $InitSuprItemNbr) Return ChildItemMasterItem objects filtered by the InitSuprItemNbr column
+ * @method     ChildItemMasterItem[]|Collection findByInitvendshipfrom(string|array<string> $InitVendShipFrom) Return ChildItemMasterItem objects filtered by the InitVendShipFrom column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitvendshipfrom(string|array<string> $InitVendShipFrom) Return ChildItemMasterItem objects filtered by the InitVendShipFrom column
+ * @method     ChildItemMasterItem[]|Collection findByInitcntryoforigin(string|array<string> $InitCntryOfOrigin) Return ChildItemMasterItem objects filtered by the InitCntryOfOrigin column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitcntryoforigin(string|array<string> $InitCntryOfOrigin) Return ChildItemMasterItem objects filtered by the InitCntryOfOrigin column
+ * @method     ChildItemMasterItem[]|Collection findByInitasstqty(string|array<string> $InitAsstQty) Return ChildItemMasterItem objects filtered by the InitAsstQty column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitasstqty(string|array<string> $InitAsstQty) Return ChildItemMasterItem objects filtered by the InitAsstQty column
+ * @method     ChildItemMasterItem[]|Collection findByIntbtariffcode(string|array<string> $IntbTariffCode) Return ChildItemMasterItem objects filtered by the IntbTariffCode column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbtariffcode(string|array<string> $IntbTariffCode) Return ChildItemMasterItem objects filtered by the IntbTariffCode column
+ * @method     ChildItemMasterItem[]|Collection findByInitpreference(string|array<string> $InitPreference) Return ChildItemMasterItem objects filtered by the InitPreference column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitpreference(string|array<string> $InitPreference) Return ChildItemMasterItem objects filtered by the InitPreference column
+ * @method     ChildItemMasterItem[]|Collection findByInitproducer(string|array<string> $InitProducer) Return ChildItemMasterItem objects filtered by the InitProducer column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitproducer(string|array<string> $InitProducer) Return ChildItemMasterItem objects filtered by the InitProducer column
+ * @method     ChildItemMasterItem[]|Collection findByInitdocumentation(string|array<string> $InitDocumentation) Return ChildItemMasterItem objects filtered by the InitDocumentation column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitdocumentation(string|array<string> $InitDocumentation) Return ChildItemMasterItem objects filtered by the InitDocumentation column
+ * @method     ChildItemMasterItem[]|Collection findByInitpurchcrtnqty(int|array<int> $InitPurchCrtnQty) Return ChildItemMasterItem objects filtered by the InitPurchCrtnQty column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitpurchcrtnqty(int|array<int> $InitPurchCrtnQty) Return ChildItemMasterItem objects filtered by the InitPurchCrtnQty column
+ * @method     ChildItemMasterItem[]|Collection findByAptbbuyrcode(string|array<string> $AptbBuyrCode) Return ChildItemMasterItem objects filtered by the AptbBuyrCode column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByAptbbuyrcode(string|array<string> $AptbBuyrCode) Return ChildItemMasterItem objects filtered by the AptbBuyrCode column
+ * @method     ChildItemMasterItem[]|Collection findByInitlastcost(string|array<string> $InitLastCost) Return ChildItemMasterItem objects filtered by the InitLastCost column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitlastcost(string|array<string> $InitLastCost) Return ChildItemMasterItem objects filtered by the InitLastCost column
+ * @method     ChildItemMasterItem[]|Collection findByInitliters(string|array<string> $InitLiters) Return ChildItemMasterItem objects filtered by the InitLiters column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitliters(string|array<string> $InitLiters) Return ChildItemMasterItem objects filtered by the InitLiters column
+ * @method     ChildItemMasterItem[]|Collection findByIntbmsdscode(string|array<string> $IntbMsdsCode) Return ChildItemMasterItem objects filtered by the IntbMsdsCode column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbmsdscode(string|array<string> $IntbMsdsCode) Return ChildItemMasterItem objects filtered by the IntbMsdsCode column
+ * @method     ChildItemMasterItem[]|Collection findByInitrequirefrt(string|array<string> $InitRequireFrt) Return ChildItemMasterItem objects filtered by the InitRequireFrt column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitrequirefrt(string|array<string> $InitRequireFrt) Return ChildItemMasterItem objects filtered by the InitRequireFrt column
+ * @method     ChildItemMasterItem[]|Collection findByInitmfrtcode(string|array<string> $InitMfrtCode) Return ChildItemMasterItem objects filtered by the InitMfrtCode column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitmfrtcode(string|array<string> $InitMfrtCode) Return ChildItemMasterItem objects filtered by the InitMfrtCode column
+ * @method     ChildItemMasterItem[]|Collection findByInitinnerpackqty(int|array<int> $InitInnerPackQty) Return ChildItemMasterItem objects filtered by the InitInnerPackQty column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitinnerpackqty(int|array<int> $InitInnerPackQty) Return ChildItemMasterItem objects filtered by the InitInnerPackQty column
+ * @method     ChildItemMasterItem[]|Collection findByInitouterpackqty(int|array<int> $InitOuterPackQty) Return ChildItemMasterItem objects filtered by the InitOuterPackQty column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitouterpackqty(int|array<int> $InitOuterPackQty) Return ChildItemMasterItem objects filtered by the InitOuterPackQty column
+ * @method     ChildItemMasterItem[]|Collection findByInitbasestancost(string|array<string> $InitBaseStanCost) Return ChildItemMasterItem objects filtered by the InitBaseStanCost column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitbasestancost(string|array<string> $InitBaseStanCost) Return ChildItemMasterItem objects filtered by the InitBaseStanCost column
+ * @method     ChildItemMasterItem[]|Collection findByInitshiptareqty(int|array<int> $InitShipTareQty) Return ChildItemMasterItem objects filtered by the InitShipTareQty column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitshiptareqty(int|array<int> $InitShipTareQty) Return ChildItemMasterItem objects filtered by the InitShipTareQty column
+ * @method     ChildItemMasterItem[]|Collection findByInitwgitem(string|array<string> $InitWgItem) Return ChildItemMasterItem objects filtered by the InitWgItem column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitwgitem(string|array<string> $InitWgItem) Return ChildItemMasterItem objects filtered by the InitWgItem column
+ * @method     ChildItemMasterItem[]|Collection findByIntbpricgrup(string|array<string> $IntbPricGrup) Return ChildItemMasterItem objects filtered by the IntbPricGrup column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbpricgrup(string|array<string> $IntbPricGrup) Return ChildItemMasterItem objects filtered by the IntbPricGrup column
+ * @method     ChildItemMasterItem[]|Collection findByIntbcommgrup(string|array<string> $IntbCommGrup) Return ChildItemMasterItem objects filtered by the IntbCommGrup column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByIntbcommgrup(string|array<string> $IntbCommGrup) Return ChildItemMasterItem objects filtered by the IntbCommGrup column
+ * @method     ChildItemMasterItem[]|Collection findByInitlastcostdate(string|array<string> $InitLastCostDate) Return ChildItemMasterItem objects filtered by the InitLastCostDate column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitlastcostdate(string|array<string> $InitLastCostDate) Return ChildItemMasterItem objects filtered by the InitLastCostDate column
+ * @method     ChildItemMasterItem[]|Collection findByInitqtypercase(int|array<int> $InitQtyPerCase) Return ChildItemMasterItem objects filtered by the InitQtyPerCase column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitqtypercase(int|array<int> $InitQtyPerCase) Return ChildItemMasterItem objects filtered by the InitQtyPerCase column
+ * @method     ChildItemMasterItem[]|Collection findByInitrevision(string|array<string> $InitRevision) Return ChildItemMasterItem objects filtered by the InitRevision column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitrevision(string|array<string> $InitRevision) Return ChildItemMasterItem objects filtered by the InitRevision column
+ * @method     ChildItemMasterItem[]|Collection findByInitcommsaleqty(int|array<int> $InitCommSaleQty) Return ChildItemMasterItem objects filtered by the InitCommSaleQty column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitcommsaleqty(int|array<int> $InitCommSaleQty) Return ChildItemMasterItem objects filtered by the InitCommSaleQty column
+ * @method     ChildItemMasterItem[]|Collection findByInitcubes(string|array<string> $InitCubes) Return ChildItemMasterItem objects filtered by the InitCubes column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitcubes(string|array<string> $InitCubes) Return ChildItemMasterItem objects filtered by the InitCubes column
+ * @method     ChildItemMasterItem[]|Collection findByInittimefence(int|array<int> $InitTimeFence) Return ChildItemMasterItem objects filtered by the InitTimeFence column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInittimefence(int|array<int> $InitTimeFence) Return ChildItemMasterItem objects filtered by the InitTimeFence column
+ * @method     ChildItemMasterItem[]|Collection findByInitsrvcminchrg(string|array<string> $InitSrvcMinChrg) Return ChildItemMasterItem objects filtered by the InitSrvcMinChrg column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitsrvcminchrg(string|array<string> $InitSrvcMinChrg) Return ChildItemMasterItem objects filtered by the InitSrvcMinChrg column
+ * @method     ChildItemMasterItem[]|Collection findByInitMinMargBase(string|array<string> $InitMinMargBase) Return ChildItemMasterItem objects filtered by the InitMinMargBase column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByInitMinMargBase(string|array<string> $InitMinMargBase) Return ChildItemMasterItem objects filtered by the InitMinMargBase column
+ * @method     ChildItemMasterItem[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemMasterItem objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemMasterItem objects filtered by the DateUpdtd column
+ * @method     ChildItemMasterItem[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemMasterItem objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemMasterItem objects filtered by the TimeUpdtd column
+ * @method     ChildItemMasterItem[]|Collection findByDummy(string|array<string> $dummy) Return ChildItemMasterItem objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItemMasterItem> findByDummy(string|array<string> $dummy) Return ChildItemMasterItem objects filtered by the dummy column
+ *
+ * @method     ChildItemMasterItem[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItemMasterItem> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItemMasterItemQuery extends ModelCriteria
 {
@@ -936,9 +1003,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItemMasterItemQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ItemMasterItem', $modelAlias = null)
     {
@@ -948,12 +1015,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Returns a new ChildItemMasterItemQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItemMasterItemQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItemMasterItemQuery) {
             return $criteria;
@@ -983,7 +1050,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return ChildItemMasterItem|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -1015,8 +1082,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -1048,8 +1115,8 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItemMasterItem|array|mixed the result, formatted by the current formatter
      */
@@ -1069,12 +1136,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -1091,27 +1158,31 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $keys, Criteria::IN);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -1121,14 +1192,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -1136,7 +1208,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1146,14 +1220,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitdesc1('fooValue');   // WHERE InitDesc1 = 'fooValue'
      * $query->filterByInitdesc1('%fooValue%', Criteria::LIKE); // WHERE InitDesc1 LIKE '%fooValue%'
+     * $query->filterByInitdesc1(['foo', 'bar']); // WHERE InitDesc1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initdesc1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initdesc1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitdesc1($initdesc1 = null, $comparison = null)
+    public function filterByInitdesc1($initdesc1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initdesc1)) {
@@ -1161,7 +1236,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDESC1, $initdesc1, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDESC1, $initdesc1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1171,14 +1248,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitdesc2('fooValue');   // WHERE InitDesc2 = 'fooValue'
      * $query->filterByInitdesc2('%fooValue%', Criteria::LIKE); // WHERE InitDesc2 LIKE '%fooValue%'
+     * $query->filterByInitdesc2(['foo', 'bar']); // WHERE InitDesc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initdesc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initdesc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitdesc2($initdesc2 = null, $comparison = null)
+    public function filterByInitdesc2($initdesc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initdesc2)) {
@@ -1186,7 +1264,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDESC2, $initdesc2, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDESC2, $initdesc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1196,14 +1276,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbgrup('fooValue');   // WHERE IntbGrup = 'fooValue'
      * $query->filterByIntbgrup('%fooValue%', Criteria::LIKE); // WHERE IntbGrup LIKE '%fooValue%'
+     * $query->filterByIntbgrup(['foo', 'bar']); // WHERE IntbGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbgrup($intbgrup = null, $comparison = null)
+    public function filterByIntbgrup($intbgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbgrup)) {
@@ -1211,7 +1292,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBGRUP, $intbgrup, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBGRUP, $intbgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1221,14 +1304,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitformatcode('fooValue');   // WHERE InitFormatCode = 'fooValue'
      * $query->filterByInitformatcode('%fooValue%', Criteria::LIKE); // WHERE InitFormatCode LIKE '%fooValue%'
+     * $query->filterByInitformatcode(['foo', 'bar']); // WHERE InitFormatCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initformatcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initformatcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitformatcode($initformatcode = null, $comparison = null)
+    public function filterByInitformatcode($initformatcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initformatcode)) {
@@ -1236,7 +1320,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITFORMATCODE, $initformatcode, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITFORMATCODE, $initformatcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1246,14 +1332,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitsplit('fooValue');   // WHERE InitSplit = 'fooValue'
      * $query->filterByInitsplit('%fooValue%', Criteria::LIKE); // WHERE InitSplit LIKE '%fooValue%'
+     * $query->filterByInitsplit(['foo', 'bar']); // WHERE InitSplit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initsplit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initsplit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitsplit($initsplit = null, $comparison = null)
+    public function filterByInitsplit($initsplit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initsplit)) {
@@ -1261,7 +1348,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPLIT, $initsplit, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPLIT, $initsplit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1271,14 +1360,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitsherdatecd('fooValue');   // WHERE InitSherDateCd = 'fooValue'
      * $query->filterByInitsherdatecd('%fooValue%', Criteria::LIKE); // WHERE InitSherDateCd LIKE '%fooValue%'
+     * $query->filterByInitsherdatecd(['foo', 'bar']); // WHERE InitSherDateCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initsherdatecd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initsherdatecd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitsherdatecd($initsherdatecd = null, $comparison = null)
+    public function filterByInitsherdatecd($initsherdatecd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initsherdatecd)) {
@@ -1286,7 +1376,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSHERDATECD, $initsherdatecd, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSHERDATECD, $initsherdatecd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1296,14 +1388,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitcoreyn('fooValue');   // WHERE InitCoreYN = 'fooValue'
      * $query->filterByInitcoreyn('%fooValue%', Criteria::LIKE); // WHERE InitCoreYN LIKE '%fooValue%'
+     * $query->filterByInitcoreyn(['foo', 'bar']); // WHERE InitCoreYN IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initcoreyn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initcoreyn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitcoreyn($initcoreyn = null, $comparison = null)
+    public function filterByInitcoreyn($initcoreyn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initcoreyn)) {
@@ -1311,7 +1404,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCOREYN, $initcoreyn, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCOREYN, $initcoreyn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1321,14 +1416,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbusercode1('fooValue');   // WHERE IntbUserCode1 = 'fooValue'
      * $query->filterByIntbusercode1('%fooValue%', Criteria::LIKE); // WHERE IntbUserCode1 LIKE '%fooValue%'
+     * $query->filterByIntbusercode1(['foo', 'bar']); // WHERE IntbUserCode1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbusercode1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbusercode1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbusercode1($intbusercode1 = null, $comparison = null)
+    public function filterByIntbusercode1($intbusercode1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbusercode1)) {
@@ -1336,7 +1432,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUSERCODE1, $intbusercode1, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUSERCODE1, $intbusercode1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1346,14 +1444,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbusercode2('fooValue');   // WHERE IntbUserCode2 = 'fooValue'
      * $query->filterByIntbusercode2('%fooValue%', Criteria::LIKE); // WHERE IntbUserCode2 LIKE '%fooValue%'
+     * $query->filterByIntbusercode2(['foo', 'bar']); // WHERE IntbUserCode2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbusercode2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbusercode2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbusercode2($intbusercode2 = null, $comparison = null)
+    public function filterByIntbusercode2($intbusercode2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbusercode2)) {
@@ -1361,7 +1460,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUSERCODE2, $intbusercode2, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUSERCODE2, $intbusercode2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1371,14 +1472,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInittype('fooValue');   // WHERE InitType = 'fooValue'
      * $query->filterByInittype('%fooValue%', Criteria::LIKE); // WHERE InitType LIKE '%fooValue%'
+     * $query->filterByInittype(['foo', 'bar']); // WHERE InitType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inittype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inittype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInittype($inittype = null, $comparison = null)
+    public function filterByInittype($inittype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inittype)) {
@@ -1386,7 +1488,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITTYPE, $inittype, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITTYPE, $inittype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1396,14 +1500,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInittax('fooValue');   // WHERE InitTax = 'fooValue'
      * $query->filterByInittax('%fooValue%', Criteria::LIKE); // WHERE InitTax LIKE '%fooValue%'
+     * $query->filterByInittax(['foo', 'bar']); // WHERE InitTax IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inittax The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inittax The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInittax($inittax = null, $comparison = null)
+    public function filterByInittax($inittax = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inittax)) {
@@ -1411,7 +1516,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITTAX, $inittax, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITTAX, $inittax, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1424,15 +1531,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitrtlpric(array('min' => 12)); // WHERE InitRtlPric > 12
      * </code>
      *
-     * @param     mixed $initrtlpric The value to use as filter.
+     * @param mixed $initrtlpric The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitrtlpric($initrtlpric = null, $comparison = null)
+    public function filterByInitrtlpric($initrtlpric = null, ?string $comparison = null)
     {
         if (is_array($initrtlpric)) {
             $useMinMax = false;
@@ -1452,7 +1559,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITRTLPRIC, $initrtlpric, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITRTLPRIC, $initrtlpric, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1462,14 +1571,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitstatchgd('fooValue');   // WHERE InitStatChgd = 'fooValue'
      * $query->filterByInitstatchgd('%fooValue%', Criteria::LIKE); // WHERE InitStatChgd LIKE '%fooValue%'
+     * $query->filterByInitstatchgd(['foo', 'bar']); // WHERE InitStatChgd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initstatchgd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initstatchgd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitstatchgd($initstatchgd = null, $comparison = null)
+    public function filterByInitstatchgd($initstatchgd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initstatchgd)) {
@@ -1477,7 +1587,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTATCHGD, $initstatchgd, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTATCHGD, $initstatchgd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1487,14 +1599,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitspecitemcd('fooValue');   // WHERE InitSpecItemCd = 'fooValue'
      * $query->filterByInitspecitemcd('%fooValue%', Criteria::LIKE); // WHERE InitSpecItemCd LIKE '%fooValue%'
+     * $query->filterByInitspecitemcd(['foo', 'bar']); // WHERE InitSpecItemCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initspecitemcd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initspecitemcd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitspecitemcd($initspecitemcd = null, $comparison = null)
+    public function filterByInitspecitemcd($initspecitemcd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initspecitemcd)) {
@@ -1502,7 +1615,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPECITEMCD, $initspecitemcd, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPECITEMCD, $initspecitemcd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1515,15 +1630,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitwarrdays(array('min' => 12)); // WHERE InitWarrDays > 12
      * </code>
      *
-     * @param     mixed $initwarrdays The value to use as filter.
+     * @param mixed $initwarrdays The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitwarrdays($initwarrdays = null, $comparison = null)
+    public function filterByInitwarrdays($initwarrdays = null, ?string $comparison = null)
     {
         if (is_array($initwarrdays)) {
             $useMinMax = false;
@@ -1543,7 +1658,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITWARRDAYS, $initwarrdays, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITWARRDAYS, $initwarrdays, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1553,14 +1670,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuomsale('fooValue');   // WHERE IntbUomSale = 'fooValue'
      * $query->filterByIntbuomsale('%fooValue%', Criteria::LIKE); // WHERE IntbUomSale LIKE '%fooValue%'
+     * $query->filterByIntbuomsale(['foo', 'bar']); // WHERE IntbUomSale IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuomsale The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuomsale The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuomsale($intbuomsale = null, $comparison = null)
+    public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuomsale)) {
@@ -1568,7 +1686,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1581,15 +1701,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitwght(array('min' => 12)); // WHERE InitWght > 12
      * </code>
      *
-     * @param     mixed $initwght The value to use as filter.
+     * @param mixed $initwght The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitwght($initwght = null, $comparison = null)
+    public function filterByInitwght($initwght = null, ?string $comparison = null)
     {
         if (is_array($initwght)) {
             $useMinMax = false;
@@ -1609,7 +1729,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITWGHT, $initwght, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITWGHT, $initwght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1619,14 +1741,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitbord('fooValue');   // WHERE InitBord = 'fooValue'
      * $query->filterByInitbord('%fooValue%', Criteria::LIKE); // WHERE InitBord LIKE '%fooValue%'
+     * $query->filterByInitbord(['foo', 'bar']); // WHERE InitBord IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initbord The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initbord The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitbord($initbord = null, $comparison = null)
+    public function filterByInitbord($initbord = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initbord)) {
@@ -1634,7 +1757,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITBORD, $initbord, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITBORD, $initbord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1644,14 +1769,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitbaseitemid('fooValue');   // WHERE InitBaseItemId = 'fooValue'
      * $query->filterByInitbaseitemid('%fooValue%', Criteria::LIKE); // WHERE InitBaseItemId LIKE '%fooValue%'
+     * $query->filterByInitbaseitemid(['foo', 'bar']); // WHERE InitBaseItemId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initbaseitemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initbaseitemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitbaseitemid($initbaseitemid = null, $comparison = null)
+    public function filterByInitbaseitemid($initbaseitemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initbaseitemid)) {
@@ -1659,7 +1785,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITBASEITEMID, $initbaseitemid, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITBASEITEMID, $initbaseitemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1669,14 +1797,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitspecificcust('fooValue');   // WHERE InitSpecificCust = 'fooValue'
      * $query->filterByInitspecificcust('%fooValue%', Criteria::LIKE); // WHERE InitSpecificCust LIKE '%fooValue%'
+     * $query->filterByInitspecificcust(['foo', 'bar']); // WHERE InitSpecificCust IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initspecificcust The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initspecificcust The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitspecificcust($initspecificcust = null, $comparison = null)
+    public function filterByInitspecificcust($initspecificcust = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initspecificcust)) {
@@ -1684,7 +1813,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPECIFICCUST, $initspecificcust, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSPECIFICCUST, $initspecificcust, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1694,14 +1825,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitgivedisc('fooValue');   // WHERE InitGiveDisc = 'fooValue'
      * $query->filterByInitgivedisc('%fooValue%', Criteria::LIKE); // WHERE InitGiveDisc LIKE '%fooValue%'
+     * $query->filterByInitgivedisc(['foo', 'bar']); // WHERE InitGiveDisc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initgivedisc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initgivedisc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitgivedisc($initgivedisc = null, $comparison = null)
+    public function filterByInitgivedisc($initgivedisc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initgivedisc)) {
@@ -1709,7 +1841,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITGIVEDISC, $initgivedisc, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITGIVEDISC, $initgivedisc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1719,14 +1853,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitasstcode('fooValue');   // WHERE InitAsstCode = 'fooValue'
      * $query->filterByInitasstcode('%fooValue%', Criteria::LIKE); // WHERE InitAsstCode LIKE '%fooValue%'
+     * $query->filterByInitasstcode(['foo', 'bar']); // WHERE InitAsstCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initasstcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initasstcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitasstcode($initasstcode = null, $comparison = null)
+    public function filterByInitasstcode($initasstcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initasstcode)) {
@@ -1734,7 +1869,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITASSTCODE, $initasstcode, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITASSTCODE, $initasstcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1744,14 +1881,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitpriclastdate('fooValue');   // WHERE InitPricLastDate = 'fooValue'
      * $query->filterByInitpriclastdate('%fooValue%', Criteria::LIKE); // WHERE InitPricLastDate LIKE '%fooValue%'
+     * $query->filterByInitpriclastdate(['foo', 'bar']); // WHERE InitPricLastDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initpriclastdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initpriclastdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitpriclastdate($initpriclastdate = null, $comparison = null)
+    public function filterByInitpriclastdate($initpriclastdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initpriclastdate)) {
@@ -1759,7 +1897,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPRICLASTDATE, $initpriclastdate, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPRICLASTDATE, $initpriclastdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1769,14 +1909,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuompur('fooValue');   // WHERE IntbUomPur = 'fooValue'
      * $query->filterByIntbuompur('%fooValue%', Criteria::LIKE); // WHERE IntbUomPur LIKE '%fooValue%'
+     * $query->filterByIntbuompur(['foo', 'bar']); // WHERE IntbUomPur IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuompur The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuompur The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuompur($intbuompur = null, $comparison = null)
+    public function filterByIntbuompur($intbuompur = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuompur)) {
@@ -1784,7 +1925,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1797,15 +1940,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitstancost(array('min' => 12)); // WHERE InitStanCost > 12
      * </code>
      *
-     * @param     mixed $initstancost The value to use as filter.
+     * @param mixed $initstancost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitstancost($initstancost = null, $comparison = null)
+    public function filterByInitstancost($initstancost = null, ?string $comparison = null)
     {
         if (is_array($initstancost)) {
             $useMinMax = false;
@@ -1825,7 +1968,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTANCOST, $initstancost, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTANCOST, $initstancost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1835,14 +1980,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitstancostbase('fooValue');   // WHERE InitStanCostBase = 'fooValue'
      * $query->filterByInitstancostbase('%fooValue%', Criteria::LIKE); // WHERE InitStanCostBase LIKE '%fooValue%'
+     * $query->filterByInitstancostbase(['foo', 'bar']); // WHERE InitStanCostBase IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initstancostbase The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initstancostbase The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitstancostbase($initstancostbase = null, $comparison = null)
+    public function filterByInitstancostbase($initstancostbase = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initstancostbase)) {
@@ -1850,7 +1996,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTANCOSTBASE, $initstancostbase, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTANCOSTBASE, $initstancostbase, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1860,14 +2008,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitstancostlastdate('fooValue');   // WHERE InitStanCostLastDate = 'fooValue'
      * $query->filterByInitstancostlastdate('%fooValue%', Criteria::LIKE); // WHERE InitStanCostLastDate LIKE '%fooValue%'
+     * $query->filterByInitstancostlastdate(['foo', 'bar']); // WHERE InitStanCostLastDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initstancostlastdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initstancostlastdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitstancostlastdate($initstancostlastdate = null, $comparison = null)
+    public function filterByInitstancostlastdate($initstancostlastdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initstancostlastdate)) {
@@ -1875,7 +2024,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE, $initstancostlastdate, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE, $initstancostlastdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1888,15 +2039,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitminmarg(array('min' => 12)); // WHERE InitMinMarg > 12
      * </code>
      *
-     * @param     mixed $initminmarg The value to use as filter.
+     * @param mixed $initminmarg The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitminmarg($initminmarg = null, $comparison = null)
+    public function filterByInitminmarg($initminmarg = null, ?string $comparison = null)
     {
         if (is_array($initminmarg)) {
             $useMinMax = false;
@@ -1916,7 +2067,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMINMARG, $initminmarg, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMINMARG, $initminmarg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1926,14 +2079,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitvendid('fooValue');   // WHERE InitVendId = 'fooValue'
      * $query->filterByInitvendid('%fooValue%', Criteria::LIKE); // WHERE InitVendId LIKE '%fooValue%'
+     * $query->filterByInitvendid(['foo', 'bar']); // WHERE InitVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initvendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initvendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitvendid($initvendid = null, $comparison = null)
+    public function filterByInitvendid($initvendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initvendid)) {
@@ -1941,7 +2095,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITVENDID, $initvendid, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITVENDID, $initvendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1951,14 +2107,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitinspect('fooValue');   // WHERE InitInspect = 'fooValue'
      * $query->filterByInitinspect('%fooValue%', Criteria::LIKE); // WHERE InitInspect LIKE '%fooValue%'
+     * $query->filterByInitinspect(['foo', 'bar']); // WHERE InitInspect IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initinspect The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initinspect The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitinspect($initinspect = null, $comparison = null)
+    public function filterByInitinspect($initinspect = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initinspect)) {
@@ -1966,7 +2123,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITINSPECT, $initinspect, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITINSPECT, $initinspect, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1976,14 +2135,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitstockcode('fooValue');   // WHERE InitStockCode = 'fooValue'
      * $query->filterByInitstockcode('%fooValue%', Criteria::LIKE); // WHERE InitStockCode LIKE '%fooValue%'
+     * $query->filterByInitstockcode(['foo', 'bar']); // WHERE InitStockCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initstockcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initstockcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitstockcode($initstockcode = null, $comparison = null)
+    public function filterByInitstockcode($initstockcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initstockcode)) {
@@ -1991,7 +2151,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTOCKCODE, $initstockcode, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSTOCKCODE, $initstockcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2001,14 +2163,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitsupritemnbr('fooValue');   // WHERE InitSuprItemNbr = 'fooValue'
      * $query->filterByInitsupritemnbr('%fooValue%', Criteria::LIKE); // WHERE InitSuprItemNbr LIKE '%fooValue%'
+     * $query->filterByInitsupritemnbr(['foo', 'bar']); // WHERE InitSuprItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initsupritemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initsupritemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitsupritemnbr($initsupritemnbr = null, $comparison = null)
+    public function filterByInitsupritemnbr($initsupritemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initsupritemnbr)) {
@@ -2016,7 +2179,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSUPRITEMNBR, $initsupritemnbr, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSUPRITEMNBR, $initsupritemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2026,14 +2191,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitvendshipfrom('fooValue');   // WHERE InitVendShipFrom = 'fooValue'
      * $query->filterByInitvendshipfrom('%fooValue%', Criteria::LIKE); // WHERE InitVendShipFrom LIKE '%fooValue%'
+     * $query->filterByInitvendshipfrom(['foo', 'bar']); // WHERE InitVendShipFrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initvendshipfrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initvendshipfrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitvendshipfrom($initvendshipfrom = null, $comparison = null)
+    public function filterByInitvendshipfrom($initvendshipfrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initvendshipfrom)) {
@@ -2041,7 +2207,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITVENDSHIPFROM, $initvendshipfrom, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITVENDSHIPFROM, $initvendshipfrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2051,14 +2219,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitcntryoforigin('fooValue');   // WHERE InitCntryOfOrigin = 'fooValue'
      * $query->filterByInitcntryoforigin('%fooValue%', Criteria::LIKE); // WHERE InitCntryOfOrigin LIKE '%fooValue%'
+     * $query->filterByInitcntryoforigin(['foo', 'bar']); // WHERE InitCntryOfOrigin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initcntryoforigin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initcntryoforigin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitcntryoforigin($initcntryoforigin = null, $comparison = null)
+    public function filterByInitcntryoforigin($initcntryoforigin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initcntryoforigin)) {
@@ -2066,7 +2235,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN, $initcntryoforigin, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN, $initcntryoforigin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2079,15 +2250,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitasstqty(array('min' => 12)); // WHERE InitAsstQty > 12
      * </code>
      *
-     * @param     mixed $initasstqty The value to use as filter.
+     * @param mixed $initasstqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitasstqty($initasstqty = null, $comparison = null)
+    public function filterByInitasstqty($initasstqty = null, ?string $comparison = null)
     {
         if (is_array($initasstqty)) {
             $useMinMax = false;
@@ -2107,7 +2278,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITASSTQTY, $initasstqty, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITASSTQTY, $initasstqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2117,14 +2290,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbtariffcode('fooValue');   // WHERE IntbTariffCode = 'fooValue'
      * $query->filterByIntbtariffcode('%fooValue%', Criteria::LIKE); // WHERE IntbTariffCode LIKE '%fooValue%'
+     * $query->filterByIntbtariffcode(['foo', 'bar']); // WHERE IntbTariffCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbtariffcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbtariffcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbtariffcode($intbtariffcode = null, $comparison = null)
+    public function filterByIntbtariffcode($intbtariffcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbtariffcode)) {
@@ -2132,7 +2306,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBTARIFFCODE, $intbtariffcode, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBTARIFFCODE, $intbtariffcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2142,14 +2318,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitpreference('fooValue');   // WHERE InitPreference = 'fooValue'
      * $query->filterByInitpreference('%fooValue%', Criteria::LIKE); // WHERE InitPreference LIKE '%fooValue%'
+     * $query->filterByInitpreference(['foo', 'bar']); // WHERE InitPreference IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initpreference The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initpreference The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitpreference($initpreference = null, $comparison = null)
+    public function filterByInitpreference($initpreference = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initpreference)) {
@@ -2157,7 +2334,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPREFERENCE, $initpreference, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPREFERENCE, $initpreference, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2167,14 +2346,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitproducer('fooValue');   // WHERE InitProducer = 'fooValue'
      * $query->filterByInitproducer('%fooValue%', Criteria::LIKE); // WHERE InitProducer LIKE '%fooValue%'
+     * $query->filterByInitproducer(['foo', 'bar']); // WHERE InitProducer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initproducer The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initproducer The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitproducer($initproducer = null, $comparison = null)
+    public function filterByInitproducer($initproducer = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initproducer)) {
@@ -2182,7 +2362,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPRODUCER, $initproducer, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPRODUCER, $initproducer, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2192,14 +2374,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitdocumentation('fooValue');   // WHERE InitDocumentation = 'fooValue'
      * $query->filterByInitdocumentation('%fooValue%', Criteria::LIKE); // WHERE InitDocumentation LIKE '%fooValue%'
+     * $query->filterByInitdocumentation(['foo', 'bar']); // WHERE InitDocumentation IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initdocumentation The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initdocumentation The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitdocumentation($initdocumentation = null, $comparison = null)
+    public function filterByInitdocumentation($initdocumentation = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initdocumentation)) {
@@ -2207,7 +2390,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDOCUMENTATION, $initdocumentation, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITDOCUMENTATION, $initdocumentation, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2220,15 +2405,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitpurchcrtnqty(array('min' => 12)); // WHERE InitPurchCrtnQty > 12
      * </code>
      *
-     * @param     mixed $initpurchcrtnqty The value to use as filter.
+     * @param mixed $initpurchcrtnqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitpurchcrtnqty($initpurchcrtnqty = null, $comparison = null)
+    public function filterByInitpurchcrtnqty($initpurchcrtnqty = null, ?string $comparison = null)
     {
         if (is_array($initpurchcrtnqty)) {
             $useMinMax = false;
@@ -2248,7 +2433,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPURCHCRTNQTY, $initpurchcrtnqty, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITPURCHCRTNQTY, $initpurchcrtnqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2258,14 +2445,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbbuyrcode('fooValue');   // WHERE AptbBuyrCode = 'fooValue'
      * $query->filterByAptbbuyrcode('%fooValue%', Criteria::LIKE); // WHERE AptbBuyrCode LIKE '%fooValue%'
+     * $query->filterByAptbbuyrcode(['foo', 'bar']); // WHERE AptbBuyrCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbbuyrcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbbuyrcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbbuyrcode($aptbbuyrcode = null, $comparison = null)
+    public function filterByAptbbuyrcode($aptbbuyrcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbbuyrcode)) {
@@ -2273,7 +2461,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_APTBBUYRCODE, $aptbbuyrcode, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_APTBBUYRCODE, $aptbbuyrcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2286,15 +2476,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitlastcost(array('min' => 12)); // WHERE InitLastCost > 12
      * </code>
      *
-     * @param     mixed $initlastcost The value to use as filter.
+     * @param mixed $initlastcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitlastcost($initlastcost = null, $comparison = null)
+    public function filterByInitlastcost($initlastcost = null, ?string $comparison = null)
     {
         if (is_array($initlastcost)) {
             $useMinMax = false;
@@ -2314,7 +2504,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLASTCOST, $initlastcost, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLASTCOST, $initlastcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2327,15 +2519,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitliters(array('min' => 12)); // WHERE InitLiters > 12
      * </code>
      *
-     * @param     mixed $initliters The value to use as filter.
+     * @param mixed $initliters The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitliters($initliters = null, $comparison = null)
+    public function filterByInitliters($initliters = null, ?string $comparison = null)
     {
         if (is_array($initliters)) {
             $useMinMax = false;
@@ -2355,7 +2547,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLITERS, $initliters, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLITERS, $initliters, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2365,14 +2559,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbmsdscode('fooValue');   // WHERE IntbMsdsCode = 'fooValue'
      * $query->filterByIntbmsdscode('%fooValue%', Criteria::LIKE); // WHERE IntbMsdsCode LIKE '%fooValue%'
+     * $query->filterByIntbmsdscode(['foo', 'bar']); // WHERE IntbMsdsCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbmsdscode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbmsdscode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbmsdscode($intbmsdscode = null, $comparison = null)
+    public function filterByIntbmsdscode($intbmsdscode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbmsdscode)) {
@@ -2380,7 +2575,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBMSDSCODE, $intbmsdscode, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBMSDSCODE, $intbmsdscode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2390,14 +2587,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitrequirefrt('fooValue');   // WHERE InitRequireFrt = 'fooValue'
      * $query->filterByInitrequirefrt('%fooValue%', Criteria::LIKE); // WHERE InitRequireFrt LIKE '%fooValue%'
+     * $query->filterByInitrequirefrt(['foo', 'bar']); // WHERE InitRequireFrt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initrequirefrt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initrequirefrt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitrequirefrt($initrequirefrt = null, $comparison = null)
+    public function filterByInitrequirefrt($initrequirefrt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initrequirefrt)) {
@@ -2405,7 +2603,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITREQUIREFRT, $initrequirefrt, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITREQUIREFRT, $initrequirefrt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2415,14 +2615,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitmfrtcode('fooValue');   // WHERE InitMfrtCode = 'fooValue'
      * $query->filterByInitmfrtcode('%fooValue%', Criteria::LIKE); // WHERE InitMfrtCode LIKE '%fooValue%'
+     * $query->filterByInitmfrtcode(['foo', 'bar']); // WHERE InitMfrtCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initmfrtcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initmfrtcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitmfrtcode($initmfrtcode = null, $comparison = null)
+    public function filterByInitmfrtcode($initmfrtcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initmfrtcode)) {
@@ -2430,7 +2631,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMFRTCODE, $initmfrtcode, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMFRTCODE, $initmfrtcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2443,15 +2646,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitinnerpackqty(array('min' => 12)); // WHERE InitInnerPackQty > 12
      * </code>
      *
-     * @param     mixed $initinnerpackqty The value to use as filter.
+     * @param mixed $initinnerpackqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitinnerpackqty($initinnerpackqty = null, $comparison = null)
+    public function filterByInitinnerpackqty($initinnerpackqty = null, ?string $comparison = null)
     {
         if (is_array($initinnerpackqty)) {
             $useMinMax = false;
@@ -2471,7 +2674,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITINNERPACKQTY, $initinnerpackqty, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITINNERPACKQTY, $initinnerpackqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2484,15 +2689,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitouterpackqty(array('min' => 12)); // WHERE InitOuterPackQty > 12
      * </code>
      *
-     * @param     mixed $initouterpackqty The value to use as filter.
+     * @param mixed $initouterpackqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitouterpackqty($initouterpackqty = null, $comparison = null)
+    public function filterByInitouterpackqty($initouterpackqty = null, ?string $comparison = null)
     {
         if (is_array($initouterpackqty)) {
             $useMinMax = false;
@@ -2512,7 +2717,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITOUTERPACKQTY, $initouterpackqty, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITOUTERPACKQTY, $initouterpackqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2525,15 +2732,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitbasestancost(array('min' => 12)); // WHERE InitBaseStanCost > 12
      * </code>
      *
-     * @param     mixed $initbasestancost The value to use as filter.
+     * @param mixed $initbasestancost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitbasestancost($initbasestancost = null, $comparison = null)
+    public function filterByInitbasestancost($initbasestancost = null, ?string $comparison = null)
     {
         if (is_array($initbasestancost)) {
             $useMinMax = false;
@@ -2553,7 +2760,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITBASESTANCOST, $initbasestancost, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITBASESTANCOST, $initbasestancost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2566,15 +2775,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitshiptareqty(array('min' => 12)); // WHERE InitShipTareQty > 12
      * </code>
      *
-     * @param     mixed $initshiptareqty The value to use as filter.
+     * @param mixed $initshiptareqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitshiptareqty($initshiptareqty = null, $comparison = null)
+    public function filterByInitshiptareqty($initshiptareqty = null, ?string $comparison = null)
     {
         if (is_array($initshiptareqty)) {
             $useMinMax = false;
@@ -2594,7 +2803,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSHIPTAREQTY, $initshiptareqty, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSHIPTAREQTY, $initshiptareqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2604,14 +2815,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitwgitem('fooValue');   // WHERE InitWgItem = 'fooValue'
      * $query->filterByInitwgitem('%fooValue%', Criteria::LIKE); // WHERE InitWgItem LIKE '%fooValue%'
+     * $query->filterByInitwgitem(['foo', 'bar']); // WHERE InitWgItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initwgitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initwgitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitwgitem($initwgitem = null, $comparison = null)
+    public function filterByInitwgitem($initwgitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initwgitem)) {
@@ -2619,7 +2831,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITWGITEM, $initwgitem, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITWGITEM, $initwgitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2629,14 +2843,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbpricgrup('fooValue');   // WHERE IntbPricGrup = 'fooValue'
      * $query->filterByIntbpricgrup('%fooValue%', Criteria::LIKE); // WHERE IntbPricGrup LIKE '%fooValue%'
+     * $query->filterByIntbpricgrup(['foo', 'bar']); // WHERE IntbPricGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbpricgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbpricgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbpricgrup($intbpricgrup = null, $comparison = null)
+    public function filterByIntbpricgrup($intbpricgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbpricgrup)) {
@@ -2644,7 +2859,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBPRICGRUP, $intbpricgrup, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBPRICGRUP, $intbpricgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2654,14 +2871,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcommgrup('fooValue');   // WHERE IntbCommGrup = 'fooValue'
      * $query->filterByIntbcommgrup('%fooValue%', Criteria::LIKE); // WHERE IntbCommGrup LIKE '%fooValue%'
+     * $query->filterByIntbcommgrup(['foo', 'bar']); // WHERE IntbCommGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcommgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcommgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcommgrup($intbcommgrup = null, $comparison = null)
+    public function filterByIntbcommgrup($intbcommgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcommgrup)) {
@@ -2669,7 +2887,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBCOMMGRUP, $intbcommgrup, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INTBCOMMGRUP, $intbcommgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2679,14 +2899,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitlastcostdate('fooValue');   // WHERE InitLastCostDate = 'fooValue'
      * $query->filterByInitlastcostdate('%fooValue%', Criteria::LIKE); // WHERE InitLastCostDate LIKE '%fooValue%'
+     * $query->filterByInitlastcostdate(['foo', 'bar']); // WHERE InitLastCostDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initlastcostdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initlastcostdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitlastcostdate($initlastcostdate = null, $comparison = null)
+    public function filterByInitlastcostdate($initlastcostdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initlastcostdate)) {
@@ -2694,7 +2915,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLASTCOSTDATE, $initlastcostdate, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLASTCOSTDATE, $initlastcostdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2707,15 +2930,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitqtypercase(array('min' => 12)); // WHERE InitQtyPerCase > 12
      * </code>
      *
-     * @param     mixed $initqtypercase The value to use as filter.
+     * @param mixed $initqtypercase The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitqtypercase($initqtypercase = null, $comparison = null)
+    public function filterByInitqtypercase($initqtypercase = null, ?string $comparison = null)
     {
         if (is_array($initqtypercase)) {
             $useMinMax = false;
@@ -2735,7 +2958,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITQTYPERCASE, $initqtypercase, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITQTYPERCASE, $initqtypercase, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2745,14 +2970,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitrevision('fooValue');   // WHERE InitRevision = 'fooValue'
      * $query->filterByInitrevision('%fooValue%', Criteria::LIKE); // WHERE InitRevision LIKE '%fooValue%'
+     * $query->filterByInitrevision(['foo', 'bar']); // WHERE InitRevision IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initrevision The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initrevision The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitrevision($initrevision = null, $comparison = null)
+    public function filterByInitrevision($initrevision = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initrevision)) {
@@ -2760,7 +2986,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITREVISION, $initrevision, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITREVISION, $initrevision, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2773,15 +3001,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitcommsaleqty(array('min' => 12)); // WHERE InitCommSaleQty > 12
      * </code>
      *
-     * @param     mixed $initcommsaleqty The value to use as filter.
+     * @param mixed $initcommsaleqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitcommsaleqty($initcommsaleqty = null, $comparison = null)
+    public function filterByInitcommsaleqty($initcommsaleqty = null, ?string $comparison = null)
     {
         if (is_array($initcommsaleqty)) {
             $useMinMax = false;
@@ -2801,7 +3029,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCOMMSALEQTY, $initcommsaleqty, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCOMMSALEQTY, $initcommsaleqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2814,15 +3044,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitcubes(array('min' => 12)); // WHERE InitCubes > 12
      * </code>
      *
-     * @param     mixed $initcubes The value to use as filter.
+     * @param mixed $initcubes The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitcubes($initcubes = null, $comparison = null)
+    public function filterByInitcubes($initcubes = null, ?string $comparison = null)
     {
         if (is_array($initcubes)) {
             $useMinMax = false;
@@ -2842,7 +3072,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCUBES, $initcubes, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITCUBES, $initcubes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2855,15 +3087,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInittimefence(array('min' => 12)); // WHERE InitTimeFence > 12
      * </code>
      *
-     * @param     mixed $inittimefence The value to use as filter.
+     * @param mixed $inittimefence The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInittimefence($inittimefence = null, $comparison = null)
+    public function filterByInittimefence($inittimefence = null, ?string $comparison = null)
     {
         if (is_array($inittimefence)) {
             $useMinMax = false;
@@ -2883,7 +3115,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITTIMEFENCE, $inittimefence, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITTIMEFENCE, $inittimefence, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2896,15 +3130,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * $query->filterByInitsrvcminchrg(array('min' => 12)); // WHERE InitSrvcMinChrg > 12
      * </code>
      *
-     * @param     mixed $initsrvcminchrg The value to use as filter.
+     * @param mixed $initsrvcminchrg The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitsrvcminchrg($initsrvcminchrg = null, $comparison = null)
+    public function filterByInitsrvcminchrg($initsrvcminchrg = null, ?string $comparison = null)
     {
         if (is_array($initsrvcminchrg)) {
             $useMinMax = false;
@@ -2924,7 +3158,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSRVCMINCHRG, $initsrvcminchrg, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSRVCMINCHRG, $initsrvcminchrg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2934,14 +3170,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByInitMinMargBase('fooValue');   // WHERE InitMinMargBase = 'fooValue'
      * $query->filterByInitMinMargBase('%fooValue%', Criteria::LIKE); // WHERE InitMinMargBase LIKE '%fooValue%'
+     * $query->filterByInitMinMargBase(['foo', 'bar']); // WHERE InitMinMargBase IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $initMinMargBase The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $initMinMargBase The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInitMinMargBase($initMinMargBase = null, $comparison = null)
+    public function filterByInitMinMargBase($initMinMargBase = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($initMinMargBase)) {
@@ -2949,7 +3186,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMINMARGBASE, $initMinMargBase, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMINMARGBASE, $initMinMargBase, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2959,14 +3198,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -2974,7 +3214,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2984,14 +3226,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -2999,7 +3242,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3009,14 +3254,15 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -3024,20 +3270,22 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItemMasterItemTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \UnitofMeasureSale object
      *
      * @param \UnitofMeasureSale|ObjectCollection $unitofMeasureSale The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUnitofMeasureSale($unitofMeasureSale, $comparison = null)
+    public function filterByUnitofMeasureSale($unitofMeasureSale, ?string $comparison = null)
     {
         if ($unitofMeasureSale instanceof \UnitofMeasureSale) {
             return $this
@@ -3047,8 +3295,10 @@ abstract class ItemMasterItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INTBUOMSALE, $unitofMeasureSale->toKeyValue('PrimaryKey', 'Intbuomsale'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByUnitofMeasureSale() only accepts arguments of type \UnitofMeasureSale or Collection');
         }
@@ -3057,12 +3307,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the UnitofMeasureSale relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinUnitofMeasureSale($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinUnitofMeasureSale(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('UnitofMeasureSale');
@@ -3091,9 +3341,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \UnitofMeasureSaleQuery A secondary query class using the current class as primary query
      */
@@ -3105,16 +3355,112 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the UnitofMeasureSale relation UnitofMeasureSale object
+     *
+     * @param callable(\UnitofMeasureSaleQuery):\UnitofMeasureSaleQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withUnitofMeasureSaleQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useUnitofMeasureSaleQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to UnitofMeasureSale table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \UnitofMeasureSaleQuery The inner query object of the EXISTS statement
+     */
+    public function useUnitofMeasureSaleExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \UnitofMeasureSaleQuery */
+        $q = $this->useExistsQuery('UnitofMeasureSale', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasureSale table for a NOT EXISTS query.
+     *
+     * @see useUnitofMeasureSaleExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \UnitofMeasureSaleQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useUnitofMeasureSaleNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UnitofMeasureSaleQuery */
+        $q = $this->useExistsQuery('UnitofMeasureSale', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasureSale table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \UnitofMeasureSaleQuery The inner query object of the IN statement
+     */
+    public function useInUnitofMeasureSaleQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \UnitofMeasureSaleQuery */
+        $q = $this->useInQuery('UnitofMeasureSale', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasureSale table for a NOT IN query.
+     *
+     * @see useUnitofMeasureSaleInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \UnitofMeasureSaleQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInUnitofMeasureSaleQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UnitofMeasureSaleQuery */
+        $q = $this->useInQuery('UnitofMeasureSale', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \UnitofMeasurePurchase object
      *
      * @param \UnitofMeasurePurchase|ObjectCollection $unitofMeasurePurchase The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUnitofMeasurePurchase($unitofMeasurePurchase, $comparison = null)
+    public function filterByUnitofMeasurePurchase($unitofMeasurePurchase, ?string $comparison = null)
     {
         if ($unitofMeasurePurchase instanceof \UnitofMeasurePurchase) {
             return $this
@@ -3124,8 +3470,10 @@ abstract class ItemMasterItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INTBUOMPUR, $unitofMeasurePurchase->toKeyValue('PrimaryKey', 'Intbuompur'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByUnitofMeasurePurchase() only accepts arguments of type \UnitofMeasurePurchase or Collection');
         }
@@ -3134,12 +3482,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the UnitofMeasurePurchase relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinUnitofMeasurePurchase($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinUnitofMeasurePurchase(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('UnitofMeasurePurchase');
@@ -3168,9 +3516,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \UnitofMeasurePurchaseQuery A secondary query class using the current class as primary query
      */
@@ -3182,16 +3530,112 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the UnitofMeasurePurchase relation UnitofMeasurePurchase object
+     *
+     * @param callable(\UnitofMeasurePurchaseQuery):\UnitofMeasurePurchaseQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withUnitofMeasurePurchaseQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useUnitofMeasurePurchaseQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to UnitofMeasurePurchase table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \UnitofMeasurePurchaseQuery The inner query object of the EXISTS statement
+     */
+    public function useUnitofMeasurePurchaseExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \UnitofMeasurePurchaseQuery */
+        $q = $this->useExistsQuery('UnitofMeasurePurchase', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasurePurchase table for a NOT EXISTS query.
+     *
+     * @see useUnitofMeasurePurchaseExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \UnitofMeasurePurchaseQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useUnitofMeasurePurchaseNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UnitofMeasurePurchaseQuery */
+        $q = $this->useExistsQuery('UnitofMeasurePurchase', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasurePurchase table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \UnitofMeasurePurchaseQuery The inner query object of the IN statement
+     */
+    public function useInUnitofMeasurePurchaseQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \UnitofMeasurePurchaseQuery */
+        $q = $this->useInQuery('UnitofMeasurePurchase', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UnitofMeasurePurchase table for a NOT IN query.
+     *
+     * @see useUnitofMeasurePurchaseInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \UnitofMeasurePurchaseQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInUnitofMeasurePurchaseQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UnitofMeasurePurchaseQuery */
+        $q = $this->useInQuery('UnitofMeasurePurchase', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvGroupCode object
      *
      * @param \InvGroupCode|ObjectCollection $invGroupCode The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvGroupCode($invGroupCode, $comparison = null)
+    public function filterByInvGroupCode($invGroupCode, ?string $comparison = null)
     {
         if ($invGroupCode instanceof \InvGroupCode) {
             return $this
@@ -3201,8 +3645,10 @@ abstract class ItemMasterItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INTBGRUP, $invGroupCode->toKeyValue('PrimaryKey', 'Intbgrup'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvGroupCode() only accepts arguments of type \InvGroupCode or Collection');
         }
@@ -3211,12 +3657,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvGroupCode relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvGroupCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinInvGroupCode(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvGroupCode');
@@ -3245,9 +3691,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvGroupCodeQuery A secondary query class using the current class as primary query
      */
@@ -3259,16 +3705,112 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvGroupCode relation InvGroupCode object
+     *
+     * @param callable(\InvGroupCodeQuery):\InvGroupCodeQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvGroupCodeQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useInvGroupCodeQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvGroupCode table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvGroupCodeQuery The inner query object of the EXISTS statement
+     */
+    public function useInvGroupCodeExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvGroupCodeQuery */
+        $q = $this->useExistsQuery('InvGroupCode', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvGroupCode table for a NOT EXISTS query.
+     *
+     * @see useInvGroupCodeExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvGroupCodeQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvGroupCodeNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvGroupCodeQuery */
+        $q = $this->useExistsQuery('InvGroupCode', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvGroupCode table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvGroupCodeQuery The inner query object of the IN statement
+     */
+    public function useInInvGroupCodeQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvGroupCodeQuery */
+        $q = $this->useInQuery('InvGroupCode', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvGroupCode table for a NOT IN query.
+     *
+     * @see useInvGroupCodeInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvGroupCodeQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvGroupCodeQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvGroupCodeQuery */
+        $q = $this->useInQuery('InvGroupCode', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvStockCode object
      *
      * @param \InvStockCode|ObjectCollection $invStockCode The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvStockCode($invStockCode, $comparison = null)
+    public function filterByInvStockCode($invStockCode, ?string $comparison = null)
     {
         if ($invStockCode instanceof \InvStockCode) {
             return $this
@@ -3278,8 +3820,10 @@ abstract class ItemMasterItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITSTOCKCODE, $invStockCode->toKeyValue('PrimaryKey', 'Intbstckcode'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvStockCode() only accepts arguments of type \InvStockCode or Collection');
         }
@@ -3288,12 +3832,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvStockCode relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvStockCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinInvStockCode(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvStockCode');
@@ -3322,9 +3866,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvStockCodeQuery A secondary query class using the current class as primary query
      */
@@ -3336,16 +3880,112 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvStockCode relation InvStockCode object
+     *
+     * @param callable(\InvStockCodeQuery):\InvStockCodeQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvStockCodeQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useInvStockCodeQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvStockCode table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvStockCodeQuery The inner query object of the EXISTS statement
+     */
+    public function useInvStockCodeExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvStockCodeQuery */
+        $q = $this->useExistsQuery('InvStockCode', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvStockCode table for a NOT EXISTS query.
+     *
+     * @see useInvStockCodeExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvStockCodeQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvStockCodeNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvStockCodeQuery */
+        $q = $this->useExistsQuery('InvStockCode', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvStockCode table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvStockCodeQuery The inner query object of the IN statement
+     */
+    public function useInInvStockCodeQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvStockCodeQuery */
+        $q = $this->useInQuery('InvStockCode', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvStockCode table for a NOT IN query.
+     *
+     * @see useInvStockCodeInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvStockCodeQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvStockCodeQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvStockCodeQuery */
+        $q = $this->useInQuery('InvStockCode', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvPriceCode object
      *
      * @param \InvPriceCode|ObjectCollection $invPriceCode The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvPriceCode($invPriceCode, $comparison = null)
+    public function filterByInvPriceCode($invPriceCode, ?string $comparison = null)
     {
         if ($invPriceCode instanceof \InvPriceCode) {
             return $this
@@ -3355,8 +3995,10 @@ abstract class ItemMasterItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INTBPRICGRUP, $invPriceCode->toKeyValue('PrimaryKey', 'Intbpricgrup'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvPriceCode() only accepts arguments of type \InvPriceCode or Collection');
         }
@@ -3365,12 +4007,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvPriceCode relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvPriceCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinInvPriceCode(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvPriceCode');
@@ -3399,9 +4041,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvPriceCodeQuery A secondary query class using the current class as primary query
      */
@@ -3413,16 +4055,112 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvPriceCode relation InvPriceCode object
+     *
+     * @param callable(\InvPriceCodeQuery):\InvPriceCodeQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvPriceCodeQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useInvPriceCodeQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvPriceCode table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvPriceCodeQuery The inner query object of the EXISTS statement
+     */
+    public function useInvPriceCodeExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvPriceCodeQuery */
+        $q = $this->useExistsQuery('InvPriceCode', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvPriceCode table for a NOT EXISTS query.
+     *
+     * @see useInvPriceCodeExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvPriceCodeQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvPriceCodeNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvPriceCodeQuery */
+        $q = $this->useExistsQuery('InvPriceCode', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvPriceCode table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvPriceCodeQuery The inner query object of the IN statement
+     */
+    public function useInInvPriceCodeQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvPriceCodeQuery */
+        $q = $this->useInQuery('InvPriceCode', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvPriceCode table for a NOT IN query.
+     *
+     * @see useInvPriceCodeInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvPriceCodeQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvPriceCodeQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvPriceCodeQuery */
+        $q = $this->useInQuery('InvPriceCode', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvCommissionCode object
      *
      * @param \InvCommissionCode|ObjectCollection $invCommissionCode The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvCommissionCode($invCommissionCode, $comparison = null)
+    public function filterByInvCommissionCode($invCommissionCode, ?string $comparison = null)
     {
         if ($invCommissionCode instanceof \InvCommissionCode) {
             return $this
@@ -3432,8 +4170,10 @@ abstract class ItemMasterItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INTBCOMMGRUP, $invCommissionCode->toKeyValue('PrimaryKey', 'Intbcommgrup'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvCommissionCode() only accepts arguments of type \InvCommissionCode or Collection');
         }
@@ -3442,12 +4182,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvCommissionCode relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvCommissionCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinInvCommissionCode(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvCommissionCode');
@@ -3476,9 +4216,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvCommissionCodeQuery A secondary query class using the current class as primary query
      */
@@ -3490,16 +4230,112 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvCommissionCode relation InvCommissionCode object
+     *
+     * @param callable(\InvCommissionCodeQuery):\InvCommissionCodeQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvCommissionCodeQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useInvCommissionCodeQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvCommissionCode table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvCommissionCodeQuery The inner query object of the EXISTS statement
+     */
+    public function useInvCommissionCodeExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvCommissionCodeQuery */
+        $q = $this->useExistsQuery('InvCommissionCode', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvCommissionCode table for a NOT EXISTS query.
+     *
+     * @see useInvCommissionCodeExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvCommissionCodeQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvCommissionCodeNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvCommissionCodeQuery */
+        $q = $this->useExistsQuery('InvCommissionCode', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvCommissionCode table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvCommissionCodeQuery The inner query object of the IN statement
+     */
+    public function useInInvCommissionCodeQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvCommissionCodeQuery */
+        $q = $this->useInQuery('InvCommissionCode', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvCommissionCode table for a NOT IN query.
+     *
+     * @see useInvCommissionCodeInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvCommissionCodeQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvCommissionCodeQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvCommissionCodeQuery */
+        $q = $this->useInQuery('InvCommissionCode', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemPricing object
      *
      * @param \ItemPricing|ObjectCollection $itemPricing The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemPricing($itemPricing, $comparison = null)
+    public function filterByItemPricing($itemPricing, ?string $comparison = null)
     {
         if ($itemPricing instanceof \ItemPricing) {
             return $this
@@ -3509,8 +4345,10 @@ abstract class ItemMasterItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemPricing->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemPricing() only accepts arguments of type \ItemPricing or Collection');
         }
@@ -3519,12 +4357,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemPricing relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemPricing($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemPricing(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemPricing');
@@ -3553,9 +4391,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemPricingQuery A secondary query class using the current class as primary query
      */
@@ -3567,23 +4405,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemPricing relation ItemPricing object
+     *
+     * @param callable(\ItemPricingQuery):\ItemPricingQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemPricingQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemPricingQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemPricing table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemPricingQuery The inner query object of the EXISTS statement
+     */
+    public function useItemPricingExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemPricingQuery */
+        $q = $this->useExistsQuery('ItemPricing', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemPricing table for a NOT EXISTS query.
+     *
+     * @see useItemPricingExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemPricingQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemPricingNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemPricingQuery */
+        $q = $this->useExistsQuery('ItemPricing', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemPricing table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemPricingQuery The inner query object of the IN statement
+     */
+    public function useInItemPricingQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemPricingQuery */
+        $q = $this->useInQuery('ItemPricing', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemPricing table for a NOT IN query.
+     *
+     * @see useItemPricingInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemPricingQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemPricingQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemPricingQuery */
+        $q = $this->useInQuery('ItemPricing', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefCustomer object
      *
      * @param \ItemXrefCustomer|ObjectCollection $itemXrefCustomer the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefCustomer($itemXrefCustomer, $comparison = null)
+    public function filterByItemXrefCustomer($itemXrefCustomer, ?string $comparison = null)
     {
         if ($itemXrefCustomer instanceof \ItemXrefCustomer) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefCustomer->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemXrefCustomer instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefCustomerQuery()
                 ->filterByPrimaryKeys($itemXrefCustomer->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefCustomer() only accepts arguments of type \ItemXrefCustomer or Collection');
         }
@@ -3592,12 +4530,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefCustomer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemXrefCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefCustomer');
@@ -3626,9 +4564,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefCustomerQuery A secondary query class using the current class as primary query
      */
@@ -3640,23 +4578,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefCustomer relation ItemXrefCustomer object
+     *
+     * @param callable(\ItemXrefCustomerQuery):\ItemXrefCustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefCustomer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefCustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefCustomerQuery */
+        $q = $this->useExistsQuery('ItemXrefCustomer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefCustomer table for a NOT EXISTS query.
+     *
+     * @see useItemXrefCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefCustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefCustomerQuery */
+        $q = $this->useExistsQuery('ItemXrefCustomer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefCustomer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefCustomerQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefCustomerQuery */
+        $q = $this->useInQuery('ItemXrefCustomer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefCustomer table for a NOT IN query.
+     *
+     * @see useItemXrefCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefCustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefCustomerQuery */
+        $q = $this->useInQuery('ItemXrefCustomer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \CstkItem object
      *
      * @param \CstkItem|ObjectCollection $cstkItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCstkItem($cstkItem, $comparison = null)
+    public function filterByCstkItem($cstkItem, ?string $comparison = null)
     {
         if ($cstkItem instanceof \CstkItem) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $cstkItem->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($cstkItem instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useCstkItemQuery()
                 ->filterByPrimaryKeys($cstkItem->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByCstkItem() only accepts arguments of type \CstkItem or Collection');
         }
@@ -3665,12 +4703,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the CstkItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCstkItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCstkItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('CstkItem');
@@ -3699,9 +4737,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CstkItemQuery A secondary query class using the current class as primary query
      */
@@ -3713,23 +4751,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the CstkItem relation CstkItem object
+     *
+     * @param callable(\CstkItemQuery):\CstkItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCstkItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCstkItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to CstkItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CstkItemQuery The inner query object of the EXISTS statement
+     */
+    public function useCstkItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CstkItemQuery */
+        $q = $this->useExistsQuery('CstkItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CstkItem table for a NOT EXISTS query.
+     *
+     * @see useCstkItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CstkItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCstkItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CstkItemQuery */
+        $q = $this->useExistsQuery('CstkItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to CstkItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CstkItemQuery The inner query object of the IN statement
+     */
+    public function useInCstkItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CstkItemQuery */
+        $q = $this->useInQuery('CstkItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CstkItem table for a NOT IN query.
+     *
+     * @see useCstkItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CstkItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCstkItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CstkItemQuery */
+        $q = $this->useInQuery('CstkItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvWhseItemBin object
      *
      * @param \InvWhseItemBin|ObjectCollection $invWhseItemBin the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvWhseItemBin($invWhseItemBin, $comparison = null)
+    public function filterByInvWhseItemBin($invWhseItemBin, ?string $comparison = null)
     {
         if ($invWhseItemBin instanceof \InvWhseItemBin) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invWhseItemBin->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invWhseItemBin instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvWhseItemBinQuery()
                 ->filterByPrimaryKeys($invWhseItemBin->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvWhseItemBin() only accepts arguments of type \InvWhseItemBin or Collection');
         }
@@ -3738,12 +4876,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvWhseItemBin relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvWhseItemBin($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvWhseItemBin(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvWhseItemBin');
@@ -3772,9 +4910,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvWhseItemBinQuery A secondary query class using the current class as primary query
      */
@@ -3786,23 +4924,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvWhseItemBin relation InvWhseItemBin object
+     *
+     * @param callable(\InvWhseItemBinQuery):\InvWhseItemBinQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvWhseItemBinQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvWhseItemBinQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvWhseItemBin table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvWhseItemBinQuery The inner query object of the EXISTS statement
+     */
+    public function useInvWhseItemBinExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvWhseItemBinQuery */
+        $q = $this->useExistsQuery('InvWhseItemBin', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseItemBin table for a NOT EXISTS query.
+     *
+     * @see useInvWhseItemBinExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseItemBinQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvWhseItemBinNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseItemBinQuery */
+        $q = $this->useExistsQuery('InvWhseItemBin', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseItemBin table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvWhseItemBinQuery The inner query object of the IN statement
+     */
+    public function useInInvWhseItemBinQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvWhseItemBinQuery */
+        $q = $this->useInQuery('InvWhseItemBin', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseItemBin table for a NOT IN query.
+     *
+     * @see useInvWhseItemBinInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseItemBinQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvWhseItemBinQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseItemBinQuery */
+        $q = $this->useInQuery('InvWhseItemBin', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemAddonItem object
      *
      * @param \ItemAddonItem|ObjectCollection $itemAddonItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemAddonItemRelatedByInititemnbr($itemAddonItem, $comparison = null)
+    public function filterByItemAddonItemRelatedByInititemnbr($itemAddonItem, ?string $comparison = null)
     {
         if ($itemAddonItem instanceof \ItemAddonItem) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemAddonItem->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemAddonItem instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemAddonItemRelatedByInititemnbrQuery()
                 ->filterByPrimaryKeys($itemAddonItem->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemAddonItemRelatedByInititemnbr() only accepts arguments of type \ItemAddonItem or Collection');
         }
@@ -3811,12 +5049,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemAddonItemRelatedByInititemnbr relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemAddonItemRelatedByInititemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemAddonItemRelatedByInititemnbr(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemAddonItemRelatedByInititemnbr');
@@ -3845,9 +5083,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemAddonItemQuery A secondary query class using the current class as primary query
      */
@@ -3859,23 +5097,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemAddonItemRelatedByInititemnbr relation ItemAddonItem object
+     *
+     * @param callable(\ItemAddonItemQuery):\ItemAddonItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemAddonItemRelatedByInititemnbrQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemAddonItemRelatedByInititemnbrQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByInititemnbr relation to the ItemAddonItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemAddonItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemAddonItemRelatedByInititemnbrExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemAddonItemQuery */
+        $q = $this->useExistsQuery('ItemAddonItemRelatedByInititemnbr', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByInititemnbr relation to the ItemAddonItem table for a NOT EXISTS query.
+     *
+     * @see useItemAddonItemRelatedByInititemnbrExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemAddonItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemAddonItemRelatedByInititemnbrNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemAddonItemQuery */
+        $q = $this->useExistsQuery('ItemAddonItemRelatedByInititemnbr', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByInititemnbr relation to the ItemAddonItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemAddonItemQuery The inner query object of the IN statement
+     */
+    public function useInItemAddonItemRelatedByInititemnbrQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemAddonItemQuery */
+        $q = $this->useInQuery('ItemAddonItemRelatedByInititemnbr', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByInititemnbr relation to the ItemAddonItem table for a NOT IN query.
+     *
+     * @see useItemAddonItemRelatedByInititemnbrInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemAddonItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemAddonItemRelatedByInititemnbrQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemAddonItemQuery */
+        $q = $this->useInQuery('ItemAddonItemRelatedByInititemnbr', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemAddonItem object
      *
      * @param \ItemAddonItem|ObjectCollection $itemAddonItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemAddonItemRelatedByAdonadditemnbr($itemAddonItem, $comparison = null)
+    public function filterByItemAddonItemRelatedByAdonadditemnbr($itemAddonItem, ?string $comparison = null)
     {
         if ($itemAddonItem instanceof \ItemAddonItem) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemAddonItem->getAdonadditemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemAddonItem instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemAddonItemRelatedByAdonadditemnbrQuery()
                 ->filterByPrimaryKeys($itemAddonItem->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemAddonItemRelatedByAdonadditemnbr() only accepts arguments of type \ItemAddonItem or Collection');
         }
@@ -3884,12 +5222,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemAddonItemRelatedByAdonadditemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemAddonItemRelatedByAdonadditemnbr(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemAddonItemRelatedByAdonadditemnbr');
@@ -3918,9 +5256,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemAddonItemQuery A secondary query class using the current class as primary query
      */
@@ -3932,23 +5270,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemAddonItemRelatedByAdonadditemnbr relation ItemAddonItem object
+     *
+     * @param callable(\ItemAddonItemQuery):\ItemAddonItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemAddonItemRelatedByAdonadditemnbrQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemAddonItemRelatedByAdonadditemnbrQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByAdonadditemnbr relation to the ItemAddonItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemAddonItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemAddonItemRelatedByAdonadditemnbrExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemAddonItemQuery */
+        $q = $this->useExistsQuery('ItemAddonItemRelatedByAdonadditemnbr', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByAdonadditemnbr relation to the ItemAddonItem table for a NOT EXISTS query.
+     *
+     * @see useItemAddonItemRelatedByAdonadditemnbrExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemAddonItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemAddonItemRelatedByAdonadditemnbrNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemAddonItemQuery */
+        $q = $this->useExistsQuery('ItemAddonItemRelatedByAdonadditemnbr', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByAdonadditemnbr relation to the ItemAddonItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemAddonItemQuery The inner query object of the IN statement
+     */
+    public function useInItemAddonItemRelatedByAdonadditemnbrQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemAddonItemQuery */
+        $q = $this->useInQuery('ItemAddonItemRelatedByAdonadditemnbr', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByAdonadditemnbr relation to the ItemAddonItem table for a NOT IN query.
+     *
+     * @see useItemAddonItemRelatedByAdonadditemnbrInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemAddonItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemAddonItemRelatedByAdonadditemnbrQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemAddonItemQuery */
+        $q = $this->useInQuery('ItemAddonItemRelatedByAdonadditemnbr', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItmDimension object
      *
      * @param \ItmDimension|ObjectCollection $itmDimension the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmDimension($itmDimension, $comparison = null)
+    public function filterByItmDimension($itmDimension, ?string $comparison = null)
     {
         if ($itmDimension instanceof \ItmDimension) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itmDimension->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itmDimension instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItmDimensionQuery()
                 ->filterByPrimaryKeys($itmDimension->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItmDimension() only accepts arguments of type \ItmDimension or Collection');
         }
@@ -3957,12 +5395,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItmDimension relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItmDimension($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItmDimension(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItmDimension');
@@ -3991,9 +5429,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItmDimensionQuery A secondary query class using the current class as primary query
      */
@@ -4005,23 +5443,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItmDimension relation ItmDimension object
+     *
+     * @param callable(\ItmDimensionQuery):\ItmDimensionQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItmDimensionQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItmDimensionQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItmDimension table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItmDimensionQuery The inner query object of the EXISTS statement
+     */
+    public function useItmDimensionExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItmDimensionQuery */
+        $q = $this->useExistsQuery('ItmDimension', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItmDimension table for a NOT EXISTS query.
+     *
+     * @see useItmDimensionExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItmDimensionQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItmDimensionNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItmDimensionQuery */
+        $q = $this->useExistsQuery('ItmDimension', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItmDimension table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItmDimensionQuery The inner query object of the IN statement
+     */
+    public function useInItmDimensionQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItmDimensionQuery */
+        $q = $this->useInQuery('ItmDimension', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItmDimension table for a NOT IN query.
+     *
+     * @see useItmDimensionInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItmDimensionQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItmDimensionQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItmDimensionQuery */
+        $q = $this->useInQuery('ItmDimension', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvHazmatItem object
      *
      * @param \InvHazmatItem|ObjectCollection $invHazmatItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvHazmatItem($invHazmatItem, $comparison = null)
+    public function filterByInvHazmatItem($invHazmatItem, ?string $comparison = null)
     {
         if ($invHazmatItem instanceof \InvHazmatItem) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invHazmatItem->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invHazmatItem instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvHazmatItemQuery()
                 ->filterByPrimaryKeys($invHazmatItem->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvHazmatItem() only accepts arguments of type \InvHazmatItem or Collection');
         }
@@ -4030,12 +5568,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvHazmatItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvHazmatItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvHazmatItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvHazmatItem');
@@ -4064,9 +5602,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvHazmatItemQuery A secondary query class using the current class as primary query
      */
@@ -4078,23 +5616,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvHazmatItem relation InvHazmatItem object
+     *
+     * @param callable(\InvHazmatItemQuery):\InvHazmatItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvHazmatItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvHazmatItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvHazmatItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvHazmatItemQuery The inner query object of the EXISTS statement
+     */
+    public function useInvHazmatItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvHazmatItemQuery */
+        $q = $this->useExistsQuery('InvHazmatItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvHazmatItem table for a NOT EXISTS query.
+     *
+     * @see useInvHazmatItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvHazmatItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvHazmatItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvHazmatItemQuery */
+        $q = $this->useExistsQuery('InvHazmatItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvHazmatItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvHazmatItemQuery The inner query object of the IN statement
+     */
+    public function useInInvHazmatItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvHazmatItemQuery */
+        $q = $this->useInQuery('InvHazmatItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvHazmatItem table for a NOT IN query.
+     *
+     * @see useInvHazmatItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvHazmatItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvHazmatItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvHazmatItemQuery */
+        $q = $this->useInQuery('InvHazmatItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvWhseLot object
      *
      * @param \InvWhseLot|ObjectCollection $invWhseLot the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvWhseLot($invWhseLot, $comparison = null)
+    public function filterByInvWhseLot($invWhseLot, ?string $comparison = null)
     {
         if ($invWhseLot instanceof \InvWhseLot) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invWhseLot->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invWhseLot instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvWhseLotQuery()
                 ->filterByPrimaryKeys($invWhseLot->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvWhseLot() only accepts arguments of type \InvWhseLot or Collection');
         }
@@ -4103,12 +5741,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvWhseLot relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvWhseLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvWhseLot(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvWhseLot');
@@ -4137,9 +5775,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvWhseLotQuery A secondary query class using the current class as primary query
      */
@@ -4151,23 +5789,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvWhseLot relation InvWhseLot object
+     *
+     * @param callable(\InvWhseLotQuery):\InvWhseLotQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvWhseLotQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvWhseLotQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvWhseLotQuery The inner query object of the EXISTS statement
+     */
+    public function useInvWhseLotExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useExistsQuery('InvWhseLot', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for a NOT EXISTS query.
+     *
+     * @see useInvWhseLotExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseLotQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvWhseLotNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useExistsQuery('InvWhseLot', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvWhseLotQuery The inner query object of the IN statement
+     */
+    public function useInInvWhseLotQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useInQuery('InvWhseLot', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for a NOT IN query.
+     *
+     * @see useInvWhseLotInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseLotQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvWhseLotQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useInQuery('InvWhseLot', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemSubstitute object
      *
      * @param \ItemSubstitute|ObjectCollection $itemSubstitute the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemSubstituteRelatedByInititemnbr($itemSubstitute, $comparison = null)
+    public function filterByItemSubstituteRelatedByInititemnbr($itemSubstitute, ?string $comparison = null)
     {
         if ($itemSubstitute instanceof \ItemSubstitute) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemSubstitute->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemSubstitute instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemSubstituteRelatedByInititemnbrQuery()
                 ->filterByPrimaryKeys($itemSubstitute->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemSubstituteRelatedByInititemnbr() only accepts arguments of type \ItemSubstitute or Collection');
         }
@@ -4176,12 +5914,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemSubstituteRelatedByInititemnbr relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemSubstituteRelatedByInititemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemSubstituteRelatedByInititemnbr(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemSubstituteRelatedByInititemnbr');
@@ -4210,9 +5948,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemSubstituteQuery A secondary query class using the current class as primary query
      */
@@ -4224,23 +5962,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemSubstituteRelatedByInititemnbr relation ItemSubstitute object
+     *
+     * @param callable(\ItemSubstituteQuery):\ItemSubstituteQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemSubstituteRelatedByInititemnbrQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemSubstituteRelatedByInititemnbrQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInititemnbr relation to the ItemSubstitute table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemSubstituteQuery The inner query object of the EXISTS statement
+     */
+    public function useItemSubstituteRelatedByInititemnbrExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemSubstituteQuery */
+        $q = $this->useExistsQuery('ItemSubstituteRelatedByInititemnbr', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInititemnbr relation to the ItemSubstitute table for a NOT EXISTS query.
+     *
+     * @see useItemSubstituteRelatedByInititemnbrExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemSubstituteQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemSubstituteRelatedByInititemnbrNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemSubstituteQuery */
+        $q = $this->useExistsQuery('ItemSubstituteRelatedByInititemnbr', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInititemnbr relation to the ItemSubstitute table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemSubstituteQuery The inner query object of the IN statement
+     */
+    public function useInItemSubstituteRelatedByInititemnbrQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemSubstituteQuery */
+        $q = $this->useInQuery('ItemSubstituteRelatedByInititemnbr', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInititemnbr relation to the ItemSubstitute table for a NOT IN query.
+     *
+     * @see useItemSubstituteRelatedByInititemnbrInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemSubstituteQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemSubstituteRelatedByInititemnbrQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemSubstituteQuery */
+        $q = $this->useInQuery('ItemSubstituteRelatedByInititemnbr', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemSubstitute object
      *
      * @param \ItemSubstitute|ObjectCollection $itemSubstitute the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemSubstituteRelatedByInsisubitemnbr($itemSubstitute, $comparison = null)
+    public function filterByItemSubstituteRelatedByInsisubitemnbr($itemSubstitute, ?string $comparison = null)
     {
         if ($itemSubstitute instanceof \ItemSubstitute) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemSubstitute->getInsisubitemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemSubstitute instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemSubstituteRelatedByInsisubitemnbrQuery()
                 ->filterByPrimaryKeys($itemSubstitute->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemSubstituteRelatedByInsisubitemnbr() only accepts arguments of type \ItemSubstitute or Collection');
         }
@@ -4249,12 +6087,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemSubstituteRelatedByInsisubitemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemSubstituteRelatedByInsisubitemnbr(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemSubstituteRelatedByInsisubitemnbr');
@@ -4283,9 +6121,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemSubstituteQuery A secondary query class using the current class as primary query
      */
@@ -4297,23 +6135,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemSubstituteRelatedByInsisubitemnbr relation ItemSubstitute object
+     *
+     * @param callable(\ItemSubstituteQuery):\ItemSubstituteQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemSubstituteRelatedByInsisubitemnbrQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemSubstituteRelatedByInsisubitemnbrQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInsisubitemnbr relation to the ItemSubstitute table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemSubstituteQuery The inner query object of the EXISTS statement
+     */
+    public function useItemSubstituteRelatedByInsisubitemnbrExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemSubstituteQuery */
+        $q = $this->useExistsQuery('ItemSubstituteRelatedByInsisubitemnbr', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInsisubitemnbr relation to the ItemSubstitute table for a NOT EXISTS query.
+     *
+     * @see useItemSubstituteRelatedByInsisubitemnbrExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemSubstituteQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemSubstituteRelatedByInsisubitemnbrNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemSubstituteQuery */
+        $q = $this->useExistsQuery('ItemSubstituteRelatedByInsisubitemnbr', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInsisubitemnbr relation to the ItemSubstitute table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemSubstituteQuery The inner query object of the IN statement
+     */
+    public function useInItemSubstituteRelatedByInsisubitemnbrQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemSubstituteQuery */
+        $q = $this->useInQuery('ItemSubstituteRelatedByInsisubitemnbr', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInsisubitemnbr relation to the ItemSubstitute table for a NOT IN query.
+     *
+     * @see useItemSubstituteRelatedByInsisubitemnbrInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemSubstituteQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemSubstituteRelatedByInsisubitemnbrQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemSubstituteQuery */
+        $q = $this->useInQuery('ItemSubstituteRelatedByInsisubitemnbr', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvLotTag object
      *
      * @param \InvLotTag|ObjectCollection $invLotTag the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvLotTag($invLotTag, $comparison = null)
+    public function filterByInvLotTag($invLotTag, ?string $comparison = null)
     {
         if ($invLotTag instanceof \InvLotTag) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invLotTag->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invLotTag instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvLotTagQuery()
                 ->filterByPrimaryKeys($invLotTag->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvLotTag() only accepts arguments of type \InvLotTag or Collection');
         }
@@ -4322,12 +6260,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvLotTag relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvLotTag($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotTag(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvLotTag');
@@ -4356,9 +6294,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvLotTagQuery A secondary query class using the current class as primary query
      */
@@ -4370,23 +6308,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvLotTag relation InvLotTag object
+     *
+     * @param callable(\InvLotTagQuery):\InvLotTagQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvLotTagQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvLotTagQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvLotTagQuery The inner query object of the EXISTS statement
+     */
+    public function useInvLotTagExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useExistsQuery('InvLotTag', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for a NOT EXISTS query.
+     *
+     * @see useInvLotTagExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotTagQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvLotTagNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useExistsQuery('InvLotTag', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvLotTagQuery The inner query object of the IN statement
+     */
+    public function useInInvLotTagQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useInQuery('InvLotTag', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for a NOT IN query.
+     *
+     * @see useInvLotTagInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotTagQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvLotTagQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useInQuery('InvLotTag', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvItem2Item object
      *
      * @param \InvItem2Item|ObjectCollection $invItem2Item the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvItem2ItemRelatedByI2imstritemid($invItem2Item, $comparison = null)
+    public function filterByInvItem2ItemRelatedByI2imstritemid($invItem2Item, ?string $comparison = null)
     {
         if ($invItem2Item instanceof \InvItem2Item) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invItem2Item->getI2imstritemid(), $comparison);
+
+            return $this;
         } elseif ($invItem2Item instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvItem2ItemRelatedByI2imstritemidQuery()
                 ->filterByPrimaryKeys($invItem2Item->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvItem2ItemRelatedByI2imstritemid() only accepts arguments of type \InvItem2Item or Collection');
         }
@@ -4395,12 +6433,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvItem2ItemRelatedByI2imstritemid relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvItem2ItemRelatedByI2imstritemid($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvItem2ItemRelatedByI2imstritemid(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvItem2ItemRelatedByI2imstritemid');
@@ -4429,9 +6467,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvItem2ItemQuery A secondary query class using the current class as primary query
      */
@@ -4443,23 +6481,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvItem2ItemRelatedByI2imstritemid relation InvItem2Item object
+     *
+     * @param callable(\InvItem2ItemQuery):\InvItem2ItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvItem2ItemRelatedByI2imstritemidQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvItem2ItemRelatedByI2imstritemidQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2imstritemid relation to the InvItem2Item table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvItem2ItemQuery The inner query object of the EXISTS statement
+     */
+    public function useInvItem2ItemRelatedByI2imstritemidExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvItem2ItemQuery */
+        $q = $this->useExistsQuery('InvItem2ItemRelatedByI2imstritemid', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2imstritemid relation to the InvItem2Item table for a NOT EXISTS query.
+     *
+     * @see useInvItem2ItemRelatedByI2imstritemidExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvItem2ItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvItem2ItemRelatedByI2imstritemidNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvItem2ItemQuery */
+        $q = $this->useExistsQuery('InvItem2ItemRelatedByI2imstritemid', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2imstritemid relation to the InvItem2Item table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvItem2ItemQuery The inner query object of the IN statement
+     */
+    public function useInInvItem2ItemRelatedByI2imstritemidQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvItem2ItemQuery */
+        $q = $this->useInQuery('InvItem2ItemRelatedByI2imstritemid', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2imstritemid relation to the InvItem2Item table for a NOT IN query.
+     *
+     * @see useInvItem2ItemRelatedByI2imstritemidInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvItem2ItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvItem2ItemRelatedByI2imstritemidQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvItem2ItemQuery */
+        $q = $this->useInQuery('InvItem2ItemRelatedByI2imstritemid', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvItem2Item object
      *
      * @param \InvItem2Item|ObjectCollection $invItem2Item the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvItem2ItemRelatedByI2ichilditemid($invItem2Item, $comparison = null)
+    public function filterByInvItem2ItemRelatedByI2ichilditemid($invItem2Item, ?string $comparison = null)
     {
         if ($invItem2Item instanceof \InvItem2Item) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invItem2Item->getI2ichilditemid(), $comparison);
+
+            return $this;
         } elseif ($invItem2Item instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvItem2ItemRelatedByI2ichilditemidQuery()
                 ->filterByPrimaryKeys($invItem2Item->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvItem2ItemRelatedByI2ichilditemid() only accepts arguments of type \InvItem2Item or Collection');
         }
@@ -4468,12 +6606,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvItem2ItemRelatedByI2ichilditemid relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvItem2ItemRelatedByI2ichilditemid($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvItem2ItemRelatedByI2ichilditemid(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvItem2ItemRelatedByI2ichilditemid');
@@ -4502,9 +6640,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvItem2ItemQuery A secondary query class using the current class as primary query
      */
@@ -4516,23 +6654,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvItem2ItemRelatedByI2ichilditemid relation InvItem2Item object
+     *
+     * @param callable(\InvItem2ItemQuery):\InvItem2ItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvItem2ItemRelatedByI2ichilditemidQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvItem2ItemRelatedByI2ichilditemidQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2ichilditemid relation to the InvItem2Item table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvItem2ItemQuery The inner query object of the EXISTS statement
+     */
+    public function useInvItem2ItemRelatedByI2ichilditemidExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvItem2ItemQuery */
+        $q = $this->useExistsQuery('InvItem2ItemRelatedByI2ichilditemid', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2ichilditemid relation to the InvItem2Item table for a NOT EXISTS query.
+     *
+     * @see useInvItem2ItemRelatedByI2ichilditemidExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvItem2ItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvItem2ItemRelatedByI2ichilditemidNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvItem2ItemQuery */
+        $q = $this->useExistsQuery('InvItem2ItemRelatedByI2ichilditemid', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2ichilditemid relation to the InvItem2Item table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvItem2ItemQuery The inner query object of the IN statement
+     */
+    public function useInInvItem2ItemRelatedByI2ichilditemidQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvItem2ItemQuery */
+        $q = $this->useInQuery('InvItem2ItemRelatedByI2ichilditemid', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2ichilditemid relation to the InvItem2Item table for a NOT IN query.
+     *
+     * @see useInvItem2ItemRelatedByI2ichilditemidInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvItem2ItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvItem2ItemRelatedByI2ichilditemidQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvItem2ItemQuery */
+        $q = $this->useInQuery('InvItem2ItemRelatedByI2ichilditemid', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvKitComponent object
      *
      * @param \InvKitComponent|ObjectCollection $invKitComponent the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvKitComponent($invKitComponent, $comparison = null)
+    public function filterByInvKitComponent($invKitComponent, ?string $comparison = null)
     {
         if ($invKitComponent instanceof \InvKitComponent) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invKitComponent->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invKitComponent instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvKitComponentQuery()
                 ->filterByPrimaryKeys($invKitComponent->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvKitComponent() only accepts arguments of type \InvKitComponent or Collection');
         }
@@ -4541,12 +6779,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvKitComponent relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvKitComponent($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvKitComponent(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvKitComponent');
@@ -4575,9 +6813,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvKitComponentQuery A secondary query class using the current class as primary query
      */
@@ -4589,23 +6827,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvKitComponent relation InvKitComponent object
+     *
+     * @param callable(\InvKitComponentQuery):\InvKitComponentQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvKitComponentQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvKitComponentQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvKitComponent table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvKitComponentQuery The inner query object of the EXISTS statement
+     */
+    public function useInvKitComponentExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvKitComponentQuery */
+        $q = $this->useExistsQuery('InvKitComponent', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKitComponent table for a NOT EXISTS query.
+     *
+     * @see useInvKitComponentExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvKitComponentQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvKitComponentNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvKitComponentQuery */
+        $q = $this->useExistsQuery('InvKitComponent', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKitComponent table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvKitComponentQuery The inner query object of the IN statement
+     */
+    public function useInInvKitComponentQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvKitComponentQuery */
+        $q = $this->useInQuery('InvKitComponent', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKitComponent table for a NOT IN query.
+     *
+     * @see useInvKitComponentInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvKitComponentQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvKitComponentQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvKitComponentQuery */
+        $q = $this->useInQuery('InvKitComponent', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvKit object
      *
      * @param \InvKit|ObjectCollection $invKit the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvKit($invKit, $comparison = null)
+    public function filterByInvKit($invKit, ?string $comparison = null)
     {
         if ($invKit instanceof \InvKit) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invKit->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invKit instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvKitQuery()
                 ->filterByPrimaryKeys($invKit->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvKit() only accepts arguments of type \InvKit or Collection');
         }
@@ -4614,12 +6952,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvKit relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvKit($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvKit(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvKit');
@@ -4648,9 +6986,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvKitQuery A secondary query class using the current class as primary query
      */
@@ -4662,23 +7000,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvKit relation InvKit object
+     *
+     * @param callable(\InvKitQuery):\InvKitQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvKitQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvKitQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvKit table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvKitQuery The inner query object of the EXISTS statement
+     */
+    public function useInvKitExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvKitQuery */
+        $q = $this->useExistsQuery('InvKit', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKit table for a NOT EXISTS query.
+     *
+     * @see useInvKitExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvKitQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvKitNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvKitQuery */
+        $q = $this->useExistsQuery('InvKit', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKit table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvKitQuery The inner query object of the IN statement
+     */
+    public function useInInvKitQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvKitQuery */
+        $q = $this->useInQuery('InvKit', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvKit table for a NOT IN query.
+     *
+     * @see useInvKitInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvKitQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvKitQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvKitQuery */
+        $q = $this->useInQuery('InvKit', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvLotMaster object
      *
      * @param \InvLotMaster|ObjectCollection $invLotMaster the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvLotMaster($invLotMaster, $comparison = null)
+    public function filterByInvLotMaster($invLotMaster, ?string $comparison = null)
     {
         if ($invLotMaster instanceof \InvLotMaster) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invLotMaster->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invLotMaster instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvLotMasterQuery()
                 ->filterByPrimaryKeys($invLotMaster->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvLotMaster() only accepts arguments of type \InvLotMaster or Collection');
         }
@@ -4687,12 +7125,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvLotMaster relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvLotMaster($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotMaster(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvLotMaster');
@@ -4721,9 +7159,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvLotMasterQuery A secondary query class using the current class as primary query
      */
@@ -4735,23 +7173,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvLotMaster relation InvLotMaster object
+     *
+     * @param callable(\InvLotMasterQuery):\InvLotMasterQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvLotMasterQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvLotMasterQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvLotMasterQuery The inner query object of the EXISTS statement
+     */
+    public function useInvLotMasterExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useExistsQuery('InvLotMaster', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for a NOT EXISTS query.
+     *
+     * @see useInvLotMasterExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotMasterQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvLotMasterNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useExistsQuery('InvLotMaster', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvLotMasterQuery The inner query object of the IN statement
+     */
+    public function useInInvLotMasterQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useInQuery('InvLotMaster', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for a NOT IN query.
+     *
+     * @see useInvLotMasterInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotMasterQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvLotMasterQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useInQuery('InvLotMaster', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvSerialMaster object
      *
      * @param \InvSerialMaster|ObjectCollection $invSerialMaster the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvSerialMaster($invSerialMaster, $comparison = null)
+    public function filterByInvSerialMaster($invSerialMaster, ?string $comparison = null)
     {
         if ($invSerialMaster instanceof \InvSerialMaster) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invSerialMaster->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invSerialMaster instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvSerialMasterQuery()
                 ->filterByPrimaryKeys($invSerialMaster->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvSerialMaster() only accepts arguments of type \InvSerialMaster or Collection');
         }
@@ -4760,12 +7298,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvSerialMaster relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvSerialMaster($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvSerialMaster(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvSerialMaster');
@@ -4794,9 +7332,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvSerialMasterQuery A secondary query class using the current class as primary query
      */
@@ -4808,23 +7346,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvSerialMaster relation InvSerialMaster object
+     *
+     * @param callable(\InvSerialMasterQuery):\InvSerialMasterQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvSerialMasterQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvSerialMasterQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvSerialMaster table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvSerialMasterQuery The inner query object of the EXISTS statement
+     */
+    public function useInvSerialMasterExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvSerialMasterQuery */
+        $q = $this->useExistsQuery('InvSerialMaster', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialMaster table for a NOT EXISTS query.
+     *
+     * @see useInvSerialMasterExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvSerialMasterQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvSerialMasterNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvSerialMasterQuery */
+        $q = $this->useExistsQuery('InvSerialMaster', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialMaster table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvSerialMasterQuery The inner query object of the IN statement
+     */
+    public function useInInvSerialMasterQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvSerialMasterQuery */
+        $q = $this->useInQuery('InvSerialMaster', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialMaster table for a NOT IN query.
+     *
+     * @see useInvSerialMasterInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvSerialMasterQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvSerialMasterQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvSerialMasterQuery */
+        $q = $this->useInQuery('InvSerialMaster', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferDetail object
      *
      * @param \InvTransferDetail|ObjectCollection $invTransferDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferDetail($invTransferDetail, $comparison = null)
+    public function filterByInvTransferDetail($invTransferDetail, ?string $comparison = null)
     {
         if ($invTransferDetail instanceof \InvTransferDetail) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invTransferDetail->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invTransferDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvTransferDetailQuery()
                 ->filterByPrimaryKeys($invTransferDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferDetail() only accepts arguments of type \InvTransferDetail or Collection');
         }
@@ -4833,12 +7471,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferDetail');
@@ -4867,9 +7505,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferDetailQuery A secondary query class using the current class as primary query
      */
@@ -4881,23 +7519,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferDetail relation InvTransferDetail object
+     *
+     * @param callable(\InvTransferDetailQuery):\InvTransferDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferDetailQuery */
+        $q = $this->useExistsQuery('InvTransferDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferDetail table for a NOT EXISTS query.
+     *
+     * @see useInvTransferDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferDetailQuery */
+        $q = $this->useExistsQuery('InvTransferDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferDetailQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferDetailQuery */
+        $q = $this->useInQuery('InvTransferDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferDetail table for a NOT IN query.
+     *
+     * @see useInvTransferDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferDetailQuery */
+        $q = $this->useInQuery('InvTransferDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferLotserial object
      *
      * @param \InvTransferLotserial|ObjectCollection $invTransferLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferLotserial($invTransferLotserial, $comparison = null)
+    public function filterByInvTransferLotserial($invTransferLotserial, ?string $comparison = null)
     {
         if ($invTransferLotserial instanceof \InvTransferLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invTransferLotserial->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invTransferLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvTransferLotserialQuery()
                 ->filterByPrimaryKeys($invTransferLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferLotserial() only accepts arguments of type \InvTransferLotserial or Collection');
         }
@@ -4906,12 +7644,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferLotserial');
@@ -4940,9 +7678,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferLotserialQuery A secondary query class using the current class as primary query
      */
@@ -4954,23 +7692,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferLotserial relation InvTransferLotserial object
+     *
+     * @param callable(\InvTransferLotserialQuery):\InvTransferLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useInQuery('InvTransferLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useInQuery('InvTransferLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferPreAllocatedLotserial object
      *
      * @param \InvTransferPreAllocatedLotserial|ObjectCollection $invTransferPreAllocatedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferPreAllocatedLotserial($invTransferPreAllocatedLotserial, $comparison = null)
+    public function filterByInvTransferPreAllocatedLotserial($invTransferPreAllocatedLotserial, ?string $comparison = null)
     {
         if ($invTransferPreAllocatedLotserial instanceof \InvTransferPreAllocatedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invTransferPreAllocatedLotserial->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invTransferPreAllocatedLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvTransferPreAllocatedLotserialQuery()
                 ->filterByPrimaryKeys($invTransferPreAllocatedLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferPreAllocatedLotserial() only accepts arguments of type \InvTransferPreAllocatedLotserial or Collection');
         }
@@ -4979,12 +7817,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferPreAllocatedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferPreAllocatedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferPreAllocatedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferPreAllocatedLotserial');
@@ -5013,9 +7851,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferPreAllocatedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -5027,23 +7865,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferPreAllocatedLotserial relation InvTransferPreAllocatedLotserial object
+     *
+     * @param callable(\InvTransferPreAllocatedLotserialQuery):\InvTransferPreAllocatedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferPreAllocatedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferPreAllocatedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferPreAllocatedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferPreAllocatedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferPreAllocatedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferPreAllocatedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferPreAllocatedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferPreAllocatedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferPickedLotserial object
      *
      * @param \InvTransferPickedLotserial|ObjectCollection $invTransferPickedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferPickedLotserial($invTransferPickedLotserial, $comparison = null)
+    public function filterByInvTransferPickedLotserial($invTransferPickedLotserial, ?string $comparison = null)
     {
         if ($invTransferPickedLotserial instanceof \InvTransferPickedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invTransferPickedLotserial->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invTransferPickedLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvTransferPickedLotserialQuery()
                 ->filterByPrimaryKeys($invTransferPickedLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferPickedLotserial() only accepts arguments of type \InvTransferPickedLotserial or Collection');
         }
@@ -5052,12 +7990,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferPickedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferPickedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferPickedLotserial');
@@ -5086,9 +8024,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferPickedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -5100,23 +8038,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferPickedLotserial relation InvTransferPickedLotserial object
+     *
+     * @param callable(\InvTransferPickedLotserialQuery):\InvTransferPickedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferPickedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferPickedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferPickedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferPickedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferPickedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferPickedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferPickedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferPickedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvSerialWarranty object
      *
      * @param \InvSerialWarranty|ObjectCollection $invSerialWarranty the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvSerialWarranty($invSerialWarranty, $comparison = null)
+    public function filterByInvSerialWarranty($invSerialWarranty, ?string $comparison = null)
     {
         if ($invSerialWarranty instanceof \InvSerialWarranty) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invSerialWarranty->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invSerialWarranty instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvSerialWarrantyQuery()
                 ->filterByPrimaryKeys($invSerialWarranty->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvSerialWarranty() only accepts arguments of type \InvSerialWarranty or Collection');
         }
@@ -5125,12 +8163,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvSerialWarranty relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvSerialWarranty($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvSerialWarranty(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvSerialWarranty');
@@ -5159,9 +8197,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvSerialWarrantyQuery A secondary query class using the current class as primary query
      */
@@ -5173,23 +8211,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvSerialWarranty relation InvSerialWarranty object
+     *
+     * @param callable(\InvSerialWarrantyQuery):\InvSerialWarrantyQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvSerialWarrantyQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvSerialWarrantyQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvSerialWarranty table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvSerialWarrantyQuery The inner query object of the EXISTS statement
+     */
+    public function useInvSerialWarrantyExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvSerialWarrantyQuery */
+        $q = $this->useExistsQuery('InvSerialWarranty', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialWarranty table for a NOT EXISTS query.
+     *
+     * @see useInvSerialWarrantyExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvSerialWarrantyQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvSerialWarrantyNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvSerialWarrantyQuery */
+        $q = $this->useExistsQuery('InvSerialWarranty', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialWarranty table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvSerialWarrantyQuery The inner query object of the IN statement
+     */
+    public function useInInvSerialWarrantyQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvSerialWarrantyQuery */
+        $q = $this->useInQuery('InvSerialWarranty', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvSerialWarranty table for a NOT IN query.
+     *
+     * @see useInvSerialWarrantyInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvSerialWarrantyQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvSerialWarrantyQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvSerialWarrantyQuery */
+        $q = $this->useInQuery('InvSerialWarranty', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \WarehouseInventory object
      *
      * @param \WarehouseInventory|ObjectCollection $warehouseInventory the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWarehouseInventory($warehouseInventory, $comparison = null)
+    public function filterByWarehouseInventory($warehouseInventory, ?string $comparison = null)
     {
         if ($warehouseInventory instanceof \WarehouseInventory) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $warehouseInventory->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($warehouseInventory instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useWarehouseInventoryQuery()
                 ->filterByPrimaryKeys($warehouseInventory->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByWarehouseInventory() only accepts arguments of type \WarehouseInventory or Collection');
         }
@@ -5198,12 +8336,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the WarehouseInventory relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinWarehouseInventory($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinWarehouseInventory(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('WarehouseInventory');
@@ -5232,9 +8370,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \WarehouseInventoryQuery A secondary query class using the current class as primary query
      */
@@ -5246,23 +8384,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the WarehouseInventory relation WarehouseInventory object
+     *
+     * @param callable(\WarehouseInventoryQuery):\WarehouseInventoryQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withWarehouseInventoryQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useWarehouseInventoryQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the EXISTS statement
+     */
+    public function useWarehouseInventoryExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useExistsQuery('WarehouseInventory', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for a NOT EXISTS query.
+     *
+     * @see useWarehouseInventoryExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useWarehouseInventoryNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useExistsQuery('WarehouseInventory', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the IN statement
+     */
+    public function useInWarehouseInventoryQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useInQuery('WarehouseInventory', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for a NOT IN query.
+     *
+     * @see useWarehouseInventoryInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInWarehouseInventoryQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useInQuery('WarehouseInventory', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefKey object
      *
      * @param \ItemXrefKey|ObjectCollection $itemXrefKey the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefKey($itemXrefKey, $comparison = null)
+    public function filterByItemXrefKey($itemXrefKey, ?string $comparison = null)
     {
         if ($itemXrefKey instanceof \ItemXrefKey) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefKey->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemXrefKey instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefKeyQuery()
                 ->filterByPrimaryKeys($itemXrefKey->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefKey() only accepts arguments of type \ItemXrefKey or Collection');
         }
@@ -5271,12 +8509,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefKey relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefKey($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemXrefKey(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefKey');
@@ -5305,9 +8543,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefKeyQuery A secondary query class using the current class as primary query
      */
@@ -5319,23 +8557,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefKey relation ItemXrefKey object
+     *
+     * @param callable(\ItemXrefKeyQuery):\ItemXrefKeyQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefKeyQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefKeyQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefKey table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefKeyQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefKeyExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefKeyQuery */
+        $q = $this->useExistsQuery('ItemXrefKey', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefKey table for a NOT EXISTS query.
+     *
+     * @see useItemXrefKeyExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefKeyQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefKeyNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefKeyQuery */
+        $q = $this->useExistsQuery('ItemXrefKey', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefKey table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefKeyQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefKeyQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefKeyQuery */
+        $q = $this->useInQuery('ItemXrefKey', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefKey table for a NOT IN query.
+     *
+     * @see useItemXrefKeyInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefKeyQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefKeyQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefKeyQuery */
+        $q = $this->useInQuery('ItemXrefKey', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefManufacturer object
      *
      * @param \ItemXrefManufacturer|ObjectCollection $itemXrefManufacturer the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefManufacturer($itemXrefManufacturer, $comparison = null)
+    public function filterByItemXrefManufacturer($itemXrefManufacturer, ?string $comparison = null)
     {
         if ($itemXrefManufacturer instanceof \ItemXrefManufacturer) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefManufacturer->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemXrefManufacturer instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefManufacturerQuery()
                 ->filterByPrimaryKeys($itemXrefManufacturer->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefManufacturer() only accepts arguments of type \ItemXrefManufacturer or Collection');
         }
@@ -5344,12 +8682,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefManufacturer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefManufacturer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemXrefManufacturer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefManufacturer');
@@ -5378,9 +8716,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefManufacturerQuery A secondary query class using the current class as primary query
      */
@@ -5392,23 +8730,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefManufacturer relation ItemXrefManufacturer object
+     *
+     * @param callable(\ItemXrefManufacturerQuery):\ItemXrefManufacturerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefManufacturerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefManufacturerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefManufacturer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefManufacturerQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefManufacturerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefManufacturerQuery */
+        $q = $this->useExistsQuery('ItemXrefManufacturer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefManufacturer table for a NOT EXISTS query.
+     *
+     * @see useItemXrefManufacturerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefManufacturerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefManufacturerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefManufacturerQuery */
+        $q = $this->useExistsQuery('ItemXrefManufacturer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefManufacturer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefManufacturerQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefManufacturerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefManufacturerQuery */
+        $q = $this->useInQuery('ItemXrefManufacturer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefManufacturer table for a NOT IN query.
+     *
+     * @see useItemXrefManufacturerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefManufacturerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefManufacturerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefManufacturerQuery */
+        $q = $this->useInQuery('ItemXrefManufacturer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefCustomerNote object
      *
      * @param \ItemXrefCustomerNote|ObjectCollection $itemXrefCustomerNote the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefCustomerNote($itemXrefCustomerNote, $comparison = null)
+    public function filterByItemXrefCustomerNote($itemXrefCustomerNote, ?string $comparison = null)
     {
         if ($itemXrefCustomerNote instanceof \ItemXrefCustomerNote) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefCustomerNote->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemXrefCustomerNote instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefCustomerNoteQuery()
                 ->filterByPrimaryKeys($itemXrefCustomerNote->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefCustomerNote() only accepts arguments of type \ItemXrefCustomerNote or Collection');
         }
@@ -5417,12 +8855,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefCustomerNote relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefCustomerNote($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemXrefCustomerNote(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefCustomerNote');
@@ -5451,9 +8889,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefCustomerNoteQuery A secondary query class using the current class as primary query
      */
@@ -5465,23 +8903,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefCustomerNote relation ItemXrefCustomerNote object
+     *
+     * @param callable(\ItemXrefCustomerNoteQuery):\ItemXrefCustomerNoteQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefCustomerNoteQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefCustomerNoteQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefCustomerNote table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefCustomerNoteQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefCustomerNoteExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefCustomerNoteQuery */
+        $q = $this->useExistsQuery('ItemXrefCustomerNote', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefCustomerNote table for a NOT EXISTS query.
+     *
+     * @see useItemXrefCustomerNoteExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefCustomerNoteQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefCustomerNoteNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefCustomerNoteQuery */
+        $q = $this->useExistsQuery('ItemXrefCustomerNote', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefCustomerNote table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefCustomerNoteQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefCustomerNoteQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefCustomerNoteQuery */
+        $q = $this->useInQuery('ItemXrefCustomerNote', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefCustomerNote table for a NOT IN query.
+     *
+     * @see useItemXrefCustomerNoteInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefCustomerNoteQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefCustomerNoteQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefCustomerNoteQuery */
+        $q = $this->useInQuery('ItemXrefCustomerNote', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvOptCodeNote object
      *
      * @param \InvOptCodeNote|ObjectCollection $invOptCodeNote the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvOptCodeNote($invOptCodeNote, $comparison = null)
+    public function filterByInvOptCodeNote($invOptCodeNote, ?string $comparison = null)
     {
         if ($invOptCodeNote instanceof \InvOptCodeNote) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invOptCodeNote->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invOptCodeNote instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvOptCodeNoteQuery()
                 ->filterByPrimaryKeys($invOptCodeNote->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvOptCodeNote() only accepts arguments of type \InvOptCodeNote or Collection');
         }
@@ -5490,12 +9028,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvOptCodeNote relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvOptCodeNote($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinInvOptCodeNote(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvOptCodeNote');
@@ -5524,9 +9062,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvOptCodeNoteQuery A secondary query class using the current class as primary query
      */
@@ -5538,23 +9076,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvOptCodeNote relation InvOptCodeNote object
+     *
+     * @param callable(\InvOptCodeNoteQuery):\InvOptCodeNoteQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvOptCodeNoteQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useInvOptCodeNoteQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvOptCodeNote table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvOptCodeNoteQuery The inner query object of the EXISTS statement
+     */
+    public function useInvOptCodeNoteExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvOptCodeNoteQuery */
+        $q = $this->useExistsQuery('InvOptCodeNote', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvOptCodeNote table for a NOT EXISTS query.
+     *
+     * @see useInvOptCodeNoteExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvOptCodeNoteQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvOptCodeNoteNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvOptCodeNoteQuery */
+        $q = $this->useExistsQuery('InvOptCodeNote', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvOptCodeNote table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvOptCodeNoteQuery The inner query object of the IN statement
+     */
+    public function useInInvOptCodeNoteQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvOptCodeNoteQuery */
+        $q = $this->useInQuery('InvOptCodeNote', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvOptCodeNote table for a NOT IN query.
+     *
+     * @see useInvOptCodeNoteInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvOptCodeNoteQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvOptCodeNoteQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvOptCodeNoteQuery */
+        $q = $this->useInQuery('InvOptCodeNote', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefVendorNoteDetail object
      *
      * @param \ItemXrefVendorNoteDetail|ObjectCollection $itemXrefVendorNoteDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefVendorNoteDetail($itemXrefVendorNoteDetail, $comparison = null)
+    public function filterByItemXrefVendorNoteDetail($itemXrefVendorNoteDetail, ?string $comparison = null)
     {
         if ($itemXrefVendorNoteDetail instanceof \ItemXrefVendorNoteDetail) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefVendorNoteDetail->getInitItemNbr(), $comparison);
+
+            return $this;
         } elseif ($itemXrefVendorNoteDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefVendorNoteDetailQuery()
                 ->filterByPrimaryKeys($itemXrefVendorNoteDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefVendorNoteDetail() only accepts arguments of type \ItemXrefVendorNoteDetail or Collection');
         }
@@ -5563,12 +9201,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefVendorNoteDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefVendorNoteDetail($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemXrefVendorNoteDetail(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefVendorNoteDetail');
@@ -5597,9 +9235,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefVendorNoteDetailQuery A secondary query class using the current class as primary query
      */
@@ -5611,23 +9249,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefVendorNoteDetail relation ItemXrefVendorNoteDetail object
+     *
+     * @param callable(\ItemXrefVendorNoteDetailQuery):\ItemXrefVendorNoteDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefVendorNoteDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefVendorNoteDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefVendorNoteDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefVendorNoteDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefVendorNoteDetailQuery */
+        $q = $this->useExistsQuery('ItemXrefVendorNoteDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteDetail table for a NOT EXISTS query.
+     *
+     * @see useItemXrefVendorNoteDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorNoteDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefVendorNoteDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorNoteDetailQuery */
+        $q = $this->useExistsQuery('ItemXrefVendorNoteDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefVendorNoteDetailQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefVendorNoteDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefVendorNoteDetailQuery */
+        $q = $this->useInQuery('ItemXrefVendorNoteDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteDetail table for a NOT IN query.
+     *
+     * @see useItemXrefVendorNoteDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorNoteDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefVendorNoteDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorNoteDetailQuery */
+        $q = $this->useInQuery('ItemXrefVendorNoteDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefVendorNoteInternal object
      *
      * @param \ItemXrefVendorNoteInternal|ObjectCollection $itemXrefVendorNoteInternal the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefVendorNoteInternal($itemXrefVendorNoteInternal, $comparison = null)
+    public function filterByItemXrefVendorNoteInternal($itemXrefVendorNoteInternal, ?string $comparison = null)
     {
         if ($itemXrefVendorNoteInternal instanceof \ItemXrefVendorNoteInternal) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefVendorNoteInternal->getInitItemNbr(), $comparison);
+
+            return $this;
         } elseif ($itemXrefVendorNoteInternal instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefVendorNoteInternalQuery()
                 ->filterByPrimaryKeys($itemXrefVendorNoteInternal->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefVendorNoteInternal() only accepts arguments of type \ItemXrefVendorNoteInternal or Collection');
         }
@@ -5636,12 +9374,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefVendorNoteInternal relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefVendorNoteInternal($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemXrefVendorNoteInternal(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefVendorNoteInternal');
@@ -5670,9 +9408,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefVendorNoteInternalQuery A secondary query class using the current class as primary query
      */
@@ -5684,23 +9422,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefVendorNoteInternal relation ItemXrefVendorNoteInternal object
+     *
+     * @param callable(\ItemXrefVendorNoteInternalQuery):\ItemXrefVendorNoteInternalQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefVendorNoteInternalQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefVendorNoteInternalQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteInternal table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefVendorNoteInternalQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefVendorNoteInternalExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefVendorNoteInternalQuery */
+        $q = $this->useExistsQuery('ItemXrefVendorNoteInternal', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteInternal table for a NOT EXISTS query.
+     *
+     * @see useItemXrefVendorNoteInternalExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorNoteInternalQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefVendorNoteInternalNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorNoteInternalQuery */
+        $q = $this->useExistsQuery('ItemXrefVendorNoteInternal', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteInternal table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefVendorNoteInternalQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefVendorNoteInternalQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefVendorNoteInternalQuery */
+        $q = $this->useInQuery('ItemXrefVendorNoteInternal', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteInternal table for a NOT IN query.
+     *
+     * @see useItemXrefVendorNoteInternalInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorNoteInternalQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefVendorNoteInternalQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorNoteInternalQuery */
+        $q = $this->useInQuery('ItemXrefVendorNoteInternal', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvPallet object
      *
      * @param \InvPallet|ObjectCollection $invPallet the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvPallet($invPallet, $comparison = null)
+    public function filterByInvPallet($invPallet, ?string $comparison = null)
     {
         if ($invPallet instanceof \InvPallet) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invPallet->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($invPallet instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvPalletQuery()
                 ->filterByPrimaryKeys($invPallet->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvPallet() only accepts arguments of type \InvPallet or Collection');
         }
@@ -5709,12 +9547,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvPallet relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvPallet($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvPallet(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvPallet');
@@ -5743,9 +9581,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvPalletQuery A secondary query class using the current class as primary query
      */
@@ -5757,23 +9595,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvPallet relation InvPallet object
+     *
+     * @param callable(\InvPalletQuery):\InvPalletQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvPalletQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvPalletQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvPallet table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvPalletQuery The inner query object of the EXISTS statement
+     */
+    public function useInvPalletExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvPalletQuery */
+        $q = $this->useExistsQuery('InvPallet', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvPallet table for a NOT EXISTS query.
+     *
+     * @see useInvPalletExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvPalletQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvPalletNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvPalletQuery */
+        $q = $this->useExistsQuery('InvPallet', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvPallet table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvPalletQuery The inner query object of the IN statement
+     */
+    public function useInInvPalletQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvPalletQuery */
+        $q = $this->useInQuery('InvPallet', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvPallet table for a NOT IN query.
+     *
+     * @see useInvPalletInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvPalletQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvPalletQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvPalletQuery */
+        $q = $this->useInQuery('InvPallet', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PurchaseOrderDetail object
      *
      * @param \PurchaseOrderDetail|ObjectCollection $purchaseOrderDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrderDetail($purchaseOrderDetail, $comparison = null)
+    public function filterByPurchaseOrderDetail($purchaseOrderDetail, ?string $comparison = null)
     {
         if ($purchaseOrderDetail instanceof \PurchaseOrderDetail) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $purchaseOrderDetail->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($purchaseOrderDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePurchaseOrderDetailQuery()
                 ->filterByPrimaryKeys($purchaseOrderDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPurchaseOrderDetail() only accepts arguments of type \PurchaseOrderDetail or Collection');
         }
@@ -5782,12 +9720,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrderDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinPurchaseOrderDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrderDetail');
@@ -5816,9 +9754,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderDetailQuery A secondary query class using the current class as primary query
      */
@@ -5830,23 +9768,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrderDetail relation PurchaseOrderDetail object
+     *
+     * @param callable(\PurchaseOrderDetailQuery):\PurchaseOrderDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderDetailQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderDetailQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetail table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderDetailQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderDetailQuery */
+        $q = $this->useInQuery('PurchaseOrderDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetail table for a NOT IN query.
+     *
+     * @see usePurchaseOrderDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailQuery */
+        $q = $this->useInQuery('PurchaseOrderDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PurchaseOrderDetailReceipt object
      *
      * @param \PurchaseOrderDetailReceipt|ObjectCollection $purchaseOrderDetailReceipt the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrderDetailReceipt($purchaseOrderDetailReceipt, $comparison = null)
+    public function filterByPurchaseOrderDetailReceipt($purchaseOrderDetailReceipt, ?string $comparison = null)
     {
         if ($purchaseOrderDetailReceipt instanceof \PurchaseOrderDetailReceipt) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $purchaseOrderDetailReceipt->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($purchaseOrderDetailReceipt instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePurchaseOrderDetailReceiptQuery()
                 ->filterByPrimaryKeys($purchaseOrderDetailReceipt->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPurchaseOrderDetailReceipt() only accepts arguments of type \PurchaseOrderDetailReceipt or Collection');
         }
@@ -5855,12 +9893,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrderDetailReceipt relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrderDetailReceipt($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinPurchaseOrderDetailReceipt(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrderDetailReceipt');
@@ -5889,9 +9927,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderDetailReceiptQuery A secondary query class using the current class as primary query
      */
@@ -5903,23 +9941,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrderDetailReceipt relation PurchaseOrderDetailReceipt object
+     *
+     * @param callable(\PurchaseOrderDetailReceiptQuery):\PurchaseOrderDetailReceiptQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderDetailReceiptQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderDetailReceiptQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceipt table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderDetailReceiptQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderDetailReceiptExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderDetailReceiptQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetailReceipt', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceipt table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderDetailReceiptExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailReceiptQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderDetailReceiptNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailReceiptQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetailReceipt', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceipt table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderDetailReceiptQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderDetailReceiptQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderDetailReceiptQuery */
+        $q = $this->useInQuery('PurchaseOrderDetailReceipt', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceipt table for a NOT IN query.
+     *
+     * @see usePurchaseOrderDetailReceiptInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailReceiptQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderDetailReceiptQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailReceiptQuery */
+        $q = $this->useInQuery('PurchaseOrderDetailReceipt', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PurchaseOrderDetailReceiving object
      *
      * @param \PurchaseOrderDetailReceiving|ObjectCollection $purchaseOrderDetailReceiving the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrderDetailReceiving($purchaseOrderDetailReceiving, $comparison = null)
+    public function filterByPurchaseOrderDetailReceiving($purchaseOrderDetailReceiving, ?string $comparison = null)
     {
         if ($purchaseOrderDetailReceiving instanceof \PurchaseOrderDetailReceiving) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $purchaseOrderDetailReceiving->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($purchaseOrderDetailReceiving instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePurchaseOrderDetailReceivingQuery()
                 ->filterByPrimaryKeys($purchaseOrderDetailReceiving->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPurchaseOrderDetailReceiving() only accepts arguments of type \PurchaseOrderDetailReceiving or Collection');
         }
@@ -5928,12 +10066,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrderDetailReceiving relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrderDetailReceiving($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinPurchaseOrderDetailReceiving(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrderDetailReceiving');
@@ -5962,9 +10100,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderDetailReceivingQuery A secondary query class using the current class as primary query
      */
@@ -5976,23 +10114,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrderDetailReceiving relation PurchaseOrderDetailReceiving object
+     *
+     * @param callable(\PurchaseOrderDetailReceivingQuery):\PurchaseOrderDetailReceivingQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderDetailReceivingQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderDetailReceivingQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceiving table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderDetailReceivingQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderDetailReceivingExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderDetailReceivingQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetailReceiving', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceiving table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderDetailReceivingExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailReceivingQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderDetailReceivingNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailReceivingQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetailReceiving', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceiving table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderDetailReceivingQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderDetailReceivingQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderDetailReceivingQuery */
+        $q = $this->useInQuery('PurchaseOrderDetailReceiving', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceiving table for a NOT IN query.
+     *
+     * @see usePurchaseOrderDetailReceivingInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailReceivingQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderDetailReceivingQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailReceivingQuery */
+        $q = $this->useInQuery('PurchaseOrderDetailReceiving', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PurchaseOrderDetailLotReceiving object
      *
      * @param \PurchaseOrderDetailLotReceiving|ObjectCollection $purchaseOrderDetailLotReceiving the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrderDetailLotReceiving($purchaseOrderDetailLotReceiving, $comparison = null)
+    public function filterByPurchaseOrderDetailLotReceiving($purchaseOrderDetailLotReceiving, ?string $comparison = null)
     {
         if ($purchaseOrderDetailLotReceiving instanceof \PurchaseOrderDetailLotReceiving) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $purchaseOrderDetailLotReceiving->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($purchaseOrderDetailLotReceiving instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePurchaseOrderDetailLotReceivingQuery()
                 ->filterByPrimaryKeys($purchaseOrderDetailLotReceiving->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPurchaseOrderDetailLotReceiving() only accepts arguments of type \PurchaseOrderDetailLotReceiving or Collection');
         }
@@ -6001,12 +10239,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrderDetailLotReceiving relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrderDetailLotReceiving($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinPurchaseOrderDetailLotReceiving(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrderDetailLotReceiving');
@@ -6035,9 +10273,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderDetailLotReceivingQuery A secondary query class using the current class as primary query
      */
@@ -6049,23 +10287,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrderDetailLotReceiving relation PurchaseOrderDetailLotReceiving object
+     *
+     * @param callable(\PurchaseOrderDetailLotReceivingQuery):\PurchaseOrderDetailLotReceivingQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderDetailLotReceivingQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderDetailLotReceivingQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailLotReceiving table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderDetailLotReceivingQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderDetailLotReceivingExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderDetailLotReceivingQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetailLotReceiving', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailLotReceiving table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderDetailLotReceivingExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailLotReceivingQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderDetailLotReceivingNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailLotReceivingQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetailLotReceiving', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailLotReceiving table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderDetailLotReceivingQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderDetailLotReceivingQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderDetailLotReceivingQuery */
+        $q = $this->useInQuery('PurchaseOrderDetailLotReceiving', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailLotReceiving table for a NOT IN query.
+     *
+     * @see usePurchaseOrderDetailLotReceivingInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailLotReceivingQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderDetailLotReceivingQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailLotReceivingQuery */
+        $q = $this->useInQuery('PurchaseOrderDetailLotReceiving', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \BomComponent object
      *
      * @param \BomComponent|ObjectCollection $bomComponent the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBomComponent($bomComponent, $comparison = null)
+    public function filterByBomComponent($bomComponent, ?string $comparison = null)
     {
         if ($bomComponent instanceof \BomComponent) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $bomComponent->getBomdusagitem(), $comparison);
+
+            return $this;
         } elseif ($bomComponent instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useBomComponentQuery()
                 ->filterByPrimaryKeys($bomComponent->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByBomComponent() only accepts arguments of type \BomComponent or Collection');
         }
@@ -6074,12 +10412,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BomComponent relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBomComponent($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinBomComponent(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BomComponent');
@@ -6108,9 +10446,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BomComponentQuery A secondary query class using the current class as primary query
      */
@@ -6122,23 +10460,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the BomComponent relation BomComponent object
+     *
+     * @param callable(\BomComponentQuery):\BomComponentQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBomComponentQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useBomComponentQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BomComponent table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BomComponentQuery The inner query object of the EXISTS statement
+     */
+    public function useBomComponentExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BomComponentQuery */
+        $q = $this->useExistsQuery('BomComponent', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BomComponent table for a NOT EXISTS query.
+     *
+     * @see useBomComponentExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BomComponentQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBomComponentNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BomComponentQuery */
+        $q = $this->useExistsQuery('BomComponent', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BomComponent table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BomComponentQuery The inner query object of the IN statement
+     */
+    public function useInBomComponentQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BomComponentQuery */
+        $q = $this->useInQuery('BomComponent', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BomComponent table for a NOT IN query.
+     *
+     * @see useBomComponentInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BomComponentQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBomComponentQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BomComponentQuery */
+        $q = $this->useInQuery('BomComponent', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \BomItem object
      *
      * @param \BomItem|ObjectCollection $bomItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBomItem($bomItem, $comparison = null)
+    public function filterByBomItem($bomItem, ?string $comparison = null)
     {
         if ($bomItem instanceof \BomItem) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $bomItem->getBomhproditem(), $comparison);
+
+            return $this;
         } elseif ($bomItem instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useBomItemQuery()
                 ->filterByPrimaryKeys($bomItem->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByBomItem() only accepts arguments of type \BomItem or Collection');
         }
@@ -6147,12 +10585,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BomItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBomItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinBomItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BomItem');
@@ -6181,9 +10619,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BomItemQuery A secondary query class using the current class as primary query
      */
@@ -6195,23 +10633,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the BomItem relation BomItem object
+     *
+     * @param callable(\BomItemQuery):\BomItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBomItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useBomItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BomItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BomItemQuery The inner query object of the EXISTS statement
+     */
+    public function useBomItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BomItemQuery */
+        $q = $this->useExistsQuery('BomItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BomItem table for a NOT EXISTS query.
+     *
+     * @see useBomItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BomItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBomItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BomItemQuery */
+        $q = $this->useExistsQuery('BomItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BomItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BomItemQuery The inner query object of the IN statement
+     */
+    public function useInBomItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BomItemQuery */
+        $q = $this->useInQuery('BomItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BomItem table for a NOT IN query.
+     *
+     * @see useBomItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BomItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBomItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BomItemQuery */
+        $q = $this->useInQuery('BomItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \RcyclReceiptDetail object
      *
      * @param \RcyclReceiptDetail|ObjectCollection $rcyclReceiptDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRcyclReceiptDetail($rcyclReceiptDetail, $comparison = null)
+    public function filterByRcyclReceiptDetail($rcyclReceiptDetail, ?string $comparison = null)
     {
         if ($rcyclReceiptDetail instanceof \RcyclReceiptDetail) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $rcyclReceiptDetail->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($rcyclReceiptDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useRcyclReceiptDetailQuery()
                 ->filterByPrimaryKeys($rcyclReceiptDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByRcyclReceiptDetail() only accepts arguments of type \RcyclReceiptDetail or Collection');
         }
@@ -6220,12 +10758,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the RcyclReceiptDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinRcyclReceiptDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinRcyclReceiptDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('RcyclReceiptDetail');
@@ -6254,9 +10792,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \RcyclReceiptDetailQuery A secondary query class using the current class as primary query
      */
@@ -6268,23 +10806,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the RcyclReceiptDetail relation RcyclReceiptDetail object
+     *
+     * @param callable(\RcyclReceiptDetailQuery):\RcyclReceiptDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withRcyclReceiptDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useRcyclReceiptDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to RcyclReceiptDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \RcyclReceiptDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useRcyclReceiptDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \RcyclReceiptDetailQuery */
+        $q = $this->useExistsQuery('RcyclReceiptDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to RcyclReceiptDetail table for a NOT EXISTS query.
+     *
+     * @see useRcyclReceiptDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \RcyclReceiptDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useRcyclReceiptDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \RcyclReceiptDetailQuery */
+        $q = $this->useExistsQuery('RcyclReceiptDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to RcyclReceiptDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \RcyclReceiptDetailQuery The inner query object of the IN statement
+     */
+    public function useInRcyclReceiptDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \RcyclReceiptDetailQuery */
+        $q = $this->useInQuery('RcyclReceiptDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to RcyclReceiptDetail table for a NOT IN query.
+     *
+     * @see useRcyclReceiptDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \RcyclReceiptDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInRcyclReceiptDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \RcyclReceiptDetailQuery */
+        $q = $this->useInQuery('RcyclReceiptDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \RcyclReceiptLot object
      *
      * @param \RcyclReceiptLot|ObjectCollection $rcyclReceiptLot the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRcyclReceiptLot($rcyclReceiptLot, $comparison = null)
+    public function filterByRcyclReceiptLot($rcyclReceiptLot, ?string $comparison = null)
     {
         if ($rcyclReceiptLot instanceof \RcyclReceiptLot) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $rcyclReceiptLot->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($rcyclReceiptLot instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useRcyclReceiptLotQuery()
                 ->filterByPrimaryKeys($rcyclReceiptLot->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByRcyclReceiptLot() only accepts arguments of type \RcyclReceiptLot or Collection');
         }
@@ -6293,12 +10931,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the RcyclReceiptLot relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinRcyclReceiptLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinRcyclReceiptLot(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('RcyclReceiptLot');
@@ -6327,9 +10965,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \RcyclReceiptLotQuery A secondary query class using the current class as primary query
      */
@@ -6341,23 +10979,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the RcyclReceiptLot relation RcyclReceiptLot object
+     *
+     * @param callable(\RcyclReceiptLotQuery):\RcyclReceiptLotQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withRcyclReceiptLotQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useRcyclReceiptLotQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to RcyclReceiptLot table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \RcyclReceiptLotQuery The inner query object of the EXISTS statement
+     */
+    public function useRcyclReceiptLotExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \RcyclReceiptLotQuery */
+        $q = $this->useExistsQuery('RcyclReceiptLot', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to RcyclReceiptLot table for a NOT EXISTS query.
+     *
+     * @see useRcyclReceiptLotExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \RcyclReceiptLotQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useRcyclReceiptLotNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \RcyclReceiptLotQuery */
+        $q = $this->useExistsQuery('RcyclReceiptLot', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to RcyclReceiptLot table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \RcyclReceiptLotQuery The inner query object of the IN statement
+     */
+    public function useInRcyclReceiptLotQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \RcyclReceiptLotQuery */
+        $q = $this->useInQuery('RcyclReceiptLot', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to RcyclReceiptLot table for a NOT IN query.
+     *
+     * @see useRcyclReceiptLotInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \RcyclReceiptLotQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInRcyclReceiptLotQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \RcyclReceiptLotQuery */
+        $q = $this->useInQuery('RcyclReceiptLot', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \BookingDetail object
      *
      * @param \BookingDetail|ObjectCollection $bookingDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBookingDetail($bookingDetail, $comparison = null)
+    public function filterByBookingDetail($bookingDetail, ?string $comparison = null)
     {
         if ($bookingDetail instanceof \BookingDetail) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $bookingDetail->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($bookingDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useBookingDetailQuery()
                 ->filterByPrimaryKeys($bookingDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByBookingDetail() only accepts arguments of type \BookingDetail or Collection');
         }
@@ -6366,12 +11104,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BookingDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBookingDetail($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinBookingDetail(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BookingDetail');
@@ -6400,9 +11138,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingDetailQuery A secondary query class using the current class as primary query
      */
@@ -6414,23 +11152,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the BookingDetail relation BookingDetail object
+     *
+     * @param callable(\BookingDetailQuery):\BookingDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useBookingDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BookingDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingDetailQuery */
+        $q = $this->useExistsQuery('BookingDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDetail table for a NOT EXISTS query.
+     *
+     * @see useBookingDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDetailQuery */
+        $q = $this->useExistsQuery('BookingDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingDetailQuery The inner query object of the IN statement
+     */
+    public function useInBookingDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingDetailQuery */
+        $q = $this->useInQuery('BookingDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDetail table for a NOT IN query.
+     *
+     * @see useBookingDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDetailQuery */
+        $q = $this->useInQuery('BookingDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesHistoryDetail object
      *
      * @param \SalesHistoryDetail|ObjectCollection $salesHistoryDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesHistoryDetail($salesHistoryDetail, $comparison = null)
+    public function filterBySalesHistoryDetail($salesHistoryDetail, ?string $comparison = null)
     {
         if ($salesHistoryDetail instanceof \SalesHistoryDetail) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $salesHistoryDetail->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($salesHistoryDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSalesHistoryDetailQuery()
                 ->filterByPrimaryKeys($salesHistoryDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesHistoryDetail() only accepts arguments of type \SalesHistoryDetail or Collection');
         }
@@ -6439,12 +11277,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesHistoryDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesHistoryDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesHistoryDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesHistoryDetail');
@@ -6473,9 +11311,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesHistoryDetailQuery A secondary query class using the current class as primary query
      */
@@ -6487,23 +11325,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesHistoryDetail relation SalesHistoryDetail object
+     *
+     * @param callable(\SalesHistoryDetailQuery):\SalesHistoryDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesHistoryDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesHistoryDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesHistoryDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesHistoryDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesHistoryDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesHistoryDetailQuery */
+        $q = $this->useExistsQuery('SalesHistoryDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistoryDetail table for a NOT EXISTS query.
+     *
+     * @see useSalesHistoryDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesHistoryDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesHistoryDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesHistoryDetailQuery */
+        $q = $this->useExistsQuery('SalesHistoryDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistoryDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesHistoryDetailQuery The inner query object of the IN statement
+     */
+    public function useInSalesHistoryDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesHistoryDetailQuery */
+        $q = $this->useInQuery('SalesHistoryDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistoryDetail table for a NOT IN query.
+     *
+     * @see useSalesHistoryDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesHistoryDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesHistoryDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesHistoryDetailQuery */
+        $q = $this->useInQuery('SalesHistoryDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesOrderDetail object
      *
      * @param \SalesOrderDetail|ObjectCollection $salesOrderDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesOrderDetail($salesOrderDetail, $comparison = null)
+    public function filterBySalesOrderDetail($salesOrderDetail, ?string $comparison = null)
     {
         if ($salesOrderDetail instanceof \SalesOrderDetail) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $salesOrderDetail->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($salesOrderDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSalesOrderDetailQuery()
                 ->filterByPrimaryKeys($salesOrderDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesOrderDetail() only accepts arguments of type \SalesOrderDetail or Collection');
         }
@@ -6512,12 +11450,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesOrderDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesOrderDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrderDetail');
@@ -6546,9 +11484,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesOrderDetailQuery A secondary query class using the current class as primary query
      */
@@ -6560,23 +11498,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesOrderDetail relation SalesOrderDetail object
+     *
+     * @param callable(\SalesOrderDetailQuery):\SalesOrderDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesOrderDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesOrderDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesOrderDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useExistsQuery('SalesOrderDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for a NOT EXISTS query.
+     *
+     * @see useSalesOrderDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesOrderDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useExistsQuery('SalesOrderDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the IN statement
+     */
+    public function useInSalesOrderDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useInQuery('SalesOrderDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for a NOT IN query.
+     *
+     * @see useSalesOrderDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesOrderDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useInQuery('SalesOrderDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesOrderLotserial object
      *
      * @param \SalesOrderLotserial|ObjectCollection $salesOrderLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesOrderLotserial($salesOrderLotserial, $comparison = null)
+    public function filterBySalesOrderLotserial($salesOrderLotserial, ?string $comparison = null)
     {
         if ($salesOrderLotserial instanceof \SalesOrderLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $salesOrderLotserial->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($salesOrderLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSalesOrderLotserialQuery()
                 ->filterByPrimaryKeys($salesOrderLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesOrderLotserial() only accepts arguments of type \SalesOrderLotserial or Collection');
         }
@@ -6585,12 +11623,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesOrderLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesOrderLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesOrderLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrderLotserial');
@@ -6619,9 +11657,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesOrderLotserialQuery A secondary query class using the current class as primary query
      */
@@ -6633,23 +11671,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesOrderLotserial relation SalesOrderLotserial object
+     *
+     * @param callable(\SalesOrderLotserialQuery):\SalesOrderLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesOrderLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesOrderLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesOrderLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesOrderLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesOrderLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesOrderLotserialQuery */
+        $q = $this->useExistsQuery('SalesOrderLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderLotserial table for a NOT EXISTS query.
+     *
+     * @see useSalesOrderLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesOrderLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderLotserialQuery */
+        $q = $this->useExistsQuery('SalesOrderLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesOrderLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSalesOrderLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesOrderLotserialQuery */
+        $q = $this->useInQuery('SalesOrderLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderLotserial table for a NOT IN query.
+     *
+     * @see useSalesOrderLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesOrderLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderLotserialQuery */
+        $q = $this->useInQuery('SalesOrderLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesHistoryLotserial object
      *
      * @param \SalesHistoryLotserial|ObjectCollection $salesHistoryLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesHistoryLotserial($salesHistoryLotserial, $comparison = null)
+    public function filterBySalesHistoryLotserial($salesHistoryLotserial, ?string $comparison = null)
     {
         if ($salesHistoryLotserial instanceof \SalesHistoryLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $salesHistoryLotserial->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($salesHistoryLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSalesHistoryLotserialQuery()
                 ->filterByPrimaryKeys($salesHistoryLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesHistoryLotserial() only accepts arguments of type \SalesHistoryLotserial or Collection');
         }
@@ -6658,12 +11796,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesHistoryLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesHistoryLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesHistoryLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesHistoryLotserial');
@@ -6692,9 +11830,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesHistoryLotserialQuery A secondary query class using the current class as primary query
      */
@@ -6706,23 +11844,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesHistoryLotserial relation SalesHistoryLotserial object
+     *
+     * @param callable(\SalesHistoryLotserialQuery):\SalesHistoryLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesHistoryLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesHistoryLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesHistoryLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesHistoryLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesHistoryLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesHistoryLotserialQuery */
+        $q = $this->useExistsQuery('SalesHistoryLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistoryLotserial table for a NOT EXISTS query.
+     *
+     * @see useSalesHistoryLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesHistoryLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesHistoryLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesHistoryLotserialQuery */
+        $q = $this->useExistsQuery('SalesHistoryLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistoryLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesHistoryLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSalesHistoryLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesHistoryLotserialQuery */
+        $q = $this->useInQuery('SalesHistoryLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistoryLotserial table for a NOT IN query.
+     *
+     * @see useSalesHistoryLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesHistoryLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesHistoryLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesHistoryLotserialQuery */
+        $q = $this->useInQuery('SalesHistoryLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoAllocatedLotserial object
      *
      * @param \SoAllocatedLotserial|ObjectCollection $soAllocatedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoAllocatedLotserial($soAllocatedLotserial, $comparison = null)
+    public function filterBySoAllocatedLotserial($soAllocatedLotserial, ?string $comparison = null)
     {
         if ($soAllocatedLotserial instanceof \SoAllocatedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $soAllocatedLotserial->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($soAllocatedLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSoAllocatedLotserialQuery()
                 ->filterByPrimaryKeys($soAllocatedLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySoAllocatedLotserial() only accepts arguments of type \SoAllocatedLotserial or Collection');
         }
@@ -6731,12 +11969,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoAllocatedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoAllocatedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoAllocatedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoAllocatedLotserial');
@@ -6765,9 +12003,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoAllocatedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -6779,23 +12017,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoAllocatedLotserial relation SoAllocatedLotserial object
+     *
+     * @param callable(\SoAllocatedLotserialQuery):\SoAllocatedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoAllocatedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoAllocatedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSoAllocatedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('SoAllocatedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for a NOT EXISTS query.
+     *
+     * @see useSoAllocatedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoAllocatedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('SoAllocatedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSoAllocatedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useInQuery('SoAllocatedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for a NOT IN query.
+     *
+     * @see useSoAllocatedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoAllocatedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useInQuery('SoAllocatedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemPricingDiscount object
      *
      * @param \ItemPricingDiscount|ObjectCollection $itemPricingDiscount the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemPricingDiscount($itemPricingDiscount, $comparison = null)
+    public function filterByItemPricingDiscount($itemPricingDiscount, ?string $comparison = null)
     {
         if ($itemPricingDiscount instanceof \ItemPricingDiscount) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemPricingDiscount->getOepcitemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemPricingDiscount instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemPricingDiscountQuery()
                 ->filterByPrimaryKeys($itemPricingDiscount->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemPricingDiscount() only accepts arguments of type \ItemPricingDiscount or Collection');
         }
@@ -6804,12 +12142,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemPricingDiscount relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemPricingDiscount($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemPricingDiscount(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemPricingDiscount');
@@ -6838,9 +12176,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemPricingDiscountQuery A secondary query class using the current class as primary query
      */
@@ -6852,23 +12190,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemPricingDiscount relation ItemPricingDiscount object
+     *
+     * @param callable(\ItemPricingDiscountQuery):\ItemPricingDiscountQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemPricingDiscountQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemPricingDiscountQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemPricingDiscount table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemPricingDiscountQuery The inner query object of the EXISTS statement
+     */
+    public function useItemPricingDiscountExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemPricingDiscountQuery */
+        $q = $this->useExistsQuery('ItemPricingDiscount', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemPricingDiscount table for a NOT EXISTS query.
+     *
+     * @see useItemPricingDiscountExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemPricingDiscountQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemPricingDiscountNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemPricingDiscountQuery */
+        $q = $this->useExistsQuery('ItemPricingDiscount', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemPricingDiscount table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemPricingDiscountQuery The inner query object of the IN statement
+     */
+    public function useInItemPricingDiscountQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemPricingDiscountQuery */
+        $q = $this->useInQuery('ItemPricingDiscount', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemPricingDiscount table for a NOT IN query.
+     *
+     * @see useItemPricingDiscountInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemPricingDiscountQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemPricingDiscountQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemPricingDiscountQuery */
+        $q = $this->useInQuery('ItemPricingDiscount', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoPickedLotserial object
      *
      * @param \SoPickedLotserial|ObjectCollection $soPickedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoPickedLotserial($soPickedLotserial, $comparison = null)
+    public function filterBySoPickedLotserial($soPickedLotserial, ?string $comparison = null)
     {
         if ($soPickedLotserial instanceof \SoPickedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $soPickedLotserial->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($soPickedLotserial instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSoPickedLotserialQuery()
                 ->filterByPrimaryKeys($soPickedLotserial->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySoPickedLotserial() only accepts arguments of type \SoPickedLotserial or Collection');
         }
@@ -6877,12 +12315,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoPickedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoPickedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoPickedLotserial');
@@ -6911,9 +12349,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoPickedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -6925,23 +12363,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoPickedLotserial relation SoPickedLotserial object
+     *
+     * @param callable(\SoPickedLotserialQuery):\SoPickedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoPickedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoPickedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSoPickedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useExistsQuery('SoPickedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for a NOT EXISTS query.
+     *
+     * @see useSoPickedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoPickedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useExistsQuery('SoPickedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSoPickedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useInQuery('SoPickedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for a NOT IN query.
+     *
+     * @see useSoPickedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoPickedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useInQuery('SoPickedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoStandingOrderDetail object
      *
      * @param \SoStandingOrderDetail|ObjectCollection $soStandingOrderDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoStandingOrderDetail($soStandingOrderDetail, $comparison = null)
+    public function filterBySoStandingOrderDetail($soStandingOrderDetail, ?string $comparison = null)
     {
         if ($soStandingOrderDetail instanceof \SoStandingOrderDetail) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $soStandingOrderDetail->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($soStandingOrderDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useSoStandingOrderDetailQuery()
                 ->filterByPrimaryKeys($soStandingOrderDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterBySoStandingOrderDetail() only accepts arguments of type \SoStandingOrderDetail or Collection');
         }
@@ -6950,12 +12488,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoStandingOrderDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoStandingOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoStandingOrderDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoStandingOrderDetail');
@@ -6984,9 +12522,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoStandingOrderDetailQuery A secondary query class using the current class as primary query
      */
@@ -6998,23 +12536,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoStandingOrderDetail relation SoStandingOrderDetail object
+     *
+     * @param callable(\SoStandingOrderDetailQuery):\SoStandingOrderDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoStandingOrderDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoStandingOrderDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoStandingOrderDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoStandingOrderDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useSoStandingOrderDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoStandingOrderDetailQuery */
+        $q = $this->useExistsQuery('SoStandingOrderDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrderDetail table for a NOT EXISTS query.
+     *
+     * @see useSoStandingOrderDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoStandingOrderDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoStandingOrderDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoStandingOrderDetailQuery */
+        $q = $this->useExistsQuery('SoStandingOrderDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrderDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoStandingOrderDetailQuery The inner query object of the IN statement
+     */
+    public function useInSoStandingOrderDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoStandingOrderDetailQuery */
+        $q = $this->useInQuery('SoStandingOrderDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrderDetail table for a NOT IN query.
+     *
+     * @see useSoStandingOrderDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoStandingOrderDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoStandingOrderDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoStandingOrderDetailQuery */
+        $q = $this->useInQuery('SoStandingOrderDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefUpc object
      *
      * @param \ItemXrefUpc|ObjectCollection $itemXrefUpc the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefUpc($itemXrefUpc, $comparison = null)
+    public function filterByItemXrefUpc($itemXrefUpc, ?string $comparison = null)
     {
         if ($itemXrefUpc instanceof \ItemXrefUpc) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefUpc->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemXrefUpc instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefUpcQuery()
                 ->filterByPrimaryKeys($itemXrefUpc->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefUpc() only accepts arguments of type \ItemXrefUpc or Collection');
         }
@@ -7023,12 +12661,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefUpc relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefUpc($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemXrefUpc(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefUpc');
@@ -7057,9 +12695,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefUpcQuery A secondary query class using the current class as primary query
      */
@@ -7071,23 +12709,123 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefUpc relation ItemXrefUpc object
+     *
+     * @param callable(\ItemXrefUpcQuery):\ItemXrefUpcQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefUpcQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefUpcQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefUpc table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefUpcQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefUpcExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefUpcQuery */
+        $q = $this->useExistsQuery('ItemXrefUpc', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefUpc table for a NOT EXISTS query.
+     *
+     * @see useItemXrefUpcExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefUpcQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefUpcNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefUpcQuery */
+        $q = $this->useExistsQuery('ItemXrefUpc', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefUpc table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefUpcQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefUpcQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefUpcQuery */
+        $q = $this->useInQuery('ItemXrefUpc', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefUpc table for a NOT IN query.
+     *
+     * @see useItemXrefUpcInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefUpcQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefUpcQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefUpcQuery */
+        $q = $this->useInQuery('ItemXrefUpc', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefVendor object
      *
      * @param \ItemXrefVendor|ObjectCollection $itemXrefVendor the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefVendor($itemXrefVendor, $comparison = null)
+    public function filterByItemXrefVendor($itemXrefVendor, ?string $comparison = null)
     {
         if ($itemXrefVendor instanceof \ItemXrefVendor) {
-            return $this
+            $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefVendor->getInititemnbr(), $comparison);
+
+            return $this;
         } elseif ($itemXrefVendor instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefVendorQuery()
                 ->filterByPrimaryKeys($itemXrefVendor->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefVendor() only accepts arguments of type \ItemXrefVendor or Collection');
         }
@@ -7096,12 +12834,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefVendor relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefVendor($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemXrefVendor(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefVendor');
@@ -7130,9 +12868,9 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefVendorQuery A secondary query class using the current class as primary query
      */
@@ -7144,11 +12882,107 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefVendor relation ItemXrefVendor object
+     *
+     * @param callable(\ItemXrefVendorQuery):\ItemXrefVendorQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefVendorQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefVendorQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendor table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefVendorQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefVendorExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefVendorQuery */
+        $q = $this->useExistsQuery('ItemXrefVendor', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendor table for a NOT EXISTS query.
+     *
+     * @see useItemXrefVendorExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefVendorNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorQuery */
+        $q = $this->useExistsQuery('ItemXrefVendor', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendor table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefVendorQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefVendorQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefVendorQuery */
+        $q = $this->useInQuery('ItemXrefVendor', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendor table for a NOT IN query.
+     *
+     * @see useItemXrefVendorInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefVendorQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorQuery */
+        $q = $this->useInQuery('ItemXrefVendor', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildItemMasterItem $itemMasterItem Object to remove from the list of results
+     * @param ChildItemMasterItem $itemMasterItem Object to remove from the list of results
      *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itemMasterItem = null)
     {
@@ -7165,7 +12999,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
@@ -7190,12 +13024,12 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
@@ -7220,4 +13054,4 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         });
     }
 
-} // ItemMasterItemQuery
+}

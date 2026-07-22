@@ -10,14 +10,12 @@ use Map\CustomerStockingCellTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_cell_code' table.
- *
- *
+ * Base class that represents a query for the `inv_cell_code` table.
  *
  * @method     ChildCustomerStockingCellQuery orderByIntbcellcode($order = Criteria::ASC) Order by the IntbCellCode column
  * @method     ChildCustomerStockingCellQuery orderByIntbcelldesc($order = Criteria::ASC) Order by the IntbCellDesc column
@@ -39,17 +37,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerStockingCellQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCustomerStockingCellQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustomerStockingCell findOne(ConnectionInterface $con = null) Return the first ChildCustomerStockingCell matching the query
- * @method     ChildCustomerStockingCell findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerStockingCell matching the query, or a new ChildCustomerStockingCell object populated from the query conditions when no match is found
+ * @method     ChildCustomerStockingCell|null findOne(?ConnectionInterface $con = null) Return the first ChildCustomerStockingCell matching the query
+ * @method     ChildCustomerStockingCell findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCustomerStockingCell matching the query, or a new ChildCustomerStockingCell object populated from the query conditions when no match is found
  *
- * @method     ChildCustomerStockingCell findOneByIntbcellcode(string $IntbCellCode) Return the first ChildCustomerStockingCell filtered by the IntbCellCode column
- * @method     ChildCustomerStockingCell findOneByIntbcelldesc(string $IntbCellDesc) Return the first ChildCustomerStockingCell filtered by the IntbCellDesc column
- * @method     ChildCustomerStockingCell findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerStockingCell filtered by the DateUpdtd column
- * @method     ChildCustomerStockingCell findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerStockingCell filtered by the TimeUpdtd column
- * @method     ChildCustomerStockingCell findOneByDummy(string $dummy) Return the first ChildCustomerStockingCell filtered by the dummy column *
-
- * @method     ChildCustomerStockingCell requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerStockingCell by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerStockingCell requireOne(ConnectionInterface $con = null) Return the first ChildCustomerStockingCell matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerStockingCell|null findOneByIntbcellcode(string $IntbCellCode) Return the first ChildCustomerStockingCell filtered by the IntbCellCode column
+ * @method     ChildCustomerStockingCell|null findOneByIntbcelldesc(string $IntbCellDesc) Return the first ChildCustomerStockingCell filtered by the IntbCellDesc column
+ * @method     ChildCustomerStockingCell|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerStockingCell filtered by the DateUpdtd column
+ * @method     ChildCustomerStockingCell|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerStockingCell filtered by the TimeUpdtd column
+ * @method     ChildCustomerStockingCell|null findOneByDummy(string $dummy) Return the first ChildCustomerStockingCell filtered by the dummy column
+ *
+ * @method     ChildCustomerStockingCell requirePk($key, ?ConnectionInterface $con = null) Return the ChildCustomerStockingCell by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerStockingCell requireOne(?ConnectionInterface $con = null) Return the first ChildCustomerStockingCell matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustomerStockingCell requireOneByIntbcellcode(string $IntbCellCode) Return the first ChildCustomerStockingCell filtered by the IntbCellCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerStockingCell requireOneByIntbcelldesc(string $IntbCellDesc) Return the first ChildCustomerStockingCell filtered by the IntbCellDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -57,14 +55,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerStockingCell requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerStockingCell filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerStockingCell requireOneByDummy(string $dummy) Return the first ChildCustomerStockingCell filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerStockingCell[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerStockingCell objects based on current ModelCriteria
- * @method     ChildCustomerStockingCell[]|ObjectCollection findByIntbcellcode(string $IntbCellCode) Return ChildCustomerStockingCell objects filtered by the IntbCellCode column
- * @method     ChildCustomerStockingCell[]|ObjectCollection findByIntbcelldesc(string $IntbCellDesc) Return ChildCustomerStockingCell objects filtered by the IntbCellDesc column
- * @method     ChildCustomerStockingCell[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerStockingCell objects filtered by the DateUpdtd column
- * @method     ChildCustomerStockingCell[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerStockingCell objects filtered by the TimeUpdtd column
- * @method     ChildCustomerStockingCell[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerStockingCell objects filtered by the dummy column
- * @method     ChildCustomerStockingCell[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCustomerStockingCell[]|Collection find(?ConnectionInterface $con = null) Return ChildCustomerStockingCell objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCustomerStockingCell> find(?ConnectionInterface $con = null) Return ChildCustomerStockingCell objects based on current ModelCriteria
  *
+ * @method     ChildCustomerStockingCell[]|Collection findByIntbcellcode(string|array<string> $IntbCellCode) Return ChildCustomerStockingCell objects filtered by the IntbCellCode column
+ * @psalm-method Collection&\Traversable<ChildCustomerStockingCell> findByIntbcellcode(string|array<string> $IntbCellCode) Return ChildCustomerStockingCell objects filtered by the IntbCellCode column
+ * @method     ChildCustomerStockingCell[]|Collection findByIntbcelldesc(string|array<string> $IntbCellDesc) Return ChildCustomerStockingCell objects filtered by the IntbCellDesc column
+ * @psalm-method Collection&\Traversable<ChildCustomerStockingCell> findByIntbcelldesc(string|array<string> $IntbCellDesc) Return ChildCustomerStockingCell objects filtered by the IntbCellDesc column
+ * @method     ChildCustomerStockingCell[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCustomerStockingCell objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerStockingCell> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCustomerStockingCell objects filtered by the DateUpdtd column
+ * @method     ChildCustomerStockingCell[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCustomerStockingCell objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerStockingCell> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCustomerStockingCell objects filtered by the TimeUpdtd column
+ * @method     ChildCustomerStockingCell[]|Collection findByDummy(string|array<string> $dummy) Return ChildCustomerStockingCell objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCustomerStockingCell> findByDummy(string|array<string> $dummy) Return ChildCustomerStockingCell objects filtered by the dummy column
+ *
+ * @method     ChildCustomerStockingCell[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCustomerStockingCell> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CustomerStockingCellQuery extends ModelCriteria
 {
@@ -73,9 +79,9 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CustomerStockingCellQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\CustomerStockingCell', $modelAlias = null)
     {
@@ -85,12 +91,12 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
     /**
      * Returns a new ChildCustomerStockingCellQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCustomerStockingCellQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCustomerStockingCellQuery) {
             return $criteria;
@@ -120,7 +126,7 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      *
      * @return ChildCustomerStockingCell|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -152,8 +158,8 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -185,8 +191,8 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCustomerStockingCell|array|mixed the result, formatted by the current formatter
      */
@@ -206,12 +212,12 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -228,27 +234,31 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustomerStockingCellQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustomerStockingCellQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -258,14 +268,15 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcellcode('fooValue');   // WHERE IntbCellCode = 'fooValue'
      * $query->filterByIntbcellcode('%fooValue%', Criteria::LIKE); // WHERE IntbCellCode LIKE '%fooValue%'
+     * $query->filterByIntbcellcode(['foo', 'bar']); // WHERE IntbCellCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcellcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcellcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerStockingCellQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcellcode($intbcellcode = null, $comparison = null)
+    public function filterByIntbcellcode($intbcellcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcellcode)) {
@@ -273,7 +284,9 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLCODE, $intbcellcode, $comparison);
+        $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLCODE, $intbcellcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -283,14 +296,15 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbcelldesc('fooValue');   // WHERE IntbCellDesc = 'fooValue'
      * $query->filterByIntbcelldesc('%fooValue%', Criteria::LIKE); // WHERE IntbCellDesc LIKE '%fooValue%'
+     * $query->filterByIntbcelldesc(['foo', 'bar']); // WHERE IntbCellDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbcelldesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbcelldesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerStockingCellQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbcelldesc($intbcelldesc = null, $comparison = null)
+    public function filterByIntbcelldesc($intbcelldesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbcelldesc)) {
@@ -298,7 +312,9 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLDESC, $intbcelldesc, $comparison);
+        $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLDESC, $intbcelldesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -308,14 +324,15 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerStockingCellQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -323,7 +340,9 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerStockingCellTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(CustomerStockingCellTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +352,15 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerStockingCellQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -348,7 +368,9 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerStockingCellTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(CustomerStockingCellTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +380,15 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerStockingCellQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -373,20 +396,22 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerStockingCellTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CustomerStockingCellTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCustomerStockingCell $CustomerStockingCell Object to remove from the list of results
+     * @param ChildCustomerStockingCell $customerStockingCell Object to remove from the list of results
      *
-     * @return $this|ChildCustomerStockingCellQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function prune($CustomerStockingCell = null)
+    public function prune($customerStockingCell = null)
     {
-        if ($CustomerStockingCell) {
-            $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLCODE, $CustomerStockingCell->getIntbcellcode(), Criteria::NOT_EQUAL);
+        if ($customerStockingCell) {
+            $this->addUsingAlias(CustomerStockingCellTableMap::COL_INTBCELLCODE, $customerStockingCell->getIntbcellcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -398,7 +423,7 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerStockingCellTableMap::DATABASE_NAME);
@@ -423,12 +448,12 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerStockingCellTableMap::DATABASE_NAME);
@@ -453,4 +478,4 @@ abstract class CustomerStockingCellQuery extends ModelCriteria
         });
     }
 
-} // CustomerStockingCellQuery
+}

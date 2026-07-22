@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_bin_area' table.
- *
- *
+ * Base class that represents a query for the `inv_bin_area` table.
  *
  * @method     ChildInvWhseItemBinQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildInvWhseItemBinQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
@@ -126,44 +125,44 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery|\WarehouseQuery|\WarehouseInventoryQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvWhseItemBin findOne(ConnectionInterface $con = null) Return the first ChildInvWhseItemBin matching the query
- * @method     ChildInvWhseItemBin findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvWhseItemBin matching the query, or a new ChildInvWhseItemBin object populated from the query conditions when no match is found
+ * @method     ChildInvWhseItemBin|null findOne(?ConnectionInterface $con = null) Return the first ChildInvWhseItemBin matching the query
+ * @method     ChildInvWhseItemBin findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvWhseItemBin matching the query, or a new ChildInvWhseItemBin object populated from the query conditions when no match is found
  *
- * @method     ChildInvWhseItemBin findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvWhseItemBin filtered by the InitItemNbr column
- * @method     ChildInvWhseItemBin findOneByIntbwhse(string $IntbWhse) Return the first ChildInvWhseItemBin filtered by the IntbWhse column
- * @method     ChildInvWhseItemBin findOneByBinabin1(string $BinaBin1) Return the first ChildInvWhseItemBin filtered by the BinaBin1 column
- * @method     ChildInvWhseItemBin findOneByBinamin1(int $BinaMin1) Return the first ChildInvWhseItemBin filtered by the BinaMin1 column
- * @method     ChildInvWhseItemBin findOneByBinamax1(int $BinaMax1) Return the first ChildInvWhseItemBin filtered by the BinaMax1 column
- * @method     ChildInvWhseItemBin findOneByBinabin2(string $BinaBin2) Return the first ChildInvWhseItemBin filtered by the BinaBin2 column
- * @method     ChildInvWhseItemBin findOneByBinamin2(int $BinaMin2) Return the first ChildInvWhseItemBin filtered by the BinaMin2 column
- * @method     ChildInvWhseItemBin findOneByBinamax2(int $BinaMax2) Return the first ChildInvWhseItemBin filtered by the BinaMax2 column
- * @method     ChildInvWhseItemBin findOneByBinabin3(string $BinaBin3) Return the first ChildInvWhseItemBin filtered by the BinaBin3 column
- * @method     ChildInvWhseItemBin findOneByBinamin3(int $BinaMin3) Return the first ChildInvWhseItemBin filtered by the BinaMin3 column
- * @method     ChildInvWhseItemBin findOneByBinamax3(int $BinaMax3) Return the first ChildInvWhseItemBin filtered by the BinaMax3 column
- * @method     ChildInvWhseItemBin findOneByBinabin4(string $BinaBin4) Return the first ChildInvWhseItemBin filtered by the BinaBin4 column
- * @method     ChildInvWhseItemBin findOneByBinamin4(int $BinaMin4) Return the first ChildInvWhseItemBin filtered by the BinaMin4 column
- * @method     ChildInvWhseItemBin findOneByBinamax4(int $BinaMax4) Return the first ChildInvWhseItemBin filtered by the BinaMax4 column
- * @method     ChildInvWhseItemBin findOneByBinabin5(string $BinaBin5) Return the first ChildInvWhseItemBin filtered by the BinaBin5 column
- * @method     ChildInvWhseItemBin findOneByBinamin5(int $BinaMin5) Return the first ChildInvWhseItemBin filtered by the BinaMin5 column
- * @method     ChildInvWhseItemBin findOneByBinamax5(int $BinaMax5) Return the first ChildInvWhseItemBin filtered by the BinaMax5 column
- * @method     ChildInvWhseItemBin findOneByBinabin6(string $BinaBin6) Return the first ChildInvWhseItemBin filtered by the BinaBin6 column
- * @method     ChildInvWhseItemBin findOneByBinamin6(int $BinaMin6) Return the first ChildInvWhseItemBin filtered by the BinaMin6 column
- * @method     ChildInvWhseItemBin findOneByBinamax6(int $BinaMax6) Return the first ChildInvWhseItemBin filtered by the BinaMax6 column
- * @method     ChildInvWhseItemBin findOneByBinabin7(string $BinaBin7) Return the first ChildInvWhseItemBin filtered by the BinaBin7 column
- * @method     ChildInvWhseItemBin findOneByBinamin7(int $BinaMin7) Return the first ChildInvWhseItemBin filtered by the BinaMin7 column
- * @method     ChildInvWhseItemBin findOneByBinamax7(int $BinaMax7) Return the first ChildInvWhseItemBin filtered by the BinaMax7 column
- * @method     ChildInvWhseItemBin findOneByBinabin8(string $BinaBin8) Return the first ChildInvWhseItemBin filtered by the BinaBin8 column
- * @method     ChildInvWhseItemBin findOneByBinamin8(int $BinaMin8) Return the first ChildInvWhseItemBin filtered by the BinaMin8 column
- * @method     ChildInvWhseItemBin findOneByBinamax8(int $BinaMax8) Return the first ChildInvWhseItemBin filtered by the BinaMax8 column
- * @method     ChildInvWhseItemBin findOneByBinabin9(string $BinaBin9) Return the first ChildInvWhseItemBin filtered by the BinaBin9 column
- * @method     ChildInvWhseItemBin findOneByBinamin9(int $BinaMin9) Return the first ChildInvWhseItemBin filtered by the BinaMin9 column
- * @method     ChildInvWhseItemBin findOneByBinamax9(int $BinaMax9) Return the first ChildInvWhseItemBin filtered by the BinaMax9 column
- * @method     ChildInvWhseItemBin findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvWhseItemBin filtered by the DateUpdtd column
- * @method     ChildInvWhseItemBin findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvWhseItemBin filtered by the TimeUpdtd column
- * @method     ChildInvWhseItemBin findOneByDummy(string $dummy) Return the first ChildInvWhseItemBin filtered by the dummy column *
-
- * @method     ChildInvWhseItemBin requirePk($key, ConnectionInterface $con = null) Return the ChildInvWhseItemBin by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvWhseItemBin requireOne(ConnectionInterface $con = null) Return the first ChildInvWhseItemBin matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseItemBin|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvWhseItemBin filtered by the InitItemNbr column
+ * @method     ChildInvWhseItemBin|null findOneByIntbwhse(string $IntbWhse) Return the first ChildInvWhseItemBin filtered by the IntbWhse column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin1(string $BinaBin1) Return the first ChildInvWhseItemBin filtered by the BinaBin1 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin1(int $BinaMin1) Return the first ChildInvWhseItemBin filtered by the BinaMin1 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax1(int $BinaMax1) Return the first ChildInvWhseItemBin filtered by the BinaMax1 column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin2(string $BinaBin2) Return the first ChildInvWhseItemBin filtered by the BinaBin2 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin2(int $BinaMin2) Return the first ChildInvWhseItemBin filtered by the BinaMin2 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax2(int $BinaMax2) Return the first ChildInvWhseItemBin filtered by the BinaMax2 column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin3(string $BinaBin3) Return the first ChildInvWhseItemBin filtered by the BinaBin3 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin3(int $BinaMin3) Return the first ChildInvWhseItemBin filtered by the BinaMin3 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax3(int $BinaMax3) Return the first ChildInvWhseItemBin filtered by the BinaMax3 column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin4(string $BinaBin4) Return the first ChildInvWhseItemBin filtered by the BinaBin4 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin4(int $BinaMin4) Return the first ChildInvWhseItemBin filtered by the BinaMin4 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax4(int $BinaMax4) Return the first ChildInvWhseItemBin filtered by the BinaMax4 column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin5(string $BinaBin5) Return the first ChildInvWhseItemBin filtered by the BinaBin5 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin5(int $BinaMin5) Return the first ChildInvWhseItemBin filtered by the BinaMin5 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax5(int $BinaMax5) Return the first ChildInvWhseItemBin filtered by the BinaMax5 column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin6(string $BinaBin6) Return the first ChildInvWhseItemBin filtered by the BinaBin6 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin6(int $BinaMin6) Return the first ChildInvWhseItemBin filtered by the BinaMin6 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax6(int $BinaMax6) Return the first ChildInvWhseItemBin filtered by the BinaMax6 column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin7(string $BinaBin7) Return the first ChildInvWhseItemBin filtered by the BinaBin7 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin7(int $BinaMin7) Return the first ChildInvWhseItemBin filtered by the BinaMin7 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax7(int $BinaMax7) Return the first ChildInvWhseItemBin filtered by the BinaMax7 column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin8(string $BinaBin8) Return the first ChildInvWhseItemBin filtered by the BinaBin8 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin8(int $BinaMin8) Return the first ChildInvWhseItemBin filtered by the BinaMin8 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax8(int $BinaMax8) Return the first ChildInvWhseItemBin filtered by the BinaMax8 column
+ * @method     ChildInvWhseItemBin|null findOneByBinabin9(string $BinaBin9) Return the first ChildInvWhseItemBin filtered by the BinaBin9 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamin9(int $BinaMin9) Return the first ChildInvWhseItemBin filtered by the BinaMin9 column
+ * @method     ChildInvWhseItemBin|null findOneByBinamax9(int $BinaMax9) Return the first ChildInvWhseItemBin filtered by the BinaMax9 column
+ * @method     ChildInvWhseItemBin|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvWhseItemBin filtered by the DateUpdtd column
+ * @method     ChildInvWhseItemBin|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvWhseItemBin filtered by the TimeUpdtd column
+ * @method     ChildInvWhseItemBin|null findOneByDummy(string $dummy) Return the first ChildInvWhseItemBin filtered by the dummy column
+ *
+ * @method     ChildInvWhseItemBin requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvWhseItemBin by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseItemBin requireOne(?ConnectionInterface $con = null) Return the first ChildInvWhseItemBin matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvWhseItemBin requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvWhseItemBin filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseItemBin requireOneByIntbwhse(string $IntbWhse) Return the first ChildInvWhseItemBin filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -198,41 +197,76 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvWhseItemBin requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvWhseItemBin filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseItemBin requireOneByDummy(string $dummy) Return the first ChildInvWhseItemBin filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvWhseItemBin[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvWhseItemBin objects based on current ModelCriteria
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvWhseItemBin objects filtered by the InitItemNbr column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildInvWhseItemBin objects filtered by the IntbWhse column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin1(string $BinaBin1) Return ChildInvWhseItemBin objects filtered by the BinaBin1 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin1(int $BinaMin1) Return ChildInvWhseItemBin objects filtered by the BinaMin1 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax1(int $BinaMax1) Return ChildInvWhseItemBin objects filtered by the BinaMax1 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin2(string $BinaBin2) Return ChildInvWhseItemBin objects filtered by the BinaBin2 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin2(int $BinaMin2) Return ChildInvWhseItemBin objects filtered by the BinaMin2 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax2(int $BinaMax2) Return ChildInvWhseItemBin objects filtered by the BinaMax2 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin3(string $BinaBin3) Return ChildInvWhseItemBin objects filtered by the BinaBin3 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin3(int $BinaMin3) Return ChildInvWhseItemBin objects filtered by the BinaMin3 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax3(int $BinaMax3) Return ChildInvWhseItemBin objects filtered by the BinaMax3 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin4(string $BinaBin4) Return ChildInvWhseItemBin objects filtered by the BinaBin4 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin4(int $BinaMin4) Return ChildInvWhseItemBin objects filtered by the BinaMin4 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax4(int $BinaMax4) Return ChildInvWhseItemBin objects filtered by the BinaMax4 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin5(string $BinaBin5) Return ChildInvWhseItemBin objects filtered by the BinaBin5 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin5(int $BinaMin5) Return ChildInvWhseItemBin objects filtered by the BinaMin5 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax5(int $BinaMax5) Return ChildInvWhseItemBin objects filtered by the BinaMax5 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin6(string $BinaBin6) Return ChildInvWhseItemBin objects filtered by the BinaBin6 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin6(int $BinaMin6) Return ChildInvWhseItemBin objects filtered by the BinaMin6 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax6(int $BinaMax6) Return ChildInvWhseItemBin objects filtered by the BinaMax6 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin7(string $BinaBin7) Return ChildInvWhseItemBin objects filtered by the BinaBin7 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin7(int $BinaMin7) Return ChildInvWhseItemBin objects filtered by the BinaMin7 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax7(int $BinaMax7) Return ChildInvWhseItemBin objects filtered by the BinaMax7 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin8(string $BinaBin8) Return ChildInvWhseItemBin objects filtered by the BinaBin8 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin8(int $BinaMin8) Return ChildInvWhseItemBin objects filtered by the BinaMin8 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax8(int $BinaMax8) Return ChildInvWhseItemBin objects filtered by the BinaMax8 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinabin9(string $BinaBin9) Return ChildInvWhseItemBin objects filtered by the BinaBin9 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamin9(int $BinaMin9) Return ChildInvWhseItemBin objects filtered by the BinaMin9 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByBinamax9(int $BinaMax9) Return ChildInvWhseItemBin objects filtered by the BinaMax9 column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvWhseItemBin objects filtered by the DateUpdtd column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvWhseItemBin objects filtered by the TimeUpdtd column
- * @method     ChildInvWhseItemBin[]|ObjectCollection findByDummy(string $dummy) Return ChildInvWhseItemBin objects filtered by the dummy column
- * @method     ChildInvWhseItemBin[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvWhseItemBin[]|Collection find(?ConnectionInterface $con = null) Return ChildInvWhseItemBin objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> find(?ConnectionInterface $con = null) Return ChildInvWhseItemBin objects based on current ModelCriteria
  *
+ * @method     ChildInvWhseItemBin[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvWhseItemBin objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvWhseItemBin objects filtered by the InitItemNbr column
+ * @method     ChildInvWhseItemBin[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildInvWhseItemBin objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByIntbwhse(string|array<string> $IntbWhse) Return ChildInvWhseItemBin objects filtered by the IntbWhse column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin1(string|array<string> $BinaBin1) Return ChildInvWhseItemBin objects filtered by the BinaBin1 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin1(string|array<string> $BinaBin1) Return ChildInvWhseItemBin objects filtered by the BinaBin1 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin1(int|array<int> $BinaMin1) Return ChildInvWhseItemBin objects filtered by the BinaMin1 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin1(int|array<int> $BinaMin1) Return ChildInvWhseItemBin objects filtered by the BinaMin1 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax1(int|array<int> $BinaMax1) Return ChildInvWhseItemBin objects filtered by the BinaMax1 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax1(int|array<int> $BinaMax1) Return ChildInvWhseItemBin objects filtered by the BinaMax1 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin2(string|array<string> $BinaBin2) Return ChildInvWhseItemBin objects filtered by the BinaBin2 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin2(string|array<string> $BinaBin2) Return ChildInvWhseItemBin objects filtered by the BinaBin2 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin2(int|array<int> $BinaMin2) Return ChildInvWhseItemBin objects filtered by the BinaMin2 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin2(int|array<int> $BinaMin2) Return ChildInvWhseItemBin objects filtered by the BinaMin2 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax2(int|array<int> $BinaMax2) Return ChildInvWhseItemBin objects filtered by the BinaMax2 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax2(int|array<int> $BinaMax2) Return ChildInvWhseItemBin objects filtered by the BinaMax2 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin3(string|array<string> $BinaBin3) Return ChildInvWhseItemBin objects filtered by the BinaBin3 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin3(string|array<string> $BinaBin3) Return ChildInvWhseItemBin objects filtered by the BinaBin3 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin3(int|array<int> $BinaMin3) Return ChildInvWhseItemBin objects filtered by the BinaMin3 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin3(int|array<int> $BinaMin3) Return ChildInvWhseItemBin objects filtered by the BinaMin3 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax3(int|array<int> $BinaMax3) Return ChildInvWhseItemBin objects filtered by the BinaMax3 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax3(int|array<int> $BinaMax3) Return ChildInvWhseItemBin objects filtered by the BinaMax3 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin4(string|array<string> $BinaBin4) Return ChildInvWhseItemBin objects filtered by the BinaBin4 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin4(string|array<string> $BinaBin4) Return ChildInvWhseItemBin objects filtered by the BinaBin4 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin4(int|array<int> $BinaMin4) Return ChildInvWhseItemBin objects filtered by the BinaMin4 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin4(int|array<int> $BinaMin4) Return ChildInvWhseItemBin objects filtered by the BinaMin4 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax4(int|array<int> $BinaMax4) Return ChildInvWhseItemBin objects filtered by the BinaMax4 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax4(int|array<int> $BinaMax4) Return ChildInvWhseItemBin objects filtered by the BinaMax4 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin5(string|array<string> $BinaBin5) Return ChildInvWhseItemBin objects filtered by the BinaBin5 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin5(string|array<string> $BinaBin5) Return ChildInvWhseItemBin objects filtered by the BinaBin5 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin5(int|array<int> $BinaMin5) Return ChildInvWhseItemBin objects filtered by the BinaMin5 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin5(int|array<int> $BinaMin5) Return ChildInvWhseItemBin objects filtered by the BinaMin5 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax5(int|array<int> $BinaMax5) Return ChildInvWhseItemBin objects filtered by the BinaMax5 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax5(int|array<int> $BinaMax5) Return ChildInvWhseItemBin objects filtered by the BinaMax5 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin6(string|array<string> $BinaBin6) Return ChildInvWhseItemBin objects filtered by the BinaBin6 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin6(string|array<string> $BinaBin6) Return ChildInvWhseItemBin objects filtered by the BinaBin6 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin6(int|array<int> $BinaMin6) Return ChildInvWhseItemBin objects filtered by the BinaMin6 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin6(int|array<int> $BinaMin6) Return ChildInvWhseItemBin objects filtered by the BinaMin6 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax6(int|array<int> $BinaMax6) Return ChildInvWhseItemBin objects filtered by the BinaMax6 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax6(int|array<int> $BinaMax6) Return ChildInvWhseItemBin objects filtered by the BinaMax6 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin7(string|array<string> $BinaBin7) Return ChildInvWhseItemBin objects filtered by the BinaBin7 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin7(string|array<string> $BinaBin7) Return ChildInvWhseItemBin objects filtered by the BinaBin7 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin7(int|array<int> $BinaMin7) Return ChildInvWhseItemBin objects filtered by the BinaMin7 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin7(int|array<int> $BinaMin7) Return ChildInvWhseItemBin objects filtered by the BinaMin7 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax7(int|array<int> $BinaMax7) Return ChildInvWhseItemBin objects filtered by the BinaMax7 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax7(int|array<int> $BinaMax7) Return ChildInvWhseItemBin objects filtered by the BinaMax7 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin8(string|array<string> $BinaBin8) Return ChildInvWhseItemBin objects filtered by the BinaBin8 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin8(string|array<string> $BinaBin8) Return ChildInvWhseItemBin objects filtered by the BinaBin8 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin8(int|array<int> $BinaMin8) Return ChildInvWhseItemBin objects filtered by the BinaMin8 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin8(int|array<int> $BinaMin8) Return ChildInvWhseItemBin objects filtered by the BinaMin8 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax8(int|array<int> $BinaMax8) Return ChildInvWhseItemBin objects filtered by the BinaMax8 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax8(int|array<int> $BinaMax8) Return ChildInvWhseItemBin objects filtered by the BinaMax8 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinabin9(string|array<string> $BinaBin9) Return ChildInvWhseItemBin objects filtered by the BinaBin9 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinabin9(string|array<string> $BinaBin9) Return ChildInvWhseItemBin objects filtered by the BinaBin9 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamin9(int|array<int> $BinaMin9) Return ChildInvWhseItemBin objects filtered by the BinaMin9 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamin9(int|array<int> $BinaMin9) Return ChildInvWhseItemBin objects filtered by the BinaMin9 column
+ * @method     ChildInvWhseItemBin[]|Collection findByBinamax9(int|array<int> $BinaMax9) Return ChildInvWhseItemBin objects filtered by the BinaMax9 column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByBinamax9(int|array<int> $BinaMax9) Return ChildInvWhseItemBin objects filtered by the BinaMax9 column
+ * @method     ChildInvWhseItemBin[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvWhseItemBin objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvWhseItemBin objects filtered by the DateUpdtd column
+ * @method     ChildInvWhseItemBin[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvWhseItemBin objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvWhseItemBin objects filtered by the TimeUpdtd column
+ * @method     ChildInvWhseItemBin[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvWhseItemBin objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvWhseItemBin> findByDummy(string|array<string> $dummy) Return ChildInvWhseItemBin objects filtered by the dummy column
+ *
+ * @method     ChildInvWhseItemBin[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvWhseItemBin> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvWhseItemBinQuery extends ModelCriteria
 {
@@ -241,9 +275,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvWhseItemBinQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvWhseItemBin', $modelAlias = null)
     {
@@ -253,12 +287,12 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     /**
      * Returns a new ChildInvWhseItemBinQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvWhseItemBinQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvWhseItemBinQuery) {
             return $criteria;
@@ -288,7 +322,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      *
      * @return ChildInvWhseItemBin|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -320,8 +354,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -354,8 +388,8 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvWhseItemBin|array|mixed the result, formatted by the current formatter
      */
@@ -375,12 +409,12 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -397,9 +431,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -412,14 +446,16 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvWhseItemBinTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
@@ -438,14 +474,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -453,7 +490,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -463,14 +502,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -478,7 +518,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -488,14 +530,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin1('fooValue');   // WHERE BinaBin1 = 'fooValue'
      * $query->filterByBinabin1('%fooValue%', Criteria::LIKE); // WHERE BinaBin1 LIKE '%fooValue%'
+     * $query->filterByBinabin1(['foo', 'bar']); // WHERE BinaBin1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin1($binabin1 = null, $comparison = null)
+    public function filterByBinabin1($binabin1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin1)) {
@@ -503,7 +546,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN1, $binabin1, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN1, $binabin1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -516,15 +561,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin1(array('min' => 12)); // WHERE BinaMin1 > 12
      * </code>
      *
-     * @param     mixed $binamin1 The value to use as filter.
+     * @param mixed $binamin1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin1($binamin1 = null, $comparison = null)
+    public function filterByBinamin1($binamin1 = null, ?string $comparison = null)
     {
         if (is_array($binamin1)) {
             $useMinMax = false;
@@ -544,7 +589,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN1, $binamin1, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN1, $binamin1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -557,15 +604,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax1(array('min' => 12)); // WHERE BinaMax1 > 12
      * </code>
      *
-     * @param     mixed $binamax1 The value to use as filter.
+     * @param mixed $binamax1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax1($binamax1 = null, $comparison = null)
+    public function filterByBinamax1($binamax1 = null, ?string $comparison = null)
     {
         if (is_array($binamax1)) {
             $useMinMax = false;
@@ -585,7 +632,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX1, $binamax1, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX1, $binamax1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -595,14 +644,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin2('fooValue');   // WHERE BinaBin2 = 'fooValue'
      * $query->filterByBinabin2('%fooValue%', Criteria::LIKE); // WHERE BinaBin2 LIKE '%fooValue%'
+     * $query->filterByBinabin2(['foo', 'bar']); // WHERE BinaBin2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin2($binabin2 = null, $comparison = null)
+    public function filterByBinabin2($binabin2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin2)) {
@@ -610,7 +660,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN2, $binabin2, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN2, $binabin2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -623,15 +675,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin2(array('min' => 12)); // WHERE BinaMin2 > 12
      * </code>
      *
-     * @param     mixed $binamin2 The value to use as filter.
+     * @param mixed $binamin2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin2($binamin2 = null, $comparison = null)
+    public function filterByBinamin2($binamin2 = null, ?string $comparison = null)
     {
         if (is_array($binamin2)) {
             $useMinMax = false;
@@ -651,7 +703,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN2, $binamin2, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN2, $binamin2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -664,15 +718,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax2(array('min' => 12)); // WHERE BinaMax2 > 12
      * </code>
      *
-     * @param     mixed $binamax2 The value to use as filter.
+     * @param mixed $binamax2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax2($binamax2 = null, $comparison = null)
+    public function filterByBinamax2($binamax2 = null, ?string $comparison = null)
     {
         if (is_array($binamax2)) {
             $useMinMax = false;
@@ -692,7 +746,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX2, $binamax2, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX2, $binamax2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -702,14 +758,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin3('fooValue');   // WHERE BinaBin3 = 'fooValue'
      * $query->filterByBinabin3('%fooValue%', Criteria::LIKE); // WHERE BinaBin3 LIKE '%fooValue%'
+     * $query->filterByBinabin3(['foo', 'bar']); // WHERE BinaBin3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin3($binabin3 = null, $comparison = null)
+    public function filterByBinabin3($binabin3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin3)) {
@@ -717,7 +774,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN3, $binabin3, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN3, $binabin3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -730,15 +789,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin3(array('min' => 12)); // WHERE BinaMin3 > 12
      * </code>
      *
-     * @param     mixed $binamin3 The value to use as filter.
+     * @param mixed $binamin3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin3($binamin3 = null, $comparison = null)
+    public function filterByBinamin3($binamin3 = null, ?string $comparison = null)
     {
         if (is_array($binamin3)) {
             $useMinMax = false;
@@ -758,7 +817,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN3, $binamin3, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN3, $binamin3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -771,15 +832,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax3(array('min' => 12)); // WHERE BinaMax3 > 12
      * </code>
      *
-     * @param     mixed $binamax3 The value to use as filter.
+     * @param mixed $binamax3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax3($binamax3 = null, $comparison = null)
+    public function filterByBinamax3($binamax3 = null, ?string $comparison = null)
     {
         if (is_array($binamax3)) {
             $useMinMax = false;
@@ -799,7 +860,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX3, $binamax3, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX3, $binamax3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -809,14 +872,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin4('fooValue');   // WHERE BinaBin4 = 'fooValue'
      * $query->filterByBinabin4('%fooValue%', Criteria::LIKE); // WHERE BinaBin4 LIKE '%fooValue%'
+     * $query->filterByBinabin4(['foo', 'bar']); // WHERE BinaBin4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin4($binabin4 = null, $comparison = null)
+    public function filterByBinabin4($binabin4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin4)) {
@@ -824,7 +888,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN4, $binabin4, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN4, $binabin4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -837,15 +903,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin4(array('min' => 12)); // WHERE BinaMin4 > 12
      * </code>
      *
-     * @param     mixed $binamin4 The value to use as filter.
+     * @param mixed $binamin4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin4($binamin4 = null, $comparison = null)
+    public function filterByBinamin4($binamin4 = null, ?string $comparison = null)
     {
         if (is_array($binamin4)) {
             $useMinMax = false;
@@ -865,7 +931,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN4, $binamin4, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN4, $binamin4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -878,15 +946,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax4(array('min' => 12)); // WHERE BinaMax4 > 12
      * </code>
      *
-     * @param     mixed $binamax4 The value to use as filter.
+     * @param mixed $binamax4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax4($binamax4 = null, $comparison = null)
+    public function filterByBinamax4($binamax4 = null, ?string $comparison = null)
     {
         if (is_array($binamax4)) {
             $useMinMax = false;
@@ -906,7 +974,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX4, $binamax4, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX4, $binamax4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -916,14 +986,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin5('fooValue');   // WHERE BinaBin5 = 'fooValue'
      * $query->filterByBinabin5('%fooValue%', Criteria::LIKE); // WHERE BinaBin5 LIKE '%fooValue%'
+     * $query->filterByBinabin5(['foo', 'bar']); // WHERE BinaBin5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin5($binabin5 = null, $comparison = null)
+    public function filterByBinabin5($binabin5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin5)) {
@@ -931,7 +1002,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN5, $binabin5, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN5, $binabin5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -944,15 +1017,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin5(array('min' => 12)); // WHERE BinaMin5 > 12
      * </code>
      *
-     * @param     mixed $binamin5 The value to use as filter.
+     * @param mixed $binamin5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin5($binamin5 = null, $comparison = null)
+    public function filterByBinamin5($binamin5 = null, ?string $comparison = null)
     {
         if (is_array($binamin5)) {
             $useMinMax = false;
@@ -972,7 +1045,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN5, $binamin5, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN5, $binamin5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -985,15 +1060,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax5(array('min' => 12)); // WHERE BinaMax5 > 12
      * </code>
      *
-     * @param     mixed $binamax5 The value to use as filter.
+     * @param mixed $binamax5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax5($binamax5 = null, $comparison = null)
+    public function filterByBinamax5($binamax5 = null, ?string $comparison = null)
     {
         if (is_array($binamax5)) {
             $useMinMax = false;
@@ -1013,7 +1088,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX5, $binamax5, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX5, $binamax5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1023,14 +1100,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin6('fooValue');   // WHERE BinaBin6 = 'fooValue'
      * $query->filterByBinabin6('%fooValue%', Criteria::LIKE); // WHERE BinaBin6 LIKE '%fooValue%'
+     * $query->filterByBinabin6(['foo', 'bar']); // WHERE BinaBin6 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin6 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin6 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin6($binabin6 = null, $comparison = null)
+    public function filterByBinabin6($binabin6 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin6)) {
@@ -1038,7 +1116,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN6, $binabin6, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN6, $binabin6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1051,15 +1131,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin6(array('min' => 12)); // WHERE BinaMin6 > 12
      * </code>
      *
-     * @param     mixed $binamin6 The value to use as filter.
+     * @param mixed $binamin6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin6($binamin6 = null, $comparison = null)
+    public function filterByBinamin6($binamin6 = null, ?string $comparison = null)
     {
         if (is_array($binamin6)) {
             $useMinMax = false;
@@ -1079,7 +1159,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN6, $binamin6, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN6, $binamin6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1092,15 +1174,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax6(array('min' => 12)); // WHERE BinaMax6 > 12
      * </code>
      *
-     * @param     mixed $binamax6 The value to use as filter.
+     * @param mixed $binamax6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax6($binamax6 = null, $comparison = null)
+    public function filterByBinamax6($binamax6 = null, ?string $comparison = null)
     {
         if (is_array($binamax6)) {
             $useMinMax = false;
@@ -1120,7 +1202,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX6, $binamax6, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX6, $binamax6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1130,14 +1214,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin7('fooValue');   // WHERE BinaBin7 = 'fooValue'
      * $query->filterByBinabin7('%fooValue%', Criteria::LIKE); // WHERE BinaBin7 LIKE '%fooValue%'
+     * $query->filterByBinabin7(['foo', 'bar']); // WHERE BinaBin7 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin7 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin7 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin7($binabin7 = null, $comparison = null)
+    public function filterByBinabin7($binabin7 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin7)) {
@@ -1145,7 +1230,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN7, $binabin7, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN7, $binabin7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1158,15 +1245,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin7(array('min' => 12)); // WHERE BinaMin7 > 12
      * </code>
      *
-     * @param     mixed $binamin7 The value to use as filter.
+     * @param mixed $binamin7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin7($binamin7 = null, $comparison = null)
+    public function filterByBinamin7($binamin7 = null, ?string $comparison = null)
     {
         if (is_array($binamin7)) {
             $useMinMax = false;
@@ -1186,7 +1273,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN7, $binamin7, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN7, $binamin7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1199,15 +1288,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax7(array('min' => 12)); // WHERE BinaMax7 > 12
      * </code>
      *
-     * @param     mixed $binamax7 The value to use as filter.
+     * @param mixed $binamax7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax7($binamax7 = null, $comparison = null)
+    public function filterByBinamax7($binamax7 = null, ?string $comparison = null)
     {
         if (is_array($binamax7)) {
             $useMinMax = false;
@@ -1227,7 +1316,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX7, $binamax7, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX7, $binamax7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1237,14 +1328,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin8('fooValue');   // WHERE BinaBin8 = 'fooValue'
      * $query->filterByBinabin8('%fooValue%', Criteria::LIKE); // WHERE BinaBin8 LIKE '%fooValue%'
+     * $query->filterByBinabin8(['foo', 'bar']); // WHERE BinaBin8 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin8 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin8 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin8($binabin8 = null, $comparison = null)
+    public function filterByBinabin8($binabin8 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin8)) {
@@ -1252,7 +1344,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN8, $binabin8, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN8, $binabin8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1265,15 +1359,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin8(array('min' => 12)); // WHERE BinaMin8 > 12
      * </code>
      *
-     * @param     mixed $binamin8 The value to use as filter.
+     * @param mixed $binamin8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin8($binamin8 = null, $comparison = null)
+    public function filterByBinamin8($binamin8 = null, ?string $comparison = null)
     {
         if (is_array($binamin8)) {
             $useMinMax = false;
@@ -1293,7 +1387,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN8, $binamin8, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN8, $binamin8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1306,15 +1402,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax8(array('min' => 12)); // WHERE BinaMax8 > 12
      * </code>
      *
-     * @param     mixed $binamax8 The value to use as filter.
+     * @param mixed $binamax8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax8($binamax8 = null, $comparison = null)
+    public function filterByBinamax8($binamax8 = null, ?string $comparison = null)
     {
         if (is_array($binamax8)) {
             $useMinMax = false;
@@ -1334,7 +1430,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX8, $binamax8, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX8, $binamax8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1344,14 +1442,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByBinabin9('fooValue');   // WHERE BinaBin9 = 'fooValue'
      * $query->filterByBinabin9('%fooValue%', Criteria::LIKE); // WHERE BinaBin9 LIKE '%fooValue%'
+     * $query->filterByBinabin9(['foo', 'bar']); // WHERE BinaBin9 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binabin9 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binabin9 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinabin9($binabin9 = null, $comparison = null)
+    public function filterByBinabin9($binabin9 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binabin9)) {
@@ -1359,7 +1458,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN9, $binabin9, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINABIN9, $binabin9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1372,15 +1473,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamin9(array('min' => 12)); // WHERE BinaMin9 > 12
      * </code>
      *
-     * @param     mixed $binamin9 The value to use as filter.
+     * @param mixed $binamin9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamin9($binamin9 = null, $comparison = null)
+    public function filterByBinamin9($binamin9 = null, ?string $comparison = null)
     {
         if (is_array($binamin9)) {
             $useMinMax = false;
@@ -1400,7 +1501,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN9, $binamin9, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMIN9, $binamin9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1413,15 +1516,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * $query->filterByBinamax9(array('min' => 12)); // WHERE BinaMax9 > 12
      * </code>
      *
-     * @param     mixed $binamax9 The value to use as filter.
+     * @param mixed $binamax9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinamax9($binamax9 = null, $comparison = null)
+    public function filterByBinamax9($binamax9 = null, ?string $comparison = null)
     {
         if (is_array($binamax9)) {
             $useMinMax = false;
@@ -1441,7 +1544,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX9, $binamax9, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_BINAMAX9, $binamax9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1451,14 +1556,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1466,7 +1572,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1476,14 +1584,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1491,7 +1600,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1501,14 +1612,15 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1516,20 +1628,22 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseItemBinTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvWhseItemBinTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1539,8 +1653,10 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvWhseItemBinTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1549,12 +1665,12 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1583,9 +1699,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1597,16 +1713,112 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Warehouse object
      *
      * @param \Warehouse|ObjectCollection $warehouse The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWarehouse($warehouse, $comparison = null)
+    public function filterByWarehouse($warehouse, ?string $comparison = null)
     {
         if ($warehouse instanceof \Warehouse) {
             return $this
@@ -1616,8 +1828,10 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvWhseItemBinTableMap::COL_INTBWHSE, $warehouse->toKeyValue('PrimaryKey', 'Intbwhse'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByWarehouse() only accepts arguments of type \Warehouse or Collection');
         }
@@ -1626,12 +1840,12 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Warehouse relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinWarehouse($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinWarehouse(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Warehouse');
@@ -1660,9 +1874,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \WarehouseQuery A secondary query class using the current class as primary query
      */
@@ -1674,16 +1888,112 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     }
 
     /**
+     * Use the Warehouse relation Warehouse object
+     *
+     * @param callable(\WarehouseQuery):\WarehouseQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withWarehouseQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useWarehouseQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Warehouse table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \WarehouseQuery The inner query object of the EXISTS statement
+     */
+    public function useWarehouseExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \WarehouseQuery */
+        $q = $this->useExistsQuery('Warehouse', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Warehouse table for a NOT EXISTS query.
+     *
+     * @see useWarehouseExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useWarehouseNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseQuery */
+        $q = $this->useExistsQuery('Warehouse', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Warehouse table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \WarehouseQuery The inner query object of the IN statement
+     */
+    public function useInWarehouseQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \WarehouseQuery */
+        $q = $this->useInQuery('Warehouse', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Warehouse table for a NOT IN query.
+     *
+     * @see useWarehouseInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInWarehouseQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseQuery */
+        $q = $this->useInQuery('Warehouse', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \WarehouseInventory object
      *
      * @param \WarehouseInventory $warehouseInventory The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWarehouseInventory($warehouseInventory, $comparison = null)
+    public function filterByWarehouseInventory($warehouseInventory, ?string $comparison = null)
     {
         if ($warehouseInventory instanceof \WarehouseInventory) {
             return $this
@@ -1697,12 +2007,12 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the WarehouseInventory relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinWarehouseInventory($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinWarehouseInventory(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('WarehouseInventory');
@@ -1731,9 +2041,9 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \WarehouseInventoryQuery A secondary query class using the current class as primary query
      */
@@ -1745,11 +2055,107 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
     }
 
     /**
+     * Use the WarehouseInventory relation WarehouseInventory object
+     *
+     * @param callable(\WarehouseInventoryQuery):\WarehouseInventoryQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withWarehouseInventoryQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useWarehouseInventoryQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the EXISTS statement
+     */
+    public function useWarehouseInventoryExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useExistsQuery('WarehouseInventory', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for a NOT EXISTS query.
+     *
+     * @see useWarehouseInventoryExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useWarehouseInventoryNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useExistsQuery('WarehouseInventory', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the IN statement
+     */
+    public function useInWarehouseInventoryQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useInQuery('WarehouseInventory', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for a NOT IN query.
+     *
+     * @see useWarehouseInventoryInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInWarehouseInventoryQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useInQuery('WarehouseInventory', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvWhseItemBin $invWhseItemBin Object to remove from the list of results
+     * @param ChildInvWhseItemBin $invWhseItemBin Object to remove from the list of results
      *
-     * @return $this|ChildInvWhseItemBinQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invWhseItemBin = null)
     {
@@ -1768,7 +2174,7 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseItemBinTableMap::DATABASE_NAME);
@@ -1793,12 +2199,12 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseItemBinTableMap::DATABASE_NAME);
@@ -1823,4 +2229,4 @@ abstract class InvWhseItemBinQuery extends ModelCriteria
         });
     }
 
-} // InvWhseItemBinQuery
+}

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_whse_code' table.
- *
- *
+ * Base class that represents a query for the `inv_whse_code` table.
  *
  * @method     ChildWarehouseQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
  * @method     ChildWarehouseQuery orderByIntbwhsename($order = Criteria::ASC) Order by the IntbWhseName column
@@ -194,51 +193,51 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery rightJoinWithPoReceivingHead() Adds a RIGHT JOIN clause and with to the query using the PoReceivingHead relation
  * @method     ChildWarehouseQuery innerJoinWithPoReceivingHead() Adds a INNER JOIN clause and with to the query using the PoReceivingHead relation
  *
- * @method     \InvWhseItemBinQuery|\WarehouseBinQuery|\InvWhseLotQuery|\InvLotTagQuery|\InvTransferOrderQuery|\WarehouseInventoryQuery|\WarehouseNoteQuery|\PoReceivingHeadQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \InvWhseItemBinQuery|\WarehouseBinQuery|\InvWhseLotQuery|\InvLotTagQuery|\InvTransferOrderQuery|\InvTransferOrderQuery|\WarehouseInventoryQuery|\WarehouseNoteQuery|\PoReceivingHeadQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildWarehouse findOne(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query
- * @method     ChildWarehouse findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query, or a new ChildWarehouse object populated from the query conditions when no match is found
+ * @method     ChildWarehouse|null findOne(?ConnectionInterface $con = null) Return the first ChildWarehouse matching the query
+ * @method     ChildWarehouse findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildWarehouse matching the query, or a new ChildWarehouse object populated from the query conditions when no match is found
  *
- * @method     ChildWarehouse findOneByIntbwhse(string $IntbWhse) Return the first ChildWarehouse filtered by the IntbWhse column
- * @method     ChildWarehouse findOneByIntbwhsename(string $IntbWhseName) Return the first ChildWarehouse filtered by the IntbWhseName column
- * @method     ChildWarehouse findOneByIntbwhseadr1(string $IntbWhseAdr1) Return the first ChildWarehouse filtered by the IntbWhseAdr1 column
- * @method     ChildWarehouse findOneByIntbwhseadr2(string $IntbWhseAdr2) Return the first ChildWarehouse filtered by the IntbWhseAdr2 column
- * @method     ChildWarehouse findOneByIntbwhsecity(string $IntbWhseCity) Return the first ChildWarehouse filtered by the IntbWhseCity column
- * @method     ChildWarehouse findOneByIntbwhsestat(string $IntbWhseStat) Return the first ChildWarehouse filtered by the IntbWhseStat column
- * @method     ChildWarehouse findOneByIntbwhsezipcode(string $IntbWhseZipCode) Return the first ChildWarehouse filtered by the IntbWhseZipCode column
- * @method     ChildWarehouse findOneByIntbwhsectry(string $IntbWhseCtry) Return the first ChildWarehouse filtered by the IntbWhseCtry column
- * @method     ChildWarehouse findOneByIntbwhseusehandheld(string $IntbWhseUseHandheld) Return the first ChildWarehouse filtered by the IntbWhseUseHandheld column
- * @method     ChildWarehouse findOneByIntbwhsecashcust(string $IntbWhseCashCust) Return the first ChildWarehouse filtered by the IntbWhseCashCust column
- * @method     ChildWarehouse findOneByIntbwhsepickdtl(string $IntbWhsePickDtl) Return the first ChildWarehouse filtered by the IntbWhsePickDtl column
- * @method     ChildWarehouse findOneByIntbwhseprodbin(string $IntbWhseProdBin) Return the first ChildWarehouse filtered by the IntbWhseProdBin column
- * @method     ChildWarehouse findOneByIntbwhsepharea(string $IntbWhsePhArea) Return the first ChildWarehouse filtered by the IntbWhsePhArea column
- * @method     ChildWarehouse findOneByIntbwhsephfrst3(string $IntbWhsePhFrst3) Return the first ChildWarehouse filtered by the IntbWhsePhFrst3 column
- * @method     ChildWarehouse findOneByIntbwhsephlast4(string $IntbWhsePhLast4) Return the first ChildWarehouse filtered by the IntbWhsePhLast4 column
- * @method     ChildWarehouse findOneByIntbwhsephext(string $IntbWhsePhExt) Return the first ChildWarehouse filtered by the IntbWhsePhExt column
- * @method     ChildWarehouse findOneByIntbwhsefaxarea(string $IntbWhseFaxArea) Return the first ChildWarehouse filtered by the IntbWhseFaxArea column
- * @method     ChildWarehouse findOneByIntbwhsefaxfrst3(string $IntbWhseFaxFrst3) Return the first ChildWarehouse filtered by the IntbWhseFaxFrst3 column
- * @method     ChildWarehouse findOneByIntbwhsefaxlast4(string $IntbWhseFaxLast4) Return the first ChildWarehouse filtered by the IntbWhseFaxLast4 column
- * @method     ChildWarehouse findOneByIntbwhseemailadr(string $IntbWhseEmailAdr) Return the first ChildWarehouse filtered by the IntbWhseEmailAdr column
- * @method     ChildWarehouse findOneByIntbwhseqcrgabin(string $IntbWhseQcRgaBin) Return the first ChildWarehouse filtered by the IntbWhseQcRgaBin column
- * @method     ChildWarehouse findOneByIntbwhserfprinter1(string $IntbWhseRfPrinter1) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter1 column
- * @method     ChildWarehouse findOneByIntbwhserfprinter2(string $IntbWhseRfPrinter2) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter2 column
- * @method     ChildWarehouse findOneByIntbwhserfprinter3(string $IntbWhseRfPrinter3) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter3 column
- * @method     ChildWarehouse findOneByIntbwhserfprinter4(string $IntbWhseRfPrinter4) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter4 column
- * @method     ChildWarehouse findOneByIntbwhserfprinter5(string $IntbWhseRfPrinter5) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter5 column
- * @method     ChildWarehouse findOneByIntbwhseprofwhse(string $IntbWhseProfWhse) Return the first ChildWarehouse filtered by the IntbWhseProfWhse column
- * @method     ChildWarehouse findOneByIntbwhseasetwhse(string $IntbWhseAsetWhse) Return the first ChildWarehouse filtered by the IntbWhseAsetWhse column
- * @method     ChildWarehouse findOneByIntbwhseconsignwhse(string $IntbWhseConsignWhse) Return the first ChildWarehouse filtered by the IntbWhseConsignWhse column
- * @method     ChildWarehouse findOneByIntbwhsebinrangelist(string $IntbWhseBinRangeList) Return the first ChildWarehouse filtered by the IntbWhseBinRangeList column
- * @method     ChildWarehouse findOneByIntbwhsesupplywhse(string $IntbWhseSupplyWhse) Return the first ChildWarehouse filtered by the IntbWhseSupplyWhse column
- * @method     ChildWarehouse findOneByIntbwhseareasplit(string $IntbWhseAreaSplit) Return the first ChildWarehouse filtered by the IntbWhseAreaSplit column
- * @method     ChildWarehouse findOneByIntbwhsercvbincode(string $IntbWhseRcvBinCode) Return the first ChildWarehouse filtered by the IntbWhseRcvBinCode column
- * @method     ChildWarehouse findOneByIntbwhsercvbin(string $IntbWhseRcvBin) Return the first ChildWarehouse filtered by the IntbWhseRcvBin column
- * @method     ChildWarehouse findOneByDateupdtd(string $DateUpdtd) Return the first ChildWarehouse filtered by the DateUpdtd column
- * @method     ChildWarehouse findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouse filtered by the TimeUpdtd column
- * @method     ChildWarehouse findOneByDummy(string $dummy) Return the first ChildWarehouse filtered by the dummy column *
-
- * @method     ChildWarehouse requirePk($key, ConnectionInterface $con = null) Return the ChildWarehouse by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWarehouse requireOne(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouse|null findOneByIntbwhse(string $IntbWhse) Return the first ChildWarehouse filtered by the IntbWhse column
+ * @method     ChildWarehouse|null findOneByIntbwhsename(string $IntbWhseName) Return the first ChildWarehouse filtered by the IntbWhseName column
+ * @method     ChildWarehouse|null findOneByIntbwhseadr1(string $IntbWhseAdr1) Return the first ChildWarehouse filtered by the IntbWhseAdr1 column
+ * @method     ChildWarehouse|null findOneByIntbwhseadr2(string $IntbWhseAdr2) Return the first ChildWarehouse filtered by the IntbWhseAdr2 column
+ * @method     ChildWarehouse|null findOneByIntbwhsecity(string $IntbWhseCity) Return the first ChildWarehouse filtered by the IntbWhseCity column
+ * @method     ChildWarehouse|null findOneByIntbwhsestat(string $IntbWhseStat) Return the first ChildWarehouse filtered by the IntbWhseStat column
+ * @method     ChildWarehouse|null findOneByIntbwhsezipcode(string $IntbWhseZipCode) Return the first ChildWarehouse filtered by the IntbWhseZipCode column
+ * @method     ChildWarehouse|null findOneByIntbwhsectry(string $IntbWhseCtry) Return the first ChildWarehouse filtered by the IntbWhseCtry column
+ * @method     ChildWarehouse|null findOneByIntbwhseusehandheld(string $IntbWhseUseHandheld) Return the first ChildWarehouse filtered by the IntbWhseUseHandheld column
+ * @method     ChildWarehouse|null findOneByIntbwhsecashcust(string $IntbWhseCashCust) Return the first ChildWarehouse filtered by the IntbWhseCashCust column
+ * @method     ChildWarehouse|null findOneByIntbwhsepickdtl(string $IntbWhsePickDtl) Return the first ChildWarehouse filtered by the IntbWhsePickDtl column
+ * @method     ChildWarehouse|null findOneByIntbwhseprodbin(string $IntbWhseProdBin) Return the first ChildWarehouse filtered by the IntbWhseProdBin column
+ * @method     ChildWarehouse|null findOneByIntbwhsepharea(string $IntbWhsePhArea) Return the first ChildWarehouse filtered by the IntbWhsePhArea column
+ * @method     ChildWarehouse|null findOneByIntbwhsephfrst3(string $IntbWhsePhFrst3) Return the first ChildWarehouse filtered by the IntbWhsePhFrst3 column
+ * @method     ChildWarehouse|null findOneByIntbwhsephlast4(string $IntbWhsePhLast4) Return the first ChildWarehouse filtered by the IntbWhsePhLast4 column
+ * @method     ChildWarehouse|null findOneByIntbwhsephext(string $IntbWhsePhExt) Return the first ChildWarehouse filtered by the IntbWhsePhExt column
+ * @method     ChildWarehouse|null findOneByIntbwhsefaxarea(string $IntbWhseFaxArea) Return the first ChildWarehouse filtered by the IntbWhseFaxArea column
+ * @method     ChildWarehouse|null findOneByIntbwhsefaxfrst3(string $IntbWhseFaxFrst3) Return the first ChildWarehouse filtered by the IntbWhseFaxFrst3 column
+ * @method     ChildWarehouse|null findOneByIntbwhsefaxlast4(string $IntbWhseFaxLast4) Return the first ChildWarehouse filtered by the IntbWhseFaxLast4 column
+ * @method     ChildWarehouse|null findOneByIntbwhseemailadr(string $IntbWhseEmailAdr) Return the first ChildWarehouse filtered by the IntbWhseEmailAdr column
+ * @method     ChildWarehouse|null findOneByIntbwhseqcrgabin(string $IntbWhseQcRgaBin) Return the first ChildWarehouse filtered by the IntbWhseQcRgaBin column
+ * @method     ChildWarehouse|null findOneByIntbwhserfprinter1(string $IntbWhseRfPrinter1) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter1 column
+ * @method     ChildWarehouse|null findOneByIntbwhserfprinter2(string $IntbWhseRfPrinter2) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter2 column
+ * @method     ChildWarehouse|null findOneByIntbwhserfprinter3(string $IntbWhseRfPrinter3) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter3 column
+ * @method     ChildWarehouse|null findOneByIntbwhserfprinter4(string $IntbWhseRfPrinter4) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter4 column
+ * @method     ChildWarehouse|null findOneByIntbwhserfprinter5(string $IntbWhseRfPrinter5) Return the first ChildWarehouse filtered by the IntbWhseRfPrinter5 column
+ * @method     ChildWarehouse|null findOneByIntbwhseprofwhse(string $IntbWhseProfWhse) Return the first ChildWarehouse filtered by the IntbWhseProfWhse column
+ * @method     ChildWarehouse|null findOneByIntbwhseasetwhse(string $IntbWhseAsetWhse) Return the first ChildWarehouse filtered by the IntbWhseAsetWhse column
+ * @method     ChildWarehouse|null findOneByIntbwhseconsignwhse(string $IntbWhseConsignWhse) Return the first ChildWarehouse filtered by the IntbWhseConsignWhse column
+ * @method     ChildWarehouse|null findOneByIntbwhsebinrangelist(string $IntbWhseBinRangeList) Return the first ChildWarehouse filtered by the IntbWhseBinRangeList column
+ * @method     ChildWarehouse|null findOneByIntbwhsesupplywhse(string $IntbWhseSupplyWhse) Return the first ChildWarehouse filtered by the IntbWhseSupplyWhse column
+ * @method     ChildWarehouse|null findOneByIntbwhseareasplit(string $IntbWhseAreaSplit) Return the first ChildWarehouse filtered by the IntbWhseAreaSplit column
+ * @method     ChildWarehouse|null findOneByIntbwhsercvbincode(string $IntbWhseRcvBinCode) Return the first ChildWarehouse filtered by the IntbWhseRcvBinCode column
+ * @method     ChildWarehouse|null findOneByIntbwhsercvbin(string $IntbWhseRcvBin) Return the first ChildWarehouse filtered by the IntbWhseRcvBin column
+ * @method     ChildWarehouse|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildWarehouse filtered by the DateUpdtd column
+ * @method     ChildWarehouse|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouse filtered by the TimeUpdtd column
+ * @method     ChildWarehouse|null findOneByDummy(string $dummy) Return the first ChildWarehouse filtered by the dummy column
+ *
+ * @method     ChildWarehouse requirePk($key, ?ConnectionInterface $con = null) Return the ChildWarehouse by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouse requireOne(?ConnectionInterface $con = null) Return the first ChildWarehouse matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWarehouse requireOneByIntbwhse(string $IntbWhse) Return the first ChildWarehouse filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouse requireOneByIntbwhsename(string $IntbWhseName) Return the first ChildWarehouse filtered by the IntbWhseName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -278,46 +277,86 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouse requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouse filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouse requireOneByDummy(string $dummy) Return the first ChildWarehouse filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWarehouse[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWarehouse objects based on current ModelCriteria
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildWarehouse objects filtered by the IntbWhse column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsename(string $IntbWhseName) Return ChildWarehouse objects filtered by the IntbWhseName column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseadr1(string $IntbWhseAdr1) Return ChildWarehouse objects filtered by the IntbWhseAdr1 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseadr2(string $IntbWhseAdr2) Return ChildWarehouse objects filtered by the IntbWhseAdr2 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsecity(string $IntbWhseCity) Return ChildWarehouse objects filtered by the IntbWhseCity column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsestat(string $IntbWhseStat) Return ChildWarehouse objects filtered by the IntbWhseStat column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsezipcode(string $IntbWhseZipCode) Return ChildWarehouse objects filtered by the IntbWhseZipCode column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsectry(string $IntbWhseCtry) Return ChildWarehouse objects filtered by the IntbWhseCtry column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseusehandheld(string $IntbWhseUseHandheld) Return ChildWarehouse objects filtered by the IntbWhseUseHandheld column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsecashcust(string $IntbWhseCashCust) Return ChildWarehouse objects filtered by the IntbWhseCashCust column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsepickdtl(string $IntbWhsePickDtl) Return ChildWarehouse objects filtered by the IntbWhsePickDtl column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseprodbin(string $IntbWhseProdBin) Return ChildWarehouse objects filtered by the IntbWhseProdBin column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsepharea(string $IntbWhsePhArea) Return ChildWarehouse objects filtered by the IntbWhsePhArea column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsephfrst3(string $IntbWhsePhFrst3) Return ChildWarehouse objects filtered by the IntbWhsePhFrst3 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsephlast4(string $IntbWhsePhLast4) Return ChildWarehouse objects filtered by the IntbWhsePhLast4 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsephext(string $IntbWhsePhExt) Return ChildWarehouse objects filtered by the IntbWhsePhExt column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsefaxarea(string $IntbWhseFaxArea) Return ChildWarehouse objects filtered by the IntbWhseFaxArea column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsefaxfrst3(string $IntbWhseFaxFrst3) Return ChildWarehouse objects filtered by the IntbWhseFaxFrst3 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsefaxlast4(string $IntbWhseFaxLast4) Return ChildWarehouse objects filtered by the IntbWhseFaxLast4 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseemailadr(string $IntbWhseEmailAdr) Return ChildWarehouse objects filtered by the IntbWhseEmailAdr column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseqcrgabin(string $IntbWhseQcRgaBin) Return ChildWarehouse objects filtered by the IntbWhseQcRgaBin column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhserfprinter1(string $IntbWhseRfPrinter1) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter1 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhserfprinter2(string $IntbWhseRfPrinter2) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter2 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhserfprinter3(string $IntbWhseRfPrinter3) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter3 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhserfprinter4(string $IntbWhseRfPrinter4) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter4 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhserfprinter5(string $IntbWhseRfPrinter5) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter5 column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseprofwhse(string $IntbWhseProfWhse) Return ChildWarehouse objects filtered by the IntbWhseProfWhse column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseasetwhse(string $IntbWhseAsetWhse) Return ChildWarehouse objects filtered by the IntbWhseAsetWhse column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseconsignwhse(string $IntbWhseConsignWhse) Return ChildWarehouse objects filtered by the IntbWhseConsignWhse column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsebinrangelist(string $IntbWhseBinRangeList) Return ChildWarehouse objects filtered by the IntbWhseBinRangeList column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsesupplywhse(string $IntbWhseSupplyWhse) Return ChildWarehouse objects filtered by the IntbWhseSupplyWhse column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseareasplit(string $IntbWhseAreaSplit) Return ChildWarehouse objects filtered by the IntbWhseAreaSplit column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsercvbincode(string $IntbWhseRcvBinCode) Return ChildWarehouse objects filtered by the IntbWhseRcvBinCode column
- * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsercvbin(string $IntbWhseRcvBin) Return ChildWarehouse objects filtered by the IntbWhseRcvBin column
- * @method     ChildWarehouse[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildWarehouse objects filtered by the DateUpdtd column
- * @method     ChildWarehouse[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildWarehouse objects filtered by the TimeUpdtd column
- * @method     ChildWarehouse[]|ObjectCollection findByDummy(string $dummy) Return ChildWarehouse objects filtered by the dummy column
- * @method     ChildWarehouse[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildWarehouse[]|Collection find(?ConnectionInterface $con = null) Return ChildWarehouse objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildWarehouse> find(?ConnectionInterface $con = null) Return ChildWarehouse objects based on current ModelCriteria
  *
+ * @method     ChildWarehouse[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildWarehouse objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhse(string|array<string> $IntbWhse) Return ChildWarehouse objects filtered by the IntbWhse column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsename(string|array<string> $IntbWhseName) Return ChildWarehouse objects filtered by the IntbWhseName column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsename(string|array<string> $IntbWhseName) Return ChildWarehouse objects filtered by the IntbWhseName column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseadr1(string|array<string> $IntbWhseAdr1) Return ChildWarehouse objects filtered by the IntbWhseAdr1 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseadr1(string|array<string> $IntbWhseAdr1) Return ChildWarehouse objects filtered by the IntbWhseAdr1 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseadr2(string|array<string> $IntbWhseAdr2) Return ChildWarehouse objects filtered by the IntbWhseAdr2 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseadr2(string|array<string> $IntbWhseAdr2) Return ChildWarehouse objects filtered by the IntbWhseAdr2 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsecity(string|array<string> $IntbWhseCity) Return ChildWarehouse objects filtered by the IntbWhseCity column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsecity(string|array<string> $IntbWhseCity) Return ChildWarehouse objects filtered by the IntbWhseCity column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsestat(string|array<string> $IntbWhseStat) Return ChildWarehouse objects filtered by the IntbWhseStat column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsestat(string|array<string> $IntbWhseStat) Return ChildWarehouse objects filtered by the IntbWhseStat column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsezipcode(string|array<string> $IntbWhseZipCode) Return ChildWarehouse objects filtered by the IntbWhseZipCode column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsezipcode(string|array<string> $IntbWhseZipCode) Return ChildWarehouse objects filtered by the IntbWhseZipCode column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsectry(string|array<string> $IntbWhseCtry) Return ChildWarehouse objects filtered by the IntbWhseCtry column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsectry(string|array<string> $IntbWhseCtry) Return ChildWarehouse objects filtered by the IntbWhseCtry column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseusehandheld(string|array<string> $IntbWhseUseHandheld) Return ChildWarehouse objects filtered by the IntbWhseUseHandheld column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseusehandheld(string|array<string> $IntbWhseUseHandheld) Return ChildWarehouse objects filtered by the IntbWhseUseHandheld column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsecashcust(string|array<string> $IntbWhseCashCust) Return ChildWarehouse objects filtered by the IntbWhseCashCust column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsecashcust(string|array<string> $IntbWhseCashCust) Return ChildWarehouse objects filtered by the IntbWhseCashCust column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsepickdtl(string|array<string> $IntbWhsePickDtl) Return ChildWarehouse objects filtered by the IntbWhsePickDtl column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsepickdtl(string|array<string> $IntbWhsePickDtl) Return ChildWarehouse objects filtered by the IntbWhsePickDtl column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseprodbin(string|array<string> $IntbWhseProdBin) Return ChildWarehouse objects filtered by the IntbWhseProdBin column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseprodbin(string|array<string> $IntbWhseProdBin) Return ChildWarehouse objects filtered by the IntbWhseProdBin column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsepharea(string|array<string> $IntbWhsePhArea) Return ChildWarehouse objects filtered by the IntbWhsePhArea column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsepharea(string|array<string> $IntbWhsePhArea) Return ChildWarehouse objects filtered by the IntbWhsePhArea column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsephfrst3(string|array<string> $IntbWhsePhFrst3) Return ChildWarehouse objects filtered by the IntbWhsePhFrst3 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsephfrst3(string|array<string> $IntbWhsePhFrst3) Return ChildWarehouse objects filtered by the IntbWhsePhFrst3 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsephlast4(string|array<string> $IntbWhsePhLast4) Return ChildWarehouse objects filtered by the IntbWhsePhLast4 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsephlast4(string|array<string> $IntbWhsePhLast4) Return ChildWarehouse objects filtered by the IntbWhsePhLast4 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsephext(string|array<string> $IntbWhsePhExt) Return ChildWarehouse objects filtered by the IntbWhsePhExt column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsephext(string|array<string> $IntbWhsePhExt) Return ChildWarehouse objects filtered by the IntbWhsePhExt column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsefaxarea(string|array<string> $IntbWhseFaxArea) Return ChildWarehouse objects filtered by the IntbWhseFaxArea column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsefaxarea(string|array<string> $IntbWhseFaxArea) Return ChildWarehouse objects filtered by the IntbWhseFaxArea column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsefaxfrst3(string|array<string> $IntbWhseFaxFrst3) Return ChildWarehouse objects filtered by the IntbWhseFaxFrst3 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsefaxfrst3(string|array<string> $IntbWhseFaxFrst3) Return ChildWarehouse objects filtered by the IntbWhseFaxFrst3 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsefaxlast4(string|array<string> $IntbWhseFaxLast4) Return ChildWarehouse objects filtered by the IntbWhseFaxLast4 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsefaxlast4(string|array<string> $IntbWhseFaxLast4) Return ChildWarehouse objects filtered by the IntbWhseFaxLast4 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseemailadr(string|array<string> $IntbWhseEmailAdr) Return ChildWarehouse objects filtered by the IntbWhseEmailAdr column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseemailadr(string|array<string> $IntbWhseEmailAdr) Return ChildWarehouse objects filtered by the IntbWhseEmailAdr column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseqcrgabin(string|array<string> $IntbWhseQcRgaBin) Return ChildWarehouse objects filtered by the IntbWhseQcRgaBin column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseqcrgabin(string|array<string> $IntbWhseQcRgaBin) Return ChildWarehouse objects filtered by the IntbWhseQcRgaBin column
+ * @method     ChildWarehouse[]|Collection findByIntbwhserfprinter1(string|array<string> $IntbWhseRfPrinter1) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter1 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhserfprinter1(string|array<string> $IntbWhseRfPrinter1) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter1 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhserfprinter2(string|array<string> $IntbWhseRfPrinter2) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter2 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhserfprinter2(string|array<string> $IntbWhseRfPrinter2) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter2 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhserfprinter3(string|array<string> $IntbWhseRfPrinter3) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter3 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhserfprinter3(string|array<string> $IntbWhseRfPrinter3) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter3 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhserfprinter4(string|array<string> $IntbWhseRfPrinter4) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter4 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhserfprinter4(string|array<string> $IntbWhseRfPrinter4) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter4 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhserfprinter5(string|array<string> $IntbWhseRfPrinter5) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter5 column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhserfprinter5(string|array<string> $IntbWhseRfPrinter5) Return ChildWarehouse objects filtered by the IntbWhseRfPrinter5 column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseprofwhse(string|array<string> $IntbWhseProfWhse) Return ChildWarehouse objects filtered by the IntbWhseProfWhse column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseprofwhse(string|array<string> $IntbWhseProfWhse) Return ChildWarehouse objects filtered by the IntbWhseProfWhse column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseasetwhse(string|array<string> $IntbWhseAsetWhse) Return ChildWarehouse objects filtered by the IntbWhseAsetWhse column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseasetwhse(string|array<string> $IntbWhseAsetWhse) Return ChildWarehouse objects filtered by the IntbWhseAsetWhse column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseconsignwhse(string|array<string> $IntbWhseConsignWhse) Return ChildWarehouse objects filtered by the IntbWhseConsignWhse column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseconsignwhse(string|array<string> $IntbWhseConsignWhse) Return ChildWarehouse objects filtered by the IntbWhseConsignWhse column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsebinrangelist(string|array<string> $IntbWhseBinRangeList) Return ChildWarehouse objects filtered by the IntbWhseBinRangeList column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsebinrangelist(string|array<string> $IntbWhseBinRangeList) Return ChildWarehouse objects filtered by the IntbWhseBinRangeList column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsesupplywhse(string|array<string> $IntbWhseSupplyWhse) Return ChildWarehouse objects filtered by the IntbWhseSupplyWhse column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsesupplywhse(string|array<string> $IntbWhseSupplyWhse) Return ChildWarehouse objects filtered by the IntbWhseSupplyWhse column
+ * @method     ChildWarehouse[]|Collection findByIntbwhseareasplit(string|array<string> $IntbWhseAreaSplit) Return ChildWarehouse objects filtered by the IntbWhseAreaSplit column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhseareasplit(string|array<string> $IntbWhseAreaSplit) Return ChildWarehouse objects filtered by the IntbWhseAreaSplit column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsercvbincode(string|array<string> $IntbWhseRcvBinCode) Return ChildWarehouse objects filtered by the IntbWhseRcvBinCode column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsercvbincode(string|array<string> $IntbWhseRcvBinCode) Return ChildWarehouse objects filtered by the IntbWhseRcvBinCode column
+ * @method     ChildWarehouse[]|Collection findByIntbwhsercvbin(string|array<string> $IntbWhseRcvBin) Return ChildWarehouse objects filtered by the IntbWhseRcvBin column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByIntbwhsercvbin(string|array<string> $IntbWhseRcvBin) Return ChildWarehouse objects filtered by the IntbWhseRcvBin column
+ * @method     ChildWarehouse[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildWarehouse objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildWarehouse objects filtered by the DateUpdtd column
+ * @method     ChildWarehouse[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildWarehouse objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildWarehouse objects filtered by the TimeUpdtd column
+ * @method     ChildWarehouse[]|Collection findByDummy(string|array<string> $dummy) Return ChildWarehouse objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildWarehouse> findByDummy(string|array<string> $dummy) Return ChildWarehouse objects filtered by the dummy column
+ *
+ * @method     ChildWarehouse[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildWarehouse> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class WarehouseQuery extends ModelCriteria
 {
@@ -326,9 +365,9 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\WarehouseQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\Warehouse', $modelAlias = null)
     {
@@ -338,12 +377,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Returns a new ChildWarehouseQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildWarehouseQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildWarehouseQuery) {
             return $criteria;
@@ -373,7 +412,7 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @return ChildWarehouse|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -405,8 +444,8 @@ abstract class WarehouseQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -438,8 +477,8 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildWarehouse|array|mixed the result, formatted by the current formatter
      */
@@ -459,12 +498,12 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -481,27 +520,31 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $keys, Criteria::IN);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -511,14 +554,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -526,7 +570,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -536,14 +582,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsename('fooValue');   // WHERE IntbWhseName = 'fooValue'
      * $query->filterByIntbwhsename('%fooValue%', Criteria::LIKE); // WHERE IntbWhseName LIKE '%fooValue%'
+     * $query->filterByIntbwhsename(['foo', 'bar']); // WHERE IntbWhseName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsename The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsename The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsename($intbwhsename = null, $comparison = null)
+    public function filterByIntbwhsename($intbwhsename = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsename)) {
@@ -551,7 +598,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSENAME, $intbwhsename, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSENAME, $intbwhsename, $comparison);
+
+        return $this;
     }
 
     /**
@@ -561,14 +610,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseadr1('fooValue');   // WHERE IntbWhseAdr1 = 'fooValue'
      * $query->filterByIntbwhseadr1('%fooValue%', Criteria::LIKE); // WHERE IntbWhseAdr1 LIKE '%fooValue%'
+     * $query->filterByIntbwhseadr1(['foo', 'bar']); // WHERE IntbWhseAdr1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseadr1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseadr1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseadr1($intbwhseadr1 = null, $comparison = null)
+    public function filterByIntbwhseadr1($intbwhseadr1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseadr1)) {
@@ -576,7 +626,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEADR1, $intbwhseadr1, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEADR1, $intbwhseadr1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -586,14 +638,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseadr2('fooValue');   // WHERE IntbWhseAdr2 = 'fooValue'
      * $query->filterByIntbwhseadr2('%fooValue%', Criteria::LIKE); // WHERE IntbWhseAdr2 LIKE '%fooValue%'
+     * $query->filterByIntbwhseadr2(['foo', 'bar']); // WHERE IntbWhseAdr2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseadr2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseadr2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseadr2($intbwhseadr2 = null, $comparison = null)
+    public function filterByIntbwhseadr2($intbwhseadr2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseadr2)) {
@@ -601,7 +654,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEADR2, $intbwhseadr2, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEADR2, $intbwhseadr2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -611,14 +666,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsecity('fooValue');   // WHERE IntbWhseCity = 'fooValue'
      * $query->filterByIntbwhsecity('%fooValue%', Criteria::LIKE); // WHERE IntbWhseCity LIKE '%fooValue%'
+     * $query->filterByIntbwhsecity(['foo', 'bar']); // WHERE IntbWhseCity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsecity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsecity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsecity($intbwhsecity = null, $comparison = null)
+    public function filterByIntbwhsecity($intbwhsecity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsecity)) {
@@ -626,7 +682,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSECITY, $intbwhsecity, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSECITY, $intbwhsecity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -636,14 +694,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsestat('fooValue');   // WHERE IntbWhseStat = 'fooValue'
      * $query->filterByIntbwhsestat('%fooValue%', Criteria::LIKE); // WHERE IntbWhseStat LIKE '%fooValue%'
+     * $query->filterByIntbwhsestat(['foo', 'bar']); // WHERE IntbWhseStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsestat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsestat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsestat($intbwhsestat = null, $comparison = null)
+    public function filterByIntbwhsestat($intbwhsestat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsestat)) {
@@ -651,7 +710,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSESTAT, $intbwhsestat, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSESTAT, $intbwhsestat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -661,14 +722,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsezipcode('fooValue');   // WHERE IntbWhseZipCode = 'fooValue'
      * $query->filterByIntbwhsezipcode('%fooValue%', Criteria::LIKE); // WHERE IntbWhseZipCode LIKE '%fooValue%'
+     * $query->filterByIntbwhsezipcode(['foo', 'bar']); // WHERE IntbWhseZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsezipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsezipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsezipcode($intbwhsezipcode = null, $comparison = null)
+    public function filterByIntbwhsezipcode($intbwhsezipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsezipcode)) {
@@ -676,7 +738,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEZIPCODE, $intbwhsezipcode, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEZIPCODE, $intbwhsezipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -686,14 +750,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsectry('fooValue');   // WHERE IntbWhseCtry = 'fooValue'
      * $query->filterByIntbwhsectry('%fooValue%', Criteria::LIKE); // WHERE IntbWhseCtry LIKE '%fooValue%'
+     * $query->filterByIntbwhsectry(['foo', 'bar']); // WHERE IntbWhseCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsectry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsectry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsectry($intbwhsectry = null, $comparison = null)
+    public function filterByIntbwhsectry($intbwhsectry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsectry)) {
@@ -701,7 +766,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSECTRY, $intbwhsectry, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSECTRY, $intbwhsectry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -711,14 +778,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseusehandheld('fooValue');   // WHERE IntbWhseUseHandheld = 'fooValue'
      * $query->filterByIntbwhseusehandheld('%fooValue%', Criteria::LIKE); // WHERE IntbWhseUseHandheld LIKE '%fooValue%'
+     * $query->filterByIntbwhseusehandheld(['foo', 'bar']); // WHERE IntbWhseUseHandheld IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseusehandheld The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseusehandheld The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseusehandheld($intbwhseusehandheld = null, $comparison = null)
+    public function filterByIntbwhseusehandheld($intbwhseusehandheld = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseusehandheld)) {
@@ -726,7 +794,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEUSEHANDHELD, $intbwhseusehandheld, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEUSEHANDHELD, $intbwhseusehandheld, $comparison);
+
+        return $this;
     }
 
     /**
@@ -736,14 +806,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsecashcust('fooValue');   // WHERE IntbWhseCashCust = 'fooValue'
      * $query->filterByIntbwhsecashcust('%fooValue%', Criteria::LIKE); // WHERE IntbWhseCashCust LIKE '%fooValue%'
+     * $query->filterByIntbwhsecashcust(['foo', 'bar']); // WHERE IntbWhseCashCust IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsecashcust The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsecashcust The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsecashcust($intbwhsecashcust = null, $comparison = null)
+    public function filterByIntbwhsecashcust($intbwhsecashcust = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsecashcust)) {
@@ -751,7 +822,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSECASHCUST, $intbwhsecashcust, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSECASHCUST, $intbwhsecashcust, $comparison);
+
+        return $this;
     }
 
     /**
@@ -761,14 +834,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsepickdtl('fooValue');   // WHERE IntbWhsePickDtl = 'fooValue'
      * $query->filterByIntbwhsepickdtl('%fooValue%', Criteria::LIKE); // WHERE IntbWhsePickDtl LIKE '%fooValue%'
+     * $query->filterByIntbwhsepickdtl(['foo', 'bar']); // WHERE IntbWhsePickDtl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsepickdtl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsepickdtl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsepickdtl($intbwhsepickdtl = null, $comparison = null)
+    public function filterByIntbwhsepickdtl($intbwhsepickdtl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsepickdtl)) {
@@ -776,7 +850,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPICKDTL, $intbwhsepickdtl, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPICKDTL, $intbwhsepickdtl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -786,14 +862,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseprodbin('fooValue');   // WHERE IntbWhseProdBin = 'fooValue'
      * $query->filterByIntbwhseprodbin('%fooValue%', Criteria::LIKE); // WHERE IntbWhseProdBin LIKE '%fooValue%'
+     * $query->filterByIntbwhseprodbin(['foo', 'bar']); // WHERE IntbWhseProdBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseprodbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseprodbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseprodbin($intbwhseprodbin = null, $comparison = null)
+    public function filterByIntbwhseprodbin($intbwhseprodbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseprodbin)) {
@@ -801,7 +878,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPRODBIN, $intbwhseprodbin, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPRODBIN, $intbwhseprodbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -811,14 +890,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsepharea('fooValue');   // WHERE IntbWhsePhArea = 'fooValue'
      * $query->filterByIntbwhsepharea('%fooValue%', Criteria::LIKE); // WHERE IntbWhsePhArea LIKE '%fooValue%'
+     * $query->filterByIntbwhsepharea(['foo', 'bar']); // WHERE IntbWhsePhArea IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsepharea The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsepharea The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsepharea($intbwhsepharea = null, $comparison = null)
+    public function filterByIntbwhsepharea($intbwhsepharea = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsepharea)) {
@@ -826,7 +906,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPHAREA, $intbwhsepharea, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPHAREA, $intbwhsepharea, $comparison);
+
+        return $this;
     }
 
     /**
@@ -836,14 +918,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsephfrst3('fooValue');   // WHERE IntbWhsePhFrst3 = 'fooValue'
      * $query->filterByIntbwhsephfrst3('%fooValue%', Criteria::LIKE); // WHERE IntbWhsePhFrst3 LIKE '%fooValue%'
+     * $query->filterByIntbwhsephfrst3(['foo', 'bar']); // WHERE IntbWhsePhFrst3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsephfrst3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsephfrst3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsephfrst3($intbwhsephfrst3 = null, $comparison = null)
+    public function filterByIntbwhsephfrst3($intbwhsephfrst3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsephfrst3)) {
@@ -851,7 +934,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPHFRST3, $intbwhsephfrst3, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPHFRST3, $intbwhsephfrst3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -861,14 +946,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsephlast4('fooValue');   // WHERE IntbWhsePhLast4 = 'fooValue'
      * $query->filterByIntbwhsephlast4('%fooValue%', Criteria::LIKE); // WHERE IntbWhsePhLast4 LIKE '%fooValue%'
+     * $query->filterByIntbwhsephlast4(['foo', 'bar']); // WHERE IntbWhsePhLast4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsephlast4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsephlast4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsephlast4($intbwhsephlast4 = null, $comparison = null)
+    public function filterByIntbwhsephlast4($intbwhsephlast4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsephlast4)) {
@@ -876,7 +962,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPHLAST4, $intbwhsephlast4, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPHLAST4, $intbwhsephlast4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -886,14 +974,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsephext('fooValue');   // WHERE IntbWhsePhExt = 'fooValue'
      * $query->filterByIntbwhsephext('%fooValue%', Criteria::LIKE); // WHERE IntbWhsePhExt LIKE '%fooValue%'
+     * $query->filterByIntbwhsephext(['foo', 'bar']); // WHERE IntbWhsePhExt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsephext The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsephext The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsephext($intbwhsephext = null, $comparison = null)
+    public function filterByIntbwhsephext($intbwhsephext = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsephext)) {
@@ -901,7 +990,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPHEXT, $intbwhsephext, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPHEXT, $intbwhsephext, $comparison);
+
+        return $this;
     }
 
     /**
@@ -911,14 +1002,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsefaxarea('fooValue');   // WHERE IntbWhseFaxArea = 'fooValue'
      * $query->filterByIntbwhsefaxarea('%fooValue%', Criteria::LIKE); // WHERE IntbWhseFaxArea LIKE '%fooValue%'
+     * $query->filterByIntbwhsefaxarea(['foo', 'bar']); // WHERE IntbWhseFaxArea IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsefaxarea The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsefaxarea The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsefaxarea($intbwhsefaxarea = null, $comparison = null)
+    public function filterByIntbwhsefaxarea($intbwhsefaxarea = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsefaxarea)) {
@@ -926,7 +1018,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEFAXAREA, $intbwhsefaxarea, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEFAXAREA, $intbwhsefaxarea, $comparison);
+
+        return $this;
     }
 
     /**
@@ -936,14 +1030,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsefaxfrst3('fooValue');   // WHERE IntbWhseFaxFrst3 = 'fooValue'
      * $query->filterByIntbwhsefaxfrst3('%fooValue%', Criteria::LIKE); // WHERE IntbWhseFaxFrst3 LIKE '%fooValue%'
+     * $query->filterByIntbwhsefaxfrst3(['foo', 'bar']); // WHERE IntbWhseFaxFrst3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsefaxfrst3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsefaxfrst3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsefaxfrst3($intbwhsefaxfrst3 = null, $comparison = null)
+    public function filterByIntbwhsefaxfrst3($intbwhsefaxfrst3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsefaxfrst3)) {
@@ -951,7 +1046,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEFAXFRST3, $intbwhsefaxfrst3, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEFAXFRST3, $intbwhsefaxfrst3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -961,14 +1058,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsefaxlast4('fooValue');   // WHERE IntbWhseFaxLast4 = 'fooValue'
      * $query->filterByIntbwhsefaxlast4('%fooValue%', Criteria::LIKE); // WHERE IntbWhseFaxLast4 LIKE '%fooValue%'
+     * $query->filterByIntbwhsefaxlast4(['foo', 'bar']); // WHERE IntbWhseFaxLast4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsefaxlast4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsefaxlast4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsefaxlast4($intbwhsefaxlast4 = null, $comparison = null)
+    public function filterByIntbwhsefaxlast4($intbwhsefaxlast4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsefaxlast4)) {
@@ -976,7 +1074,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEFAXLAST4, $intbwhsefaxlast4, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEFAXLAST4, $intbwhsefaxlast4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -986,14 +1086,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseemailadr('fooValue');   // WHERE IntbWhseEmailAdr = 'fooValue'
      * $query->filterByIntbwhseemailadr('%fooValue%', Criteria::LIKE); // WHERE IntbWhseEmailAdr LIKE '%fooValue%'
+     * $query->filterByIntbwhseemailadr(['foo', 'bar']); // WHERE IntbWhseEmailAdr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseemailadr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseemailadr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseemailadr($intbwhseemailadr = null, $comparison = null)
+    public function filterByIntbwhseemailadr($intbwhseemailadr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseemailadr)) {
@@ -1001,7 +1102,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEEMAILADR, $intbwhseemailadr, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEEMAILADR, $intbwhseemailadr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1011,14 +1114,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseqcrgabin('fooValue');   // WHERE IntbWhseQcRgaBin = 'fooValue'
      * $query->filterByIntbwhseqcrgabin('%fooValue%', Criteria::LIKE); // WHERE IntbWhseQcRgaBin LIKE '%fooValue%'
+     * $query->filterByIntbwhseqcrgabin(['foo', 'bar']); // WHERE IntbWhseQcRgaBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseqcrgabin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseqcrgabin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseqcrgabin($intbwhseqcrgabin = null, $comparison = null)
+    public function filterByIntbwhseqcrgabin($intbwhseqcrgabin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseqcrgabin)) {
@@ -1026,7 +1130,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEQCRGABIN, $intbwhseqcrgabin, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEQCRGABIN, $intbwhseqcrgabin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1036,14 +1142,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhserfprinter1('fooValue');   // WHERE IntbWhseRfPrinter1 = 'fooValue'
      * $query->filterByIntbwhserfprinter1('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRfPrinter1 LIKE '%fooValue%'
+     * $query->filterByIntbwhserfprinter1(['foo', 'bar']); // WHERE IntbWhseRfPrinter1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhserfprinter1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhserfprinter1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhserfprinter1($intbwhserfprinter1 = null, $comparison = null)
+    public function filterByIntbwhserfprinter1($intbwhserfprinter1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhserfprinter1)) {
@@ -1051,7 +1158,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER1, $intbwhserfprinter1, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER1, $intbwhserfprinter1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1061,14 +1170,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhserfprinter2('fooValue');   // WHERE IntbWhseRfPrinter2 = 'fooValue'
      * $query->filterByIntbwhserfprinter2('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRfPrinter2 LIKE '%fooValue%'
+     * $query->filterByIntbwhserfprinter2(['foo', 'bar']); // WHERE IntbWhseRfPrinter2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhserfprinter2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhserfprinter2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhserfprinter2($intbwhserfprinter2 = null, $comparison = null)
+    public function filterByIntbwhserfprinter2($intbwhserfprinter2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhserfprinter2)) {
@@ -1076,7 +1186,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER2, $intbwhserfprinter2, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER2, $intbwhserfprinter2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1086,14 +1198,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhserfprinter3('fooValue');   // WHERE IntbWhseRfPrinter3 = 'fooValue'
      * $query->filterByIntbwhserfprinter3('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRfPrinter3 LIKE '%fooValue%'
+     * $query->filterByIntbwhserfprinter3(['foo', 'bar']); // WHERE IntbWhseRfPrinter3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhserfprinter3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhserfprinter3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhserfprinter3($intbwhserfprinter3 = null, $comparison = null)
+    public function filterByIntbwhserfprinter3($intbwhserfprinter3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhserfprinter3)) {
@@ -1101,7 +1214,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER3, $intbwhserfprinter3, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER3, $intbwhserfprinter3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1111,14 +1226,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhserfprinter4('fooValue');   // WHERE IntbWhseRfPrinter4 = 'fooValue'
      * $query->filterByIntbwhserfprinter4('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRfPrinter4 LIKE '%fooValue%'
+     * $query->filterByIntbwhserfprinter4(['foo', 'bar']); // WHERE IntbWhseRfPrinter4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhserfprinter4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhserfprinter4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhserfprinter4($intbwhserfprinter4 = null, $comparison = null)
+    public function filterByIntbwhserfprinter4($intbwhserfprinter4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhserfprinter4)) {
@@ -1126,7 +1242,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER4, $intbwhserfprinter4, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER4, $intbwhserfprinter4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1136,14 +1254,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhserfprinter5('fooValue');   // WHERE IntbWhseRfPrinter5 = 'fooValue'
      * $query->filterByIntbwhserfprinter5('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRfPrinter5 LIKE '%fooValue%'
+     * $query->filterByIntbwhserfprinter5(['foo', 'bar']); // WHERE IntbWhseRfPrinter5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhserfprinter5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhserfprinter5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhserfprinter5($intbwhserfprinter5 = null, $comparison = null)
+    public function filterByIntbwhserfprinter5($intbwhserfprinter5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhserfprinter5)) {
@@ -1151,7 +1270,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER5, $intbwhserfprinter5, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERFPRINTER5, $intbwhserfprinter5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1161,14 +1282,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseprofwhse('fooValue');   // WHERE IntbWhseProfWhse = 'fooValue'
      * $query->filterByIntbwhseprofwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhseProfWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhseprofwhse(['foo', 'bar']); // WHERE IntbWhseProfWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseprofwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseprofwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseprofwhse($intbwhseprofwhse = null, $comparison = null)
+    public function filterByIntbwhseprofwhse($intbwhseprofwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseprofwhse)) {
@@ -1176,7 +1298,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPROFWHSE, $intbwhseprofwhse, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEPROFWHSE, $intbwhseprofwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1186,14 +1310,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseasetwhse('fooValue');   // WHERE IntbWhseAsetWhse = 'fooValue'
      * $query->filterByIntbwhseasetwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhseAsetWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhseasetwhse(['foo', 'bar']); // WHERE IntbWhseAsetWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseasetwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseasetwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseasetwhse($intbwhseasetwhse = null, $comparison = null)
+    public function filterByIntbwhseasetwhse($intbwhseasetwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseasetwhse)) {
@@ -1201,7 +1326,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEASETWHSE, $intbwhseasetwhse, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEASETWHSE, $intbwhseasetwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1211,14 +1338,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseconsignwhse('fooValue');   // WHERE IntbWhseConsignWhse = 'fooValue'
      * $query->filterByIntbwhseconsignwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhseConsignWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhseconsignwhse(['foo', 'bar']); // WHERE IntbWhseConsignWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseconsignwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseconsignwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseconsignwhse($intbwhseconsignwhse = null, $comparison = null)
+    public function filterByIntbwhseconsignwhse($intbwhseconsignwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseconsignwhse)) {
@@ -1226,7 +1354,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSECONSIGNWHSE, $intbwhseconsignwhse, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSECONSIGNWHSE, $intbwhseconsignwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1236,14 +1366,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsebinrangelist('fooValue');   // WHERE IntbWhseBinRangeList = 'fooValue'
      * $query->filterByIntbwhsebinrangelist('%fooValue%', Criteria::LIKE); // WHERE IntbWhseBinRangeList LIKE '%fooValue%'
+     * $query->filterByIntbwhsebinrangelist(['foo', 'bar']); // WHERE IntbWhseBinRangeList IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsebinrangelist The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsebinrangelist The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsebinrangelist($intbwhsebinrangelist = null, $comparison = null)
+    public function filterByIntbwhsebinrangelist($intbwhsebinrangelist = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsebinrangelist)) {
@@ -1251,7 +1382,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEBINRANGELIST, $intbwhsebinrangelist, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEBINRANGELIST, $intbwhsebinrangelist, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1261,14 +1394,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsesupplywhse('fooValue');   // WHERE IntbWhseSupplyWhse = 'fooValue'
      * $query->filterByIntbwhsesupplywhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhseSupplyWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhsesupplywhse(['foo', 'bar']); // WHERE IntbWhseSupplyWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsesupplywhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsesupplywhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsesupplywhse($intbwhsesupplywhse = null, $comparison = null)
+    public function filterByIntbwhsesupplywhse($intbwhsesupplywhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsesupplywhse)) {
@@ -1276,7 +1410,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSESUPPLYWHSE, $intbwhsesupplywhse, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSESUPPLYWHSE, $intbwhsesupplywhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1286,14 +1422,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhseareasplit('fooValue');   // WHERE IntbWhseAreaSplit = 'fooValue'
      * $query->filterByIntbwhseareasplit('%fooValue%', Criteria::LIKE); // WHERE IntbWhseAreaSplit LIKE '%fooValue%'
+     * $query->filterByIntbwhseareasplit(['foo', 'bar']); // WHERE IntbWhseAreaSplit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhseareasplit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhseareasplit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhseareasplit($intbwhseareasplit = null, $comparison = null)
+    public function filterByIntbwhseareasplit($intbwhseareasplit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhseareasplit)) {
@@ -1301,7 +1438,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEAREASPLIT, $intbwhseareasplit, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEAREASPLIT, $intbwhseareasplit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1311,14 +1450,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsercvbincode('fooValue');   // WHERE IntbWhseRcvBinCode = 'fooValue'
      * $query->filterByIntbwhsercvbincode('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRcvBinCode LIKE '%fooValue%'
+     * $query->filterByIntbwhsercvbincode(['foo', 'bar']); // WHERE IntbWhseRcvBinCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsercvbincode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsercvbincode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsercvbincode($intbwhsercvbincode = null, $comparison = null)
+    public function filterByIntbwhsercvbincode($intbwhsercvbincode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsercvbincode)) {
@@ -1326,7 +1466,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERCVBINCODE, $intbwhsercvbincode, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERCVBINCODE, $intbwhsercvbincode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1336,14 +1478,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhsercvbin('fooValue');   // WHERE IntbWhseRcvBin = 'fooValue'
      * $query->filterByIntbwhsercvbin('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRcvBin LIKE '%fooValue%'
+     * $query->filterByIntbwhsercvbin(['foo', 'bar']); // WHERE IntbWhseRcvBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhsercvbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhsercvbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhsercvbin($intbwhsercvbin = null, $comparison = null)
+    public function filterByIntbwhsercvbin($intbwhsercvbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhsercvbin)) {
@@ -1351,7 +1494,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERCVBIN, $intbwhsercvbin, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERCVBIN, $intbwhsercvbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1361,14 +1506,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1376,7 +1522,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1386,14 +1534,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1401,7 +1550,9 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1411,14 +1562,15 @@ abstract class WarehouseQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1426,27 +1578,33 @@ abstract class WarehouseQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WarehouseTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(WarehouseTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \InvWhseItemBin object
      *
      * @param \InvWhseItemBin|ObjectCollection $invWhseItemBin the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvWhseItemBin($invWhseItemBin, $comparison = null)
+    public function filterByInvWhseItemBin($invWhseItemBin, ?string $comparison = null)
     {
         if ($invWhseItemBin instanceof \InvWhseItemBin) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invWhseItemBin->getIntbwhse(), $comparison);
+
+            return $this;
         } elseif ($invWhseItemBin instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvWhseItemBinQuery()
                 ->filterByPrimaryKeys($invWhseItemBin->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvWhseItemBin() only accepts arguments of type \InvWhseItemBin or Collection');
         }
@@ -1455,12 +1613,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvWhseItemBin relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvWhseItemBin($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvWhseItemBin(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvWhseItemBin');
@@ -1489,9 +1647,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvWhseItemBinQuery A secondary query class using the current class as primary query
      */
@@ -1503,23 +1661,123 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvWhseItemBin relation InvWhseItemBin object
+     *
+     * @param callable(\InvWhseItemBinQuery):\InvWhseItemBinQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvWhseItemBinQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvWhseItemBinQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvWhseItemBin table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvWhseItemBinQuery The inner query object of the EXISTS statement
+     */
+    public function useInvWhseItemBinExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvWhseItemBinQuery */
+        $q = $this->useExistsQuery('InvWhseItemBin', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseItemBin table for a NOT EXISTS query.
+     *
+     * @see useInvWhseItemBinExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseItemBinQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvWhseItemBinNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseItemBinQuery */
+        $q = $this->useExistsQuery('InvWhseItemBin', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseItemBin table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvWhseItemBinQuery The inner query object of the IN statement
+     */
+    public function useInInvWhseItemBinQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvWhseItemBinQuery */
+        $q = $this->useInQuery('InvWhseItemBin', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseItemBin table for a NOT IN query.
+     *
+     * @see useInvWhseItemBinInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseItemBinQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvWhseItemBinQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseItemBinQuery */
+        $q = $this->useInQuery('InvWhseItemBin', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \WarehouseBin object
      *
      * @param \WarehouseBin|ObjectCollection $warehouseBin the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWarehouseBin($warehouseBin, $comparison = null)
+    public function filterByWarehouseBin($warehouseBin, ?string $comparison = null)
     {
         if ($warehouseBin instanceof \WarehouseBin) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $warehouseBin->getIntbwhse(), $comparison);
+
+            return $this;
         } elseif ($warehouseBin instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useWarehouseBinQuery()
                 ->filterByPrimaryKeys($warehouseBin->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByWarehouseBin() only accepts arguments of type \WarehouseBin or Collection');
         }
@@ -1528,12 +1786,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the WarehouseBin relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinWarehouseBin($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinWarehouseBin(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('WarehouseBin');
@@ -1562,9 +1820,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \WarehouseBinQuery A secondary query class using the current class as primary query
      */
@@ -1576,23 +1834,123 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the WarehouseBin relation WarehouseBin object
+     *
+     * @param callable(\WarehouseBinQuery):\WarehouseBinQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withWarehouseBinQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useWarehouseBinQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to WarehouseBin table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \WarehouseBinQuery The inner query object of the EXISTS statement
+     */
+    public function useWarehouseBinExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \WarehouseBinQuery */
+        $q = $this->useExistsQuery('WarehouseBin', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseBin table for a NOT EXISTS query.
+     *
+     * @see useWarehouseBinExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseBinQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useWarehouseBinNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseBinQuery */
+        $q = $this->useExistsQuery('WarehouseBin', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseBin table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \WarehouseBinQuery The inner query object of the IN statement
+     */
+    public function useInWarehouseBinQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \WarehouseBinQuery */
+        $q = $this->useInQuery('WarehouseBin', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseBin table for a NOT IN query.
+     *
+     * @see useWarehouseBinInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseBinQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInWarehouseBinQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseBinQuery */
+        $q = $this->useInQuery('WarehouseBin', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvWhseLot object
      *
      * @param \InvWhseLot|ObjectCollection $invWhseLot the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvWhseLot($invWhseLot, $comparison = null)
+    public function filterByInvWhseLot($invWhseLot, ?string $comparison = null)
     {
         if ($invWhseLot instanceof \InvWhseLot) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invWhseLot->getIntbwhse(), $comparison);
+
+            return $this;
         } elseif ($invWhseLot instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvWhseLotQuery()
                 ->filterByPrimaryKeys($invWhseLot->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvWhseLot() only accepts arguments of type \InvWhseLot or Collection');
         }
@@ -1601,12 +1959,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvWhseLot relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvWhseLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvWhseLot(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvWhseLot');
@@ -1635,9 +1993,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvWhseLotQuery A secondary query class using the current class as primary query
      */
@@ -1649,23 +2007,123 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvWhseLot relation InvWhseLot object
+     *
+     * @param callable(\InvWhseLotQuery):\InvWhseLotQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvWhseLotQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvWhseLotQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvWhseLotQuery The inner query object of the EXISTS statement
+     */
+    public function useInvWhseLotExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useExistsQuery('InvWhseLot', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for a NOT EXISTS query.
+     *
+     * @see useInvWhseLotExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseLotQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvWhseLotNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useExistsQuery('InvWhseLot', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvWhseLotQuery The inner query object of the IN statement
+     */
+    public function useInInvWhseLotQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useInQuery('InvWhseLot', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for a NOT IN query.
+     *
+     * @see useInvWhseLotInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseLotQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvWhseLotQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useInQuery('InvWhseLot', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvLotTag object
      *
      * @param \InvLotTag|ObjectCollection $invLotTag the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvLotTag($invLotTag, $comparison = null)
+    public function filterByInvLotTag($invLotTag, ?string $comparison = null)
     {
         if ($invLotTag instanceof \InvLotTag) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invLotTag->getIntbwhse(), $comparison);
+
+            return $this;
         } elseif ($invLotTag instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvLotTagQuery()
                 ->filterByPrimaryKeys($invLotTag->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvLotTag() only accepts arguments of type \InvLotTag or Collection');
         }
@@ -1674,12 +2132,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvLotTag relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvLotTag($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotTag(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvLotTag');
@@ -1708,9 +2166,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvLotTagQuery A secondary query class using the current class as primary query
      */
@@ -1722,23 +2180,123 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvLotTag relation InvLotTag object
+     *
+     * @param callable(\InvLotTagQuery):\InvLotTagQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvLotTagQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvLotTagQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvLotTagQuery The inner query object of the EXISTS statement
+     */
+    public function useInvLotTagExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useExistsQuery('InvLotTag', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for a NOT EXISTS query.
+     *
+     * @see useInvLotTagExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotTagQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvLotTagNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useExistsQuery('InvLotTag', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvLotTagQuery The inner query object of the IN statement
+     */
+    public function useInInvLotTagQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useInQuery('InvLotTag', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for a NOT IN query.
+     *
+     * @see useInvLotTagInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotTagQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvLotTagQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useInQuery('InvLotTag', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferOrder object
      *
      * @param \InvTransferOrder|ObjectCollection $invTransferOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferOrderRelatedByIntbwhsefrom($invTransferOrder, $comparison = null)
+    public function filterByInvTransferOrderRelatedByIntbwhsefrom($invTransferOrder, ?string $comparison = null)
     {
         if ($invTransferOrder instanceof \InvTransferOrder) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invTransferOrder->getIntbwhsefrom(), $comparison);
+
+            return $this;
         } elseif ($invTransferOrder instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvTransferOrderRelatedByIntbwhsefromQuery()
                 ->filterByPrimaryKeys($invTransferOrder->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferOrderRelatedByIntbwhsefrom() only accepts arguments of type \InvTransferOrder or Collection');
         }
@@ -1747,12 +2305,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferOrderRelatedByIntbwhsefrom($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferOrderRelatedByIntbwhsefrom(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferOrderRelatedByIntbwhsefrom');
@@ -1781,9 +2339,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
      */
@@ -1795,23 +2353,123 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferOrderRelatedByIntbwhsefrom relation InvTransferOrder object
+     *
+     * @param callable(\InvTransferOrderQuery):\InvTransferOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferOrderRelatedByIntbwhsefromQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferOrderRelatedByIntbwhsefromQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhsefrom relation to the InvTransferOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferOrderRelatedByIntbwhsefromExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrderRelatedByIntbwhsefrom', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhsefrom relation to the InvTransferOrder table for a NOT EXISTS query.
+     *
+     * @see useInvTransferOrderRelatedByIntbwhsefromExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferOrderRelatedByIntbwhsefromNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrderRelatedByIntbwhsefrom', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhsefrom relation to the InvTransferOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferOrderQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferOrderRelatedByIntbwhsefromQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrderRelatedByIntbwhsefrom', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhsefrom relation to the InvTransferOrder table for a NOT IN query.
+     *
+     * @see useInvTransferOrderRelatedByIntbwhsefromInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferOrderRelatedByIntbwhsefromQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrderRelatedByIntbwhsefrom', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferOrder object
      *
      * @param \InvTransferOrder|ObjectCollection $invTransferOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferOrderRelatedByIntbwhseto($invTransferOrder, $comparison = null)
+    public function filterByInvTransferOrderRelatedByIntbwhseto($invTransferOrder, ?string $comparison = null)
     {
         if ($invTransferOrder instanceof \InvTransferOrder) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invTransferOrder->getIntbwhseto(), $comparison);
+
+            return $this;
         } elseif ($invTransferOrder instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvTransferOrderRelatedByIntbwhsetoQuery()
                 ->filterByPrimaryKeys($invTransferOrder->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferOrderRelatedByIntbwhseto() only accepts arguments of type \InvTransferOrder or Collection');
         }
@@ -1820,12 +2478,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferOrderRelatedByIntbwhseto relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferOrderRelatedByIntbwhseto($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferOrderRelatedByIntbwhseto(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferOrderRelatedByIntbwhseto');
@@ -1854,9 +2512,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
      */
@@ -1868,23 +2526,123 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferOrderRelatedByIntbwhseto relation InvTransferOrder object
+     *
+     * @param callable(\InvTransferOrderQuery):\InvTransferOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferOrderRelatedByIntbwhsetoQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferOrderRelatedByIntbwhsetoQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhseto relation to the InvTransferOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferOrderRelatedByIntbwhsetoExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrderRelatedByIntbwhseto', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhseto relation to the InvTransferOrder table for a NOT EXISTS query.
+     *
+     * @see useInvTransferOrderRelatedByIntbwhsetoExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferOrderRelatedByIntbwhsetoNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrderRelatedByIntbwhseto', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhseto relation to the InvTransferOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferOrderQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferOrderRelatedByIntbwhsetoQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrderRelatedByIntbwhseto', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhseto relation to the InvTransferOrder table for a NOT IN query.
+     *
+     * @see useInvTransferOrderRelatedByIntbwhsetoInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferOrderRelatedByIntbwhsetoQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrderRelatedByIntbwhseto', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \WarehouseInventory object
      *
      * @param \WarehouseInventory|ObjectCollection $warehouseInventory the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWarehouseInventory($warehouseInventory, $comparison = null)
+    public function filterByWarehouseInventory($warehouseInventory, ?string $comparison = null)
     {
         if ($warehouseInventory instanceof \WarehouseInventory) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $warehouseInventory->getIntbwhse(), $comparison);
+
+            return $this;
         } elseif ($warehouseInventory instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useWarehouseInventoryQuery()
                 ->filterByPrimaryKeys($warehouseInventory->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByWarehouseInventory() only accepts arguments of type \WarehouseInventory or Collection');
         }
@@ -1893,12 +2651,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the WarehouseInventory relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinWarehouseInventory($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinWarehouseInventory(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('WarehouseInventory');
@@ -1927,9 +2685,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \WarehouseInventoryQuery A secondary query class using the current class as primary query
      */
@@ -1941,23 +2699,123 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the WarehouseInventory relation WarehouseInventory object
+     *
+     * @param callable(\WarehouseInventoryQuery):\WarehouseInventoryQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withWarehouseInventoryQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useWarehouseInventoryQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the EXISTS statement
+     */
+    public function useWarehouseInventoryExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useExistsQuery('WarehouseInventory', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for a NOT EXISTS query.
+     *
+     * @see useWarehouseInventoryExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useWarehouseInventoryNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useExistsQuery('WarehouseInventory', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the IN statement
+     */
+    public function useInWarehouseInventoryQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useInQuery('WarehouseInventory', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseInventory table for a NOT IN query.
+     *
+     * @see useWarehouseInventoryInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseInventoryQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInWarehouseInventoryQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseInventoryQuery */
+        $q = $this->useInQuery('WarehouseInventory', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \WarehouseNote object
      *
      * @param \WarehouseNote|ObjectCollection $warehouseNote the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWarehouseNote($warehouseNote, $comparison = null)
+    public function filterByWarehouseNote($warehouseNote, ?string $comparison = null)
     {
         if ($warehouseNote instanceof \WarehouseNote) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $warehouseNote->getIntbwhse(), $comparison);
+
+            return $this;
         } elseif ($warehouseNote instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useWarehouseNoteQuery()
                 ->filterByPrimaryKeys($warehouseNote->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByWarehouseNote() only accepts arguments of type \WarehouseNote or Collection');
         }
@@ -1966,12 +2824,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the WarehouseNote relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinWarehouseNote($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinWarehouseNote(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('WarehouseNote');
@@ -2000,9 +2858,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \WarehouseNoteQuery A secondary query class using the current class as primary query
      */
@@ -2014,23 +2872,123 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the WarehouseNote relation WarehouseNote object
+     *
+     * @param callable(\WarehouseNoteQuery):\WarehouseNoteQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withWarehouseNoteQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useWarehouseNoteQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to WarehouseNote table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \WarehouseNoteQuery The inner query object of the EXISTS statement
+     */
+    public function useWarehouseNoteExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \WarehouseNoteQuery */
+        $q = $this->useExistsQuery('WarehouseNote', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseNote table for a NOT EXISTS query.
+     *
+     * @see useWarehouseNoteExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseNoteQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useWarehouseNoteNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseNoteQuery */
+        $q = $this->useExistsQuery('WarehouseNote', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseNote table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \WarehouseNoteQuery The inner query object of the IN statement
+     */
+    public function useInWarehouseNoteQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \WarehouseNoteQuery */
+        $q = $this->useInQuery('WarehouseNote', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to WarehouseNote table for a NOT IN query.
+     *
+     * @see useWarehouseNoteInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseNoteQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInWarehouseNoteQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseNoteQuery */
+        $q = $this->useInQuery('WarehouseNote', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PoReceivingHead object
      *
      * @param \PoReceivingHead|ObjectCollection $poReceivingHead the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPoReceivingHead($poReceivingHead, $comparison = null)
+    public function filterByPoReceivingHead($poReceivingHead, ?string $comparison = null)
     {
         if ($poReceivingHead instanceof \PoReceivingHead) {
-            return $this
+            $this
                 ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $poReceivingHead->getIntbwhse(), $comparison);
+
+            return $this;
         } elseif ($poReceivingHead instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePoReceivingHeadQuery()
                 ->filterByPrimaryKeys($poReceivingHead->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPoReceivingHead() only accepts arguments of type \PoReceivingHead or Collection');
         }
@@ -2039,12 +2997,12 @@ abstract class WarehouseQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PoReceivingHead relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPoReceivingHead($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinPoReceivingHead(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PoReceivingHead');
@@ -2073,9 +3031,9 @@ abstract class WarehouseQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PoReceivingHeadQuery A secondary query class using the current class as primary query
      */
@@ -2087,11 +3045,107 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Use the PoReceivingHead relation PoReceivingHead object
+     *
+     * @param callable(\PoReceivingHeadQuery):\PoReceivingHeadQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPoReceivingHeadQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePoReceivingHeadQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PoReceivingHead table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PoReceivingHeadQuery The inner query object of the EXISTS statement
+     */
+    public function usePoReceivingHeadExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PoReceivingHeadQuery */
+        $q = $this->useExistsQuery('PoReceivingHead', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PoReceivingHead table for a NOT EXISTS query.
+     *
+     * @see usePoReceivingHeadExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PoReceivingHeadQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePoReceivingHeadNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PoReceivingHeadQuery */
+        $q = $this->useExistsQuery('PoReceivingHead', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PoReceivingHead table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PoReceivingHeadQuery The inner query object of the IN statement
+     */
+    public function useInPoReceivingHeadQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PoReceivingHeadQuery */
+        $q = $this->useInQuery('PoReceivingHead', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PoReceivingHead table for a NOT IN query.
+     *
+     * @see usePoReceivingHeadInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PoReceivingHeadQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPoReceivingHeadQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PoReceivingHeadQuery */
+        $q = $this->useInQuery('PoReceivingHead', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildWarehouse $warehouse Object to remove from the list of results
+     * @param ChildWarehouse $warehouse Object to remove from the list of results
      *
-     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($warehouse = null)
     {
@@ -2108,7 +3162,7 @@ abstract class WarehouseQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseTableMap::DATABASE_NAME);
@@ -2133,12 +3187,12 @@ abstract class WarehouseQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WarehouseTableMap::DATABASE_NAME);
@@ -2163,4 +3217,4 @@ abstract class WarehouseQuery extends ModelCriteria
         });
     }
 
-} // WarehouseQuery
+}

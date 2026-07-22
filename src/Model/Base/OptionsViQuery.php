@@ -10,14 +10,12 @@ use Map\OptionsViTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'vi_options' table.
- *
- *
+ * Base class that represents a query for the `vi_options` table.
  *
  * @method     ChildOptionsViQuery orderByVitboptncode($order = Criteria::ASC) Order by the VitbOptnCode column
  * @method     ChildOptionsViQuery orderByVitboptngenavail($order = Criteria::ASC) Order by the VitbOptnGenAvail column
@@ -63,29 +61,29 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsViQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildOptionsViQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildOptionsVi findOne(ConnectionInterface $con = null) Return the first ChildOptionsVi matching the query
- * @method     ChildOptionsVi findOneOrCreate(ConnectionInterface $con = null) Return the first ChildOptionsVi matching the query, or a new ChildOptionsVi object populated from the query conditions when no match is found
+ * @method     ChildOptionsVi|null findOne(?ConnectionInterface $con = null) Return the first ChildOptionsVi matching the query
+ * @method     ChildOptionsVi findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildOptionsVi matching the query, or a new ChildOptionsVi object populated from the query conditions when no match is found
  *
- * @method     ChildOptionsVi findOneByVitboptncode(string $VitbOptnCode) Return the first ChildOptionsVi filtered by the VitbOptnCode column
- * @method     ChildOptionsVi findOneByVitboptngenavail(string $VitbOptnGenAvail) Return the first ChildOptionsVi filtered by the VitbOptnGenAvail column
- * @method     ChildOptionsVi findOneByVitboptnpayavail(string $VitbOptnPayAvail) Return the first ChildOptionsVi filtered by the VitbOptnPayAvail column
- * @method     ChildOptionsVi findOneByVitboptncostavail(string $VitbOptnCostAvail) Return the first ChildOptionsVi filtered by the VitbOptnCostAvail column
- * @method     ChildOptionsVi findOneByVitboptnpoavail(string $VitbOptnPoAvail) Return the first ChildOptionsVi filtered by the VitbOptnPoAvail column
- * @method     ChildOptionsVi findOneByVitboptnopenavail(string $VitbOptnOpenAvail) Return the first ChildOptionsVi filtered by the VitbOptnOpenAvail column
- * @method     ChildOptionsVi findOneByVitboptnphavail(string $VitbOptnPhAvail) Return the first ChildOptionsVi filtered by the VitbOptnPhAvail column
- * @method     ChildOptionsVi findOneByVitboptnunrlavail(string $VitbOptnUnrlAvail) Return the first ChildOptionsVi filtered by the VitbOptnUnrlAvail column
- * @method     ChildOptionsVi findOneByVitboptnunivavail(string $VitbOptnUnivAvail) Return the first ChildOptionsVi filtered by the VitbOptnUnivAvail column
- * @method     ChildOptionsVi findOneByVitboptnnoteavail(string $VitbOptnNoteAvail) Return the first ChildOptionsVi filtered by the VitbOptnNoteAvail column
- * @method     ChildOptionsVi findOneByVitboptn24moavail(string $VitbOptn24moAvail) Return the first ChildOptionsVi filtered by the VitbOptn24moAvail column
- * @method     ChildOptionsVi findOneByVitboptnmisc1(string $VitbOptnMisc1) Return the first ChildOptionsVi filtered by the VitbOptnMisc1 column
- * @method     ChildOptionsVi findOneByVitboptnmisc2(string $VitbOptnMisc2) Return the first ChildOptionsVi filtered by the VitbOptnMisc2 column
- * @method     ChildOptionsVi findOneByVitboptnmisc3(string $VitbOptnMisc3) Return the first ChildOptionsVi filtered by the VitbOptnMisc3 column
- * @method     ChildOptionsVi findOneByDateupdtd(string $DateUpdtd) Return the first ChildOptionsVi filtered by the DateUpdtd column
- * @method     ChildOptionsVi findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsVi filtered by the TimeUpdtd column
- * @method     ChildOptionsVi findOneByDummy(string $dummy) Return the first ChildOptionsVi filtered by the dummy column *
-
- * @method     ChildOptionsVi requirePk($key, ConnectionInterface $con = null) Return the ChildOptionsVi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildOptionsVi requireOne(ConnectionInterface $con = null) Return the first ChildOptionsVi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOptionsVi|null findOneByVitboptncode(string $VitbOptnCode) Return the first ChildOptionsVi filtered by the VitbOptnCode column
+ * @method     ChildOptionsVi|null findOneByVitboptngenavail(string $VitbOptnGenAvail) Return the first ChildOptionsVi filtered by the VitbOptnGenAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptnpayavail(string $VitbOptnPayAvail) Return the first ChildOptionsVi filtered by the VitbOptnPayAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptncostavail(string $VitbOptnCostAvail) Return the first ChildOptionsVi filtered by the VitbOptnCostAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptnpoavail(string $VitbOptnPoAvail) Return the first ChildOptionsVi filtered by the VitbOptnPoAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptnopenavail(string $VitbOptnOpenAvail) Return the first ChildOptionsVi filtered by the VitbOptnOpenAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptnphavail(string $VitbOptnPhAvail) Return the first ChildOptionsVi filtered by the VitbOptnPhAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptnunrlavail(string $VitbOptnUnrlAvail) Return the first ChildOptionsVi filtered by the VitbOptnUnrlAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptnunivavail(string $VitbOptnUnivAvail) Return the first ChildOptionsVi filtered by the VitbOptnUnivAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptnnoteavail(string $VitbOptnNoteAvail) Return the first ChildOptionsVi filtered by the VitbOptnNoteAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptn24moavail(string $VitbOptn24moAvail) Return the first ChildOptionsVi filtered by the VitbOptn24moAvail column
+ * @method     ChildOptionsVi|null findOneByVitboptnmisc1(string $VitbOptnMisc1) Return the first ChildOptionsVi filtered by the VitbOptnMisc1 column
+ * @method     ChildOptionsVi|null findOneByVitboptnmisc2(string $VitbOptnMisc2) Return the first ChildOptionsVi filtered by the VitbOptnMisc2 column
+ * @method     ChildOptionsVi|null findOneByVitboptnmisc3(string $VitbOptnMisc3) Return the first ChildOptionsVi filtered by the VitbOptnMisc3 column
+ * @method     ChildOptionsVi|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildOptionsVi filtered by the DateUpdtd column
+ * @method     ChildOptionsVi|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsVi filtered by the TimeUpdtd column
+ * @method     ChildOptionsVi|null findOneByDummy(string $dummy) Return the first ChildOptionsVi filtered by the dummy column
+ *
+ * @method     ChildOptionsVi requirePk($key, ?ConnectionInterface $con = null) Return the ChildOptionsVi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOptionsVi requireOne(?ConnectionInterface $con = null) Return the first ChildOptionsVi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildOptionsVi requireOneByVitboptncode(string $VitbOptnCode) Return the first ChildOptionsVi filtered by the VitbOptnCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsVi requireOneByVitboptngenavail(string $VitbOptnGenAvail) Return the first ChildOptionsVi filtered by the VitbOptnGenAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -105,26 +103,46 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsVi requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsVi filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsVi requireOneByDummy(string $dummy) Return the first ChildOptionsVi filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildOptionsVi[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildOptionsVi objects based on current ModelCriteria
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptncode(string $VitbOptnCode) Return ChildOptionsVi objects filtered by the VitbOptnCode column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptngenavail(string $VitbOptnGenAvail) Return ChildOptionsVi objects filtered by the VitbOptnGenAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnpayavail(string $VitbOptnPayAvail) Return ChildOptionsVi objects filtered by the VitbOptnPayAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptncostavail(string $VitbOptnCostAvail) Return ChildOptionsVi objects filtered by the VitbOptnCostAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnpoavail(string $VitbOptnPoAvail) Return ChildOptionsVi objects filtered by the VitbOptnPoAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnopenavail(string $VitbOptnOpenAvail) Return ChildOptionsVi objects filtered by the VitbOptnOpenAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnphavail(string $VitbOptnPhAvail) Return ChildOptionsVi objects filtered by the VitbOptnPhAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnunrlavail(string $VitbOptnUnrlAvail) Return ChildOptionsVi objects filtered by the VitbOptnUnrlAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnunivavail(string $VitbOptnUnivAvail) Return ChildOptionsVi objects filtered by the VitbOptnUnivAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnnoteavail(string $VitbOptnNoteAvail) Return ChildOptionsVi objects filtered by the VitbOptnNoteAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptn24moavail(string $VitbOptn24moAvail) Return ChildOptionsVi objects filtered by the VitbOptn24moAvail column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnmisc1(string $VitbOptnMisc1) Return ChildOptionsVi objects filtered by the VitbOptnMisc1 column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnmisc2(string $VitbOptnMisc2) Return ChildOptionsVi objects filtered by the VitbOptnMisc2 column
- * @method     ChildOptionsVi[]|ObjectCollection findByVitboptnmisc3(string $VitbOptnMisc3) Return ChildOptionsVi objects filtered by the VitbOptnMisc3 column
- * @method     ChildOptionsVi[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildOptionsVi objects filtered by the DateUpdtd column
- * @method     ChildOptionsVi[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildOptionsVi objects filtered by the TimeUpdtd column
- * @method     ChildOptionsVi[]|ObjectCollection findByDummy(string $dummy) Return ChildOptionsVi objects filtered by the dummy column
- * @method     ChildOptionsVi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildOptionsVi[]|Collection find(?ConnectionInterface $con = null) Return ChildOptionsVi objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> find(?ConnectionInterface $con = null) Return ChildOptionsVi objects based on current ModelCriteria
  *
+ * @method     ChildOptionsVi[]|Collection findByVitboptncode(string|array<string> $VitbOptnCode) Return ChildOptionsVi objects filtered by the VitbOptnCode column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptncode(string|array<string> $VitbOptnCode) Return ChildOptionsVi objects filtered by the VitbOptnCode column
+ * @method     ChildOptionsVi[]|Collection findByVitboptngenavail(string|array<string> $VitbOptnGenAvail) Return ChildOptionsVi objects filtered by the VitbOptnGenAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptngenavail(string|array<string> $VitbOptnGenAvail) Return ChildOptionsVi objects filtered by the VitbOptnGenAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnpayavail(string|array<string> $VitbOptnPayAvail) Return ChildOptionsVi objects filtered by the VitbOptnPayAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnpayavail(string|array<string> $VitbOptnPayAvail) Return ChildOptionsVi objects filtered by the VitbOptnPayAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptncostavail(string|array<string> $VitbOptnCostAvail) Return ChildOptionsVi objects filtered by the VitbOptnCostAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptncostavail(string|array<string> $VitbOptnCostAvail) Return ChildOptionsVi objects filtered by the VitbOptnCostAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnpoavail(string|array<string> $VitbOptnPoAvail) Return ChildOptionsVi objects filtered by the VitbOptnPoAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnpoavail(string|array<string> $VitbOptnPoAvail) Return ChildOptionsVi objects filtered by the VitbOptnPoAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnopenavail(string|array<string> $VitbOptnOpenAvail) Return ChildOptionsVi objects filtered by the VitbOptnOpenAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnopenavail(string|array<string> $VitbOptnOpenAvail) Return ChildOptionsVi objects filtered by the VitbOptnOpenAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnphavail(string|array<string> $VitbOptnPhAvail) Return ChildOptionsVi objects filtered by the VitbOptnPhAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnphavail(string|array<string> $VitbOptnPhAvail) Return ChildOptionsVi objects filtered by the VitbOptnPhAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnunrlavail(string|array<string> $VitbOptnUnrlAvail) Return ChildOptionsVi objects filtered by the VitbOptnUnrlAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnunrlavail(string|array<string> $VitbOptnUnrlAvail) Return ChildOptionsVi objects filtered by the VitbOptnUnrlAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnunivavail(string|array<string> $VitbOptnUnivAvail) Return ChildOptionsVi objects filtered by the VitbOptnUnivAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnunivavail(string|array<string> $VitbOptnUnivAvail) Return ChildOptionsVi objects filtered by the VitbOptnUnivAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnnoteavail(string|array<string> $VitbOptnNoteAvail) Return ChildOptionsVi objects filtered by the VitbOptnNoteAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnnoteavail(string|array<string> $VitbOptnNoteAvail) Return ChildOptionsVi objects filtered by the VitbOptnNoteAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptn24moavail(string|array<string> $VitbOptn24moAvail) Return ChildOptionsVi objects filtered by the VitbOptn24moAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptn24moavail(string|array<string> $VitbOptn24moAvail) Return ChildOptionsVi objects filtered by the VitbOptn24moAvail column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnmisc1(string|array<string> $VitbOptnMisc1) Return ChildOptionsVi objects filtered by the VitbOptnMisc1 column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnmisc1(string|array<string> $VitbOptnMisc1) Return ChildOptionsVi objects filtered by the VitbOptnMisc1 column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnmisc2(string|array<string> $VitbOptnMisc2) Return ChildOptionsVi objects filtered by the VitbOptnMisc2 column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnmisc2(string|array<string> $VitbOptnMisc2) Return ChildOptionsVi objects filtered by the VitbOptnMisc2 column
+ * @method     ChildOptionsVi[]|Collection findByVitboptnmisc3(string|array<string> $VitbOptnMisc3) Return ChildOptionsVi objects filtered by the VitbOptnMisc3 column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByVitboptnmisc3(string|array<string> $VitbOptnMisc3) Return ChildOptionsVi objects filtered by the VitbOptnMisc3 column
+ * @method     ChildOptionsVi[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildOptionsVi objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildOptionsVi objects filtered by the DateUpdtd column
+ * @method     ChildOptionsVi[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildOptionsVi objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildOptionsVi objects filtered by the TimeUpdtd column
+ * @method     ChildOptionsVi[]|Collection findByDummy(string|array<string> $dummy) Return ChildOptionsVi objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildOptionsVi> findByDummy(string|array<string> $dummy) Return ChildOptionsVi objects filtered by the dummy column
+ *
+ * @method     ChildOptionsVi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildOptionsVi> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class OptionsViQuery extends ModelCriteria
 {
@@ -133,9 +151,9 @@ abstract class OptionsViQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\OptionsViQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\OptionsVi', $modelAlias = null)
     {
@@ -145,12 +163,12 @@ abstract class OptionsViQuery extends ModelCriteria
     /**
      * Returns a new ChildOptionsViQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildOptionsViQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildOptionsViQuery) {
             return $criteria;
@@ -180,7 +198,7 @@ abstract class OptionsViQuery extends ModelCriteria
      *
      * @return ChildOptionsVi|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -212,8 +230,8 @@ abstract class OptionsViQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -245,8 +263,8 @@ abstract class OptionsViQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildOptionsVi|array|mixed the result, formatted by the current formatter
      */
@@ -266,12 +284,12 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -288,27 +306,31 @@ abstract class OptionsViQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -318,14 +340,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptncode('fooValue');   // WHERE VitbOptnCode = 'fooValue'
      * $query->filterByVitboptncode('%fooValue%', Criteria::LIKE); // WHERE VitbOptnCode LIKE '%fooValue%'
+     * $query->filterByVitboptncode(['foo', 'bar']); // WHERE VitbOptnCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptncode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptncode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptncode($vitboptncode = null, $comparison = null)
+    public function filterByVitboptncode($vitboptncode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptncode)) {
@@ -333,7 +356,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCODE, $vitboptncode, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCODE, $vitboptncode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -343,14 +368,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptngenavail('fooValue');   // WHERE VitbOptnGenAvail = 'fooValue'
      * $query->filterByVitboptngenavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnGenAvail LIKE '%fooValue%'
+     * $query->filterByVitboptngenavail(['foo', 'bar']); // WHERE VitbOptnGenAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptngenavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptngenavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptngenavail($vitboptngenavail = null, $comparison = null)
+    public function filterByVitboptngenavail($vitboptngenavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptngenavail)) {
@@ -358,7 +384,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNGENAVAIL, $vitboptngenavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNGENAVAIL, $vitboptngenavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -368,14 +396,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnpayavail('fooValue');   // WHERE VitbOptnPayAvail = 'fooValue'
      * $query->filterByVitboptnpayavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnPayAvail LIKE '%fooValue%'
+     * $query->filterByVitboptnpayavail(['foo', 'bar']); // WHERE VitbOptnPayAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnpayavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnpayavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnpayavail($vitboptnpayavail = null, $comparison = null)
+    public function filterByVitboptnpayavail($vitboptnpayavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnpayavail)) {
@@ -383,7 +412,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPAYAVAIL, $vitboptnpayavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPAYAVAIL, $vitboptnpayavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -393,14 +424,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptncostavail('fooValue');   // WHERE VitbOptnCostAvail = 'fooValue'
      * $query->filterByVitboptncostavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnCostAvail LIKE '%fooValue%'
+     * $query->filterByVitboptncostavail(['foo', 'bar']); // WHERE VitbOptnCostAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptncostavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptncostavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptncostavail($vitboptncostavail = null, $comparison = null)
+    public function filterByVitboptncostavail($vitboptncostavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptncostavail)) {
@@ -408,7 +440,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCOSTAVAIL, $vitboptncostavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNCOSTAVAIL, $vitboptncostavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -418,14 +452,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnpoavail('fooValue');   // WHERE VitbOptnPoAvail = 'fooValue'
      * $query->filterByVitboptnpoavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnPoAvail LIKE '%fooValue%'
+     * $query->filterByVitboptnpoavail(['foo', 'bar']); // WHERE VitbOptnPoAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnpoavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnpoavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnpoavail($vitboptnpoavail = null, $comparison = null)
+    public function filterByVitboptnpoavail($vitboptnpoavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnpoavail)) {
@@ -433,7 +468,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPOAVAIL, $vitboptnpoavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPOAVAIL, $vitboptnpoavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -443,14 +480,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnopenavail('fooValue');   // WHERE VitbOptnOpenAvail = 'fooValue'
      * $query->filterByVitboptnopenavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnOpenAvail LIKE '%fooValue%'
+     * $query->filterByVitboptnopenavail(['foo', 'bar']); // WHERE VitbOptnOpenAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnopenavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnopenavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnopenavail($vitboptnopenavail = null, $comparison = null)
+    public function filterByVitboptnopenavail($vitboptnopenavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnopenavail)) {
@@ -458,7 +496,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNOPENAVAIL, $vitboptnopenavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNOPENAVAIL, $vitboptnopenavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -468,14 +508,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnphavail('fooValue');   // WHERE VitbOptnPhAvail = 'fooValue'
      * $query->filterByVitboptnphavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnPhAvail LIKE '%fooValue%'
+     * $query->filterByVitboptnphavail(['foo', 'bar']); // WHERE VitbOptnPhAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnphavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnphavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnphavail($vitboptnphavail = null, $comparison = null)
+    public function filterByVitboptnphavail($vitboptnphavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnphavail)) {
@@ -483,7 +524,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPHAVAIL, $vitboptnphavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNPHAVAIL, $vitboptnphavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -493,14 +536,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnunrlavail('fooValue');   // WHERE VitbOptnUnrlAvail = 'fooValue'
      * $query->filterByVitboptnunrlavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnUnrlAvail LIKE '%fooValue%'
+     * $query->filterByVitboptnunrlavail(['foo', 'bar']); // WHERE VitbOptnUnrlAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnunrlavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnunrlavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnunrlavail($vitboptnunrlavail = null, $comparison = null)
+    public function filterByVitboptnunrlavail($vitboptnunrlavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnunrlavail)) {
@@ -508,7 +552,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNUNRLAVAIL, $vitboptnunrlavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNUNRLAVAIL, $vitboptnunrlavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -518,14 +564,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnunivavail('fooValue');   // WHERE VitbOptnUnivAvail = 'fooValue'
      * $query->filterByVitboptnunivavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnUnivAvail LIKE '%fooValue%'
+     * $query->filterByVitboptnunivavail(['foo', 'bar']); // WHERE VitbOptnUnivAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnunivavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnunivavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnunivavail($vitboptnunivavail = null, $comparison = null)
+    public function filterByVitboptnunivavail($vitboptnunivavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnunivavail)) {
@@ -533,7 +580,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNUNIVAVAIL, $vitboptnunivavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNUNIVAVAIL, $vitboptnunivavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -543,14 +592,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnnoteavail('fooValue');   // WHERE VitbOptnNoteAvail = 'fooValue'
      * $query->filterByVitboptnnoteavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptnNoteAvail LIKE '%fooValue%'
+     * $query->filterByVitboptnnoteavail(['foo', 'bar']); // WHERE VitbOptnNoteAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnnoteavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnnoteavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnnoteavail($vitboptnnoteavail = null, $comparison = null)
+    public function filterByVitboptnnoteavail($vitboptnnoteavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnnoteavail)) {
@@ -558,7 +608,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNNOTEAVAIL, $vitboptnnoteavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNNOTEAVAIL, $vitboptnnoteavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -568,14 +620,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptn24moavail('fooValue');   // WHERE VitbOptn24moAvail = 'fooValue'
      * $query->filterByVitboptn24moavail('%fooValue%', Criteria::LIKE); // WHERE VitbOptn24moAvail LIKE '%fooValue%'
+     * $query->filterByVitboptn24moavail(['foo', 'bar']); // WHERE VitbOptn24moAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptn24moavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptn24moavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptn24moavail($vitboptn24moavail = null, $comparison = null)
+    public function filterByVitboptn24moavail($vitboptn24moavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptn24moavail)) {
@@ -583,7 +636,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTN24MOAVAIL, $vitboptn24moavail, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTN24MOAVAIL, $vitboptn24moavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -593,14 +648,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnmisc1('fooValue');   // WHERE VitbOptnMisc1 = 'fooValue'
      * $query->filterByVitboptnmisc1('%fooValue%', Criteria::LIKE); // WHERE VitbOptnMisc1 LIKE '%fooValue%'
+     * $query->filterByVitboptnmisc1(['foo', 'bar']); // WHERE VitbOptnMisc1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnmisc1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnmisc1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnmisc1($vitboptnmisc1 = null, $comparison = null)
+    public function filterByVitboptnmisc1($vitboptnmisc1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnmisc1)) {
@@ -608,7 +664,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC1, $vitboptnmisc1, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC1, $vitboptnmisc1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -618,14 +676,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnmisc2('fooValue');   // WHERE VitbOptnMisc2 = 'fooValue'
      * $query->filterByVitboptnmisc2('%fooValue%', Criteria::LIKE); // WHERE VitbOptnMisc2 LIKE '%fooValue%'
+     * $query->filterByVitboptnmisc2(['foo', 'bar']); // WHERE VitbOptnMisc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnmisc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnmisc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnmisc2($vitboptnmisc2 = null, $comparison = null)
+    public function filterByVitboptnmisc2($vitboptnmisc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnmisc2)) {
@@ -633,7 +692,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC2, $vitboptnmisc2, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC2, $vitboptnmisc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -643,14 +704,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByVitboptnmisc3('fooValue');   // WHERE VitbOptnMisc3 = 'fooValue'
      * $query->filterByVitboptnmisc3('%fooValue%', Criteria::LIKE); // WHERE VitbOptnMisc3 LIKE '%fooValue%'
+     * $query->filterByVitboptnmisc3(['foo', 'bar']); // WHERE VitbOptnMisc3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vitboptnmisc3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vitboptnmisc3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVitboptnmisc3($vitboptnmisc3 = null, $comparison = null)
+    public function filterByVitboptnmisc3($vitboptnmisc3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vitboptnmisc3)) {
@@ -658,7 +720,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC3, $vitboptnmisc3, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_VITBOPTNMISC3, $vitboptnmisc3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -668,14 +732,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -683,7 +748,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -693,14 +760,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -708,7 +776,9 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -718,14 +788,15 @@ abstract class OptionsViQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -733,15 +804,17 @@ abstract class OptionsViQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsViTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(OptionsViTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildOptionsVi $optionsVi Object to remove from the list of results
+     * @param ChildOptionsVi $optionsVi Object to remove from the list of results
      *
-     * @return $this|ChildOptionsViQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($optionsVi = null)
     {
@@ -758,7 +831,7 @@ abstract class OptionsViQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsViTableMap::DATABASE_NAME);
@@ -783,12 +856,12 @@ abstract class OptionsViQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsViTableMap::DATABASE_NAME);
@@ -813,4 +886,4 @@ abstract class OptionsViQuery extends ModelCriteria
         });
     }
 
-} // OptionsViQuery
+}

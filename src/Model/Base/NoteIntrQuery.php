@@ -10,14 +10,12 @@ use Map\NoteIntrTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_tran_head_det' table.
- *
- *
+ * Base class that represents a query for the `notes_tran_head_det` table.
  *
  * @method     ChildNoteIntrQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
  * @method     ChildNoteIntrQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
@@ -51,23 +49,23 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteIntrQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildNoteIntrQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildNoteIntr findOne(ConnectionInterface $con = null) Return the first ChildNoteIntr matching the query
- * @method     ChildNoteIntr findOneOrCreate(ConnectionInterface $con = null) Return the first ChildNoteIntr matching the query, or a new ChildNoteIntr object populated from the query conditions when no match is found
+ * @method     ChildNoteIntr|null findOne(?ConnectionInterface $con = null) Return the first ChildNoteIntr matching the query
+ * @method     ChildNoteIntr findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildNoteIntr matching the query, or a new ChildNoteIntr object populated from the query conditions when no match is found
  *
- * @method     ChildNoteIntr findOneByQntype(string $QnType) Return the first ChildNoteIntr filtered by the QnType column
- * @method     ChildNoteIntr findOneByQntypedesc(string $QnTypeDesc) Return the first ChildNoteIntr filtered by the QnTypeDesc column
- * @method     ChildNoteIntr findOneByInhdnbr(string $InhdNbr) Return the first ChildNoteIntr filtered by the InhdNbr column
- * @method     ChildNoteIntr findOneByIndtline(int $IndtLine) Return the first ChildNoteIntr filtered by the IndtLine column
- * @method     ChildNoteIntr findOneByQnseq(int $QnSeq) Return the first ChildNoteIntr filtered by the QnSeq column
- * @method     ChildNoteIntr findOneByQnnote(string $QnNote) Return the first ChildNoteIntr filtered by the QnNote column
- * @method     ChildNoteIntr findOneByQnkey2(string $QnKey2) Return the first ChildNoteIntr filtered by the QnKey2 column
- * @method     ChildNoteIntr findOneByQnform(string $QnForm) Return the first ChildNoteIntr filtered by the QnForm column
- * @method     ChildNoteIntr findOneByDateupdtd(string $DateUpdtd) Return the first ChildNoteIntr filtered by the DateUpdtd column
- * @method     ChildNoteIntr findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNoteIntr filtered by the TimeUpdtd column
- * @method     ChildNoteIntr findOneByDummy(string $dummy) Return the first ChildNoteIntr filtered by the dummy column *
-
- * @method     ChildNoteIntr requirePk($key, ConnectionInterface $con = null) Return the ChildNoteIntr by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteIntr requireOne(ConnectionInterface $con = null) Return the first ChildNoteIntr matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteIntr|null findOneByQntype(string $QnType) Return the first ChildNoteIntr filtered by the QnType column
+ * @method     ChildNoteIntr|null findOneByQntypedesc(string $QnTypeDesc) Return the first ChildNoteIntr filtered by the QnTypeDesc column
+ * @method     ChildNoteIntr|null findOneByInhdnbr(string $InhdNbr) Return the first ChildNoteIntr filtered by the InhdNbr column
+ * @method     ChildNoteIntr|null findOneByIndtline(int $IndtLine) Return the first ChildNoteIntr filtered by the IndtLine column
+ * @method     ChildNoteIntr|null findOneByQnseq(int $QnSeq) Return the first ChildNoteIntr filtered by the QnSeq column
+ * @method     ChildNoteIntr|null findOneByQnnote(string $QnNote) Return the first ChildNoteIntr filtered by the QnNote column
+ * @method     ChildNoteIntr|null findOneByQnkey2(string $QnKey2) Return the first ChildNoteIntr filtered by the QnKey2 column
+ * @method     ChildNoteIntr|null findOneByQnform(string $QnForm) Return the first ChildNoteIntr filtered by the QnForm column
+ * @method     ChildNoteIntr|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildNoteIntr filtered by the DateUpdtd column
+ * @method     ChildNoteIntr|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNoteIntr filtered by the TimeUpdtd column
+ * @method     ChildNoteIntr|null findOneByDummy(string $dummy) Return the first ChildNoteIntr filtered by the dummy column
+ *
+ * @method     ChildNoteIntr requirePk($key, ?ConnectionInterface $con = null) Return the ChildNoteIntr by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteIntr requireOne(?ConnectionInterface $con = null) Return the first ChildNoteIntr matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildNoteIntr requireOneByQntype(string $QnType) Return the first ChildNoteIntr filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteIntr requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildNoteIntr filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -81,20 +79,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteIntr requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNoteIntr filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteIntr requireOneByDummy(string $dummy) Return the first ChildNoteIntr filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildNoteIntr[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildNoteIntr objects based on current ModelCriteria
- * @method     ChildNoteIntr[]|ObjectCollection findByQntype(string $QnType) Return ChildNoteIntr objects filtered by the QnType column
- * @method     ChildNoteIntr[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildNoteIntr objects filtered by the QnTypeDesc column
- * @method     ChildNoteIntr[]|ObjectCollection findByInhdnbr(string $InhdNbr) Return ChildNoteIntr objects filtered by the InhdNbr column
- * @method     ChildNoteIntr[]|ObjectCollection findByIndtline(int $IndtLine) Return ChildNoteIntr objects filtered by the IndtLine column
- * @method     ChildNoteIntr[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildNoteIntr objects filtered by the QnSeq column
- * @method     ChildNoteIntr[]|ObjectCollection findByQnnote(string $QnNote) Return ChildNoteIntr objects filtered by the QnNote column
- * @method     ChildNoteIntr[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildNoteIntr objects filtered by the QnKey2 column
- * @method     ChildNoteIntr[]|ObjectCollection findByQnform(string $QnForm) Return ChildNoteIntr objects filtered by the QnForm column
- * @method     ChildNoteIntr[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildNoteIntr objects filtered by the DateUpdtd column
- * @method     ChildNoteIntr[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildNoteIntr objects filtered by the TimeUpdtd column
- * @method     ChildNoteIntr[]|ObjectCollection findByDummy(string $dummy) Return ChildNoteIntr objects filtered by the dummy column
- * @method     ChildNoteIntr[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildNoteIntr[]|Collection find(?ConnectionInterface $con = null) Return ChildNoteIntr objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> find(?ConnectionInterface $con = null) Return ChildNoteIntr objects based on current ModelCriteria
  *
+ * @method     ChildNoteIntr[]|Collection findByQntype(string|array<string> $QnType) Return ChildNoteIntr objects filtered by the QnType column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByQntype(string|array<string> $QnType) Return ChildNoteIntr objects filtered by the QnType column
+ * @method     ChildNoteIntr[]|Collection findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildNoteIntr objects filtered by the QnTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildNoteIntr objects filtered by the QnTypeDesc column
+ * @method     ChildNoteIntr[]|Collection findByInhdnbr(string|array<string> $InhdNbr) Return ChildNoteIntr objects filtered by the InhdNbr column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByInhdnbr(string|array<string> $InhdNbr) Return ChildNoteIntr objects filtered by the InhdNbr column
+ * @method     ChildNoteIntr[]|Collection findByIndtline(int|array<int> $IndtLine) Return ChildNoteIntr objects filtered by the IndtLine column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByIndtline(int|array<int> $IndtLine) Return ChildNoteIntr objects filtered by the IndtLine column
+ * @method     ChildNoteIntr[]|Collection findByQnseq(int|array<int> $QnSeq) Return ChildNoteIntr objects filtered by the QnSeq column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByQnseq(int|array<int> $QnSeq) Return ChildNoteIntr objects filtered by the QnSeq column
+ * @method     ChildNoteIntr[]|Collection findByQnnote(string|array<string> $QnNote) Return ChildNoteIntr objects filtered by the QnNote column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByQnnote(string|array<string> $QnNote) Return ChildNoteIntr objects filtered by the QnNote column
+ * @method     ChildNoteIntr[]|Collection findByQnkey2(string|array<string> $QnKey2) Return ChildNoteIntr objects filtered by the QnKey2 column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByQnkey2(string|array<string> $QnKey2) Return ChildNoteIntr objects filtered by the QnKey2 column
+ * @method     ChildNoteIntr[]|Collection findByQnform(string|array<string> $QnForm) Return ChildNoteIntr objects filtered by the QnForm column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByQnform(string|array<string> $QnForm) Return ChildNoteIntr objects filtered by the QnForm column
+ * @method     ChildNoteIntr[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildNoteIntr objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildNoteIntr objects filtered by the DateUpdtd column
+ * @method     ChildNoteIntr[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildNoteIntr objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildNoteIntr objects filtered by the TimeUpdtd column
+ * @method     ChildNoteIntr[]|Collection findByDummy(string|array<string> $dummy) Return ChildNoteIntr objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildNoteIntr> findByDummy(string|array<string> $dummy) Return ChildNoteIntr objects filtered by the dummy column
+ *
+ * @method     ChildNoteIntr[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildNoteIntr> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class NoteIntrQuery extends ModelCriteria
 {
@@ -103,9 +115,9 @@ abstract class NoteIntrQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\NoteIntrQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\NoteIntr', $modelAlias = null)
     {
@@ -115,12 +127,12 @@ abstract class NoteIntrQuery extends ModelCriteria
     /**
      * Returns a new ChildNoteIntrQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildNoteIntrQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildNoteIntrQuery) {
             return $criteria;
@@ -150,7 +162,7 @@ abstract class NoteIntrQuery extends ModelCriteria
      *
      * @return ChildNoteIntr|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -182,8 +194,8 @@ abstract class NoteIntrQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -218,8 +230,8 @@ abstract class NoteIntrQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildNoteIntr|array|mixed the result, formatted by the current formatter
      */
@@ -239,12 +251,12 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -261,9 +273,9 @@ abstract class NoteIntrQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -278,14 +290,16 @@ abstract class NoteIntrQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(NoteIntrTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
@@ -308,14 +322,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByQntype('fooValue');   // WHERE QnType = 'fooValue'
      * $query->filterByQntype('%fooValue%', Criteria::LIKE); // WHERE QnType LIKE '%fooValue%'
+     * $query->filterByQntype(['foo', 'bar']); // WHERE QnType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntype($qntype = null, $comparison = null)
+    public function filterByQntype($qntype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntype)) {
@@ -323,7 +338,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_QNTYPE, $qntype, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_QNTYPE, $qntype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +350,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByQntypedesc('fooValue');   // WHERE QnTypeDesc = 'fooValue'
      * $query->filterByQntypedesc('%fooValue%', Criteria::LIKE); // WHERE QnTypeDesc LIKE '%fooValue%'
+     * $query->filterByQntypedesc(['foo', 'bar']); // WHERE QnTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntypedesc($qntypedesc = null, $comparison = null)
+    public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntypedesc)) {
@@ -348,7 +366,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +378,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByInhdnbr('fooValue');   // WHERE InhdNbr = 'fooValue'
      * $query->filterByInhdnbr('%fooValue%', Criteria::LIKE); // WHERE InhdNbr LIKE '%fooValue%'
+     * $query->filterByInhdnbr(['foo', 'bar']); // WHERE InhdNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inhdnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inhdnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhdnbr($inhdnbr = null, $comparison = null)
+    public function filterByInhdnbr($inhdnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inhdnbr)) {
@@ -373,7 +394,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_INHDNBR, $inhdnbr, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_INHDNBR, $inhdnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -386,15 +409,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * $query->filterByIndtline(array('min' => 12)); // WHERE IndtLine > 12
      * </code>
      *
-     * @param     mixed $indtline The value to use as filter.
+     * @param mixed $indtline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtline($indtline = null, $comparison = null)
+    public function filterByIndtline($indtline = null, ?string $comparison = null)
     {
         if (is_array($indtline)) {
             $useMinMax = false;
@@ -414,7 +437,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_INDTLINE, $indtline, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_INDTLINE, $indtline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -427,15 +452,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * $query->filterByQnseq(array('min' => 12)); // WHERE QnSeq > 12
      * </code>
      *
-     * @param     mixed $qnseq The value to use as filter.
+     * @param mixed $qnseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnseq($qnseq = null, $comparison = null)
+    public function filterByQnseq($qnseq = null, ?string $comparison = null)
     {
         if (is_array($qnseq)) {
             $useMinMax = false;
@@ -455,7 +480,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_QNSEQ, $qnseq, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_QNSEQ, $qnseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -465,14 +492,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByQnnote('fooValue');   // WHERE QnNote = 'fooValue'
      * $query->filterByQnnote('%fooValue%', Criteria::LIKE); // WHERE QnNote LIKE '%fooValue%'
+     * $query->filterByQnnote(['foo', 'bar']); // WHERE QnNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnnote($qnnote = null, $comparison = null)
+    public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnnote)) {
@@ -480,7 +508,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_QNNOTE, $qnnote, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_QNNOTE, $qnnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -490,14 +520,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByQnkey2('fooValue');   // WHERE QnKey2 = 'fooValue'
      * $query->filterByQnkey2('%fooValue%', Criteria::LIKE); // WHERE QnKey2 LIKE '%fooValue%'
+     * $query->filterByQnkey2(['foo', 'bar']); // WHERE QnKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnkey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnkey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnkey2($qnkey2 = null, $comparison = null)
+    public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnkey2)) {
@@ -505,7 +536,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_QNKEY2, $qnkey2, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_QNKEY2, $qnkey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -515,14 +548,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByQnform('fooValue');   // WHERE QnForm = 'fooValue'
      * $query->filterByQnform('%fooValue%', Criteria::LIKE); // WHERE QnForm LIKE '%fooValue%'
+     * $query->filterByQnform(['foo', 'bar']); // WHERE QnForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnform($qnform = null, $comparison = null)
+    public function filterByQnform($qnform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnform)) {
@@ -530,7 +564,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_QNFORM, $qnform, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_QNFORM, $qnform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -540,14 +576,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -555,7 +592,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -565,14 +604,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -580,7 +620,9 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -590,14 +632,15 @@ abstract class NoteIntrQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -605,15 +648,17 @@ abstract class NoteIntrQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteIntrTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(NoteIntrTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildNoteIntr $noteIntr Object to remove from the list of results
+     * @param ChildNoteIntr $noteIntr Object to remove from the list of results
      *
-     * @return $this|ChildNoteIntrQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($noteIntr = null)
     {
@@ -634,7 +679,7 @@ abstract class NoteIntrQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NoteIntrTableMap::DATABASE_NAME);
@@ -659,12 +704,12 @@ abstract class NoteIntrQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NoteIntrTableMap::DATABASE_NAME);
@@ -689,4 +734,4 @@ abstract class NoteIntrQuery extends ModelCriteria
         });
     }
 
-} // NoteIntrQuery
+}

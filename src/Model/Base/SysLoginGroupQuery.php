@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'sys_login_group' table.
- *
- *
+ * Base class that represents a query for the `sys_login_group` table.
  *
  * @method     ChildSysLoginGroupQuery orderByQtbllgrpcode($order = Criteria::ASC) Order by the QtblLgrpCode column
  * @method     ChildSysLoginGroupQuery orderByQtbllgrpdesc($order = Criteria::ASC) Order by the QtblLgrpDesc column
@@ -52,17 +51,17 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \DplusUserQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildSysLoginGroup findOne(ConnectionInterface $con = null) Return the first ChildSysLoginGroup matching the query
- * @method     ChildSysLoginGroup findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSysLoginGroup matching the query, or a new ChildSysLoginGroup object populated from the query conditions when no match is found
+ * @method     ChildSysLoginGroup|null findOne(?ConnectionInterface $con = null) Return the first ChildSysLoginGroup matching the query
+ * @method     ChildSysLoginGroup findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSysLoginGroup matching the query, or a new ChildSysLoginGroup object populated from the query conditions when no match is found
  *
- * @method     ChildSysLoginGroup findOneByQtbllgrpcode(string $QtblLgrpCode) Return the first ChildSysLoginGroup filtered by the QtblLgrpCode column
- * @method     ChildSysLoginGroup findOneByQtbllgrpdesc(string $QtblLgrpDesc) Return the first ChildSysLoginGroup filtered by the QtblLgrpDesc column
- * @method     ChildSysLoginGroup findOneByDateupdtd(string $DateUpdtd) Return the first ChildSysLoginGroup filtered by the DateUpdtd column
- * @method     ChildSysLoginGroup findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSysLoginGroup filtered by the TimeUpdtd column
- * @method     ChildSysLoginGroup findOneByDummy(string $dummy) Return the first ChildSysLoginGroup filtered by the dummy column *
-
- * @method     ChildSysLoginGroup requirePk($key, ConnectionInterface $con = null) Return the ChildSysLoginGroup by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSysLoginGroup requireOne(ConnectionInterface $con = null) Return the first ChildSysLoginGroup matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSysLoginGroup|null findOneByQtbllgrpcode(string $QtblLgrpCode) Return the first ChildSysLoginGroup filtered by the QtblLgrpCode column
+ * @method     ChildSysLoginGroup|null findOneByQtbllgrpdesc(string $QtblLgrpDesc) Return the first ChildSysLoginGroup filtered by the QtblLgrpDesc column
+ * @method     ChildSysLoginGroup|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSysLoginGroup filtered by the DateUpdtd column
+ * @method     ChildSysLoginGroup|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSysLoginGroup filtered by the TimeUpdtd column
+ * @method     ChildSysLoginGroup|null findOneByDummy(string $dummy) Return the first ChildSysLoginGroup filtered by the dummy column
+ *
+ * @method     ChildSysLoginGroup requirePk($key, ?ConnectionInterface $con = null) Return the ChildSysLoginGroup by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSysLoginGroup requireOne(?ConnectionInterface $con = null) Return the first ChildSysLoginGroup matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSysLoginGroup requireOneByQtbllgrpcode(string $QtblLgrpCode) Return the first ChildSysLoginGroup filtered by the QtblLgrpCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSysLoginGroup requireOneByQtbllgrpdesc(string $QtblLgrpDesc) Return the first ChildSysLoginGroup filtered by the QtblLgrpDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -70,14 +69,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSysLoginGroup requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSysLoginGroup filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSysLoginGroup requireOneByDummy(string $dummy) Return the first ChildSysLoginGroup filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSysLoginGroup[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSysLoginGroup objects based on current ModelCriteria
- * @method     ChildSysLoginGroup[]|ObjectCollection findByQtbllgrpcode(string $QtblLgrpCode) Return ChildSysLoginGroup objects filtered by the QtblLgrpCode column
- * @method     ChildSysLoginGroup[]|ObjectCollection findByQtbllgrpdesc(string $QtblLgrpDesc) Return ChildSysLoginGroup objects filtered by the QtblLgrpDesc column
- * @method     ChildSysLoginGroup[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSysLoginGroup objects filtered by the DateUpdtd column
- * @method     ChildSysLoginGroup[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSysLoginGroup objects filtered by the TimeUpdtd column
- * @method     ChildSysLoginGroup[]|ObjectCollection findByDummy(string $dummy) Return ChildSysLoginGroup objects filtered by the dummy column
- * @method     ChildSysLoginGroup[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSysLoginGroup[]|Collection find(?ConnectionInterface $con = null) Return ChildSysLoginGroup objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSysLoginGroup> find(?ConnectionInterface $con = null) Return ChildSysLoginGroup objects based on current ModelCriteria
  *
+ * @method     ChildSysLoginGroup[]|Collection findByQtbllgrpcode(string|array<string> $QtblLgrpCode) Return ChildSysLoginGroup objects filtered by the QtblLgrpCode column
+ * @psalm-method Collection&\Traversable<ChildSysLoginGroup> findByQtbllgrpcode(string|array<string> $QtblLgrpCode) Return ChildSysLoginGroup objects filtered by the QtblLgrpCode column
+ * @method     ChildSysLoginGroup[]|Collection findByQtbllgrpdesc(string|array<string> $QtblLgrpDesc) Return ChildSysLoginGroup objects filtered by the QtblLgrpDesc column
+ * @psalm-method Collection&\Traversable<ChildSysLoginGroup> findByQtbllgrpdesc(string|array<string> $QtblLgrpDesc) Return ChildSysLoginGroup objects filtered by the QtblLgrpDesc column
+ * @method     ChildSysLoginGroup[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSysLoginGroup objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSysLoginGroup> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSysLoginGroup objects filtered by the DateUpdtd column
+ * @method     ChildSysLoginGroup[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSysLoginGroup objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSysLoginGroup> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSysLoginGroup objects filtered by the TimeUpdtd column
+ * @method     ChildSysLoginGroup[]|Collection findByDummy(string|array<string> $dummy) Return ChildSysLoginGroup objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSysLoginGroup> findByDummy(string|array<string> $dummy) Return ChildSysLoginGroup objects filtered by the dummy column
+ *
+ * @method     ChildSysLoginGroup[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSysLoginGroup> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SysLoginGroupQuery extends ModelCriteria
 {
@@ -86,9 +93,9 @@ abstract class SysLoginGroupQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SysLoginGroupQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SysLoginGroup', $modelAlias = null)
     {
@@ -98,12 +105,12 @@ abstract class SysLoginGroupQuery extends ModelCriteria
     /**
      * Returns a new ChildSysLoginGroupQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSysLoginGroupQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSysLoginGroupQuery) {
             return $criteria;
@@ -133,7 +140,7 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      *
      * @return ChildSysLoginGroup|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -165,8 +172,8 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -198,8 +205,8 @@ abstract class SysLoginGroupQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSysLoginGroup|array|mixed the result, formatted by the current formatter
      */
@@ -219,12 +226,12 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -241,27 +248,31 @@ abstract class SysLoginGroupQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -271,14 +282,15 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByQtbllgrpcode('fooValue');   // WHERE QtblLgrpCode = 'fooValue'
      * $query->filterByQtbllgrpcode('%fooValue%', Criteria::LIKE); // WHERE QtblLgrpCode LIKE '%fooValue%'
+     * $query->filterByQtbllgrpcode(['foo', 'bar']); // WHERE QtblLgrpCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtbllgrpcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtbllgrpcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtbllgrpcode($qtbllgrpcode = null, $comparison = null)
+    public function filterByQtbllgrpcode($qtbllgrpcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtbllgrpcode)) {
@@ -286,7 +298,9 @@ abstract class SysLoginGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPCODE, $qtbllgrpcode, $comparison);
+        $this->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPCODE, $qtbllgrpcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -296,14 +310,15 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByQtbllgrpdesc('fooValue');   // WHERE QtblLgrpDesc = 'fooValue'
      * $query->filterByQtbllgrpdesc('%fooValue%', Criteria::LIKE); // WHERE QtblLgrpDesc LIKE '%fooValue%'
+     * $query->filterByQtbllgrpdesc(['foo', 'bar']); // WHERE QtblLgrpDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtbllgrpdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtbllgrpdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtbllgrpdesc($qtbllgrpdesc = null, $comparison = null)
+    public function filterByQtbllgrpdesc($qtbllgrpdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtbllgrpdesc)) {
@@ -311,7 +326,9 @@ abstract class SysLoginGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPDESC, $qtbllgrpdesc, $comparison);
+        $this->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPDESC, $qtbllgrpdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -321,14 +338,15 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -336,7 +354,9 @@ abstract class SysLoginGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SysLoginGroupTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SysLoginGroupTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -346,14 +366,15 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -361,7 +382,9 @@ abstract class SysLoginGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SysLoginGroupTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SysLoginGroupTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -371,14 +394,15 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -386,27 +410,33 @@ abstract class SysLoginGroupQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SysLoginGroupTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SysLoginGroupTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \DplusUser object
      *
      * @param \DplusUser|ObjectCollection $dplusUser the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDplusUser($dplusUser, $comparison = null)
+    public function filterByDplusUser($dplusUser, ?string $comparison = null)
     {
         if ($dplusUser instanceof \DplusUser) {
-            return $this
+            $this
                 ->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPCODE, $dplusUser->getUsrclogingroup(), $comparison);
+
+            return $this;
         } elseif ($dplusUser instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useDplusUserQuery()
                 ->filterByPrimaryKeys($dplusUser->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByDplusUser() only accepts arguments of type \DplusUser or Collection');
         }
@@ -415,12 +445,12 @@ abstract class SysLoginGroupQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the DplusUser relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinDplusUser($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinDplusUser(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('DplusUser');
@@ -449,9 +479,9 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \DplusUserQuery A secondary query class using the current class as primary query
      */
@@ -463,11 +493,107 @@ abstract class SysLoginGroupQuery extends ModelCriteria
     }
 
     /**
+     * Use the DplusUser relation DplusUser object
+     *
+     * @param callable(\DplusUserQuery):\DplusUserQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withDplusUserQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useDplusUserQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to DplusUser table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \DplusUserQuery The inner query object of the EXISTS statement
+     */
+    public function useDplusUserExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useExistsQuery('DplusUser', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for a NOT EXISTS query.
+     *
+     * @see useDplusUserExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \DplusUserQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useDplusUserNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useExistsQuery('DplusUser', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \DplusUserQuery The inner query object of the IN statement
+     */
+    public function useInDplusUserQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useInQuery('DplusUser', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for a NOT IN query.
+     *
+     * @see useDplusUserInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \DplusUserQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInDplusUserQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useInQuery('DplusUser', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildSysLoginGroup $sysLoginGroup Object to remove from the list of results
+     * @param ChildSysLoginGroup $sysLoginGroup Object to remove from the list of results
      *
-     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($sysLoginGroup = null)
     {
@@ -484,7 +610,7 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SysLoginGroupTableMap::DATABASE_NAME);
@@ -509,12 +635,12 @@ abstract class SysLoginGroupQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SysLoginGroupTableMap::DATABASE_NAME);
@@ -539,4 +665,4 @@ abstract class SysLoginGroupQuery extends ModelCriteria
         });
     }
 
-} // SysLoginGroupQuery
+}

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_inv_dimen' table.
- *
- *
+ * Base class that represents a query for the `inv_inv_dimen` table.
  *
  * @method     ChildItmDimensionQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildItmDimensionQuery orderByIndminside($order = Criteria::ASC) Order by the IndmInside column
@@ -70,26 +69,26 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildItmDimension findOne(ConnectionInterface $con = null) Return the first ChildItmDimension matching the query
- * @method     ChildItmDimension findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItmDimension matching the query, or a new ChildItmDimension object populated from the query conditions when no match is found
+ * @method     ChildItmDimension|null findOne(?ConnectionInterface $con = null) Return the first ChildItmDimension matching the query
+ * @method     ChildItmDimension findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItmDimension matching the query, or a new ChildItmDimension object populated from the query conditions when no match is found
  *
- * @method     ChildItmDimension findOneByInititemnbr(string $InitItemNbr) Return the first ChildItmDimension filtered by the InitItemNbr column
- * @method     ChildItmDimension findOneByIndminside(string $IndmInside) Return the first ChildItmDimension filtered by the IndmInside column
- * @method     ChildItmDimension findOneByIndmoutside(string $IndmOutside) Return the first ChildItmDimension filtered by the IndmOutside column
- * @method     ChildItmDimension findOneByIndmcross(string $IndmCross) Return the first ChildItmDimension filtered by the IndmCross column
- * @method     ChildItmDimension findOneByIndmthick(string $IndmThick) Return the first ChildItmDimension filtered by the IndmThick column
- * @method     ChildItmDimension findOneByIndmlength(string $IndmLength) Return the first ChildItmDimension filtered by the IndmLength column
- * @method     ChildItmDimension findOneByIndmwidth(string $IndmWidth) Return the first ChildItmDimension filtered by the IndmWidth column
- * @method     ChildItmDimension findOneByIndmthickness(string $IndmThickness) Return the first ChildItmDimension filtered by the IndmThickness column
- * @method     ChildItmDimension findOneByIndmsqft(string $IndmSqft) Return the first ChildItmDimension filtered by the IndmSqft column
- * @method     ChildItmDimension findOneByIndmbagqty(int $IndmBagQty) Return the first ChildItmDimension filtered by the IndmBagQty column
- * @method     ChildItmDimension findOneByIndmbulkqty(int $IndmBulkQty) Return the first ChildItmDimension filtered by the IndmBulkQty column
- * @method     ChildItmDimension findOneByDateupdtd(string $DateUpdtd) Return the first ChildItmDimension filtered by the DateUpdtd column
- * @method     ChildItmDimension findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItmDimension filtered by the TimeUpdtd column
- * @method     ChildItmDimension findOneByDummy(string $dummy) Return the first ChildItmDimension filtered by the dummy column *
-
- * @method     ChildItmDimension requirePk($key, ConnectionInterface $con = null) Return the ChildItmDimension by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItmDimension requireOne(ConnectionInterface $con = null) Return the first ChildItmDimension matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItmDimension|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildItmDimension filtered by the InitItemNbr column
+ * @method     ChildItmDimension|null findOneByIndminside(string $IndmInside) Return the first ChildItmDimension filtered by the IndmInside column
+ * @method     ChildItmDimension|null findOneByIndmoutside(string $IndmOutside) Return the first ChildItmDimension filtered by the IndmOutside column
+ * @method     ChildItmDimension|null findOneByIndmcross(string $IndmCross) Return the first ChildItmDimension filtered by the IndmCross column
+ * @method     ChildItmDimension|null findOneByIndmthick(string $IndmThick) Return the first ChildItmDimension filtered by the IndmThick column
+ * @method     ChildItmDimension|null findOneByIndmlength(string $IndmLength) Return the first ChildItmDimension filtered by the IndmLength column
+ * @method     ChildItmDimension|null findOneByIndmwidth(string $IndmWidth) Return the first ChildItmDimension filtered by the IndmWidth column
+ * @method     ChildItmDimension|null findOneByIndmthickness(string $IndmThickness) Return the first ChildItmDimension filtered by the IndmThickness column
+ * @method     ChildItmDimension|null findOneByIndmsqft(string $IndmSqft) Return the first ChildItmDimension filtered by the IndmSqft column
+ * @method     ChildItmDimension|null findOneByIndmbagqty(int $IndmBagQty) Return the first ChildItmDimension filtered by the IndmBagQty column
+ * @method     ChildItmDimension|null findOneByIndmbulkqty(int $IndmBulkQty) Return the first ChildItmDimension filtered by the IndmBulkQty column
+ * @method     ChildItmDimension|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildItmDimension filtered by the DateUpdtd column
+ * @method     ChildItmDimension|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItmDimension filtered by the TimeUpdtd column
+ * @method     ChildItmDimension|null findOneByDummy(string $dummy) Return the first ChildItmDimension filtered by the dummy column
+ *
+ * @method     ChildItmDimension requirePk($key, ?ConnectionInterface $con = null) Return the ChildItmDimension by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItmDimension requireOne(?ConnectionInterface $con = null) Return the first ChildItmDimension matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItmDimension requireOneByInititemnbr(string $InitItemNbr) Return the first ChildItmDimension filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItmDimension requireOneByIndminside(string $IndmInside) Return the first ChildItmDimension filtered by the IndmInside column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -106,23 +105,40 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItmDimension requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItmDimension filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItmDimension requireOneByDummy(string $dummy) Return the first ChildItmDimension filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItmDimension[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItmDimension objects based on current ModelCriteria
- * @method     ChildItmDimension[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildItmDimension objects filtered by the InitItemNbr column
- * @method     ChildItmDimension[]|ObjectCollection findByIndminside(string $IndmInside) Return ChildItmDimension objects filtered by the IndmInside column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmoutside(string $IndmOutside) Return ChildItmDimension objects filtered by the IndmOutside column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmcross(string $IndmCross) Return ChildItmDimension objects filtered by the IndmCross column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmthick(string $IndmThick) Return ChildItmDimension objects filtered by the IndmThick column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmlength(string $IndmLength) Return ChildItmDimension objects filtered by the IndmLength column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmwidth(string $IndmWidth) Return ChildItmDimension objects filtered by the IndmWidth column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmthickness(string $IndmThickness) Return ChildItmDimension objects filtered by the IndmThickness column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmsqft(string $IndmSqft) Return ChildItmDimension objects filtered by the IndmSqft column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmbagqty(int $IndmBagQty) Return ChildItmDimension objects filtered by the IndmBagQty column
- * @method     ChildItmDimension[]|ObjectCollection findByIndmbulkqty(int $IndmBulkQty) Return ChildItmDimension objects filtered by the IndmBulkQty column
- * @method     ChildItmDimension[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItmDimension objects filtered by the DateUpdtd column
- * @method     ChildItmDimension[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItmDimension objects filtered by the TimeUpdtd column
- * @method     ChildItmDimension[]|ObjectCollection findByDummy(string $dummy) Return ChildItmDimension objects filtered by the dummy column
- * @method     ChildItmDimension[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItmDimension[]|Collection find(?ConnectionInterface $con = null) Return ChildItmDimension objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItmDimension> find(?ConnectionInterface $con = null) Return ChildItmDimension objects based on current ModelCriteria
  *
+ * @method     ChildItmDimension[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItmDimension objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildItmDimension objects filtered by the InitItemNbr column
+ * @method     ChildItmDimension[]|Collection findByIndminside(string|array<string> $IndmInside) Return ChildItmDimension objects filtered by the IndmInside column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndminside(string|array<string> $IndmInside) Return ChildItmDimension objects filtered by the IndmInside column
+ * @method     ChildItmDimension[]|Collection findByIndmoutside(string|array<string> $IndmOutside) Return ChildItmDimension objects filtered by the IndmOutside column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmoutside(string|array<string> $IndmOutside) Return ChildItmDimension objects filtered by the IndmOutside column
+ * @method     ChildItmDimension[]|Collection findByIndmcross(string|array<string> $IndmCross) Return ChildItmDimension objects filtered by the IndmCross column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmcross(string|array<string> $IndmCross) Return ChildItmDimension objects filtered by the IndmCross column
+ * @method     ChildItmDimension[]|Collection findByIndmthick(string|array<string> $IndmThick) Return ChildItmDimension objects filtered by the IndmThick column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmthick(string|array<string> $IndmThick) Return ChildItmDimension objects filtered by the IndmThick column
+ * @method     ChildItmDimension[]|Collection findByIndmlength(string|array<string> $IndmLength) Return ChildItmDimension objects filtered by the IndmLength column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmlength(string|array<string> $IndmLength) Return ChildItmDimension objects filtered by the IndmLength column
+ * @method     ChildItmDimension[]|Collection findByIndmwidth(string|array<string> $IndmWidth) Return ChildItmDimension objects filtered by the IndmWidth column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmwidth(string|array<string> $IndmWidth) Return ChildItmDimension objects filtered by the IndmWidth column
+ * @method     ChildItmDimension[]|Collection findByIndmthickness(string|array<string> $IndmThickness) Return ChildItmDimension objects filtered by the IndmThickness column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmthickness(string|array<string> $IndmThickness) Return ChildItmDimension objects filtered by the IndmThickness column
+ * @method     ChildItmDimension[]|Collection findByIndmsqft(string|array<string> $IndmSqft) Return ChildItmDimension objects filtered by the IndmSqft column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmsqft(string|array<string> $IndmSqft) Return ChildItmDimension objects filtered by the IndmSqft column
+ * @method     ChildItmDimension[]|Collection findByIndmbagqty(int|array<int> $IndmBagQty) Return ChildItmDimension objects filtered by the IndmBagQty column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmbagqty(int|array<int> $IndmBagQty) Return ChildItmDimension objects filtered by the IndmBagQty column
+ * @method     ChildItmDimension[]|Collection findByIndmbulkqty(int|array<int> $IndmBulkQty) Return ChildItmDimension objects filtered by the IndmBulkQty column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByIndmbulkqty(int|array<int> $IndmBulkQty) Return ChildItmDimension objects filtered by the IndmBulkQty column
+ * @method     ChildItmDimension[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItmDimension objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItmDimension objects filtered by the DateUpdtd column
+ * @method     ChildItmDimension[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItmDimension objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItmDimension objects filtered by the TimeUpdtd column
+ * @method     ChildItmDimension[]|Collection findByDummy(string|array<string> $dummy) Return ChildItmDimension objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItmDimension> findByDummy(string|array<string> $dummy) Return ChildItmDimension objects filtered by the dummy column
+ *
+ * @method     ChildItmDimension[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItmDimension> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItmDimensionQuery extends ModelCriteria
 {
@@ -131,9 +147,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItmDimensionQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ItmDimension', $modelAlias = null)
     {
@@ -143,12 +159,12 @@ abstract class ItmDimensionQuery extends ModelCriteria
     /**
      * Returns a new ChildItmDimensionQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItmDimensionQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItmDimensionQuery) {
             return $criteria;
@@ -178,7 +194,7 @@ abstract class ItmDimensionQuery extends ModelCriteria
      *
      * @return ChildItmDimension|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -210,8 +226,8 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -243,8 +259,8 @@ abstract class ItmDimensionQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItmDimension|array|mixed the result, formatted by the current formatter
      */
@@ -264,12 +280,12 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -286,27 +302,31 @@ abstract class ItmDimensionQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INITITEMNBR, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INITITEMNBR, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INITITEMNBR, $keys, Criteria::IN);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INITITEMNBR, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -316,14 +336,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -331,7 +352,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -344,15 +367,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndminside(array('min' => 12)); // WHERE IndmInside > 12
      * </code>
      *
-     * @param     mixed $indminside The value to use as filter.
+     * @param mixed $indminside The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndminside($indminside = null, $comparison = null)
+    public function filterByIndminside($indminside = null, ?string $comparison = null)
     {
         if (is_array($indminside)) {
             $useMinMax = false;
@@ -372,7 +395,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMINSIDE, $indminside, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMINSIDE, $indminside, $comparison);
+
+        return $this;
     }
 
     /**
@@ -385,15 +410,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmoutside(array('min' => 12)); // WHERE IndmOutside > 12
      * </code>
      *
-     * @param     mixed $indmoutside The value to use as filter.
+     * @param mixed $indmoutside The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmoutside($indmoutside = null, $comparison = null)
+    public function filterByIndmoutside($indmoutside = null, ?string $comparison = null)
     {
         if (is_array($indmoutside)) {
             $useMinMax = false;
@@ -413,7 +438,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMOUTSIDE, $indmoutside, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMOUTSIDE, $indmoutside, $comparison);
+
+        return $this;
     }
 
     /**
@@ -426,15 +453,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmcross(array('min' => 12)); // WHERE IndmCross > 12
      * </code>
      *
-     * @param     mixed $indmcross The value to use as filter.
+     * @param mixed $indmcross The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmcross($indmcross = null, $comparison = null)
+    public function filterByIndmcross($indmcross = null, ?string $comparison = null)
     {
         if (is_array($indmcross)) {
             $useMinMax = false;
@@ -454,7 +481,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMCROSS, $indmcross, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMCROSS, $indmcross, $comparison);
+
+        return $this;
     }
 
     /**
@@ -467,15 +496,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmthick(array('min' => 12)); // WHERE IndmThick > 12
      * </code>
      *
-     * @param     mixed $indmthick The value to use as filter.
+     * @param mixed $indmthick The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmthick($indmthick = null, $comparison = null)
+    public function filterByIndmthick($indmthick = null, ?string $comparison = null)
     {
         if (is_array($indmthick)) {
             $useMinMax = false;
@@ -495,7 +524,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMTHICK, $indmthick, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMTHICK, $indmthick, $comparison);
+
+        return $this;
     }
 
     /**
@@ -508,15 +539,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmlength(array('min' => 12)); // WHERE IndmLength > 12
      * </code>
      *
-     * @param     mixed $indmlength The value to use as filter.
+     * @param mixed $indmlength The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmlength($indmlength = null, $comparison = null)
+    public function filterByIndmlength($indmlength = null, ?string $comparison = null)
     {
         if (is_array($indmlength)) {
             $useMinMax = false;
@@ -536,7 +567,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMLENGTH, $indmlength, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMLENGTH, $indmlength, $comparison);
+
+        return $this;
     }
 
     /**
@@ -549,15 +582,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmwidth(array('min' => 12)); // WHERE IndmWidth > 12
      * </code>
      *
-     * @param     mixed $indmwidth The value to use as filter.
+     * @param mixed $indmwidth The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmwidth($indmwidth = null, $comparison = null)
+    public function filterByIndmwidth($indmwidth = null, ?string $comparison = null)
     {
         if (is_array($indmwidth)) {
             $useMinMax = false;
@@ -577,7 +610,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMWIDTH, $indmwidth, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMWIDTH, $indmwidth, $comparison);
+
+        return $this;
     }
 
     /**
@@ -590,15 +625,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmthickness(array('min' => 12)); // WHERE IndmThickness > 12
      * </code>
      *
-     * @param     mixed $indmthickness The value to use as filter.
+     * @param mixed $indmthickness The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmthickness($indmthickness = null, $comparison = null)
+    public function filterByIndmthickness($indmthickness = null, ?string $comparison = null)
     {
         if (is_array($indmthickness)) {
             $useMinMax = false;
@@ -618,7 +653,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMTHICKNESS, $indmthickness, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMTHICKNESS, $indmthickness, $comparison);
+
+        return $this;
     }
 
     /**
@@ -631,15 +668,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmsqft(array('min' => 12)); // WHERE IndmSqft > 12
      * </code>
      *
-     * @param     mixed $indmsqft The value to use as filter.
+     * @param mixed $indmsqft The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmsqft($indmsqft = null, $comparison = null)
+    public function filterByIndmsqft($indmsqft = null, ?string $comparison = null)
     {
         if (is_array($indmsqft)) {
             $useMinMax = false;
@@ -659,7 +696,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMSQFT, $indmsqft, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMSQFT, $indmsqft, $comparison);
+
+        return $this;
     }
 
     /**
@@ -672,15 +711,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmbagqty(array('min' => 12)); // WHERE IndmBagQty > 12
      * </code>
      *
-     * @param     mixed $indmbagqty The value to use as filter.
+     * @param mixed $indmbagqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmbagqty($indmbagqty = null, $comparison = null)
+    public function filterByIndmbagqty($indmbagqty = null, ?string $comparison = null)
     {
         if (is_array($indmbagqty)) {
             $useMinMax = false;
@@ -700,7 +739,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMBAGQTY, $indmbagqty, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMBAGQTY, $indmbagqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -713,15 +754,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * $query->filterByIndmbulkqty(array('min' => 12)); // WHERE IndmBulkQty > 12
      * </code>
      *
-     * @param     mixed $indmbulkqty The value to use as filter.
+     * @param mixed $indmbulkqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndmbulkqty($indmbulkqty = null, $comparison = null)
+    public function filterByIndmbulkqty($indmbulkqty = null, ?string $comparison = null)
     {
         if (is_array($indmbulkqty)) {
             $useMinMax = false;
@@ -741,7 +782,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_INDMBULKQTY, $indmbulkqty, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_INDMBULKQTY, $indmbulkqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -751,14 +794,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -766,7 +810,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -776,14 +822,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -791,7 +838,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -801,14 +850,15 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -816,20 +866,22 @@ abstract class ItmDimensionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItmDimensionTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItmDimensionTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -839,8 +891,10 @@ abstract class ItmDimensionQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItmDimensionTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -849,12 +903,12 @@ abstract class ItmDimensionQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -883,9 +937,9 @@ abstract class ItmDimensionQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -897,11 +951,107 @@ abstract class ItmDimensionQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildItmDimension $itmDimension Object to remove from the list of results
+     * @param ChildItmDimension $itmDimension Object to remove from the list of results
      *
-     * @return $this|ChildItmDimensionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itmDimension = null)
     {
@@ -918,7 +1068,7 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItmDimensionTableMap::DATABASE_NAME);
@@ -943,12 +1093,12 @@ abstract class ItmDimensionQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItmDimensionTableMap::DATABASE_NAME);
@@ -973,4 +1123,4 @@ abstract class ItmDimensionQuery extends ModelCriteria
         });
     }
 
-} // ItmDimensionQuery
+}

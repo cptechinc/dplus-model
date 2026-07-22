@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_price_discount' table.
- *
- *
+ * Base class that represents a query for the `so_price_discount` table.
  *
  * @method     ChildItemPricingDiscountQuery orderByOepctype($order = Criteria::ASC) Order by the OepcType column
  * @method     ChildItemPricingDiscountQuery orderByOepctbltype($order = Criteria::ASC) Order by the OepcTblType column
@@ -122,47 +121,47 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery|\CustomerQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildItemPricingDiscount findOne(ConnectionInterface $con = null) Return the first ChildItemPricingDiscount matching the query
- * @method     ChildItemPricingDiscount findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemPricingDiscount matching the query, or a new ChildItemPricingDiscount object populated from the query conditions when no match is found
+ * @method     ChildItemPricingDiscount|null findOne(?ConnectionInterface $con = null) Return the first ChildItemPricingDiscount matching the query
+ * @method     ChildItemPricingDiscount findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItemPricingDiscount matching the query, or a new ChildItemPricingDiscount object populated from the query conditions when no match is found
  *
- * @method     ChildItemPricingDiscount findOneByOepctype(string $OepcType) Return the first ChildItemPricingDiscount filtered by the OepcType column
- * @method     ChildItemPricingDiscount findOneByOepctbltype(int $OepcTblType) Return the first ChildItemPricingDiscount filtered by the OepcTblType column
- * @method     ChildItemPricingDiscount findOneByOepcstrtdate(int $OepcStrtDate) Return the first ChildItemPricingDiscount filtered by the OepcStrtDate column
- * @method     ChildItemPricingDiscount findOneByOepccustid(string $OepcCustId) Return the first ChildItemPricingDiscount filtered by the OepcCustId column
- * @method     ChildItemPricingDiscount findOneByOepccustcode(string $OepcCustCode) Return the first ChildItemPricingDiscount filtered by the OepcCustCode column
- * @method     ChildItemPricingDiscount findOneByOepcitemnbr(string $OepcItemNbr) Return the first ChildItemPricingDiscount filtered by the OepcItemNbr column
- * @method     ChildItemPricingDiscount findOneByOepcitemgrup(string $OepcItemGrup) Return the first ChildItemPricingDiscount filtered by the OepcItemGrup column
- * @method     ChildItemPricingDiscount findOneByOepcsp(string $OepcSp) Return the first ChildItemPricingDiscount filtered by the OepcSp column
- * @method     ChildItemPricingDiscount findOneByOepcmeth(string $OepcMeth) Return the first ChildItemPricingDiscount filtered by the OepcMeth column
- * @method     ChildItemPricingDiscount findOneByOepccode(string $OepcCode) Return the first ChildItemPricingDiscount filtered by the OepcCode column
- * @method     ChildItemPricingDiscount findOneByOepcpcnt(string $OepcPcnt) Return the first ChildItemPricingDiscount filtered by the OepcPcnt column
- * @method     ChildItemPricingDiscount findOneByOepcpricbase(string $OepcPricBase) Return the first ChildItemPricingDiscount filtered by the OepcPricBase column
- * @method     ChildItemPricingDiscount findOneByOepcpricunit1(int $OepcPricUnit1) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit1 column
- * @method     ChildItemPricingDiscount findOneByOepcpricpric1(string $OepcPricPric1) Return the first ChildItemPricingDiscount filtered by the OepcPricPric1 column
- * @method     ChildItemPricingDiscount findOneByOepcpricuom1(string $OepcPricUom1) Return the first ChildItemPricingDiscount filtered by the OepcPricUom1 column
- * @method     ChildItemPricingDiscount findOneByOepcpricunit2(int $OepcPricUnit2) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit2 column
- * @method     ChildItemPricingDiscount findOneByOepcpricpric2(string $OepcPricPric2) Return the first ChildItemPricingDiscount filtered by the OepcPricPric2 column
- * @method     ChildItemPricingDiscount findOneByOepcpricuom2(string $OepcPricUom2) Return the first ChildItemPricingDiscount filtered by the OepcPricUom2 column
- * @method     ChildItemPricingDiscount findOneByOepcpricunit3(int $OepcPricUnit3) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit3 column
- * @method     ChildItemPricingDiscount findOneByOepcpricpric3(string $OepcPricPric3) Return the first ChildItemPricingDiscount filtered by the OepcPricPric3 column
- * @method     ChildItemPricingDiscount findOneByOepcpricuom3(string $OepcPricUom3) Return the first ChildItemPricingDiscount filtered by the OepcPricUom3 column
- * @method     ChildItemPricingDiscount findOneByOepcpricunit4(int $OepcPricUnit4) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit4 column
- * @method     ChildItemPricingDiscount findOneByOepcpricpric4(string $OepcPricPric4) Return the first ChildItemPricingDiscount filtered by the OepcPricPric4 column
- * @method     ChildItemPricingDiscount findOneByOepcpricuom4(string $OepcPricUom4) Return the first ChildItemPricingDiscount filtered by the OepcPricUom4 column
- * @method     ChildItemPricingDiscount findOneByOepcpricunit5(int $OepcPricUnit5) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit5 column
- * @method     ChildItemPricingDiscount findOneByOepcpricpric5(string $OepcPricPric5) Return the first ChildItemPricingDiscount filtered by the OepcPricPric5 column
- * @method     ChildItemPricingDiscount findOneByOepcpricuom5(string $OepcPricUom5) Return the first ChildItemPricingDiscount filtered by the OepcPricUom5 column
- * @method     ChildItemPricingDiscount findOneByOepcstancost(string $OepcStanCost) Return the first ChildItemPricingDiscount filtered by the OepcStanCost column
- * @method     ChildItemPricingDiscount findOneByOepcenddate(string $OepcEndDate) Return the first ChildItemPricingDiscount filtered by the OepcEndDate column
- * @method     ChildItemPricingDiscount findOneByOepcqtybrk(string $OepcQtyBrk) Return the first ChildItemPricingDiscount filtered by the OepcQtyBrk column
- * @method     ChildItemPricingDiscount findOneByOepccontcost(string $OepcContCost) Return the first ChildItemPricingDiscount filtered by the OepcContCost column
- * @method     ChildItemPricingDiscount findOneByOepclastchgdate(string $OepcLastChgDate) Return the first ChildItemPricingDiscount filtered by the OepcLastChgDate column
- * @method     ChildItemPricingDiscount findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemPricingDiscount filtered by the DateUpdtd column
- * @method     ChildItemPricingDiscount findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemPricingDiscount filtered by the TimeUpdtd column
- * @method     ChildItemPricingDiscount findOneByDummy(string $dummy) Return the first ChildItemPricingDiscount filtered by the dummy column *
-
- * @method     ChildItemPricingDiscount requirePk($key, ConnectionInterface $con = null) Return the ChildItemPricingDiscount by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemPricingDiscount requireOne(ConnectionInterface $con = null) Return the first ChildItemPricingDiscount matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemPricingDiscount|null findOneByOepctype(string $OepcType) Return the first ChildItemPricingDiscount filtered by the OepcType column
+ * @method     ChildItemPricingDiscount|null findOneByOepctbltype(int $OepcTblType) Return the first ChildItemPricingDiscount filtered by the OepcTblType column
+ * @method     ChildItemPricingDiscount|null findOneByOepcstrtdate(int $OepcStrtDate) Return the first ChildItemPricingDiscount filtered by the OepcStrtDate column
+ * @method     ChildItemPricingDiscount|null findOneByOepccustid(string $OepcCustId) Return the first ChildItemPricingDiscount filtered by the OepcCustId column
+ * @method     ChildItemPricingDiscount|null findOneByOepccustcode(string $OepcCustCode) Return the first ChildItemPricingDiscount filtered by the OepcCustCode column
+ * @method     ChildItemPricingDiscount|null findOneByOepcitemnbr(string $OepcItemNbr) Return the first ChildItemPricingDiscount filtered by the OepcItemNbr column
+ * @method     ChildItemPricingDiscount|null findOneByOepcitemgrup(string $OepcItemGrup) Return the first ChildItemPricingDiscount filtered by the OepcItemGrup column
+ * @method     ChildItemPricingDiscount|null findOneByOepcsp(string $OepcSp) Return the first ChildItemPricingDiscount filtered by the OepcSp column
+ * @method     ChildItemPricingDiscount|null findOneByOepcmeth(string $OepcMeth) Return the first ChildItemPricingDiscount filtered by the OepcMeth column
+ * @method     ChildItemPricingDiscount|null findOneByOepccode(string $OepcCode) Return the first ChildItemPricingDiscount filtered by the OepcCode column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpcnt(string $OepcPcnt) Return the first ChildItemPricingDiscount filtered by the OepcPcnt column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricbase(string $OepcPricBase) Return the first ChildItemPricingDiscount filtered by the OepcPricBase column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricunit1(int $OepcPricUnit1) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit1 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricpric1(string $OepcPricPric1) Return the first ChildItemPricingDiscount filtered by the OepcPricPric1 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricuom1(string $OepcPricUom1) Return the first ChildItemPricingDiscount filtered by the OepcPricUom1 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricunit2(int $OepcPricUnit2) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit2 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricpric2(string $OepcPricPric2) Return the first ChildItemPricingDiscount filtered by the OepcPricPric2 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricuom2(string $OepcPricUom2) Return the first ChildItemPricingDiscount filtered by the OepcPricUom2 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricunit3(int $OepcPricUnit3) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit3 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricpric3(string $OepcPricPric3) Return the first ChildItemPricingDiscount filtered by the OepcPricPric3 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricuom3(string $OepcPricUom3) Return the first ChildItemPricingDiscount filtered by the OepcPricUom3 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricunit4(int $OepcPricUnit4) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit4 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricpric4(string $OepcPricPric4) Return the first ChildItemPricingDiscount filtered by the OepcPricPric4 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricuom4(string $OepcPricUom4) Return the first ChildItemPricingDiscount filtered by the OepcPricUom4 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricunit5(int $OepcPricUnit5) Return the first ChildItemPricingDiscount filtered by the OepcPricUnit5 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricpric5(string $OepcPricPric5) Return the first ChildItemPricingDiscount filtered by the OepcPricPric5 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcpricuom5(string $OepcPricUom5) Return the first ChildItemPricingDiscount filtered by the OepcPricUom5 column
+ * @method     ChildItemPricingDiscount|null findOneByOepcstancost(string $OepcStanCost) Return the first ChildItemPricingDiscount filtered by the OepcStanCost column
+ * @method     ChildItemPricingDiscount|null findOneByOepcenddate(string $OepcEndDate) Return the first ChildItemPricingDiscount filtered by the OepcEndDate column
+ * @method     ChildItemPricingDiscount|null findOneByOepcqtybrk(string $OepcQtyBrk) Return the first ChildItemPricingDiscount filtered by the OepcQtyBrk column
+ * @method     ChildItemPricingDiscount|null findOneByOepccontcost(string $OepcContCost) Return the first ChildItemPricingDiscount filtered by the OepcContCost column
+ * @method     ChildItemPricingDiscount|null findOneByOepclastchgdate(string $OepcLastChgDate) Return the first ChildItemPricingDiscount filtered by the OepcLastChgDate column
+ * @method     ChildItemPricingDiscount|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemPricingDiscount filtered by the DateUpdtd column
+ * @method     ChildItemPricingDiscount|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemPricingDiscount filtered by the TimeUpdtd column
+ * @method     ChildItemPricingDiscount|null findOneByDummy(string $dummy) Return the first ChildItemPricingDiscount filtered by the dummy column
+ *
+ * @method     ChildItemPricingDiscount requirePk($key, ?ConnectionInterface $con = null) Return the ChildItemPricingDiscount by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemPricingDiscount requireOne(?ConnectionInterface $con = null) Return the first ChildItemPricingDiscount matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemPricingDiscount requireOneByOepctype(string $OepcType) Return the first ChildItemPricingDiscount filtered by the OepcType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemPricingDiscount requireOneByOepctbltype(int $OepcTblType) Return the first ChildItemPricingDiscount filtered by the OepcTblType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -200,44 +199,82 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemPricingDiscount requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemPricingDiscount filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemPricingDiscount requireOneByDummy(string $dummy) Return the first ChildItemPricingDiscount filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemPricingDiscount[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemPricingDiscount objects based on current ModelCriteria
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepctype(string $OepcType) Return ChildItemPricingDiscount objects filtered by the OepcType column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepctbltype(int $OepcTblType) Return ChildItemPricingDiscount objects filtered by the OepcTblType column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcstrtdate(int $OepcStrtDate) Return ChildItemPricingDiscount objects filtered by the OepcStrtDate column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepccustid(string $OepcCustId) Return ChildItemPricingDiscount objects filtered by the OepcCustId column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepccustcode(string $OepcCustCode) Return ChildItemPricingDiscount objects filtered by the OepcCustCode column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcitemnbr(string $OepcItemNbr) Return ChildItemPricingDiscount objects filtered by the OepcItemNbr column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcitemgrup(string $OepcItemGrup) Return ChildItemPricingDiscount objects filtered by the OepcItemGrup column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcsp(string $OepcSp) Return ChildItemPricingDiscount objects filtered by the OepcSp column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcmeth(string $OepcMeth) Return ChildItemPricingDiscount objects filtered by the OepcMeth column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepccode(string $OepcCode) Return ChildItemPricingDiscount objects filtered by the OepcCode column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpcnt(string $OepcPcnt) Return ChildItemPricingDiscount objects filtered by the OepcPcnt column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricbase(string $OepcPricBase) Return ChildItemPricingDiscount objects filtered by the OepcPricBase column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricunit1(int $OepcPricUnit1) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit1 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricpric1(string $OepcPricPric1) Return ChildItemPricingDiscount objects filtered by the OepcPricPric1 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricuom1(string $OepcPricUom1) Return ChildItemPricingDiscount objects filtered by the OepcPricUom1 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricunit2(int $OepcPricUnit2) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit2 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricpric2(string $OepcPricPric2) Return ChildItemPricingDiscount objects filtered by the OepcPricPric2 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricuom2(string $OepcPricUom2) Return ChildItemPricingDiscount objects filtered by the OepcPricUom2 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricunit3(int $OepcPricUnit3) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit3 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricpric3(string $OepcPricPric3) Return ChildItemPricingDiscount objects filtered by the OepcPricPric3 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricuom3(string $OepcPricUom3) Return ChildItemPricingDiscount objects filtered by the OepcPricUom3 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricunit4(int $OepcPricUnit4) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit4 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricpric4(string $OepcPricPric4) Return ChildItemPricingDiscount objects filtered by the OepcPricPric4 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricuom4(string $OepcPricUom4) Return ChildItemPricingDiscount objects filtered by the OepcPricUom4 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricunit5(int $OepcPricUnit5) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit5 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricpric5(string $OepcPricPric5) Return ChildItemPricingDiscount objects filtered by the OepcPricPric5 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcpricuom5(string $OepcPricUom5) Return ChildItemPricingDiscount objects filtered by the OepcPricUom5 column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcstancost(string $OepcStanCost) Return ChildItemPricingDiscount objects filtered by the OepcStanCost column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcenddate(string $OepcEndDate) Return ChildItemPricingDiscount objects filtered by the OepcEndDate column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepcqtybrk(string $OepcQtyBrk) Return ChildItemPricingDiscount objects filtered by the OepcQtyBrk column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepccontcost(string $OepcContCost) Return ChildItemPricingDiscount objects filtered by the OepcContCost column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByOepclastchgdate(string $OepcLastChgDate) Return ChildItemPricingDiscount objects filtered by the OepcLastChgDate column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemPricingDiscount objects filtered by the DateUpdtd column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemPricingDiscount objects filtered by the TimeUpdtd column
- * @method     ChildItemPricingDiscount[]|ObjectCollection findByDummy(string $dummy) Return ChildItemPricingDiscount objects filtered by the dummy column
- * @method     ChildItemPricingDiscount[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItemPricingDiscount[]|Collection find(?ConnectionInterface $con = null) Return ChildItemPricingDiscount objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> find(?ConnectionInterface $con = null) Return ChildItemPricingDiscount objects based on current ModelCriteria
  *
+ * @method     ChildItemPricingDiscount[]|Collection findByOepctype(string|array<string> $OepcType) Return ChildItemPricingDiscount objects filtered by the OepcType column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepctype(string|array<string> $OepcType) Return ChildItemPricingDiscount objects filtered by the OepcType column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepctbltype(int|array<int> $OepcTblType) Return ChildItemPricingDiscount objects filtered by the OepcTblType column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepctbltype(int|array<int> $OepcTblType) Return ChildItemPricingDiscount objects filtered by the OepcTblType column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcstrtdate(int|array<int> $OepcStrtDate) Return ChildItemPricingDiscount objects filtered by the OepcStrtDate column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcstrtdate(int|array<int> $OepcStrtDate) Return ChildItemPricingDiscount objects filtered by the OepcStrtDate column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepccustid(string|array<string> $OepcCustId) Return ChildItemPricingDiscount objects filtered by the OepcCustId column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepccustid(string|array<string> $OepcCustId) Return ChildItemPricingDiscount objects filtered by the OepcCustId column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepccustcode(string|array<string> $OepcCustCode) Return ChildItemPricingDiscount objects filtered by the OepcCustCode column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepccustcode(string|array<string> $OepcCustCode) Return ChildItemPricingDiscount objects filtered by the OepcCustCode column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcitemnbr(string|array<string> $OepcItemNbr) Return ChildItemPricingDiscount objects filtered by the OepcItemNbr column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcitemnbr(string|array<string> $OepcItemNbr) Return ChildItemPricingDiscount objects filtered by the OepcItemNbr column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcitemgrup(string|array<string> $OepcItemGrup) Return ChildItemPricingDiscount objects filtered by the OepcItemGrup column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcitemgrup(string|array<string> $OepcItemGrup) Return ChildItemPricingDiscount objects filtered by the OepcItemGrup column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcsp(string|array<string> $OepcSp) Return ChildItemPricingDiscount objects filtered by the OepcSp column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcsp(string|array<string> $OepcSp) Return ChildItemPricingDiscount objects filtered by the OepcSp column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcmeth(string|array<string> $OepcMeth) Return ChildItemPricingDiscount objects filtered by the OepcMeth column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcmeth(string|array<string> $OepcMeth) Return ChildItemPricingDiscount objects filtered by the OepcMeth column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepccode(string|array<string> $OepcCode) Return ChildItemPricingDiscount objects filtered by the OepcCode column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepccode(string|array<string> $OepcCode) Return ChildItemPricingDiscount objects filtered by the OepcCode column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpcnt(string|array<string> $OepcPcnt) Return ChildItemPricingDiscount objects filtered by the OepcPcnt column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpcnt(string|array<string> $OepcPcnt) Return ChildItemPricingDiscount objects filtered by the OepcPcnt column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricbase(string|array<string> $OepcPricBase) Return ChildItemPricingDiscount objects filtered by the OepcPricBase column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricbase(string|array<string> $OepcPricBase) Return ChildItemPricingDiscount objects filtered by the OepcPricBase column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricunit1(int|array<int> $OepcPricUnit1) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit1 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricunit1(int|array<int> $OepcPricUnit1) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit1 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricpric1(string|array<string> $OepcPricPric1) Return ChildItemPricingDiscount objects filtered by the OepcPricPric1 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricpric1(string|array<string> $OepcPricPric1) Return ChildItemPricingDiscount objects filtered by the OepcPricPric1 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricuom1(string|array<string> $OepcPricUom1) Return ChildItemPricingDiscount objects filtered by the OepcPricUom1 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricuom1(string|array<string> $OepcPricUom1) Return ChildItemPricingDiscount objects filtered by the OepcPricUom1 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricunit2(int|array<int> $OepcPricUnit2) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit2 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricunit2(int|array<int> $OepcPricUnit2) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit2 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricpric2(string|array<string> $OepcPricPric2) Return ChildItemPricingDiscount objects filtered by the OepcPricPric2 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricpric2(string|array<string> $OepcPricPric2) Return ChildItemPricingDiscount objects filtered by the OepcPricPric2 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricuom2(string|array<string> $OepcPricUom2) Return ChildItemPricingDiscount objects filtered by the OepcPricUom2 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricuom2(string|array<string> $OepcPricUom2) Return ChildItemPricingDiscount objects filtered by the OepcPricUom2 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricunit3(int|array<int> $OepcPricUnit3) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit3 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricunit3(int|array<int> $OepcPricUnit3) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit3 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricpric3(string|array<string> $OepcPricPric3) Return ChildItemPricingDiscount objects filtered by the OepcPricPric3 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricpric3(string|array<string> $OepcPricPric3) Return ChildItemPricingDiscount objects filtered by the OepcPricPric3 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricuom3(string|array<string> $OepcPricUom3) Return ChildItemPricingDiscount objects filtered by the OepcPricUom3 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricuom3(string|array<string> $OepcPricUom3) Return ChildItemPricingDiscount objects filtered by the OepcPricUom3 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricunit4(int|array<int> $OepcPricUnit4) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit4 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricunit4(int|array<int> $OepcPricUnit4) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit4 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricpric4(string|array<string> $OepcPricPric4) Return ChildItemPricingDiscount objects filtered by the OepcPricPric4 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricpric4(string|array<string> $OepcPricPric4) Return ChildItemPricingDiscount objects filtered by the OepcPricPric4 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricuom4(string|array<string> $OepcPricUom4) Return ChildItemPricingDiscount objects filtered by the OepcPricUom4 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricuom4(string|array<string> $OepcPricUom4) Return ChildItemPricingDiscount objects filtered by the OepcPricUom4 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricunit5(int|array<int> $OepcPricUnit5) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit5 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricunit5(int|array<int> $OepcPricUnit5) Return ChildItemPricingDiscount objects filtered by the OepcPricUnit5 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricpric5(string|array<string> $OepcPricPric5) Return ChildItemPricingDiscount objects filtered by the OepcPricPric5 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricpric5(string|array<string> $OepcPricPric5) Return ChildItemPricingDiscount objects filtered by the OepcPricPric5 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcpricuom5(string|array<string> $OepcPricUom5) Return ChildItemPricingDiscount objects filtered by the OepcPricUom5 column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcpricuom5(string|array<string> $OepcPricUom5) Return ChildItemPricingDiscount objects filtered by the OepcPricUom5 column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcstancost(string|array<string> $OepcStanCost) Return ChildItemPricingDiscount objects filtered by the OepcStanCost column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcstancost(string|array<string> $OepcStanCost) Return ChildItemPricingDiscount objects filtered by the OepcStanCost column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcenddate(string|array<string> $OepcEndDate) Return ChildItemPricingDiscount objects filtered by the OepcEndDate column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcenddate(string|array<string> $OepcEndDate) Return ChildItemPricingDiscount objects filtered by the OepcEndDate column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepcqtybrk(string|array<string> $OepcQtyBrk) Return ChildItemPricingDiscount objects filtered by the OepcQtyBrk column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepcqtybrk(string|array<string> $OepcQtyBrk) Return ChildItemPricingDiscount objects filtered by the OepcQtyBrk column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepccontcost(string|array<string> $OepcContCost) Return ChildItemPricingDiscount objects filtered by the OepcContCost column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepccontcost(string|array<string> $OepcContCost) Return ChildItemPricingDiscount objects filtered by the OepcContCost column
+ * @method     ChildItemPricingDiscount[]|Collection findByOepclastchgdate(string|array<string> $OepcLastChgDate) Return ChildItemPricingDiscount objects filtered by the OepcLastChgDate column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByOepclastchgdate(string|array<string> $OepcLastChgDate) Return ChildItemPricingDiscount objects filtered by the OepcLastChgDate column
+ * @method     ChildItemPricingDiscount[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemPricingDiscount objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildItemPricingDiscount objects filtered by the DateUpdtd column
+ * @method     ChildItemPricingDiscount[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemPricingDiscount objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildItemPricingDiscount objects filtered by the TimeUpdtd column
+ * @method     ChildItemPricingDiscount[]|Collection findByDummy(string|array<string> $dummy) Return ChildItemPricingDiscount objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItemPricingDiscount> findByDummy(string|array<string> $dummy) Return ChildItemPricingDiscount objects filtered by the dummy column
+ *
+ * @method     ChildItemPricingDiscount[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItemPricingDiscount> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItemPricingDiscountQuery extends ModelCriteria
 {
@@ -246,9 +283,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItemPricingDiscountQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ItemPricingDiscount', $modelAlias = null)
     {
@@ -258,12 +295,12 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     /**
      * Returns a new ChildItemPricingDiscountQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItemPricingDiscountQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItemPricingDiscountQuery) {
             return $criteria;
@@ -293,7 +330,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      *
      * @return ChildItemPricingDiscount|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -325,8 +362,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -365,8 +402,8 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItemPricingDiscount|array|mixed the result, formatted by the current formatter
      */
@@ -386,12 +423,12 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -408,9 +445,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -429,14 +466,16 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ItemPricingDiscountTableMap::COL_OEPCTYPE, $key[0], Criteria::EQUAL);
@@ -467,14 +506,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepctype('fooValue');   // WHERE OepcType = 'fooValue'
      * $query->filterByOepctype('%fooValue%', Criteria::LIKE); // WHERE OepcType LIKE '%fooValue%'
+     * $query->filterByOepctype(['foo', 'bar']); // WHERE OepcType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepctype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepctype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepctype($oepctype = null, $comparison = null)
+    public function filterByOepctype($oepctype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepctype)) {
@@ -482,7 +522,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCTYPE, $oepctype, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCTYPE, $oepctype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -495,15 +537,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepctbltype(array('min' => 12)); // WHERE OepcTblType > 12
      * </code>
      *
-     * @param     mixed $oepctbltype The value to use as filter.
+     * @param mixed $oepctbltype The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepctbltype($oepctbltype = null, $comparison = null)
+    public function filterByOepctbltype($oepctbltype = null, ?string $comparison = null)
     {
         if (is_array($oepctbltype)) {
             $useMinMax = false;
@@ -523,7 +565,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCTBLTYPE, $oepctbltype, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCTBLTYPE, $oepctbltype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -536,15 +580,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcstrtdate(array('min' => 12)); // WHERE OepcStrtDate > 12
      * </code>
      *
-     * @param     mixed $oepcstrtdate The value to use as filter.
+     * @param mixed $oepcstrtdate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcstrtdate($oepcstrtdate = null, $comparison = null)
+    public function filterByOepcstrtdate($oepcstrtdate = null, ?string $comparison = null)
     {
         if (is_array($oepcstrtdate)) {
             $useMinMax = false;
@@ -564,7 +608,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCSTRTDATE, $oepcstrtdate, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCSTRTDATE, $oepcstrtdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -574,14 +620,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepccustid('fooValue');   // WHERE OepcCustId = 'fooValue'
      * $query->filterByOepccustid('%fooValue%', Criteria::LIKE); // WHERE OepcCustId LIKE '%fooValue%'
+     * $query->filterByOepccustid(['foo', 'bar']); // WHERE OepcCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepccustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepccustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepccustid($oepccustid = null, $comparison = null)
+    public function filterByOepccustid($oepccustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepccustid)) {
@@ -589,7 +636,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCUSTID, $oepccustid, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCUSTID, $oepccustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -599,14 +648,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepccustcode('fooValue');   // WHERE OepcCustCode = 'fooValue'
      * $query->filterByOepccustcode('%fooValue%', Criteria::LIKE); // WHERE OepcCustCode LIKE '%fooValue%'
+     * $query->filterByOepccustcode(['foo', 'bar']); // WHERE OepcCustCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepccustcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepccustcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepccustcode($oepccustcode = null, $comparison = null)
+    public function filterByOepccustcode($oepccustcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepccustcode)) {
@@ -614,7 +664,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCUSTCODE, $oepccustcode, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCUSTCODE, $oepccustcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -624,14 +676,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcitemnbr('fooValue');   // WHERE OepcItemNbr = 'fooValue'
      * $query->filterByOepcitemnbr('%fooValue%', Criteria::LIKE); // WHERE OepcItemNbr LIKE '%fooValue%'
+     * $query->filterByOepcitemnbr(['foo', 'bar']); // WHERE OepcItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcitemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcitemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcitemnbr($oepcitemnbr = null, $comparison = null)
+    public function filterByOepcitemnbr($oepcitemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcitemnbr)) {
@@ -639,7 +692,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCITEMNBR, $oepcitemnbr, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCITEMNBR, $oepcitemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -649,14 +704,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcitemgrup('fooValue');   // WHERE OepcItemGrup = 'fooValue'
      * $query->filterByOepcitemgrup('%fooValue%', Criteria::LIKE); // WHERE OepcItemGrup LIKE '%fooValue%'
+     * $query->filterByOepcitemgrup(['foo', 'bar']); // WHERE OepcItemGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcitemgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcitemgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcitemgrup($oepcitemgrup = null, $comparison = null)
+    public function filterByOepcitemgrup($oepcitemgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcitemgrup)) {
@@ -664,7 +720,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCITEMGRUP, $oepcitemgrup, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCITEMGRUP, $oepcitemgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -674,14 +732,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcsp('fooValue');   // WHERE OepcSp = 'fooValue'
      * $query->filterByOepcsp('%fooValue%', Criteria::LIKE); // WHERE OepcSp LIKE '%fooValue%'
+     * $query->filterByOepcsp(['foo', 'bar']); // WHERE OepcSp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcsp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcsp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcsp($oepcsp = null, $comparison = null)
+    public function filterByOepcsp($oepcsp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcsp)) {
@@ -689,7 +748,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCSP, $oepcsp, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCSP, $oepcsp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -699,14 +760,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcmeth('fooValue');   // WHERE OepcMeth = 'fooValue'
      * $query->filterByOepcmeth('%fooValue%', Criteria::LIKE); // WHERE OepcMeth LIKE '%fooValue%'
+     * $query->filterByOepcmeth(['foo', 'bar']); // WHERE OepcMeth IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcmeth The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcmeth The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcmeth($oepcmeth = null, $comparison = null)
+    public function filterByOepcmeth($oepcmeth = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcmeth)) {
@@ -714,7 +776,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCMETH, $oepcmeth, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCMETH, $oepcmeth, $comparison);
+
+        return $this;
     }
 
     /**
@@ -724,14 +788,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepccode('fooValue');   // WHERE OepcCode = 'fooValue'
      * $query->filterByOepccode('%fooValue%', Criteria::LIKE); // WHERE OepcCode LIKE '%fooValue%'
+     * $query->filterByOepccode(['foo', 'bar']); // WHERE OepcCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepccode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepccode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepccode($oepccode = null, $comparison = null)
+    public function filterByOepccode($oepccode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepccode)) {
@@ -739,7 +804,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCODE, $oepccode, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCODE, $oepccode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -752,15 +819,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpcnt(array('min' => 12)); // WHERE OepcPcnt > 12
      * </code>
      *
-     * @param     mixed $oepcpcnt The value to use as filter.
+     * @param mixed $oepcpcnt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpcnt($oepcpcnt = null, $comparison = null)
+    public function filterByOepcpcnt($oepcpcnt = null, ?string $comparison = null)
     {
         if (is_array($oepcpcnt)) {
             $useMinMax = false;
@@ -780,7 +847,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPCNT, $oepcpcnt, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPCNT, $oepcpcnt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -793,15 +862,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricbase(array('min' => 12)); // WHERE OepcPricBase > 12
      * </code>
      *
-     * @param     mixed $oepcpricbase The value to use as filter.
+     * @param mixed $oepcpricbase The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricbase($oepcpricbase = null, $comparison = null)
+    public function filterByOepcpricbase($oepcpricbase = null, ?string $comparison = null)
     {
         if (is_array($oepcpricbase)) {
             $useMinMax = false;
@@ -821,7 +890,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICBASE, $oepcpricbase, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICBASE, $oepcpricbase, $comparison);
+
+        return $this;
     }
 
     /**
@@ -834,15 +905,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricunit1(array('min' => 12)); // WHERE OepcPricUnit1 > 12
      * </code>
      *
-     * @param     mixed $oepcpricunit1 The value to use as filter.
+     * @param mixed $oepcpricunit1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricunit1($oepcpricunit1 = null, $comparison = null)
+    public function filterByOepcpricunit1($oepcpricunit1 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricunit1)) {
             $useMinMax = false;
@@ -862,7 +933,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT1, $oepcpricunit1, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT1, $oepcpricunit1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -875,15 +948,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricpric1(array('min' => 12)); // WHERE OepcPricPric1 > 12
      * </code>
      *
-     * @param     mixed $oepcpricpric1 The value to use as filter.
+     * @param mixed $oepcpricpric1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricpric1($oepcpricpric1 = null, $comparison = null)
+    public function filterByOepcpricpric1($oepcpricpric1 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricpric1)) {
             $useMinMax = false;
@@ -903,7 +976,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC1, $oepcpricpric1, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC1, $oepcpricpric1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -913,14 +988,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcpricuom1('fooValue');   // WHERE OepcPricUom1 = 'fooValue'
      * $query->filterByOepcpricuom1('%fooValue%', Criteria::LIKE); // WHERE OepcPricUom1 LIKE '%fooValue%'
+     * $query->filterByOepcpricuom1(['foo', 'bar']); // WHERE OepcPricUom1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcpricuom1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcpricuom1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricuom1($oepcpricuom1 = null, $comparison = null)
+    public function filterByOepcpricuom1($oepcpricuom1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcpricuom1)) {
@@ -928,7 +1004,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM1, $oepcpricuom1, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM1, $oepcpricuom1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -941,15 +1019,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricunit2(array('min' => 12)); // WHERE OepcPricUnit2 > 12
      * </code>
      *
-     * @param     mixed $oepcpricunit2 The value to use as filter.
+     * @param mixed $oepcpricunit2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricunit2($oepcpricunit2 = null, $comparison = null)
+    public function filterByOepcpricunit2($oepcpricunit2 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricunit2)) {
             $useMinMax = false;
@@ -969,7 +1047,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT2, $oepcpricunit2, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT2, $oepcpricunit2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -982,15 +1062,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricpric2(array('min' => 12)); // WHERE OepcPricPric2 > 12
      * </code>
      *
-     * @param     mixed $oepcpricpric2 The value to use as filter.
+     * @param mixed $oepcpricpric2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricpric2($oepcpricpric2 = null, $comparison = null)
+    public function filterByOepcpricpric2($oepcpricpric2 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricpric2)) {
             $useMinMax = false;
@@ -1010,7 +1090,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC2, $oepcpricpric2, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC2, $oepcpricpric2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1020,14 +1102,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcpricuom2('fooValue');   // WHERE OepcPricUom2 = 'fooValue'
      * $query->filterByOepcpricuom2('%fooValue%', Criteria::LIKE); // WHERE OepcPricUom2 LIKE '%fooValue%'
+     * $query->filterByOepcpricuom2(['foo', 'bar']); // WHERE OepcPricUom2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcpricuom2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcpricuom2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricuom2($oepcpricuom2 = null, $comparison = null)
+    public function filterByOepcpricuom2($oepcpricuom2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcpricuom2)) {
@@ -1035,7 +1118,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM2, $oepcpricuom2, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM2, $oepcpricuom2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1048,15 +1133,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricunit3(array('min' => 12)); // WHERE OepcPricUnit3 > 12
      * </code>
      *
-     * @param     mixed $oepcpricunit3 The value to use as filter.
+     * @param mixed $oepcpricunit3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricunit3($oepcpricunit3 = null, $comparison = null)
+    public function filterByOepcpricunit3($oepcpricunit3 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricunit3)) {
             $useMinMax = false;
@@ -1076,7 +1161,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT3, $oepcpricunit3, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT3, $oepcpricunit3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1089,15 +1176,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricpric3(array('min' => 12)); // WHERE OepcPricPric3 > 12
      * </code>
      *
-     * @param     mixed $oepcpricpric3 The value to use as filter.
+     * @param mixed $oepcpricpric3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricpric3($oepcpricpric3 = null, $comparison = null)
+    public function filterByOepcpricpric3($oepcpricpric3 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricpric3)) {
             $useMinMax = false;
@@ -1117,7 +1204,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC3, $oepcpricpric3, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC3, $oepcpricpric3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1127,14 +1216,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcpricuom3('fooValue');   // WHERE OepcPricUom3 = 'fooValue'
      * $query->filterByOepcpricuom3('%fooValue%', Criteria::LIKE); // WHERE OepcPricUom3 LIKE '%fooValue%'
+     * $query->filterByOepcpricuom3(['foo', 'bar']); // WHERE OepcPricUom3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcpricuom3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcpricuom3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricuom3($oepcpricuom3 = null, $comparison = null)
+    public function filterByOepcpricuom3($oepcpricuom3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcpricuom3)) {
@@ -1142,7 +1232,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM3, $oepcpricuom3, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM3, $oepcpricuom3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1155,15 +1247,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricunit4(array('min' => 12)); // WHERE OepcPricUnit4 > 12
      * </code>
      *
-     * @param     mixed $oepcpricunit4 The value to use as filter.
+     * @param mixed $oepcpricunit4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricunit4($oepcpricunit4 = null, $comparison = null)
+    public function filterByOepcpricunit4($oepcpricunit4 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricunit4)) {
             $useMinMax = false;
@@ -1183,7 +1275,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT4, $oepcpricunit4, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT4, $oepcpricunit4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1196,15 +1290,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricpric4(array('min' => 12)); // WHERE OepcPricPric4 > 12
      * </code>
      *
-     * @param     mixed $oepcpricpric4 The value to use as filter.
+     * @param mixed $oepcpricpric4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricpric4($oepcpricpric4 = null, $comparison = null)
+    public function filterByOepcpricpric4($oepcpricpric4 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricpric4)) {
             $useMinMax = false;
@@ -1224,7 +1318,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC4, $oepcpricpric4, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC4, $oepcpricpric4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1234,14 +1330,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcpricuom4('fooValue');   // WHERE OepcPricUom4 = 'fooValue'
      * $query->filterByOepcpricuom4('%fooValue%', Criteria::LIKE); // WHERE OepcPricUom4 LIKE '%fooValue%'
+     * $query->filterByOepcpricuom4(['foo', 'bar']); // WHERE OepcPricUom4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcpricuom4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcpricuom4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricuom4($oepcpricuom4 = null, $comparison = null)
+    public function filterByOepcpricuom4($oepcpricuom4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcpricuom4)) {
@@ -1249,7 +1346,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM4, $oepcpricuom4, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM4, $oepcpricuom4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1262,15 +1361,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricunit5(array('min' => 12)); // WHERE OepcPricUnit5 > 12
      * </code>
      *
-     * @param     mixed $oepcpricunit5 The value to use as filter.
+     * @param mixed $oepcpricunit5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricunit5($oepcpricunit5 = null, $comparison = null)
+    public function filterByOepcpricunit5($oepcpricunit5 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricunit5)) {
             $useMinMax = false;
@@ -1290,7 +1389,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT5, $oepcpricunit5, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT5, $oepcpricunit5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1303,15 +1404,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcpricpric5(array('min' => 12)); // WHERE OepcPricPric5 > 12
      * </code>
      *
-     * @param     mixed $oepcpricpric5 The value to use as filter.
+     * @param mixed $oepcpricpric5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricpric5($oepcpricpric5 = null, $comparison = null)
+    public function filterByOepcpricpric5($oepcpricpric5 = null, ?string $comparison = null)
     {
         if (is_array($oepcpricpric5)) {
             $useMinMax = false;
@@ -1331,7 +1432,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC5, $oepcpricpric5, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC5, $oepcpricpric5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1341,14 +1444,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcpricuom5('fooValue');   // WHERE OepcPricUom5 = 'fooValue'
      * $query->filterByOepcpricuom5('%fooValue%', Criteria::LIKE); // WHERE OepcPricUom5 LIKE '%fooValue%'
+     * $query->filterByOepcpricuom5(['foo', 'bar']); // WHERE OepcPricUom5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcpricuom5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcpricuom5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcpricuom5($oepcpricuom5 = null, $comparison = null)
+    public function filterByOepcpricuom5($oepcpricuom5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcpricuom5)) {
@@ -1356,7 +1460,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM5, $oepcpricuom5, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCPRICUOM5, $oepcpricuom5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1369,15 +1475,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepcstancost(array('min' => 12)); // WHERE OepcStanCost > 12
      * </code>
      *
-     * @param     mixed $oepcstancost The value to use as filter.
+     * @param mixed $oepcstancost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcstancost($oepcstancost = null, $comparison = null)
+    public function filterByOepcstancost($oepcstancost = null, ?string $comparison = null)
     {
         if (is_array($oepcstancost)) {
             $useMinMax = false;
@@ -1397,7 +1503,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCSTANCOST, $oepcstancost, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCSTANCOST, $oepcstancost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1407,14 +1515,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcenddate('fooValue');   // WHERE OepcEndDate = 'fooValue'
      * $query->filterByOepcenddate('%fooValue%', Criteria::LIKE); // WHERE OepcEndDate LIKE '%fooValue%'
+     * $query->filterByOepcenddate(['foo', 'bar']); // WHERE OepcEndDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcenddate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcenddate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcenddate($oepcenddate = null, $comparison = null)
+    public function filterByOepcenddate($oepcenddate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcenddate)) {
@@ -1422,7 +1531,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCENDDATE, $oepcenddate, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCENDDATE, $oepcenddate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1432,14 +1543,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepcqtybrk('fooValue');   // WHERE OepcQtyBrk = 'fooValue'
      * $query->filterByOepcqtybrk('%fooValue%', Criteria::LIKE); // WHERE OepcQtyBrk LIKE '%fooValue%'
+     * $query->filterByOepcqtybrk(['foo', 'bar']); // WHERE OepcQtyBrk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepcqtybrk The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepcqtybrk The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepcqtybrk($oepcqtybrk = null, $comparison = null)
+    public function filterByOepcqtybrk($oepcqtybrk = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepcqtybrk)) {
@@ -1447,7 +1559,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCQTYBRK, $oepcqtybrk, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCQTYBRK, $oepcqtybrk, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1460,15 +1574,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * $query->filterByOepccontcost(array('min' => 12)); // WHERE OepcContCost > 12
      * </code>
      *
-     * @param     mixed $oepccontcost The value to use as filter.
+     * @param mixed $oepccontcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepccontcost($oepccontcost = null, $comparison = null)
+    public function filterByOepccontcost($oepccontcost = null, ?string $comparison = null)
     {
         if (is_array($oepccontcost)) {
             $useMinMax = false;
@@ -1488,7 +1602,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCONTCOST, $oepccontcost, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCONTCOST, $oepccontcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1498,14 +1614,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByOepclastchgdate('fooValue');   // WHERE OepcLastChgDate = 'fooValue'
      * $query->filterByOepclastchgdate('%fooValue%', Criteria::LIKE); // WHERE OepcLastChgDate LIKE '%fooValue%'
+     * $query->filterByOepclastchgdate(['foo', 'bar']); // WHERE OepcLastChgDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oepclastchgdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oepclastchgdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOepclastchgdate($oepclastchgdate = null, $comparison = null)
+    public function filterByOepclastchgdate($oepclastchgdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oepclastchgdate)) {
@@ -1513,7 +1630,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE, $oepclastchgdate, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE, $oepclastchgdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1523,14 +1642,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1538,7 +1658,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1548,14 +1670,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1563,7 +1686,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1573,14 +1698,15 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1588,20 +1714,22 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemPricingDiscountTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItemPricingDiscountTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1611,8 +1739,10 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1621,12 +1751,12 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1655,9 +1785,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1669,16 +1799,112 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -1688,8 +1914,10 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ItemPricingDiscountTableMap::COL_OEPCCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -1698,12 +1926,12 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -1732,9 +1960,9 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -1746,11 +1974,107 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildItemPricingDiscount $itemPricingDiscount Object to remove from the list of results
+     * @param ChildItemPricingDiscount $itemPricingDiscount Object to remove from the list of results
      *
-     * @return $this|ChildItemPricingDiscountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itemPricingDiscount = null)
     {
@@ -1775,7 +2099,7 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
@@ -1800,12 +2124,12 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
@@ -1830,4 +2154,4 @@ abstract class ItemPricingDiscountQuery extends ModelCriteria
         });
     }
 
-} // ItemPricingDiscountQuery
+}

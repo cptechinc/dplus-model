@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_lot_mast' table.
- *
- *
+ * Base class that represents a query for the `inv_lot_mast` table.
  *
  * @method     ChildInvLotMasterQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildInvLotMasterQuery orderByLotmlotnbr($order = Criteria::ASC) Order by the LotmLotNbr column
@@ -154,33 +153,33 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery|\InvWhseLotQuery|\InvLotTagQuery|\InvTransferLotserialQuery|\InvTransferPreAllocatedLotserialQuery|\InvTransferPickedLotserialQuery|\SoAllocatedLotserialQuery|\SoPickedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvLotMaster findOne(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query
- * @method     ChildInvLotMaster findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query, or a new ChildInvLotMaster object populated from the query conditions when no match is found
+ * @method     ChildInvLotMaster|null findOne(?ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query
+ * @method     ChildInvLotMaster findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query, or a new ChildInvLotMaster object populated from the query conditions when no match is found
  *
- * @method     ChildInvLotMaster findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvLotMaster filtered by the InitItemNbr column
- * @method     ChildInvLotMaster findOneByLotmlotnbr(string $LotmLotNbr) Return the first ChildInvLotMaster filtered by the LotmLotNbr column
- * @method     ChildInvLotMaster findOneByLotmlotref(string $LotmLotRef) Return the first ChildInvLotMaster filtered by the LotmLotRef column
- * @method     ChildInvLotMaster findOneByLotmfrstactdate(string $LotmFrstActDate) Return the first ChildInvLotMaster filtered by the LotmFrstActDate column
- * @method     ChildInvLotMaster findOneByLotmimagyn(string $LotmImagYn) Return the first ChildInvLotMaster filtered by the LotmImagYn column
- * @method     ChildInvLotMaster findOneByLotmunitwght(string $LotmUnitWght) Return the first ChildInvLotMaster filtered by the LotmUnitWght column
- * @method     ChildInvLotMaster findOneByLotmrevision(string $LotmRevision) Return the first ChildInvLotMaster filtered by the LotmRevision column
- * @method     ChildInvLotMaster findOneByLotmctry(string $LotmCtry) Return the first ChildInvLotMaster filtered by the LotmCtry column
- * @method     ChildInvLotMaster findOneByLotmcofc(string $LotmCOfC) Return the first ChildInvLotMaster filtered by the LotmCOfC column
- * @method     ChildInvLotMaster findOneByLotmcreatedate(string $LotmCreateDate) Return the first ChildInvLotMaster filtered by the LotmCreateDate column
- * @method     ChildInvLotMaster findOneByLotmcreatetime(string $LotmCreateTime) Return the first ChildInvLotMaster filtered by the LotmCreateTime column
- * @method     ChildInvLotMaster findOneByLotmvendid(string $LotmVendId) Return the first ChildInvLotMaster filtered by the LotmVendId column
- * @method     ChildInvLotMaster findOneByLotmexpiredate(string $LotmExpireDate) Return the first ChildInvLotMaster filtered by the LotmExpireDate column
- * @method     ChildInvLotMaster findOneByLotmunitcost(string $LotmUnitCost) Return the first ChildInvLotMaster filtered by the LotmUnitCost column
- * @method     ChildInvLotMaster findOneByLotmcntrqty(string $LotmCntrQty) Return the first ChildInvLotMaster filtered by the LotmCntrQty column
- * @method     ChildInvLotMaster findOneByLotmsrccd(string $LotmSrcCd) Return the first ChildInvLotMaster filtered by the LotmSrcCd column
- * @method     ChildInvLotMaster findOneByLotmlmqccode(string $LotmLmQcCode) Return the first ChildInvLotMaster filtered by the LotmLmQcCode column
- * @method     ChildInvLotMaster findOneByLotmcat3(string $LotmCat3) Return the first ChildInvLotMaster filtered by the LotmCat3 column
- * @method     ChildInvLotMaster findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvLotMaster filtered by the DateUpdtd column
- * @method     ChildInvLotMaster findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLotMaster filtered by the TimeUpdtd column
- * @method     ChildInvLotMaster findOneByDummy(string $dummy) Return the first ChildInvLotMaster filtered by the dummy column *
-
- * @method     ChildInvLotMaster requirePk($key, ConnectionInterface $con = null) Return the ChildInvLotMaster by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLotMaster requireOne(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvLotMaster filtered by the InitItemNbr column
+ * @method     ChildInvLotMaster|null findOneByLotmlotnbr(string $LotmLotNbr) Return the first ChildInvLotMaster filtered by the LotmLotNbr column
+ * @method     ChildInvLotMaster|null findOneByLotmlotref(string $LotmLotRef) Return the first ChildInvLotMaster filtered by the LotmLotRef column
+ * @method     ChildInvLotMaster|null findOneByLotmfrstactdate(string $LotmFrstActDate) Return the first ChildInvLotMaster filtered by the LotmFrstActDate column
+ * @method     ChildInvLotMaster|null findOneByLotmimagyn(string $LotmImagYn) Return the first ChildInvLotMaster filtered by the LotmImagYn column
+ * @method     ChildInvLotMaster|null findOneByLotmunitwght(string $LotmUnitWght) Return the first ChildInvLotMaster filtered by the LotmUnitWght column
+ * @method     ChildInvLotMaster|null findOneByLotmrevision(string $LotmRevision) Return the first ChildInvLotMaster filtered by the LotmRevision column
+ * @method     ChildInvLotMaster|null findOneByLotmctry(string $LotmCtry) Return the first ChildInvLotMaster filtered by the LotmCtry column
+ * @method     ChildInvLotMaster|null findOneByLotmcofc(string $LotmCOfC) Return the first ChildInvLotMaster filtered by the LotmCOfC column
+ * @method     ChildInvLotMaster|null findOneByLotmcreatedate(string $LotmCreateDate) Return the first ChildInvLotMaster filtered by the LotmCreateDate column
+ * @method     ChildInvLotMaster|null findOneByLotmcreatetime(string $LotmCreateTime) Return the first ChildInvLotMaster filtered by the LotmCreateTime column
+ * @method     ChildInvLotMaster|null findOneByLotmvendid(string $LotmVendId) Return the first ChildInvLotMaster filtered by the LotmVendId column
+ * @method     ChildInvLotMaster|null findOneByLotmexpiredate(string $LotmExpireDate) Return the first ChildInvLotMaster filtered by the LotmExpireDate column
+ * @method     ChildInvLotMaster|null findOneByLotmunitcost(string $LotmUnitCost) Return the first ChildInvLotMaster filtered by the LotmUnitCost column
+ * @method     ChildInvLotMaster|null findOneByLotmcntrqty(string $LotmCntrQty) Return the first ChildInvLotMaster filtered by the LotmCntrQty column
+ * @method     ChildInvLotMaster|null findOneByLotmsrccd(string $LotmSrcCd) Return the first ChildInvLotMaster filtered by the LotmSrcCd column
+ * @method     ChildInvLotMaster|null findOneByLotmlmqccode(string $LotmLmQcCode) Return the first ChildInvLotMaster filtered by the LotmLmQcCode column
+ * @method     ChildInvLotMaster|null findOneByLotmcat3(string $LotmCat3) Return the first ChildInvLotMaster filtered by the LotmCat3 column
+ * @method     ChildInvLotMaster|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvLotMaster filtered by the DateUpdtd column
+ * @method     ChildInvLotMaster|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLotMaster filtered by the TimeUpdtd column
+ * @method     ChildInvLotMaster|null findOneByDummy(string $dummy) Return the first ChildInvLotMaster filtered by the dummy column
+ *
+ * @method     ChildInvLotMaster requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvLotMaster by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOne(?ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvLotMaster requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvLotMaster filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvLotMaster requireOneByLotmlotnbr(string $LotmLotNbr) Return the first ChildInvLotMaster filtered by the LotmLotNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -204,30 +203,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMaster requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLotMaster filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvLotMaster requireOneByDummy(string $dummy) Return the first ChildInvLotMaster filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvLotMaster[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvLotMaster objects based on current ModelCriteria
- * @method     ChildInvLotMaster[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvLotMaster objects filtered by the InitItemNbr column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmlotnbr(string $LotmLotNbr) Return ChildInvLotMaster objects filtered by the LotmLotNbr column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmlotref(string $LotmLotRef) Return ChildInvLotMaster objects filtered by the LotmLotRef column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmfrstactdate(string $LotmFrstActDate) Return ChildInvLotMaster objects filtered by the LotmFrstActDate column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmimagyn(string $LotmImagYn) Return ChildInvLotMaster objects filtered by the LotmImagYn column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmunitwght(string $LotmUnitWght) Return ChildInvLotMaster objects filtered by the LotmUnitWght column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmrevision(string $LotmRevision) Return ChildInvLotMaster objects filtered by the LotmRevision column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmctry(string $LotmCtry) Return ChildInvLotMaster objects filtered by the LotmCtry column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcofc(string $LotmCOfC) Return ChildInvLotMaster objects filtered by the LotmCOfC column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcreatedate(string $LotmCreateDate) Return ChildInvLotMaster objects filtered by the LotmCreateDate column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcreatetime(string $LotmCreateTime) Return ChildInvLotMaster objects filtered by the LotmCreateTime column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmvendid(string $LotmVendId) Return ChildInvLotMaster objects filtered by the LotmVendId column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmexpiredate(string $LotmExpireDate) Return ChildInvLotMaster objects filtered by the LotmExpireDate column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmunitcost(string $LotmUnitCost) Return ChildInvLotMaster objects filtered by the LotmUnitCost column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcntrqty(string $LotmCntrQty) Return ChildInvLotMaster objects filtered by the LotmCntrQty column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmsrccd(string $LotmSrcCd) Return ChildInvLotMaster objects filtered by the LotmSrcCd column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmlmqccode(string $LotmLmQcCode) Return ChildInvLotMaster objects filtered by the LotmLmQcCode column
- * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcat3(string $LotmCat3) Return ChildInvLotMaster objects filtered by the LotmCat3 column
- * @method     ChildInvLotMaster[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvLotMaster objects filtered by the DateUpdtd column
- * @method     ChildInvLotMaster[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvLotMaster objects filtered by the TimeUpdtd column
- * @method     ChildInvLotMaster[]|ObjectCollection findByDummy(string $dummy) Return ChildInvLotMaster objects filtered by the dummy column
- * @method     ChildInvLotMaster[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvLotMaster[]|Collection find(?ConnectionInterface $con = null) Return ChildInvLotMaster objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> find(?ConnectionInterface $con = null) Return ChildInvLotMaster objects based on current ModelCriteria
  *
+ * @method     ChildInvLotMaster[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvLotMaster objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvLotMaster objects filtered by the InitItemNbr column
+ * @method     ChildInvLotMaster[]|Collection findByLotmlotnbr(string|array<string> $LotmLotNbr) Return ChildInvLotMaster objects filtered by the LotmLotNbr column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmlotnbr(string|array<string> $LotmLotNbr) Return ChildInvLotMaster objects filtered by the LotmLotNbr column
+ * @method     ChildInvLotMaster[]|Collection findByLotmlotref(string|array<string> $LotmLotRef) Return ChildInvLotMaster objects filtered by the LotmLotRef column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmlotref(string|array<string> $LotmLotRef) Return ChildInvLotMaster objects filtered by the LotmLotRef column
+ * @method     ChildInvLotMaster[]|Collection findByLotmfrstactdate(string|array<string> $LotmFrstActDate) Return ChildInvLotMaster objects filtered by the LotmFrstActDate column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmfrstactdate(string|array<string> $LotmFrstActDate) Return ChildInvLotMaster objects filtered by the LotmFrstActDate column
+ * @method     ChildInvLotMaster[]|Collection findByLotmimagyn(string|array<string> $LotmImagYn) Return ChildInvLotMaster objects filtered by the LotmImagYn column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmimagyn(string|array<string> $LotmImagYn) Return ChildInvLotMaster objects filtered by the LotmImagYn column
+ * @method     ChildInvLotMaster[]|Collection findByLotmunitwght(string|array<string> $LotmUnitWght) Return ChildInvLotMaster objects filtered by the LotmUnitWght column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmunitwght(string|array<string> $LotmUnitWght) Return ChildInvLotMaster objects filtered by the LotmUnitWght column
+ * @method     ChildInvLotMaster[]|Collection findByLotmrevision(string|array<string> $LotmRevision) Return ChildInvLotMaster objects filtered by the LotmRevision column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmrevision(string|array<string> $LotmRevision) Return ChildInvLotMaster objects filtered by the LotmRevision column
+ * @method     ChildInvLotMaster[]|Collection findByLotmctry(string|array<string> $LotmCtry) Return ChildInvLotMaster objects filtered by the LotmCtry column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmctry(string|array<string> $LotmCtry) Return ChildInvLotMaster objects filtered by the LotmCtry column
+ * @method     ChildInvLotMaster[]|Collection findByLotmcofc(string|array<string> $LotmCOfC) Return ChildInvLotMaster objects filtered by the LotmCOfC column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmcofc(string|array<string> $LotmCOfC) Return ChildInvLotMaster objects filtered by the LotmCOfC column
+ * @method     ChildInvLotMaster[]|Collection findByLotmcreatedate(string|array<string> $LotmCreateDate) Return ChildInvLotMaster objects filtered by the LotmCreateDate column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmcreatedate(string|array<string> $LotmCreateDate) Return ChildInvLotMaster objects filtered by the LotmCreateDate column
+ * @method     ChildInvLotMaster[]|Collection findByLotmcreatetime(string|array<string> $LotmCreateTime) Return ChildInvLotMaster objects filtered by the LotmCreateTime column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmcreatetime(string|array<string> $LotmCreateTime) Return ChildInvLotMaster objects filtered by the LotmCreateTime column
+ * @method     ChildInvLotMaster[]|Collection findByLotmvendid(string|array<string> $LotmVendId) Return ChildInvLotMaster objects filtered by the LotmVendId column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmvendid(string|array<string> $LotmVendId) Return ChildInvLotMaster objects filtered by the LotmVendId column
+ * @method     ChildInvLotMaster[]|Collection findByLotmexpiredate(string|array<string> $LotmExpireDate) Return ChildInvLotMaster objects filtered by the LotmExpireDate column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmexpiredate(string|array<string> $LotmExpireDate) Return ChildInvLotMaster objects filtered by the LotmExpireDate column
+ * @method     ChildInvLotMaster[]|Collection findByLotmunitcost(string|array<string> $LotmUnitCost) Return ChildInvLotMaster objects filtered by the LotmUnitCost column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmunitcost(string|array<string> $LotmUnitCost) Return ChildInvLotMaster objects filtered by the LotmUnitCost column
+ * @method     ChildInvLotMaster[]|Collection findByLotmcntrqty(string|array<string> $LotmCntrQty) Return ChildInvLotMaster objects filtered by the LotmCntrQty column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmcntrqty(string|array<string> $LotmCntrQty) Return ChildInvLotMaster objects filtered by the LotmCntrQty column
+ * @method     ChildInvLotMaster[]|Collection findByLotmsrccd(string|array<string> $LotmSrcCd) Return ChildInvLotMaster objects filtered by the LotmSrcCd column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmsrccd(string|array<string> $LotmSrcCd) Return ChildInvLotMaster objects filtered by the LotmSrcCd column
+ * @method     ChildInvLotMaster[]|Collection findByLotmlmqccode(string|array<string> $LotmLmQcCode) Return ChildInvLotMaster objects filtered by the LotmLmQcCode column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmlmqccode(string|array<string> $LotmLmQcCode) Return ChildInvLotMaster objects filtered by the LotmLmQcCode column
+ * @method     ChildInvLotMaster[]|Collection findByLotmcat3(string|array<string> $LotmCat3) Return ChildInvLotMaster objects filtered by the LotmCat3 column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByLotmcat3(string|array<string> $LotmCat3) Return ChildInvLotMaster objects filtered by the LotmCat3 column
+ * @method     ChildInvLotMaster[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvLotMaster objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvLotMaster objects filtered by the DateUpdtd column
+ * @method     ChildInvLotMaster[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvLotMaster objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvLotMaster objects filtered by the TimeUpdtd column
+ * @method     ChildInvLotMaster[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvLotMaster objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvLotMaster> findByDummy(string|array<string> $dummy) Return ChildInvLotMaster objects filtered by the dummy column
+ *
+ * @method     ChildInvLotMaster[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvLotMaster> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvLotMasterQuery extends ModelCriteria
 {
@@ -236,9 +259,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvLotMasterQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvLotMaster', $modelAlias = null)
     {
@@ -248,12 +271,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Returns a new ChildInvLotMasterQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvLotMasterQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvLotMasterQuery) {
             return $criteria;
@@ -283,7 +306,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @return ChildInvLotMaster|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -315,8 +338,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -349,8 +372,8 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvLotMaster|array|mixed the result, formatted by the current formatter
      */
@@ -370,12 +393,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -392,9 +415,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -407,14 +430,16 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvLotMasterTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
@@ -433,14 +458,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -448,7 +474,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -458,14 +486,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmlotnbr('fooValue');   // WHERE LotmLotNbr = 'fooValue'
      * $query->filterByLotmlotnbr('%fooValue%', Criteria::LIKE); // WHERE LotmLotNbr LIKE '%fooValue%'
+     * $query->filterByLotmlotnbr(['foo', 'bar']); // WHERE LotmLotNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmlotnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmlotnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmlotnbr($lotmlotnbr = null, $comparison = null)
+    public function filterByLotmlotnbr($lotmlotnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmlotnbr)) {
@@ -473,7 +502,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $lotmlotnbr, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $lotmlotnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -483,14 +514,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmlotref('fooValue');   // WHERE LotmLotRef = 'fooValue'
      * $query->filterByLotmlotref('%fooValue%', Criteria::LIKE); // WHERE LotmLotRef LIKE '%fooValue%'
+     * $query->filterByLotmlotref(['foo', 'bar']); // WHERE LotmLotRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmlotref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmlotref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmlotref($lotmlotref = null, $comparison = null)
+    public function filterByLotmlotref($lotmlotref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmlotref)) {
@@ -498,7 +530,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTREF, $lotmlotref, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTREF, $lotmlotref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -508,14 +542,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmfrstactdate('fooValue');   // WHERE LotmFrstActDate = 'fooValue'
      * $query->filterByLotmfrstactdate('%fooValue%', Criteria::LIKE); // WHERE LotmFrstActDate LIKE '%fooValue%'
+     * $query->filterByLotmfrstactdate(['foo', 'bar']); // WHERE LotmFrstActDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmfrstactdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmfrstactdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmfrstactdate($lotmfrstactdate = null, $comparison = null)
+    public function filterByLotmfrstactdate($lotmfrstactdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmfrstactdate)) {
@@ -523,7 +558,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMFRSTACTDATE, $lotmfrstactdate, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMFRSTACTDATE, $lotmfrstactdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -533,14 +570,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmimagyn('fooValue');   // WHERE LotmImagYn = 'fooValue'
      * $query->filterByLotmimagyn('%fooValue%', Criteria::LIKE); // WHERE LotmImagYn LIKE '%fooValue%'
+     * $query->filterByLotmimagyn(['foo', 'bar']); // WHERE LotmImagYn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmimagyn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmimagyn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmimagyn($lotmimagyn = null, $comparison = null)
+    public function filterByLotmimagyn($lotmimagyn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmimagyn)) {
@@ -548,7 +586,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMIMAGYN, $lotmimagyn, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMIMAGYN, $lotmimagyn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -561,15 +601,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * $query->filterByLotmunitwght(array('min' => 12)); // WHERE LotmUnitWght > 12
      * </code>
      *
-     * @param     mixed $lotmunitwght The value to use as filter.
+     * @param mixed $lotmunitwght The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmunitwght($lotmunitwght = null, $comparison = null)
+    public function filterByLotmunitwght($lotmunitwght = null, ?string $comparison = null)
     {
         if (is_array($lotmunitwght)) {
             $useMinMax = false;
@@ -589,7 +629,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITWGHT, $lotmunitwght, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITWGHT, $lotmunitwght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -599,14 +641,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmrevision('fooValue');   // WHERE LotmRevision = 'fooValue'
      * $query->filterByLotmrevision('%fooValue%', Criteria::LIKE); // WHERE LotmRevision LIKE '%fooValue%'
+     * $query->filterByLotmrevision(['foo', 'bar']); // WHERE LotmRevision IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmrevision The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmrevision The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmrevision($lotmrevision = null, $comparison = null)
+    public function filterByLotmrevision($lotmrevision = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmrevision)) {
@@ -614,7 +657,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMREVISION, $lotmrevision, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMREVISION, $lotmrevision, $comparison);
+
+        return $this;
     }
 
     /**
@@ -624,14 +669,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmctry('fooValue');   // WHERE LotmCtry = 'fooValue'
      * $query->filterByLotmctry('%fooValue%', Criteria::LIKE); // WHERE LotmCtry LIKE '%fooValue%'
+     * $query->filterByLotmctry(['foo', 'bar']); // WHERE LotmCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmctry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmctry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmctry($lotmctry = null, $comparison = null)
+    public function filterByLotmctry($lotmctry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmctry)) {
@@ -639,7 +685,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCTRY, $lotmctry, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCTRY, $lotmctry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -649,14 +697,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmcofc('fooValue');   // WHERE LotmCOfC = 'fooValue'
      * $query->filterByLotmcofc('%fooValue%', Criteria::LIKE); // WHERE LotmCOfC LIKE '%fooValue%'
+     * $query->filterByLotmcofc(['foo', 'bar']); // WHERE LotmCOfC IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmcofc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmcofc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmcofc($lotmcofc = null, $comparison = null)
+    public function filterByLotmcofc($lotmcofc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmcofc)) {
@@ -664,7 +713,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCOFC, $lotmcofc, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCOFC, $lotmcofc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -674,14 +725,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmcreatedate('fooValue');   // WHERE LotmCreateDate = 'fooValue'
      * $query->filterByLotmcreatedate('%fooValue%', Criteria::LIKE); // WHERE LotmCreateDate LIKE '%fooValue%'
+     * $query->filterByLotmcreatedate(['foo', 'bar']); // WHERE LotmCreateDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmcreatedate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmcreatedate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmcreatedate($lotmcreatedate = null, $comparison = null)
+    public function filterByLotmcreatedate($lotmcreatedate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmcreatedate)) {
@@ -689,7 +741,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCREATEDATE, $lotmcreatedate, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCREATEDATE, $lotmcreatedate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -699,14 +753,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmcreatetime('fooValue');   // WHERE LotmCreateTime = 'fooValue'
      * $query->filterByLotmcreatetime('%fooValue%', Criteria::LIKE); // WHERE LotmCreateTime LIKE '%fooValue%'
+     * $query->filterByLotmcreatetime(['foo', 'bar']); // WHERE LotmCreateTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmcreatetime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmcreatetime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmcreatetime($lotmcreatetime = null, $comparison = null)
+    public function filterByLotmcreatetime($lotmcreatetime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmcreatetime)) {
@@ -714,7 +769,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCREATETIME, $lotmcreatetime, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCREATETIME, $lotmcreatetime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -724,14 +781,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmvendid('fooValue');   // WHERE LotmVendId = 'fooValue'
      * $query->filterByLotmvendid('%fooValue%', Criteria::LIKE); // WHERE LotmVendId LIKE '%fooValue%'
+     * $query->filterByLotmvendid(['foo', 'bar']); // WHERE LotmVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmvendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmvendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmvendid($lotmvendid = null, $comparison = null)
+    public function filterByLotmvendid($lotmvendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmvendid)) {
@@ -739,7 +797,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMVENDID, $lotmvendid, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMVENDID, $lotmvendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -749,14 +809,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmexpiredate('fooValue');   // WHERE LotmExpireDate = 'fooValue'
      * $query->filterByLotmexpiredate('%fooValue%', Criteria::LIKE); // WHERE LotmExpireDate LIKE '%fooValue%'
+     * $query->filterByLotmexpiredate(['foo', 'bar']); // WHERE LotmExpireDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmexpiredate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmexpiredate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmexpiredate($lotmexpiredate = null, $comparison = null)
+    public function filterByLotmexpiredate($lotmexpiredate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmexpiredate)) {
@@ -764,7 +825,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMEXPIREDATE, $lotmexpiredate, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMEXPIREDATE, $lotmexpiredate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -777,15 +840,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * $query->filterByLotmunitcost(array('min' => 12)); // WHERE LotmUnitCost > 12
      * </code>
      *
-     * @param     mixed $lotmunitcost The value to use as filter.
+     * @param mixed $lotmunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmunitcost($lotmunitcost = null, $comparison = null)
+    public function filterByLotmunitcost($lotmunitcost = null, ?string $comparison = null)
     {
         if (is_array($lotmunitcost)) {
             $useMinMax = false;
@@ -805,7 +868,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITCOST, $lotmunitcost, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITCOST, $lotmunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -818,15 +883,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * $query->filterByLotmcntrqty(array('min' => 12)); // WHERE LotmCntrQty > 12
      * </code>
      *
-     * @param     mixed $lotmcntrqty The value to use as filter.
+     * @param mixed $lotmcntrqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmcntrqty($lotmcntrqty = null, $comparison = null)
+    public function filterByLotmcntrqty($lotmcntrqty = null, ?string $comparison = null)
     {
         if (is_array($lotmcntrqty)) {
             $useMinMax = false;
@@ -846,7 +911,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCNTRQTY, $lotmcntrqty, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCNTRQTY, $lotmcntrqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -856,14 +923,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmsrccd('fooValue');   // WHERE LotmSrcCd = 'fooValue'
      * $query->filterByLotmsrccd('%fooValue%', Criteria::LIKE); // WHERE LotmSrcCd LIKE '%fooValue%'
+     * $query->filterByLotmsrccd(['foo', 'bar']); // WHERE LotmSrcCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmsrccd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmsrccd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmsrccd($lotmsrccd = null, $comparison = null)
+    public function filterByLotmsrccd($lotmsrccd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmsrccd)) {
@@ -871,7 +939,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMSRCCD, $lotmsrccd, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMSRCCD, $lotmsrccd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -881,14 +951,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmlmqccode('fooValue');   // WHERE LotmLmQcCode = 'fooValue'
      * $query->filterByLotmlmqccode('%fooValue%', Criteria::LIKE); // WHERE LotmLmQcCode LIKE '%fooValue%'
+     * $query->filterByLotmlmqccode(['foo', 'bar']); // WHERE LotmLmQcCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmlmqccode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmlmqccode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmlmqccode($lotmlmqccode = null, $comparison = null)
+    public function filterByLotmlmqccode($lotmlmqccode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmlmqccode)) {
@@ -896,7 +967,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLMQCCODE, $lotmlmqccode, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLMQCCODE, $lotmlmqccode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -906,14 +979,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByLotmcat3('fooValue');   // WHERE LotmCat3 = 'fooValue'
      * $query->filterByLotmcat3('%fooValue%', Criteria::LIKE); // WHERE LotmCat3 LIKE '%fooValue%'
+     * $query->filterByLotmcat3(['foo', 'bar']); // WHERE LotmCat3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotmcat3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotmcat3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotmcat3($lotmcat3 = null, $comparison = null)
+    public function filterByLotmcat3($lotmcat3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotmcat3)) {
@@ -921,7 +995,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCAT3, $lotmcat3, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCAT3, $lotmcat3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -931,14 +1007,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -946,7 +1023,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -956,14 +1035,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -971,7 +1051,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -981,14 +1063,15 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -996,20 +1079,22 @@ abstract class InvLotMasterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotMasterTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1019,8 +1104,10 @@ abstract class InvLotMasterQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1029,12 +1116,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1063,9 +1150,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1077,19 +1164,117 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvWhseLot object
      *
      * @param \InvWhseLot|ObjectCollection $invWhseLot the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvWhseLot($invWhseLot, $comparison = null)
+    public function filterByInvWhseLot($invWhseLot, ?string $comparison = null)
     {
         if ($invWhseLot instanceof \InvWhseLot) {
-            return $this
+            $this
                 ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $invWhseLot->getInititemnbr(), $comparison)
                 ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $invWhseLot->getInltlotser(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvWhseLot() only accepts arguments of type \InvWhseLot');
         }
@@ -1098,12 +1283,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvWhseLot relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvWhseLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvWhseLot(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvWhseLot');
@@ -1132,9 +1317,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvWhseLotQuery A secondary query class using the current class as primary query
      */
@@ -1146,19 +1331,117 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvWhseLot relation InvWhseLot object
+     *
+     * @param callable(\InvWhseLotQuery):\InvWhseLotQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvWhseLotQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvWhseLotQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvWhseLotQuery The inner query object of the EXISTS statement
+     */
+    public function useInvWhseLotExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useExistsQuery('InvWhseLot', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for a NOT EXISTS query.
+     *
+     * @see useInvWhseLotExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseLotQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvWhseLotNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useExistsQuery('InvWhseLot', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvWhseLotQuery The inner query object of the IN statement
+     */
+    public function useInInvWhseLotQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useInQuery('InvWhseLot', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvWhseLot table for a NOT IN query.
+     *
+     * @see useInvWhseLotInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvWhseLotQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvWhseLotQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvWhseLotQuery */
+        $q = $this->useInQuery('InvWhseLot', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvLotTag object
      *
      * @param \InvLotTag|ObjectCollection $invLotTag the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvLotTag($invLotTag, $comparison = null)
+    public function filterByInvLotTag($invLotTag, ?string $comparison = null)
     {
         if ($invLotTag instanceof \InvLotTag) {
-            return $this
+            $this
                 ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $invLotTag->getInititemnbr(), $comparison)
                 ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $invLotTag->getIntglotser(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvLotTag() only accepts arguments of type \InvLotTag');
         }
@@ -1167,12 +1450,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvLotTag relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvLotTag($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotTag(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvLotTag');
@@ -1201,9 +1484,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvLotTagQuery A secondary query class using the current class as primary query
      */
@@ -1215,19 +1498,117 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvLotTag relation InvLotTag object
+     *
+     * @param callable(\InvLotTagQuery):\InvLotTagQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvLotTagQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvLotTagQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvLotTagQuery The inner query object of the EXISTS statement
+     */
+    public function useInvLotTagExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useExistsQuery('InvLotTag', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for a NOT EXISTS query.
+     *
+     * @see useInvLotTagExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotTagQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvLotTagNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useExistsQuery('InvLotTag', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvLotTagQuery The inner query object of the IN statement
+     */
+    public function useInInvLotTagQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useInQuery('InvLotTag', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for a NOT IN query.
+     *
+     * @see useInvLotTagInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotTagQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvLotTagQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useInQuery('InvLotTag', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferLotserial object
      *
      * @param \InvTransferLotserial|ObjectCollection $invTransferLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferLotserial($invTransferLotserial, $comparison = null)
+    public function filterByInvTransferLotserial($invTransferLotserial, ?string $comparison = null)
     {
         if ($invTransferLotserial instanceof \InvTransferLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $invTransferLotserial->getInititemnbr(), $comparison)
                 ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $invTransferLotserial->getInsdlotser(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferLotserial() only accepts arguments of type \InvTransferLotserial');
         }
@@ -1236,12 +1617,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferLotserial');
@@ -1270,9 +1651,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferLotserialQuery A secondary query class using the current class as primary query
      */
@@ -1284,19 +1665,117 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferLotserial relation InvTransferLotserial object
+     *
+     * @param callable(\InvTransferLotserialQuery):\InvTransferLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useInQuery('InvTransferLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useInQuery('InvTransferLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferPreAllocatedLotserial object
      *
      * @param \InvTransferPreAllocatedLotserial|ObjectCollection $invTransferPreAllocatedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferPreAllocatedLotserial($invTransferPreAllocatedLotserial, $comparison = null)
+    public function filterByInvTransferPreAllocatedLotserial($invTransferPreAllocatedLotserial, ?string $comparison = null)
     {
         if ($invTransferPreAllocatedLotserial instanceof \InvTransferPreAllocatedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $invTransferPreAllocatedLotserial->getInititemnbr(), $comparison)
                 ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $invTransferPreAllocatedLotserial->getInidlotser(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferPreAllocatedLotserial() only accepts arguments of type \InvTransferPreAllocatedLotserial');
         }
@@ -1305,12 +1784,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferPreAllocatedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferPreAllocatedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferPreAllocatedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferPreAllocatedLotserial');
@@ -1339,9 +1818,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferPreAllocatedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -1353,19 +1832,117 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferPreAllocatedLotserial relation InvTransferPreAllocatedLotserial object
+     *
+     * @param callable(\InvTransferPreAllocatedLotserialQuery):\InvTransferPreAllocatedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferPreAllocatedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferPreAllocatedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferPreAllocatedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferPreAllocatedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferPreAllocatedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferPreAllocatedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferPreAllocatedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferPreAllocatedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferPickedLotserial object
      *
      * @param \InvTransferPickedLotserial|ObjectCollection $invTransferPickedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferPickedLotserial($invTransferPickedLotserial, $comparison = null)
+    public function filterByInvTransferPickedLotserial($invTransferPickedLotserial, ?string $comparison = null)
     {
         if ($invTransferPickedLotserial instanceof \InvTransferPickedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $invTransferPickedLotserial->getInititemnbr(), $comparison)
                 ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $invTransferPickedLotserial->getInpdlotser(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferPickedLotserial() only accepts arguments of type \InvTransferPickedLotserial');
         }
@@ -1374,12 +1951,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferPickedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferPickedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferPickedLotserial');
@@ -1408,9 +1985,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferPickedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -1422,19 +1999,117 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferPickedLotserial relation InvTransferPickedLotserial object
+     *
+     * @param callable(\InvTransferPickedLotserialQuery):\InvTransferPickedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferPickedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferPickedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferPickedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferPickedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferPickedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferPickedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferPickedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferPickedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoAllocatedLotserial object
      *
      * @param \SoAllocatedLotserial|ObjectCollection $soAllocatedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoAllocatedLotserial($soAllocatedLotserial, $comparison = null)
+    public function filterBySoAllocatedLotserial($soAllocatedLotserial, ?string $comparison = null)
     {
         if ($soAllocatedLotserial instanceof \SoAllocatedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $soAllocatedLotserial->getInititemnbr(), $comparison)
                 ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $soAllocatedLotserial->getOeidlotser(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySoAllocatedLotserial() only accepts arguments of type \SoAllocatedLotserial');
         }
@@ -1443,12 +2118,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoAllocatedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoAllocatedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoAllocatedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoAllocatedLotserial');
@@ -1477,9 +2152,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoAllocatedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -1491,19 +2166,117 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoAllocatedLotserial relation SoAllocatedLotserial object
+     *
+     * @param callable(\SoAllocatedLotserialQuery):\SoAllocatedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoAllocatedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoAllocatedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSoAllocatedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('SoAllocatedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for a NOT EXISTS query.
+     *
+     * @see useSoAllocatedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoAllocatedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('SoAllocatedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSoAllocatedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useInQuery('SoAllocatedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoAllocatedLotserial table for a NOT IN query.
+     *
+     * @see useSoAllocatedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoAllocatedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoAllocatedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoAllocatedLotserialQuery */
+        $q = $this->useInQuery('SoAllocatedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoPickedLotserial object
      *
      * @param \SoPickedLotserial|ObjectCollection $soPickedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoPickedLotserial($soPickedLotserial, $comparison = null)
+    public function filterBySoPickedLotserial($soPickedLotserial, ?string $comparison = null)
     {
         if ($soPickedLotserial instanceof \SoPickedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $soPickedLotserial->getInititemnbr(), $comparison)
                 ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $soPickedLotserial->getOepdlotser(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySoPickedLotserial() only accepts arguments of type \SoPickedLotserial');
         }
@@ -1512,12 +2285,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoPickedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoPickedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoPickedLotserial');
@@ -1546,9 +2319,9 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoPickedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -1560,11 +2333,107 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoPickedLotserial relation SoPickedLotserial object
+     *
+     * @param callable(\SoPickedLotserialQuery):\SoPickedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoPickedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoPickedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useSoPickedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useExistsQuery('SoPickedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for a NOT EXISTS query.
+     *
+     * @see useSoPickedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoPickedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useExistsQuery('SoPickedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInSoPickedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useInQuery('SoPickedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoPickedLotserial table for a NOT IN query.
+     *
+     * @see useSoPickedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoPickedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoPickedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoPickedLotserialQuery */
+        $q = $this->useInQuery('SoPickedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvLotMaster $invLotMaster Object to remove from the list of results
+     * @param ChildInvLotMaster $invLotMaster Object to remove from the list of results
      *
-     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invLotMaster = null)
     {
@@ -1583,7 +2452,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
@@ -1608,12 +2477,12 @@ abstract class InvLotMasterQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
@@ -1638,4 +2507,4 @@ abstract class InvLotMasterQuery extends ModelCriteria
         });
     }
 
-} // InvLotMasterQuery
+}

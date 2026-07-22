@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'sys_login' table.
- *
- *
+ * Base class that represents a query for the `sys_login` table.
  *
  * @method     ChildDplusUserQuery orderByUsrcid($order = Criteria::ASC) Order by the UsrcId column
  * @method     ChildDplusUserQuery orderByUsrcloginname($order = Criteria::ASC) Order by the UsrcLoginName column
@@ -168,55 +167,55 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \SysLoginGroupQuery|\SysLoginRoleQuery|\InvLotTagQuery|\UserPermissionsItmQuery|\UserLastPrintJobQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildDplusUser findOne(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query
- * @method     ChildDplusUser findOneOrCreate(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query, or a new ChildDplusUser object populated from the query conditions when no match is found
+ * @method     ChildDplusUser|null findOne(?ConnectionInterface $con = null) Return the first ChildDplusUser matching the query
+ * @method     ChildDplusUser findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildDplusUser matching the query, or a new ChildDplusUser object populated from the query conditions when no match is found
  *
- * @method     ChildDplusUser findOneByUsrcid(string $UsrcId) Return the first ChildDplusUser filtered by the UsrcId column
- * @method     ChildDplusUser findOneByUsrcloginname(string $UsrcLoginName) Return the first ChildDplusUser filtered by the UsrcLoginName column
- * @method     ChildDplusUser findOneByIntbwhse(string $IntbWhse) Return the first ChildDplusUser filtered by the IntbWhse column
- * @method     ChildDplusUser findOneByUsrcdefcmpy(string $UsrcDefCmpy) Return the first ChildDplusUser filtered by the UsrcDefCmpy column
- * @method     ChildDplusUser findOneByUsrcadmin(string $UsrcAdmin) Return the first ChildDplusUser filtered by the UsrcAdmin column
- * @method     ChildDplusUser findOneByUsrcfront(string $UsrcFront) Return the first ChildDplusUser filtered by the UsrcFront column
- * @method     ChildDplusUser findOneByUsrccitydesk(string $UsrcCityDesk) Return the first ChildDplusUser filtered by the UsrcCityDesk column
- * @method     ChildDplusUser findOneByUsrcreptadmin(string $UsrcReptAdmin) Return the first ChildDplusUser filtered by the UsrcReptAdmin column
- * @method     ChildDplusUser findOneByUsrcprinter(string $UsrcPrinter) Return the first ChildDplusUser filtered by the UsrcPrinter column
- * @method     ChildDplusUser findOneByUsrcpitch(string $UsrcPitch) Return the first ChildDplusUser filtered by the UsrcPitch column
- * @method     ChildDplusUser findOneByUsrcbrowseprinter(string $UsrcBrowsePrinter) Return the first ChildDplusUser filtered by the UsrcBrowsePrinter column
- * @method     ChildDplusUser findOneByUsrcwhsedisplayseq(string $UsrcWhseDisplaySeq) Return the first ChildDplusUser filtered by the UsrcWhseDisplaySeq column
- * @method     ChildDplusUser findOneByUsrcactiveitemsonly(string $UsrcActiveItemsOnly) Return the first ChildDplusUser filtered by the UsrcActiveItemsOnly column
- * @method     ChildDplusUser findOneByUsrcrestrictaccess(string $UsrcRestrictAccess) Return the first ChildDplusUser filtered by the UsrcRestrictAccess column
- * @method     ChildDplusUser findOneByUsrclogingroup(string $UsrcLoginGroup) Return the first ChildDplusUser filtered by the UsrcLoginGroup column
- * @method     ChildDplusUser findOneByUsrcloginrole(string $UsrcLoginRole) Return the first ChildDplusUser filtered by the UsrcLoginRole column
- * @method     ChildDplusUser findOneByUsrcallowprocremoval(string $UsrcAllowProcRemoval) Return the first ChildDplusUser filtered by the UsrcAllowProcRemoval column
- * @method     ChildDplusUser findOneByUsrcacallowwarredit(string $UsrcAcAllowWarrEdit) Return the first ChildDplusUser filtered by the UsrcAcAllowWarrEdit column
- * @method     ChildDplusUser findOneByUsrcisprodmgr(string $UsrcIsProdMgr) Return the first ChildDplusUser filtered by the UsrcIsProdMgr column
- * @method     ChildDplusUser findOneByUsrclmallowcrosswhse(string $UsrcLmAllowCrossWhse) Return the first ChildDplusUser filtered by the UsrcLmAllowCrossWhse column
- * @method     ChildDplusUser findOneByUsrcpswd(string $UsrcPswd) Return the first ChildDplusUser filtered by the UsrcPswd column
- * @method     ChildDplusUser findOneByUsrcfaxname(string $UsrcFaxName) Return the first ChildDplusUser filtered by the UsrcFaxName column
- * @method     ChildDplusUser findOneByUsrcfaxcompany(string $UsrcFaxCompany) Return the first ChildDplusUser filtered by the UsrcFaxCompany column
- * @method     ChildDplusUser findOneByUsrcfaxarea(string $UsrcFaxArea) Return the first ChildDplusUser filtered by the UsrcFaxArea column
- * @method     ChildDplusUser findOneByUsrcfaxfrst3(string $UsrcFaxFrst3) Return the first ChildDplusUser filtered by the UsrcFaxFrst3 column
- * @method     ChildDplusUser findOneByUsrcfaxlast4(string $UsrcFaxLast4) Return the first ChildDplusUser filtered by the UsrcFaxLast4 column
- * @method     ChildDplusUser findOneByUsrcphonearea(string $UsrcPhoneArea) Return the first ChildDplusUser filtered by the UsrcPhoneArea column
- * @method     ChildDplusUser findOneByUsrcphonefrst3(string $UsrcPhoneFrst3) Return the first ChildDplusUser filtered by the UsrcPhoneFrst3 column
- * @method     ChildDplusUser findOneByUsrcphonelast4(string $UsrcPhoneLast4) Return the first ChildDplusUser filtered by the UsrcPhoneLast4 column
- * @method     ChildDplusUser findOneByUsrcphoneext(string $UsrcPhoneExt) Return the first ChildDplusUser filtered by the UsrcPhoneExt column
- * @method     ChildDplusUser findOneByUsrcsendtime(string $UsrcSendTime) Return the first ChildDplusUser filtered by the UsrcSendTime column
- * @method     ChildDplusUser findOneByUsrccoversheet(string $UsrcCoverSheet) Return the first ChildDplusUser filtered by the UsrcCoverSheet column
- * @method     ChildDplusUser findOneByUsrcsubject(string $UsrcSubject) Return the first ChildDplusUser filtered by the UsrcSubject column
- * @method     ChildDplusUser findOneByUsrcnotifys(string $UsrcNotifyS) Return the first ChildDplusUser filtered by the UsrcNotifyS column
- * @method     ChildDplusUser findOneByUsrcnotifyf(string $UsrcNotifyF) Return the first ChildDplusUser filtered by the UsrcNotifyF column
- * @method     ChildDplusUser findOneByUsrcemailaddr(string $UsrcEmailAddr) Return the first ChildDplusUser filtered by the UsrcEmailAddr column
- * @method     ChildDplusUser findOneByUsrcscalewhseid(string $UsrcScaleWhseId) Return the first ChildDplusUser filtered by the UsrcScaleWhseId column
- * @method     ChildDplusUser findOneByUsrcscaledevnbr(string $UsrcScaleDevNbr) Return the first ChildDplusUser filtered by the UsrcScaleDevNbr column
- * @method     ChildDplusUser findOneByUsrcccscanwhseid(string $UsrcCcscanWhseId) Return the first ChildDplusUser filtered by the UsrcCcscanWhseId column
- * @method     ChildDplusUser findOneByUsrcccscandevnbr(string $UsrcCcscanDevNbr) Return the first ChildDplusUser filtered by the UsrcCcscanDevNbr column
- * @method     ChildDplusUser findOneByDateupdtd(string $DateUpdtd) Return the first ChildDplusUser filtered by the DateUpdtd column
- * @method     ChildDplusUser findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildDplusUser filtered by the TimeUpdtd column
- * @method     ChildDplusUser findOneByDummy(string $dummy) Return the first ChildDplusUser filtered by the dummy column *
-
- * @method     ChildDplusUser requirePk($key, ConnectionInterface $con = null) Return the ChildDplusUser by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildDplusUser requireOne(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildDplusUser|null findOneByUsrcid(string $UsrcId) Return the first ChildDplusUser filtered by the UsrcId column
+ * @method     ChildDplusUser|null findOneByUsrcloginname(string $UsrcLoginName) Return the first ChildDplusUser filtered by the UsrcLoginName column
+ * @method     ChildDplusUser|null findOneByIntbwhse(string $IntbWhse) Return the first ChildDplusUser filtered by the IntbWhse column
+ * @method     ChildDplusUser|null findOneByUsrcdefcmpy(string $UsrcDefCmpy) Return the first ChildDplusUser filtered by the UsrcDefCmpy column
+ * @method     ChildDplusUser|null findOneByUsrcadmin(string $UsrcAdmin) Return the first ChildDplusUser filtered by the UsrcAdmin column
+ * @method     ChildDplusUser|null findOneByUsrcfront(string $UsrcFront) Return the first ChildDplusUser filtered by the UsrcFront column
+ * @method     ChildDplusUser|null findOneByUsrccitydesk(string $UsrcCityDesk) Return the first ChildDplusUser filtered by the UsrcCityDesk column
+ * @method     ChildDplusUser|null findOneByUsrcreptadmin(string $UsrcReptAdmin) Return the first ChildDplusUser filtered by the UsrcReptAdmin column
+ * @method     ChildDplusUser|null findOneByUsrcprinter(string $UsrcPrinter) Return the first ChildDplusUser filtered by the UsrcPrinter column
+ * @method     ChildDplusUser|null findOneByUsrcpitch(string $UsrcPitch) Return the first ChildDplusUser filtered by the UsrcPitch column
+ * @method     ChildDplusUser|null findOneByUsrcbrowseprinter(string $UsrcBrowsePrinter) Return the first ChildDplusUser filtered by the UsrcBrowsePrinter column
+ * @method     ChildDplusUser|null findOneByUsrcwhsedisplayseq(string $UsrcWhseDisplaySeq) Return the first ChildDplusUser filtered by the UsrcWhseDisplaySeq column
+ * @method     ChildDplusUser|null findOneByUsrcactiveitemsonly(string $UsrcActiveItemsOnly) Return the first ChildDplusUser filtered by the UsrcActiveItemsOnly column
+ * @method     ChildDplusUser|null findOneByUsrcrestrictaccess(string $UsrcRestrictAccess) Return the first ChildDplusUser filtered by the UsrcRestrictAccess column
+ * @method     ChildDplusUser|null findOneByUsrclogingroup(string $UsrcLoginGroup) Return the first ChildDplusUser filtered by the UsrcLoginGroup column
+ * @method     ChildDplusUser|null findOneByUsrcloginrole(string $UsrcLoginRole) Return the first ChildDplusUser filtered by the UsrcLoginRole column
+ * @method     ChildDplusUser|null findOneByUsrcallowprocremoval(string $UsrcAllowProcRemoval) Return the first ChildDplusUser filtered by the UsrcAllowProcRemoval column
+ * @method     ChildDplusUser|null findOneByUsrcacallowwarredit(string $UsrcAcAllowWarrEdit) Return the first ChildDplusUser filtered by the UsrcAcAllowWarrEdit column
+ * @method     ChildDplusUser|null findOneByUsrcisprodmgr(string $UsrcIsProdMgr) Return the first ChildDplusUser filtered by the UsrcIsProdMgr column
+ * @method     ChildDplusUser|null findOneByUsrclmallowcrosswhse(string $UsrcLmAllowCrossWhse) Return the first ChildDplusUser filtered by the UsrcLmAllowCrossWhse column
+ * @method     ChildDplusUser|null findOneByUsrcpswd(string $UsrcPswd) Return the first ChildDplusUser filtered by the UsrcPswd column
+ * @method     ChildDplusUser|null findOneByUsrcfaxname(string $UsrcFaxName) Return the first ChildDplusUser filtered by the UsrcFaxName column
+ * @method     ChildDplusUser|null findOneByUsrcfaxcompany(string $UsrcFaxCompany) Return the first ChildDplusUser filtered by the UsrcFaxCompany column
+ * @method     ChildDplusUser|null findOneByUsrcfaxarea(string $UsrcFaxArea) Return the first ChildDplusUser filtered by the UsrcFaxArea column
+ * @method     ChildDplusUser|null findOneByUsrcfaxfrst3(string $UsrcFaxFrst3) Return the first ChildDplusUser filtered by the UsrcFaxFrst3 column
+ * @method     ChildDplusUser|null findOneByUsrcfaxlast4(string $UsrcFaxLast4) Return the first ChildDplusUser filtered by the UsrcFaxLast4 column
+ * @method     ChildDplusUser|null findOneByUsrcphonearea(string $UsrcPhoneArea) Return the first ChildDplusUser filtered by the UsrcPhoneArea column
+ * @method     ChildDplusUser|null findOneByUsrcphonefrst3(string $UsrcPhoneFrst3) Return the first ChildDplusUser filtered by the UsrcPhoneFrst3 column
+ * @method     ChildDplusUser|null findOneByUsrcphonelast4(string $UsrcPhoneLast4) Return the first ChildDplusUser filtered by the UsrcPhoneLast4 column
+ * @method     ChildDplusUser|null findOneByUsrcphoneext(string $UsrcPhoneExt) Return the first ChildDplusUser filtered by the UsrcPhoneExt column
+ * @method     ChildDplusUser|null findOneByUsrcsendtime(string $UsrcSendTime) Return the first ChildDplusUser filtered by the UsrcSendTime column
+ * @method     ChildDplusUser|null findOneByUsrccoversheet(string $UsrcCoverSheet) Return the first ChildDplusUser filtered by the UsrcCoverSheet column
+ * @method     ChildDplusUser|null findOneByUsrcsubject(string $UsrcSubject) Return the first ChildDplusUser filtered by the UsrcSubject column
+ * @method     ChildDplusUser|null findOneByUsrcnotifys(string $UsrcNotifyS) Return the first ChildDplusUser filtered by the UsrcNotifyS column
+ * @method     ChildDplusUser|null findOneByUsrcnotifyf(string $UsrcNotifyF) Return the first ChildDplusUser filtered by the UsrcNotifyF column
+ * @method     ChildDplusUser|null findOneByUsrcemailaddr(string $UsrcEmailAddr) Return the first ChildDplusUser filtered by the UsrcEmailAddr column
+ * @method     ChildDplusUser|null findOneByUsrcscalewhseid(string $UsrcScaleWhseId) Return the first ChildDplusUser filtered by the UsrcScaleWhseId column
+ * @method     ChildDplusUser|null findOneByUsrcscaledevnbr(string $UsrcScaleDevNbr) Return the first ChildDplusUser filtered by the UsrcScaleDevNbr column
+ * @method     ChildDplusUser|null findOneByUsrcccscanwhseid(string $UsrcCcscanWhseId) Return the first ChildDplusUser filtered by the UsrcCcscanWhseId column
+ * @method     ChildDplusUser|null findOneByUsrcccscandevnbr(string $UsrcCcscanDevNbr) Return the first ChildDplusUser filtered by the UsrcCcscanDevNbr column
+ * @method     ChildDplusUser|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildDplusUser filtered by the DateUpdtd column
+ * @method     ChildDplusUser|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildDplusUser filtered by the TimeUpdtd column
+ * @method     ChildDplusUser|null findOneByDummy(string $dummy) Return the first ChildDplusUser filtered by the dummy column
+ *
+ * @method     ChildDplusUser requirePk($key, ?ConnectionInterface $con = null) Return the ChildDplusUser by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildDplusUser requireOne(?ConnectionInterface $con = null) Return the first ChildDplusUser matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildDplusUser requireOneByUsrcid(string $UsrcId) Return the first ChildDplusUser filtered by the UsrcId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDplusUser requireOneByUsrcloginname(string $UsrcLoginName) Return the first ChildDplusUser filtered by the UsrcLoginName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -262,52 +261,98 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDplusUser requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildDplusUser filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDplusUser requireOneByDummy(string $dummy) Return the first ChildDplusUser filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildDplusUser[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildDplusUser objects based on current ModelCriteria
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcid(string $UsrcId) Return ChildDplusUser objects filtered by the UsrcId column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcloginname(string $UsrcLoginName) Return ChildDplusUser objects filtered by the UsrcLoginName column
- * @method     ChildDplusUser[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildDplusUser objects filtered by the IntbWhse column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcdefcmpy(string $UsrcDefCmpy) Return ChildDplusUser objects filtered by the UsrcDefCmpy column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcadmin(string $UsrcAdmin) Return ChildDplusUser objects filtered by the UsrcAdmin column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcfront(string $UsrcFront) Return ChildDplusUser objects filtered by the UsrcFront column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrccitydesk(string $UsrcCityDesk) Return ChildDplusUser objects filtered by the UsrcCityDesk column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcreptadmin(string $UsrcReptAdmin) Return ChildDplusUser objects filtered by the UsrcReptAdmin column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcprinter(string $UsrcPrinter) Return ChildDplusUser objects filtered by the UsrcPrinter column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcpitch(string $UsrcPitch) Return ChildDplusUser objects filtered by the UsrcPitch column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcbrowseprinter(string $UsrcBrowsePrinter) Return ChildDplusUser objects filtered by the UsrcBrowsePrinter column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcwhsedisplayseq(string $UsrcWhseDisplaySeq) Return ChildDplusUser objects filtered by the UsrcWhseDisplaySeq column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcactiveitemsonly(string $UsrcActiveItemsOnly) Return ChildDplusUser objects filtered by the UsrcActiveItemsOnly column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcrestrictaccess(string $UsrcRestrictAccess) Return ChildDplusUser objects filtered by the UsrcRestrictAccess column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrclogingroup(string $UsrcLoginGroup) Return ChildDplusUser objects filtered by the UsrcLoginGroup column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcloginrole(string $UsrcLoginRole) Return ChildDplusUser objects filtered by the UsrcLoginRole column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcallowprocremoval(string $UsrcAllowProcRemoval) Return ChildDplusUser objects filtered by the UsrcAllowProcRemoval column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcacallowwarredit(string $UsrcAcAllowWarrEdit) Return ChildDplusUser objects filtered by the UsrcAcAllowWarrEdit column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcisprodmgr(string $UsrcIsProdMgr) Return ChildDplusUser objects filtered by the UsrcIsProdMgr column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrclmallowcrosswhse(string $UsrcLmAllowCrossWhse) Return ChildDplusUser objects filtered by the UsrcLmAllowCrossWhse column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcpswd(string $UsrcPswd) Return ChildDplusUser objects filtered by the UsrcPswd column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcfaxname(string $UsrcFaxName) Return ChildDplusUser objects filtered by the UsrcFaxName column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcfaxcompany(string $UsrcFaxCompany) Return ChildDplusUser objects filtered by the UsrcFaxCompany column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcfaxarea(string $UsrcFaxArea) Return ChildDplusUser objects filtered by the UsrcFaxArea column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcfaxfrst3(string $UsrcFaxFrst3) Return ChildDplusUser objects filtered by the UsrcFaxFrst3 column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcfaxlast4(string $UsrcFaxLast4) Return ChildDplusUser objects filtered by the UsrcFaxLast4 column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcphonearea(string $UsrcPhoneArea) Return ChildDplusUser objects filtered by the UsrcPhoneArea column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcphonefrst3(string $UsrcPhoneFrst3) Return ChildDplusUser objects filtered by the UsrcPhoneFrst3 column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcphonelast4(string $UsrcPhoneLast4) Return ChildDplusUser objects filtered by the UsrcPhoneLast4 column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcphoneext(string $UsrcPhoneExt) Return ChildDplusUser objects filtered by the UsrcPhoneExt column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcsendtime(string $UsrcSendTime) Return ChildDplusUser objects filtered by the UsrcSendTime column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrccoversheet(string $UsrcCoverSheet) Return ChildDplusUser objects filtered by the UsrcCoverSheet column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcsubject(string $UsrcSubject) Return ChildDplusUser objects filtered by the UsrcSubject column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcnotifys(string $UsrcNotifyS) Return ChildDplusUser objects filtered by the UsrcNotifyS column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcnotifyf(string $UsrcNotifyF) Return ChildDplusUser objects filtered by the UsrcNotifyF column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcemailaddr(string $UsrcEmailAddr) Return ChildDplusUser objects filtered by the UsrcEmailAddr column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcscalewhseid(string $UsrcScaleWhseId) Return ChildDplusUser objects filtered by the UsrcScaleWhseId column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcscaledevnbr(string $UsrcScaleDevNbr) Return ChildDplusUser objects filtered by the UsrcScaleDevNbr column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcccscanwhseid(string $UsrcCcscanWhseId) Return ChildDplusUser objects filtered by the UsrcCcscanWhseId column
- * @method     ChildDplusUser[]|ObjectCollection findByUsrcccscandevnbr(string $UsrcCcscanDevNbr) Return ChildDplusUser objects filtered by the UsrcCcscanDevNbr column
- * @method     ChildDplusUser[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildDplusUser objects filtered by the DateUpdtd column
- * @method     ChildDplusUser[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildDplusUser objects filtered by the TimeUpdtd column
- * @method     ChildDplusUser[]|ObjectCollection findByDummy(string $dummy) Return ChildDplusUser objects filtered by the dummy column
- * @method     ChildDplusUser[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildDplusUser[]|Collection find(?ConnectionInterface $con = null) Return ChildDplusUser objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildDplusUser> find(?ConnectionInterface $con = null) Return ChildDplusUser objects based on current ModelCriteria
  *
+ * @method     ChildDplusUser[]|Collection findByUsrcid(string|array<string> $UsrcId) Return ChildDplusUser objects filtered by the UsrcId column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcid(string|array<string> $UsrcId) Return ChildDplusUser objects filtered by the UsrcId column
+ * @method     ChildDplusUser[]|Collection findByUsrcloginname(string|array<string> $UsrcLoginName) Return ChildDplusUser objects filtered by the UsrcLoginName column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcloginname(string|array<string> $UsrcLoginName) Return ChildDplusUser objects filtered by the UsrcLoginName column
+ * @method     ChildDplusUser[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildDplusUser objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByIntbwhse(string|array<string> $IntbWhse) Return ChildDplusUser objects filtered by the IntbWhse column
+ * @method     ChildDplusUser[]|Collection findByUsrcdefcmpy(string|array<string> $UsrcDefCmpy) Return ChildDplusUser objects filtered by the UsrcDefCmpy column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcdefcmpy(string|array<string> $UsrcDefCmpy) Return ChildDplusUser objects filtered by the UsrcDefCmpy column
+ * @method     ChildDplusUser[]|Collection findByUsrcadmin(string|array<string> $UsrcAdmin) Return ChildDplusUser objects filtered by the UsrcAdmin column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcadmin(string|array<string> $UsrcAdmin) Return ChildDplusUser objects filtered by the UsrcAdmin column
+ * @method     ChildDplusUser[]|Collection findByUsrcfront(string|array<string> $UsrcFront) Return ChildDplusUser objects filtered by the UsrcFront column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcfront(string|array<string> $UsrcFront) Return ChildDplusUser objects filtered by the UsrcFront column
+ * @method     ChildDplusUser[]|Collection findByUsrccitydesk(string|array<string> $UsrcCityDesk) Return ChildDplusUser objects filtered by the UsrcCityDesk column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrccitydesk(string|array<string> $UsrcCityDesk) Return ChildDplusUser objects filtered by the UsrcCityDesk column
+ * @method     ChildDplusUser[]|Collection findByUsrcreptadmin(string|array<string> $UsrcReptAdmin) Return ChildDplusUser objects filtered by the UsrcReptAdmin column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcreptadmin(string|array<string> $UsrcReptAdmin) Return ChildDplusUser objects filtered by the UsrcReptAdmin column
+ * @method     ChildDplusUser[]|Collection findByUsrcprinter(string|array<string> $UsrcPrinter) Return ChildDplusUser objects filtered by the UsrcPrinter column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcprinter(string|array<string> $UsrcPrinter) Return ChildDplusUser objects filtered by the UsrcPrinter column
+ * @method     ChildDplusUser[]|Collection findByUsrcpitch(string|array<string> $UsrcPitch) Return ChildDplusUser objects filtered by the UsrcPitch column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcpitch(string|array<string> $UsrcPitch) Return ChildDplusUser objects filtered by the UsrcPitch column
+ * @method     ChildDplusUser[]|Collection findByUsrcbrowseprinter(string|array<string> $UsrcBrowsePrinter) Return ChildDplusUser objects filtered by the UsrcBrowsePrinter column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcbrowseprinter(string|array<string> $UsrcBrowsePrinter) Return ChildDplusUser objects filtered by the UsrcBrowsePrinter column
+ * @method     ChildDplusUser[]|Collection findByUsrcwhsedisplayseq(string|array<string> $UsrcWhseDisplaySeq) Return ChildDplusUser objects filtered by the UsrcWhseDisplaySeq column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcwhsedisplayseq(string|array<string> $UsrcWhseDisplaySeq) Return ChildDplusUser objects filtered by the UsrcWhseDisplaySeq column
+ * @method     ChildDplusUser[]|Collection findByUsrcactiveitemsonly(string|array<string> $UsrcActiveItemsOnly) Return ChildDplusUser objects filtered by the UsrcActiveItemsOnly column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcactiveitemsonly(string|array<string> $UsrcActiveItemsOnly) Return ChildDplusUser objects filtered by the UsrcActiveItemsOnly column
+ * @method     ChildDplusUser[]|Collection findByUsrcrestrictaccess(string|array<string> $UsrcRestrictAccess) Return ChildDplusUser objects filtered by the UsrcRestrictAccess column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcrestrictaccess(string|array<string> $UsrcRestrictAccess) Return ChildDplusUser objects filtered by the UsrcRestrictAccess column
+ * @method     ChildDplusUser[]|Collection findByUsrclogingroup(string|array<string> $UsrcLoginGroup) Return ChildDplusUser objects filtered by the UsrcLoginGroup column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrclogingroup(string|array<string> $UsrcLoginGroup) Return ChildDplusUser objects filtered by the UsrcLoginGroup column
+ * @method     ChildDplusUser[]|Collection findByUsrcloginrole(string|array<string> $UsrcLoginRole) Return ChildDplusUser objects filtered by the UsrcLoginRole column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcloginrole(string|array<string> $UsrcLoginRole) Return ChildDplusUser objects filtered by the UsrcLoginRole column
+ * @method     ChildDplusUser[]|Collection findByUsrcallowprocremoval(string|array<string> $UsrcAllowProcRemoval) Return ChildDplusUser objects filtered by the UsrcAllowProcRemoval column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcallowprocremoval(string|array<string> $UsrcAllowProcRemoval) Return ChildDplusUser objects filtered by the UsrcAllowProcRemoval column
+ * @method     ChildDplusUser[]|Collection findByUsrcacallowwarredit(string|array<string> $UsrcAcAllowWarrEdit) Return ChildDplusUser objects filtered by the UsrcAcAllowWarrEdit column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcacallowwarredit(string|array<string> $UsrcAcAllowWarrEdit) Return ChildDplusUser objects filtered by the UsrcAcAllowWarrEdit column
+ * @method     ChildDplusUser[]|Collection findByUsrcisprodmgr(string|array<string> $UsrcIsProdMgr) Return ChildDplusUser objects filtered by the UsrcIsProdMgr column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcisprodmgr(string|array<string> $UsrcIsProdMgr) Return ChildDplusUser objects filtered by the UsrcIsProdMgr column
+ * @method     ChildDplusUser[]|Collection findByUsrclmallowcrosswhse(string|array<string> $UsrcLmAllowCrossWhse) Return ChildDplusUser objects filtered by the UsrcLmAllowCrossWhse column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrclmallowcrosswhse(string|array<string> $UsrcLmAllowCrossWhse) Return ChildDplusUser objects filtered by the UsrcLmAllowCrossWhse column
+ * @method     ChildDplusUser[]|Collection findByUsrcpswd(string|array<string> $UsrcPswd) Return ChildDplusUser objects filtered by the UsrcPswd column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcpswd(string|array<string> $UsrcPswd) Return ChildDplusUser objects filtered by the UsrcPswd column
+ * @method     ChildDplusUser[]|Collection findByUsrcfaxname(string|array<string> $UsrcFaxName) Return ChildDplusUser objects filtered by the UsrcFaxName column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcfaxname(string|array<string> $UsrcFaxName) Return ChildDplusUser objects filtered by the UsrcFaxName column
+ * @method     ChildDplusUser[]|Collection findByUsrcfaxcompany(string|array<string> $UsrcFaxCompany) Return ChildDplusUser objects filtered by the UsrcFaxCompany column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcfaxcompany(string|array<string> $UsrcFaxCompany) Return ChildDplusUser objects filtered by the UsrcFaxCompany column
+ * @method     ChildDplusUser[]|Collection findByUsrcfaxarea(string|array<string> $UsrcFaxArea) Return ChildDplusUser objects filtered by the UsrcFaxArea column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcfaxarea(string|array<string> $UsrcFaxArea) Return ChildDplusUser objects filtered by the UsrcFaxArea column
+ * @method     ChildDplusUser[]|Collection findByUsrcfaxfrst3(string|array<string> $UsrcFaxFrst3) Return ChildDplusUser objects filtered by the UsrcFaxFrst3 column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcfaxfrst3(string|array<string> $UsrcFaxFrst3) Return ChildDplusUser objects filtered by the UsrcFaxFrst3 column
+ * @method     ChildDplusUser[]|Collection findByUsrcfaxlast4(string|array<string> $UsrcFaxLast4) Return ChildDplusUser objects filtered by the UsrcFaxLast4 column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcfaxlast4(string|array<string> $UsrcFaxLast4) Return ChildDplusUser objects filtered by the UsrcFaxLast4 column
+ * @method     ChildDplusUser[]|Collection findByUsrcphonearea(string|array<string> $UsrcPhoneArea) Return ChildDplusUser objects filtered by the UsrcPhoneArea column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcphonearea(string|array<string> $UsrcPhoneArea) Return ChildDplusUser objects filtered by the UsrcPhoneArea column
+ * @method     ChildDplusUser[]|Collection findByUsrcphonefrst3(string|array<string> $UsrcPhoneFrst3) Return ChildDplusUser objects filtered by the UsrcPhoneFrst3 column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcphonefrst3(string|array<string> $UsrcPhoneFrst3) Return ChildDplusUser objects filtered by the UsrcPhoneFrst3 column
+ * @method     ChildDplusUser[]|Collection findByUsrcphonelast4(string|array<string> $UsrcPhoneLast4) Return ChildDplusUser objects filtered by the UsrcPhoneLast4 column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcphonelast4(string|array<string> $UsrcPhoneLast4) Return ChildDplusUser objects filtered by the UsrcPhoneLast4 column
+ * @method     ChildDplusUser[]|Collection findByUsrcphoneext(string|array<string> $UsrcPhoneExt) Return ChildDplusUser objects filtered by the UsrcPhoneExt column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcphoneext(string|array<string> $UsrcPhoneExt) Return ChildDplusUser objects filtered by the UsrcPhoneExt column
+ * @method     ChildDplusUser[]|Collection findByUsrcsendtime(string|array<string> $UsrcSendTime) Return ChildDplusUser objects filtered by the UsrcSendTime column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcsendtime(string|array<string> $UsrcSendTime) Return ChildDplusUser objects filtered by the UsrcSendTime column
+ * @method     ChildDplusUser[]|Collection findByUsrccoversheet(string|array<string> $UsrcCoverSheet) Return ChildDplusUser objects filtered by the UsrcCoverSheet column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrccoversheet(string|array<string> $UsrcCoverSheet) Return ChildDplusUser objects filtered by the UsrcCoverSheet column
+ * @method     ChildDplusUser[]|Collection findByUsrcsubject(string|array<string> $UsrcSubject) Return ChildDplusUser objects filtered by the UsrcSubject column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcsubject(string|array<string> $UsrcSubject) Return ChildDplusUser objects filtered by the UsrcSubject column
+ * @method     ChildDplusUser[]|Collection findByUsrcnotifys(string|array<string> $UsrcNotifyS) Return ChildDplusUser objects filtered by the UsrcNotifyS column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcnotifys(string|array<string> $UsrcNotifyS) Return ChildDplusUser objects filtered by the UsrcNotifyS column
+ * @method     ChildDplusUser[]|Collection findByUsrcnotifyf(string|array<string> $UsrcNotifyF) Return ChildDplusUser objects filtered by the UsrcNotifyF column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcnotifyf(string|array<string> $UsrcNotifyF) Return ChildDplusUser objects filtered by the UsrcNotifyF column
+ * @method     ChildDplusUser[]|Collection findByUsrcemailaddr(string|array<string> $UsrcEmailAddr) Return ChildDplusUser objects filtered by the UsrcEmailAddr column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcemailaddr(string|array<string> $UsrcEmailAddr) Return ChildDplusUser objects filtered by the UsrcEmailAddr column
+ * @method     ChildDplusUser[]|Collection findByUsrcscalewhseid(string|array<string> $UsrcScaleWhseId) Return ChildDplusUser objects filtered by the UsrcScaleWhseId column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcscalewhseid(string|array<string> $UsrcScaleWhseId) Return ChildDplusUser objects filtered by the UsrcScaleWhseId column
+ * @method     ChildDplusUser[]|Collection findByUsrcscaledevnbr(string|array<string> $UsrcScaleDevNbr) Return ChildDplusUser objects filtered by the UsrcScaleDevNbr column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcscaledevnbr(string|array<string> $UsrcScaleDevNbr) Return ChildDplusUser objects filtered by the UsrcScaleDevNbr column
+ * @method     ChildDplusUser[]|Collection findByUsrcccscanwhseid(string|array<string> $UsrcCcscanWhseId) Return ChildDplusUser objects filtered by the UsrcCcscanWhseId column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcccscanwhseid(string|array<string> $UsrcCcscanWhseId) Return ChildDplusUser objects filtered by the UsrcCcscanWhseId column
+ * @method     ChildDplusUser[]|Collection findByUsrcccscandevnbr(string|array<string> $UsrcCcscanDevNbr) Return ChildDplusUser objects filtered by the UsrcCcscanDevNbr column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByUsrcccscandevnbr(string|array<string> $UsrcCcscanDevNbr) Return ChildDplusUser objects filtered by the UsrcCcscanDevNbr column
+ * @method     ChildDplusUser[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildDplusUser objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildDplusUser objects filtered by the DateUpdtd column
+ * @method     ChildDplusUser[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildDplusUser objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildDplusUser objects filtered by the TimeUpdtd column
+ * @method     ChildDplusUser[]|Collection findByDummy(string|array<string> $dummy) Return ChildDplusUser objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildDplusUser> findByDummy(string|array<string> $dummy) Return ChildDplusUser objects filtered by the dummy column
+ *
+ * @method     ChildDplusUser[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildDplusUser> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class DplusUserQuery extends ModelCriteria
 {
@@ -316,9 +361,9 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\DplusUserQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\DplusUser', $modelAlias = null)
     {
@@ -328,12 +373,12 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Returns a new ChildDplusUserQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildDplusUserQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildDplusUserQuery) {
             return $criteria;
@@ -363,7 +408,7 @@ abstract class DplusUserQuery extends ModelCriteria
      *
      * @return ChildDplusUser|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -395,8 +440,8 @@ abstract class DplusUserQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -428,8 +473,8 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildDplusUser|array|mixed the result, formatted by the current formatter
      */
@@ -449,12 +494,12 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -471,27 +516,31 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCID, $keys, Criteria::IN);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -501,14 +550,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcid('fooValue');   // WHERE UsrcId = 'fooValue'
      * $query->filterByUsrcid('%fooValue%', Criteria::LIKE); // WHERE UsrcId LIKE '%fooValue%'
+     * $query->filterByUsrcid(['foo', 'bar']); // WHERE UsrcId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcid($usrcid = null, $comparison = null)
+    public function filterByUsrcid($usrcid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcid)) {
@@ -516,7 +566,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCID, $usrcid, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCID, $usrcid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -526,14 +578,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcloginname('fooValue');   // WHERE UsrcLoginName = 'fooValue'
      * $query->filterByUsrcloginname('%fooValue%', Criteria::LIKE); // WHERE UsrcLoginName LIKE '%fooValue%'
+     * $query->filterByUsrcloginname(['foo', 'bar']); // WHERE UsrcLoginName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcloginname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcloginname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcloginname($usrcloginname = null, $comparison = null)
+    public function filterByUsrcloginname($usrcloginname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcloginname)) {
@@ -541,7 +594,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINNAME, $usrcloginname, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINNAME, $usrcloginname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -551,14 +606,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -566,7 +622,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -576,14 +634,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcdefcmpy('fooValue');   // WHERE UsrcDefCmpy = 'fooValue'
      * $query->filterByUsrcdefcmpy('%fooValue%', Criteria::LIKE); // WHERE UsrcDefCmpy LIKE '%fooValue%'
+     * $query->filterByUsrcdefcmpy(['foo', 'bar']); // WHERE UsrcDefCmpy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcdefcmpy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcdefcmpy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcdefcmpy($usrcdefcmpy = null, $comparison = null)
+    public function filterByUsrcdefcmpy($usrcdefcmpy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcdefcmpy)) {
@@ -591,7 +650,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCDEFCMPY, $usrcdefcmpy, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCDEFCMPY, $usrcdefcmpy, $comparison);
+
+        return $this;
     }
 
     /**
@@ -601,14 +662,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcadmin('fooValue');   // WHERE UsrcAdmin = 'fooValue'
      * $query->filterByUsrcadmin('%fooValue%', Criteria::LIKE); // WHERE UsrcAdmin LIKE '%fooValue%'
+     * $query->filterByUsrcadmin(['foo', 'bar']); // WHERE UsrcAdmin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcadmin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcadmin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcadmin($usrcadmin = null, $comparison = null)
+    public function filterByUsrcadmin($usrcadmin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcadmin)) {
@@ -616,7 +678,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCADMIN, $usrcadmin, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCADMIN, $usrcadmin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -626,14 +690,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcfront('fooValue');   // WHERE UsrcFront = 'fooValue'
      * $query->filterByUsrcfront('%fooValue%', Criteria::LIKE); // WHERE UsrcFront LIKE '%fooValue%'
+     * $query->filterByUsrcfront(['foo', 'bar']); // WHERE UsrcFront IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcfront The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcfront The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcfront($usrcfront = null, $comparison = null)
+    public function filterByUsrcfront($usrcfront = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcfront)) {
@@ -641,7 +706,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCFRONT, $usrcfront, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCFRONT, $usrcfront, $comparison);
+
+        return $this;
     }
 
     /**
@@ -651,14 +718,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrccitydesk('fooValue');   // WHERE UsrcCityDesk = 'fooValue'
      * $query->filterByUsrccitydesk('%fooValue%', Criteria::LIKE); // WHERE UsrcCityDesk LIKE '%fooValue%'
+     * $query->filterByUsrccitydesk(['foo', 'bar']); // WHERE UsrcCityDesk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrccitydesk The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrccitydesk The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrccitydesk($usrccitydesk = null, $comparison = null)
+    public function filterByUsrccitydesk($usrccitydesk = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrccitydesk)) {
@@ -666,7 +734,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCCITYDESK, $usrccitydesk, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCCITYDESK, $usrccitydesk, $comparison);
+
+        return $this;
     }
 
     /**
@@ -676,14 +746,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcreptadmin('fooValue');   // WHERE UsrcReptAdmin = 'fooValue'
      * $query->filterByUsrcreptadmin('%fooValue%', Criteria::LIKE); // WHERE UsrcReptAdmin LIKE '%fooValue%'
+     * $query->filterByUsrcreptadmin(['foo', 'bar']); // WHERE UsrcReptAdmin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcreptadmin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcreptadmin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcreptadmin($usrcreptadmin = null, $comparison = null)
+    public function filterByUsrcreptadmin($usrcreptadmin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcreptadmin)) {
@@ -691,7 +762,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCREPTADMIN, $usrcreptadmin, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCREPTADMIN, $usrcreptadmin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -701,14 +774,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcprinter('fooValue');   // WHERE UsrcPrinter = 'fooValue'
      * $query->filterByUsrcprinter('%fooValue%', Criteria::LIKE); // WHERE UsrcPrinter LIKE '%fooValue%'
+     * $query->filterByUsrcprinter(['foo', 'bar']); // WHERE UsrcPrinter IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcprinter The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcprinter The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcprinter($usrcprinter = null, $comparison = null)
+    public function filterByUsrcprinter($usrcprinter = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcprinter)) {
@@ -716,7 +790,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCPRINTER, $usrcprinter, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCPRINTER, $usrcprinter, $comparison);
+
+        return $this;
     }
 
     /**
@@ -726,14 +802,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcpitch('fooValue');   // WHERE UsrcPitch = 'fooValue'
      * $query->filterByUsrcpitch('%fooValue%', Criteria::LIKE); // WHERE UsrcPitch LIKE '%fooValue%'
+     * $query->filterByUsrcpitch(['foo', 'bar']); // WHERE UsrcPitch IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcpitch The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcpitch The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcpitch($usrcpitch = null, $comparison = null)
+    public function filterByUsrcpitch($usrcpitch = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcpitch)) {
@@ -741,7 +818,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCPITCH, $usrcpitch, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCPITCH, $usrcpitch, $comparison);
+
+        return $this;
     }
 
     /**
@@ -751,14 +830,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcbrowseprinter('fooValue');   // WHERE UsrcBrowsePrinter = 'fooValue'
      * $query->filterByUsrcbrowseprinter('%fooValue%', Criteria::LIKE); // WHERE UsrcBrowsePrinter LIKE '%fooValue%'
+     * $query->filterByUsrcbrowseprinter(['foo', 'bar']); // WHERE UsrcBrowsePrinter IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcbrowseprinter The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcbrowseprinter The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcbrowseprinter($usrcbrowseprinter = null, $comparison = null)
+    public function filterByUsrcbrowseprinter($usrcbrowseprinter = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcbrowseprinter)) {
@@ -766,7 +846,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCBROWSEPRINTER, $usrcbrowseprinter, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCBROWSEPRINTER, $usrcbrowseprinter, $comparison);
+
+        return $this;
     }
 
     /**
@@ -776,14 +858,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcwhsedisplayseq('fooValue');   // WHERE UsrcWhseDisplaySeq = 'fooValue'
      * $query->filterByUsrcwhsedisplayseq('%fooValue%', Criteria::LIKE); // WHERE UsrcWhseDisplaySeq LIKE '%fooValue%'
+     * $query->filterByUsrcwhsedisplayseq(['foo', 'bar']); // WHERE UsrcWhseDisplaySeq IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcwhsedisplayseq The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcwhsedisplayseq The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcwhsedisplayseq($usrcwhsedisplayseq = null, $comparison = null)
+    public function filterByUsrcwhsedisplayseq($usrcwhsedisplayseq = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcwhsedisplayseq)) {
@@ -791,7 +874,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ, $usrcwhsedisplayseq, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCWHSEDISPLAYSEQ, $usrcwhsedisplayseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -801,14 +886,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcactiveitemsonly('fooValue');   // WHERE UsrcActiveItemsOnly = 'fooValue'
      * $query->filterByUsrcactiveitemsonly('%fooValue%', Criteria::LIKE); // WHERE UsrcActiveItemsOnly LIKE '%fooValue%'
+     * $query->filterByUsrcactiveitemsonly(['foo', 'bar']); // WHERE UsrcActiveItemsOnly IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcactiveitemsonly The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcactiveitemsonly The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcactiveitemsonly($usrcactiveitemsonly = null, $comparison = null)
+    public function filterByUsrcactiveitemsonly($usrcactiveitemsonly = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcactiveitemsonly)) {
@@ -816,7 +902,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCACTIVEITEMSONLY, $usrcactiveitemsonly, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCACTIVEITEMSONLY, $usrcactiveitemsonly, $comparison);
+
+        return $this;
     }
 
     /**
@@ -826,14 +914,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcrestrictaccess('fooValue');   // WHERE UsrcRestrictAccess = 'fooValue'
      * $query->filterByUsrcrestrictaccess('%fooValue%', Criteria::LIKE); // WHERE UsrcRestrictAccess LIKE '%fooValue%'
+     * $query->filterByUsrcrestrictaccess(['foo', 'bar']); // WHERE UsrcRestrictAccess IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcrestrictaccess The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcrestrictaccess The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcrestrictaccess($usrcrestrictaccess = null, $comparison = null)
+    public function filterByUsrcrestrictaccess($usrcrestrictaccess = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcrestrictaccess)) {
@@ -841,7 +930,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCRESTRICTACCESS, $usrcrestrictaccess, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCRESTRICTACCESS, $usrcrestrictaccess, $comparison);
+
+        return $this;
     }
 
     /**
@@ -851,14 +942,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrclogingroup('fooValue');   // WHERE UsrcLoginGroup = 'fooValue'
      * $query->filterByUsrclogingroup('%fooValue%', Criteria::LIKE); // WHERE UsrcLoginGroup LIKE '%fooValue%'
+     * $query->filterByUsrclogingroup(['foo', 'bar']); // WHERE UsrcLoginGroup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrclogingroup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrclogingroup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrclogingroup($usrclogingroup = null, $comparison = null)
+    public function filterByUsrclogingroup($usrclogingroup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrclogingroup)) {
@@ -866,7 +958,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINGROUP, $usrclogingroup, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINGROUP, $usrclogingroup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -876,14 +970,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcloginrole('fooValue');   // WHERE UsrcLoginRole = 'fooValue'
      * $query->filterByUsrcloginrole('%fooValue%', Criteria::LIKE); // WHERE UsrcLoginRole LIKE '%fooValue%'
+     * $query->filterByUsrcloginrole(['foo', 'bar']); // WHERE UsrcLoginRole IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcloginrole The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcloginrole The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcloginrole($usrcloginrole = null, $comparison = null)
+    public function filterByUsrcloginrole($usrcloginrole = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcloginrole)) {
@@ -891,7 +986,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINROLE, $usrcloginrole, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCLOGINROLE, $usrcloginrole, $comparison);
+
+        return $this;
     }
 
     /**
@@ -901,14 +998,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcallowprocremoval('fooValue');   // WHERE UsrcAllowProcRemoval = 'fooValue'
      * $query->filterByUsrcallowprocremoval('%fooValue%', Criteria::LIKE); // WHERE UsrcAllowProcRemoval LIKE '%fooValue%'
+     * $query->filterByUsrcallowprocremoval(['foo', 'bar']); // WHERE UsrcAllowProcRemoval IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcallowprocremoval The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcallowprocremoval The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcallowprocremoval($usrcallowprocremoval = null, $comparison = null)
+    public function filterByUsrcallowprocremoval($usrcallowprocremoval = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcallowprocremoval)) {
@@ -916,7 +1014,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCALLOWPROCREMOVAL, $usrcallowprocremoval, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCALLOWPROCREMOVAL, $usrcallowprocremoval, $comparison);
+
+        return $this;
     }
 
     /**
@@ -926,14 +1026,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcacallowwarredit('fooValue');   // WHERE UsrcAcAllowWarrEdit = 'fooValue'
      * $query->filterByUsrcacallowwarredit('%fooValue%', Criteria::LIKE); // WHERE UsrcAcAllowWarrEdit LIKE '%fooValue%'
+     * $query->filterByUsrcacallowwarredit(['foo', 'bar']); // WHERE UsrcAcAllowWarrEdit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcacallowwarredit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcacallowwarredit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcacallowwarredit($usrcacallowwarredit = null, $comparison = null)
+    public function filterByUsrcacallowwarredit($usrcacallowwarredit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcacallowwarredit)) {
@@ -941,7 +1042,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCACALLOWWARREDIT, $usrcacallowwarredit, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCACALLOWWARREDIT, $usrcacallowwarredit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -951,14 +1054,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcisprodmgr('fooValue');   // WHERE UsrcIsProdMgr = 'fooValue'
      * $query->filterByUsrcisprodmgr('%fooValue%', Criteria::LIKE); // WHERE UsrcIsProdMgr LIKE '%fooValue%'
+     * $query->filterByUsrcisprodmgr(['foo', 'bar']); // WHERE UsrcIsProdMgr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcisprodmgr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcisprodmgr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcisprodmgr($usrcisprodmgr = null, $comparison = null)
+    public function filterByUsrcisprodmgr($usrcisprodmgr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcisprodmgr)) {
@@ -966,7 +1070,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCISPRODMGR, $usrcisprodmgr, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCISPRODMGR, $usrcisprodmgr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -976,14 +1082,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrclmallowcrosswhse('fooValue');   // WHERE UsrcLmAllowCrossWhse = 'fooValue'
      * $query->filterByUsrclmallowcrosswhse('%fooValue%', Criteria::LIKE); // WHERE UsrcLmAllowCrossWhse LIKE '%fooValue%'
+     * $query->filterByUsrclmallowcrosswhse(['foo', 'bar']); // WHERE UsrcLmAllowCrossWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrclmallowcrosswhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrclmallowcrosswhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrclmallowcrosswhse($usrclmallowcrosswhse = null, $comparison = null)
+    public function filterByUsrclmallowcrosswhse($usrclmallowcrosswhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrclmallowcrosswhse)) {
@@ -991,7 +1098,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE, $usrclmallowcrosswhse, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCLMALLOWCROSSWHSE, $usrclmallowcrosswhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1001,14 +1110,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcpswd('fooValue');   // WHERE UsrcPswd = 'fooValue'
      * $query->filterByUsrcpswd('%fooValue%', Criteria::LIKE); // WHERE UsrcPswd LIKE '%fooValue%'
+     * $query->filterByUsrcpswd(['foo', 'bar']); // WHERE UsrcPswd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcpswd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcpswd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcpswd($usrcpswd = null, $comparison = null)
+    public function filterByUsrcpswd($usrcpswd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcpswd)) {
@@ -1016,7 +1126,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCPSWD, $usrcpswd, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCPSWD, $usrcpswd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1026,14 +1138,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcfaxname('fooValue');   // WHERE UsrcFaxName = 'fooValue'
      * $query->filterByUsrcfaxname('%fooValue%', Criteria::LIKE); // WHERE UsrcFaxName LIKE '%fooValue%'
+     * $query->filterByUsrcfaxname(['foo', 'bar']); // WHERE UsrcFaxName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcfaxname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcfaxname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcfaxname($usrcfaxname = null, $comparison = null)
+    public function filterByUsrcfaxname($usrcfaxname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcfaxname)) {
@@ -1041,7 +1154,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXNAME, $usrcfaxname, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXNAME, $usrcfaxname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1051,14 +1166,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcfaxcompany('fooValue');   // WHERE UsrcFaxCompany = 'fooValue'
      * $query->filterByUsrcfaxcompany('%fooValue%', Criteria::LIKE); // WHERE UsrcFaxCompany LIKE '%fooValue%'
+     * $query->filterByUsrcfaxcompany(['foo', 'bar']); // WHERE UsrcFaxCompany IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcfaxcompany The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcfaxcompany The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcfaxcompany($usrcfaxcompany = null, $comparison = null)
+    public function filterByUsrcfaxcompany($usrcfaxcompany = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcfaxcompany)) {
@@ -1066,7 +1182,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXCOMPANY, $usrcfaxcompany, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXCOMPANY, $usrcfaxcompany, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1076,14 +1194,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcfaxarea('fooValue');   // WHERE UsrcFaxArea = 'fooValue'
      * $query->filterByUsrcfaxarea('%fooValue%', Criteria::LIKE); // WHERE UsrcFaxArea LIKE '%fooValue%'
+     * $query->filterByUsrcfaxarea(['foo', 'bar']); // WHERE UsrcFaxArea IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcfaxarea The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcfaxarea The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcfaxarea($usrcfaxarea = null, $comparison = null)
+    public function filterByUsrcfaxarea($usrcfaxarea = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcfaxarea)) {
@@ -1091,7 +1210,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXAREA, $usrcfaxarea, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXAREA, $usrcfaxarea, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1101,14 +1222,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcfaxfrst3('fooValue');   // WHERE UsrcFaxFrst3 = 'fooValue'
      * $query->filterByUsrcfaxfrst3('%fooValue%', Criteria::LIKE); // WHERE UsrcFaxFrst3 LIKE '%fooValue%'
+     * $query->filterByUsrcfaxfrst3(['foo', 'bar']); // WHERE UsrcFaxFrst3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcfaxfrst3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcfaxfrst3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcfaxfrst3($usrcfaxfrst3 = null, $comparison = null)
+    public function filterByUsrcfaxfrst3($usrcfaxfrst3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcfaxfrst3)) {
@@ -1116,7 +1238,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXFRST3, $usrcfaxfrst3, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXFRST3, $usrcfaxfrst3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1126,14 +1250,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcfaxlast4('fooValue');   // WHERE UsrcFaxLast4 = 'fooValue'
      * $query->filterByUsrcfaxlast4('%fooValue%', Criteria::LIKE); // WHERE UsrcFaxLast4 LIKE '%fooValue%'
+     * $query->filterByUsrcfaxlast4(['foo', 'bar']); // WHERE UsrcFaxLast4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcfaxlast4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcfaxlast4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcfaxlast4($usrcfaxlast4 = null, $comparison = null)
+    public function filterByUsrcfaxlast4($usrcfaxlast4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcfaxlast4)) {
@@ -1141,7 +1266,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXLAST4, $usrcfaxlast4, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCFAXLAST4, $usrcfaxlast4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1151,14 +1278,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcphonearea('fooValue');   // WHERE UsrcPhoneArea = 'fooValue'
      * $query->filterByUsrcphonearea('%fooValue%', Criteria::LIKE); // WHERE UsrcPhoneArea LIKE '%fooValue%'
+     * $query->filterByUsrcphonearea(['foo', 'bar']); // WHERE UsrcPhoneArea IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcphonearea The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcphonearea The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcphonearea($usrcphonearea = null, $comparison = null)
+    public function filterByUsrcphonearea($usrcphonearea = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcphonearea)) {
@@ -1166,7 +1294,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEAREA, $usrcphonearea, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEAREA, $usrcphonearea, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1176,14 +1306,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcphonefrst3('fooValue');   // WHERE UsrcPhoneFrst3 = 'fooValue'
      * $query->filterByUsrcphonefrst3('%fooValue%', Criteria::LIKE); // WHERE UsrcPhoneFrst3 LIKE '%fooValue%'
+     * $query->filterByUsrcphonefrst3(['foo', 'bar']); // WHERE UsrcPhoneFrst3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcphonefrst3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcphonefrst3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcphonefrst3($usrcphonefrst3 = null, $comparison = null)
+    public function filterByUsrcphonefrst3($usrcphonefrst3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcphonefrst3)) {
@@ -1191,7 +1322,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEFRST3, $usrcphonefrst3, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEFRST3, $usrcphonefrst3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1201,14 +1334,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcphonelast4('fooValue');   // WHERE UsrcPhoneLast4 = 'fooValue'
      * $query->filterByUsrcphonelast4('%fooValue%', Criteria::LIKE); // WHERE UsrcPhoneLast4 LIKE '%fooValue%'
+     * $query->filterByUsrcphonelast4(['foo', 'bar']); // WHERE UsrcPhoneLast4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcphonelast4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcphonelast4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcphonelast4($usrcphonelast4 = null, $comparison = null)
+    public function filterByUsrcphonelast4($usrcphonelast4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcphonelast4)) {
@@ -1216,7 +1350,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONELAST4, $usrcphonelast4, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONELAST4, $usrcphonelast4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1226,14 +1362,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcphoneext('fooValue');   // WHERE UsrcPhoneExt = 'fooValue'
      * $query->filterByUsrcphoneext('%fooValue%', Criteria::LIKE); // WHERE UsrcPhoneExt LIKE '%fooValue%'
+     * $query->filterByUsrcphoneext(['foo', 'bar']); // WHERE UsrcPhoneExt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcphoneext The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcphoneext The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcphoneext($usrcphoneext = null, $comparison = null)
+    public function filterByUsrcphoneext($usrcphoneext = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcphoneext)) {
@@ -1241,7 +1378,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEEXT, $usrcphoneext, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCPHONEEXT, $usrcphoneext, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1251,14 +1390,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcsendtime('fooValue');   // WHERE UsrcSendTime = 'fooValue'
      * $query->filterByUsrcsendtime('%fooValue%', Criteria::LIKE); // WHERE UsrcSendTime LIKE '%fooValue%'
+     * $query->filterByUsrcsendtime(['foo', 'bar']); // WHERE UsrcSendTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcsendtime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcsendtime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcsendtime($usrcsendtime = null, $comparison = null)
+    public function filterByUsrcsendtime($usrcsendtime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcsendtime)) {
@@ -1266,7 +1406,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCSENDTIME, $usrcsendtime, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCSENDTIME, $usrcsendtime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1276,14 +1418,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrccoversheet('fooValue');   // WHERE UsrcCoverSheet = 'fooValue'
      * $query->filterByUsrccoversheet('%fooValue%', Criteria::LIKE); // WHERE UsrcCoverSheet LIKE '%fooValue%'
+     * $query->filterByUsrccoversheet(['foo', 'bar']); // WHERE UsrcCoverSheet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrccoversheet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrccoversheet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrccoversheet($usrccoversheet = null, $comparison = null)
+    public function filterByUsrccoversheet($usrccoversheet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrccoversheet)) {
@@ -1291,7 +1434,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCCOVERSHEET, $usrccoversheet, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCCOVERSHEET, $usrccoversheet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1301,14 +1446,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcsubject('fooValue');   // WHERE UsrcSubject = 'fooValue'
      * $query->filterByUsrcsubject('%fooValue%', Criteria::LIKE); // WHERE UsrcSubject LIKE '%fooValue%'
+     * $query->filterByUsrcsubject(['foo', 'bar']); // WHERE UsrcSubject IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcsubject The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcsubject The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcsubject($usrcsubject = null, $comparison = null)
+    public function filterByUsrcsubject($usrcsubject = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcsubject)) {
@@ -1316,7 +1462,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCSUBJECT, $usrcsubject, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCSUBJECT, $usrcsubject, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1326,14 +1474,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcnotifys('fooValue');   // WHERE UsrcNotifyS = 'fooValue'
      * $query->filterByUsrcnotifys('%fooValue%', Criteria::LIKE); // WHERE UsrcNotifyS LIKE '%fooValue%'
+     * $query->filterByUsrcnotifys(['foo', 'bar']); // WHERE UsrcNotifyS IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcnotifys The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcnotifys The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcnotifys($usrcnotifys = null, $comparison = null)
+    public function filterByUsrcnotifys($usrcnotifys = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcnotifys)) {
@@ -1341,7 +1490,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCNOTIFYS, $usrcnotifys, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCNOTIFYS, $usrcnotifys, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1351,14 +1502,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcnotifyf('fooValue');   // WHERE UsrcNotifyF = 'fooValue'
      * $query->filterByUsrcnotifyf('%fooValue%', Criteria::LIKE); // WHERE UsrcNotifyF LIKE '%fooValue%'
+     * $query->filterByUsrcnotifyf(['foo', 'bar']); // WHERE UsrcNotifyF IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcnotifyf The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcnotifyf The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcnotifyf($usrcnotifyf = null, $comparison = null)
+    public function filterByUsrcnotifyf($usrcnotifyf = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcnotifyf)) {
@@ -1366,7 +1518,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCNOTIFYF, $usrcnotifyf, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCNOTIFYF, $usrcnotifyf, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1376,14 +1530,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcemailaddr('fooValue');   // WHERE UsrcEmailAddr = 'fooValue'
      * $query->filterByUsrcemailaddr('%fooValue%', Criteria::LIKE); // WHERE UsrcEmailAddr LIKE '%fooValue%'
+     * $query->filterByUsrcemailaddr(['foo', 'bar']); // WHERE UsrcEmailAddr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcemailaddr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcemailaddr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcemailaddr($usrcemailaddr = null, $comparison = null)
+    public function filterByUsrcemailaddr($usrcemailaddr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcemailaddr)) {
@@ -1391,7 +1546,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCEMAILADDR, $usrcemailaddr, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCEMAILADDR, $usrcemailaddr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1401,14 +1558,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcscalewhseid('fooValue');   // WHERE UsrcScaleWhseId = 'fooValue'
      * $query->filterByUsrcscalewhseid('%fooValue%', Criteria::LIKE); // WHERE UsrcScaleWhseId LIKE '%fooValue%'
+     * $query->filterByUsrcscalewhseid(['foo', 'bar']); // WHERE UsrcScaleWhseId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcscalewhseid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcscalewhseid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcscalewhseid($usrcscalewhseid = null, $comparison = null)
+    public function filterByUsrcscalewhseid($usrcscalewhseid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcscalewhseid)) {
@@ -1416,7 +1574,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCSCALEWHSEID, $usrcscalewhseid, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCSCALEWHSEID, $usrcscalewhseid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1426,14 +1586,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcscaledevnbr('fooValue');   // WHERE UsrcScaleDevNbr = 'fooValue'
      * $query->filterByUsrcscaledevnbr('%fooValue%', Criteria::LIKE); // WHERE UsrcScaleDevNbr LIKE '%fooValue%'
+     * $query->filterByUsrcscaledevnbr(['foo', 'bar']); // WHERE UsrcScaleDevNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcscaledevnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcscaledevnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcscaledevnbr($usrcscaledevnbr = null, $comparison = null)
+    public function filterByUsrcscaledevnbr($usrcscaledevnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcscaledevnbr)) {
@@ -1441,7 +1602,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCSCALEDEVNBR, $usrcscaledevnbr, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCSCALEDEVNBR, $usrcscaledevnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1451,14 +1614,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcccscanwhseid('fooValue');   // WHERE UsrcCcscanWhseId = 'fooValue'
      * $query->filterByUsrcccscanwhseid('%fooValue%', Criteria::LIKE); // WHERE UsrcCcscanWhseId LIKE '%fooValue%'
+     * $query->filterByUsrcccscanwhseid(['foo', 'bar']); // WHERE UsrcCcscanWhseId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcccscanwhseid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcccscanwhseid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcccscanwhseid($usrcccscanwhseid = null, $comparison = null)
+    public function filterByUsrcccscanwhseid($usrcccscanwhseid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcccscanwhseid)) {
@@ -1466,7 +1630,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCCCSCANWHSEID, $usrcccscanwhseid, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCCCSCANWHSEID, $usrcccscanwhseid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1476,14 +1642,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByUsrcccscandevnbr('fooValue');   // WHERE UsrcCcscanDevNbr = 'fooValue'
      * $query->filterByUsrcccscandevnbr('%fooValue%', Criteria::LIKE); // WHERE UsrcCcscanDevNbr LIKE '%fooValue%'
+     * $query->filterByUsrcccscandevnbr(['foo', 'bar']); // WHERE UsrcCcscanDevNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $usrcccscandevnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $usrcccscandevnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUsrcccscandevnbr($usrcccscandevnbr = null, $comparison = null)
+    public function filterByUsrcccscandevnbr($usrcccscandevnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($usrcccscandevnbr)) {
@@ -1491,7 +1658,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_USRCCCSCANDEVNBR, $usrcccscandevnbr, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_USRCCCSCANDEVNBR, $usrcccscandevnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1501,14 +1670,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1516,7 +1686,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1526,14 +1698,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1541,7 +1714,9 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1551,14 +1726,15 @@ abstract class DplusUserQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1566,20 +1742,22 @@ abstract class DplusUserQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DplusUserTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(DplusUserTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \SysLoginGroup object
      *
      * @param \SysLoginGroup|ObjectCollection $sysLoginGroup The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySysLoginGroup($sysLoginGroup, $comparison = null)
+    public function filterBySysLoginGroup($sysLoginGroup, ?string $comparison = null)
     {
         if ($sysLoginGroup instanceof \SysLoginGroup) {
             return $this
@@ -1589,8 +1767,10 @@ abstract class DplusUserQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(DplusUserTableMap::COL_USRCLOGINGROUP, $sysLoginGroup->toKeyValue('PrimaryKey', 'Qtbllgrpcode'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySysLoginGroup() only accepts arguments of type \SysLoginGroup or Collection');
         }
@@ -1599,12 +1779,12 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SysLoginGroup relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSysLoginGroup($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSysLoginGroup(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SysLoginGroup');
@@ -1633,9 +1813,9 @@ abstract class DplusUserQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SysLoginGroupQuery A secondary query class using the current class as primary query
      */
@@ -1647,16 +1827,112 @@ abstract class DplusUserQuery extends ModelCriteria
     }
 
     /**
+     * Use the SysLoginGroup relation SysLoginGroup object
+     *
+     * @param callable(\SysLoginGroupQuery):\SysLoginGroupQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSysLoginGroupQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useSysLoginGroupQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SysLoginGroup table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SysLoginGroupQuery The inner query object of the EXISTS statement
+     */
+    public function useSysLoginGroupExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SysLoginGroupQuery */
+        $q = $this->useExistsQuery('SysLoginGroup', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SysLoginGroup table for a NOT EXISTS query.
+     *
+     * @see useSysLoginGroupExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SysLoginGroupQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSysLoginGroupNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SysLoginGroupQuery */
+        $q = $this->useExistsQuery('SysLoginGroup', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SysLoginGroup table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SysLoginGroupQuery The inner query object of the IN statement
+     */
+    public function useInSysLoginGroupQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SysLoginGroupQuery */
+        $q = $this->useInQuery('SysLoginGroup', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SysLoginGroup table for a NOT IN query.
+     *
+     * @see useSysLoginGroupInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SysLoginGroupQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSysLoginGroupQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SysLoginGroupQuery */
+        $q = $this->useInQuery('SysLoginGroup', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SysLoginRole object
      *
      * @param \SysLoginRole|ObjectCollection $sysLoginRole The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySysLoginRole($sysLoginRole, $comparison = null)
+    public function filterBySysLoginRole($sysLoginRole, ?string $comparison = null)
     {
         if ($sysLoginRole instanceof \SysLoginRole) {
             return $this
@@ -1666,8 +1942,10 @@ abstract class DplusUserQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(DplusUserTableMap::COL_USRCLOGINROLE, $sysLoginRole->toKeyValue('PrimaryKey', 'Qtblrolecode'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySysLoginRole() only accepts arguments of type \SysLoginRole or Collection');
         }
@@ -1676,12 +1954,12 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SysLoginRole relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSysLoginRole($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSysLoginRole(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SysLoginRole');
@@ -1710,9 +1988,9 @@ abstract class DplusUserQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SysLoginRoleQuery A secondary query class using the current class as primary query
      */
@@ -1724,23 +2002,123 @@ abstract class DplusUserQuery extends ModelCriteria
     }
 
     /**
+     * Use the SysLoginRole relation SysLoginRole object
+     *
+     * @param callable(\SysLoginRoleQuery):\SysLoginRoleQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSysLoginRoleQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useSysLoginRoleQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SysLoginRole table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SysLoginRoleQuery The inner query object of the EXISTS statement
+     */
+    public function useSysLoginRoleExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SysLoginRoleQuery */
+        $q = $this->useExistsQuery('SysLoginRole', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SysLoginRole table for a NOT EXISTS query.
+     *
+     * @see useSysLoginRoleExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SysLoginRoleQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSysLoginRoleNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SysLoginRoleQuery */
+        $q = $this->useExistsQuery('SysLoginRole', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SysLoginRole table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SysLoginRoleQuery The inner query object of the IN statement
+     */
+    public function useInSysLoginRoleQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SysLoginRoleQuery */
+        $q = $this->useInQuery('SysLoginRole', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SysLoginRole table for a NOT IN query.
+     *
+     * @see useSysLoginRoleInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SysLoginRoleQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSysLoginRoleQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SysLoginRoleQuery */
+        $q = $this->useInQuery('SysLoginRole', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvLotTag object
      *
      * @param \InvLotTag|ObjectCollection $invLotTag the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvLotTag($invLotTag, $comparison = null)
+    public function filterByInvLotTag($invLotTag, ?string $comparison = null)
     {
         if ($invLotTag instanceof \InvLotTag) {
-            return $this
+            $this
                 ->addUsingAlias(DplusUserTableMap::COL_USRCID, $invLotTag->getIntguserid(), $comparison);
+
+            return $this;
         } elseif ($invLotTag instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvLotTagQuery()
                 ->filterByPrimaryKeys($invLotTag->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvLotTag() only accepts arguments of type \InvLotTag or Collection');
         }
@@ -1749,12 +2127,12 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvLotTag relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvLotTag($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotTag(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvLotTag');
@@ -1783,9 +2161,9 @@ abstract class DplusUserQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvLotTagQuery A secondary query class using the current class as primary query
      */
@@ -1797,23 +2175,123 @@ abstract class DplusUserQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvLotTag relation InvLotTag object
+     *
+     * @param callable(\InvLotTagQuery):\InvLotTagQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvLotTagQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvLotTagQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvLotTagQuery The inner query object of the EXISTS statement
+     */
+    public function useInvLotTagExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useExistsQuery('InvLotTag', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for a NOT EXISTS query.
+     *
+     * @see useInvLotTagExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotTagQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvLotTagNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useExistsQuery('InvLotTag', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvLotTagQuery The inner query object of the IN statement
+     */
+    public function useInInvLotTagQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useInQuery('InvLotTag', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotTag table for a NOT IN query.
+     *
+     * @see useInvLotTagInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotTagQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvLotTagQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotTagQuery */
+        $q = $this->useInQuery('InvLotTag', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \UserPermissionsItm object
      *
      * @param \UserPermissionsItm|ObjectCollection $userPermissionsItm the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUserPermissionsItm($userPermissionsItm, $comparison = null)
+    public function filterByUserPermissionsItm($userPermissionsItm, ?string $comparison = null)
     {
         if ($userPermissionsItm instanceof \UserPermissionsItm) {
-            return $this
+            $this
                 ->addUsingAlias(DplusUserTableMap::COL_USRCID, $userPermissionsItm->getItmpuserid(), $comparison);
+
+            return $this;
         } elseif ($userPermissionsItm instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useUserPermissionsItmQuery()
                 ->filterByPrimaryKeys($userPermissionsItm->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByUserPermissionsItm() only accepts arguments of type \UserPermissionsItm or Collection');
         }
@@ -1822,12 +2300,12 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the UserPermissionsItm relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinUserPermissionsItm($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinUserPermissionsItm(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('UserPermissionsItm');
@@ -1856,9 +2334,9 @@ abstract class DplusUserQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \UserPermissionsItmQuery A secondary query class using the current class as primary query
      */
@@ -1870,23 +2348,123 @@ abstract class DplusUserQuery extends ModelCriteria
     }
 
     /**
+     * Use the UserPermissionsItm relation UserPermissionsItm object
+     *
+     * @param callable(\UserPermissionsItmQuery):\UserPermissionsItmQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withUserPermissionsItmQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useUserPermissionsItmQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to UserPermissionsItm table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \UserPermissionsItmQuery The inner query object of the EXISTS statement
+     */
+    public function useUserPermissionsItmExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \UserPermissionsItmQuery */
+        $q = $this->useExistsQuery('UserPermissionsItm', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UserPermissionsItm table for a NOT EXISTS query.
+     *
+     * @see useUserPermissionsItmExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \UserPermissionsItmQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useUserPermissionsItmNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UserPermissionsItmQuery */
+        $q = $this->useExistsQuery('UserPermissionsItm', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to UserPermissionsItm table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \UserPermissionsItmQuery The inner query object of the IN statement
+     */
+    public function useInUserPermissionsItmQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \UserPermissionsItmQuery */
+        $q = $this->useInQuery('UserPermissionsItm', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UserPermissionsItm table for a NOT IN query.
+     *
+     * @see useUserPermissionsItmInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \UserPermissionsItmQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInUserPermissionsItmQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UserPermissionsItmQuery */
+        $q = $this->useInQuery('UserPermissionsItm', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \UserLastPrintJob object
      *
      * @param \UserLastPrintJob|ObjectCollection $userLastPrintJob the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUserLastPrintJob($userLastPrintJob, $comparison = null)
+    public function filterByUserLastPrintJob($userLastPrintJob, ?string $comparison = null)
     {
         if ($userLastPrintJob instanceof \UserLastPrintJob) {
-            return $this
+            $this
                 ->addUsingAlias(DplusUserTableMap::COL_USRCID, $userLastPrintJob->getUsrcid(), $comparison);
+
+            return $this;
         } elseif ($userLastPrintJob instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useUserLastPrintJobQuery()
                 ->filterByPrimaryKeys($userLastPrintJob->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByUserLastPrintJob() only accepts arguments of type \UserLastPrintJob or Collection');
         }
@@ -1895,12 +2473,12 @@ abstract class DplusUserQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the UserLastPrintJob relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinUserLastPrintJob($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinUserLastPrintJob(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('UserLastPrintJob');
@@ -1929,9 +2507,9 @@ abstract class DplusUserQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \UserLastPrintJobQuery A secondary query class using the current class as primary query
      */
@@ -1943,11 +2521,107 @@ abstract class DplusUserQuery extends ModelCriteria
     }
 
     /**
+     * Use the UserLastPrintJob relation UserLastPrintJob object
+     *
+     * @param callable(\UserLastPrintJobQuery):\UserLastPrintJobQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withUserLastPrintJobQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useUserLastPrintJobQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to UserLastPrintJob table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \UserLastPrintJobQuery The inner query object of the EXISTS statement
+     */
+    public function useUserLastPrintJobExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \UserLastPrintJobQuery */
+        $q = $this->useExistsQuery('UserLastPrintJob', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UserLastPrintJob table for a NOT EXISTS query.
+     *
+     * @see useUserLastPrintJobExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \UserLastPrintJobQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useUserLastPrintJobNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UserLastPrintJobQuery */
+        $q = $this->useExistsQuery('UserLastPrintJob', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to UserLastPrintJob table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \UserLastPrintJobQuery The inner query object of the IN statement
+     */
+    public function useInUserLastPrintJobQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \UserLastPrintJobQuery */
+        $q = $this->useInQuery('UserLastPrintJob', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to UserLastPrintJob table for a NOT IN query.
+     *
+     * @see useUserLastPrintJobInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \UserLastPrintJobQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInUserLastPrintJobQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \UserLastPrintJobQuery */
+        $q = $this->useInQuery('UserLastPrintJob', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildDplusUser $dplusUser Object to remove from the list of results
+     * @param ChildDplusUser $dplusUser Object to remove from the list of results
      *
-     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($dplusUser = null)
     {
@@ -1964,7 +2638,7 @@ abstract class DplusUserQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
@@ -1989,12 +2663,12 @@ abstract class DplusUserQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(DplusUserTableMap::DATABASE_NAME);
@@ -2019,4 +2693,4 @@ abstract class DplusUserQuery extends ModelCriteria
         });
     }
 
-} // DplusUserQuery
+}

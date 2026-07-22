@@ -10,14 +10,12 @@ use Map\SoEditPermissionsTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_controls' table.
- *
- *
+ * Base class that represents a query for the `so_controls` table.
  *
  * @method     ChildSoEditPermissionsQuery orderByOetbcpercode($order = Criteria::ASC) Order by the OetbCperCode column
  * @method     ChildSoEditPermissionsQuery orderByOetbcpername($order = Criteria::ASC) Order by the OetbCperName column
@@ -53,24 +51,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoEditPermissionsQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSoEditPermissionsQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildSoEditPermissions findOne(ConnectionInterface $con = null) Return the first ChildSoEditPermissions matching the query
- * @method     ChildSoEditPermissions findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSoEditPermissions matching the query, or a new ChildSoEditPermissions object populated from the query conditions when no match is found
+ * @method     ChildSoEditPermissions|null findOne(?ConnectionInterface $con = null) Return the first ChildSoEditPermissions matching the query
+ * @method     ChildSoEditPermissions findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSoEditPermissions matching the query, or a new ChildSoEditPermissions object populated from the query conditions when no match is found
  *
- * @method     ChildSoEditPermissions findOneByOetbcpercode(string $OetbCperCode) Return the first ChildSoEditPermissions filtered by the OetbCperCode column
- * @method     ChildSoEditPermissions findOneByOetbcpername(string $OetbCperName) Return the first ChildSoEditPermissions filtered by the OetbCperName column
- * @method     ChildSoEditPermissions findOneByOetbcpercanc(string $OetbCperCanc) Return the first ChildSoEditPermissions filtered by the OetbCperCanc column
- * @method     ChildSoEditPermissions findOneByOetbcpernew(string $OetbCperNew) Return the first ChildSoEditPermissions filtered by the OetbCperNew column
- * @method     ChildSoEditPermissions findOneByOetbcperpick(string $OetbCperPick) Return the first ChildSoEditPermissions filtered by the OetbCperPick column
- * @method     ChildSoEditPermissions findOneByOetbcperver(string $OetbCperVer) Return the first ChildSoEditPermissions filtered by the OetbCperVer column
- * @method     ChildSoEditPermissions findOneByOetbcperinv(string $OetbCperInv) Return the first ChildSoEditPermissions filtered by the OetbCperInv column
- * @method     ChildSoEditPermissions findOneByOetbcperadvcdata(string $OetbCperAdvcData) Return the first ChildSoEditPermissions filtered by the OetbCperAdvcData column
- * @method     ChildSoEditPermissions findOneByOetbcperposadmin(string $OetbCperPosAdmin) Return the first ChildSoEditPermissions filtered by the OetbCperPosAdmin column
- * @method     ChildSoEditPermissions findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoEditPermissions filtered by the DateUpdtd column
- * @method     ChildSoEditPermissions findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoEditPermissions filtered by the TimeUpdtd column
- * @method     ChildSoEditPermissions findOneByDummy(string $dummy) Return the first ChildSoEditPermissions filtered by the dummy column *
-
- * @method     ChildSoEditPermissions requirePk($key, ConnectionInterface $con = null) Return the ChildSoEditPermissions by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSoEditPermissions requireOne(ConnectionInterface $con = null) Return the first ChildSoEditPermissions matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoEditPermissions|null findOneByOetbcpercode(string $OetbCperCode) Return the first ChildSoEditPermissions filtered by the OetbCperCode column
+ * @method     ChildSoEditPermissions|null findOneByOetbcpername(string $OetbCperName) Return the first ChildSoEditPermissions filtered by the OetbCperName column
+ * @method     ChildSoEditPermissions|null findOneByOetbcpercanc(string $OetbCperCanc) Return the first ChildSoEditPermissions filtered by the OetbCperCanc column
+ * @method     ChildSoEditPermissions|null findOneByOetbcpernew(string $OetbCperNew) Return the first ChildSoEditPermissions filtered by the OetbCperNew column
+ * @method     ChildSoEditPermissions|null findOneByOetbcperpick(string $OetbCperPick) Return the first ChildSoEditPermissions filtered by the OetbCperPick column
+ * @method     ChildSoEditPermissions|null findOneByOetbcperver(string $OetbCperVer) Return the first ChildSoEditPermissions filtered by the OetbCperVer column
+ * @method     ChildSoEditPermissions|null findOneByOetbcperinv(string $OetbCperInv) Return the first ChildSoEditPermissions filtered by the OetbCperInv column
+ * @method     ChildSoEditPermissions|null findOneByOetbcperadvcdata(string $OetbCperAdvcData) Return the first ChildSoEditPermissions filtered by the OetbCperAdvcData column
+ * @method     ChildSoEditPermissions|null findOneByOetbcperposadmin(string $OetbCperPosAdmin) Return the first ChildSoEditPermissions filtered by the OetbCperPosAdmin column
+ * @method     ChildSoEditPermissions|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoEditPermissions filtered by the DateUpdtd column
+ * @method     ChildSoEditPermissions|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoEditPermissions filtered by the TimeUpdtd column
+ * @method     ChildSoEditPermissions|null findOneByDummy(string $dummy) Return the first ChildSoEditPermissions filtered by the dummy column
+ *
+ * @method     ChildSoEditPermissions requirePk($key, ?ConnectionInterface $con = null) Return the ChildSoEditPermissions by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoEditPermissions requireOne(?ConnectionInterface $con = null) Return the first ChildSoEditPermissions matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSoEditPermissions requireOneByOetbcpercode(string $OetbCperCode) Return the first ChildSoEditPermissions filtered by the OetbCperCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoEditPermissions requireOneByOetbcpername(string $OetbCperName) Return the first ChildSoEditPermissions filtered by the OetbCperName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,21 +83,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoEditPermissions requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoEditPermissions filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoEditPermissions requireOneByDummy(string $dummy) Return the first ChildSoEditPermissions filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSoEditPermissions[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSoEditPermissions objects based on current ModelCriteria
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcpercode(string $OetbCperCode) Return ChildSoEditPermissions objects filtered by the OetbCperCode column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcpername(string $OetbCperName) Return ChildSoEditPermissions objects filtered by the OetbCperName column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcpercanc(string $OetbCperCanc) Return ChildSoEditPermissions objects filtered by the OetbCperCanc column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcpernew(string $OetbCperNew) Return ChildSoEditPermissions objects filtered by the OetbCperNew column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcperpick(string $OetbCperPick) Return ChildSoEditPermissions objects filtered by the OetbCperPick column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcperver(string $OetbCperVer) Return ChildSoEditPermissions objects filtered by the OetbCperVer column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcperinv(string $OetbCperInv) Return ChildSoEditPermissions objects filtered by the OetbCperInv column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcperadvcdata(string $OetbCperAdvcData) Return ChildSoEditPermissions objects filtered by the OetbCperAdvcData column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByOetbcperposadmin(string $OetbCperPosAdmin) Return ChildSoEditPermissions objects filtered by the OetbCperPosAdmin column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSoEditPermissions objects filtered by the DateUpdtd column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSoEditPermissions objects filtered by the TimeUpdtd column
- * @method     ChildSoEditPermissions[]|ObjectCollection findByDummy(string $dummy) Return ChildSoEditPermissions objects filtered by the dummy column
- * @method     ChildSoEditPermissions[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSoEditPermissions[]|Collection find(?ConnectionInterface $con = null) Return ChildSoEditPermissions objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> find(?ConnectionInterface $con = null) Return ChildSoEditPermissions objects based on current ModelCriteria
  *
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcpercode(string|array<string> $OetbCperCode) Return ChildSoEditPermissions objects filtered by the OetbCperCode column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcpercode(string|array<string> $OetbCperCode) Return ChildSoEditPermissions objects filtered by the OetbCperCode column
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcpername(string|array<string> $OetbCperName) Return ChildSoEditPermissions objects filtered by the OetbCperName column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcpername(string|array<string> $OetbCperName) Return ChildSoEditPermissions objects filtered by the OetbCperName column
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcpercanc(string|array<string> $OetbCperCanc) Return ChildSoEditPermissions objects filtered by the OetbCperCanc column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcpercanc(string|array<string> $OetbCperCanc) Return ChildSoEditPermissions objects filtered by the OetbCperCanc column
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcpernew(string|array<string> $OetbCperNew) Return ChildSoEditPermissions objects filtered by the OetbCperNew column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcpernew(string|array<string> $OetbCperNew) Return ChildSoEditPermissions objects filtered by the OetbCperNew column
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcperpick(string|array<string> $OetbCperPick) Return ChildSoEditPermissions objects filtered by the OetbCperPick column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcperpick(string|array<string> $OetbCperPick) Return ChildSoEditPermissions objects filtered by the OetbCperPick column
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcperver(string|array<string> $OetbCperVer) Return ChildSoEditPermissions objects filtered by the OetbCperVer column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcperver(string|array<string> $OetbCperVer) Return ChildSoEditPermissions objects filtered by the OetbCperVer column
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcperinv(string|array<string> $OetbCperInv) Return ChildSoEditPermissions objects filtered by the OetbCperInv column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcperinv(string|array<string> $OetbCperInv) Return ChildSoEditPermissions objects filtered by the OetbCperInv column
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcperadvcdata(string|array<string> $OetbCperAdvcData) Return ChildSoEditPermissions objects filtered by the OetbCperAdvcData column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcperadvcdata(string|array<string> $OetbCperAdvcData) Return ChildSoEditPermissions objects filtered by the OetbCperAdvcData column
+ * @method     ChildSoEditPermissions[]|Collection findByOetbcperposadmin(string|array<string> $OetbCperPosAdmin) Return ChildSoEditPermissions objects filtered by the OetbCperPosAdmin column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByOetbcperposadmin(string|array<string> $OetbCperPosAdmin) Return ChildSoEditPermissions objects filtered by the OetbCperPosAdmin column
+ * @method     ChildSoEditPermissions[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSoEditPermissions objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSoEditPermissions objects filtered by the DateUpdtd column
+ * @method     ChildSoEditPermissions[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSoEditPermissions objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSoEditPermissions objects filtered by the TimeUpdtd column
+ * @method     ChildSoEditPermissions[]|Collection findByDummy(string|array<string> $dummy) Return ChildSoEditPermissions objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSoEditPermissions> findByDummy(string|array<string> $dummy) Return ChildSoEditPermissions objects filtered by the dummy column
+ *
+ * @method     ChildSoEditPermissions[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSoEditPermissions> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SoEditPermissionsQuery extends ModelCriteria
 {
@@ -108,9 +121,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SoEditPermissionsQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SoEditPermissions', $modelAlias = null)
     {
@@ -120,12 +133,12 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
     /**
      * Returns a new ChildSoEditPermissionsQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSoEditPermissionsQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSoEditPermissionsQuery) {
             return $criteria;
@@ -155,7 +168,7 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      *
      * @return ChildSoEditPermissions|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -187,8 +200,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -220,8 +233,8 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSoEditPermissions|array|mixed the result, formatted by the current formatter
      */
@@ -241,12 +254,12 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -263,27 +276,31 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -293,14 +310,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcpercode('fooValue');   // WHERE OetbCperCode = 'fooValue'
      * $query->filterByOetbcpercode('%fooValue%', Criteria::LIKE); // WHERE OetbCperCode LIKE '%fooValue%'
+     * $query->filterByOetbcpercode(['foo', 'bar']); // WHERE OetbCperCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcpercode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcpercode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcpercode($oetbcpercode = null, $comparison = null)
+    public function filterByOetbcpercode($oetbcpercode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcpercode)) {
@@ -308,7 +326,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCODE, $oetbcpercode, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCODE, $oetbcpercode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -318,14 +338,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcpername('fooValue');   // WHERE OetbCperName = 'fooValue'
      * $query->filterByOetbcpername('%fooValue%', Criteria::LIKE); // WHERE OetbCperName LIKE '%fooValue%'
+     * $query->filterByOetbcpername(['foo', 'bar']); // WHERE OetbCperName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcpername The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcpername The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcpername($oetbcpername = null, $comparison = null)
+    public function filterByOetbcpername($oetbcpername = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcpername)) {
@@ -333,7 +354,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERNAME, $oetbcpername, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERNAME, $oetbcpername, $comparison);
+
+        return $this;
     }
 
     /**
@@ -343,14 +366,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcpercanc('fooValue');   // WHERE OetbCperCanc = 'fooValue'
      * $query->filterByOetbcpercanc('%fooValue%', Criteria::LIKE); // WHERE OetbCperCanc LIKE '%fooValue%'
+     * $query->filterByOetbcpercanc(['foo', 'bar']); // WHERE OetbCperCanc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcpercanc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcpercanc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcpercanc($oetbcpercanc = null, $comparison = null)
+    public function filterByOetbcpercanc($oetbcpercanc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcpercanc)) {
@@ -358,7 +382,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCANC, $oetbcpercanc, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERCANC, $oetbcpercanc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -368,14 +394,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcpernew('fooValue');   // WHERE OetbCperNew = 'fooValue'
      * $query->filterByOetbcpernew('%fooValue%', Criteria::LIKE); // WHERE OetbCperNew LIKE '%fooValue%'
+     * $query->filterByOetbcpernew(['foo', 'bar']); // WHERE OetbCperNew IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcpernew The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcpernew The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcpernew($oetbcpernew = null, $comparison = null)
+    public function filterByOetbcpernew($oetbcpernew = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcpernew)) {
@@ -383,7 +410,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERNEW, $oetbcpernew, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERNEW, $oetbcpernew, $comparison);
+
+        return $this;
     }
 
     /**
@@ -393,14 +422,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcperpick('fooValue');   // WHERE OetbCperPick = 'fooValue'
      * $query->filterByOetbcperpick('%fooValue%', Criteria::LIKE); // WHERE OetbCperPick LIKE '%fooValue%'
+     * $query->filterByOetbcperpick(['foo', 'bar']); // WHERE OetbCperPick IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcperpick The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcperpick The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcperpick($oetbcperpick = null, $comparison = null)
+    public function filterByOetbcperpick($oetbcperpick = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcperpick)) {
@@ -408,7 +438,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERPICK, $oetbcperpick, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERPICK, $oetbcperpick, $comparison);
+
+        return $this;
     }
 
     /**
@@ -418,14 +450,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcperver('fooValue');   // WHERE OetbCperVer = 'fooValue'
      * $query->filterByOetbcperver('%fooValue%', Criteria::LIKE); // WHERE OetbCperVer LIKE '%fooValue%'
+     * $query->filterByOetbcperver(['foo', 'bar']); // WHERE OetbCperVer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcperver The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcperver The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcperver($oetbcperver = null, $comparison = null)
+    public function filterByOetbcperver($oetbcperver = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcperver)) {
@@ -433,7 +466,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERVER, $oetbcperver, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERVER, $oetbcperver, $comparison);
+
+        return $this;
     }
 
     /**
@@ -443,14 +478,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcperinv('fooValue');   // WHERE OetbCperInv = 'fooValue'
      * $query->filterByOetbcperinv('%fooValue%', Criteria::LIKE); // WHERE OetbCperInv LIKE '%fooValue%'
+     * $query->filterByOetbcperinv(['foo', 'bar']); // WHERE OetbCperInv IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcperinv The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcperinv The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcperinv($oetbcperinv = null, $comparison = null)
+    public function filterByOetbcperinv($oetbcperinv = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcperinv)) {
@@ -458,7 +494,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERINV, $oetbcperinv, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERINV, $oetbcperinv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -468,14 +506,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcperadvcdata('fooValue');   // WHERE OetbCperAdvcData = 'fooValue'
      * $query->filterByOetbcperadvcdata('%fooValue%', Criteria::LIKE); // WHERE OetbCperAdvcData LIKE '%fooValue%'
+     * $query->filterByOetbcperadvcdata(['foo', 'bar']); // WHERE OetbCperAdvcData IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcperadvcdata The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcperadvcdata The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcperadvcdata($oetbcperadvcdata = null, $comparison = null)
+    public function filterByOetbcperadvcdata($oetbcperadvcdata = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcperadvcdata)) {
@@ -483,7 +522,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERADVCDATA, $oetbcperadvcdata, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERADVCDATA, $oetbcperadvcdata, $comparison);
+
+        return $this;
     }
 
     /**
@@ -493,14 +534,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbcperposadmin('fooValue');   // WHERE OetbCperPosAdmin = 'fooValue'
      * $query->filterByOetbcperposadmin('%fooValue%', Criteria::LIKE); // WHERE OetbCperPosAdmin LIKE '%fooValue%'
+     * $query->filterByOetbcperposadmin(['foo', 'bar']); // WHERE OetbCperPosAdmin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbcperposadmin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbcperposadmin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbcperposadmin($oetbcperposadmin = null, $comparison = null)
+    public function filterByOetbcperposadmin($oetbcperposadmin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbcperposadmin)) {
@@ -508,7 +550,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERPOSADMIN, $oetbcperposadmin, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_OETBCPERPOSADMIN, $oetbcperposadmin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -518,14 +562,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -533,7 +578,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -543,14 +590,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -558,7 +606,9 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -568,14 +618,15 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -583,15 +634,17 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoEditPermissionsTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SoEditPermissionsTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildSoEditPermissions $soEditPermissions Object to remove from the list of results
+     * @param ChildSoEditPermissions $soEditPermissions Object to remove from the list of results
      *
-     * @return $this|ChildSoEditPermissionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($soEditPermissions = null)
     {
@@ -608,7 +661,7 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoEditPermissionsTableMap::DATABASE_NAME);
@@ -633,12 +686,12 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoEditPermissionsTableMap::DATABASE_NAME);
@@ -663,4 +716,4 @@ abstract class SoEditPermissionsQuery extends ModelCriteria
         });
     }
 
-} // SoEditPermissionsQuery
+}

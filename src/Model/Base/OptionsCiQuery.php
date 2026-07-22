@@ -10,14 +10,12 @@ use Map\OptionsCiTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ci_options' table.
- *
- *
+ * Base class that represents a query for the `ci_options` table.
  *
  * @method     ChildOptionsCiQuery orderByCitboptncode($order = Criteria::ASC) Order by the CitbOptnCode column
  * @method     ChildOptionsCiQuery orderByCitboptnnoteavail($order = Criteria::ASC) Order by the CitbOptnNoteAvail column
@@ -71,33 +69,33 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsCiQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildOptionsCiQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildOptionsCi findOne(ConnectionInterface $con = null) Return the first ChildOptionsCi matching the query
- * @method     ChildOptionsCi findOneOrCreate(ConnectionInterface $con = null) Return the first ChildOptionsCi matching the query, or a new ChildOptionsCi object populated from the query conditions when no match is found
+ * @method     ChildOptionsCi|null findOne(?ConnectionInterface $con = null) Return the first ChildOptionsCi matching the query
+ * @method     ChildOptionsCi findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildOptionsCi matching the query, or a new ChildOptionsCi object populated from the query conditions when no match is found
  *
- * @method     ChildOptionsCi findOneByCitboptncode(string $CitbOptnCode) Return the first ChildOptionsCi filtered by the CitbOptnCode column
- * @method     ChildOptionsCi findOneByCitboptnnoteavail(string $CitbOptnNoteAvail) Return the first ChildOptionsCi filtered by the CitbOptnNoteAvail column
- * @method     ChildOptionsCi findOneByCitboptngenavail(string $CitbOptnGenAvail) Return the first ChildOptionsCi filtered by the CitbOptnGenAvail column
- * @method     ChildOptionsCi findOneByCitboptnpayavail(string $CitbOptnPayAvail) Return the first ChildOptionsCi filtered by the CitbOptnPayAvail column
- * @method     ChildOptionsCi findOneByCitboptncoreavail(string $CitbOptnCoreAvail) Return the first ChildOptionsCi filtered by the CitbOptnCoreAvail column
- * @method     ChildOptionsCi findOneByCitboptncredavail(string $CitbOptnCredAvail) Return the first ChildOptionsCi filtered by the CitbOptnCredAvail column
- * @method     ChildOptionsCi findOneByCitboptncstkavail(string $CitbOptnCstkAvail) Return the first ChildOptionsCi filtered by the CitbOptnCstkAvail column
- * @method     ChildOptionsCi findOneByCitboptnpricavail(string $CitbOptnPricAvail) Return the first ChildOptionsCi filtered by the CitbOptnPricAvail column
- * @method     ChildOptionsCi findOneByCitboptnstndavail(string $CitbOptnStndAvail) Return the first ChildOptionsCi filtered by the CitbOptnStndAvail column
- * @method     ChildOptionsCi findOneByCitboptnsoavail(string $CitbOptnSoAvail) Return the first ChildOptionsCi filtered by the CitbOptnSoAvail column
- * @method     ChildOptionsCi findOneByCitboptnquotavail(string $CitbOptnQuotAvail) Return the first ChildOptionsCi filtered by the CitbOptnQuotAvail column
- * @method     ChildOptionsCi findOneByCitboptnopenavail(string $CitbOptnOpenAvail) Return the first ChildOptionsCi filtered by the CitbOptnOpenAvail column
- * @method     ChildOptionsCi findOneByCitboptnpoavail(string $CitbOptnPoAvail) Return the first ChildOptionsCi filtered by the CitbOptnPoAvail column
- * @method     ChildOptionsCi findOneByCitboptnpodaysback(int $CitbOptnPoDaysBack) Return the first ChildOptionsCi filtered by the CitbOptnPoDaysBack column
- * @method     ChildOptionsCi findOneByCitboptnpostrtdate(string $CitbOptnPoStrtDate) Return the first ChildOptionsCi filtered by the CitbOptnPoStrtDate column
- * @method     ChildOptionsCi findOneByCitboptnshavail(string $CitbOptnShAvail) Return the first ChildOptionsCi filtered by the CitbOptnShAvail column
- * @method     ChildOptionsCi findOneByCitboptnshdaysback(int $CitbOptnShDaysBack) Return the first ChildOptionsCi filtered by the CitbOptnShDaysBack column
- * @method     ChildOptionsCi findOneByCitboptnshstrtdate(string $CitbOptnShStrtDate) Return the first ChildOptionsCi filtered by the CitbOptnShStrtDate column
- * @method     ChildOptionsCi findOneByDateupdtd(string $DateUpdtd) Return the first ChildOptionsCi filtered by the DateUpdtd column
- * @method     ChildOptionsCi findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsCi filtered by the TimeUpdtd column
- * @method     ChildOptionsCi findOneByDummy(string $dummy) Return the first ChildOptionsCi filtered by the dummy column *
-
- * @method     ChildOptionsCi requirePk($key, ConnectionInterface $con = null) Return the ChildOptionsCi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildOptionsCi requireOne(ConnectionInterface $con = null) Return the first ChildOptionsCi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOptionsCi|null findOneByCitboptncode(string $CitbOptnCode) Return the first ChildOptionsCi filtered by the CitbOptnCode column
+ * @method     ChildOptionsCi|null findOneByCitboptnnoteavail(string $CitbOptnNoteAvail) Return the first ChildOptionsCi filtered by the CitbOptnNoteAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptngenavail(string $CitbOptnGenAvail) Return the first ChildOptionsCi filtered by the CitbOptnGenAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnpayavail(string $CitbOptnPayAvail) Return the first ChildOptionsCi filtered by the CitbOptnPayAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptncoreavail(string $CitbOptnCoreAvail) Return the first ChildOptionsCi filtered by the CitbOptnCoreAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptncredavail(string $CitbOptnCredAvail) Return the first ChildOptionsCi filtered by the CitbOptnCredAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptncstkavail(string $CitbOptnCstkAvail) Return the first ChildOptionsCi filtered by the CitbOptnCstkAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnpricavail(string $CitbOptnPricAvail) Return the first ChildOptionsCi filtered by the CitbOptnPricAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnstndavail(string $CitbOptnStndAvail) Return the first ChildOptionsCi filtered by the CitbOptnStndAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnsoavail(string $CitbOptnSoAvail) Return the first ChildOptionsCi filtered by the CitbOptnSoAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnquotavail(string $CitbOptnQuotAvail) Return the first ChildOptionsCi filtered by the CitbOptnQuotAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnopenavail(string $CitbOptnOpenAvail) Return the first ChildOptionsCi filtered by the CitbOptnOpenAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnpoavail(string $CitbOptnPoAvail) Return the first ChildOptionsCi filtered by the CitbOptnPoAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnpodaysback(int $CitbOptnPoDaysBack) Return the first ChildOptionsCi filtered by the CitbOptnPoDaysBack column
+ * @method     ChildOptionsCi|null findOneByCitboptnpostrtdate(string $CitbOptnPoStrtDate) Return the first ChildOptionsCi filtered by the CitbOptnPoStrtDate column
+ * @method     ChildOptionsCi|null findOneByCitboptnshavail(string $CitbOptnShAvail) Return the first ChildOptionsCi filtered by the CitbOptnShAvail column
+ * @method     ChildOptionsCi|null findOneByCitboptnshdaysback(int $CitbOptnShDaysBack) Return the first ChildOptionsCi filtered by the CitbOptnShDaysBack column
+ * @method     ChildOptionsCi|null findOneByCitboptnshstrtdate(string $CitbOptnShStrtDate) Return the first ChildOptionsCi filtered by the CitbOptnShStrtDate column
+ * @method     ChildOptionsCi|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildOptionsCi filtered by the DateUpdtd column
+ * @method     ChildOptionsCi|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsCi filtered by the TimeUpdtd column
+ * @method     ChildOptionsCi|null findOneByDummy(string $dummy) Return the first ChildOptionsCi filtered by the dummy column
+ *
+ * @method     ChildOptionsCi requirePk($key, ?ConnectionInterface $con = null) Return the ChildOptionsCi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOptionsCi requireOne(?ConnectionInterface $con = null) Return the first ChildOptionsCi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildOptionsCi requireOneByCitboptncode(string $CitbOptnCode) Return the first ChildOptionsCi filtered by the CitbOptnCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsCi requireOneByCitboptnnoteavail(string $CitbOptnNoteAvail) Return the first ChildOptionsCi filtered by the CitbOptnNoteAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -121,30 +119,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsCi requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsCi filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsCi requireOneByDummy(string $dummy) Return the first ChildOptionsCi filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildOptionsCi[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildOptionsCi objects based on current ModelCriteria
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptncode(string $CitbOptnCode) Return ChildOptionsCi objects filtered by the CitbOptnCode column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnnoteavail(string $CitbOptnNoteAvail) Return ChildOptionsCi objects filtered by the CitbOptnNoteAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptngenavail(string $CitbOptnGenAvail) Return ChildOptionsCi objects filtered by the CitbOptnGenAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnpayavail(string $CitbOptnPayAvail) Return ChildOptionsCi objects filtered by the CitbOptnPayAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptncoreavail(string $CitbOptnCoreAvail) Return ChildOptionsCi objects filtered by the CitbOptnCoreAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptncredavail(string $CitbOptnCredAvail) Return ChildOptionsCi objects filtered by the CitbOptnCredAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptncstkavail(string $CitbOptnCstkAvail) Return ChildOptionsCi objects filtered by the CitbOptnCstkAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnpricavail(string $CitbOptnPricAvail) Return ChildOptionsCi objects filtered by the CitbOptnPricAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnstndavail(string $CitbOptnStndAvail) Return ChildOptionsCi objects filtered by the CitbOptnStndAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnsoavail(string $CitbOptnSoAvail) Return ChildOptionsCi objects filtered by the CitbOptnSoAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnquotavail(string $CitbOptnQuotAvail) Return ChildOptionsCi objects filtered by the CitbOptnQuotAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnopenavail(string $CitbOptnOpenAvail) Return ChildOptionsCi objects filtered by the CitbOptnOpenAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnpoavail(string $CitbOptnPoAvail) Return ChildOptionsCi objects filtered by the CitbOptnPoAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnpodaysback(int $CitbOptnPoDaysBack) Return ChildOptionsCi objects filtered by the CitbOptnPoDaysBack column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnpostrtdate(string $CitbOptnPoStrtDate) Return ChildOptionsCi objects filtered by the CitbOptnPoStrtDate column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnshavail(string $CitbOptnShAvail) Return ChildOptionsCi objects filtered by the CitbOptnShAvail column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnshdaysback(int $CitbOptnShDaysBack) Return ChildOptionsCi objects filtered by the CitbOptnShDaysBack column
- * @method     ChildOptionsCi[]|ObjectCollection findByCitboptnshstrtdate(string $CitbOptnShStrtDate) Return ChildOptionsCi objects filtered by the CitbOptnShStrtDate column
- * @method     ChildOptionsCi[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildOptionsCi objects filtered by the DateUpdtd column
- * @method     ChildOptionsCi[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildOptionsCi objects filtered by the TimeUpdtd column
- * @method     ChildOptionsCi[]|ObjectCollection findByDummy(string $dummy) Return ChildOptionsCi objects filtered by the dummy column
- * @method     ChildOptionsCi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildOptionsCi[]|Collection find(?ConnectionInterface $con = null) Return ChildOptionsCi objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> find(?ConnectionInterface $con = null) Return ChildOptionsCi objects based on current ModelCriteria
  *
+ * @method     ChildOptionsCi[]|Collection findByCitboptncode(string|array<string> $CitbOptnCode) Return ChildOptionsCi objects filtered by the CitbOptnCode column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptncode(string|array<string> $CitbOptnCode) Return ChildOptionsCi objects filtered by the CitbOptnCode column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnnoteavail(string|array<string> $CitbOptnNoteAvail) Return ChildOptionsCi objects filtered by the CitbOptnNoteAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnnoteavail(string|array<string> $CitbOptnNoteAvail) Return ChildOptionsCi objects filtered by the CitbOptnNoteAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptngenavail(string|array<string> $CitbOptnGenAvail) Return ChildOptionsCi objects filtered by the CitbOptnGenAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptngenavail(string|array<string> $CitbOptnGenAvail) Return ChildOptionsCi objects filtered by the CitbOptnGenAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnpayavail(string|array<string> $CitbOptnPayAvail) Return ChildOptionsCi objects filtered by the CitbOptnPayAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnpayavail(string|array<string> $CitbOptnPayAvail) Return ChildOptionsCi objects filtered by the CitbOptnPayAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptncoreavail(string|array<string> $CitbOptnCoreAvail) Return ChildOptionsCi objects filtered by the CitbOptnCoreAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptncoreavail(string|array<string> $CitbOptnCoreAvail) Return ChildOptionsCi objects filtered by the CitbOptnCoreAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptncredavail(string|array<string> $CitbOptnCredAvail) Return ChildOptionsCi objects filtered by the CitbOptnCredAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptncredavail(string|array<string> $CitbOptnCredAvail) Return ChildOptionsCi objects filtered by the CitbOptnCredAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptncstkavail(string|array<string> $CitbOptnCstkAvail) Return ChildOptionsCi objects filtered by the CitbOptnCstkAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptncstkavail(string|array<string> $CitbOptnCstkAvail) Return ChildOptionsCi objects filtered by the CitbOptnCstkAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnpricavail(string|array<string> $CitbOptnPricAvail) Return ChildOptionsCi objects filtered by the CitbOptnPricAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnpricavail(string|array<string> $CitbOptnPricAvail) Return ChildOptionsCi objects filtered by the CitbOptnPricAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnstndavail(string|array<string> $CitbOptnStndAvail) Return ChildOptionsCi objects filtered by the CitbOptnStndAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnstndavail(string|array<string> $CitbOptnStndAvail) Return ChildOptionsCi objects filtered by the CitbOptnStndAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnsoavail(string|array<string> $CitbOptnSoAvail) Return ChildOptionsCi objects filtered by the CitbOptnSoAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnsoavail(string|array<string> $CitbOptnSoAvail) Return ChildOptionsCi objects filtered by the CitbOptnSoAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnquotavail(string|array<string> $CitbOptnQuotAvail) Return ChildOptionsCi objects filtered by the CitbOptnQuotAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnquotavail(string|array<string> $CitbOptnQuotAvail) Return ChildOptionsCi objects filtered by the CitbOptnQuotAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnopenavail(string|array<string> $CitbOptnOpenAvail) Return ChildOptionsCi objects filtered by the CitbOptnOpenAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnopenavail(string|array<string> $CitbOptnOpenAvail) Return ChildOptionsCi objects filtered by the CitbOptnOpenAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnpoavail(string|array<string> $CitbOptnPoAvail) Return ChildOptionsCi objects filtered by the CitbOptnPoAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnpoavail(string|array<string> $CitbOptnPoAvail) Return ChildOptionsCi objects filtered by the CitbOptnPoAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnpodaysback(int|array<int> $CitbOptnPoDaysBack) Return ChildOptionsCi objects filtered by the CitbOptnPoDaysBack column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnpodaysback(int|array<int> $CitbOptnPoDaysBack) Return ChildOptionsCi objects filtered by the CitbOptnPoDaysBack column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnpostrtdate(string|array<string> $CitbOptnPoStrtDate) Return ChildOptionsCi objects filtered by the CitbOptnPoStrtDate column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnpostrtdate(string|array<string> $CitbOptnPoStrtDate) Return ChildOptionsCi objects filtered by the CitbOptnPoStrtDate column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnshavail(string|array<string> $CitbOptnShAvail) Return ChildOptionsCi objects filtered by the CitbOptnShAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnshavail(string|array<string> $CitbOptnShAvail) Return ChildOptionsCi objects filtered by the CitbOptnShAvail column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnshdaysback(int|array<int> $CitbOptnShDaysBack) Return ChildOptionsCi objects filtered by the CitbOptnShDaysBack column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnshdaysback(int|array<int> $CitbOptnShDaysBack) Return ChildOptionsCi objects filtered by the CitbOptnShDaysBack column
+ * @method     ChildOptionsCi[]|Collection findByCitboptnshstrtdate(string|array<string> $CitbOptnShStrtDate) Return ChildOptionsCi objects filtered by the CitbOptnShStrtDate column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByCitboptnshstrtdate(string|array<string> $CitbOptnShStrtDate) Return ChildOptionsCi objects filtered by the CitbOptnShStrtDate column
+ * @method     ChildOptionsCi[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildOptionsCi objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildOptionsCi objects filtered by the DateUpdtd column
+ * @method     ChildOptionsCi[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildOptionsCi objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildOptionsCi objects filtered by the TimeUpdtd column
+ * @method     ChildOptionsCi[]|Collection findByDummy(string|array<string> $dummy) Return ChildOptionsCi objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildOptionsCi> findByDummy(string|array<string> $dummy) Return ChildOptionsCi objects filtered by the dummy column
+ *
+ * @method     ChildOptionsCi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildOptionsCi> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class OptionsCiQuery extends ModelCriteria
 {
@@ -153,9 +175,9 @@ abstract class OptionsCiQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\OptionsCiQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\OptionsCi', $modelAlias = null)
     {
@@ -165,12 +187,12 @@ abstract class OptionsCiQuery extends ModelCriteria
     /**
      * Returns a new ChildOptionsCiQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildOptionsCiQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildOptionsCiQuery) {
             return $criteria;
@@ -200,7 +222,7 @@ abstract class OptionsCiQuery extends ModelCriteria
      *
      * @return ChildOptionsCi|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -232,8 +254,8 @@ abstract class OptionsCiQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -265,8 +287,8 @@ abstract class OptionsCiQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildOptionsCi|array|mixed the result, formatted by the current formatter
      */
@@ -286,12 +308,12 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -308,27 +330,31 @@ abstract class OptionsCiQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -338,14 +364,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptncode('fooValue');   // WHERE CitbOptnCode = 'fooValue'
      * $query->filterByCitboptncode('%fooValue%', Criteria::LIKE); // WHERE CitbOptnCode LIKE '%fooValue%'
+     * $query->filterByCitboptncode(['foo', 'bar']); // WHERE CitbOptnCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptncode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptncode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptncode($citboptncode = null, $comparison = null)
+    public function filterByCitboptncode($citboptncode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptncode)) {
@@ -353,7 +380,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCODE, $citboptncode, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCODE, $citboptncode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +392,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnnoteavail('fooValue');   // WHERE CitbOptnNoteAvail = 'fooValue'
      * $query->filterByCitboptnnoteavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnNoteAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnnoteavail(['foo', 'bar']); // WHERE CitbOptnNoteAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnnoteavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnnoteavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnnoteavail($citboptnnoteavail = null, $comparison = null)
+    public function filterByCitboptnnoteavail($citboptnnoteavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnnoteavail)) {
@@ -378,7 +408,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNNOTEAVAIL, $citboptnnoteavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNNOTEAVAIL, $citboptnnoteavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -388,14 +420,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptngenavail('fooValue');   // WHERE CitbOptnGenAvail = 'fooValue'
      * $query->filterByCitboptngenavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnGenAvail LIKE '%fooValue%'
+     * $query->filterByCitboptngenavail(['foo', 'bar']); // WHERE CitbOptnGenAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptngenavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptngenavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptngenavail($citboptngenavail = null, $comparison = null)
+    public function filterByCitboptngenavail($citboptngenavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptngenavail)) {
@@ -403,7 +436,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNGENAVAIL, $citboptngenavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNGENAVAIL, $citboptngenavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -413,14 +448,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnpayavail('fooValue');   // WHERE CitbOptnPayAvail = 'fooValue'
      * $query->filterByCitboptnpayavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnPayAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnpayavail(['foo', 'bar']); // WHERE CitbOptnPayAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnpayavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnpayavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnpayavail($citboptnpayavail = null, $comparison = null)
+    public function filterByCitboptnpayavail($citboptnpayavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnpayavail)) {
@@ -428,7 +464,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPAYAVAIL, $citboptnpayavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPAYAVAIL, $citboptnpayavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -438,14 +476,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptncoreavail('fooValue');   // WHERE CitbOptnCoreAvail = 'fooValue'
      * $query->filterByCitboptncoreavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnCoreAvail LIKE '%fooValue%'
+     * $query->filterByCitboptncoreavail(['foo', 'bar']); // WHERE CitbOptnCoreAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptncoreavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptncoreavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptncoreavail($citboptncoreavail = null, $comparison = null)
+    public function filterByCitboptncoreavail($citboptncoreavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptncoreavail)) {
@@ -453,7 +492,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCOREAVAIL, $citboptncoreavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCOREAVAIL, $citboptncoreavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -463,14 +504,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptncredavail('fooValue');   // WHERE CitbOptnCredAvail = 'fooValue'
      * $query->filterByCitboptncredavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnCredAvail LIKE '%fooValue%'
+     * $query->filterByCitboptncredavail(['foo', 'bar']); // WHERE CitbOptnCredAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptncredavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptncredavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptncredavail($citboptncredavail = null, $comparison = null)
+    public function filterByCitboptncredavail($citboptncredavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptncredavail)) {
@@ -478,7 +520,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCREDAVAIL, $citboptncredavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCREDAVAIL, $citboptncredavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -488,14 +532,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptncstkavail('fooValue');   // WHERE CitbOptnCstkAvail = 'fooValue'
      * $query->filterByCitboptncstkavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnCstkAvail LIKE '%fooValue%'
+     * $query->filterByCitboptncstkavail(['foo', 'bar']); // WHERE CitbOptnCstkAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptncstkavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptncstkavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptncstkavail($citboptncstkavail = null, $comparison = null)
+    public function filterByCitboptncstkavail($citboptncstkavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptncstkavail)) {
@@ -503,7 +548,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCSTKAVAIL, $citboptncstkavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNCSTKAVAIL, $citboptncstkavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -513,14 +560,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnpricavail('fooValue');   // WHERE CitbOptnPricAvail = 'fooValue'
      * $query->filterByCitboptnpricavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnPricAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnpricavail(['foo', 'bar']); // WHERE CitbOptnPricAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnpricavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnpricavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnpricavail($citboptnpricavail = null, $comparison = null)
+    public function filterByCitboptnpricavail($citboptnpricavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnpricavail)) {
@@ -528,7 +576,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPRICAVAIL, $citboptnpricavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPRICAVAIL, $citboptnpricavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -538,14 +588,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnstndavail('fooValue');   // WHERE CitbOptnStndAvail = 'fooValue'
      * $query->filterByCitboptnstndavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnStndAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnstndavail(['foo', 'bar']); // WHERE CitbOptnStndAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnstndavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnstndavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnstndavail($citboptnstndavail = null, $comparison = null)
+    public function filterByCitboptnstndavail($citboptnstndavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnstndavail)) {
@@ -553,7 +604,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSTNDAVAIL, $citboptnstndavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSTNDAVAIL, $citboptnstndavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -563,14 +616,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnsoavail('fooValue');   // WHERE CitbOptnSoAvail = 'fooValue'
      * $query->filterByCitboptnsoavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnSoAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnsoavail(['foo', 'bar']); // WHERE CitbOptnSoAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnsoavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnsoavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnsoavail($citboptnsoavail = null, $comparison = null)
+    public function filterByCitboptnsoavail($citboptnsoavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnsoavail)) {
@@ -578,7 +632,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSOAVAIL, $citboptnsoavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSOAVAIL, $citboptnsoavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -588,14 +644,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnquotavail('fooValue');   // WHERE CitbOptnQuotAvail = 'fooValue'
      * $query->filterByCitboptnquotavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnQuotAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnquotavail(['foo', 'bar']); // WHERE CitbOptnQuotAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnquotavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnquotavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnquotavail($citboptnquotavail = null, $comparison = null)
+    public function filterByCitboptnquotavail($citboptnquotavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnquotavail)) {
@@ -603,7 +660,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNQUOTAVAIL, $citboptnquotavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNQUOTAVAIL, $citboptnquotavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -613,14 +672,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnopenavail('fooValue');   // WHERE CitbOptnOpenAvail = 'fooValue'
      * $query->filterByCitboptnopenavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnOpenAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnopenavail(['foo', 'bar']); // WHERE CitbOptnOpenAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnopenavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnopenavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnopenavail($citboptnopenavail = null, $comparison = null)
+    public function filterByCitboptnopenavail($citboptnopenavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnopenavail)) {
@@ -628,7 +688,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNOPENAVAIL, $citboptnopenavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNOPENAVAIL, $citboptnopenavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -638,14 +700,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnpoavail('fooValue');   // WHERE CitbOptnPoAvail = 'fooValue'
      * $query->filterByCitboptnpoavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnPoAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnpoavail(['foo', 'bar']); // WHERE CitbOptnPoAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnpoavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnpoavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnpoavail($citboptnpoavail = null, $comparison = null)
+    public function filterByCitboptnpoavail($citboptnpoavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnpoavail)) {
@@ -653,7 +716,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPOAVAIL, $citboptnpoavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPOAVAIL, $citboptnpoavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -666,15 +731,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * $query->filterByCitboptnpodaysback(array('min' => 12)); // WHERE CitbOptnPoDaysBack > 12
      * </code>
      *
-     * @param     mixed $citboptnpodaysback The value to use as filter.
+     * @param mixed $citboptnpodaysback The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnpodaysback($citboptnpodaysback = null, $comparison = null)
+    public function filterByCitboptnpodaysback($citboptnpodaysback = null, ?string $comparison = null)
     {
         if (is_array($citboptnpodaysback)) {
             $useMinMax = false;
@@ -694,7 +759,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPODAYSBACK, $citboptnpodaysback, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPODAYSBACK, $citboptnpodaysback, $comparison);
+
+        return $this;
     }
 
     /**
@@ -704,14 +771,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnpostrtdate('fooValue');   // WHERE CitbOptnPoStrtDate = 'fooValue'
      * $query->filterByCitboptnpostrtdate('%fooValue%', Criteria::LIKE); // WHERE CitbOptnPoStrtDate LIKE '%fooValue%'
+     * $query->filterByCitboptnpostrtdate(['foo', 'bar']); // WHERE CitbOptnPoStrtDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnpostrtdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnpostrtdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnpostrtdate($citboptnpostrtdate = null, $comparison = null)
+    public function filterByCitboptnpostrtdate($citboptnpostrtdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnpostrtdate)) {
@@ -719,7 +787,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPOSTRTDATE, $citboptnpostrtdate, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNPOSTRTDATE, $citboptnpostrtdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -729,14 +799,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnshavail('fooValue');   // WHERE CitbOptnShAvail = 'fooValue'
      * $query->filterByCitboptnshavail('%fooValue%', Criteria::LIKE); // WHERE CitbOptnShAvail LIKE '%fooValue%'
+     * $query->filterByCitboptnshavail(['foo', 'bar']); // WHERE CitbOptnShAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnshavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnshavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnshavail($citboptnshavail = null, $comparison = null)
+    public function filterByCitboptnshavail($citboptnshavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnshavail)) {
@@ -744,7 +815,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSHAVAIL, $citboptnshavail, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSHAVAIL, $citboptnshavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -757,15 +830,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * $query->filterByCitboptnshdaysback(array('min' => 12)); // WHERE CitbOptnShDaysBack > 12
      * </code>
      *
-     * @param     mixed $citboptnshdaysback The value to use as filter.
+     * @param mixed $citboptnshdaysback The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnshdaysback($citboptnshdaysback = null, $comparison = null)
+    public function filterByCitboptnshdaysback($citboptnshdaysback = null, ?string $comparison = null)
     {
         if (is_array($citboptnshdaysback)) {
             $useMinMax = false;
@@ -785,7 +858,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSHDAYSBACK, $citboptnshdaysback, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSHDAYSBACK, $citboptnshdaysback, $comparison);
+
+        return $this;
     }
 
     /**
@@ -795,14 +870,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitboptnshstrtdate('fooValue');   // WHERE CitbOptnShStrtDate = 'fooValue'
      * $query->filterByCitboptnshstrtdate('%fooValue%', Criteria::LIKE); // WHERE CitbOptnShStrtDate LIKE '%fooValue%'
+     * $query->filterByCitboptnshstrtdate(['foo', 'bar']); // WHERE CitbOptnShStrtDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citboptnshstrtdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citboptnshstrtdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitboptnshstrtdate($citboptnshstrtdate = null, $comparison = null)
+    public function filterByCitboptnshstrtdate($citboptnshstrtdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citboptnshstrtdate)) {
@@ -810,7 +886,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSHSTRTDATE, $citboptnshstrtdate, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_CITBOPTNSHSTRTDATE, $citboptnshstrtdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -820,14 +898,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -835,7 +914,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -845,14 +926,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -860,7 +942,9 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -870,14 +954,15 @@ abstract class OptionsCiQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -885,15 +970,17 @@ abstract class OptionsCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsCiTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(OptionsCiTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildOptionsCi $optionsCi Object to remove from the list of results
+     * @param ChildOptionsCi $optionsCi Object to remove from the list of results
      *
-     * @return $this|ChildOptionsCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($optionsCi = null)
     {
@@ -910,7 +997,7 @@ abstract class OptionsCiQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsCiTableMap::DATABASE_NAME);
@@ -935,12 +1022,12 @@ abstract class OptionsCiQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsCiTableMap::DATABASE_NAME);
@@ -965,4 +1052,4 @@ abstract class OptionsCiQuery extends ModelCriteria
         });
     }
 
-} // OptionsCiQuery
+}
