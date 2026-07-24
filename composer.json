@@ -1,4 +1,3 @@
-
 {
 	"name": "cptechinc/dplus-model",
     "type": "library",
@@ -10,5 +9,8 @@
 	},
 	"autoload": {
 		"classmap": ["src/", "src/Model/", "src/traits/"]
+	},
+	"require-dev": {
+		"rector/rector": "^2.5"
 	}
 }
