@@ -4,6 +4,11 @@
     "description": "Propel 2.0 built ORM classes for Dplus data(x) databases based",
     "keywords": ["dplus-model", "data"],
 	"homepage": "http://github.com/cptechinc/dplus-model",
+	"config": {
+		"platform": {
+			"php": "7.4"
+		}
+	},
 	"require": {
 		"propel/propel": "~2.0@beta"
 	},
